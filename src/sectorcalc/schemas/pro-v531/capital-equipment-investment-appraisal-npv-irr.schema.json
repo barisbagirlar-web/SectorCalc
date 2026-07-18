@@ -1,7 +1,7 @@
 {
   "tool_id": "PRO_016",
   "tool_key": "capital-equipment-investment-appraisal-npv-irr",
-  "tool_name": "Capital Equipment Investment Appraisal \u2014 NPV/IRR",
+  "tool_name": "Capital Equipment Investment Appraisal — NPV/IRR",
   "category": "Capital Investment",
   "scope": "Appraise machinery investment using NPV, IRR, payback, sensitivity, and utilization risk.",
   "primary_operation": "capex_investment_npv_irr_business_case",
@@ -161,11 +161,11 @@
           },
           {
             "unit": "unit_per_day",
-            "factor": 1.15741e-05
+            "factor": 0.0000115741
           },
           {
             "unit": "unit_per_year",
-            "factor": 3.17e-08
+            "factor": 3.17e-8
           }
         ]
       },
@@ -206,34 +206,34 @@
   },
   "inputs": [
     {
-      "id": "initial_investment",
-      "name": "Initial Investment",
-      "symbol": "I0",
+      "id": "capex",
+      "name": "CAPEX — initial investment",
+      "symbol": "CAPEX",
       "quantity_kind": "currency",
-      "unit_selectable": true,
+      "unit_selectable": false,
       "base_unit": "currency_unit",
       "allowed_display_units": [
         "currency_unit"
       ],
-      "normalized_id": "n_initial_investment",
+      "normalized_id": "n_capex",
       "type": "number",
       "required": true,
       "criticality": "CRITICAL",
       "allowed_values": [],
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
-        "min": 0,
+        "min": 1,
         "max": 50000000,
-        "unit": "USD",
+        "unit": "currency_unit",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
       "engineering_range": {
-        "min": 1000,
-        "max": 10000000,
+        "min": 15000,
+        "max": 5000000,
         "unit": "currency_unit",
         "source": "SectorCalc industrial screening reference range based on vendor quote or capex budget; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
+        "status": "REFERENCE"
       },
       "resolution": null,
       "precision_policy": {
@@ -250,7 +250,7 @@
         "source": "vendor quote or capex budget",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "Up-front investment including installation and implementation costs."
+        "public_note": "Total installed cost of the equipment being appraised."
       },
       "source_priority": [
         "vendor quote or capex budget",
@@ -270,45 +270,17 @@
           "audit trail export"
         ],
         "missing_evidence_behavior": "BLOCK",
-        "public_help_text": "Attach or cite evidence for Initial Investment; critical values are not defaulted."
+        "public_help_text": "Attach or cite evidence for CAPEX — initial investment; critical values are not defaulted."
       },
       "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
-      "output_bindings": [
-        "out_evidence_completeness",
-        "out_normalized_demand",
-        "out_reference_deviation",
-        "out_derating_factor",
-        "out_demand_metric",
-        "out_capacity_metric",
-        "out_utilization_margin",
-        "out_expanded_uncertainty",
-        "out_threshold_crossing",
-        "out_sensitivity_driver",
-        "out_fmea_trigger",
-        "out_money_at_risk"
-      ],
-      "warning_bindings": [
-        "W001",
-        "W002",
-        "W003",
-        "W004"
-      ],
+      "formula_bindings": [],
+      "output_bindings": [],
+      "warning_bindings": [],
       "ui_binding": {
         "group_id": "operation_context",
         "field_order": 1,
         "component": "number_with_unit",
-        "unit_dropdown_required": true,
+        "unit_dropdown_required": false,
         "reference_values_visible": true,
         "advanced": false,
         "visible_in_modes": [
@@ -320,131 +292,20 @@
         "required_for_calculation": true,
         "required_for_clause_evidence": false
       },
-      "user_help_text": "Use the project-specific value for Initial Investment. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Initial Investment can flip the decision state and will downgrade evidence confidence."
-    },
-    {
-      "id": "annual_net_cash_flow",
-      "name": "Annual Net Cash Flow",
-      "symbol": "CF",
-      "quantity_kind": "currency",
-      "unit_selectable": true,
-      "base_unit": "currency_unit",
-      "allowed_display_units": [
-        "currency_unit"
-      ],
-      "normalized_id": "n_annual_net_cash_flow",
-      "type": "number",
-      "required": true,
-      "criticality": "CRITICAL",
-      "allowed_values": [],
-      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
-      "physical_hard_bounds": {
-        "min": -50000000,
-        "max": 50000000,
-        "unit": "USD",
-        "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK"
-      },
-      "engineering_range": {
-        "min": -100000,
+      "user_help_text": "Total installed cost of the equipment being appraised.",
+      "warning_if_missing_or_estimated": "Estimated or missing CAPEX — initial investment can flip the decision state and will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 15000,
         "max": 5000000,
         "unit": "currency_unit",
-        "source": "SectorCalc industrial screening reference range based on projection model; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
-      },
-      "resolution": null,
-      "precision_policy": {
-        "input_decimals": 3,
-        "display_decimals": 3,
-        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
-        "rounding_rule": "DISPLAY_ONLY"
-      },
-      "default_policy": "NO_DEFAULT",
-      "default_value": null,
-      "smart_defaults": [],
-      "reference_values": {
-        "reference_value_type": "USER_VERIFIED",
-        "source": "projection model",
-        "reference_status": "NEEDS_SOURCE_VERIFICATION",
-        "user_must_verify": true,
-        "public_note": "Annual incremental cash flow after operating cost and tax assumptions supplied by user."
-      },
-      "source_priority": [
-        "projection model",
-        "signed drawing",
-        "calibration record",
-        "ERP or production log",
-        "engineer-approved assumption register"
-      ],
-      "source": "projection model",
-      "evidence_requirement": {
-        "required": true,
-        "accepted_evidence": [
-          "projection model",
-          "signed engineering note",
-          "measurement record",
-          "supplier certificate",
-          "audit trail export"
-        ],
-        "missing_evidence_behavior": "BLOCK",
-        "public_help_text": "Attach or cite evidence for Annual Net Cash Flow; critical values are not defaulted."
-      },
-      "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
-      "output_bindings": [
-        "out_evidence_completeness",
-        "out_normalized_demand",
-        "out_reference_deviation",
-        "out_derating_factor",
-        "out_demand_metric",
-        "out_capacity_metric",
-        "out_utilization_margin",
-        "out_expanded_uncertainty",
-        "out_threshold_crossing",
-        "out_sensitivity_driver",
-        "out_fmea_trigger",
-        "out_money_at_risk"
-      ],
-      "warning_bindings": [
-        "W001",
-        "W002",
-        "W003",
-        "W004"
-      ],
-      "ui_binding": {
-        "group_id": "geometry_or_process_definition",
-        "field_order": 2,
-        "component": "number_with_unit",
-        "unit_dropdown_required": true,
-        "reference_values_visible": true,
-        "advanced": false,
-        "visible_in_modes": [
-          "quick",
-          "engineering",
-          "cost",
-          "audit"
-        ],
-        "required_for_calculation": true,
-        "required_for_clause_evidence": false
-      },
-      "user_help_text": "Use the project-specific value for Annual Net Cash Flow. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Annual Net Cash Flow can flip the decision state and will downgrade evidence confidence."
+        "source": "SectorCalc industrial screening reference range based on vendor quote or capex budget; user must verify against project evidence.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "discount_rate",
-      "name": "Discount Rate",
-      "symbol": "r",
+      "name": "Discount Rate / Hurdle Rate",
+      "symbol": "i",
       "quantity_kind": "dimensionless",
       "unit_selectable": true,
       "base_unit": "ratio",
@@ -460,17 +321,17 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 1,
+        "max": 0.4,
         "unit": "ratio",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
       "engineering_range": {
-        "min": 0.02,
-        "max": 0.35,
+        "min": 0.06,
+        "max": 0.15,
         "unit": "ratio",
         "source": "SectorCalc industrial screening reference range based on finance policy; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
+        "status": "REFERENCE"
       },
       "resolution": null,
       "precision_policy": {
@@ -487,10 +348,10 @@
         "source": "finance policy",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "Risk-adjusted discount rate used for present value screening."
+        "public_note": "Corporate cost of capital or minimum acceptable return."
       },
       "source_priority": [
-        "finance policy",
+        "vendor quote or capex budget",
         "signed drawing",
         "calibration record",
         "ERP or production log",
@@ -507,43 +368,15 @@
           "audit trail export"
         ],
         "missing_evidence_behavior": "BLOCK",
-        "public_help_text": "Attach or cite evidence for Discount Rate; critical values are not defaulted."
+        "public_help_text": "Attach or cite evidence for Discount Rate / Hurdle Rate; critical values are not defaulted."
       },
       "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
-      "output_bindings": [
-        "out_evidence_completeness",
-        "out_normalized_demand",
-        "out_reference_deviation",
-        "out_derating_factor",
-        "out_demand_metric",
-        "out_capacity_metric",
-        "out_utilization_margin",
-        "out_expanded_uncertainty",
-        "out_threshold_crossing",
-        "out_sensitivity_driver",
-        "out_fmea_trigger",
-        "out_money_at_risk"
-      ],
-      "warning_bindings": [
-        "W001",
-        "W002",
-        "W003",
-        "W004"
-      ],
+      "formula_bindings": [],
+      "output_bindings": [],
+      "warning_bindings": [],
       "ui_binding": {
-        "group_id": "material_or_asset_data",
-        "field_order": 3,
+        "group_id": "operation_context",
+        "field_order": 2,
         "component": "number_with_unit",
         "unit_dropdown_required": true,
         "reference_values_visible": true,
@@ -557,43 +390,45 @@
         "required_for_calculation": true,
         "required_for_clause_evidence": false
       },
-      "user_help_text": "Use the project-specific value for Discount Rate. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Discount Rate can flip the decision state and will downgrade evidence confidence."
+      "user_help_text": "Corporate cost of capital or minimum acceptable return.",
+      "warning_if_missing_or_estimated": "Estimated or missing Discount Rate / Hurdle Rate can flip the decision state and will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 0.06,
+        "max": 0.15,
+        "unit": "ratio",
+        "source": "SectorCalc industrial screening reference range based on finance policy; user must verify against project evidence.",
+        "status": "REFERENCE"
+      }
     },
     {
-      "id": "analysis_years",
+      "id": "study_years",
       "name": "Analysis Period",
       "symbol": "n",
-      "quantity_kind": "time",
-      "unit_selectable": true,
-      "base_unit": "year",
+      "quantity_kind": "dimensionless",
+      "unit_selectable": false,
+      "base_unit": "ratio",
       "allowed_display_units": [
-        "year",
-        "month",
-        "day",
-        "h",
-        "min",
-        "s"
+        "ratio"
       ],
-      "normalized_id": "n_analysis_years",
+      "normalized_id": "n_study_years",
       "type": "number",
       "required": true,
       "criticality": "CRITICAL",
       "allowed_values": [],
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
-        "min": 0,
-        "max": 50,
-        "unit": "year",
+        "min": 1,
+        "max": 40,
+        "unit": "ratio",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
       "engineering_range": {
-        "min": 3,
-        "max": 10,
-        "unit": "year",
-        "source": "SectorCalc industrial screening reference range based on investment policy; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
+        "min": 5,
+        "max": 15,
+        "unit": "ratio",
+        "source": "SectorCalc industrial screening reference range based on engineering assumption register; user must verify against project evidence.",
+        "status": "REFERENCE"
       },
       "resolution": null,
       "precision_policy": {
@@ -607,23 +442,23 @@
       "smart_defaults": [],
       "reference_values": {
         "reference_value_type": "USER_VERIFIED",
-        "source": "investment policy",
+        "source": "engineering assumption register",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "Economic analysis period; terminal assumptions must be separately evidenced."
+        "public_note": "Investment appraisal horizon, in years."
       },
       "source_priority": [
-        "investment policy",
+        "vendor quote or capex budget",
         "signed drawing",
         "calibration record",
         "ERP or production log",
         "engineer-approved assumption register"
       ],
-      "source": "investment policy",
+      "source": "engineering assumption register",
       "evidence_requirement": {
         "required": true,
         "accepted_evidence": [
-          "investment policy",
+          "engineering assumption register",
           "signed engineering note",
           "measurement record",
           "supplier certificate",
@@ -633,42 +468,14 @@
         "public_help_text": "Attach or cite evidence for Analysis Period; critical values are not defaulted."
       },
       "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
-      "output_bindings": [
-        "out_evidence_completeness",
-        "out_normalized_demand",
-        "out_reference_deviation",
-        "out_derating_factor",
-        "out_demand_metric",
-        "out_capacity_metric",
-        "out_utilization_margin",
-        "out_expanded_uncertainty",
-        "out_threshold_crossing",
-        "out_sensitivity_driver",
-        "out_fmea_trigger",
-        "out_money_at_risk"
-      ],
-      "warning_bindings": [
-        "W001",
-        "W002",
-        "W003",
-        "W004"
-      ],
+      "formula_bindings": [],
+      "output_bindings": [],
+      "warning_bindings": [],
       "ui_binding": {
-        "group_id": "load_or_demand",
-        "field_order": 4,
+        "group_id": "operation_context",
+        "field_order": 3,
         "component": "number_with_unit",
-        "unit_dropdown_required": true,
+        "unit_dropdown_required": false,
         "reference_values_visible": true,
         "advanced": false,
         "visible_in_modes": [
@@ -680,15 +487,217 @@
         "required_for_calculation": true,
         "required_for_clause_evidence": false
       },
-      "user_help_text": "Use the project-specific value for Analysis Period. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Analysis Period can flip the decision state and will downgrade evidence confidence."
+      "user_help_text": "Investment appraisal horizon, in years.",
+      "warning_if_missing_or_estimated": "Estimated or missing Analysis Period can flip the decision state and will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 5,
+        "max": 15,
+        "unit": "ratio",
+        "source": "SectorCalc industrial screening reference range based on engineering assumption register; user must verify against project evidence.",
+        "status": "REFERENCE"
+      }
+    },
+    {
+      "id": "annual_cash_flow",
+      "name": "Annual Net Cash Flow (Year 1)",
+      "symbol": "CF1",
+      "quantity_kind": "currency",
+      "unit_selectable": false,
+      "base_unit": "currency_unit",
+      "allowed_display_units": [
+        "currency_unit"
+      ],
+      "normalized_id": "n_annual_cash_flow",
+      "type": "number",
+      "required": true,
+      "criticality": "CRITICAL",
+      "allowed_values": [],
+      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
+      "physical_hard_bounds": {
+        "min": -50000000,
+        "max": 50000000,
+        "unit": "currency_unit",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK"
+      },
+      "engineering_range": {
+        "min": 10000,
+        "max": 1000000,
+        "unit": "currency_unit",
+        "source": "SectorCalc industrial screening reference range based on finance projection; user must verify against project evidence.",
+        "status": "REFERENCE"
+      },
+      "resolution": null,
+      "precision_policy": {
+        "input_decimals": 3,
+        "display_decimals": 3,
+        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
+        "rounding_rule": "DISPLAY_ONLY"
+      },
+      "default_policy": "NO_DEFAULT",
+      "default_value": null,
+      "smart_defaults": [],
+      "reference_values": {
+        "reference_value_type": "USER_VERIFIED",
+        "source": "finance projection",
+        "reference_status": "NEEDS_SOURCE_VERIFICATION",
+        "user_must_verify": true,
+        "public_note": "Year-1 net operating cash flow generated by the investment."
+      },
+      "source_priority": [
+        "vendor quote or capex budget",
+        "signed drawing",
+        "calibration record",
+        "ERP or production log",
+        "engineer-approved assumption register"
+      ],
+      "source": "finance projection",
+      "evidence_requirement": {
+        "required": true,
+        "accepted_evidence": [
+          "finance projection",
+          "signed engineering note",
+          "measurement record",
+          "supplier certificate",
+          "audit trail export"
+        ],
+        "missing_evidence_behavior": "BLOCK",
+        "public_help_text": "Attach or cite evidence for Annual Net Cash Flow (Year 1); critical values are not defaulted."
+      },
+      "standard_clause_bindings": [],
+      "formula_bindings": [],
+      "output_bindings": [],
+      "warning_bindings": [],
+      "ui_binding": {
+        "group_id": "material_or_asset_data",
+        "field_order": 4,
+        "component": "number_with_unit",
+        "unit_dropdown_required": false,
+        "reference_values_visible": true,
+        "advanced": false,
+        "visible_in_modes": [
+          "quick",
+          "engineering",
+          "cost",
+          "audit"
+        ],
+        "required_for_calculation": true,
+        "required_for_clause_evidence": false
+      },
+      "user_help_text": "Year-1 net operating cash flow generated by the investment.",
+      "warning_if_missing_or_estimated": "Estimated or missing Annual Net Cash Flow (Year 1) can flip the decision state and will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 10000,
+        "max": 1000000,
+        "unit": "currency_unit",
+        "source": "SectorCalc industrial screening reference range based on finance projection; user must verify against project evidence.",
+        "status": "REFERENCE"
+      }
+    },
+    {
+      "id": "cash_flow_growth_rate",
+      "name": "Cash Flow Growth Rate",
+      "symbol": "g",
+      "quantity_kind": "dimensionless",
+      "unit_selectable": true,
+      "base_unit": "ratio",
+      "allowed_display_units": [
+        "percent",
+        "ratio"
+      ],
+      "normalized_id": "n_cash_flow_growth_rate",
+      "type": "number",
+      "required": true,
+      "criticality": "CRITICAL",
+      "allowed_values": [],
+      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
+      "physical_hard_bounds": {
+        "min": -0.3,
+        "max": 0.3,
+        "unit": "ratio",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK"
+      },
+      "engineering_range": {
+        "min": -0.05,
+        "max": 0.08,
+        "unit": "ratio",
+        "source": "SectorCalc industrial screening reference range based on finance projection; user must verify against project evidence.",
+        "status": "REFERENCE"
+      },
+      "resolution": null,
+      "precision_policy": {
+        "input_decimals": 6,
+        "display_decimals": 3,
+        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
+        "rounding_rule": "DISPLAY_ONLY"
+      },
+      "default_policy": "NO_DEFAULT",
+      "default_value": null,
+      "smart_defaults": [],
+      "reference_values": {
+        "reference_value_type": "USER_VERIFIED",
+        "source": "finance projection",
+        "reference_status": "NEEDS_SOURCE_VERIFICATION",
+        "user_must_verify": true,
+        "public_note": "Annual growth (or decline) in net cash flow after year 1."
+      },
+      "source_priority": [
+        "vendor quote or capex budget",
+        "signed drawing",
+        "calibration record",
+        "ERP or production log",
+        "engineer-approved assumption register"
+      ],
+      "source": "finance projection",
+      "evidence_requirement": {
+        "required": true,
+        "accepted_evidence": [
+          "finance projection",
+          "signed engineering note",
+          "measurement record",
+          "supplier certificate",
+          "audit trail export"
+        ],
+        "missing_evidence_behavior": "BLOCK",
+        "public_help_text": "Attach or cite evidence for Cash Flow Growth Rate; critical values are not defaulted."
+      },
+      "standard_clause_bindings": [],
+      "formula_bindings": [],
+      "output_bindings": [],
+      "warning_bindings": [],
+      "ui_binding": {
+        "group_id": "advanced_derating_inputs",
+        "field_order": 5,
+        "component": "number_with_unit",
+        "unit_dropdown_required": true,
+        "reference_values_visible": true,
+        "advanced": true,
+        "visible_in_modes": [
+          "quick",
+          "engineering",
+          "cost",
+          "audit"
+        ],
+        "required_for_calculation": true,
+        "required_for_clause_evidence": false
+      },
+      "user_help_text": "Annual growth (or decline) in net cash flow after year 1.",
+      "warning_if_missing_or_estimated": "Estimated or missing Cash Flow Growth Rate can flip the decision state and will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": -0.05,
+        "max": 0.08,
+        "unit": "ratio",
+        "source": "SectorCalc industrial screening reference range based on finance projection; user must verify against project evidence.",
+        "status": "REFERENCE"
+      }
     },
     {
       "id": "residual_value",
-      "name": "Residual Value",
+      "name": "Residual / Salvage Value",
       "symbol": "RV",
       "quantity_kind": "currency",
-      "unit_selectable": true,
+      "unit_selectable": false,
       "base_unit": "currency_unit",
       "allowed_display_units": [
         "currency_unit"
@@ -702,16 +711,16 @@
       "physical_hard_bounds": {
         "min": 0,
         "max": 50000000,
-        "unit": "USD",
+        "unit": "currency_unit",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
       "engineering_range": {
         "min": 0,
-        "max": 5000000,
+        "max": 1000000,
         "unit": "currency_unit",
-        "source": "SectorCalc industrial screening reference range based on asset valuation; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
+        "source": "SectorCalc industrial screening reference range based on appraisal or resale comp; user must verify against project evidence.",
+        "status": "REFERENCE"
       },
       "resolution": null,
       "precision_policy": {
@@ -725,68 +734,40 @@
       "smart_defaults": [],
       "reference_values": {
         "reference_value_type": "USER_VERIFIED",
-        "source": "asset valuation",
+        "source": "appraisal or resale comp",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "Estimated terminal residual value at the end of the analysis period."
+        "public_note": "Equipment resale/salvage value at the end of the analysis period."
       },
       "source_priority": [
-        "asset valuation",
+        "vendor quote or capex budget",
         "signed drawing",
         "calibration record",
         "ERP or production log",
         "engineer-approved assumption register"
       ],
-      "source": "asset valuation",
+      "source": "appraisal or resale comp",
       "evidence_requirement": {
         "required": true,
         "accepted_evidence": [
-          "asset valuation",
+          "appraisal or resale comp",
           "signed engineering note",
           "measurement record",
           "supplier certificate",
           "audit trail export"
         ],
         "missing_evidence_behavior": "BLOCK",
-        "public_help_text": "Attach or cite evidence for Residual Value; critical values are not defaulted."
+        "public_help_text": "Attach or cite evidence for Residual / Salvage Value; critical values are not defaulted."
       },
       "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
-      "output_bindings": [
-        "out_evidence_completeness",
-        "out_normalized_demand",
-        "out_reference_deviation",
-        "out_derating_factor",
-        "out_demand_metric",
-        "out_capacity_metric",
-        "out_utilization_margin",
-        "out_expanded_uncertainty",
-        "out_threshold_crossing",
-        "out_sensitivity_driver",
-        "out_fmea_trigger",
-        "out_money_at_risk"
-      ],
-      "warning_bindings": [
-        "W001",
-        "W002",
-        "W003",
-        "W004"
-      ],
+      "formula_bindings": [],
+      "output_bindings": [],
+      "warning_bindings": [],
       "ui_binding": {
-        "group_id": "capacity_or_process_capability",
-        "field_order": 5,
+        "group_id": "material_or_asset_data",
+        "field_order": 6,
         "component": "number_with_unit",
-        "unit_dropdown_required": true,
+        "unit_dropdown_required": false,
         "reference_values_visible": true,
         "advanced": false,
         "visible_in_modes": [
@@ -798,21 +779,27 @@
         "required_for_calculation": true,
         "required_for_clause_evidence": false
       },
-      "user_help_text": "Use the project-specific value for Residual Value. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Residual Value can flip the decision state and will downgrade evidence confidence."
+      "user_help_text": "Equipment resale/salvage value at the end of the analysis period.",
+      "warning_if_missing_or_estimated": "Estimated or missing Residual / Salvage Value can flip the decision state and will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 0,
+        "max": 1000000,
+        "unit": "currency_unit",
+        "source": "SectorCalc industrial screening reference range based on appraisal or resale comp; user must verify against project evidence.",
+        "status": "REFERENCE"
+      }
     },
     {
-      "id": "stress_downside_factor",
-      "name": "Downside Stress Factor",
-      "symbol": "S_down",
-      "quantity_kind": "dimensionless",
-      "unit_selectable": true,
-      "base_unit": "ratio",
+      "id": "working_capital",
+      "name": "Incremental Working Capital",
+      "symbol": "WC",
+      "quantity_kind": "currency",
+      "unit_selectable": false,
+      "base_unit": "currency_unit",
       "allowed_display_units": [
-        "ratio",
-        "percent"
+        "currency_unit"
       ],
-      "normalized_id": "n_stress_downside_factor",
+      "normalized_id": "n_working_capital",
       "type": "number",
       "required": true,
       "criticality": "CRITICAL",
@@ -820,21 +807,21 @@
       "confidence_label": "NEEDS_SOURCE_VERIFICATION",
       "physical_hard_bounds": {
         "min": 0,
-        "max": 1,
-        "unit": "ratio",
+        "max": 50000000,
+        "unit": "currency_unit",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
       "engineering_range": {
-        "min": 0.5,
-        "max": 1,
-        "unit": "ratio",
-        "source": "SectorCalc industrial screening reference range based on stress-test policy; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
+        "min": 0,
+        "max": 500000,
+        "unit": "currency_unit",
+        "source": "SectorCalc industrial screening reference range based on finance projection; user must verify against project evidence.",
+        "status": "REFERENCE"
       },
       "resolution": null,
       "precision_policy": {
-        "input_decimals": 6,
+        "input_decimals": 3,
         "display_decimals": 3,
         "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
         "rounding_rule": "DISPLAY_ONLY"
@@ -844,792 +831,44 @@
       "smart_defaults": [],
       "reference_values": {
         "reference_value_type": "USER_VERIFIED",
-        "source": "stress-test policy",
+        "source": "finance projection",
         "reference_status": "NEEDS_SOURCE_VERIFICATION",
         "user_must_verify": true,
-        "public_note": "Cash-flow haircut for downside scenario review."
+        "public_note": "Additional working capital tied up at t=0 and recovered at the end of the horizon."
       },
       "source_priority": [
-        "stress-test policy",
+        "vendor quote or capex budget",
         "signed drawing",
         "calibration record",
         "ERP or production log",
         "engineer-approved assumption register"
       ],
-      "source": "stress-test policy",
+      "source": "finance projection",
       "evidence_requirement": {
         "required": true,
         "accepted_evidence": [
-          "stress-test policy",
+          "finance projection",
           "signed engineering note",
           "measurement record",
           "supplier certificate",
           "audit trail export"
         ],
         "missing_evidence_behavior": "BLOCK",
-        "public_help_text": "Attach or cite evidence for Downside Stress Factor; critical values are not defaulted."
+        "public_help_text": "Attach or cite evidence for Incremental Working Capital; critical values are not defaulted."
       },
       "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
-      "output_bindings": [
-        "out_evidence_completeness",
-        "out_normalized_demand",
-        "out_reference_deviation",
-        "out_derating_factor",
-        "out_demand_metric",
-        "out_capacity_metric",
-        "out_utilization_margin",
-        "out_expanded_uncertainty",
-        "out_threshold_crossing",
-        "out_sensitivity_driver",
-        "out_fmea_trigger",
-        "out_money_at_risk"
-      ],
-      "warning_bindings": [
-        "W001",
-        "W002",
-        "W003",
-        "W004"
-      ],
-      "ui_binding": {
-        "group_id": "quality_tolerance_calibration",
-        "field_order": 6,
-        "component": "number_with_unit",
-        "unit_dropdown_required": true,
-        "reference_values_visible": true,
-        "advanced": false,
-        "visible_in_modes": [
-          "quick",
-          "engineering",
-          "cost",
-          "audit"
-        ],
-        "required_for_calculation": true,
-        "required_for_clause_evidence": false
-      },
-      "user_help_text": "Use the project-specific value for Downside Stress Factor. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Downside Stress Factor can flip the decision state and will downgrade evidence confidence."
-    },
-    {
-      "id": "annual_volume",
-      "name": "Annual Decision Volume",
-      "symbol": "N",
-      "quantity_kind": "rate",
-      "unit_selectable": true,
-      "base_unit": "unit_per_s",
-      "allowed_display_units": [
-        "unit_per_s",
-        "unit_per_min",
-        "unit_per_h",
-        "unit_per_day",
-        "unit_per_year"
-      ],
-      "normalized_id": "n_annual_volume",
-      "type": "number",
-      "required": true,
-      "criticality": "HIGH",
-      "allowed_values": [],
-      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
-      "physical_hard_bounds": {
-        "min": 0,
-        "max": 10000000,
-        "unit": "units/year",
-        "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK"
-      },
-      "engineering_range": {
-        "min": 1e-06,
-        "max": 0.5,
-        "unit": "unit_per_s",
-        "source": "SectorCalc industrial screening reference range based on planning or ERP schedule; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
-      },
-      "resolution": null,
-      "precision_policy": {
-        "input_decimals": 3,
-        "display_decimals": 3,
-        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
-        "rounding_rule": "DISPLAY_ONLY"
-      },
-      "default_policy": "NO_DEFAULT",
-      "default_value": null,
-      "smart_defaults": [],
-      "reference_values": {
-        "reference_value_type": "USER_VERIFIED",
-        "source": "planning or ERP schedule",
-        "reference_status": "NEEDS_SOURCE_VERIFICATION",
-        "user_must_verify": true,
-        "public_note": "Annualized operating or sales volume used for impact normalization."
-      },
-      "source_priority": [
-        "planning or ERP schedule",
-        "signed drawing",
-        "calibration record",
-        "ERP or production log",
-        "engineer-approved assumption register"
-      ],
-      "source": "planning or ERP schedule",
-      "evidence_requirement": {
-        "required": true,
-        "accepted_evidence": [
-          "planning or ERP schedule",
-          "signed engineering note",
-          "measurement record",
-          "supplier certificate",
-          "audit trail export"
-        ],
-        "missing_evidence_behavior": "REVIEW",
-        "public_help_text": "Attach or cite evidence for Annual Decision Volume; critical values are not defaulted."
-      },
-      "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
-      "output_bindings": [
-        "out_evidence_completeness",
-        "out_normalized_demand",
-        "out_reference_deviation",
-        "out_derating_factor",
-        "out_demand_metric",
-        "out_capacity_metric",
-        "out_utilization_margin",
-        "out_expanded_uncertainty",
-        "out_threshold_crossing",
-        "out_sensitivity_driver",
-        "out_fmea_trigger",
-        "out_money_at_risk"
-      ],
-      "warning_bindings": [
-        "W001",
-        "W002",
-        "W003",
-        "W004"
-      ],
-      "ui_binding": {
-        "group_id": "commercial_impact_inputs",
-        "field_order": 7,
-        "component": "number_with_unit",
-        "unit_dropdown_required": true,
-        "reference_values_visible": true,
-        "advanced": false,
-        "visible_in_modes": [
-          "quick",
-          "engineering",
-          "cost",
-          "audit"
-        ],
-        "required_for_calculation": true,
-        "required_for_clause_evidence": false
-      },
-      "user_help_text": "Use the project-specific value for Annual Decision Volume. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Annual Decision Volume can flip the decision state and will downgrade evidence confidence."
-    },
-    {
-      "id": "labor_rate",
-      "name": "Fully Loaded Labor Rate",
-      "symbol": "C_labor",
-      "quantity_kind": "currency_rate",
-      "unit_selectable": true,
-      "base_unit": "currency_unit_per_h",
-      "allowed_display_units": [
-        "currency_unit_per_h",
-        "currency_unit_per_unit",
-        "currency_unit_per_kg",
-        "currency_unit_per_m",
-        "currency_unit_per_kWh",
-        "currency_unit_per_tonne"
-      ],
-      "normalized_id": "n_labor_rate",
-      "type": "number",
-      "required": true,
-      "criticality": "HIGH",
-      "allowed_values": [],
-      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
-      "physical_hard_bounds": {
-        "min": 0,
-        "max": 500000,
-        "unit": "currency_unit_per_h",
-        "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK"
-      },
-      "engineering_range": {
-        "min": 20,
-        "max": 250,
-        "unit": "currency_unit_per_h",
-        "source": "SectorCalc industrial screening reference range based on payroll and overhead allocation; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
-      },
-      "resolution": null,
-      "precision_policy": {
-        "input_decimals": 3,
-        "display_decimals": 3,
-        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
-        "rounding_rule": "DISPLAY_ONLY"
-      },
-      "default_policy": "NO_DEFAULT",
-      "default_value": null,
-      "smart_defaults": [],
-      "reference_values": {
-        "reference_value_type": "USER_VERIFIED",
-        "source": "payroll and overhead allocation",
-        "reference_status": "NEEDS_SOURCE_VERIFICATION",
-        "user_must_verify": true,
-        "public_note": "Loaded labor rate including wages, burden, and reasonable supervision allocation."
-      },
-      "source_priority": [
-        "payroll and overhead allocation",
-        "signed drawing",
-        "calibration record",
-        "ERP or production log",
-        "engineer-approved assumption register"
-      ],
-      "source": "payroll and overhead allocation",
-      "evidence_requirement": {
-        "required": true,
-        "accepted_evidence": [
-          "payroll and overhead allocation",
-          "signed engineering note",
-          "measurement record",
-          "supplier certificate",
-          "audit trail export"
-        ],
-        "missing_evidence_behavior": "REVIEW",
-        "public_help_text": "Attach or cite evidence for Fully Loaded Labor Rate; critical values are not defaulted."
-      },
-      "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
-      "output_bindings": [
-        "out_evidence_completeness",
-        "out_normalized_demand",
-        "out_reference_deviation",
-        "out_derating_factor",
-        "out_demand_metric",
-        "out_capacity_metric",
-        "out_utilization_margin",
-        "out_expanded_uncertainty",
-        "out_threshold_crossing",
-        "out_sensitivity_driver",
-        "out_fmea_trigger",
-        "out_money_at_risk"
-      ],
-      "warning_bindings": [
-        "W001",
-        "W002",
-        "W003",
-        "W004"
-      ],
-      "ui_binding": {
-        "group_id": "evidence_and_source_status",
-        "field_order": 8,
-        "component": "number_with_unit",
-        "unit_dropdown_required": true,
-        "reference_values_visible": true,
-        "advanced": false,
-        "visible_in_modes": [
-          "quick",
-          "engineering",
-          "cost",
-          "audit"
-        ],
-        "required_for_calculation": true,
-        "required_for_clause_evidence": false
-      },
-      "user_help_text": "Use the project-specific value for Fully Loaded Labor Rate. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Fully Loaded Labor Rate can flip the decision state and will downgrade evidence confidence."
-    },
-    {
-      "id": "overhead_rate",
-      "name": "Allocated Overhead Rate",
-      "symbol": "C_oh",
-      "quantity_kind": "currency_rate",
-      "unit_selectable": true,
-      "base_unit": "currency_unit_per_h",
-      "allowed_display_units": [
-        "currency_unit_per_h",
-        "currency_unit_per_unit",
-        "currency_unit_per_kg",
-        "currency_unit_per_m",
-        "currency_unit_per_kWh",
-        "currency_unit_per_tonne"
-      ],
-      "normalized_id": "n_overhead_rate",
-      "type": "number",
-      "required": true,
-      "criticality": "HIGH",
-      "allowed_values": [],
-      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
-      "physical_hard_bounds": {
-        "min": 0,
-        "max": 5000000,
-        "unit": "currency_unit_per_h",
-        "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK"
-      },
-      "engineering_range": {
-        "min": 10,
-        "max": 1000,
-        "unit": "currency_unit_per_h",
-        "source": "SectorCalc industrial screening reference range based on cost accounting ledger; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
-      },
-      "resolution": null,
-      "precision_policy": {
-        "input_decimals": 3,
-        "display_decimals": 3,
-        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
-        "rounding_rule": "DISPLAY_ONLY"
-      },
-      "default_policy": "NO_DEFAULT",
-      "default_value": null,
-      "smart_defaults": [],
-      "reference_values": {
-        "reference_value_type": "USER_VERIFIED",
-        "source": "cost accounting ledger",
-        "reference_status": "NEEDS_SOURCE_VERIFICATION",
-        "user_must_verify": true,
-        "public_note": "Allocated support cost used only for commercial impact and quote governance."
-      },
-      "source_priority": [
-        "cost accounting ledger",
-        "signed drawing",
-        "calibration record",
-        "ERP or production log",
-        "engineer-approved assumption register"
-      ],
-      "source": "cost accounting ledger",
-      "evidence_requirement": {
-        "required": true,
-        "accepted_evidence": [
-          "cost accounting ledger",
-          "signed engineering note",
-          "measurement record",
-          "supplier certificate",
-          "audit trail export"
-        ],
-        "missing_evidence_behavior": "REVIEW",
-        "public_help_text": "Attach or cite evidence for Allocated Overhead Rate; critical values are not defaulted."
-      },
-      "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
-      "output_bindings": [
-        "out_evidence_completeness",
-        "out_normalized_demand",
-        "out_reference_deviation",
-        "out_derating_factor",
-        "out_demand_metric",
-        "out_capacity_metric",
-        "out_utilization_margin",
-        "out_expanded_uncertainty",
-        "out_threshold_crossing",
-        "out_sensitivity_driver",
-        "out_fmea_trigger",
-        "out_money_at_risk"
-      ],
-      "warning_bindings": [
-        "W001",
-        "W002",
-        "W003",
-        "W004"
-      ],
-      "ui_binding": {
-        "group_id": "advanced_derating_inputs",
-        "field_order": 9,
-        "component": "number_with_unit",
-        "unit_dropdown_required": true,
-        "reference_values_visible": true,
-        "advanced": true,
-        "visible_in_modes": [
-          "engineering",
-          "cost",
-          "audit"
-        ],
-        "required_for_calculation": true,
-        "required_for_clause_evidence": false
-      },
-      "user_help_text": "Use the project-specific value for Allocated Overhead Rate. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Allocated Overhead Rate can flip the decision state and will downgrade evidence confidence."
-    },
-    {
-      "id": "defect_or_loss_cost",
-      "name": "Unit Loss Cost",
-      "symbol": "C_loss",
-      "quantity_kind": "currency",
-      "unit_selectable": true,
-      "base_unit": "currency_unit",
-      "allowed_display_units": [
-        "currency_unit"
-      ],
-      "normalized_id": "n_defect_or_loss_cost",
-      "type": "number",
-      "required": true,
-      "criticality": "HIGH",
-      "allowed_values": [],
-      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
-      "physical_hard_bounds": {
-        "min": 0,
-        "max": 50000000,
-        "unit": "USD",
-        "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK"
-      },
-      "engineering_range": {
-        "min": 1,
-        "max": 100000,
-        "unit": "currency_unit",
-        "source": "SectorCalc industrial screening reference range based on invoice, replacement cost, or management estimate; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
-      },
-      "resolution": null,
-      "precision_policy": {
-        "input_decimals": 3,
-        "display_decimals": 3,
-        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
-        "rounding_rule": "DISPLAY_ONLY"
-      },
-      "default_policy": "NO_DEFAULT",
-      "default_value": null,
-      "smart_defaults": [],
-      "reference_values": {
-        "reference_value_type": "USER_VERIFIED",
-        "source": "invoice, replacement cost, or management estimate",
-        "reference_status": "NEEDS_SOURCE_VERIFICATION",
-        "user_must_verify": true,
-        "public_note": "Monetary exposure if the decision is wrong or a unit fails the intended requirement."
-      },
-      "source_priority": [
-        "invoice, replacement cost, or management estimate",
-        "signed drawing",
-        "calibration record",
-        "ERP or production log",
-        "engineer-approved assumption register"
-      ],
-      "source": "invoice, replacement cost, or management estimate",
-      "evidence_requirement": {
-        "required": true,
-        "accepted_evidence": [
-          "invoice, replacement cost, or management estimate",
-          "signed engineering note",
-          "measurement record",
-          "supplier certificate",
-          "audit trail export"
-        ],
-        "missing_evidence_behavior": "REVIEW",
-        "public_help_text": "Attach or cite evidence for Unit Loss Cost; critical values are not defaulted."
-      },
-      "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
-      "output_bindings": [
-        "out_evidence_completeness",
-        "out_normalized_demand",
-        "out_reference_deviation",
-        "out_derating_factor",
-        "out_demand_metric",
-        "out_capacity_metric",
-        "out_utilization_margin",
-        "out_expanded_uncertainty",
-        "out_threshold_crossing",
-        "out_sensitivity_driver",
-        "out_fmea_trigger",
-        "out_money_at_risk"
-      ],
-      "warning_bindings": [
-        "W001",
-        "W002",
-        "W003",
-        "W004"
-      ],
-      "ui_binding": {
-        "group_id": "operation_context",
-        "field_order": 10,
-        "component": "number_with_unit",
-        "unit_dropdown_required": true,
-        "reference_values_visible": true,
-        "advanced": true,
-        "visible_in_modes": [
-          "engineering",
-          "cost",
-          "audit"
-        ],
-        "required_for_calculation": true,
-        "required_for_clause_evidence": false
-      },
-      "user_help_text": "Use the project-specific value for Unit Loss Cost. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Unit Loss Cost can flip the decision state and will downgrade evidence confidence."
-    },
-    {
-      "id": "source_confidence_ratio",
-      "name": "Source Confidence Ratio",
-      "symbol": "Q_src",
-      "quantity_kind": "dimensionless",
-      "unit_selectable": true,
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio",
-        "percent"
-      ],
-      "normalized_id": "n_source_confidence_ratio",
-      "type": "number",
-      "required": true,
-      "criticality": "MEDIUM",
-      "allowed_values": [],
-      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
-      "physical_hard_bounds": {
-        "min": 0,
-        "max": 1,
-        "unit": "ratio",
-        "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK"
-      },
-      "engineering_range": {
-        "min": 0.6,
-        "max": 1,
-        "unit": "ratio",
-        "source": "SectorCalc industrial screening reference range based on evidence review; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
-      },
-      "resolution": null,
-      "precision_policy": {
-        "input_decimals": 6,
-        "display_decimals": 3,
-        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
-        "rounding_rule": "DISPLAY_ONLY"
-      },
-      "default_policy": "NO_DEFAULT",
-      "default_value": null,
-      "smart_defaults": [],
-      "reference_values": {
-        "reference_value_type": "USER_VERIFIED",
-        "source": "evidence review",
-        "reference_status": "NEEDS_SOURCE_VERIFICATION",
-        "user_must_verify": true,
-        "public_note": "Reviewer-assigned confidence in source traceability."
-      },
-      "source_priority": [
-        "evidence review",
-        "signed drawing",
-        "calibration record",
-        "ERP or production log",
-        "engineer-approved assumption register"
-      ],
-      "source": "evidence review",
-      "evidence_requirement": {
-        "required": true,
-        "accepted_evidence": [
-          "evidence review",
-          "signed engineering note",
-          "measurement record",
-          "supplier certificate",
-          "audit trail export"
-        ],
-        "missing_evidence_behavior": "REVIEW",
-        "public_help_text": "Attach or cite evidence for Source Confidence Ratio; critical values are not defaulted."
-      },
-      "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
-      "output_bindings": [
-        "out_evidence_completeness",
-        "out_normalized_demand",
-        "out_reference_deviation",
-        "out_derating_factor",
-        "out_demand_metric",
-        "out_capacity_metric",
-        "out_utilization_margin",
-        "out_expanded_uncertainty",
-        "out_threshold_crossing",
-        "out_sensitivity_driver",
-        "out_fmea_trigger",
-        "out_money_at_risk"
-      ],
-      "warning_bindings": [
-        "W001",
-        "W002",
-        "W003",
-        "W004"
-      ],
-      "ui_binding": {
-        "group_id": "geometry_or_process_definition",
-        "field_order": 11,
-        "component": "number_with_unit",
-        "unit_dropdown_required": true,
-        "reference_values_visible": true,
-        "advanced": true,
-        "visible_in_modes": [
-          "engineering",
-          "cost",
-          "audit"
-        ],
-        "required_for_calculation": true,
-        "required_for_clause_evidence": false
-      },
-      "user_help_text": "Use the project-specific value for Source Confidence Ratio. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Source Confidence Ratio can flip the decision state and will downgrade evidence confidence."
-    },
-    {
-      "id": "uncertainty_multiplier",
-      "name": "Uncertainty Coverage Multiplier",
-      "symbol": "k_u",
-      "quantity_kind": "dimensionless",
-      "unit_selectable": true,
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio",
-        "percent"
-      ],
-      "normalized_id": "n_uncertainty_multiplier",
-      "type": "number",
-      "required": true,
-      "criticality": "MEDIUM",
-      "allowed_values": [],
-      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
-      "physical_hard_bounds": {
-        "min": 0,
-        "max": 5,
-        "unit": "ratio",
-        "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK"
-      },
-      "engineering_range": {
-        "min": 1.5,
-        "max": 2.5,
-        "unit": "ratio",
-        "source": "SectorCalc industrial screening reference range based on uncertainty policy; user must verify against project evidence.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
-      },
-      "resolution": null,
-      "precision_policy": {
-        "input_decimals": 6,
-        "display_decimals": 3,
-        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
-        "rounding_rule": "DISPLAY_ONLY"
-      },
-      "default_policy": "NO_DEFAULT",
-      "default_value": null,
-      "smart_defaults": [],
-      "reference_values": {
-        "reference_value_type": "USER_VERIFIED",
-        "source": "uncertainty policy",
-        "reference_status": "NEEDS_SOURCE_VERIFICATION",
-        "user_must_verify": true,
-        "public_note": "Coverage multiplier used by the server uncertainty model."
-      },
-      "source_priority": [
-        "uncertainty policy",
-        "signed drawing",
-        "calibration record",
-        "ERP or production log",
-        "engineer-approved assumption register"
-      ],
-      "source": "uncertainty policy",
-      "evidence_requirement": {
-        "required": true,
-        "accepted_evidence": [
-          "uncertainty policy",
-          "signed engineering note",
-          "measurement record",
-          "supplier certificate",
-          "audit trail export"
-        ],
-        "missing_evidence_behavior": "REVIEW",
-        "public_help_text": "Attach or cite evidence for Uncertainty Coverage Multiplier; critical values are not defaulted."
-      },
-      "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F001",
-        "F002",
-        "F003",
-        "F004",
-        "F005",
-        "F006",
-        "F007",
-        "F008",
-        "F012"
-      ],
-      "output_bindings": [
-        "out_evidence_completeness",
-        "out_normalized_demand",
-        "out_reference_deviation",
-        "out_derating_factor",
-        "out_demand_metric",
-        "out_capacity_metric",
-        "out_utilization_margin",
-        "out_expanded_uncertainty",
-        "out_threshold_crossing",
-        "out_sensitivity_driver",
-        "out_fmea_trigger",
-        "out_money_at_risk"
-      ],
-      "warning_bindings": [
-        "W001",
-        "W002",
-        "W003",
-        "W004"
-      ],
+      "formula_bindings": [],
+      "output_bindings": [],
+      "warning_bindings": [],
       "ui_binding": {
         "group_id": "material_or_asset_data",
-        "field_order": 12,
+        "field_order": 7,
         "component": "number_with_unit",
-        "unit_dropdown_required": true,
+        "unit_dropdown_required": false,
         "reference_values_visible": true,
-        "advanced": true,
+        "advanced": false,
         "visible_in_modes": [
+          "quick",
           "engineering",
           "cost",
           "audit"
@@ -1637,34 +876,28 @@
         "required_for_calculation": true,
         "required_for_clause_evidence": false
       },
-      "user_help_text": "Use the project-specific value for Uncertainty Coverage Multiplier. Reference ranges are advisory and must not be used as automatic defaults.",
-      "warning_if_missing_or_estimated": "Estimated or missing Uncertainty Coverage Multiplier can flip the decision state and will downgrade evidence confidence."
+      "user_help_text": "Additional working capital tied up at t=0 and recovered at the end of the horizon.",
+      "warning_if_missing_or_estimated": "Estimated or missing Incremental Working Capital can flip the decision state and will downgrade evidence confidence.",
+      "engineering_reference_range": {
+        "min": 0,
+        "max": 500000,
+        "unit": "currency_unit",
+        "source": "SectorCalc industrial screening reference range based on finance projection; user must verify against project evidence.",
+        "status": "REFERENCE"
+      }
     }
   ],
   "normalized_inputs": [
     {
-      "id": "n_initial_investment",
-      "from_input": "initial_investment",
+      "id": "n_capex",
+      "from_input": "capex",
       "quantity_kind": "currency",
       "base_unit": "currency_unit",
       "conversion_source": "unit_conversion_contract.conversion_registry",
       "validation_after_conversion": [
-        "Apply physical hard bounds for initial_investment after unit conversion.",
-        "Evaluate engineering reference range for initial_investment after conversion.",
-        "Reject non-finite normalized value for initial_investment."
-      ],
-      "audit_required": true
-    },
-    {
-      "id": "n_annual_net_cash_flow",
-      "from_input": "annual_net_cash_flow",
-      "quantity_kind": "currency",
-      "base_unit": "currency_unit",
-      "conversion_source": "unit_conversion_contract.conversion_registry",
-      "validation_after_conversion": [
-        "Apply physical hard bounds for annual_net_cash_flow after unit conversion.",
-        "Evaluate engineering reference range for annual_net_cash_flow after conversion.",
-        "Reject non-finite normalized value for annual_net_cash_flow."
+        "Apply physical hard bounds for capex after unit conversion.",
+        "Evaluate engineering reference range for capex after conversion.",
+        "Reject non-finite normalized value for capex."
       ],
       "audit_required": true
     },
@@ -1682,15 +915,41 @@
       "audit_required": true
     },
     {
-      "id": "n_analysis_years",
-      "from_input": "analysis_years",
-      "quantity_kind": "time",
-      "base_unit": "s",
+      "id": "n_study_years",
+      "from_input": "study_years",
+      "quantity_kind": "dimensionless",
+      "base_unit": "ratio",
       "conversion_source": "unit_conversion_contract.conversion_registry",
       "validation_after_conversion": [
-        "Apply physical hard bounds for analysis_years after unit conversion.",
-        "Evaluate engineering reference range for analysis_years after conversion.",
-        "Reject non-finite normalized value for analysis_years."
+        "Apply physical hard bounds for study_years after unit conversion.",
+        "Evaluate engineering reference range for study_years after conversion.",
+        "Reject non-finite normalized value for study_years."
+      ],
+      "audit_required": true
+    },
+    {
+      "id": "n_annual_cash_flow",
+      "from_input": "annual_cash_flow",
+      "quantity_kind": "currency",
+      "base_unit": "currency_unit",
+      "conversion_source": "unit_conversion_contract.conversion_registry",
+      "validation_after_conversion": [
+        "Apply physical hard bounds for annual_cash_flow after unit conversion.",
+        "Evaluate engineering reference range for annual_cash_flow after conversion.",
+        "Reject non-finite normalized value for annual_cash_flow."
+      ],
+      "audit_required": true
+    },
+    {
+      "id": "n_cash_flow_growth_rate",
+      "from_input": "cash_flow_growth_rate",
+      "quantity_kind": "dimensionless",
+      "base_unit": "ratio",
+      "conversion_source": "unit_conversion_contract.conversion_registry",
+      "validation_after_conversion": [
+        "Apply physical hard bounds for cash_flow_growth_rate after unit conversion.",
+        "Evaluate engineering reference range for cash_flow_growth_rate after conversion.",
+        "Reject non-finite normalized value for cash_flow_growth_rate."
       ],
       "audit_required": true
     },
@@ -1708,93 +967,15 @@
       "audit_required": true
     },
     {
-      "id": "n_stress_downside_factor",
-      "from_input": "stress_downside_factor",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
-      "conversion_source": "unit_conversion_contract.conversion_registry",
-      "validation_after_conversion": [
-        "Apply physical hard bounds for stress_downside_factor after unit conversion.",
-        "Evaluate engineering reference range for stress_downside_factor after conversion.",
-        "Reject non-finite normalized value for stress_downside_factor."
-      ],
-      "audit_required": true
-    },
-    {
-      "id": "n_annual_volume",
-      "from_input": "annual_volume",
-      "quantity_kind": "rate",
-      "base_unit": "unit_per_s",
-      "conversion_source": "unit_conversion_contract.conversion_registry",
-      "validation_after_conversion": [
-        "Apply physical hard bounds for annual_volume after unit conversion.",
-        "Evaluate engineering reference range for annual_volume after conversion.",
-        "Reject non-finite normalized value for annual_volume."
-      ],
-      "audit_required": true
-    },
-    {
-      "id": "n_labor_rate",
-      "from_input": "labor_rate",
-      "quantity_kind": "currency_rate",
-      "base_unit": "currency_unit_per_h",
-      "conversion_source": "unit_conversion_contract.conversion_registry",
-      "validation_after_conversion": [
-        "Apply physical hard bounds for labor_rate after unit conversion.",
-        "Evaluate engineering reference range for labor_rate after conversion.",
-        "Reject non-finite normalized value for labor_rate."
-      ],
-      "audit_required": true
-    },
-    {
-      "id": "n_overhead_rate",
-      "from_input": "overhead_rate",
-      "quantity_kind": "currency_rate",
-      "base_unit": "currency_unit_per_h",
-      "conversion_source": "unit_conversion_contract.conversion_registry",
-      "validation_after_conversion": [
-        "Apply physical hard bounds for overhead_rate after unit conversion.",
-        "Evaluate engineering reference range for overhead_rate after conversion.",
-        "Reject non-finite normalized value for overhead_rate."
-      ],
-      "audit_required": true
-    },
-    {
-      "id": "n_defect_or_loss_cost",
-      "from_input": "defect_or_loss_cost",
+      "id": "n_working_capital",
+      "from_input": "working_capital",
       "quantity_kind": "currency",
       "base_unit": "currency_unit",
       "conversion_source": "unit_conversion_contract.conversion_registry",
       "validation_after_conversion": [
-        "Apply physical hard bounds for defect_or_loss_cost after unit conversion.",
-        "Evaluate engineering reference range for defect_or_loss_cost after conversion.",
-        "Reject non-finite normalized value for defect_or_loss_cost."
-      ],
-      "audit_required": true
-    },
-    {
-      "id": "n_source_confidence_ratio",
-      "from_input": "source_confidence_ratio",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
-      "conversion_source": "unit_conversion_contract.conversion_registry",
-      "validation_after_conversion": [
-        "Apply physical hard bounds for source_confidence_ratio after unit conversion.",
-        "Evaluate engineering reference range for source_confidence_ratio after conversion.",
-        "Reject non-finite normalized value for source_confidence_ratio."
-      ],
-      "audit_required": true
-    },
-    {
-      "id": "n_uncertainty_multiplier",
-      "from_input": "uncertainty_multiplier",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
-      "conversion_source": "unit_conversion_contract.conversion_registry",
-      "validation_after_conversion": [
-        "Apply physical hard bounds for uncertainty_multiplier after unit conversion.",
-        "Evaluate engineering reference range for uncertainty_multiplier after conversion.",
-        "Reject non-finite normalized value for uncertainty_multiplier."
+        "Apply physical hard bounds for working_capital after unit conversion.",
+        "Evaluate engineering reference range for working_capital after conversion.",
+        "Reject non-finite normalized value for working_capital."
       ],
       "audit_required": true
     }
@@ -3371,6 +2552,318 @@
         "rounding": "DISPLAY_ONLY",
         "show_unit": true
       }
+    },
+    {
+      "id": "out_npv",
+      "name": "Net Present Value",
+      "symbol": "NPV",
+      "quantity_kind": "dimensionless",
+      "base_unit": "ratio",
+      "allowed_display_units": [
+        "ratio",
+        "percent"
+      ],
+      "type": "number",
+      "formula_source": "F_engine",
+      "decision_use": "DIAGNOSTIC",
+      "proof_status_role": "DEMAND",
+      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
+      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
+      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
+      "governing_clause": "No clause invented; project checker must map exact clause if required.",
+      "governing_formula": "F_engine",
+      "governing_input_sensitivity": [
+        "critical measured input",
+        "evidence confidence",
+        "uncertainty contribution",
+        "commercial exposure"
+      ],
+      "public_explanation": "Net Present Value — discounted value of all cash flows minus the initial outlay.",
+      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
+      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
+      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
+      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
+      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
+      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
+      "evidence_level": "PARTIAL",
+      "output_format": {
+        "decimals": 3,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_irr",
+      "name": "Internal Rate of Return",
+      "symbol": "IRR",
+      "quantity_kind": "dimensionless",
+      "base_unit": "ratio",
+      "allowed_display_units": [
+        "ratio",
+        "percent"
+      ],
+      "type": "number",
+      "formula_source": "F_engine",
+      "decision_use": "DIAGNOSTIC",
+      "proof_status_role": "DEMAND",
+      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
+      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
+      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
+      "governing_clause": "No clause invented; project checker must map exact clause if required.",
+      "governing_formula": "F_engine",
+      "governing_input_sensitivity": [
+        "critical measured input",
+        "evidence confidence",
+        "uncertainty contribution",
+        "commercial exposure"
+      ],
+      "public_explanation": "Internal Rate of Return — the discount rate at which NPV equals zero.",
+      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
+      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
+      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
+      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
+      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
+      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
+      "evidence_level": "PARTIAL",
+      "output_format": {
+        "decimals": 3,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_payback_years",
+      "name": "Simple Payback Period",
+      "symbol": "PB",
+      "quantity_kind": "dimensionless",
+      "base_unit": "ratio",
+      "allowed_display_units": [
+        "ratio",
+        "percent"
+      ],
+      "type": "number",
+      "formula_source": "F_engine",
+      "decision_use": "DIAGNOSTIC",
+      "proof_status_role": "DEMAND",
+      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
+      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
+      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
+      "governing_clause": "No clause invented; project checker must map exact clause if required.",
+      "governing_formula": "F_engine",
+      "governing_input_sensitivity": [
+        "critical measured input",
+        "evidence confidence",
+        "uncertainty contribution",
+        "commercial exposure"
+      ],
+      "public_explanation": "Simple Payback Period — undiscounted years to recover the initial outlay.",
+      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
+      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
+      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
+      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
+      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
+      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
+      "evidence_level": "PARTIAL",
+      "output_format": {
+        "decimals": 3,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_discounted_payback_years",
+      "name": "Discounted Payback Period",
+      "symbol": "DPB",
+      "quantity_kind": "dimensionless",
+      "base_unit": "ratio",
+      "allowed_display_units": [
+        "ratio",
+        "percent"
+      ],
+      "type": "number",
+      "formula_source": "F_engine",
+      "decision_use": "DIAGNOSTIC",
+      "proof_status_role": "DEMAND",
+      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
+      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
+      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
+      "governing_clause": "No clause invented; project checker must map exact clause if required.",
+      "governing_formula": "F_engine",
+      "governing_input_sensitivity": [
+        "critical measured input",
+        "evidence confidence",
+        "uncertainty contribution",
+        "commercial exposure"
+      ],
+      "public_explanation": "Discounted Payback Period — years to recover the initial outlay in present-value terms.",
+      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
+      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
+      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
+      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
+      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
+      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
+      "evidence_level": "PARTIAL",
+      "output_format": {
+        "decimals": 3,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_profitability_index",
+      "name": "Profitability Index",
+      "symbol": "PI",
+      "quantity_kind": "dimensionless",
+      "base_unit": "ratio",
+      "allowed_display_units": [
+        "ratio",
+        "percent"
+      ],
+      "type": "number",
+      "formula_source": "F_engine",
+      "decision_use": "DIAGNOSTIC",
+      "proof_status_role": "DEMAND",
+      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
+      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
+      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
+      "governing_clause": "No clause invented; project checker must map exact clause if required.",
+      "governing_formula": "F_engine",
+      "governing_input_sensitivity": [
+        "critical measured input",
+        "evidence confidence",
+        "uncertainty contribution",
+        "commercial exposure"
+      ],
+      "public_explanation": "Profitability Index — present value of inflows per unit of outlay; PI > 1 indicates value creation.",
+      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
+      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
+      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
+      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
+      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
+      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
+      "evidence_level": "PARTIAL",
+      "output_format": {
+        "decimals": 3,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_decision",
+      "name": "Investment Decision",
+      "symbol": "D",
+      "quantity_kind": "dimensionless",
+      "base_unit": "ratio",
+      "allowed_display_units": [
+        "ratio",
+        "percent"
+      ],
+      "type": "number",
+      "formula_source": "F_engine",
+      "decision_use": "DIAGNOSTIC",
+      "proof_status_role": "DEMAND",
+      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
+      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
+      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
+      "governing_clause": "No clause invented; project checker must map exact clause if required.",
+      "governing_formula": "F_engine",
+      "governing_input_sensitivity": [
+        "critical measured input",
+        "evidence confidence",
+        "uncertainty contribution",
+        "commercial exposure"
+      ],
+      "public_explanation": "Investment Decision — 1 = Accept (NPV positive and IRR exceeds the hurdle rate), 0 = Reject.",
+      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
+      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
+      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
+      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
+      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
+      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
+      "evidence_level": "PARTIAL",
+      "output_format": {
+        "decimals": 3,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_irr_minus_hurdle",
+      "name": "IRR Margin over Hurdle Rate",
+      "symbol": "ΔIRR",
+      "quantity_kind": "dimensionless",
+      "base_unit": "ratio",
+      "allowed_display_units": [
+        "ratio",
+        "percent"
+      ],
+      "type": "number",
+      "formula_source": "F_engine",
+      "decision_use": "DIAGNOSTIC",
+      "proof_status_role": "DEMAND",
+      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
+      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
+      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
+      "governing_clause": "No clause invented; project checker must map exact clause if required.",
+      "governing_formula": "F_engine",
+      "governing_input_sensitivity": [
+        "critical measured input",
+        "evidence confidence",
+        "uncertainty contribution",
+        "commercial exposure"
+      ],
+      "public_explanation": "IRR Margin — IRR minus the discount/hurdle rate; a robustness indicator.",
+      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
+      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
+      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
+      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
+      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
+      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
+      "evidence_level": "PARTIAL",
+      "output_format": {
+        "decimals": 3,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
+    },
+    {
+      "id": "out_terminal_pv",
+      "name": "Terminal Value (Present Value)",
+      "symbol": "TV_PV",
+      "quantity_kind": "dimensionless",
+      "base_unit": "ratio",
+      "allowed_display_units": [
+        "ratio",
+        "percent"
+      ],
+      "type": "number",
+      "formula_source": "F_engine",
+      "decision_use": "DIAGNOSTIC",
+      "proof_status_role": "DEMAND",
+      "acceptance_threshold": "Server-configured threshold; public report shows status and margin, not protected formula expression.",
+      "review_threshold": "Review if uncertainty band, utilization, missing evidence, or range deviation approaches the server threshold.",
+      "failure_threshold": "Block or reject when physical bound, evidence, redaction, or deterministic validity gate fails.",
+      "governing_clause": "No clause invented; project checker must map exact clause if required.",
+      "governing_formula": "F_engine",
+      "governing_input_sensitivity": [
+        "critical measured input",
+        "evidence confidence",
+        "uncertainty contribution",
+        "commercial exposure"
+      ],
+      "public_explanation": "Terminal Value — present value of the residual value and recovered working capital.",
+      "operator_explanation": "Use this value to decide whether the job can proceed, must be held, or must be escalated.",
+      "engineer_explanation": "Review governing inputs, uncertainty band, derating basis, and threshold proximity before sign-off.",
+      "owner_cfo_explanation": "Use the metric to quantify money at risk, reprice exposure, or justify investment and corrective action.",
+      "checker_explanation": "Verify evidence trace, normalized input hash, formula version, and protected methodology before accepting the report.",
+      "hidden_risk_note": "A superficially acceptable value can flip if source evidence, unit selection, derating, or uncertainty is wrong.",
+      "suggested_action": "Follow the server-generated next action and escalate when result is REVIEW, HOLD, REPRICE, REJECT, or BLOCKED.",
+      "evidence_level": "PARTIAL",
+      "output_format": {
+        "decimals": 3,
+        "rounding": "DISPLAY_ONLY",
+        "show_unit": true
+      }
     }
   ],
   "output_formatting": {
@@ -3464,7 +2957,7 @@
     "type_a_support": true,
     "type_b_support": true,
     "combined_standard_uncertainty": "server-computed from registered sensitivity coefficients and source uncertainty contributors",
-    "expanded_uncertainty": "value \u00b1 expanded_uncertainty unit, k=coverage_factor",
+    "expanded_uncertainty": "value ± expanded_uncertainty unit, k=coverage_factor",
     "coverage_factor_policy": "user-verified or lab-policy value; no hidden default for critical output",
     "sensitivity_coefficients": "server registry only",
     "sensitivity_ranking_required": true,
@@ -4421,7 +3914,7 @@
   },
   "metadata": {
     "schema_version": "5.3.1-pro-schema.1",
-    "formula_version": "server-registry-required.1",
+    "formula_version": "5.3.2-domain.1",
     "prompt_version": "5.3.1",
     "generation_stage": "OFFLINE_ADMIN_OR_CI_SCHEMA_GENERATION_ONLY",
     "runtime_llm_usage": "FORBIDDEN",
@@ -4446,7 +3939,7 @@
         "id": "QG-001",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "schema contract",
-        "control_objective": "Verify schema contract control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify schema contract control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "schema contract failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for schema contract.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4457,7 +3950,7 @@
         "id": "QG-002",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "input evidence",
-        "control_objective": "Verify input evidence control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify input evidence control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "input evidence failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for input evidence.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4468,7 +3961,7 @@
         "id": "QG-003",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "unit safety",
-        "control_objective": "Verify unit safety control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify unit safety control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "unit safety failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for unit safety.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4479,7 +3972,7 @@
         "id": "QG-004",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "physical bounds",
-        "control_objective": "Verify physical bounds control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify physical bounds control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "physical bounds failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for physical bounds.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4490,7 +3983,7 @@
         "id": "QG-005",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "engineering reference range",
-        "control_objective": "Verify engineering reference range control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify engineering reference range control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "engineering reference range failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for engineering reference range.",
         "reversibility": "REQUIRES_ENGINEERING_REVIEW_BEFORE_RELEASE",
@@ -4501,7 +3994,7 @@
         "id": "QG-006",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "formula registry",
-        "control_objective": "Verify formula registry control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify formula registry control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "formula registry failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for formula registry.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4512,7 +4005,7 @@
         "id": "QG-007",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "server execution",
-        "control_objective": "Verify server execution control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify server execution control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "server execution failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for server execution.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4523,7 +4016,7 @@
         "id": "QG-008",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "redaction",
-        "control_objective": "Verify redaction control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify redaction control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "redaction failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for redaction.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4534,7 +4027,7 @@
         "id": "QG-009",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "uncertainty",
-        "control_objective": "Verify uncertainty control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify uncertainty control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "uncertainty failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for uncertainty.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4545,7 +4038,7 @@
         "id": "QG-010",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "FMEA",
-        "control_objective": "Verify FMEA control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify FMEA control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "FMEA failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for FMEA.",
         "reversibility": "REQUIRES_ENGINEERING_REVIEW_BEFORE_RELEASE",
@@ -4556,7 +4049,7 @@
         "id": "QG-011",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "business impact",
-        "control_objective": "Verify business impact control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify business impact control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "business impact failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for business impact.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4567,7 +4060,7 @@
         "id": "QG-012",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "audit seal",
-        "control_objective": "Verify audit seal control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify audit seal control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "audit seal failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for audit seal.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4578,7 +4071,7 @@
         "id": "QG-013",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "proof pack",
-        "control_objective": "Verify proof pack control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify proof pack control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "proof pack failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for proof pack.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4589,7 +4082,7 @@
         "id": "QG-014",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "accessibility",
-        "control_objective": "Verify accessibility control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify accessibility control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "accessibility failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for accessibility.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4600,7 +4093,7 @@
         "id": "QG-015",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "root-only routing",
-        "control_objective": "Verify root-only routing control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify root-only routing control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "root-only routing failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for root-only routing.",
         "reversibility": "REQUIRES_ENGINEERING_REVIEW_BEFORE_RELEASE",
@@ -4611,7 +4104,7 @@
         "id": "QG-016",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "non-English guard",
-        "control_objective": "Verify non-English guard control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify non-English guard control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "non-English guard failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for non-English guard.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4622,7 +4115,7 @@
         "id": "QG-017",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "brand safety",
-        "control_objective": "Verify brand safety control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify brand safety control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "brand safety failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for brand safety.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4633,7 +4126,7 @@
         "id": "QG-018",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "golden hashes",
-        "control_objective": "Verify golden hashes control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify golden hashes control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "golden hashes failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for golden hashes.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4644,7 +4137,7 @@
         "id": "QG-019",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "schema contract",
-        "control_objective": "Verify schema contract control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify schema contract control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "schema contract failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for schema contract.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4655,7 +4148,7 @@
         "id": "QG-020",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "input evidence",
-        "control_objective": "Verify input evidence control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify input evidence control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "input evidence failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for input evidence.",
         "reversibility": "REQUIRES_ENGINEERING_REVIEW_BEFORE_RELEASE",
@@ -4666,7 +4159,7 @@
         "id": "QG-021",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "unit safety",
-        "control_objective": "Verify unit safety control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify unit safety control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "unit safety failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for unit safety.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4677,7 +4170,7 @@
         "id": "QG-022",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "physical bounds",
-        "control_objective": "Verify physical bounds control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify physical bounds control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "physical bounds failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for physical bounds.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4688,7 +4181,7 @@
         "id": "QG-023",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "engineering reference range",
-        "control_objective": "Verify engineering reference range control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify engineering reference range control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "engineering reference range failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for engineering reference range.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4699,7 +4192,7 @@
         "id": "QG-024",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "formula registry",
-        "control_objective": "Verify formula registry control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify formula registry control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "formula registry failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for formula registry.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4710,7 +4203,7 @@
         "id": "QG-025",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "server execution",
-        "control_objective": "Verify server execution control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify server execution control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "server execution failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for server execution.",
         "reversibility": "REQUIRES_ENGINEERING_REVIEW_BEFORE_RELEASE",
@@ -4721,7 +4214,7 @@
         "id": "QG-026",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "redaction",
-        "control_objective": "Verify redaction control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify redaction control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "redaction failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for redaction.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4732,7 +4225,7 @@
         "id": "QG-027",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "uncertainty",
-        "control_objective": "Verify uncertainty control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify uncertainty control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "uncertainty failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for uncertainty.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4743,7 +4236,7 @@
         "id": "QG-028",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "FMEA",
-        "control_objective": "Verify FMEA control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify FMEA control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "FMEA failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for FMEA.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4754,7 +4247,7 @@
         "id": "QG-029",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "business impact",
-        "control_objective": "Verify business impact control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify business impact control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "business impact failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for business impact.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4765,7 +4258,7 @@
         "id": "QG-030",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "audit seal",
-        "control_objective": "Verify audit seal control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify audit seal control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "audit seal failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for audit seal.",
         "reversibility": "REQUIRES_ENGINEERING_REVIEW_BEFORE_RELEASE",
@@ -4776,7 +4269,7 @@
         "id": "QG-031",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "proof pack",
-        "control_objective": "Verify proof pack control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify proof pack control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "proof pack failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for proof pack.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4787,7 +4280,7 @@
         "id": "QG-032",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "accessibility",
-        "control_objective": "Verify accessibility control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify accessibility control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "accessibility failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for accessibility.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4798,7 +4291,7 @@
         "id": "QG-033",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "root-only routing",
-        "control_objective": "Verify root-only routing control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify root-only routing control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "root-only routing failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for root-only routing.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4809,7 +4302,7 @@
         "id": "QG-034",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "non-English guard",
-        "control_objective": "Verify non-English guard control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify non-English guard control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "non-English guard failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for non-English guard.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4820,7 +4313,7 @@
         "id": "QG-035",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "brand safety",
-        "control_objective": "Verify brand safety control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify brand safety control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "brand safety failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for brand safety.",
         "reversibility": "REQUIRES_ENGINEERING_REVIEW_BEFORE_RELEASE",
@@ -4831,7 +4324,7 @@
         "id": "QG-036",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "golden hashes",
-        "control_objective": "Verify golden hashes control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify golden hashes control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "golden hashes failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for golden hashes.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4842,7 +4335,7 @@
         "id": "QG-037",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "schema contract",
-        "control_objective": "Verify schema contract control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify schema contract control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "schema contract failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for schema contract.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4853,7 +4346,7 @@
         "id": "QG-038",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "input evidence",
-        "control_objective": "Verify input evidence control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify input evidence control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "input evidence failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for input evidence.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4864,7 +4357,7 @@
         "id": "QG-039",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "unit safety",
-        "control_objective": "Verify unit safety control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify unit safety control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "unit safety failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for unit safety.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4875,7 +4368,7 @@
         "id": "QG-040",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "physical bounds",
-        "control_objective": "Verify physical bounds control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify physical bounds control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "physical bounds failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for physical bounds.",
         "reversibility": "REQUIRES_ENGINEERING_REVIEW_BEFORE_RELEASE",
@@ -4886,7 +4379,7 @@
         "id": "QG-041",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "engineering reference range",
-        "control_objective": "Verify engineering reference range control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify engineering reference range control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "engineering reference range failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for engineering reference range.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4897,7 +4390,7 @@
         "id": "QG-042",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "formula registry",
-        "control_objective": "Verify formula registry control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify formula registry control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "formula registry failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for formula registry.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4908,7 +4401,7 @@
         "id": "QG-043",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "server execution",
-        "control_objective": "Verify server execution control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify server execution control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "server execution failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for server execution.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4919,7 +4412,7 @@
         "id": "QG-044",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "redaction",
-        "control_objective": "Verify redaction control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify redaction control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "redaction failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for redaction.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4930,7 +4423,7 @@
         "id": "QG-045",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "uncertainty",
-        "control_objective": "Verify uncertainty control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify uncertainty control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "uncertainty failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for uncertainty.",
         "reversibility": "REQUIRES_ENGINEERING_REVIEW_BEFORE_RELEASE",
@@ -4941,7 +4434,7 @@
         "id": "QG-046",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "FMEA",
-        "control_objective": "Verify FMEA control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify FMEA control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "FMEA failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for FMEA.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4952,7 +4445,7 @@
         "id": "QG-047",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "business impact",
-        "control_objective": "Verify business impact control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify business impact control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "business impact failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for business impact.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4963,7 +4456,7 @@
         "id": "QG-048",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "audit seal",
-        "control_objective": "Verify audit seal control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify audit seal control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "audit seal failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for audit seal.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4974,7 +4467,7 @@
         "id": "QG-049",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "proof pack",
-        "control_objective": "Verify proof pack control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify proof pack control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "proof pack failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for proof pack.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -4985,7 +4478,7 @@
         "id": "QG-050",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "accessibility",
-        "control_objective": "Verify accessibility control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify accessibility control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "accessibility failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for accessibility.",
         "reversibility": "REQUIRES_ENGINEERING_REVIEW_BEFORE_RELEASE",
@@ -4996,7 +4489,7 @@
         "id": "QG-051",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "root-only routing",
-        "control_objective": "Verify root-only routing control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify root-only routing control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "root-only routing failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for root-only routing.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -5007,7 +4500,7 @@
         "id": "QG-052",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "non-English guard",
-        "control_objective": "Verify non-English guard control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify non-English guard control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "non-English guard failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for non-English guard.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -5018,7 +4511,7 @@
         "id": "QG-053",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "brand safety",
-        "control_objective": "Verify brand safety control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify brand safety control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "brand safety failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for brand safety.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -5029,7 +4522,7 @@
         "id": "QG-054",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "golden hashes",
-        "control_objective": "Verify golden hashes control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify golden hashes control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "golden hashes failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for golden hashes.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -5040,7 +4533,7 @@
         "id": "QG-055",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "schema contract",
-        "control_objective": "Verify schema contract control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify schema contract control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "schema contract failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for schema contract.",
         "reversibility": "REQUIRES_ENGINEERING_REVIEW_BEFORE_RELEASE",
@@ -5051,7 +4544,7 @@
         "id": "QG-056",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "input evidence",
-        "control_objective": "Verify input evidence control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify input evidence control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "input evidence failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for input evidence.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -5062,7 +4555,7 @@
         "id": "QG-057",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "unit safety",
-        "control_objective": "Verify unit safety control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify unit safety control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "unit safety failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for unit safety.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -5073,7 +4566,7 @@
         "id": "QG-058",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "physical bounds",
-        "control_objective": "Verify physical bounds control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify physical bounds control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "physical bounds failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for physical bounds.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -5084,7 +4577,7 @@
         "id": "QG-059",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "engineering reference range",
-        "control_objective": "Verify engineering reference range control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify engineering reference range control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "engineering reference range failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for engineering reference range.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -5095,7 +4588,7 @@
         "id": "QG-060",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "formula registry",
-        "control_objective": "Verify formula registry control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify formula registry control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "formula registry failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for formula registry.",
         "reversibility": "REQUIRES_ENGINEERING_REVIEW_BEFORE_RELEASE",
@@ -5106,7 +4599,7 @@
         "id": "QG-061",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "server execution",
-        "control_objective": "Verify server execution control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify server execution control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "server execution failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for server execution.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -5117,7 +4610,7 @@
         "id": "QG-062",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "redaction",
-        "control_objective": "Verify redaction control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify redaction control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "redaction failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for redaction.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -5128,7 +4621,7 @@
         "id": "QG-063",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "uncertainty",
-        "control_objective": "Verify uncertainty control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify uncertainty control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "uncertainty failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for uncertainty.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -5139,7 +4632,7 @@
         "id": "QG-064",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "FMEA",
-        "control_objective": "Verify FMEA control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify FMEA control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "FMEA failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for FMEA.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -5150,7 +4643,7 @@
         "id": "QG-065",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "business impact",
-        "control_objective": "Verify business impact control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify business impact control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "business impact failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for business impact.",
         "reversibility": "REQUIRES_ENGINEERING_REVIEW_BEFORE_RELEASE",
@@ -5161,7 +4654,7 @@
         "id": "QG-066",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "audit seal",
-        "control_objective": "Verify audit seal control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify audit seal control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "audit seal failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for audit seal.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -5172,7 +4665,7 @@
         "id": "QG-067",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "proof pack",
-        "control_objective": "Verify proof pack control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify proof pack control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "proof pack failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for proof pack.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -5183,7 +4676,7 @@
         "id": "QG-068",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "accessibility",
-        "control_objective": "Verify accessibility control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify accessibility control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "accessibility failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for accessibility.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -5194,7 +4687,7 @@
         "id": "QG-069",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "root-only routing",
-        "control_objective": "Verify root-only routing control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify root-only routing control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "root-only routing failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for root-only routing.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -5205,7 +4698,7 @@
         "id": "QG-070",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "non-English guard",
-        "control_objective": "Verify non-English guard control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify non-English guard control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "non-English guard failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for non-English guard.",
         "reversibility": "REQUIRES_ENGINEERING_REVIEW_BEFORE_RELEASE",
@@ -5216,7 +4709,7 @@
         "id": "QG-071",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "brand safety",
-        "control_objective": "Verify brand safety control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify brand safety control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "brand safety failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for brand safety.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -5227,7 +4720,7 @@
         "id": "QG-072",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "golden hashes",
-        "control_objective": "Verify golden hashes control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify golden hashes control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "golden hashes failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for golden hashes.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -5238,7 +4731,7 @@
         "id": "QG-073",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "schema contract",
-        "control_objective": "Verify schema contract control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify schema contract control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "schema contract failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for schema contract.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -5249,7 +4742,7 @@
         "id": "QG-074",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "input evidence",
-        "control_objective": "Verify input evidence control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify input evidence control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "input evidence failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for input evidence.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -5260,7 +4753,7 @@
         "id": "QG-075",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "unit safety",
-        "control_objective": "Verify unit safety control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify unit safety control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "unit safety failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for unit safety.",
         "reversibility": "REQUIRES_ENGINEERING_REVIEW_BEFORE_RELEASE",
@@ -5271,7 +4764,7 @@
         "id": "QG-076",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "physical bounds",
-        "control_objective": "Verify physical bounds control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify physical bounds control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "physical bounds failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for physical bounds.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -5282,7 +4775,7 @@
         "id": "QG-077",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "engineering reference range",
-        "control_objective": "Verify engineering reference range control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify engineering reference range control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "engineering reference range failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for engineering reference range.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -5293,7 +4786,7 @@
         "id": "QG-078",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "formula registry",
-        "control_objective": "Verify formula registry control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify formula registry control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "formula registry failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for formula registry.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -5304,7 +4797,7 @@
         "id": "QG-079",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "server execution",
-        "control_objective": "Verify server execution control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify server execution control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "server execution failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for server execution.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -5315,7 +4808,7 @@
         "id": "QG-080",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "redaction",
-        "control_objective": "Verify redaction control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify redaction control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "redaction failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for redaction.",
         "reversibility": "REQUIRES_ENGINEERING_REVIEW_BEFORE_RELEASE",
@@ -5326,7 +4819,7 @@
         "id": "QG-081",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "uncertainty",
-        "control_objective": "Verify uncertainty control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify uncertainty control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "uncertainty failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for uncertainty.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -5337,7 +4830,7 @@
         "id": "QG-082",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "FMEA",
-        "control_objective": "Verify FMEA control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify FMEA control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "FMEA failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for FMEA.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -5348,7 +4841,7 @@
         "id": "QG-083",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "business impact",
-        "control_objective": "Verify business impact control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify business impact control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "business impact failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for business impact.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -5359,7 +4852,7 @@
         "id": "QG-084",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "audit seal",
-        "control_objective": "Verify audit seal control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify audit seal control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "audit seal failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for audit seal.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
@@ -5370,7 +4863,7 @@
         "id": "QG-085",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "proof pack",
-        "control_objective": "Verify proof pack control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify proof pack control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "proof pack failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for proof pack.",
         "reversibility": "REQUIRES_ENGINEERING_REVIEW_BEFORE_RELEASE",
@@ -5381,7 +4874,7 @@
         "id": "QG-086",
         "tool_key": "capital-equipment-investment-appraisal-npv-irr",
         "control_theme": "accessibility",
-        "control_objective": "Verify accessibility control for Capital Equipment Investment Appraisal \u2014 NPV/IRR before production approval.",
+        "control_objective": "Verify accessibility control for Capital Equipment Investment Appraisal — NPV/IRR before production approval.",
         "failure_mode": "accessibility failure could create a false PASS, unsupported output, or non-reproducible decision record.",
         "mitigation": "Run deterministic validation, evidence review, and server-only execution checks for accessibility.",
         "reversibility": "REVERSIBLE_CONFIG_CHANGE",
