@@ -45,14 +45,10 @@ export default function NextActionPDCA({
     <section
       id="next-action"
       className="mt-8 border-l-4 border-green-600 bg-green-50 p-4"
-      itemProp="step"
-      itemScope
-      itemType="https://schema.org/HowToStep"
     >
       <h3 className="font-bold text-[#1A1915] text-base mb-2">
         Clear Next Action (PDCA: Act)
       </h3>
-      <meta itemProp="position" content="3" />
       <p className="text-[#1A1915] text-sm leading-relaxed">{actionDetail}</p>
       <a
         href={a3Link}

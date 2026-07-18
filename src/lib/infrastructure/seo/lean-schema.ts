@@ -1,13 +1,14 @@
 /**
- * Lean-Calc Schema.org Hybrid Architecture — INV-14
+ * Lean-Calc Schema.org Architecture — v2.1 (2026-compliant)
  *
- * Generates a @graph combining HowTo (educational) + SoftwareApplication (tool)
- * for every lean calculator page. This dual schema signals Google to treat the
- * page as both a guided procedure AND an interactive tool — maximizing AI Overview
- * eligibility for "How to calculate X for Lean Y" queries.
+ * §15.3 Compliance: HowTo rich results deprecated in 2026.
+ * Page type: SoftwareApplication + WebPage + BreadcrumbList.
  *
- * The citation to lean.org creates a semantic bridge that anchors SectorCalc.come
- * in the Lean Manufacturing Knowledge Graph, inheriting lean.org's topical authority.
+ * Unified @graph JSON-LD for each lean calculation page.
+ * Educational content (steps) is preserved under CreativeWork/hasPart,
+ * but the deprecated HowTo rich result type is NOT used.
+ *
+ * Lean.org citation is preserved as SoftwareApplication.citation.
  */
 
 import type { LeanCalcEntry } from "@/lib/features/tools/lean-calc-registry";
@@ -19,8 +20,11 @@ export interface LeanCalcSchemaInput {
 }
 
 /**
- * Build the unified HowTo + SoftwareApplication @graph JSON-LD
+ * Build the unified SoftwareApplication + WebPage @graph JSON-LD
  * for a specific lean calculation page.
+ *
+ * §15.4 Page-role matrisi (Tool/SaaS):
+ *   Zorunlu: SoftwareApplication, WebPage, Breadcrumb
  */
 export function buildLeanCalcGraph(input: LeanCalcSchemaInput): JsonLdRecord {
   const { entry } = input;
@@ -29,72 +33,30 @@ export function buildLeanCalcGraph(input: LeanCalcSchemaInput): JsonLdRecord {
   return sanitizeJsonLd({
     "@context": "https://schema.org",
     "@graph": [
-      // === HOW-TO: Educational/guide signal ===
+      // === SOFTWARE APPLICATION: Primary tool signal ===
       {
-        "@type": "HowTo",
-        name: `How to calculate ${entry.metric.name} for ${entry.concept.name}`,
+        "@type": "SoftwareApplication",
+        "@id": `${canonicalUrl}/#app`,
+        name: `SectorCalc ${entry.metric.name} Engine for Lean Manufacturing`,
+        url: canonicalUrl,
+        applicationCategory: "BusinessApplication,EngineeringApplication",
+        operatingSystem: "Web, Mobile",
+        inLanguage: "en",
         description: entry.description,
         about: {
           "@type": "Thing",
           name: entry.metric.name,
           description: entry.metric.description,
         },
-        educationalLevel: "Professional",
-        learningResourceType: "How-to guide",
-        step: [
-          {
-            "@type": "HowToStep",
-            position: 1,
-            name: "Gather Gemba Data",
-            text: `Collect actual ${entry.metric.name.toLowerCase()} inputs from the shop floor. ${entry.concept.description}`,
-          },
-          {
-            "@type": "HowToStep",
-            position: 2,
-            name: "Execute Calculation",
-            text: `Enter values into the SectorCalc ${entry.metric.name} structured input tool below for immediate deterministic results. Formula: ${entry.metric.formula}.`,
-          },
-          {
-            "@type": "HowToStep",
-            position: 3,
-            name: "Act on Results",
-            text: `Compare result to target. If below target, initiate an A3 Problem Solving report. If above, standardize and update the Gemba control plan.`,
-          },
-        ],
-        tool: {
-          "@type": "SoftwareApplication",
-          "@id": `${canonicalUrl}/#app`,
-          name: `SectorCalc ${entry.metric.name} Engine for Lean Manufacturing`,
-          applicationCategory: "BusinessApplication",
-          inLanguage: "en",
-          operatingSystem: "Web, Mobile",
-          description: entry.description,
-          citation: {
-            "@type": "CreativeWork",
-            name: "Lean Thinking & Practice Principles",
-            url: "https://www.lean.org/",
-          },
-          potentialAction: {
-            "@type": "CalculateAction",
-            name: `Calculate ${entry.metric.name}`,
-            description: `Deterministic ${entry.metric.name} calculation based on lean manufacturing methodology.`,
-          },
+        citation: {
+          "@type": "CreativeWork",
+          name: "Lean Thinking & Practice Principles",
+          url: "https://www.lean.org/",
         },
-      },
-      // === SOFTWARE APPLICATION: Tool/interactive signal ===
-      {
-        "@type": "WebApplication",
-        "@id": `${canonicalUrl}/#lean-app`,
-        name: entry.title,
-        url: canonicalUrl,
-        inLanguage: "en",
-        applicationCategory: "BusinessApplication,EngineeringApplication",
-        operatingSystem: "Web, Mobile",
-        description: entry.description,
-        about: {
-          "@type": "Thing",
-          name: `${entry.concept.name} | Lean Manufacturing`,
-          sameAs: "https://www.lean.org/lexicon-terms/lean-manufacturing/",
+        potentialAction: {
+          "@type": "CalculateAction",
+          name: `Calculate ${entry.metric.name}`,
+          description: `Deterministic ${entry.metric.name} calculation based on lean manufacturing methodology. Formula: ${entry.metric.formula}.`,
         },
         knowsAbout: [
           "Lean Manufacturing",
@@ -103,6 +65,73 @@ export function buildLeanCalcGraph(input: LeanCalcSchemaInput): JsonLdRecord {
           "PDCA",
           "Gemba",
           "Muda Reduction",
+        ],
+      },
+      // === WEBPAGE: Page identity ===
+      {
+        "@type": "WebPage",
+        "@id": `${canonicalUrl}#webpage`,
+        url: canonicalUrl,
+        name: entry.title,
+        inLanguage: "en",
+        isPartOf: {
+          "@type": "WebSite",
+          "@id": `${SITE_URL}/#website`,
+          name: "SectorCalc",
+          url: SITE_URL,
+        },
+        about: {
+          "@type": "Thing",
+          name: `${entry.concept.name} | Lean Manufacturing`,
+          sameAs: "https://www.lean.org/lexicon-terms/lean-manufacturing/",
+        },
+        hasPart: [
+          {
+            "@type": "CreativeWork",
+            name: `Step 1: Gather Gemba Data`,
+            description: `Collect actual ${entry.metric.name.toLowerCase()} inputs from the shop floor. ${entry.concept.description}`,
+          },
+          {
+            "@type": "CreativeWork",
+            name: `Step 2: Execute Calculation`,
+            description: `Enter values into the SectorCalc ${entry.metric.name} structured input tool for immediate deterministic results. Formula: ${entry.metric.formula}.`,
+          },
+          {
+            "@type": "CreativeWork",
+            name: `Step 3: Act on Results`,
+            description: "Compare result to target. If below target, initiate an A3 Problem Solving report. If above, standardize and update the Gemba control plan.",
+          },
+        ],
+      },
+      // === BREADCRUMB: Hierarchy signal ===
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${canonicalUrl}#breadcrumb`,
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "SectorCalc",
+            item: SITE_URL,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Lean Manufacturing",
+            item: `${SITE_URL}/lean`,
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: entry.concept.name,
+            item: `${SITE_URL}/lean/${entry.concept.slug}`,
+          },
+          {
+            "@type": "ListItem",
+            position: 4,
+            name: entry.metric.name,
+            item: canonicalUrl,
+          },
         ],
       },
     ],

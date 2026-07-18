@@ -38,7 +38,7 @@ const REQUIRED_UX_MARKERS = [
 ];
 
 const REQUIRED_SCHEMA_MARKERS = [
-  '@type": "HowTo",',
+  'SoftwareApplication',
   "lean.org",
   "Clear Next Action",
 ];
@@ -128,7 +128,7 @@ function main(): void {
   console.log("[PASS] ALL Lean-UX invariants verified:");
   console.log(`  \u2022 Lean lexicon terms: ${REQUIRED_LEXICON.join(", ")}`);
   console.log(`  \u2022 UX markers: structured-inputs, immediate-result, next-action`);
-  console.log(`  \u2022 Schema markers: HowTo, lean.org, Clear Next Action`);
+  console.log(`  \u2022 Schema markers: SoftwareApplication, lean.org, Clear Next Action`);
   console.log(`  \u2022 Calculator page: present (generateStaticParams from matrix)`);
   console.log(`  \u2022 Registry: programmatic matrix generation active`);
   process.exit(0);

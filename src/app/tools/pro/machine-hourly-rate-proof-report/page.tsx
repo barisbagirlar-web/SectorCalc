@@ -20,6 +20,15 @@ export async function generateMetadata(): Promise<Metadata> {
       description:
         "Prove machine hourly rate using straight-line depreciation, maintenance, energy and fully-loaded labor — spread only across productive (non-idle) hours.",
     },
+    alternates: {
+      canonical: "https://sectorcalc.com/tools/pro/machine-hourly-rate-proof-report",
+      languages: {
+        en: "https://sectorcalc.com/en/tools/pro/machine-hourly-rate-proof-report",
+        "en-us": "https://sectorcalc.com/en/tools/pro/machine-hourly-rate-proof-report",
+        "en-gb": "https://sectorcalc.com/en/tools/pro/machine-hourly-rate-proof-report",
+        "x-default": "https://sectorcalc.com/tools/pro/machine-hourly-rate-proof-report",
+      },
+    },
   };
 }
 

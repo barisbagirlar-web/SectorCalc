@@ -20,21 +20,30 @@ export function isIndexable(): boolean {
 /* ----------------------------- Robots header ----------------------------- */
 
 /** Value for the X-Robots-Tag response header.
+ *  §6.2 — Indexable content default snippet policy:
  *  max-snippet:-1 = no character limit on search snippets
- *  max-image-preview:large = full-size image preview allowed */
+ *  max-image-preview:large = full-size image preview allowed
+ *  max-video-preview:-1 = no video preview limit */
 export const X_ROBOTS_TAG_HEADER = "X-Robots-Tag";
 export function xRobotsTagValue(): string {
-  return "index, follow, max-snippet:-1, max-image-preview:large";
+  return "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1";
 }
 
 /**
  * Next.js metadata.robots object. Always index,follow.
+ * §6.2 — Full snippet + media preview policy.
  */
 export function metadataRobots() {
   return {
     index: true,
     follow: true,
-    googleBot: { index: true, follow: true, "max-image-preview": "large" as const, "max-snippet": -1 },
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large" as const,
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   };
 }
 
