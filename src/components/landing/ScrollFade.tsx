@@ -8,7 +8,12 @@ export function ScrollFade({ children }: { children: React.ReactNode }) {
   useLayoutEffect(() => {
     const root = rootRef.current;
     if (!root) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    // Landing animations run on every device, including those with the OS
+    // "reduce motion" preference enabled (product decision).
+    // Enable JS-driven hiding only once we know the effect will run: without
+    // JS or on hydration failure, staggered content stays visible by default.
+    root.classList.add("sc-fade-ready");
 
     const sections = Array.from(root.querySelectorAll<HTMLElement>("[data-fade]"));
 
