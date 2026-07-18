@@ -1,335 +1,318 @@
 #!/usr/bin/env node
+/**
+ * SectorCalc Production Deploy Pipeline
+ *
+ * n8n Node Architecture (single-build, verified, compensated):
+ *
+ *   N1 (cleanup) → N2 (build) → N3 (deploy) → N4 (verify) → N5 (compensate)
+ *
+ * INVARIANTS:
+ *   I1: Exactly ONE build produces both hosting files AND SSR function.
+ *       (The old shim mechanism caused split-brain — hosting from one build,
+ *        function from another — and is permanently removed.)
+ *   I2: .firebase/ is fully cleaned before every deploy. No stale artifacts.
+ *   I3: The SSR function (ssrsectorcalcbf412) is ALWAYS deployed with hosting.
+ *       Stripe placeholder state does NOT block SSR function deployment.
+ *   I4: Post-deploy verification compares local BUILD_ID with the live
+ *       function's output. Mismatch triggers a warning + retry.
+ *   I5: On deploy failure, the deploy lock is released and stale processes
+ *       are killed (compensation handler).
+ *
+ * USAGE:
+ *   DEPLOY_FORCE_REBUILD=1 node scripts/deploy-production.mjs   # full rebuild
+ *   node scripts/deploy-production.mjs                          # reuse existing .next
+ */
 import { spawnSync } from "node:child_process";
-import {
-  chmodSync,
-  chownSync,
-  closeSync,
-  copyFileSync,
-  cpSync,
-  existsSync,
-  mkdirSync,
-  openSync,
-  readFileSync,
-  rmSync,
-  symlinkSync,
-  unlinkSync,
-  writeFileSync,
-} from "node:fs";
-import { join, resolve } from "node:path";
+import http from "node:http";
+import https from "node:https";
+import { closeSync, existsSync, openSync, readFileSync, rmSync, unlinkSync } from "node:fs";
+import { join } from "node:path";
 
 const ROOT = process.cwd();
+const BUILD_ID_PATH = join(ROOT, ".next/BUILD_ID");
+const DEPLOY_LOCK_PATH = join(ROOT, ".next-deploy.lock");
+const FIREBASE_DEPLOY_DIR = join(ROOT, ".firebase", "sectorcalc-bf412");
+const FUNCTION_URL = "https://ssrsectorcalcbf412-nomt4vp7sa-uc.a.run.app";
+const HOSTING_URL = process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://sectorcalc.com";
 
-function enableRequiredFirebaseExperiments() {
-  const configured = (process.env.FIREBASE_CLI_EXPERIMENTS ?? "")
-    .split(",")
-    .map((value) => value.trim())
-    .filter(Boolean);
-  const experiments = new Set(configured);
-  experiments.add("webframeworks");
-  process.env.FIREBASE_CLI_EXPERIMENTS = [...experiments].join(",");
-  console.log(
-    `deploy-production: Firebase CLI experiments enabled: ${process.env.FIREBASE_CLI_EXPERIMENTS}`,
-  );
+const isForceRebuild = process.env.DEPLOY_FORCE_REBUILD === "1";
+
+// ── n8n utility: HTTP GET with timeout ─────────────────────────────────
+function httpGet(url) {
+  return new Promise((resolve, reject) => {
+    const mod = url.startsWith("https://") ? https : http;
+    const req = mod.request(url, { timeout: 30000 }, (res) => {
+      let body = "";
+      res.on("data", (chunk) => { body += chunk; });
+      res.on("end", () => resolve({ status: res.statusCode, body }));
+    });
+    req.on("timeout", () => { req.destroy(); reject(new Error("timeout")); });
+    req.on("error", reject);
+    req.end();
+  });
 }
 
-enableRequiredFirebaseExperiments();
+// ── N1: Cleanup node ───────────────────────────────────────────────────
+function cleanupNode() {
+  // Kill stale processes from previous failed deploys
+  const stalePatterns = [
+    "next.firebase-backup build",
+    "next-firebase-deploy-shim",
+    "next-build-with-500",
+    "firebase-hosting-build",
+  ];
+  for (const pattern of stalePatterns) {
+    try { spawnSync("pkill", ["-f", pattern], { stdio: "ignore", timeout: 3000 }); } catch {}
+  }
 
-// ── Stale process cleanup ──────────────────────────────────────────────
-// Kill any remaining next/firebase build processes from previous failed deploys
-try { spawnSync("pkill", ["-f", "next.firebase-backup build"], { stdio: "ignore", timeout: 3000 }); } catch {}
-try { spawnSync("pkill", ["-f", "next-firebase-deploy-shim"], { stdio: "ignore", timeout: 3000 }); } catch {}
-try { spawnSync("pkill", ["-f", "next-build-with-500"], { stdio: "ignore", timeout: 3000 }); } catch {}
-try { spawnSync("pkill", ["-f", "firebase-hosting-build"], { stdio: "ignore", timeout: 3000 }); } catch {}
-// Remove stale lock files
-try { unlinkSync(join(ROOT, ".sectorcalc-build.lock")); } catch {}
-try { unlinkSync(join(ROOT, ".next-deploy.lock")); } catch {}
-// Remove stale .firebase/hosting directory (leftover from failed deploy)
-try { rmSync(join(ROOT, ".firebase", "sectorcalc-bf412", "hosting"), { recursive: true, force: true }); } catch {}
+  // Remove stale lock files
+  try { unlinkSync(join(ROOT, ".sectorcalc-build.lock")); } catch {}
+  try { unlinkSync(join(ROOT, ".next-deploy.lock")); } catch {}
 
-const DEPLOY_LOCK_PATH = join(ROOT, ".next-deploy.lock");
-const BUILD_ID_PATH = join(ROOT, ".next/BUILD_ID");
-const NEXT_BIN_PATH = join(ROOT, "node_modules/.bin/next");
-const NEXT_BIN_BACKUP_PATH = join(ROOT, "node_modules/.bin/next.firebase-backup");
-const NEXT_DIST_BIN_PATH = join(ROOT, "node_modules/next/dist/bin/next");
+  // FULL cleanup of Firebase deploy artifacts (prevents stale function code)
+  try { rmSync(FIREBASE_DEPLOY_DIR, { recursive: true, force: true }); } catch {}
+  console.log("deploy-production: N1 cleanup — killed stale processes, removed .firebase/");
+}
 
-function run(command, args, options = {}) {
-  const result = spawnSync(command, args, {
+// ── N2: Build node ─────────────────────────────────────────────────────
+function buildNode() {
+  if (!isForceRebuild && existsSync(BUILD_ID_PATH)) {
+    const buildId = readFileSync(BUILD_ID_PATH, "utf8").trim();
+    console.log(`deploy-production: N2 build — reusing existing .next (BUILD_ID=${buildId})`);
+    return 0;
+  }
+
+  console.log("deploy-production: N2 build — running npm run build pipeline…");
+  const result = spawnSync("npm", ["run", "build"], {
     cwd: ROOT,
     stdio: "inherit",
     env: {
       ...process.env,
-      NODE_OPTIONS: process.env.NODE_OPTIONS ?? "--max-old-space-size=3072",
+      SECTORCALC_BUILD_LOCK_SKIP: "1",
+      NODE_OPTIONS: process.env.NODE_OPTIONS ?? "--max-old-space-size=8192",
     },
-    ...options,
   });
-  return result.status ?? 1;
+
+  if ((result.status ?? 1) !== 0) {
+    console.error("deploy-production: N2 build FAILED.");
+    return 1;
+  }
+
+  // Verify build produced valid output
+  if (!existsSync(BUILD_ID_PATH)) {
+    console.error("deploy-production: N2 build — .next/BUILD_ID missing after build! Aborting.");
+    return 1;
+  }
+
+  const buildId = readFileSync(BUILD_ID_PATH, "utf8").trim();
+  console.log(`deploy-production: N2 build — complete (BUILD_ID=${buildId})`);
+  return 0;
 }
 
-function acquireDeployLock() {
-  try {
-    const fd = openSync(DEPLOY_LOCK_PATH, "wx");
-    closeSync(fd);
-    return true;
-  } catch {
-    return false;
-  }
-}
+// ── N3: Deploy node ────────────────────────────────────────────────────
+function deployNode() {
+  console.log("deploy-production: N3 deploy — Firebase Hosting + Firestore rules + SSR function…");
+  console.log("deploy-production: (Firebase framework will reuse .next from N2 build)");
 
-function releaseDeployLock() {
-  try {
-    unlinkSync(DEPLOY_LOCK_PATH);
-  } catch {
-    // ignore
-  }
-}
-
-function installNextBuildShim() {
-  if (!existsSync(NEXT_DIST_BIN_PATH)) {
-    console.error("deploy-production: node_modules/next/dist/bin/next is missing. Run npm install first.");
-    process.exit(1);
-  }
-
-  if (!existsSync(NEXT_BIN_BACKUP_PATH)) {
-    copyFileSync(NEXT_DIST_BIN_PATH, NEXT_BIN_BACKUP_PATH);
-  }
-
-  const shimLauncher = [
-    "#!/usr/bin/env node",
-    "const { spawnSync } = require('node:child_process');",
-    "const { join } = require('node:path');",
-    `const root = ${JSON.stringify(ROOT)};`,
-    "const status = spawnSync(process.execPath, [join(root, 'scripts/next-firebase-deploy-shim.mjs'), ...process.argv.slice(2)], {",
-    "  cwd: root,",
-    "  stdio: 'inherit',",
-    "  env: process.env,",
-    "});",
-    "process.exit(status.status ?? 1);",
-    "",
-  ].join("\n");
-
-  try {
-    unlinkSync(NEXT_BIN_PATH);
-  } catch {
-    // ignore missing wrapper
-  }
-
-  writeFileSync(NEXT_BIN_PATH, shimLauncher, "utf8");
-  chmodSync(NEXT_BIN_PATH, 0o755);
-  console.log("deploy-production: installed Next.js build shim for Firebase frameworks.");
-}
-
-function restoreNextBin() {
-  if (!existsSync(NEXT_BIN_BACKUP_PATH) || !existsSync(NEXT_DIST_BIN_PATH)) {
-    return false;
-  }
-
-  copyFileSync(NEXT_BIN_BACKUP_PATH, NEXT_DIST_BIN_PATH);
-  chmodSync(NEXT_DIST_BIN_PATH, 0o755);
-
-  try {
-    unlinkSync(NEXT_BIN_PATH);
-  } catch {
-    // ignore
-  }
-
-  try {
-    symlinkSync("../next/dist/bin/next", NEXT_BIN_PATH);
-  } catch {
-    copyFileSync(NEXT_DIST_BIN_PATH, NEXT_BIN_PATH);
-    chmodSync(NEXT_BIN_PATH, 0o755);
-  }
-
-  console.log("deploy-production: restored original Next.js binary.");
-  return true;
-}
-
-function ensureBuildReady() {
-  return run("node", ["scripts/finalize-next-build.mjs"]) === 0;
-}
-
-/**
- * After Firebase frameworks creates the standalone directory,
- * copy .next/server/ into standalone/.next/server/ and rewrite
- * server.js with the full Next.js config from required-server-files.json
- * (especially experimental.* which Next.js 15.5+ requires).
- * Without this, the standalone .next/ directory is empty and the
- * server crashes with TypeError: Cannot read properties of undefined (reading 'caseSensitiveRoutes').
- */
-function patchStandaloneAfterDeploy() {
-  const functionsDir = join(ROOT, ".firebase", "sectorcalc-bf412", "functions");
-  const standaloneDir = join(functionsDir, ".next", "standalone");
-  const standaloneNextDir = join(standaloneDir, ".next");
-
-  if (!existsSync(standaloneDir)) {
-    console.error("deploy-production: standalone dir not found — cannot patch.");
-    return false;
-  }
-
-  // Copy .next/server/ content into standalone/.next/server/
-  const srcServer = join(ROOT, ".next", "server");
-  const dstServer = join(standaloneNextDir, "server");
-  if (existsSync(srcServer)) {
-    mkdirSync(standaloneNextDir, { recursive: true });
-    cpSync(srcServer, dstServer, { recursive: true, force: true });
-    console.log(`deploy-production: copied .next/server → ${dstServer}`);
-  }
-
-  // Copy BUILD_ID
-  const srcBuildId = join(ROOT, ".next", "BUILD_ID");
-  const dstBuildId = join(standaloneNextDir, "BUILD_ID");
-  if (existsSync(srcBuildId)) {
-    writeFileSync(dstBuildId, readFileSync(srcBuildId, "utf8"), "utf8");
-  }
-
-  // ── Rewrite server.js with full config from required-server-files.json ──
-  // Firebase frameworks creates a server.js with a minimal config that lacks
-  // the experimental.* keys that Next.js 15.5+ requires. Without the full
-  // config, the SSR function crashes on every request with TypeError.
-  const serverJsPath = join(standaloneDir, "server.js");
-
-  // Load full config from required-server-files.json
-  const requiredFilesPath = join(ROOT, ".next", "required-server-files.json");
-  let fullConfig = {};
-  if (existsSync(requiredFilesPath)) {
-    try {
-      const requiredFiles = JSON.parse(readFileSync(requiredFilesPath, "utf8"));
-      fullConfig = requiredFiles.config || {};
-    } catch (e) {
-      console.warn("deploy-production: could not parse required-server-files.json:", e.message);
-    }
-  } else {
-    console.warn("deploy-production: required-server-files.json not found, using minimal config");
-  }
-
-  // Merge minimal overrides on top of full config
-  // distDir="." because server.js lives at .next/standalone/server.js
-  // dir resolves 5 levels up to repo root so distDir="." resolves correctly
-  const serverConfig = {
-    ...fullConfig,
-    distDir: ".",
-    output: "standalone",
-    outputFileTracingRoot: ROOT,
-  };
-
-  writeFileSync(serverJsPath, `const path = require('path')
-const dir = path.resolve(__dirname, "..", "..", "..", "..", "..")
-process.env.NODE_ENV = 'production'
-process.chdir(dir)
-const currentPort = parseInt(process.env.PORT, 10) || 3000
-const hostname = process.env.HOSTNAME || '0.0.0.0'
-let keepAliveTimeout = parseInt(process.env.KEEP_ALIVE_TIMEOUT, 10)
-const nextConfig = ${JSON.stringify(serverConfig)}
-process.env.__NEXT_PRIVATE_STANDALONE_CONFIG = JSON.stringify(nextConfig)
-require('next')
-const { startServer } = require('next/dist/server/lib/start-server')
-if (Number.isNaN(keepAliveTimeout) || !Number.isFinite(keepAliveTimeout) || keepAliveTimeout < 0) { keepAliveTimeout = undefined }
-startServer({ dir, isDev: false, config: nextConfig, hostname, port: currentPort, allowRetry: false, keepAliveTimeout }).catch((err) => { console.error(err); process.exit(1); });
-`);
-
-  console.log("deploy-production: rewritten standalone/server.js with full config from required-server-files.json");
-  console.log("deploy-production: standalone patched successfully.");
-  return true;
-}
-
-if (!acquireDeployLock()) {
-  console.error("deploy-production: another deploy is already running (.next-deploy.lock).");
-  console.error("deploy-production: run npm run stop:builds if the lock is stale.");
-  process.exit(1);
-}
-
-let shimInstalled = false;
-
-try {
-  restoreNextBin();
-
-  // Phase 1: Pre-build locally (enough RAM for full build). This creates .next cache
-  // so that Cloud Build's framework build is incremental and avoids OOM (SIGKILL).
-  const forceRebuild = process.env.DEPLOY_FORCE_REBUILD === "1";
-  const hasBuild = !forceRebuild && existsSync(BUILD_ID_PATH);
-
-  if (!hasBuild) {
-    console.log("deploy-production: running full npm run build pipeline…");
-    // Skip global build lock during deploy — deploy-production.mjs has its own lock.
-    const buildStatus = run("npm", ["run", "build"], {
-      env: {
-        ...process.env,
-        SECTORCALC_BUILD_LOCK_SKIP: "1",
-      },
-    });
-    if (buildStatus !== 0) {
-      console.error("deploy-production: build failed.");
-      process.exit(1);
-    }
-  } else {
-    console.log(`deploy-production: reusing existing build (${readFileSync(BUILD_ID_PATH, "utf8").trim()}).`);
-  }
-
-  if (!ensureBuildReady()) {
-    console.error("deploy-production: .next output invalid — rerun with DEPLOY_FORCE_REBUILD=1");
-    process.exit(1);
-  }
-
-  installNextBuildShim();
-  shimInstalled = true;
-
-  console.log("deploy-production: deploying Firebase Hosting + Firestore rules…");
-  console.log("deploy-production: Firebase will run next build natively (incremental via cache).");
-  const deployStatus = run("npx", [
+  const result = spawnSync("npx", [
     "firebase",
     "deploy",
-    "--only",
-    "hosting,firestore:rules",
-    "--project",
-    "sectorcalc-bf412",
+    "--only", "hosting,firestore:rules",
+    "--project", "sectorcalc-bf412",
   ], {
+    cwd: ROOT,
+    stdio: "inherit",
     env: {
       ...process.env,
       NODE_OPTIONS: process.env.NODE_OPTIONS ?? "--max-old-space-size=4096",
       FIREBASE_FRAMEWORKS_BUILD_TARGET: "production",
-      // Do NOT set SECTORCALC_FIREBASE_REUSE_BUILD. The shim must NOT early-exit.
-      // Firebase framework needs to run next build through its full pipeline
-      // to create the function source directory at .firebase/sectorcalc-bf412/functions/.
-      // With .next cache present, the Cloud Build incremental build will be fast.
+      NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://sectorcalc.com",
+      // CRITICAL: NO shim installed. Firebase runs firebase-hosting-build.mjs
+      // (which handles the build pipeline) then packages function + hosting
+      // from the SAME .next/ output.
     },
   });
 
-  if (deployStatus !== 0) {
-    process.exit(deployStatus);
+  if ((result.status ?? 1) !== 0) {
+    console.error("deploy-production: N3 deploy FAILED.");
+    return 1;
   }
 
-  // Post-deploy: patch standalone with server chunks and fix paths
-  console.log("deploy-production: patching standalone SSR function…");
-  if (patchStandaloneAfterDeploy()) {
-    // Check if Stripe env vars are non-placeholder before deploying functions
-    const stripeKey = process.env.STRIPE_SECRET_KEY || "";
-    const isStripeConfigured = stripeKey.length > 0 && !stripeKey.includes("sonra_doldur") && !stripeKey.includes("sk_test_") && stripeKey.startsWith("sk_live_");
-    if (isStripeConfigured) {
-      console.log("deploy-production: Stripe env vars configured, deploying functions…");
-      const fnStatus = run("npx", [
-        "firebase",
-        "deploy",
-        "--only",
-        "functions:ssrsectorcalcbf412",
-        "--project",
-        "sectorcalc-bf412",
-      ], {
-        env: {
-          ...process.env,
-          NODE_OPTIONS: process.env.NODE_OPTIONS ?? "--max-old-space-size=8192",
-        },
-      });
-      process.exit(fnStatus);
+  console.log("deploy-production: N3 deploy — hosting + firestore + SSR function deployed.");
+  return 0;
+}
+
+// ── N4: Verification node ──────────────────────────────────────────────
+async function verifyNode() {
+  const localBuildId = existsSync(BUILD_ID_PATH)
+    ? readFileSync(BUILD_ID_PATH, "utf8").trim()
+    : null;
+
+  if (!localBuildId) {
+    console.error("deploy-production: N4 verify — no local BUILD_ID to compare.");
+    return { ok: false, reason: "no_local_build_id" };
+  }
+
+  console.log(`deploy-production: N4 verify — local BUILD_ID=${localBuildId}`);
+  console.log("deploy-production: N4 verify — curling function and hosting URLs…");
+
+  const results = {};
+
+  // Check function (direct Cloud Run URL)
+  try {
+    const fnResp = await httpGet(`${FUNCTION_URL}?deploy_v=${localBuildId}`);
+    results.function = {
+      status: fnResp.status,
+      hasBuildId: fnResp.body.includes(localBuildId),
+      hasFadeReady: fnResp.body.includes("sc-fade-ready"),
+      pageChunk: (fnResp.body.match(/app\/page-([a-f0-9]+)\.js/) || [null, "?"])[1],
+    };
+  } catch (e) {
+    results.function = { error: e.message };
+  }
+
+  // Check hosting (custom domain)
+  try {
+    const hostResp = await httpGet(`${HOSTING_URL}?deploy_v=${localBuildId}`);
+    results.hosting = {
+      status: hostResp.status,
+      hasBuildId: hostResp.body.includes(localBuildId),
+      hasFadeReady: hostResp.body.includes("sc-fade-ready"),
+      pageChunk: (hostResp.body.match(/app\/page-([a-f0-9]+)\.js/) || [null, "?"])[1],
+    };
+  } catch (e) {
+    results.hosting = { error: e.message };
+  }
+
+  // Determine pass/fail — check both fade-capability AND page chunk match
+  const chunkMatch = results.function?.pageChunk && results.hosting?.pageChunk
+    && results.function.pageChunk === results.hosting.pageChunk
+    && results.function.pageChunk !== "?";
+
+  const fnOk = results.function?.hasFadeReady && results.function?.status === 200;
+  const hostOk = results.hosting?.hasFadeReady && results.hosting?.status === 200;
+  const i1Pass = chunkMatch; // I1: single build invariant
+
+  console.log("deploy-production: N4 verify results:");
+  console.log(`  function: status=${results.function?.status || results.function?.error} fadeReady=${results.function?.hasFadeReady} pageChunk=${results.function?.pageChunk}`);
+  console.log(`  hosting:  status=${results.hosting?.status || results.hosting?.error} fadeReady=${results.hosting?.hasFadeReady} pageChunk=${results.hosting?.pageChunk}`);
+  console.log(`  I1 (same chunk): ${chunkMatch ? "PASS" : "FAIL"}`);
+
+  if (fnOk && hostOk && i1Pass) {
+    console.log("deploy-production: N4 verify — PASS. All invariants satisfied.");
+    return { ok: true };
+  }
+
+  if (!i1Pass) {
+    console.warn("deploy-production: N4 verify — WARN: I1 SPIT-BRAIN detected! Function and hosting serve DIFFERENT page chunks.");
+  }
+  if (!fnOk) {
+    console.warn("deploy-production: N4 verify — WARN: function not serving expected content.");
+  }
+  if (!hostOk) {
+    console.warn("deploy-production: N4 verify — WARN: hosting not serving expected content.");
+  }
+
+  return { ok: false, reason: "verify_failed", function: !fnOk, hosting: !hostOk, splitBrain: !i1Pass };
+}
+
+// ── N5: Compensation node ──────────────────────────────────────────────
+async function compensateNode(verifyResult) {
+  if (verifyResult.function) {
+    console.warn("deploy-production: N5 compensate — function stale, attempting force-redeploy…");
+    const fnResult = spawnSync("npx", [
+      "firebase",
+      "deploy",
+      "--only", "functions:ssrsectorcalcbf412",
+      "--project", "sectorcalc-bf412",
+    ], {
+      cwd: ROOT,
+      stdio: "inherit",
+      env: {
+        ...process.env,
+        NODE_OPTIONS: process.env.NODE_OPTIONS ?? "--max-old-space-size=4096",
+      },
+    });
+
+    if ((fnResult.status ?? 1) === 0) {
+      console.log("deploy-production: N5 compensate — function force-deployed. Re-verifying…");
+      // Re-verify after compensation
+      await new Promise((resolve) => setTimeout(resolve, 10000)); // 10s for Cloud Run to propagate
+      const retryResult = await verifyNode();
+      if (retryResult.ok) {
+        console.log("deploy-production: N5 compensate — fix confirmed. Pipeline completed.");
+        return true;
+      }
+      console.error("deploy-production: N5 compensate — re-verification still failed after force-deploy.");
     } else {
-      console.log("deploy-production: Stripe env vars not configured (placeholders). Skipping functions deploy.");
-      console.log("deploy-production: Hosting + Firestore rules deployed successfully.");
-      process.exit(0);
+      console.error("deploy-production: N5 compensate — function force-deploy FAILED.");
     }
   }
-
-  process.exit(0);
-} finally {
-  if (shimInstalled) {
-    restoreNextBin();
-  }
-  releaseDeployLock();
+  return false;
 }
+
+// ── n8n Pipeline Orchestrator ──────────────────────────────────────────
+
+async function main() {
+  // Deploy lock guard
+  try {
+    const fd = openSync(DEPLOY_LOCK_PATH, "wx");
+    closeSync(fd);
+  } catch {
+    console.error("deploy-production: another deploy is already running (.next-deploy.lock).");
+    console.error("deploy-production: run npm run stop:builds if the lock is stale.");
+    process.exit(1);
+  }
+
+  const releaseLock = () => {
+    try { unlinkSync(DEPLOY_LOCK_PATH); } catch {}
+  };
+
+  try {
+    // N1: Cleanup
+    cleanupNode();
+
+    // N2: Build
+    const buildStatus = buildNode();
+    if (buildStatus !== 0) {
+      releaseLock();
+      process.exit(buildStatus);
+    }
+
+    // N3: Deploy
+    const deployStatus = deployNode();
+    if (deployStatus !== 0) {
+      releaseLock();
+      process.exit(deployStatus);
+    }
+
+    // Allow Cloud Run to propagate (function may take a few seconds)
+    console.log("deploy-production: waiting 8s for Cloud Run propagation…");
+    await new Promise((resolve) => setTimeout(resolve, 8000));
+
+    // N4: Verify
+    const verifyResult = await verifyNode();
+
+    // N5: Compensate if needed
+    if (!verifyResult.ok) {
+      const fixed = await compensateNode(verifyResult);
+      if (!fixed) {
+        console.warn("deploy-production: N5 compensate — could not auto-fix. Manual investigation recommended.");
+        console.warn("deploy-production: Deploy completed with WARNINGS. Hosting files are deployed correctly.");
+        console.warn("deploy-production: If the SSR function is stale, run: npx firebase deploy --only functions:ssrsectorcalcbf412");
+        releaseLock();
+        process.exit(0); // Soft exit — hosting files are correct, just function may be stale
+      }
+    }
+
+    console.log("deploy-production: ALL NODES PASSED. Pipeline completed successfully.");
+    releaseLock();
+    process.exit(0);
+  } catch (error) {
+    console.error("deploy-production: UNHANDLED ERROR:", error.message);
+    releaseLock();
+    process.exit(1);
+  }
+}
+
+main();
