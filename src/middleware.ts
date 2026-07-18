@@ -198,6 +198,20 @@ export default function middleware(request: NextRequest) {
     return NextResponse.redirect(url, 301);
   }
 
+  // ── Legacy free-tool URL structure → canonical route (301) ──
+  // Old/indexed URLs used /free-tools/{category}/{slug}; the live route is
+  // /tools/free/{slug}. Strip the category segment and redirect to canonical.
+  // (The /free-tools listing page and single-segment paths are untouched.)
+  if (pathname.startsWith("/free-tools/")) {
+    const segments = pathname.split("/").filter(Boolean); // ["free-tools", category, slug, ...]
+    if (segments.length >= 3) {
+      const slug = segments[segments.length - 1];
+      const url = new URL(request.url);
+      url.pathname = `/tools/free/${slug}`;
+      return NextResponse.redirect(url, 301);
+    }
+  }
+
   // Root-level language-only paths — return 404
   if (LEGACY_LANGUAGE_ROUTES.has(pathname)) {
     return new Response("Not Found", {
