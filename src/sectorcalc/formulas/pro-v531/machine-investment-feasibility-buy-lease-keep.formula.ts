@@ -103,7 +103,10 @@ export interface Schedule {
 }
 
 export function schedule(inp: InvestmentFeasibilityInputs): Schedule {
-  const years = Math.max(1, Math.round(inp.studyYears));
+  // Defensive cap: see capital-equipment-investment-appraisal-npv-irr.formula.ts
+  // for the full rationale -- physical_hard_bounds enforces a sane range
+  // upstream, but this loop bound must never trust that alone.
+  const years = Math.min(100, Math.max(1, Math.round(inp.studyYears)));
   const leaseFactor = crf(inp.discountRate, years) * (1 + inp.lessorMargin + inp.insuranceRate);
   const annualLease = inp.capex * leaseFactor;
   const opportunityCost = inp.marketValue * crf(inp.discountRate, years);
