@@ -164,7 +164,7 @@
           },
           {
             "unit": "unit_per_year",
-            "factor": 3.17e-8
+            "factor": 3.1709791983764586e-8
           }
         ]
       },
@@ -2913,12 +2913,11 @@
     {
       "id": "out_machine_share_component",
       "name": "Machine Share of Setup Cost",
-      "symbol": "C_machine_share_component",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
+      "symbol": "C_machine",
+      "quantity_kind": "currency",
+      "base_unit": "currency_unit",
       "allowed_display_units": [
-        "ratio",
-        "percent"
+        "currency_unit"
       ],
       "type": "number",
       "formula_source": "F_engine",
@@ -2952,12 +2951,11 @@
     {
       "id": "out_labor_share_component",
       "name": "Labor Share of Setup Cost",
-      "symbol": "C_labor_share_component",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
+      "symbol": "C_labor",
+      "quantity_kind": "currency",
+      "base_unit": "currency_unit",
       "allowed_display_units": [
-        "ratio",
-        "percent"
+        "currency_unit"
       ],
       "type": "number",
       "formula_source": "F_engine",
@@ -2991,12 +2989,11 @@
     {
       "id": "out_annual_hours_reclaimed",
       "name": "Annual Hours Reclaimed",
-      "symbol": "C_labor_share_component",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
+      "symbol": "H_reclaim",
+      "quantity_kind": "time",
+      "base_unit": "h",
       "allowed_display_units": [
-        "ratio",
-        "percent"
+        "h"
       ],
       "type": "number",
       "formula_source": "F_engine",
@@ -3030,12 +3027,11 @@
     {
       "id": "out_overhead_share_component",
       "name": "Overhead Share Component",
-      "symbol": "C_labor_share_component",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
+      "symbol": "C_overhead",
+      "quantity_kind": "currency",
+      "base_unit": "currency_unit",
       "allowed_display_units": [
-        "ratio",
-        "percent"
+        "currency_unit"
       ],
       "type": "number",
       "formula_source": "F_engine",
@@ -3069,12 +3065,11 @@
     {
       "id": "out_annual_savings",
       "name": "Annual Savings",
-      "symbol": "C_labor_share_component",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
+      "symbol": "S_annual",
+      "quantity_kind": "currency",
+      "base_unit": "currency_unit",
       "allowed_display_units": [
-        "ratio",
-        "percent"
+        "currency_unit"
       ],
       "type": "number",
       "formula_source": "F_engine",
@@ -3108,12 +3103,11 @@
     {
       "id": "out_payback_months",
       "name": "Payback Period",
-      "symbol": "C_labor_share_component",
-      "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
+      "symbol": "T_payback",
+      "quantity_kind": "time",
+      "base_unit": "month",
       "allowed_display_units": [
-        "ratio",
-        "percent"
+        "month"
       ],
       "type": "number",
       "formula_source": "F_engine",
@@ -3147,11 +3141,10 @@
     {
       "id": "out_roi_pct",
       "name": "Return on Investment",
-      "symbol": "C_labor_share_component",
+      "symbol": "ROI_pct",
       "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
+      "base_unit": "percent",
       "allowed_display_units": [
-        "ratio",
         "percent"
       ],
       "type": "number",
@@ -3186,12 +3179,11 @@
     {
       "id": "out_verdict",
       "name": "Verdict",
-      "symbol": "C_labor_share_component",
+      "symbol": "V",
       "quantity_kind": "dimensionless",
       "base_unit": "ratio",
       "allowed_display_units": [
-        "ratio",
-        "percent"
+        "ratio"
       ],
       "type": "number",
       "formula_source": "F_engine",
