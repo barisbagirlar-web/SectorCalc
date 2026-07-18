@@ -92,6 +92,7 @@ export function generateRobotsTxt(): string {
     defaultBlock,
     "",
     `Sitemap: ${SITE_URL}/sitemap.xml`,
+    `Sitemap: ${SITE_URL}/llms.txt`,
     `Host: ${SITE_URL}`,
     "",
   ].join("\n");

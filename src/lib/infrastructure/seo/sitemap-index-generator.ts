@@ -12,6 +12,11 @@ import {
   type SitemapManifestItem,
   getSitemapManifest,
 } from "@/lib/infrastructure/seo/sitemap-manifest";
+import {
+  resolveSitemapLastModified,
+  getCaseStudyLastModMap,
+  getSitemapSourceLastModified,
+} from "@/lib/infrastructure/seo/resolve-sitemap-lastmod";
 
 /** Sub-sitemap type identifiers per mandate spec. */
 export type SubSitemapType = "tools" | "guides" | "datasets" | "categories" | "faq";
@@ -67,11 +72,37 @@ function buildHreflangXmlLinks(path: string): string {
   return links.join("\n");
 }
 
-/** Build a single sub-sitemap XML string with hreflang alternates. */
-export function buildSubSitemapXml(type: SubSitemapType, lastmod: Date): string {
-  const items = getSubSitemapItems(type);
-  const lastmodISO = lastmod.toISOString();
+/**
+ * Per-URL lastmod resolver contract.
+ * Accepts the relative route path and returns the ISO 8601 lastmod string
+ * resolved from git commit history, Firestore content dates, or source-file mtime.
+ */
+export type LastmodResolver = (routePath: string) => Date;
 
+/**
+ * Factory: create a per-URL lastmod resolver bound to a pre-fetched
+ * case-study map for sitemap handlers that do not run inside React components.
+ */
+export function createSitemapLastmodResolver(
+  caseStudyLastMod: ReadonlyMap<string, Date>,
+): LastmodResolver {
+  const fallback = getSitemapSourceLastModified();
+  return (routePath: string) =>
+    resolveSitemapLastModified(routePath, fallback, caseStudyLastMod);
+}
+
+/**
+ * Resolve and cache the case-study lastmod map for all sub-sitemap handlers.
+ * Call once per request (React cache deduplicates).
+ */
+export { getCaseStudyLastModMap };
+
+/** Build a single sub-sitemap XML string with per-URL lastmod + hreflang alternates. */
+export function buildSubSitemapXml(
+  type: SubSitemapType,
+  resolveLastmod: LastmodResolver,
+): string {
+  const items = getSubSitemapItems(type);
   const urlEntries: string[] = [];
 
   for (const item of items) {
@@ -82,6 +113,8 @@ export function buildSubSitemapXml(type: SubSitemapType, lastmod: Date): string 
 
     const hasHreflang = hreflangLinks.length > 0;
     const changefreq = item.changeFrequency;
+
+    const lastmodISO = resolveLastmod(path).toISOString();
     const priority = item.priority.toFixed(2);
 
     urlEntries.push(`  <url>
@@ -102,8 +135,9 @@ ${urlEntries.join("\n")}
 }
 
 /** Build sitemap index XML that references all type-split sub-sitemaps. */
-export function buildSitemapIndexXml(lastmod: Date): string {
-  const lastmodISO = lastmod.toISOString();
+export function buildSitemapIndexXml(lastmod?: Date): string {
+  const resolvedLastmod = lastmod ?? getSitemapSourceLastModified();
+  const lastmodISO = resolvedLastmod.toISOString();
 
   const sitemapEntries = SUB_SITEMAPS.map((sub) => {
     return `  <sitemap>

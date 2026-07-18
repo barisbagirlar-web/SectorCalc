@@ -1,12 +1,17 @@
 import { NextResponse } from "next/server";
-import { buildSubSitemapXml } from "@/lib/infrastructure/seo/sitemap-index-generator";
+import {
+  buildSubSitemapXml,
+  createSitemapLastmodResolver,
+  getCaseStudyLastModMap,
+} from "@/lib/infrastructure/seo/sitemap-index-generator";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 export async function GET(): Promise<NextResponse> {
-  const now = new Date();
-  const xml = buildSubSitemapXml("datasets", now);
+  const caseStudyLastMod = await getCaseStudyLastModMap();
+  const resolver = createSitemapLastmodResolver(caseStudyLastMod);
+  const xml = buildSubSitemapXml("datasets", resolver);
 
   return new NextResponse(xml, {
     status: 200,
