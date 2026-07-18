@@ -680,6 +680,12 @@ export const FALLBACK_MAP: Record<string, string> = {
   "betaPartner.feedback.thankYou": "Thank you — your feedback helps us improve this calculator for everyone.",
   "betaPartner.feedback.selectPlaceholder": "Select...",
   "betaPartner.feedback.rateLimited": "You've submitted feedback recently — please try again later.",
+  "betaPartner.feedback.quickReactionLabel": "Was this report helpful?",
+  "betaPartner.feedback.quickReactionPrompt": "Was this helpful?",
+  "betaPartner.feedback.quickReactionUp": "Yes, this was helpful",
+  "betaPartner.feedback.quickReactionDown": "No, this wasn't helpful",
+  "betaPartner.feedback.quickReactionThanks": "Thanks for the feedback!",
+  "betaPartner.feedback.quickReactionError": "Couldn't save that — please try again.",
 };
 
 /**
