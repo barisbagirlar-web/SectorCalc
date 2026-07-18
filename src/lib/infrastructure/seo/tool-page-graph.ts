@@ -75,19 +75,45 @@ function buildOrganizationNode(): JsonLdRecord {
     url: siteUrl,
     logo: `${siteUrl}${BRAND_ASSETS.logo.default}`,
     sameAs: buildOrganizationSameAs(),
-    knowsAbout: [
-      "financial modeling",
-      "sector analysis",
-      "CAPEX calculation",
-      "OPEX modeling",
-      "IRR/NPV",
-      "break-even analysis",
-      "ISO 22400-2",
-      "ECMI Cost Model",
-      "IFRS standards",
-    ],
-  };
-}
+      knowsAbout: [
+        "financial modeling",
+        "sector analysis",
+        "CAPEX calculation",
+        "OPEX modeling",
+        "IRR/NPV",
+        "break-even analysis",
+        "ISO 22400-2",
+        "ECMI Cost Model",
+        "IFRS standards",
+      ],
+      areaServed: [
+        {
+          "@type": "Country",
+          name: "United States",
+        },
+        {
+          "@type": "Country",
+          name: "United Kingdom",
+        },
+        {
+          "@type": "Country",
+          name: "Germany",
+        },
+        {
+          "@type": "Country",
+          name: "United Arab Emirates",
+        },
+        {
+          "@type": "Continent",
+          name: "Europe",
+        },
+        {
+          "@type": "Continent",
+          name: "North America",
+        },
+      ],
+    };
+  }
 
 function buildPersonNode(input: ToolPageSchemaInput): JsonLdRecord {
   const authorSlug = input.authorSlug ?? "baris-bagirlar";
@@ -117,6 +143,7 @@ function buildWebApplicationNode(input: ToolPageSchemaInput): JsonLdRecord {
     name: input.toolName,
     applicationCategory: appCategory,
     operatingSystem: "Web, Mobile",
+    inLanguage: "en",
     offers: {
       "@type": "Offer",
       price: input.priceUsd ?? (input.tier === "free" ? "0" : "19"),
@@ -125,6 +152,31 @@ function buildWebApplicationNode(input: ToolPageSchemaInput): JsonLdRecord {
     },
     featureList: input.featureList.join(", "),
   };
+
+  if (input.methodology) {
+    const citations: JsonLdRecord[] = [];
+
+    // Primary standard reference (ISO/ASME/ASTM/etc.)
+    citations.push({
+      "@type": "Standard",
+      name: input.methodology,
+      url: canonicalUrl,
+    });
+
+    // Secondary reference: lean/engineering principles
+    citations.push({
+      "@type": "CreativeWork",
+      name: "Lean Manufacturing Principles",
+      url: "https://www.lean.org/",
+    });
+
+    node.citation = citations;
+    node.potentialAction = {
+      "@type": "CalculateAction",
+      name: `Calculate ${input.toolName}`,
+      description: "Deterministic calculation based on international engineering standards.",
+    };
+  }
 
   if (input.screenshotUrl) {
     node.screenshot = input.screenshotUrl;

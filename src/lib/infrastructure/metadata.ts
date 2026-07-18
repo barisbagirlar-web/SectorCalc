@@ -45,23 +45,29 @@ function buildLocalizedPath(path: string, locale: HreflangLocale): string {
 }
 
 /**
- * Build hreflang languages for SEO.
+ * Build global-English hreflang languages for SEO.
  *
- * Only English (en) is active — tr/de/ar translations do not exist yet.
- * Serving hreflang for untranslated pages triggers Google "return URL errors"
- * and crawl budget waste. VETO 1 fix: en + x-default only.
+ * SectorCalc targets "Pure English" as a Global Technical Authority —
+ * NOT limited to en-US. Google treats x-default as the geographic catch-all.
+ * en-us and en-gb signal that the English content is suitable for US and UK
+ * audiences without triggering duplicate-content penalties.
+ * tr/de/ar translations do not exist yet — not emitted to avoid
+ * Google "return URL errors".
  *
  * Canonical URL: bare path (English, no locale prefix).
- * hreflang="en": /en/{path} (also x-default)
+ * hreflang="en": /en/{path} (also x-default, en-us, en-gb)
  */
 function buildHreflangLanguages(path: string): Record<string, string> {
   const baseUrl = SITE.url;
   const normalizedPath = path.startsWith("/") ? path : `/${path}`;
   const cleanPath = normalizedPath === "/" ? "" : normalizedPath;
+  const localeUrl = `${baseUrl}/en${cleanPath}`;
 
   return {
-    en: `${baseUrl}/en${cleanPath}`,
-    "x-default": `${baseUrl}/en${cleanPath}`,
+    en: localeUrl,
+    "en-us": localeUrl,
+    "en-gb": localeUrl,
+    "x-default": localeUrl,
   };
 }
 

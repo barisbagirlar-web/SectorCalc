@@ -15,6 +15,7 @@ import { getDisplayCategoryLabel } from "@/sectorcalc/pro-form/display-labels";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { buildToolPageGraph } from "@/lib/infrastructure/seo/tool-page-graph";
 import { EeatTrustBlock } from "@/components/seo/EeatTrustBlock";
+import { AiOverviewParagraph, AI_OVERVIEW_PARAGRAPHS, buildSpeakableJsonLd } from "@/components/seo/AiOverviewOptimization";
 import { FOUNDER_PROFILE } from "@/config/knowledge-graph";
 /* Eager: prevent Next.js from loading this CSS as a lazy preload chunk */
 import "@/sectorcalc/pro-form/universal-industrial-decision-form.css";
@@ -88,6 +89,21 @@ function fallbackToolName(slug: string): string {
   return DISPLAY_NAME_OVERRIDES[slug] || slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
+/** Slug → AI Overview definition key mapping for passage indexing. */
+const TOOL_DEFINITION_KEY: Record<string, string> = {
+  oee: "oee-calculation",
+  "scrap-cost": "scrap-rate",
+  "break-even-point": "break-even-analysis",
+  "downtime-cost": "oee-calculation",
+  "setup-time-cost": "oee-calculation",
+  "machine-investment-payback": "break-even-analysis",
+  "roi-payback": "break-even-analysis",
+};
+
+function getToolDefinitionKey(slug: string): string | undefined {
+  return TOOL_DEFINITION_KEY[slug];
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -149,6 +165,9 @@ export default async function FreeToolDetailPage({
     notFound();
   }
 
+  const definitionKey = getToolDefinitionKey(slug);
+  const definitionParagraph = definitionKey ? AI_OVERVIEW_PARAGRAPHS[definitionKey] : undefined;
+
   return (
     <PageLayout>
       <article aria-label={schema.tool_name} className="pro-shell">
@@ -160,7 +179,30 @@ export default async function FreeToolDetailPage({
           accessTier="FREE"
           presentationMode="FREE_COMPACT"
         />
+        {definitionParagraph && (
+          <AiOverviewParagraph text={definitionParagraph.text} />
+        )}
       </article>
+      {definitionParagraph && (
+        <JsonLd data={buildSpeakableJsonLd()} />
+      )}
+      <JsonLd
+        data={buildToolPageGraph({
+          slug,
+          toolName: schema.tool_name,
+          sectorName: getDisplayCategoryLabel(schema.category),
+          tier: "free",
+          description: getPublicToolMetaDescription(schema.tool_key, schema.tool_name, getDisplayCategoryLabel(schema.category)),
+          featureList: [],
+          faq: [],
+          methodology: "ISO 22400-2 + ECMI Cost Model v3.2",
+          dataSources: [
+            { name: "ISO 22400-2:2014", url: "https://www.iso.org/standard/62046.html" },
+            { name: "World Bank Open Data", url: "https://data.worldbank.org/" },
+          ],
+          lastUpdated: new Date().toISOString(),
+        })}
+      />
       <EeatTrustBlock
         authorName={FOUNDER_PROFILE.name}
         authorTitle={(FOUNDER_PROFILE.jobTitle as Record<string, string>).en ?? "Founder & CEO, SectorCalc"}
