@@ -272,8 +272,123 @@ function buildPlatformCalculateAction(): JsonLdRecord {
 }
 
 /**
- * Build search action with SpeakableSpecification for voice/AI search optimization.
+ * DIN/ISO Semantic Bridge — the "German Engineering" trust signal.
+ *
+ * Exploits the .de TLD's inherent authority for precision engineering
+ * by cross-referencing German DIN standards with global ISO/ASME
+ * standards in a single English-language entity graph.
+ *
+ * Google Knowledge Graph uses these cross-references to classify
+ * SectorCalc as a Global Engineering Authority rather than a local
+ * German calculator, while still inheriting the .de domain authority.
  */
+export interface DinIsoBridgeInput {
+  /** Tool route slug (e.g. "din-6930-blanking-clearance"). */
+  slug: string;
+  /** DIN standard identifier (e.g. "DIN 6930-2"). */
+  dinStandard: string;
+  /** ISO standard identifier (e.g. "ISO 7438"). */
+  isoStandard: string;
+  /** Human-readable tool name. */
+  toolName: string;
+}
+
+const DIN_ISO_CATALOG: readonly { slug: string; din: string; iso: string; name: string }[] = [
+  { slug: "din-6930-blanking-clearance", din: "DIN 6930-2", iso: "ISO 7438", name: "DIN 6930 vs ISO 7438 Blanking Clearance" },
+  { slug: "din-iso-286-tolerance-fit", din: "DIN 7157", iso: "ISO 286-1", name: "DIN 7157 vs ISO 286 Tolerance Fit" },
+  { slug: "din-iso-2768-general-tolerances", din: "DIN 2768-1", iso: "ISO 2768-1", name: "DIN 2768 vs ISO 2768 General Tolerances" },
+  { slug: "din-iso-1302-surface-roughness", din: "DIN 4768", iso: "ISO 1302", name: "DIN 4768 vs ISO 1302 Surface Roughness" },
+  { slug: "din-en-iso-13920-welding-tolerances", din: "DIN EN ISO 13920", iso: "ISO 13920", name: "DIN EN ISO 13920 Welding Tolerances" },
+  { slug: "din-iso-1101-gdt", din: "DIN 7184", iso: "ISO 1101", name: "DIN 7184 vs ISO 1101 GD&T" },
+  { slug: "din-iso-2862-tolerance", din: "DIN 7167", iso: "ISO 286-2", name: "DIN 7167 vs ISO 286-2 Tolerance Limits" },
+  { slug: "din-iso-14405-tolerance-linier", din: "DIN 14405-1", iso: "ISO 14405-1", name: "DIN vs ISO 14405-1 Linear Tolerance" },
+];
+
+/**
+ * Build a per-tool-page DIN/ISO bridge JSON-LD node.
+ * Emits Standard citations for both DIN and ISO references,
+ * enabling Google Knowledge Graph cross-linking.
+ */
+export function buildDinIsoBridgeNode(input: DinIsoBridgeInput): JsonLdRecord {
+  const canonicalUrl = `${SITE_URL}/calculators/${input.slug}`;
+
+  return {
+    "@type": "WebApplication",
+    "@id": `${canonicalUrl}/#app`,
+    name: input.toolName,
+    inLanguage: "en",
+    applicationCategory: "EngineeringApplication",
+    operatingSystem: "Web, Mobile",
+    knowsAbout: [
+      "GD&T tolerance stack-up",
+      "Metrology",
+      "Lean Manufacturing",
+      "Precision engineering",
+    ],
+    citation: [
+      {
+        "@type": "Standard",
+        name: `DIN ${input.dinStandard} (German Institute for Standardization)`,
+        url: `https://www.din.de/en/search?query=${encodeURIComponent(input.dinStandard)}`,
+      },
+      {
+        "@type": "Standard",
+        name: `${input.isoStandard}`,
+        url: `https://www.iso.org/search.html?q=${encodeURIComponent(input.isoStandard)}`,
+      },
+    ],
+  };
+}
+
+/**
+ * Build a DefinedTermSet containing all DIN/ISO cross-reference standards
+ * as discrete Standard nodes. Injected into the root entity graph so
+ * Knowledge Graph can crawl the full taxonomy.
+ */
+export function buildDinIsoStandardsTaxonomy(): JsonLdRecord[] {
+  const standards: JsonLdRecord[] = [];
+  const seen = new Set<string>();
+
+  for (const entry of DIN_ISO_CATALOG) {
+    if (!seen.has(entry.din)) {
+      seen.add(entry.din);
+      standards.push({
+        "@type": "Standard",
+        "@id": `${SITE_URL}/#standard-din-${entry.din.replace(/\s/g, "-").toLowerCase()}`,
+        name: `DIN ${entry.din}`,
+        publisher: {
+          "@type": "Organization",
+          name: "Deutsches Institut f\u00FCr Normung (DIN)",
+          url: "https://www.din.de/",
+        },
+      });
+    }
+
+    const isoKey = entry.iso.replace(/^ISO /, "");
+    if (!seen.has(isoKey)) {
+      seen.add(isoKey);
+      standards.push({
+        "@type": "Standard",
+        "@id": `${SITE_URL}/#standard-${isoKey.replace(/\s/g, "-").toLowerCase()}`,
+        name: entry.iso,
+        publisher: {
+          "@type": "Organization",
+          name: "International Organization for Standardization (ISO)",
+          url: "https://www.iso.org/",
+        },
+      });
+    }
+  }
+
+  return [{
+    "@type": "DefinedTermSet",
+    "@id": `${SITE_URL}/#din-iso-bridge-set`,
+    name: "SectorCalc DIN-ISO Engineering Standards Cross-Reference",
+    description: "German DIN standards mapped to international ISO/ASME equivalents for global precision engineering calculations.",
+    hasDefinedTerm: standards,
+  }];
+}
+
 function buildSearchActionWithSpeakable(): JsonLdRecord {
   return {
     "@type": "SearchAction",
@@ -357,6 +472,8 @@ export function buildEntityGraph(locale: AppLocale = "en"): JsonLdRecord {
       },
       // === PLATFORM CALCULATE ACTION (Tool capability) ===
       buildPlatformCalculateAction(),
+      // === DIN/ISO ENGINEERING STANDARDS BRIDGE (German Engineering trust signal) ===
+      ...buildDinIsoStandardsTaxonomy(),
       // === PRODUCT & INDUSTRY RELATIONSHIPS (Graph RAG topology) ===
       ...buildIndustryRelationships(),
     ],

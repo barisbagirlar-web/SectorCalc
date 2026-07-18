@@ -19,10 +19,12 @@ export function isIndexable(): boolean {
 
 /* ----------------------------- Robots header ----------------------------- */
 
-/** Value for the X-Robots-Tag response header. */
+/** Value for the X-Robots-Tag response header.
+ *  max-snippet:-1 = no character limit on search snippets
+ *  max-image-preview:large = full-size image preview allowed */
 export const X_ROBOTS_TAG_HEADER = "X-Robots-Tag";
 export function xRobotsTagValue(): string {
-  return "all";
+  return "index, follow, max-snippet:-1, max-image-preview:large";
 }
 
 /**
