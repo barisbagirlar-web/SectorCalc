@@ -569,11 +569,10 @@
       "name": "Batch Quantity",
       "symbol": "Q_batch",
       "quantity_kind": "dimensionless",
-      "unit_selectable": true,
-      "base_unit": "ratio",
+      "unit_selectable": false,
+      "base_unit": "count",
       "allowed_display_units": [
-        "ratio",
-        "percent"
+        "count"
       ],
       "normalized_id": "n_batch_quantity",
       "type": "integer",
@@ -584,14 +583,14 @@
       "physical_hard_bounds": {
         "min": 0,
         "max": 100000,
-        "unit": "units",
+        "unit": "count",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
       },
       "engineering_range": {
         "min": 10,
         "max": 5000,
-        "unit": "units",
+        "unit": "count",
         "source": "Typical job-shop production batch/lot size.",
         "status": "REFERENCE"
       },
@@ -675,7 +674,7 @@
       "engineering_reference_range": {
         "min": 10,
         "max": 5000,
-        "unit": "units",
+        "unit": "count",
         "source": "Typical job-shop production batch/lot size.",
         "status": "REFERENCE"
       }
