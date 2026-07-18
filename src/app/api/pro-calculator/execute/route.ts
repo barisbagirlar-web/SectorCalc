@@ -37,6 +37,12 @@ import { executeFormulaGraph } from "@/sectorcalc/pro-runtime/deterministic-form
 import { buildPremiumHook } from "@/sectorcalc/monetization/build-premium-hook";
 import { buildUniversalResult } from "@/sectorcalc/result-perspectives/universal-result-adapter";
 import type { UniversalCalculationResult } from "@/sectorcalc/pro-form/contract-types";
+
+/** Server-error (500) response: the full ExecuteResponse contract plus a
+ *  diagnostic `error` message. Explicit type instead of `as unknown as
+ *  ExecuteResponse`, so the compiler still validates the ExecuteResponse
+ *  fields structurally — only `error` is genuinely additive. */
+type ExecuteServerErrorResponse = ExecuteResponse & { error: string };
 import { registerFreePilotFormulas } from "@/sectorcalc/formulas/free-v531/break-even-and-margin-of-safety-analysis.registry";
 import { registerProPilotFormulas, postProcessProOutputs } from "@/sectorcalc/formulas/pro-v531/compressed-air-leak-cost-calculator.registry";
 import { initBarisFormulaRegistry, LIVE_BATCH_KEYS } from "@/sectorcalc/formulas/pro-v531/baris-formula-registry";
@@ -967,7 +973,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     const message = error instanceof Error ? error.message : "Unknown server error";
     const blocked = buildFullBlockedResponse("SERVER_ERROR", message);
     return NextResponse.json(
-      { ...blocked, error: message } as unknown as ExecuteResponse,
+      { ...blocked, error: message } satisfies ExecuteServerErrorResponse,
       { status: 500 },
     );
   }
