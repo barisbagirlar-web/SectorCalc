@@ -1659,7 +1659,7 @@
       "id": "n_batch_quantity",
       "from_input": "batch_quantity",
       "quantity_kind": "dimensionless",
-      "base_unit": "ratio",
+      "base_unit": "count",
       "conversion_source": "unit_conversion_contract.conversion_registry",
       "validation_after_conversion": [
         "Apply physical hard bounds for batch_quantity after unit conversion.",
