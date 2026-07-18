@@ -1503,11 +1503,11 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                   if (pd === "OK") vStatus = "go";
                   else if (pd === "BLOCKED") vStatus = "block";
 
-                  const cmRaw = outputsMap.out_utilization_margin;
+                  const cmRaw = outputsMap.out_contribution_margin_pct;
                   const cm = typeof cmRaw === "number" ? (cmRaw * 100) : null;
                   const moneyAtRisk = outputsMap.out_money_at_risk;
                   const evidence = outputsMap.out_evidence_completeness;
-                  const uncertainty = outputsMap.out_expanded_uncertainty;
+                  const uncertainty = undefined;
 
                   // KPI cards
                   const kpis: Array<{ label: string; value: string | number; unit: string | null; state?: "pos" | "warn" | "neg" }> = [];
@@ -1591,11 +1591,12 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                   // Stats for verdict rail
                   const stats: Array<{ label: string; value: string }> = [];
                   if (cm !== null) stats.push({ label: "Contribution Margin", value: `${cm.toFixed(1)}%` });
-                  if (typeof outputsMap.out_normalized_demand === "number") {
-                    stats.push({ label: "Quoted Price", value: `${selectedCurrency}${outputsMap.out_normalized_demand.toLocaleString("en-US", { maximumFractionDigits: 0 })}` });
+                  const quotedPriceRaw = state.rawInputState.quoted_job_price;
+                  if (typeof quotedPriceRaw === "number" && Number.isFinite(quotedPriceRaw)) {
+                    stats.push({ label: "Quoted Price", value: `${selectedCurrency}${quotedPriceRaw.toLocaleString("en-US", { maximumFractionDigits: 0 })}` });
                   }
-                  if (typeof outputsMap.out_capacity_metric === "number") {
-                    stats.push({ label: "Minimum Acceptable Price", value: `${selectedCurrency}${outputsMap.out_capacity_metric.toLocaleString("en-US", { maximumFractionDigits: 0 })}` });
+                  if (typeof outputsMap.out_minimum_acceptable_price === "number") {
+                    stats.push({ label: "Minimum Acceptable Price", value: `${selectedCurrency}${outputsMap.out_minimum_acceptable_price.toLocaleString("en-US", { maximumFractionDigits: 0 })}` });
                   }
                   if (typeof moneyAtRisk === "number") {
                     stats.push({ label: "Annual Loss Exposure", value: `${selectedCurrency}${moneyAtRisk.toLocaleString("en-US", { maximumFractionDigits: 0 })}` });
