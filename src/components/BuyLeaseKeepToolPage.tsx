@@ -24,6 +24,7 @@ import {
 } from "@/sectorcalc/formulas/pro-v531/machine-investment-feasibility-buy-lease-keep.formula";
 import { useUserSubscription } from "@/lib/features/billing/use-user-subscription";
 import { isProBypassEmail } from "@/lib/features/billing/subscription";
+import { PremiumReportFeedback } from "@/components/reports/PremiumReportFeedback";
 import "@/styles/buy-lease-keep-tool.css";
 
 const TOOL_KEY = "machine-investment-feasibility-buy-lease-keep";
@@ -663,6 +664,14 @@ export default function BuyLeaseKeepToolPage() {
           <div className="blk-disc">
             Technical simulation only; not financial, legal, or engineering advice. Users must verify results before making business decisions.
           </div>
+          <PremiumReportFeedback
+            schemaSlug={TOOL_KEY}
+            sectorSlug="manufacturing"
+            reportSlug={serverResult.seal.output_hash}
+            inputSnapshot={rx as unknown as Record<string, number>}
+            resultSnapshot={s}
+            currency={repCur}
+          />
         </div>
       </div>
     );
