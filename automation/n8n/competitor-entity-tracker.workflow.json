@@ -1,0 +1,229 @@
+{
+  "name": "Competitor Entity Tracker",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [{ "field": "weeks", "weeks": 1 }],
+          "triggerTimes": {
+            "hour": 3,
+            "minute": 0
+          }
+        }
+      },
+      "id": "weekly-trigger",
+      "name": "Weekly (Monday 3AM)",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.calculator.net/sitemap.xml",
+        "options": {
+          "ignoreSSLIssues": true
+        }
+      },
+      "id": "fetch-calculator-net-sitemap",
+      "name": "Fetch calculator.net sitemap",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [450, 100]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "https://www.omnicalculator.com/sitemap.xml",
+        "options": {
+          "ignoreSSLIssues": true
+        }
+      },
+      "id": "fetch-omni-sitemap",
+      "name": "Fetch omnicalculator.com sitemap",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [450, 250]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "https://goodcalculators.com/post-sitemap.xml",
+        "options": {
+          "ignoreSSLIssues": true
+        }
+      },
+      "id": "fetch-goodcalc-sitemap",
+      "name": "Fetch goodcalculators.com sitemap",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [450, 400]
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = $input.all();\nconst competitorUrls = [];\n\nfor (const item of items) {\n  const text = typeof item.json === 'string' ? item.json : JSON.stringify(item.json);\n  const urlPattern = /https?:\\/\\/[^\\s\"'<>)]+\\/[^\\s\"'<>)]+/gi;\n  const matches = text.match(urlPattern) || [];\n  \n  for (const url of matches) {\n    // Extract keywords from URL path\n    const path = new URL(url).pathname.toLowerCase();\n    const keywords = path\n      .replace(/\\.(xml|html|php|aspx?)$/, '')\n      .split(/[\\/-]/)\n      .filter(s => s.length > 2 && !['www', 'tools', 'calculator', 'calculators', 'free', 'online', 'the'].includes(s));\n    \n    if (keywords.length > 0) {\n      competitorUrls.push({ url, keywords: [...new Set(keywords)] });\n    }\n  }\n}\n\nreturn competitorUrls;"
+      },
+      "id": "extract-competitor-urls",
+      "name": "Extract Keywords from URLs",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [650, 250]
+    },
+    {
+      "parameters": {
+        "method": "GET",
+        "url": "https://sectorcalc.com/sitemap.xml",
+        "options": {}
+      },
+      "id": "fetch-sectorcalc-sitemap",
+      "name": "Fetch sectorcalc.com sitemap",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [450, 550]
+    },
+    {
+      "parameters": {
+        "jsCode": "const text = typeof $input.first().json === 'string' ? $input.first().json : JSON.stringify($input.first().json);\nconst urlPattern = /https?:\\/\\/sectorcalc\\.com[^\\s\"'<>)]+/gi;\nconst matches = text.match(urlPattern) || [];\nreturn matches.map(url => {\n  const path = new URL(url).pathname.toLowerCase();\n  const keywords = path.split(/[\\/-]/).filter(s => s.length > 2 && !['www', 'tools', 'free', 'pro', 'premium']).filter(Boolean);\n  return { url, keywords: [...new Set(keywords)] };\n});"
+      },
+      "id": "extract-our-urls",
+      "name": "Extract Our Keywords",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [650, 550]
+    },
+    {
+      "parameters": {
+        "jsCode": "const competitorItems = $input.all().filter((_, i) => i < $input.all().length / 2 + 1);\nconst ourItems = $input.all().filter((_, i) => i >= $input.all().length / 2 + 1);\n\n// Flatten competitor keywords into a set\nconst competitorKeywords = new Set();\nfor (const item of competitorItems) {\n  for (const kw of (item.json.keywords || [])) {\n    competitorKeywords.add(kw.toLowerCase());\n  }\n}\n\n// Flatten our keywords into a set\nconst ourKeywords = new Set();\nfor (const item of ourItems) {\n  for (const kw of (item.json.keywords || [])) {\n    ourKeywords.add(kw.toLowerCase());\n  }\n}\n\n// Find gaps = competitor has, we don't\nconst gaps = [...competitorKeywords].filter(kw => !ourKeywords.has(kw) && kw.length > 2 && !['com', 'www', 'net', 'org', 'php', 'html', 'asp'].includes(kw));\n\n// Remove common noise words\nconst noiseWords = new Set(['page', 'category', 'tag', 'author', 'feed', 'index', 'home', 'blog', 'post', 'search', 'about', 'contact', 'terms', 'privacy', 'sitemap']);\nconst cleanGaps = gaps.filter(kw => !noiseWords.has(kw));\n\nreturn cleanGaps.map(keyword => ({\n  keyword,\n  competitorUrls: competitorItems.filter(item => (item.json.keywords || []).some(k => k.toLowerCase() === keyword)).map(item => item.json.url),\n  detectedAt: new Date().toISOString()\n}));"
+      },
+      "id": "compute-gaps",
+      "name": "Compute Keyword Gaps",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [850, 400]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "has-gaps",
+              "leftValue": "={{ $json.length }}",
+              "rightValue": 0,
+              "operator": {
+                "type": "number",
+                "operation": "larger"
+              }
+            }
+          ],
+          "combinator": "or"
+        }
+      },
+      "id": "check-gaps",
+      "name": "Gaps Found?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [1050, 400]
+    },
+    {
+      "parameters": {
+        "webhookUri": "={{ $env.SLACK_SEO_WEBHOOK }}",
+        "text": "🔍 COMPETITOR GAP ALERT — {{ $json.length }} new keyword opportunities detected\nTop gaps:\n{{ JSON.stringify($json.slice(0, 10).map(g => g.keyword), null, 2) }}\n\nFull report logged to Google Sheets."
+      },
+      "id": "slack-gap-alert",
+      "name": "Slack Gap Alert",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [1250, 400]
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "competitor-gap-log",
+          "mode": "list"
+        },
+        "sheetId": "={{ $env.GOOGLE_SHEETS_ID }}",
+        "columns": {
+          "values": [
+            {
+              "column": "Keyword",
+              "value": "={{ $json.keyword }}"
+            },
+            {
+              "column": "Competitor URLs",
+              "value": "={{ JSON.stringify($json.competitorUrls) }}"
+            },
+            {
+              "column": "Detected At",
+              "value": "={{ $json.detectedAt }}"
+            },
+            {
+              "column": "Jira Ticket",
+              "value": ""
+            }
+          ]
+        }
+      },
+      "id": "log-gaps-to-sheets",
+      "name": "Log Gaps to Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [1450, 400]
+    }
+  ],
+  "connections": {
+    "Weekly (Monday 3AM)": {
+      "main": [
+        [
+          { "node": "Fetch calculator.net sitemap", "type": "main", "index": 0 },
+          { "node": "Fetch omnicalculator.com sitemap", "type": "main", "index": 0 },
+          { "node": "Fetch goodcalculators.com sitemap", "type": "main", "index": 0 },
+          { "node": "Fetch sectorcalc.com sitemap", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Fetch calculator.net sitemap": {
+      "main": [[{ "node": "Extract Keywords from URLs", "type": "main", "index": 0 }]]
+    },
+    "Fetch omnicalculator.com sitemap": {
+      "main": [[{ "node": "Extract Keywords from URLs", "type": "main", "index": 0 }]]
+    },
+    "Fetch goodcalculators.com sitemap": {
+      "main": [[{ "node": "Extract Keywords from URLs", "type": "main", "index": 0 }]]
+    },
+    "Extract Keywords from URLs": {
+      "main": [[{ "node": "Compute Keyword Gaps", "type": "main", "index": 0 }]]
+    },
+    "Fetch sectorcalc.com sitemap": {
+      "main": [[{ "node": "Extract Our Keywords", "type": "main", "index": 0 }]]
+    },
+    "Extract Our Keywords": {
+      "main": [[{ "node": "Compute Keyword Gaps", "type": "main", "index": 0 }]]
+    },
+    "Compute Keyword Gaps": {
+      "main": [[{ "node": "Gaps Found?", "type": "main", "index": 0 }]]
+    },
+    "Gaps Found?": {
+      "main": [
+        [
+          { "node": "Slack Gap Alert", "type": "main", "index": 0 },
+          { "node": "Log Gaps to Sheets", "type": "main", "index": 0 }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "saveExecutionProgress": true,
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "staticData": null,
+  "versionId": "1.0.0",
+  "id": "competitor-entity-tracker",
+  "active": false
+}

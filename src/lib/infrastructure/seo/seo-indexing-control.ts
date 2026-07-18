@@ -3,6 +3,11 @@
  * ==================================
  * Site fully open to search engine indexing. All blocking signals removed.
  * Every page serves index,follow meta + X-Robots-Tag: all + robots.txt allow.
+ *
+ * NOTE: robots.txt generation lives in `./robots-txt.ts` (re-exported below).
+ * It must NOT be imported here because this module is pulled into the
+ * next.config.ts transpilation chain, which cannot resolve the
+ * ai-crawler-policy dependency at config-load time.
  */
 
 /* ----------------------------- Core flag ----------------------------- */
@@ -35,44 +40,9 @@ export function metadataRobots() {
 
 const SITE_URL = "https://sectorcalc.com";
 
-const AI_AND_SEARCH_AGENTS = [
-  "Googlebot",
-  "Bingbot",
-  "Google-Extended",
-  "GPTBot",
-  "OAI-SearchBot",
-  "ChatGPT-User",
-  "ClaudeBot",
-  "Claude-Web",
-  "PerplexityBot",
-  "Perplexity-User",
-  "CCBot",
-  "Applebot",
-  "Applebot-Extended",
-];
-
-/**
- * Generate robots.txt. Full allow for search + AI agents, Disallow only
- * non-public paths (/api/, /admin/, duplicate sort params).
- */
-export function generateRobotsTxt(): string {
-  const blocks = AI_AND_SEARCH_AGENTS.map((ua) => `User-agent: ${ua}\nAllow: /`);
-  return [
-    ...blocks,
-    "",
-    "User-agent: *",
-    "Allow: /",
-    "Disallow: /api/",
-    "Disallow: /admin/",
-    "Disallow: /verification-queue/",
-    "Disallow: /verification-queue",
-    "Disallow: /*?*sort=",
-    "",
-    `Sitemap: ${SITE_URL}/sitemap.xml`,
-    `Host: ${SITE_URL}`,
-    "",
-  ].join("\n");
-}
+// robots.txt generation: import `generateRobotsTxt` from `./robots-txt`.
+// It is intentionally NOT re-exported here to keep the ai-crawler-policy
+// dependency out of the next.config.ts transpilation chain.
 
 /* ----------------------------- Sitemap guard ----------------------------- */
 

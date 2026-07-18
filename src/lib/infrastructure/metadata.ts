@@ -1,8 +1,7 @@
-type AppLocale = "en";
 import type { Metadata } from "next";
 import { BRAND_ASSETS } from "@/config/brand";
 import { SITE } from "@/config/site";
-import { getCanonicalPathForLocale } from "@/lib/infrastructure/i18n/locale-routing";
+import { getCanonicalPathForLocale, type HreflangLocale } from "@/lib/infrastructure/i18n/locale-routing";
 import { normalizeLocale } from "@/lib/core/format/localization";
 import {
   resolveToolMetadataDescription,
@@ -30,7 +29,7 @@ export interface PageMetadataOptions {
   title?: string;
   description?: string;
   path?: string;
-  locale?: AppLocale;
+  locale?: HreflangLocale;
 }
 
 export interface ToolMetadataOptions {
@@ -41,17 +40,37 @@ export interface ToolMetadataOptions {
   locale?: string;
 }
 
-function buildLocalizedPath(path: string, locale: AppLocale): string {
+function buildLocalizedPath(path: string, locale: HreflangLocale): string {
   return getCanonicalPathForLocale(path, locale);
 }
 
-function buildHreflangAlternates(path: string): {} {
-  // V5.3.1 root-only: no hreflang locale alternates
-  return {};
+/**
+ * Build hreflang alternates for 4 supported locales.
+ *
+ * Canonical URL: bare path (English, no locale prefix).
+ * hreflang="en": /en/{path} (x-default)
+ * hreflang="tr": /tr/{path}
+ * hreflang="de": /de/{path}
+ * hreflang="ar": /ar/{path}
+ *
+ * Returns the Next.js Metadata.alternates.languages shape.
+ */
+function buildHreflangLanguages(path: string): Record<string, string> {
+  const baseUrl = SITE.url;
+  const normalizedPath = path.startsWith("/") ? path : `/${path}`;
+  const cleanPath = normalizedPath === "/" ? "" : normalizedPath;
+
+  return {
+    en: `${baseUrl}/en${cleanPath}`,
+    tr: `${baseUrl}/tr${cleanPath}`,
+    de: `${baseUrl}/de${cleanPath}`,
+    ar: `${baseUrl}/ar${cleanPath}`,
+    "x-default": `${baseUrl}/en${cleanPath}`,
+  };
 }
 
 export function getToolMetadata(options: ToolMetadataOptions): Metadata {
-  const locale = normalizeLocale(options.locale ?? "en") as AppLocale;
+  const locale = (normalizeLocale(options.locale ?? "en") as HreflangLocale);
   const tierLabel = resolveToolTierLabel(locale, options.tier);
   const title = `${options.toolTitle} - ${tierLabel}`;
   const description = resolveToolMetadataDescription(
@@ -66,7 +85,7 @@ export function getToolMetadata(options: ToolMetadataOptions): Metadata {
     title,
     description,
     path,
-    locale: locale,
+    locale,
   });
 }
 
@@ -85,9 +104,9 @@ export function createPageMetadata(options: PageMetadataOptions = {}): Metadata 
   const path = options.path ?? "/";
   const locale = options.locale ?? "en";
   const url = `${SITE.url}${buildLocalizedPath(path, locale)}`;
-  const h_reflang = buildHreflangAlternates(path);
+  const languages = buildHreflangLanguages(path);
 
-  // Canonical is always English (without locale prefix)
+  // Canonical is always bare path (English, no locale prefix)
   const canonicalUrl = `${SITE.url}${path === "/" ? "" : path}`;
 
   const isEnglish = locale === "en";
@@ -120,7 +139,7 @@ export function createPageMetadata(options: PageMetadataOptions = {}): Metadata 
     },
     alternates: {
       canonical: canonicalUrl,
-      ...h_reflang,
+      languages: languages,
     },
     verification: {
       google: "YC4-K4Q1XVrErVW2UE9eNe4Tni2hhFFmBhF8dZjcVoY",

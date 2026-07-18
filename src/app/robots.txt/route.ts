@@ -1,4 +1,4 @@
-import { generateRobotsTxt } from "@/lib/infrastructure/seo/seo-indexing-control";
+import { generateRobotsTxt } from "@/lib/infrastructure/seo/robots-txt";
 
 export function GET(): Response {
   const body = generateRobotsTxt();

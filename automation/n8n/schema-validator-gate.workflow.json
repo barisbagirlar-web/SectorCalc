@@ -1,0 +1,205 @@
+{
+  "name": "Schema Validator Gate",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "schema-validator-gate",
+        "options": {}
+      },
+      "id": "github-webhook",
+      "name": "GitHub Push to Main",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1.1,
+      "position": [250, 300],
+      "webhookId": "schema-validator-gate-webhook"
+    },
+    {
+      "parameters": {
+        "command": "git clone --depth 1 https://github.com/sectorcalc/SectorCalc-p5a.git /tmp/sectorcalc-build && cd /tmp/sectorcalc-build && npm ci && npm run build 2>&1 | tail -20"
+      },
+      "id": "build-check",
+      "name": "Clone & Build",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [450, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "build-passed",
+              "leftValue": "={{ $json.stdout }}",
+              "rightValue": "✓",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            }
+          ],
+          "combinator": "or"
+        }
+      },
+      "id": "build-ok",
+      "name": "Build Passed?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [650, 300]
+    },
+    {
+      "parameters": {
+        "command": "cd /tmp/sectorcalc-build && node scripts/schema-validate.mjs 2>&1"
+      },
+      "id": "schema-validate",
+      "name": "Run Schema Validation",
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [850, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "schema-passed",
+              "leftValue": "={{ $json.stdout }}",
+              "rightValue": "PASS",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            }
+          ],
+          "combinator": "or"
+        }
+      },
+      "id": "schema-ok",
+      "name": "Schema Valid?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [1050, 300]
+    },
+    {
+      "parameters": {
+        "url": "https://search.google.com/test/rich-results",
+        "method": "POST",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "url",
+              "value": "={{ $json.testUrl }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "rich-results-test",
+      "name": "Rich Results Test API",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [1250, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "rich-result-eligible",
+              "leftValue": "={{ $json.richResultsEligible }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "or"
+        }
+      },
+      "id": "rich-result-ok",
+      "name": "Rich Result Eligible?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [1450, 300]
+    },
+    {
+      "parameters": {
+        "webhookUri": "={{ $env.SLACK_SEO_WEBHOOK }}",
+        "text": "✅ Schema Validator Gate — ALL CHECKS PASSED\nDeploy approved for {{ new Date().toISOString() }}"
+      },
+      "id": "slack-pass",
+      "name": "Slack: PASS",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [1650, 300]
+    },
+    {
+      "parameters": {
+        "webhookUri": "={{ $env.SLACK_SEO_WEBHOOK }}",
+        "text": "🚨 SCHEMA VALIDATOR GATE — DEPLOY BLOCKED\nBuild: {{ $('Build Passed?').first().json.stdout }}\nSchema: {{ $json.stdout }}\nManual review required before deploy."
+      },
+      "id": "slack-fail",
+      "name": "Slack: FAIL — Block Deploy",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [1650, 500]
+    }
+  ],
+  "connections": {
+    "GitHub Push to Main": {
+      "main": [[{ "node": "Clone & Build", "type": "main", "index": 0 }]]
+    },
+    "Clone & Build": {
+      "main": [[{ "node": "Build Passed?", "type": "main", "index": 0 }]]
+    },
+    "Build Passed?": {
+      "main": [
+        [{ "node": "Run Schema Validation", "type": "main", "index": 0 }],
+        [{ "node": "Slack: FAIL — Block Deploy", "type": "main", "index": 0 }]
+      ]
+    },
+    "Run Schema Validation": {
+      "main": [[{ "node": "Schema Valid?", "type": "main", "index": 0 }]]
+    },
+    "Schema Valid?": {
+      "main": [
+        [{ "node": "Rich Results Test API", "type": "main", "index": 0 }],
+        [{ "node": "Slack: FAIL — Block Deploy", "type": "main", "index": 0 }]
+      ]
+    },
+    "Rich Results Test API": {
+      "main": [[{ "node": "Rich Result Eligible?", "type": "main", "index": 0 }]]
+    },
+    "Rich Result Eligible?": {
+      "main": [
+        [{ "node": "Slack: PASS", "type": "main", "index": 0 }],
+        [{ "node": "Slack: FAIL — Block Deploy", "type": "main", "index": 0 }]
+      ]
+    }
+  },
+  "settings": {
+    "saveExecutionProgress": true,
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "staticData": null,
+  "versionId": "1.0.0",
+  "id": "schema-validator-gate",
+  "active": false
+}

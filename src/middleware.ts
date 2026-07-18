@@ -26,12 +26,14 @@ function applyRegionHeaders(response: NextResponse, request: NextRequest): NextR
 }
 
 /**
- * Known ISO 639-1 language paths at root level — return 404.
- * These are not active routes; they exist only as legacy/misguided URL patterns.
+ * Supported hreflang locales — /en, /tr, /de, /ar are active locale routes
+ * that internally rewrite to bare paths (English content).
+ * Other ISO 639-1 paths return 404 (unsupported locales).
  */
+const SUPPORTED_HREFLANG_LOCALES = new Set(["en", "tr", "de", "ar"]);
+
 const LEGACY_LANGUAGE_ROUTES = new Set([
-  "/en", "/tr", "/de", "/fr", "/es", "/ar",
-  "/ru", "/zh", "/ja", "/ko", "/pt", "/it",
+  "/fr", "/es", "/ru", "/zh", "/ja", "/ko", "/pt", "/it",
   "/nl", "/pl", "/sv", "/da", "/fi", "/nb",
   "/cs", "/hu", "/ro", "/uk", "/el", "/he",
   "/hi", "/th", "/vi", "/id", "/ms",
@@ -191,6 +193,9 @@ export default function middleware(request: NextRequest) {
     });
   }
 
+  // ── Sub-sitemaps: /sitemaps/tools.xml, /sitemaps/guides.xml, etc. ──
+  // These are active index-mandated sub-sitemap routes.
+
   // ── Legacy singular /guide/ → /guides/ redirect ──
   if (pathname.startsWith("/guide/")) {
     const url = new URL(request.url);
@@ -210,6 +215,24 @@ export default function middleware(request: NextRequest) {
       url.pathname = `/tools/free/${slug}`;
       return NextResponse.redirect(url, 301);
     }
+  }
+
+  // ── Hreflang locale routing: /en/..., /tr/..., /de/..., /ar/... ──
+  // Internally rewrite to bare path. Locale is available via x-locale header
+  // and `nextUrl.locale` so pages can conditionally serve locale-specific content.
+  const localeMatch = pathname.match(/^\/(en|tr|de|ar)(\/.*)?$/);
+  if (localeMatch) {
+    const locale = localeMatch[1];
+    const subPath = localeMatch[2] ?? "/";
+    const url = new URL(request.url);
+    url.pathname = subPath;
+
+    const response = NextResponse.rewrite(url);
+    response.headers.set("x-hreflang-locale", locale);
+    // hreflang locale pages are canonicalized to bare path; allow crawl for discovery
+    // but canonical tag in HTML points to bare path (via createPageMetadata)
+    response.headers.set("x-robots-tag", "index, follow");
+    return applyRegionHeaders(response, request);
   }
 
   // Root-level language-only paths — return 404
@@ -243,6 +266,15 @@ export const config = {
     "/",
     "/sw.js",
     "/sitemap/:path*",
+    "/sitemaps/:path*",
+    "/en",
+    "/en/:path*",
+    "/tr",
+    "/tr/:path*",
+    "/de",
+    "/de/:path*",
+    "/ar",
+    "/ar/:path*",
     "/((?!admin|api|_next|_vercel|.*\\..*).*)",
   ],
 };

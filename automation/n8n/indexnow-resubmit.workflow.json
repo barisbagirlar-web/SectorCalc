@@ -1,0 +1,82 @@
+{
+  "name": "SectorCalc - IndexNow Resubmit",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "days",
+              "triggerAtHour": 3
+            }
+          ]
+        }
+      },
+      "id": "a1f0c2d4-1111-4a01-8b01-000000000001",
+      "name": "Daily 03:00",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [-360, 0]
+    },
+    {
+      "parameters": {
+        "url": "https://sectorcalc.com/url-manifest.json",
+        "options": {}
+      },
+      "id": "a1f0c2d4-2222-4a01-8b01-000000000002",
+      "name": "Fetch URL Manifest",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [-140, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Build the IndexNow payload from the published URL manifest.\nconst key = $env.INDEXNOW_KEY;\nif (!key) {\n  throw new Error('INDEXNOW_KEY env var is not set');\n}\nconst manifest = $input.first().json;\nconst host = manifest.host || 'sectorcalc.com';\nconst urls = (manifest.urls || []).map((u) => u.url).slice(0, 9500);\nreturn [{\n  json: {\n    payload: {\n      host,\n      key,\n      keyLocation: `https://${host}/${key}.txt`,\n      urlList: urls,\n    },\n    urlCount: urls.length,\n  },\n}];"
+      },
+      "id": "a1f0c2d4-3333-4a01-8b01-000000000003",
+      "name": "Build IndexNow Payload",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [80, 0]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.indexnow.org/indexnow",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($json.payload) }}",
+        "options": {}
+      },
+      "id": "a1f0c2d4-4444-4a01-8b01-000000000004",
+      "name": "Submit to IndexNow",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [300, 0]
+    }
+  ],
+  "connections": {
+    "Daily 03:00": {
+      "main": [[{ "node": "Fetch URL Manifest", "type": "main", "index": 0 }]]
+    },
+    "Fetch URL Manifest": {
+      "main": [[{ "node": "Build IndexNow Payload", "type": "main", "index": 0 }]]
+    },
+    "Build IndexNow Payload": {
+      "main": [[{ "node": "Submit to IndexNow", "type": "main", "index": 0 }]]
+    }
+  },
+  "active": false,
+  "settings": { "executionOrder": "v1" },
+  "pinData": {},
+  "meta": {}
+}

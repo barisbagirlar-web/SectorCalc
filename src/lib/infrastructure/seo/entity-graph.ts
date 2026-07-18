@@ -2,8 +2,11 @@ type AppLocale = "en";
 import { BRAND_ASSETS } from "@/config/brand";
 import {
   FOUNDER_PROFILE,
+  INDUSTRY_WIKIDATA_QID,
+  TOPIC_WIKIDATA_ENTITIES,
   buildFounderSameAs,
   buildOrganizationSameAs,
+  wikidataUrl,
 } from "@/config/knowledge-graph";
 import { ORGANIZATION_TRUST, organizationDescriptionForLocale } from "@/config/organization-trust";
 import { SITE } from "@/config/site";
@@ -76,6 +79,40 @@ function academicPersonNode(ref: (typeof academicReferences)[number]): JsonLdRec
 }
 
 /**
+ * Build one industry DefinedTerm node, attaching a verified Wikidata `sameAs`
+ * when the taxonomy fragment is mapped in INDUSTRY_WIKIDATA_QID.
+ */
+function industryTermNode(fragment: string, name: string): JsonLdRecord {
+  const qid = INDUSTRY_WIKIDATA_QID[fragment];
+  const node: JsonLdRecord = {
+    "@type": "DefinedTerm",
+    "@id": `${SITE_URL}/#${fragment}`,
+    name,
+    inDefinedTermSet: `${SITE_URL}/#industry-set`,
+  };
+  if (qid) {
+    node.sameAs = wikidataUrl(qid);
+  }
+  return node;
+}
+
+/**
+ * Topical entities the platform covers, linked to canonical Wikidata items.
+ * Emitted as DefinedTerm nodes and referenced from Organization.knowsAbout so
+ * knowledge graphs can disambiguate SectorCalc's areas of expertise.
+ */
+function buildTopicKnowledgeNodes(): JsonLdRecord[] {
+  return TOPIC_WIKIDATA_ENTITIES.map((topic) => ({
+    "@type": "DefinedTerm",
+    "@id": `${SITE_URL}/#topic-${topic.qid}`,
+    name: topic.name,
+    termCode: topic.qid,
+    sameAs: wikidataUrl(topic.qid),
+    inDefinedTermSet: `${SITE_URL}/#topic-set`,
+  }));
+}
+
+/**
  * Build the sector/industry relationship map for Graph RAG topology.
  * These relations enable AI systems to traverse entity connections
  * (e.g., "SectorCalc CNC → used in → Manufacturing Industry").
@@ -88,20 +125,27 @@ function buildIndustryRelationships(): JsonLdRecord[] {
       name: "SectorCalc Industry Categories",
       description: "Complete industry taxonomy for SectorCalc platform",
       hasDefinedTerm: [
-        { "@type": "DefinedTerm", "@id": `${SITE_URL}/#industry-cnc-manufacturing`, name: "CNC & Advanced Manufacturing", inDefinedTermSet: `${SITE_URL}/#industry-set` },
-        { "@type": "DefinedTerm", "@id": `${SITE_URL}/#industry-construction`, name: "Construction & Site Management", inDefinedTermSet: `${SITE_URL}/#industry-set` },
-        { "@type": "DefinedTerm", "@id": `${SITE_URL}/#industry-logistics`, name: "Logistics & Transport", inDefinedTermSet: `${SITE_URL}/#industry-set` },
-        { "@type": "DefinedTerm", "@id": `${SITE_URL}/#industry-energy`, name: "Energy & Sustainability", inDefinedTermSet: `${SITE_URL}/#industry-set` },
-        { "@type": "DefinedTerm", "@id": `${SITE_URL}/#industry-agriculture`, name: "Agriculture & Food", inDefinedTermSet: `${SITE_URL}/#industry-set` },
-        { "@type": "DefinedTerm", "@id": `${SITE_URL}/#industry-finance`, name: "Finance & Working Capital", inDefinedTermSet: `${SITE_URL}/#industry-set` },
-        { "@type": "DefinedTerm", "@id": `${SITE_URL}/#industry-quality`, name: "Quality & Six Sigma", inDefinedTermSet: `${SITE_URL}/#industry-set` },
-        { "@type": "DefinedTerm", "@id": `${SITE_URL}/#industry-digital-factory`, name: "Digital Factory & Automation", inDefinedTermSet: `${SITE_URL}/#industry-set` },
-        { "@type": "DefinedTerm", "@id": `${SITE_URL}/#industry-hvac`, name: "HVAC & Mechanical Systems", inDefinedTermSet: `${SITE_URL}/#industry-set` },
-        { "@type": "DefinedTerm", "@id": `${SITE_URL}/#industry-electrical`, name: "Electrical & Power Systems", inDefinedTermSet: `${SITE_URL}/#industry-set` },
-        { "@type": "DefinedTerm", "@id": `${SITE_URL}/#industry-food`, name: "Food, Cold Chain & Hygiene", inDefinedTermSet: `${SITE_URL}/#industry-set` },
-        { "@type": "DefinedTerm", "@id": `${SITE_URL}/#industry-textile`, name: "Textile, Printing & Lab", inDefinedTermSet: `${SITE_URL}/#industry-set` },
-        { "@type": "DefinedTerm", "@id": `${SITE_URL}/#industry-hse`, name: "HSE & Ergonomics", inDefinedTermSet: `${SITE_URL}/#industry-set` },
+        industryTermNode("industry-cnc-manufacturing", "CNC & Advanced Manufacturing"),
+        industryTermNode("industry-construction", "Construction & Site Management"),
+        industryTermNode("industry-logistics", "Logistics & Transport"),
+        industryTermNode("industry-energy", "Energy & Sustainability"),
+        industryTermNode("industry-agriculture", "Agriculture & Food"),
+        industryTermNode("industry-finance", "Finance & Working Capital"),
+        industryTermNode("industry-quality", "Quality & Six Sigma"),
+        industryTermNode("industry-digital-factory", "Digital Factory & Automation"),
+        industryTermNode("industry-hvac", "HVAC & Mechanical Systems"),
+        industryTermNode("industry-electrical", "Electrical & Power Systems"),
+        industryTermNode("industry-food", "Food, Cold Chain & Hygiene"),
+        industryTermNode("industry-textile", "Textile, Printing & Lab"),
+        industryTermNode("industry-hse", "HSE & Ergonomics"),
       ],
+    },
+    {
+      "@type": "DefinedTermSet",
+      "@id": `${SITE_URL}/#topic-set`,
+      name: "SectorCalc Expertise Topics",
+      description: "Topical areas covered by SectorCalc, linked to Wikidata entities",
+      hasDefinedTerm: buildTopicKnowledgeNodes(),
     },
     {
       "@type": "Product",
@@ -282,7 +326,9 @@ export function buildEntityGraph(locale: AppLocale = "en"): JsonLdRecord {
         },
         knowsAbout: [
           { "@id": `${SITE_URL}/#industry-set` },
+          { "@id": `${SITE_URL}/#topic-set` },
           { "@id": PRODUCT_ID },
+          ...TOPIC_WIKIDATA_ENTITIES.map((topic) => ({ "@id": `${SITE_URL}/#topic-${topic.qid}` })),
         ],
       },
       // === FOUNDER ===

@@ -1,16 +1,12 @@
-// SectorCalc — Sitemap Index (type-split architecture)
-// Returns sitemap index referencing tools.xml, guides.xml, datasets.xml,
-// categories.xml, faq.xml per mandate spec.
-
 import { NextResponse } from "next/server";
-import { buildSitemapIndexXml } from "@/lib/infrastructure/seo/sitemap-index-generator";
+import { buildSubSitemapXml } from "@/lib/infrastructure/seo/sitemap-index-generator";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 export async function GET(): Promise<NextResponse> {
   const now = new Date();
-  const xml = buildSitemapIndexXml(now);
+  const xml = buildSubSitemapXml("categories", now);
 
   return new NextResponse(xml, {
     status: 200,
