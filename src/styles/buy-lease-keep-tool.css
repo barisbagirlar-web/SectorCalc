@@ -103,3 +103,68 @@ details[open] summary::before{content:"\2212 "}
 .blk-chart text{font-family:var(--blk-mono)}
 .blk-seal{margin-top:8px;padding:14px 16px;background:var(--blk-paper);border:1px dashed var(--blk-line);font-family:var(--blk-mono);font-size:10.5px;color:var(--blk-faint);word-break:break-all;line-height:1.7}
 .blk-disc{font-size:11px;color:var(--blk-faint);margin-top:14px;padding-top:12px;border-top:1px solid var(--blk-line-soft);line-height:1.6}
+
+/* ── Print / PDF export ──────────────────────────────────────────────
+   Reuses the on-screen report exactly (WYSIWYG) rather than a separate
+   PDF-generation template, so there is no second layout that could drift
+   out of sync or introduce its own overflow bugs. Only .blk-report and
+   its descendants are printed; the shell, masthead, and input form are
+   hidden. */
+@media print {
+  @page { margin: 14mm 12mm; }
+
+  body * { visibility: hidden; }
+  .blk-report, .blk-report * { visibility: visible; }
+  .blk-report {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Browsers strip background colors/borders by default when printing;
+     the verdict box, insight cards, and win-row highlight all depend on
+     background color to convey meaning, so force it on. */
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    color-adjust: exact;
+  }
+
+  /* Never split a chart, table row, or insight card across a page break —
+     the most common source of a "broken, overflowing" printed report. */
+  .blk-chart, .blk-verdict-box, .blk-ins, tr, .blk-seal, .blk-disc {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  h2, h3, .blk-head { break-after: avoid; page-break-after: avoid; }
+
+  /* The floating feedback/report-tools chrome and the "Generate sealed
+     report" action button have no place in a printed document. */
+  .sc-report-feedback, .sc-report-quick-reaction, [class*="sticky"] {
+    display: none !important;
+  }
+}
+
+.blk-print-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 0 16px;
+  margin-top: 10px;
+  background: var(--blk-paper);
+  border: 1px solid var(--blk-line);
+  border-radius: 4px;
+  font-family: var(--blk-mono);
+  font-size: 12px;
+  letter-spacing: 0.03em;
+  color: var(--blk-ink);
+  cursor: pointer;
+}
+.blk-print-btn:hover { border-color: var(--blk-ink-soft); }
+
+@media print {
+  .blk-print-btn { display: none !important; }
+}

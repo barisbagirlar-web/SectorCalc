@@ -661,6 +661,14 @@ export default function BuyLeaseKeepToolPage() {
             SEAL · {serverResult.seal.hash_algorithm} {seal}<br />
             Sealed server-side at {serverResult.seal.executed_at ?? "—"}.
           </div>
+          <button
+            type="button"
+            className="blk-print-btn"
+            onClick={() => window.print()}
+            aria-label="Download this report as a PDF"
+          >
+            Download PDF
+          </button>
           <div className="blk-disc">
             Technical simulation only; not financial, legal, or engineering advice. Users must verify results before making business decisions.
           </div>
