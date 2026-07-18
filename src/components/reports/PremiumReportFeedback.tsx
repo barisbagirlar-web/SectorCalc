@@ -114,7 +114,7 @@ export function PremiumReportFeedback(props: PremiumReportFeedbackProps) {
         disabled={!!quickReaction || quickSubmitting}
         aria-pressed={quickReaction === "up"}
         aria-label={t("quickReactionUp")}
-        className={`min-h-[44px] min-w-[44px] rounded-lg border px-3 text-lg transition-colors ${
+        className={`min-h-[48px] min-w-[48px] rounded-lg border px-3 text-lg transition-colors ${
           quickReaction === "up"
             ? "border-professional-blue bg-professional-blue text-white"
             : "border-slate/25 bg-white text-deep-navy hover:border-professional-blue"
@@ -128,7 +128,7 @@ export function PremiumReportFeedback(props: PremiumReportFeedbackProps) {
         disabled={!!quickReaction || quickSubmitting}
         aria-pressed={quickReaction === "down"}
         aria-label={t("quickReactionDown")}
-        className={`min-h-[44px] min-w-[44px] rounded-lg border px-3 text-lg transition-colors ${
+        className={`min-h-[48px] min-w-[48px] rounded-lg border px-3 text-lg transition-colors ${
           quickReaction === "down"
             ? "border-professional-blue bg-professional-blue text-white"
             : "border-slate/25 bg-white text-deep-navy hover:border-professional-blue"
