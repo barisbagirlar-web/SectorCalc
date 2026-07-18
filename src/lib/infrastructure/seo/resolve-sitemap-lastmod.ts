@@ -102,7 +102,14 @@ function resolveGeneratedOrPremiumToolLastMod(slug: string, fallback: Date): Dat
   }
 
   const registryMtime = readCachedFileMtime("premiumRegistry");
-  return registryMtime ?? fallback;
+  if (registryMtime) {
+    return registryMtime;
+  }
+
+  // Serverless bundles expose no reliable file mtime; never emit request-time
+  // (new Date()) here or the sitemap <lastmod> would churn on every crawl.
+  // Fall back to the premium registry's stable git commit date instead.
+  return readCachedFileGitDate("premiumRegistry", fallback);
 }
 
 /** Merged static + Firestore case study lastmod (deduped by slug, latest wins). */

@@ -5,6 +5,10 @@ import path from "path";
 const ROOT = process.cwd();
 const GENERATED_DIR = path.join(ROOT, "generated");
 const PREMIUM_SCHEMAS_DIR = path.join(ROOT, "src/lib/features/premium-schema/schemas");
+// Pro-tier (/tools/pro/<slug>) canonical sources: versioned schema + formula.
+// These back the sitemap routes produced by getActiveCategorizedToolSitemapRoutes().
+const PRO_V531_SCHEMAS_DIR = path.join(ROOT, "src/sectorcalc/schemas/pro-v531");
+const PRO_V531_FORMULAS_DIR = path.join(ROOT, "src/sectorcalc/formulas/pro-v531");
 const OUTPUT_FILE = path.join(GENERATED_DIR, "tool-git-dates.json");
 
 function getGitCommitDate(filePath: string): string | null {
@@ -25,6 +29,25 @@ function getFileMtimeIso(filePath: string): string {
   } catch {
     return new Date().toISOString();
   }
+}
+
+/** Latest valid ISO date across a set of source files (git commit date preferred, mtime fallback). */
+function resolveLatestSourceIso(filePaths: readonly string[]): string | null {
+  let latest: { iso: string; time: number } | null = null;
+  for (const filePath of filePaths) {
+    if (!fs.existsSync(filePath)) {
+      continue;
+    }
+    const iso = getGitCommitDate(filePath) ?? getFileMtimeIso(filePath);
+    const time = new Date(iso).getTime();
+    if (Number.isNaN(time)) {
+      continue;
+    }
+    if (!latest || time > latest.time) {
+      latest = { iso, time };
+    }
+  }
+  return latest ? latest.iso : null;
 }
 
 export function run() {
@@ -84,6 +107,32 @@ export function run() {
         } catch (e) {
           console.error(`Failed to parse schema IDs in file: ${filePath}`, e);
         }
+      }
+    }
+  }
+
+  // 2b. Scan pro-tier (/tools/pro/<slug>) versioned sources.
+  // Slug lastmod = latest git commit date across its schema + formula file,
+  // so the sitemap emits an authentic per-tool signal instead of build/request time.
+  if (fs.existsSync(PRO_V531_SCHEMAS_DIR)) {
+    const files = fs.readdirSync(PRO_V531_SCHEMAS_DIR);
+    for (const file of files) {
+      if (!file.endsWith(".schema.json")) {
+        continue;
+      }
+      const slug = file.replace(/\.schema\.json$/, "");
+      const trackedPaths = [
+        path.join(PRO_V531_SCHEMAS_DIR, file),
+        path.join(PRO_V531_FORMULAS_DIR, `${slug}.formula.ts`),
+      ];
+      const resolved = resolveLatestSourceIso(trackedPaths);
+      if (!resolved) {
+        missingCount++;
+        console.warn(`[WARN] Git date lookup missed for pro tool: ${slug}`);
+        continue;
+      }
+      if (!datesMap[slug] || new Date(resolved) > new Date(datesMap[slug])) {
+        datesMap[slug] = resolved;
       }
     }
   }
