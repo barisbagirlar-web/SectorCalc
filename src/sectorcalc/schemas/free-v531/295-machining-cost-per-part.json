@@ -108,7 +108,7 @@
   },
   "unit_conversion_contract": {
     "internal_base_system": "SI",
-    "currency_policy": "No currency conversion — user provides single-currency values",
+    "currency_policy": "No currency conversion \u2014 user provides single-currency values",
     "temperature_policy": "Absolute and interval distinction",
     "conversion_registry": {},
     "unsupported_conversion_behavior": "BLOCK_CALCULATION",
@@ -570,14 +570,14 @@
         "min": 0.5,
         "max": 5,
         "unit": "%",
-        "source": "ISO 22400-2 (Manufacturing KPIs) — typical scrap-rate range for a mature CNC process.",
+        "source": "Typical scrap-rate range for a mature CNC process (industry benchmark; ISO 22400-2 defines the scrap-ratio KPI itself but not this specific numeric band).",
         "status": "REFERENCE"
       },
       "engineering_reference_range": {
         "min": 0.5,
         "max": 5,
         "unit": "%",
-        "source": "ISO 22400-2 (Manufacturing KPIs) — typical scrap-rate range for a mature CNC process.",
+        "source": "Typical scrap-rate range for a mature CNC process (industry benchmark; ISO 22400-2 defines the scrap-ratio KPI itself but not this specific numeric band).",
         "status": "REFERENCE"
       },
       "physical_hard_bounds": {
@@ -700,7 +700,7 @@
       },
       "physical_hard_bounds": {
         "min": 0,
-        "max": 200,
+        "max": 90,
         "unit": "%",
         "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK"
