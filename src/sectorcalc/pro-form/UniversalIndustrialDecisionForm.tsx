@@ -58,6 +58,7 @@ import { ProReportPanelV2 } from "@/sectorcalc/pro-report/ProReportPanelV2";
 import { ProReportView, type VerdictData } from "@/components/ProReportView";
 import { BreakEvenReportCharts } from "@/sectorcalc/pro-report/charts/BreakEvenReportCharts";
 import { UniversalKpiPanel } from "@/sectorcalc/pro-report/charts/UniversalKpiPanel";
+import { PremiumReportFeedback } from "@/components/reports/PremiumReportFeedback";
 import { assertCrossToolIdentity } from "@/sectorcalc/runtime/cross-tool-contract-assertions";
 import { registry as referenceRegistry } from "@/generated/reference-registry";
 import {
@@ -1633,6 +1634,25 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                       )}
                       sensitivity={sensitivityData}
                     />
+                    {response?.audit_seal?.output_hash && (
+                      <PremiumReportFeedback
+                        key={response.audit_seal.output_hash}
+                        schemaSlug={toolSlug}
+                        sectorSlug="manufacturing"
+                        reportSlug={response.audit_seal.output_hash}
+                        inputSnapshot={Object.fromEntries(
+                          Object.entries(state.rawInputState).filter(
+                            (entry): entry is [string, string | number | boolean] => entry[1] !== null,
+                          ),
+                        )}
+                        resultSnapshot={Object.fromEntries(
+                          response.outputs
+                            .filter((o) => typeof o.value === "number" && Number.isFinite(o.value))
+                            .map((o) => [o.id, o.value as number]),
+                        )}
+                        currency={selectedCurrency}
+                      />
+                    )}
                   </>
                 );
               })()}
