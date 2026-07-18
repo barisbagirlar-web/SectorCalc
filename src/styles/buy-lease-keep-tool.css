@@ -136,9 +136,8 @@ details[open] summary::before{content:"\2212 "}
      the most common source of a "broken, overflowing" printed report. */
   .blk-chart, .blk-verdict-box, .blk-ins, tr, .blk-seal, .blk-disc {
     break-inside: avoid;
-    page-break-inside: avoid;
   }
-  h2, h3, .blk-head { break-after: avoid; page-break-after: avoid; }
+  h2, h3, .blk-head { break-after: avoid; }
 
   /* The floating feedback/report-tools chrome and the "Generate sealed
      report" action button have no place in a printed document. */
@@ -151,12 +150,12 @@ details[open] summary::before{content:"\2212 "}
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  min-height: 44px;
+  min-height: 48px;
   padding: 0 16px;
   margin-top: 10px;
   background: var(--blk-paper);
   border: 1px solid var(--blk-line);
-  border-radius: 4px;
+  border-radius: 0;
   font-family: var(--blk-mono);
   font-size: 12px;
   letter-spacing: 0.03em;
