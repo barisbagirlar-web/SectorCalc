@@ -58,6 +58,7 @@ import { ProReportPanelV2 } from "@/sectorcalc/pro-report/ProReportPanelV2";
 import { ProReportView, type VerdictData } from "@/components/ProReportView";
 import { BreakEvenReportCharts } from "@/sectorcalc/pro-report/charts/BreakEvenReportCharts";
 import { UniversalKpiPanel } from "@/sectorcalc/pro-report/charts/UniversalKpiPanel";
+import { PremiumReportFeedback } from "@/components/reports/PremiumReportFeedback";
 import { assertCrossToolIdentity } from "@/sectorcalc/runtime/cross-tool-contract-assertions";
 import { registry as referenceRegistry } from "@/generated/reference-registry";
 import {
@@ -69,6 +70,32 @@ import {
 // ── ViewModel types ────────────────────────────────────────────────────────────
 
 /** True only for non-empty strings after trim. */
+// Sector classification for report-feedback records. UniversalIndustrialDecisionForm
+// is shared by 45 pro-v531 schemas spanning finance, compliance, and manufacturing
+// domains -- no schema.metadata.sector field is actually populated anywhere (checked:
+// 0/45), so a single hardcoded value would misclassify Firestore feedback/benchmark
+// data for the non-manufacturing tools. Explicit exceptions for the unambiguous
+// finance/compliance/energy tools; "manufacturing" default for everything else,
+// reflecting this platform's actual majority domain.
+const FEEDBACK_SECTOR_OVERRIDES: Record<string, string> = {
+  "bank-grade-financial-projection-covenant-model": "finance",
+  "break-even-survival-cash-calculator": "finance",
+  "capital-equipment-investment-appraisal-npv-irr": "finance",
+  "fx-commodity-pass-through-pricer": "finance",
+  "receivables-cost-payment-term-addendum": "finance",
+  "true-employee-cost-statement": "finance",
+  "customer-sku-profitability-forensics": "finance",
+  "product-sku-margin-ranker": "finance",
+  "cbam-cost-exposure-hedging-forecaster": "compliance",
+  "cbam-definitive-period-compliance-package": "compliance",
+  "cbam-supplier-emissions-data-sheet": "compliance",
+  "scope-1-2-3-splitter-for-smes": "compliance",
+  "energy-efficiency-grant-incentive-feasibility-pack": "energy",
+};
+function resolveFeedbackSectorSlug(toolSlug: string): string {
+  return FEEDBACK_SECTOR_OVERRIDES[toolSlug] ?? "manufacturing";
+}
+
 function hasMessage(value: unknown): boolean {
   return typeof value === "string" && value.trim().length > 0;
 }
@@ -1633,6 +1660,25 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                       )}
                       sensitivity={sensitivityData}
                     />
+                    {response?.audit_seal?.output_hash && (
+                      <PremiumReportFeedback
+                        key={response.audit_seal.output_hash}
+                        schemaSlug={toolSlug}
+                        sectorSlug={resolveFeedbackSectorSlug(toolSlug)}
+                        reportSlug={response.audit_seal.output_hash}
+                        inputSnapshot={Object.fromEntries(
+                          Object.entries(state.rawInputState).filter(
+                            (entry): entry is [string, string | number | boolean] => entry[1] !== null,
+                          ),
+                        )}
+                        resultSnapshot={Object.fromEntries(
+                          response.outputs
+                            .filter((o) => typeof o.value === "number" && Number.isFinite(o.value))
+                            .map((o) => [o.id, o.value as number]),
+                        )}
+                        currency={selectedCurrency}
+                      />
+                    )}
                   </>
                 );
               })()}
