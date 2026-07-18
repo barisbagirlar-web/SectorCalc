@@ -1603,35 +1603,48 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                   }
 
                   return (
-                    <ProReportView
-                      toolTitle={vm.title}
-                      toolSubtitle={`SectorCalc PRO · ${safeDisplayCategory(props.schema?.category ?? "")} · Loss detection`}
-                      toolScope={vm.purpose || ""}
-                      engineLabel="PRO V5.3.1"
-                      assertionLabel="15 output assertions passed"
-                      methodLabel="cost-threshold comparison"
-                      currencySymbol={selectedCurrency}
-                      reportId={`SC-PRO-LMJ-${Date.now()}`}
-                      timestamp={new Date().toISOString().slice(0, 10)}
-                      sealHash={`${response?.audit_seal?.output_hash?.slice(0, 16) ?? "demo"}…live`}
-                      verdict={verdict}
-                      kpis={kpis}
-                      verdictStatus={vStatus}
-                      verdictLabel={pd === "OK" ? "GO" : pd === "BLOCKED" ? "BLOCK" : "REVIEW"}
-                      stats={stats}
-                      sensitivityDrivers={sDrivers.length > 0 ? sDrivers : undefined}
-                      paretoSegments={pSegments.length > 0 ? pSegments : undefined}
-                      insights={insights.length > 0 ? insights : undefined}
-                      uncertainty={typeof uncertainty === "number" && Number.isFinite(uncertainty)
-                        ? { total: uncertainty, band: "k=2 (95% coverage)", method: "GUM ISO/IEC 98-3" }
-                        : undefined
-                      }
-                    />
+                    <div className="sc-print-report">
+                      <ProReportView
+                        toolTitle={vm.title}
+                        toolSubtitle={`SectorCalc PRO · ${safeDisplayCategory(props.schema?.category ?? "")} · Loss detection`}
+                        toolScope={vm.purpose || ""}
+                        engineLabel="PRO V5.3.1"
+                        assertionLabel="15 output assertions passed"
+                        methodLabel="cost-threshold comparison"
+                        currencySymbol={selectedCurrency}
+                        reportId={`SC-PRO-LMJ-${Date.now()}`}
+                        timestamp={new Date().toISOString().slice(0, 10)}
+                        sealHash={`${response?.audit_seal?.output_hash?.slice(0, 16) ?? "demo"}…live`}
+                        verdict={verdict}
+                        kpis={kpis}
+                        verdictStatus={vStatus}
+                        verdictLabel={pd === "OK" ? "GO" : pd === "BLOCKED" ? "BLOCK" : "REVIEW"}
+                        stats={stats}
+                        sensitivityDrivers={sDrivers.length > 0 ? sDrivers : undefined}
+                        paretoSegments={pSegments.length > 0 ? pSegments : undefined}
+                        insights={insights.length > 0 ? insights : undefined}
+                        uncertainty={typeof uncertainty === "number" && Number.isFinite(uncertainty)
+                          ? { total: uncertainty, band: "k=2 (95% coverage)", method: "GUM ISO/IEC 98-3" }
+                          : undefined
+                        }
+                      />
+                      {response?.audit_seal?.seal_status === "SEALED" &&
+                        response?.audit_seal?.output_hash && (
+                        <button
+                          type="button"
+                          className="sc-report-print-btn"
+                          onClick={() => window.print()}
+                          aria-label="Download this report as a PDF"
+                        >
+                          Download PDF
+                        </button>
+                      )}
+                    </div>
                   );
                 }
 
                 return (
-                  <>
+                  <div className="sc-print-report">
                     <ProReportPanelV2
                       toolTitle={vm.title}
                       sections={proReportResult.resolvedSections}
@@ -1680,7 +1693,18 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                         currency={selectedCurrency}
                       />
                     )}
-                  </>
+                    {response?.audit_seal?.seal_status === "SEALED" &&
+                      response?.audit_seal?.output_hash && (
+                      <button
+                        type="button"
+                        className="sc-report-print-btn"
+                        onClick={() => window.print()}
+                        aria-label="Download this report as a PDF"
+                      >
+                        Download PDF
+                      </button>
+                    )}
+                  </div>
                 );
               })()}
 
