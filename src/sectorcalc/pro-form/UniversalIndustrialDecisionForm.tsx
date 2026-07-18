@@ -1631,7 +1631,7 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                 }
 
                 return (
-                  <>
+                  <div className="sc-print-report">
                     <ProReportPanelV2
                       toolTitle={vm.title}
                       sections={proReportResult.resolvedSections}
@@ -1680,7 +1680,17 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                         currency={selectedCurrency}
                       />
                     )}
-                  </>
+                    {response?.audit_seal?.output_hash && (
+                      <button
+                        type="button"
+                        className="sc-report-print-btn"
+                        onClick={() => window.print()}
+                        aria-label="Download this report as a PDF"
+                      >
+                        Download PDF
+                      </button>
+                    )}
+                  </div>
                 );
               })()}
 

@@ -445,3 +445,56 @@
   }
 }
 
+
+/* ── Print / PDF export ──────────────────────────────────────────────
+   Shared by all 18 tools rendering through UniversalIndustrialDecisionForm.
+   Same WYSIWYG approach as buy-lease-keep-tool.css: isolates the already-
+   verified on-screen report instead of a separate PDF template. */
+@media print {
+  @page { margin: 14mm 12mm; }
+
+  body * { visibility: hidden; }
+  .sc-print-report, .sc-print-report * { visibility: visible; }
+  .sc-print-report {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    color-adjust: exact;
+  }
+
+  .sc-report-chart-svg, .sc-report-chart-block, .sc-report-decision-banner,
+  .sc-report-kpi-flat-card, .sc-report-kpi-gauge, .sc-report-pareto-row,
+  .sc-report-tornado-row, tr {
+    break-inside: avoid;
+  }
+  h2, h3, h4, .sc-report-section-title { break-after: avoid; }
+
+  .sc-report-feedback, .sc-report-quick-reaction, .sc-report-print-btn,
+  [class*="sticky"] {
+    display: none !important;
+  }
+}
+
+.sc-report-print-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 48px;
+  padding: 0 16px;
+  margin-top: 16px;
+  background: #ffffff;
+  border: 1px solid #E2E8F0;
+  border-radius: 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1E3A5F;
+  cursor: pointer;
+}
+.sc-report-print-btn:hover { border-color: #94A3B8; }
