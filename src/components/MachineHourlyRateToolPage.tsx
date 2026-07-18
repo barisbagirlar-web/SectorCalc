@@ -508,10 +508,10 @@ export default function MachineHourlyRateToolPage() {
                   Technical simulation for engineering and financial decision support. Assumes straight-line depreciation and constant power draw/energy price across the planning horizon. Not a substitute for professional accounting or engineering review.
                 </div>
                 <PremiumReportFeedback
-                  key={serverResult.seal?.output_hash ?? "unsealed"}
+                  key={serverResult.seal?.output_hash ?? mockHash(JSON.stringify(inputs) + r.out_rate)}
                   schemaSlug="machine-hourly-rate-proof-report"
                   sectorSlug="manufacturing"
-                  reportSlug={serverResult.seal?.output_hash}
+                  reportSlug={serverResult.seal?.output_hash ?? mockHash(JSON.stringify(inputs) + r.out_rate)}
                   inputSnapshot={{ ...inputs }}
                   resultSnapshot={serverResult.outputs}
                   currency={curSym}
