@@ -6,7 +6,7 @@ import Link from "next/link";
 const demos = [
   {
     id: "machining", title: "Machining & CNC",
-    href: "/free-tools/machining-cnc/cnc-hourly-rate-calculator",
+    href: "/tools/free/cnc-shop-hourly-rate",
     icon: "M8 12C8 9.8 9.8 8 12 8s4 1.8 4 4-1.8 4-4 4-4-1.8-4-4zM12.5 12H21M16 8.5V15.5M4 5h8M4 19h8",
     headline: "Is the hourly rate covering true machine cost?",
     inputs: ["Machine purchase: $185,000", "Expected life: 10 years", "Utilization: 72%", "Maintenance: $4.20/hr"],
@@ -14,7 +14,7 @@ const demos = [
   },
   {
     id: "welding", title: "Welding & Fabrication",
-    href: "/free-tools/welding-fabrication/weld-cost-estimator",
+    href: "/tools/free/welding-cost-per-meter",
     icon: "M3 8h7l2 4 2-4h7M3 16h7l2-4 2 4h7M10 4l2 3 2-3M10 20l2-3 2 3",
     headline: "What is the real cost of that weld seam?",
     inputs: ["Joint length: 1.2 m", "Process: GMAW", "Wire: $6.80/kg", "Labor rate: $52/hr"],
@@ -22,7 +22,7 @@ const demos = [
   },
   {
     id: "energy", title: "Energy & Facilities",
-    href: "/free-tools/energy-facilities/compressed-air-leak-calculator",
+    href: "/tools/free/compressed-air-leak-cost",
     icon: "M13.5 2.5 5.5 13h6l-1 8.5 8-11h-6z",
     headline: "How much is the compressed air leak costing?",
     inputs: ["Leak diameter: 3 mm", "Pressure: 7 bar", "Energy cost: $0.12/kWh", "Operating hours: 6,000/yr"],

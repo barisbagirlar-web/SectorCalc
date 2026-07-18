@@ -44,7 +44,10 @@ export type JobStatus = (typeof JOB_STATUSES)[number];
 export const VALID_TRANSITIONS: Record<JobStatus, JobStatus[]> = {
   diagnostic_uploaded: ["diagnostic_scanning", "failed_terminal"],
   diagnostic_scanning: ["diagnostic_eligible", "diagnostic_manual_review", "diagnostic_rejected", "failed_terminal"],
-  diagnostic_eligible: ["awaiting_payment", "failed_terminal"],
+  // Credit-based payment is atomic: credit deduction IS the payment, so a
+  // diagnostic_eligible job may transition directly to `paid` (via awaiting_payment
+  // as a transient intermediate). No external gateway round-trip is required.
+  diagnostic_eligible: ["awaiting_payment", "paid", "failed_terminal"],
   diagnostic_manual_review: ["diagnostic_eligible", "diagnostic_rejected", "failed_terminal"],
   diagnostic_rejected: ["failed_terminal"],
   awaiting_payment: ["paid", "failed_terminal"],

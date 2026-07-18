@@ -3,13 +3,19 @@
  *
  * POST /api/document-intelligence/maintenance-bom/jobs/{jobId}/execute
  *
- * Allowed only when entitlement is paid/reserved.
- * Idempotently queues processing via Firestore status transition.
+ * Allowed only when paymentStatus is `paid`. Drives the full processing
+ * workflow synchronously (n8n-style orchestration node):
+ *   paid → queued → [processJob: extracting → … → completed]
+ * On success the reserved credits are consumed; on failure they are released
+ * (refunded) automatically so a customer is never charged without delivery.
+ * Idempotent: re-invoking a completed job returns the completed state.
  */
 
 import { NextRequest, NextResponse } from "next/server";
 import { parseBearerToken, verifySignedInUser } from "@/lib/infrastructure/firebase/verify-signed-in-user";
 import { getAdminFirestore } from "@/lib/infrastructure/firebase/admin";
+import { processJob } from "@/lib/document-intelligence/pipeline/process-job";
+import { consumeEntitlement, releaseEntitlement } from "@/lib/document-intelligence/entitlements/maintenance-bom-entitlement";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -45,70 +51,81 @@ export async function POST(
 
     const jobRef = db.collection("documentIntelligenceJobs").doc(jobId);
     const jobSnap = await jobRef.get();
-
     if (!jobSnap.exists) {
       return NextResponse.json({ ok: false, error: { code: "NOT_FOUND", message: "Job not found" } }, { status: 404 });
     }
 
     const job = jobSnap.data()!;
-
     if (job.userId !== user.uid) {
       return NextResponse.json({ ok: false, error: { code: "FORBIDDEN", message: "Access denied" } }, { status: 403 });
     }
 
-    // ── Must be paid or already queued ───────────────────────────
-    // Idempotency: if already queued/extracting, return current state
-    const allowedFromStates = ["paid", "queued", "failed_retryable"];
-    if (!allowedFromStates.includes(job.status)) {
-      return NextResponse.json({ ok: false, error: { code: "INVALID_STATE", message: `Cannot execute job in status: ${job.status}. Allowed: paid, queued, failed_retryable` } }, { status: 400 });
+    // ── Idempotency: already completed ───────────────────────────
+    if (job.status === "completed") {
+      return NextResponse.json({ ok: true, data: { jobId, status: "completed", message: "Job already completed.", summary: job.summary ?? null } });
     }
 
+    // ── State + payment guards ───────────────────────────────────
+    const allowedFromStates = ["paid", "queued", "extracting", "normalizing", "validating", "generating_outputs"];
+    if (!allowedFromStates.includes(job.status)) {
+      return NextResponse.json({ ok: false, error: { code: "INVALID_STATE", message: `Cannot execute job in status: ${job.status}. Allowed: paid` } }, { status: 400 });
+    }
     if (job.paymentStatus !== "paid") {
       return NextResponse.json({ ok: false, error: { code: "PAYMENT_NOT_CONFIRMED", message: "Payment has not been confirmed for this job." } }, { status: 402 });
     }
 
-    // ── Idempotent transition to queued ─────────────────────────
-    // If already queued, return current state (idempotent)
-    if (job.status === "queued" || job.status === "failed_retryable") {
-      return NextResponse.json({
-        ok: true,
-        data: {
-          jobId,
-          status: "queued",
-          previousStatus: job.status,
-          processingExecutionId: job.processingExecutionId || null,
-          message: job.status === "queued" ? "Job is already queued for processing." : "Retry queued. Job will be reprocessed.",
-        },
+    // ── Transition to queued (idempotent) ────────────────────────
+    const processingExecutionId = (job.processingExecutionId as string) || `exec-${jobId}-${Date.now()}`;
+    if (job.status === "paid") {
+      await jobRef.update({ status: "queued", processingExecutionId, updatedAt: new Date().toISOString() });
+      await jobRef.collection("events").add({
+        type: "job_queued",
+        fromStatus: "paid",
+        toStatus: "queued",
+        actor: "user",
+        timestamp: new Date().toISOString(),
+        executionId: processingExecutionId,
       });
     }
 
-    const processingExecutionId = `exec-${jobId}-${Date.now()}`;
+    // ── Run orchestrated pipeline synchronously ──────────────────
+    const result = await processJob(jobId, processingExecutionId);
 
-    await jobRef.update({
-      status: "queued",
-      paymentStatus: "paid",
-      processingExecutionId,
-      retryCount: (job.retryCount || 0) + (job.status === "failed_retryable" ? 1 : 0),
-      updatedAt: new Date().toISOString(),
-    });
+    // ── Finalize credit lifecycle (single compensation site) ─────
+    if (job.entitlementStatus === "reserved") {
+      if (result.ok) {
+        await consumeEntitlement(user.uid, jobId, (job.checkoutRequestId as string) ?? "");
+        await jobRef.update({ entitlementStatus: "consumed", updatedAt: new Date().toISOString() });
+      } else {
+        const release = await releaseEntitlement(user.uid, jobId);
+        if (release.ok) {
+          await jobRef.update({ entitlementStatus: "released", paymentStatus: "refunded", updatedAt: new Date().toISOString() });
+        }
+      }
+    }
 
-    // Record event
-    await db.collection("documentIntelligenceJobs").doc(jobId).collection("events").add({
-      type: "job_queued",
-      fromStatus: job.status,
-      toStatus: "queued",
-      actor: "user",
-      timestamp: new Date().toISOString(),
-      executionId: processingExecutionId,
-    });
+    if (!result.ok) {
+      return NextResponse.json(
+        {
+          ok: false,
+          error: {
+            code: result.failureCode ?? "PIPELINE_ERROR",
+            message: "Processing failed. Your credits have been refunded.",
+          },
+          data: { jobId, status: result.status, refunded: job.entitlementStatus === "reserved" },
+        },
+        { status: 500 },
+      );
+    }
 
     return NextResponse.json({
       ok: true,
       data: {
         jobId,
-        status: "queued",
+        status: result.status,
         processingExecutionId,
-        message: "Job has been queued for processing.",
+        summary: result.summary ?? null,
+        message: "Processing completed.",
       },
     });
   } catch {

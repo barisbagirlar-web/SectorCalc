@@ -455,18 +455,39 @@ export default function EngineeringDiagnosticsStartPage() {
     };
 
     try {
+      const token = await getCurrentUserIdToken();
+      if (!token) {
+        setServerError("Please sign in to run a diagnostic. Engineering Diagnostics is a paid service.");
+        setLoading(false);
+        return;
+      }
+
       const res = await fetch("/api/engineering-diagnostics/analyze", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
         body: JSON.stringify(body),
       });
 
       lastRequestBodyRef.current = body;
 
-      const data: DiagnosticResult = await res.json();
+      const data: DiagnosticResult & {
+        message?: string;
+        credits_required?: number;
+        remaining_uses?: number | null;
+      } = await res.json();
 
       if (!res.ok) {
-        if (data.issues) {
+        if (res.status === 401) {
+          setServerError("Your session has expired. Please sign in again to continue.");
+        } else if (res.status === 402) {
+          setServerError(
+            data.message ||
+              "5 Diagnostic Credits are required to unlock 3 Full Engineering Diagnostics.",
+          );
+        } else if (data.issues) {
           const fieldErrors2: FieldErrors = {};
           for (const issue of data.issues) {
             fieldErrors2[issue.path] = issue.message;
@@ -479,6 +500,10 @@ export default function EngineeringDiagnosticsStartPage() {
         return;
       }
 
+      if (typeof data.remaining_uses === "number") {
+        setRemainingUses(data.remaining_uses);
+        setHasDiagnosticAccess(data.remaining_uses > 0);
+      }
       setResult(data);
     } catch {
       setServerError("Unable to reach the diagnostic service. Please try again.");
@@ -1070,9 +1095,9 @@ export default function EngineeringDiagnosticsStartPage() {
               marginBottom: "1.5rem",
             }}
           >
-            Choose how you want to start. Upload photos for a quick visual
-            assessment or enter full measurement data for a complete engineering
-            diagnostic report.
+            Engineering Diagnostics is a paid professional service. Start with an
+            AI photo assessment (2 credits) or a complete measurement-based
+            engineering report. A 5-credit package includes 3 Full Diagnostics.
           </p>
 
           {/* Entry Mode Selection */}
@@ -1114,18 +1139,18 @@ export default function EngineeringDiagnosticsStartPage() {
                   Start with Photos
                 </div>
                 <div style={{ fontSize: "0.85rem", color: "#4A4A48", lineHeight: 1.5, flex: 1 }}>
-                  Get a preliminary visual assessment and learn what data is
-                  needed for a full engineering report.
+                  AI-assisted visual assessment from field photos. Learn what
+                  data is needed for a full engineering report.
                 </div>
                 <div
                   style={{
                     marginTop: "0.75rem",
                     fontSize: "0.75rem",
-                    color: "#6B6B68",
-                    fontStyle: "italic",
+                    color: "#BD5D3A",
+                    fontWeight: 600,
                   }}
                 >
-                  No credit required
+                  2 Diagnostic Credits
                 </div>
               </button>
 
@@ -1169,7 +1194,7 @@ export default function EngineeringDiagnosticsStartPage() {
                     fontWeight: 600,
                   }}
                 >
-                  1 credit per diagnostic
+                  5 Credits &middot; 3 Full Diagnostics
                 </div>
               </button>
             </div>
