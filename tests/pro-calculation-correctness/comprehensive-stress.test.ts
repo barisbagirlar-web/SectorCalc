@@ -14,6 +14,7 @@ import { describe, it, expect, afterAll } from "vitest";
 import fs from "fs";
 import path from "path";
 import { freeV531FormulaRegistry } from "@/sectorcalc/formulas/free-v531";
+import { ACTIVE_FREE_TOOL_SLUGS } from "@/sectorcalc/runtime/active-tool-allowlist";
 
 interface ToolResult {
   tool_key: string;
@@ -220,11 +221,9 @@ describe("COMPREHENSIVE STRESS — ALL FREE TOOLS", () => {
   const allKeys = Object.keys(freeV531FormulaRegistry);
 
   it("all ACTIVE free tools are registered in freeV531FormulaRegistry", () => {
-    expect(allKeys.length).toBeGreaterThanOrEqual(54);
-    expect(allKeys).toEqual(expect.arrayContaining([
-      "net-present-value-calculator",
-      "return-on-investment-calculator",
-    ]));
+    const active = [...ACTIVE_FREE_TOOL_SLUGS].sort();
+    const registered = [...allKeys].sort();
+    expect(registered).toEqual(active);
   });
 
   for (const toolKey of allKeys) {
