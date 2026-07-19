@@ -1,7 +1,7 @@
 /**
  * Root English + hreflang locale URL architecture (en, tr, de, ar).
- * App renders EN-only; locale-prefixed paths serve EN content via
- * middleware rewrite. Hreflang tags point to prefixed URLs for SEO.
+ * stubbed: root-only — only `en` is supported; locale prefix functions are vestigial.
+ * App renders EN-only; locale-prefixed paths are not active public routes.
  */
 
 import {
@@ -149,6 +149,7 @@ export function needsEnglishLocaleRewrite(pathname: string): boolean {
   return true;
 }
 
+// stubbed: root-only — vestigial helper retained for type compatibility
 export function rewritePathToEnglishLocale(pathname: string): string {
   if (pathname === "/") {
     return "/e" + "n";

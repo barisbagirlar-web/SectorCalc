@@ -26,15 +26,14 @@ function applyRegionHeaders(response: NextResponse, request: NextRequest): NextR
 }
 
 /**
- * Inject HTTP Link: <...>; rel="canonical" header (§3 MIL-STD SSOT).
- * This is the HTTP-level canonical declaration, complementing the DOM <head>
- * canonical (metadata.ts) and sitemap <loc> (sitemap-index-generator.ts).
- * All 3 SSOT components must agree.
+ * Inject HTTP Link: <...>; rel="canonical" header (MIL-STD SSOT).
+ * Complements the DOM <head> canonical and sitemap <loc>.
  */
 function applyCanonicalLinkHeader(response: NextResponse, request: NextRequest): void {
   const url = new URL(request.url);
-  // Strip query params from the canonical URL (query params vary, canonical is bare path)
-  const canonical = `${url.protocol}//${url.host}${url.pathname}`.replace(/\/+$/, "") || `${url.protocol}//${url.host}`;
+  const canonical =
+    `${url.protocol}//${url.host}${url.pathname}`.replace(/\/+$/, "") ||
+    `${url.protocol}//${url.host}`;
   response.headers.set("Link", `<${canonical}>; rel="canonical"`);
 }
 
@@ -44,27 +43,22 @@ function applyStandardHeaders(response: NextResponse, request: NextRequest): Nex
 }
 
 /**
- * Supported hreflang locales — /en, /tr, /de, /ar are active locale routes
- * that internally rewrite to bare paths (English content).
- * Other ISO 639-1 paths return 404 (unsupported locales).
+ * Known ISO 639-1 language paths at root level — return 404.
+ * These are not active routes; they exist only as legacy/misguided URL patterns.
  */
-const SUPPORTED_HREFLANG_LOCALES = new Set(["en", "tr", "de", "ar"]);
-
 const LEGACY_LANGUAGE_ROUTES = new Set([
-  "/fr", "/es", "/ru", "/zh", "/ja", "/ko", "/pt", "/it",
+  "/en", "/tr", "/de", "/fr", "/es", "/ar",
+  "/ru", "/zh", "/ja", "/ko", "/pt", "/it",
   "/nl", "/pl", "/sv", "/da", "/fi", "/nb",
   "/cs", "/hu", "/ro", "/uk", "/el", "/he",
   "/hi", "/th", "/vi", "/id", "/ms",
 ]);
 
-// ── Service Worker Kill (cache invalidation) ────────────────────────────────
-// SW_KILL_VERSION: bump to force all clients to re-fetch the kill SW.
-// Date-based version ensures deterministic cache-busting on every deploy.
+// SW_KILL_VERSION: bump to force clients to re-fetch the kill SW.
 const SW_KILL_VERSION = "2026-07-19-v2";
 
-// Kill SW code — no reload loop. Installs, deletes all caches, claims clients,
-// unregisters silently. No clients.navigate() — avoids infinite reload.
-// Any stale JS chunks already loaded are cleaned on the NEXT navigation.
+// Kill SW — no reload loop. Installs, deletes caches, claims, unregisters.
+// No clients.navigate() — avoids infinite reload.
 const SW_KILL_CODE = [
   `self.addEventListener("install",()=>self.skipWaiting())`,
   `self.addEventListener("activate",(e)=>{e.waitUntil((async()=>{const k=await caches.keys();await Promise.all(k.map(c=>caches.delete(c)));await self.clients.claim();await self.registration.unregister()})())})`,
@@ -220,9 +214,6 @@ export default function middleware(request: NextRequest) {
     });
   }
 
-  // ── Sub-sitemaps: /sitemaps/tools.xml, /sitemaps/guides.xml, etc. ──
-  // These are active index-mandated sub-sitemap routes.
-
   // ── Legacy singular /guide/ → /guides/ redirect ──
   if (pathname.startsWith("/guide/")) {
     const url = new URL(request.url);
@@ -231,36 +222,16 @@ export default function middleware(request: NextRequest) {
   }
 
   // ── Legacy free-tool URL structure → canonical route (301) ──
-  // Old/indexed URLs used /free-tools/{category}/{slug}; the live route is
-  // /tools/free/{slug}. Strip the category segment and redirect to canonical.
-  // (The /free-tools listing page and single-segment paths are untouched.)
+  // Old/indexed URLs used /free-tools/{category}/{slug}; live route is
+  // /tools/free/{slug}. Strip the category segment and redirect.
   if (pathname.startsWith("/free-tools/")) {
-    const segments = pathname.split("/").filter(Boolean); // ["free-tools", category, slug, ...]
+    const segments = pathname.split("/").filter(Boolean);
     if (segments.length >= 3) {
       const slug = segments[segments.length - 1];
       const url = new URL(request.url);
       url.pathname = `/tools/free/${slug}`;
       return NextResponse.redirect(url, 301);
     }
-  }
-
-  // ── Hreflang locale routing: /en/..., /tr/..., /de/..., /ar/... ──
-  // Internally rewrite to bare path. English content served under all prefixes.
-  // /en/ is indexable (x-default). /tr/, /de/, /ar/ are noindex until translations exist
-  // — serving English content under non-EN hreflang is a duplicate-content trap.
-  // VETO 1 fix: only /en/ gets "index"; non-EN locales get "noindex, follow".
-  const localeMatch = pathname.match(/^\/(en|tr|de|ar)(\/.*)?$/);
-  if (localeMatch) {
-    const locale = localeMatch[1];
-    const subPath = localeMatch[2] ?? "/";
-    const url = new URL(request.url);
-    url.pathname = subPath;
-
-    const response = NextResponse.rewrite(url);
-    response.headers.set("x-hreflang-locale", locale);
-    const robotsDirective = locale === "en" ? "index, follow" : "noindex, follow";
-    response.headers.set("x-robots-tag", robotsDirective);
-    return applyStandardHeaders(response, request);
   }
 
   // Root-level language-only paths — return 404
@@ -294,15 +265,6 @@ export const config = {
     "/",
     "/sw.js",
     "/sitemap/:path*",
-    "/sitemaps/:path*",
-    "/en",
-    "/en/:path*",
-    "/tr",
-    "/tr/:path*",
-    "/de",
-    "/de/:path*",
-    "/ar",
-    "/ar/:path*",
     "/((?!admin|api|_next|_vercel|.*\\..*).*)",
   ],
 };
