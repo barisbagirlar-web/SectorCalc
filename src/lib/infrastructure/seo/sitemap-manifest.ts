@@ -17,6 +17,7 @@ import { buildCategorizedToolIndex } from "@/lib/catalog/build-categorized-tool-
 import { getPremiumRevenueRouteSlugs } from "@/lib/features/tools/revenue-tools";
 import { listMigratedPremiumRouteSlugs } from "@/lib/features/freemium/resolve-free-to-premium-migration";
 import { getAllLeanCalcParams } from "@/lib/features/tools/lean-calc-registry";
+import { ACTIVE_FREE_TOOL_SLUGS } from "@/sectorcalc/runtime/active-tool-allowlist";
 
 export type SitemapRouteType =
   | "core"
@@ -163,11 +164,18 @@ export function getPremiumAnalyzerSitemapRoutes(): readonly SitemapManifestItem[
 
 export function getFreeToolSitemapRoutes(): readonly SitemapManifestItem[] {
   // V5.4 Core — Only the allowlisted Free pilot is indexed.
-  // All other Free tools remain quarantined until V5.4 Core rebuild.
-  // PRO inactive tools removed from sitemap.
+  // SSOT guard: a free tool may appear in the sitemap ONLY if it is in the
+  // ACTIVE_FREE_TOOL_SLUGS allowlist. Quarantined tools return a hard HTTP 404,
+  // so they must never be advertised here (would create GSC coverage errors).
+  const INDEXED_FREE_TOOL_SLUGS = [
+    "break-even-and-margin-of-safety-analysis",
+  ].filter((slug) => ACTIVE_FREE_TOOL_SLUGS.includes(slug));
+
   return [
     createItem("/free-tools", "hub", 0.3, "monthly"),
-    createItem("/tools/free/break-even-and-margin-of-safety-analysis", "free_tool", 0.8, "monthly"),
+    ...INDEXED_FREE_TOOL_SLUGS.map((slug) =>
+      createItem(`/tools/free/${slug}`, "free_tool", 0.8, "monthly"),
+    ),
   ];
 }
 

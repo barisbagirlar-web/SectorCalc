@@ -21,8 +21,13 @@ import { AiOverviewParagraph, AI_OVERVIEW_PARAGRAPHS, buildSpeakableJsonLd } fro
 import "@/sectorcalc/pro-form/universal-industrial-decision-form.css";
 import "@/sectorcalc/free-form/free-tool-result-panel.css";
 
-export const dynamic = "force-dynamic";
-export const dynamicParams = true;
+// Hard-404 architecture: only allowlisted slugs are statically generated.
+// Any slug outside generateStaticParams returns a real HTTP 404 at the
+// routing layer (Next.js built-in not-found), eliminating the soft-404
+// (HTTP 200 + noindex) shell that wasted crawl budget. `force-dynamic` is
+// intentionally NOT set — it would force dynamic rendering and bypass the
+// static 404 enforcement of `dynamicParams = false`.
+export const dynamicParams = false;
 
 export function generateStaticParams(): Array<{ slug: string }> {
   return ACTIVE_FREE_TOOL_SLUGS.map((slug) => ({ slug }));
@@ -191,10 +196,11 @@ export default async function FreeToolDetailPage({
 
   const definitionKey = getToolDefinitionKey(slug);
   const definitionParagraph = definitionKey ? AI_OVERVIEW_PARAGRAPHS[definitionKey] : undefined;
+  const articleAccessibilityProps = { "aria-label": schema.tool_name };
 
   return (
     <PageLayout>
-      <article aria-label={schema.tool_name} className="pro-shell">
+      <article {...articleAccessibilityProps} className="pro-shell">
         <ProToolSessionWrapper
           schema={schema}
           toolKey={slug}
