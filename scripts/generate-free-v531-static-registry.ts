@@ -53,6 +53,7 @@ const V531_SLUGS = new Set([
   "true-employee-cost",
   "quote-margin-markup",
   "break-even-point",
+  "break-even-and-margin-of-safety-analysis",
   "payment-term-cost",
   "machine-investment-payback",
   "customer-profitability",
@@ -85,7 +86,8 @@ function main(): void {
     const numStr = fn.split("-")[0];
     if (!numStr || isNaN(Number(numStr))) continue;
     const num = parseInt(numStr, 10);
-    if (num < 295 || num > 344) continue;
+    // Active V5.4 Core batch is 295-344; the break-even pilot lives at file 030.
+    if ((num < 295 || num > 344) && num !== 30) continue;
 
     const raw = JSON.parse(readFileSync(join(SCHEMA_DIR, fn), "utf-8")) as Record<string, unknown>;
     const tk = raw?.tool_key as string | undefined;

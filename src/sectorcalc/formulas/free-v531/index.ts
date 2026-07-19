@@ -35,6 +35,7 @@ import carbonPriceExposureFormula from "./carbon-price-exposure.formula";
 import trueEmployeeCostFormula from "./true-employee-cost.formula";
 import quoteMarginMarkupFormula from "./quote-margin-markup.formula";
 import breakEvenPointFormula from "./break-even-point.formula";
+import breakEvenMarginOfSafetyFormula from "./break-even-and-margin-of-safety-analysis.formula";
 import paymentTermCostFormula from "./payment-term-cost.formula";
 import machineInvestmentPaybackFormula from "./machine-investment-payback.formula";
 import customerProfitabilityFormula from "./customer-profitability.formula";
@@ -89,6 +90,7 @@ export const freeV531FormulaRegistry: Readonly<Record<string, FreeV531FormulaMod
   "true-employee-cost": trueEmployeeCostFormula,
   "quote-margin-markup": quoteMarginMarkupFormula,
   "break-even-point": breakEvenPointFormula,
+  "break-even-and-margin-of-safety-analysis": breakEvenMarginOfSafetyFormula,
   "payment-term-cost": paymentTermCostFormula,
   "machine-investment-payback": machineInvestmentPaybackFormula,
   "customer-profitability": customerProfitabilityFormula,
@@ -141,6 +143,7 @@ export { default as carbonPriceExposureFormula } from "./carbon-price-exposure.f
 export { default as trueEmployeeCostFormula } from "./true-employee-cost.formula";
 export { default as quoteMarginMarkupFormula } from "./quote-margin-markup.formula";
 export { default as breakEvenPointFormula } from "./break-even-point.formula";
+export { default as breakEvenMarginOfSafetyFormula } from "./break-even-and-margin-of-safety-analysis.formula";
 export { default as paymentTermCostFormula } from "./payment-term-cost.formula";
 export { default as machineInvestmentPaybackFormula } from "./machine-investment-payback.formula";
 export { default as customerProfitabilityFormula } from "./customer-profitability.formula";
@@ -154,4 +157,15 @@ export { default as concreteVolumeOrderQuantityFormula } from "./concrete-volume
 export { default as rebarWeightCountFormula } from "./rebar-weight-count.formula";
 export { default as recipeCostMenuPriceFormula } from "./recipe-cost-menu-price.formula";
 export { default as fabricConsumptionGsmFormula } from "./fabric-consumption-gsm.formula";
-export * from "./types";
+export type {
+  FreeV531RiskLevel,
+  FreeV531DecisionState,
+  FreeV531RedactionStatus,
+  FreeV531Severity,
+  FreeV531InputSpec,
+  FreeV531OutputMetric,
+  FreeV531Warning,
+  FreeV531AuditSeal,
+  FreeV531ExecuteResponse,
+  FreeV531FormulaModule,
+} from "./types";
