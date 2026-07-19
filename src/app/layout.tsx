@@ -45,7 +45,13 @@ const jetbrainsMono = JetBrains_Mono({
 export async function generateMetadata(): Promise<Metadata> {
   const h = await headers();
   const policy = h.get("x-sc-robots-policy");
-  const host = (h.get("host") ?? "").toLowerCase().split(":")[0] ?? "";
+  // Prefer Firebase Hosting's public hostname over rewrite-target Host.
+  const hostRaw =
+    h.get("x-fh-requested-host") ??
+    h.get("x-forwarded-host")?.split(",")[0]?.trim() ??
+    h.get("host") ??
+    "";
+  const host = hostRaw.toLowerCase().split(":")[0] ?? "";
   const isPreviewHost =
     policy === "noindex" ||
     host.endsWith(".web.app") ||

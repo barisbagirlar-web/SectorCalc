@@ -70,9 +70,28 @@ function applyRegionHeaders(response: NextResponse, request: NextRequest): NextR
   return response;
 }
 
+/**
+ * Resolve the client-facing hostname.
+ * Firebase Hosting → Cloud Run rewrites keep `Host` as the rewrite target
+ * (often `*.web.app` or `0.0.0.0`) while the public hostname is in
+ * `x-fh-requested-host` / `x-forwarded-host`. Prefer those first.
+ */
+function resolveClientHost(request: NextRequest): string {
+  const candidates = [
+    request.headers.get("x-fh-requested-host"),
+    request.headers.get("x-forwarded-host")?.split(",")[0]?.trim(),
+    request.headers.get("host"),
+    request.nextUrl.host,
+  ];
+  for (const raw of candidates) {
+    const host = (raw ?? "").trim().toLowerCase().split(":")[0] ?? "";
+    if (host.length > 0) return host;
+  }
+  return "";
+}
+
 /** Firebase preview / local SSR hosts must never compete with the public domain. */
-function isPreviewOrInternalHost(hostHeader: string): boolean {
-  const host = hostHeader.toLowerCase().split(":")[0] ?? "";
+function isPreviewOrInternalHost(host: string): boolean {
   return (
     host.endsWith(".web.app") ||
     host.endsWith(".firebaseapp.com") ||
@@ -82,8 +101,7 @@ function isPreviewOrInternalHost(hostHeader: string): boolean {
   );
 }
 
-function isPublicSiteHost(hostHeader: string): boolean {
-  const host = hostHeader.toLowerCase().split(":")[0] ?? "";
+function isPublicSiteHost(host: string): boolean {
   return host === "sectorcalc.com" || host === "www.sectorcalc.com";
 }
 
@@ -126,7 +144,7 @@ function applyRobotsHeader(
   request: NextRequest,
   options?: { forceNoindex?: boolean },
 ): void {
-  const host = request.headers.get("host") ?? request.nextUrl.host ?? "";
+  const host = resolveClientHost(request);
   if (options?.forceNoindex || isPreviewOrInternalHost(host) || !isPublicSiteHost(host)) {
     // Preview / non-public hosts / explicit 404 — never indexable.
     // follow kept so link equity can still flow to the canonical domain.
@@ -147,7 +165,7 @@ function applyStandardHeaders(
 }
 
 function buildPassThroughHeaders(request: NextRequest): Headers {
-  const host = request.headers.get("host") ?? request.nextUrl.host ?? "";
+  const host = resolveClientHost(request);
   const requestHeaders = new Headers(request.headers);
   const policy =
     isPreviewOrInternalHost(host) || !isPublicSiteHost(host) ? "noindex" : "index";
@@ -294,7 +312,7 @@ export default function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // ── www → non-www canonical redirect (Firebase SSR host match fix) ──
-  const host = request.headers.get("host") ?? "";
+  const host = resolveClientHost(request);
   if (host === "www.sectorcalc.com" || host.startsWith("www.")) {
     const url = new URL(request.url);
     url.host = "sectorcalc.com";
