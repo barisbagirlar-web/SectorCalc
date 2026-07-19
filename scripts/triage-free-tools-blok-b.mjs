@@ -8,7 +8,7 @@
  *  (b) SCHEMA: SCHEMA_GENERATION_MODE / NEEDS_SOURCE_VERIFICATION in schema JSON
  *  (c) SSR: Formula logic / Validation notes / Calculation assumptions / <label
  *
- * Classes: GEÇTİ | KALDI | BELİRSİZ
+ * Classes: PASS | FAIL | UNCLEAR
  */
 import { readFileSync, readdirSync, existsSync } from "node:fs";
 import { resolve, dirname, join } from "node:path";
@@ -17,6 +17,7 @@ import { fileURLToPath } from "node:url";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, "..");
 const BASE = process.env.TRIAGE_BASE_URL ?? "https://sectorcalc.com";
+const FETCH_TIMEOUT_MS = Number(process.env.TRIAGE_FETCH_TIMEOUT_MS ?? 25_000);
 
 function parseAllowlist() {
   const text = readFileSync(
@@ -36,13 +37,16 @@ function findSchemaFile(slug) {
   const hyphen = `${slug}.json`;
   const underscore = `${slug.replace(/-/g, "_")}.json`;
   const files = readdirSync(dir);
-  const exact = files.find((f) => f === hyphen || f.endsWith(`-${hyphen}`) || f === underscore || f.endsWith(`-${underscore}`));
-  if (exact) return join(dir, exact);
-  // numbered prefix e.g. 278-von-mises-stress-calculator.json
-  const fuzzy = files.find(
-    (f) => f.includes(slug) || f.includes(slug.replace(/-/g, "_")),
+
+  // Exact basename only (no substring fuzzy match — avoids wrong-file selection).
+  const exact = files.find(
+    (f) =>
+      f === hyphen ||
+      f === underscore ||
+      f.endsWith(`-${hyphen}`) ||
+      f.endsWith(`-${underscore}`),
   );
-  return fuzzy ? join(dir, fuzzy) : null;
+  return exact ? join(dir, exact) : null;
 }
 
 function schemaFlags(slug) {
@@ -57,19 +61,42 @@ function schemaFlags(slug) {
   };
 }
 
+async function fetchWithTimeout(url, init = {}) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
+  try {
+    return await fetch(url, { ...init, signal: controller.signal });
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 async function executeProbe(slug) {
-  const res = await fetch(`${BASE}/api/tool-execute`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json", "Cache-Control": "no-cache" },
-    body: JSON.stringify({
-      toolKey: slug,
-      tool_key: slug,
-      rawInputs: {},
-      raw_inputs: {},
-      selectedUnits: {},
-      selected_units: {},
-    }),
-  });
+  let res;
+  try {
+    res = await fetchWithTimeout(`${BASE}/api/tool-execute`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Cache-Control": "no-cache" },
+      body: JSON.stringify({
+        toolKey: slug,
+        tool_key: slug,
+        rawInputs: {},
+        raw_inputs: {},
+        selectedUnits: {},
+        selected_units: {},
+      }),
+    });
+  } catch (err) {
+    return {
+      ok: false,
+      status: "FETCH_ERROR",
+      message: String(err?.message ?? err).slice(0, 160),
+      noFormula: false,
+      internalOnly: false,
+      rebuildGate: false,
+      outputCount: 0,
+    };
+  }
   const text = await res.text();
   let json;
   try {
@@ -95,9 +122,23 @@ async function executeProbe(slug) {
 }
 
 async function ssrProbe(slug) {
-  const res = await fetch(`${BASE}/tools/free/${slug}`, {
-    headers: { "Cache-Control": "no-cache", "User-Agent": "SectorCalc-Triage/1.0" },
-  });
+  let res;
+  try {
+    res = await fetchWithTimeout(`${BASE}/tools/free/${slug}`, {
+      headers: { "Cache-Control": "no-cache", "User-Agent": "SectorCalc-Triage/1.0" },
+    });
+  } catch (err) {
+    return {
+      http: 0,
+      robots: "(fetch-error)",
+      formulaLogic: 0,
+      validationNotes: 0,
+      assumptions: 0,
+      labels: 0,
+      inputs: 0,
+      error: String(err?.message ?? err).slice(0, 120),
+    };
+  }
   const html = await res.text();
   const robots = (html.match(/name="robots" content="([^"]*)"/) || [])[1] ?? "(none)";
   return {
@@ -112,35 +153,34 @@ async function ssrProbe(slug) {
 }
 
 function classify(exec, schema, ssr) {
-  // KALDI hard fails
   if (schema.generation || schema.needsSource) {
     return {
-      class: "KALDI",
+      class: "FAIL",
       reason: schema.generation
         ? "SCHEMA_GENERATION_MODE=true"
         : "NEEDS_SOURCE_VERIFICATION=true",
-      suggest: "allowlist'ten ÇIKAR (hard-404) — stub şablon; soft noindex'e gerek yok",
+      suggest: "Remove from allowlist (hard-404) — stub template; soft noindex not enough",
     };
   }
   if (exec.noFormula || exec.internalOnly) {
     return {
-      class: "KALDI",
+      class: "FAIL",
       reason: exec.noFormula ? "NO_FORMULA_MODULE" : "INTERNAL_SERVER_ONLY",
-      suggest: "allowlist'ten ÇIKAR (hard-404) — motor yok",
+      suggest: "Remove from allowlist (hard-404) — no formula motor",
     };
   }
   if (ssr.http === 404) {
     return {
-      class: "KALDI",
+      class: "FAIL",
       reason: "HTTP 404 on tool page",
-      suggest: "allowlist'ten ÇIKAR (zaten hard-404) veya schema/registry sync",
+      suggest: "Remove from allowlist or sync schema/registry",
     };
   }
   if (ssr.http === 200 && /noindex/i.test(ssr.robots)) {
     return {
-      class: "KALDI",
+      class: "FAIL",
       reason: "200 + noindex soft-404 shell",
-      suggest: "allowlist/registry sync; hard-404 tercih",
+      suggest: "Sync allowlist/registry; prefer hard-404",
     };
   }
 
@@ -150,7 +190,6 @@ function classify(exec, schema, ssr) {
     ssr.assumptions >= 1 &&
     ssr.labels >= 1;
 
-  // Empty inputs often BLOCKED — that is OK if formula module exists and page is SSR-rich
   const motorPresent =
     !exec.noFormula &&
     !exec.internalOnly &&
@@ -161,40 +200,40 @@ function classify(exec, schema, ssr) {
 
   if (ssrRich && motorPresent && schema.found && !exec.rebuildGate) {
     return {
-      class: "GEÇTİ",
+      class: "PASS",
       reason: "SSR-rich + schema clean + formula reachable",
-      suggest: "sitemap'e almaya ADAY (onay sonrası); allowlist'te tut",
+      suggest: "Sitemap candidate (await approval); keep on allowlist",
     };
   }
 
   if (!schema.found) {
     return {
-      class: "BELİRSİZ",
+      class: "UNCLEAR",
       reason: "schema file not found for slug",
-      suggest: "manuel inceleme — registry/schema path mismatch?",
+      suggest: "Manual review — registry/schema path mismatch?",
     };
   }
 
   if (!ssrRich && ssr.http === 200) {
     return {
-      class: "BELİRSİZ",
+      class: "UNCLEAR",
       reason: `SSR thin (logic=${ssr.formulaLogic} labels=${ssr.labels})`,
-      suggest: "CTA kabuğu olabilir — oee kalıbına taşı veya allowlist'ten çıkar (onay)",
+      suggest: "Possible CTA shell — upgrade to oee pattern or remove from allowlist",
     };
   }
 
   if (exec.rebuildGate) {
     return {
-      class: "BELİRSİZ",
+      class: "UNCLEAR",
       reason: "execute blocked by V5.4 rebuild gate / DISABLED",
-      suggest: "allowlist gate vs motor — doğrula; kör 404 yapma",
+      suggest: "Verify allowlist gate vs motor — do not blind-404",
     };
   }
 
   return {
-    class: "BELİRSİZ",
+    class: "UNCLEAR",
     reason: `exec=${exec.status}; ssrRich=${ssrRich}`,
-    suggest: "manuel karar",
+    suggest: "Manual decision required",
   };
 }
 
@@ -210,16 +249,16 @@ async function main() {
     rows.push({ slug, schema, exec, ssr, ...verdict });
   }
 
-  const groups = { GEÇTİ: [], KALDI: [], BELİRSİZ: [] };
+  const groups = { PASS: [], FAIL: [], UNCLEAR: [] };
   for (const r of rows) groups[r.class].push(r);
 
   console.log("════════════════════════════════════════");
   console.log(
-    `SUMMARY  GEÇTİ=${groups.GEÇTİ.length}  KALDI=${groups.KALDI.length}  BELİRSİZ=${groups.BELİRSİZ.length}`,
+    `SUMMARY  PASS=${groups.PASS.length}  FAIL=${groups.FAIL.length}  UNCLEAR=${groups.UNCLEAR.length}`,
   );
   console.log("════════════════════════════════════════\n");
 
-  for (const cls of ["GEÇTİ", "KALDI", "BELİRSİZ"]) {
+  for (const cls of ["PASS", "FAIL", "UNCLEAR"]) {
     console.log(`--- [${cls}] ${groups[cls].length} ---`);
     for (const r of groups[cls]) {
       console.log(

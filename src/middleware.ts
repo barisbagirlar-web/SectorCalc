@@ -96,7 +96,8 @@ function normalizePathname(pathname: string): string {
 
 function publicCanonicalFor(pathname: string): string {
   const normalized = normalizePathname(pathname);
-  return normalized === "/" ? `${PUBLIC_SITE_ORIGIN}/` : `${PUBLIC_SITE_ORIGIN}${normalized}`;
+  // Match createPageMetadata: root has no trailing slash.
+  return normalized === "/" ? PUBLIC_SITE_ORIGIN : `${PUBLIC_SITE_ORIGIN}${normalized}`;
 }
 
 /**
