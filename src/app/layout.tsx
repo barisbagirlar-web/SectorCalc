@@ -38,21 +38,51 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 /**
- * Host-aware robots: preview/web.app and non-public hosts get DOM noindex so
- * header (middleware) and <meta name="robots"> stay consistent.
- * Middleware sets x-sc-robots-policy on the request.
+ * Host-aware robots: preview/web.app get DOM noindex so header (middleware)
+ * and <meta name="robots"> stay consistent. Middleware sets x-sc-robots-policy.
+ * Prefer production host if any host signal is sectorcalc.com (Firebase rewrite
+ * Host is often *.run.app / *.web.app even for the custom domain).
  */
 export async function generateMetadata(): Promise<Metadata> {
   const h = await headers();
   const policy = h.get("x-sc-robots-policy");
-  const host = (h.get("host") ?? "").toLowerCase().split(":")[0] ?? "";
-  const isPreviewHost =
-    policy === "noindex" ||
-    host.endsWith(".web.app") ||
-    host.endsWith(".firebaseapp.com") ||
-    host === "0.0.0.0" ||
-    host === "localhost" ||
-    host === "127.0.0.1";
+  if (policy === "index") {
+    return { robots: metadataRobots() };
+  }
+  if (policy === "noindex") {
+    return {
+      robots: {
+        index: false,
+        follow: true,
+        googleBot: { index: false, follow: true },
+      },
+    };
+  }
+
+  const hosts = [
+    h.get("x-fh-requested-host"),
+    h.get("x-forwarded-host")?.split(",")[0]?.trim(),
+    h.get("host"),
+  ]
+    .map((v) => (v ?? "").trim().toLowerCase().split(":")[0] ?? "")
+    .filter((v) => v.length > 0);
+
+  const isPublic = hosts.some(
+    (host) => host === "sectorcalc.com" || host === "www.sectorcalc.com",
+  );
+  if (isPublic) {
+    return { robots: metadataRobots() };
+  }
+
+  const isPreviewHost = hosts.some(
+    (host) =>
+      host.endsWith(".web.app") ||
+      host.endsWith(".firebaseapp.com") ||
+      host.endsWith(".run.app") ||
+      host === "0.0.0.0" ||
+      host === "localhost" ||
+      host === "127.0.0.1",
+  );
 
   if (isPreviewHost) {
     return {
