@@ -97,9 +97,4 @@
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .sc-tool-link-item__arrow,
-  .sc-tool-link-item__link {
-    transition: none;
-  }
-}
+/* Motion kept active on every device, including OS "reduce motion". */

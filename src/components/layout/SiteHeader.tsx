@@ -124,10 +124,9 @@ export function SiteHeader({
           position: sticky; top: 0; z-index: 100; background: var(--bg); border-bottom: 1px solid var(--border);
         }
         .sc-h *, .sc-h *::before, .sc-h *::after { box-sizing: border-box; }
-        @media (prefers-reduced-motion: no-preference) {
-          .sc-mega, .sc-langmenu { animation: scFade .16s ease-out; }
-          @keyframes scFade { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
-        }
+        /* Fade kept active on every device, including OS "reduce motion". */
+        .sc-mega, .sc-langmenu { animation: scFade .16s ease-out; }
+        @keyframes scFade { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
         .sc-inner { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 15px 24px; }
         .sc-logo { display: flex; align-items: center; text-decoration: none; flex-shrink: 0; }
         .sc-logo-img { height: 30px; width: auto; }
@@ -190,7 +189,7 @@ export function SiteHeader({
       <header className="sc-h">
         <div className="sc-inner">
           <Link href="/" prefetch={true} className="sc-logo" aria-label="SectorCalc home">
-            <img src={BRAND_ASSETS.logo.headerDefault} alt="SectorCalc Logo" className="sc-logo-img" fetchPriority="low" />
+            <img src={BRAND_ASSETS.logo.headerDefault} alt="SectorCalc Logo" className="sc-logo-img" width={1231} height={215} fetchPriority="low" />
           </Link>
 
           <nav className="sc-nav" ref={navRef}>
@@ -232,6 +231,10 @@ export function SiteHeader({
                     <Link href="/document-intelligence" prefetch={true} className="sc-mega-panel">
                       <div className="pt"><svg className="pico" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /><path d="M9 15l2 2 4-4" /></svg><span className="ph">Document Intelligence</span></div>
                       <div className="pd">Convert engineering documents into validated, ERP-ready data</div>
+                    </Link>
+                    <Link href="/lean" prefetch={true} className="sc-mega-panel">
+                      <div className="pt"><svg className="pico" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><polyline points="8 14 12 10 16 14" /></svg><span className="ph">Lean Manufacturing</span></div>
+                      <div className="pd">PDCA, Gemba, A3 and Muda methodology calculators with clear next actions</div>
                     </Link>
                   </div>
                 )}

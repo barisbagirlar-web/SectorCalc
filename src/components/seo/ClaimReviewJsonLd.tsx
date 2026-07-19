@@ -6,8 +6,16 @@ import { buildClaimReviewJsonLd } from "@/lib/features/semantic/build-claim-revi
 type ClaimReviewJsonLdProps = {
   readonly claimReviewed: string;
   readonly pageUrl: string;
+  /** Verified rating only — never hardcode a self-awarded 5/5. */
+  readonly ratingValue: number;
 };
 
-export function ClaimReviewJsonLd({ claimReviewed, pageUrl }: ClaimReviewJsonLdProps) {
-  return <JsonLd data={buildClaimReviewJsonLd({ claimReviewed, pageUrl })} />;
+export function ClaimReviewJsonLd({
+  claimReviewed,
+  pageUrl,
+  ratingValue,
+}: ClaimReviewJsonLdProps) {
+  return (
+    <JsonLd data={buildClaimReviewJsonLd({ claimReviewed, pageUrl, ratingValue })} />
+  );
 }

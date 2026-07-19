@@ -11,43 +11,14 @@ import { NextRequest, NextResponse } from "next/server";
 import { parseBearerToken, verifySignedInUser } from "@/lib/infrastructure/firebase/verify-signed-in-user";
 import { getAdminFirestore, getAdminStorage } from "@/lib/infrastructure/firebase/admin";
 import { MAINTENANCE_BOM_SIGNED_URL_TTL_SECONDS } from "@/types/document-intelligence";
+import {
+  OUTPUT_ARTIFACT_SPECS,
+  artifactFilename,
+  artifactStoragePath,
+} from "@/lib/document-intelligence/pipeline/output-artifacts";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
-
-interface ArtifactEntry {
-  filename: string;
-  description: string;
-  contentType: string;
-  storagePath: string;
-}
-
-const EXPECTED_ARTIFACTS: ArtifactEntry[] = [
-  {
-    filename: "SectorCalc_Maintenance_BOM_{jobId}.xlsx",
-    description: "Full ERP-Ready BOM Workbook",
-    contentType: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-    storagePath: "",
-  },
-  {
-    filename: "SectorCalc_Procurement_Exception_Report_{jobId}.xlsx",
-    description: "Procurement Exception Report",
-    contentType: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-    storagePath: "",
-  },
-  {
-    filename: "SectorCalc_Source_Map_{jobId}.csv",
-    description: "Source Traceability Map",
-    contentType: "text/csv",
-    storagePath: "",
-  },
-  {
-    filename: "SectorCalc_Processing_Summary_{jobId}.html",
-    description: "Processing Summary (Printable)",
-    contentType: "text/html",
-    storagePath: "",
-  },
-];
 
 export async function GET(
   request: NextRequest,
@@ -107,24 +78,24 @@ export async function GET(
 
     const downloadUrls: Array<{ filename: string; description: string; contentType: string; url: string; expiresInSeconds: number }> = [];
 
-    for (const artifact of EXPECTED_ARTIFACTS) {
-      const storagePath = `document-intelligence/${user.uid}/${jobId}/output/${artifact.filename.replace("{jobId}", jobId)}`;
-      const file = bucket.file(storagePath);
+    for (const spec of OUTPUT_ARTIFACT_SPECS) {
+      const file = bucket.file(artifactStoragePath(user.uid, jobId, spec));
 
       const [exists] = await file.exists();
       if (!exists) continue;
 
+      const resolvedFilename = artifactFilename(spec, jobId);
       const [url] = await file.getSignedUrl({
         action: "read",
         expires: Date.now() + ttlSeconds * 1000,
-        responseDisposition: `attachment; filename="${artifact.filename.replace("{jobId}", jobId)}"`,
-        responseType: artifact.contentType,
+        responseDisposition: `attachment; filename="${resolvedFilename}"`,
+        responseType: spec.contentType,
       });
 
       downloadUrls.push({
-        filename: artifact.filename.replace("{jobId}", jobId),
-        description: artifact.description,
-        contentType: artifact.contentType,
+        filename: resolvedFilename,
+        description: spec.description,
+        contentType: spec.contentType,
         url,
         expiresInSeconds: ttlSeconds,
       });

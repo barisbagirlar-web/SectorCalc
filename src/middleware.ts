@@ -26,6 +26,23 @@ function applyRegionHeaders(response: NextResponse, request: NextRequest): NextR
 }
 
 /**
+ * Inject HTTP Link: <...>; rel="canonical" header (MIL-STD SSOT).
+ * Complements the DOM <head> canonical and sitemap <loc>.
+ */
+function applyCanonicalLinkHeader(response: NextResponse, request: NextRequest): void {
+  const url = new URL(request.url);
+  const canonical =
+    `${url.protocol}//${url.host}${url.pathname}`.replace(/\/+$/, "") ||
+    `${url.protocol}//${url.host}`;
+  response.headers.set("Link", `<${canonical}>; rel="canonical"`);
+}
+
+function applyStandardHeaders(response: NextResponse, request: NextRequest): NextResponse {
+  applyCanonicalLinkHeader(response, request);
+  return applyRegionHeaders(response, request);
+}
+
+/**
  * Known ISO 639-1 language paths at root level — return 404.
  * These are not active routes; they exist only as legacy/misguided URL patterns.
  */
@@ -37,10 +54,16 @@ const LEGACY_LANGUAGE_ROUTES = new Set([
   "/hi", "/th", "/vi", "/id", "/ms",
 ]);
 
+// SW_KILL_VERSION: bump to force clients to re-fetch the kill SW.
+const SW_KILL_VERSION = "2026-07-19-v2";
+
+// Kill SW — no reload loop. Installs, deletes caches, claims, unregisters.
+// No clients.navigate() — avoids infinite reload.
 const SW_KILL_CODE = [
   `self.addEventListener("install",()=>self.skipWaiting())`,
-  `self.addEventListener("activate",(e)=>{e.waitUntil((async()=>{const k=await caches.keys();await Promise.all(k.map(c=>caches.delete(c)));await self.clients.claim();await self.registration.unregister();(await self.clients.matchAll({type:"window"})).forEach(c=>c.navigate(c.url))})())})`,
+  `self.addEventListener("activate",(e)=>{e.waitUntil((async()=>{const k=await caches.keys();await Promise.all(k.map(c=>caches.delete(c)));await self.clients.claim();await self.registration.unregister()})())})`,
   `self.addEventListener("fetch",()=>{})`,
+  `// ${SW_KILL_VERSION}`,
 ].join(";");
 
 const SW_KILL_HEADERS = {
@@ -178,7 +201,7 @@ export default function middleware(request: NextRequest) {
   annotateAuthGate(request, response);
 
   if (response.headers.get("x-auth-gate") === "challenge") {
-    return applyRegionHeaders(response, request);
+    return applyStandardHeaders(response, request);
   }
 
   if (pathname.startsWith("/sitemap/")) {
@@ -198,6 +221,19 @@ export default function middleware(request: NextRequest) {
     return NextResponse.redirect(url, 301);
   }
 
+  // ── Legacy free-tool URL structure → canonical route (301) ──
+  // Old/indexed URLs used /free-tools/{category}/{slug}; live route is
+  // /tools/free/{slug}. Strip the category segment and redirect.
+  if (pathname.startsWith("/free-tools/")) {
+    const segments = pathname.split("/").filter(Boolean);
+    if (segments.length >= 3) {
+      const slug = segments[segments.length - 1];
+      const url = new URL(request.url);
+      url.pathname = `/tools/free/${slug}`;
+      return NextResponse.redirect(url, 301);
+    }
+  }
+
   // Root-level language-only paths — return 404
   if (LEGACY_LANGUAGE_ROUTES.has(pathname)) {
     return new Response("Not Found", {
@@ -210,7 +246,7 @@ export default function middleware(request: NextRequest) {
   }
 
   if (pathname.startsWith("/_next") || pathname.startsWith("/api")) {
-    return applyRegionHeaders(NextResponse.next(), request);
+    return applyStandardHeaders(NextResponse.next(), request);
   }
 
   if (pathname === "/sw.js") {
@@ -218,10 +254,10 @@ export default function middleware(request: NextRequest) {
   }
 
   if (pathname.includes(".")) {
-    return applyRegionHeaders(NextResponse.next(), request);
+    return applyStandardHeaders(NextResponse.next(), request);
   }
 
-  return applyRegionHeaders(NextResponse.next(), request);
+  return applyStandardHeaders(NextResponse.next(), request);
 }
 
 export const config = {

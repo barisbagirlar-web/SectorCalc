@@ -1,6 +1,7 @@
 /**
- * Root English + prefixed locale URL architecture (en, tr, de, fr, es, ar).
+ * Root English + hreflang locale URL architecture (en, tr, de, ar).
  * stubbed: root-only — only `en` is supported; locale prefix functions are vestigial.
+ * App renders EN-only; locale-prefixed paths are not active public routes.
  */
 
 import {
@@ -10,10 +11,13 @@ import {
   LOCALE_COOKIE,
   LOCALE_MANUAL_COOKIE,
   N_EXT_LOCALE_COOKIE,
+  HREFLANG_LOCALES,
   PREFIXED_LOCALES,
   ROOT_LOCALE,
   SUPPORTED_LOCALES,
+  type HreflangLocale,
   type SupportedLocale,
+  isHreflangLocale,
   isSupportedLocale,
 } from "@/lib/infrastructure/i18n/locale-config";
 
@@ -29,7 +33,9 @@ export {
   isSupportedLocale,
 };
 
-const LOCALE_SEGMENT_PATTERN = SUPPORTED_LOCALES.join("|");
+export { type HreflangLocale, isHreflangLocale, HREFLANG_LOCALES, PREFIXED_LOCALES };
+
+const LOCALE_SEGMENT_PATTERN = HREFLANG_LOCALES.join("|");
 const LOCALE_PREFIX = new RegExp(`^/(${LOCALE_SEGMENT_PATTERN})(?=\\/|$)`);
 
 const MIDDLEWARE_EXCLUDED_EXACT = new Set([
@@ -67,24 +73,22 @@ export function isLocalizedPath(pathname: string): boolean {
   return LOCALE_PREFIX.test(pathname);
 }
 
-export function parseLocaleFromPath(pathname: string): SupportedLocale | null {
+export function parseLocaleFromPath(pathname: string): HreflangLocale | null {
   const match = pathname.match(LOCALE_PREFIX);
   if (!match) {
     return null;
   }
   const segment = match[1];
-  return isSupportedLocale(segment) ? segment : null;
+  return isHreflangLocale(segment) ? segment : null;
 }
 
-export function isLocalePath(pathname: string, locale: SupportedLocale): boolean {
+export function isLocalePath(pathname: string, locale: HreflangLocale): boolean {
   const prefix = getLocalePathPrefix(locale);
   if (locale === ROOT_LOCALE) {
     return !isLocalizedPath(pathname) || pathname === "/e" + "n" || pathname.startsWith("/e" + "n/");
   }
   return pathname === prefix || pathname.startsWith(`${prefix}/`);
 }
-
-
 
 export function isPrefixedLocalePath(pathname: string): boolean {
   const locale = parseLocaleFromPath(pathname);
@@ -107,7 +111,7 @@ export function stripLocaleFromPath(pathname: string | null | undefined): string
   return rest.length > 0 ? rest : "/";
 }
 
-export function addLocaleToPath(pathname: string, locale: SupportedLocale): string {
+export function addLocaleToPath(pathname: string, locale: HreflangLocale): string {
   const base = stripLocaleFromPath(pathname);
   const normalized =
     base === "/" ? "/" : base.startsWith("/") ? base : `/${base}`;
@@ -124,19 +128,18 @@ export function addLocaleToPath(pathname: string, locale: SupportedLocale): stri
   return `${prefix}${normalized}`;
 }
 
-export function switchPathLocale(pathname: string, locale: SupportedLocale): string {
+export function switchPathLocale(pathname: string, locale: HreflangLocale): string {
   return addLocaleToPath(stripLocaleFromPath(pathname), locale);
 }
 
 export function getCanonicalPathForLocale(
   pathname: string,
-  locale: SupportedLocale,
+  locale: HreflangLocale,
 ): string {
   return addLocaleToPath(stripLocaleFromPath(pathname), locale);
 }
 
 export function needsEnglishLocaleRewrite(pathname: string): boolean {
-  // stubbed: root-only — always false for English root
   if (pathname === "/e" + "n" || pathname.startsWith("/e" + "n/")) {
     return false;
   }
@@ -146,6 +149,7 @@ export function needsEnglishLocaleRewrite(pathname: string): boolean {
   return true;
 }
 
+// stubbed: root-only — vestigial helper retained for type compatibility
 export function rewritePathToEnglishLocale(pathname: string): string {
   if (pathname === "/") {
     return "/e" + "n";
@@ -177,7 +181,7 @@ export function isMiddlewareExcludedPath(pathname: string): boolean {
   return false;
 }
 
-function detectLocaleFromAcceptLanguage(acceptLanguage: string | null): SupportedLocale | null {
+function detectLocaleFromAcceptLanguage(acceptLanguage: string | null): HreflangLocale | null {
   if (!acceptLanguage) {
     return null;
   }
@@ -188,7 +192,7 @@ function detectLocaleFromAcceptLanguage(acceptLanguage: string | null): Supporte
 
   for (const tag of tags) {
     const base = tag.split("-")[0] ?? tag;
-    if (isSupportedLocale(base) && base !== ROOT_LOCALE) {
+    if (isHreflangLocale(base) && base !== ROOT_LOCALE) {
       return base;
     }
     if (base === "en") {
@@ -202,10 +206,10 @@ export function getEffectiveLocaleCookie(options: {
   readonly cookieLocale: string | undefined;
   readonly nextLocaleCookie: string | undefined;
   readonly manualCookie: string | undefined;
-}): SupportedLocale | undefined {
+}): HreflangLocale | undefined {
   const manual = options.manualCookie === "1";
   const raw = options.cookieLocale ?? options.nextLocaleCookie;
-  if (!raw || !isSupportedLocale(raw)) {
+  if (!raw || !isHreflangLocale(raw)) {
     return undefined;
   }
 
@@ -226,7 +230,7 @@ export function resolveRootVisitLocale(options: {
   readonly manualCookie?: string | undefined;
   readonly countryCode: string | null;
   readonly acceptLanguage: string | null;
-}): SupportedLocale {
+}): HreflangLocale {
   const effectiveCookie = getEffectiveLocaleCookie({
     cookieLocale: options.cookieLocale,
     nextLocaleCookie: options.nextLocaleCookie,
@@ -257,7 +261,7 @@ export function shouldRedirectRootToLocale(options: {
   readonly manualCookie?: string | undefined;
   readonly countryCode: string | null;
   readonly acceptLanguage: string | null;
-}): SupportedLocale | null {
+}): HreflangLocale | null {
   const resolved = resolveRootVisitLocale(options);
   if (resolved === ROOT_LOCALE) {
     return null;
@@ -278,7 +282,7 @@ export function shouldRedirectLocaleLessPublicRoute(options: {
   readonly manualCookie?: string | undefined;
   readonly countryCode: string | null;
   readonly acceptLanguage: string | null;
-}): SupportedLocale | null {
+}): HreflangLocale | null {
   if (!isLocaleLessPublicRoute(options.pathname)) {
     return null;
   }
@@ -288,8 +292,6 @@ export function shouldRedirectLocaleLessPublicRoute(options: {
   }
   return resolved;
 }
-
-
 
 export function buildPrefixedLocaleMatcherSegment(): string {
   return PREFIXED_LOCALES.join("|");

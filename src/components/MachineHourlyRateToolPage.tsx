@@ -252,6 +252,63 @@ export default function MachineHourlyRateToolPage() {
     setIsExecuting(true);
     setExecuteError(null);
     try {
+      // Map camelCase field keys (client UI) to snake_case schema keys (API contract)
+      const schemaRawInputs: Record<string, number> = {
+        purchase_price: collectedInputs.purchasePrice,
+        useful_life: collectedInputs.usefulLife,
+        annual_hours: collectedInputs.annualHours,
+        wage_rate: collectedInputs.wageRate,
+        power_draw: collectedInputs.powerDraw,
+        energy_price: collectedInputs.energyPrice,
+        idle_share: collectedInputs.idleShare,
+        maintenance_rate: collectedInputs.maintenanceRate,
+        source_confidence_ratio: 1.0, // Required by schema; defaults to full confidence
+      };
+      // Map client unit names to schema-compatible base_unit names.
+      // Client already pre-converts all values to canonical form; sending
+      // base_unit ensures normalizeInputs applies factor 1 (no double-conversion).
+      const clientUnitToSchemaUnit: Record<string, string> = {
+        "units": "currency_unit",
+        "thousands (k)": "currency_unit",
+        "millions (M)": "currency_unit",
+        "months": "month",
+        "quarters": "month",
+        "years": "year",
+        "seconds": "s",
+        "minutes": "s",
+        "hours": "h",
+        "shifts (8h)": "h",
+        "days (24h)": "day",
+        "/hour": "currency_unit_per_h",
+        "/day (8h)": "currency_unit_per_h",
+        "/week (40h)": "currency_unit_per_h",
+        "W": "W",
+        "kW": "kW",
+        "MW": "MW",
+        "HP (mech)": "HP",
+        "/kWh": "currency_unit_per_kWh",
+        "/MWh": "currency_unit_per_kWh",
+        "%": "percent",
+        "fraction (0-1)": "ratio",
+      };
+      const fieldKeyToSchemaKey: Record<string, string> = {
+        purchasePrice: "purchase_price",
+        usefulLife: "useful_life",
+        annualHours: "annual_hours",
+        wageRate: "wage_rate",
+        powerDraw: "power_draw",
+        energyPrice: "energy_price",
+        idleShare: "idle_share",
+        maintenanceRate: "maintenance_rate",
+      };
+      const schemaUnits: Record<string, string> = {};
+      for (const [fieldKey, fieldState] of Object.entries(fieldStates)) {
+        const schemaKey = fieldKeyToSchemaKey[fieldKey];
+        if (schemaKey) {
+          schemaUnits[schemaKey] = clientUnitToSchemaUnit[fieldState.unit] ?? fieldState.unit;
+        }
+      }
+
       const res = await fetch("/api/pro-calculator/execute", {
         method: "POST",
         headers: {
@@ -260,8 +317,8 @@ export default function MachineHourlyRateToolPage() {
         },
         body: JSON.stringify({
           tool_key: "machine-hourly-rate-proof-report",
-          raw_inputs: collectedInputs,
-          selected_units: Object.fromEntries(Object.entries(fieldStates).map(([k, v]) => [k, v.unit])),
+          raw_inputs: schemaRawInputs,
+          selected_units: schemaUnits,
           usage_session_id: usageSessionId,
         }),
       });

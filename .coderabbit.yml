@@ -1,0 +1,92 @@
+# .coderabbit.yml — SectorCalc Zero-Defect Configuration
+# ======================================================================
+# CodeRabbit AI Quality Gate for CI/CD pipeline.
+# Enforces ISO 22400-2, ASME V&V 10, and Dual-Intelligence invariants
+# at PR/Merge time. Critical violations BLOCK merge.
+# ======================================================================
+
+review_profile: "strict"
+fail_on_error: true         # Critical violations block PR merge
+early_access: true
+code_review:
+  auto_review: true
+  summarize: true
+
+custom_instructions: |
+  SECTORCALC ARCHITECTURAL INVARIANTS (NON-NEGOTIABLE):
+
+  1. FINANCIAL PRECISION — §I6
+     All monetary/unit calculations MUST use Big.js from 'big.js'.
+     Native JavaScript number arithmetic (+, -, *, /) on currency
+     or dimensioned values is FORBIDDEN inside calculation/calculator
+     modules. Acceptable only in pure-DOM rendering helpers.
+
+  2. ISO 22400-2 BOUNDS — §5.4
+     Every calculator input MUST be validated against physical bounds
+     before formula execution. Missing lowerBound/upperBound config
+     on a required input = CRITICAL ERROR. Non-finite values (NaN,
+     Infinity, -Infinity) must be rejected at the input layer.
+
+  3. SITEMAP INTEGRITY — §1.4
+     Sitemap XML generation MUST be stream-based (fs.createWriteStream,
+     pipeline). Array accumulation with .push() for >1000 URLs is
+     FORBIDDEN — risk of OOM in production. Empty sitemap MUST NOT
+     overwrite CDN copy (fail-safe guard).
+
+  4. TEMPORAL LOGIC — §1.2
+     Sitemap <lastmod> timestamps MUST be ISO 8601 and monotonically
+     non-decreasing. MAX(resolved_date, BUILD_EPOCH) must be applied.
+     Backdating dates to 1970-01-01 = CRITICAL ERROR.
+
+  5. UNIT CONSISTENCY — §I5
+     Dimensional analysis is mandatory for all formula chains.
+     USD/h * h = USD. Mismatched unit dimensions in formula output
+     types MUST be caught at compile time via TypeScript branded types
+     or explicit unit-conversion wrappers.
+
+  6. COMPONENT INTEGRITY
+     Every interactive UI component MUST declare data-testid.
+     No global state mutations outside Zustand Context stores.
+     React Server Components must not import 'use client' modules.
+
+  7. LANGUAGE PURITY
+     Technical Academic Engineering English ONLY.
+     Turkish characters (ç, ğ, ı, ö, ş, ü, Ç, Ğ, İ, Ö, Ş, Ü) in
+     source code, comments, or commit messages = CRITICAL ERROR.
+     Turkish ASCII words (fire, fiyat, hesapla, sonuc, giris, cikti)
+     in public-facing source = CRITICAL ERROR.
+
+  8. TYPE SAFETY
+     TypeScript in strict mode. No 'any' types in public API
+     contracts. No implicit casts. No unvalidated I/O boundaries.
+     All API route responses must conform to ExecuteResponse contract.
+
+path_filters:
+  exclude:
+    - "**/*.test.ts"
+    - "**/*.test.tsx"
+    - "**/__tests__/**"
+    - "public/**"
+    - "node_modules/**"
+    - ".next/**"
+    - ".firebase/**"
+    - "functions/node_modules/**"
+  include:
+    - "src/app/**"
+    - "src/lib/**"
+    - "src/components/**"
+    - "src/sectorcalc/**"
+    - "scripts/**"
+    - "data/**"
+
+chat:
+  auto_reply: true
+  language: "en-US"
+
+knowledge_base:
+  primary_branch: "main"
+  file_patterns:
+    - "src/sectorcalc/pro-form/**"
+    - "src/lib/infrastructure/seo/**"
+    - "src/lib/features/tools/**"
+    - "src/components/calculators/**"

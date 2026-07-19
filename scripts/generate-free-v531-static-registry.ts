@@ -53,6 +53,7 @@ const V531_SLUGS = new Set([
   "true-employee-cost",
   "quote-margin-markup",
   "break-even-point",
+  "break-even-and-margin-of-safety-analysis",
   "payment-term-cost",
   "machine-investment-payback",
   "customer-profitability",
@@ -66,6 +67,7 @@ const V531_SLUGS = new Set([
   "rebar-weight-count",
   "recipe-cost-menu-price",
   "fabric-consumption-gsm",
+  "von-mises-stress-calculator",
 ]);
 
 function main(): void {
@@ -85,7 +87,9 @@ function main(): void {
     const numStr = fn.split("-")[0];
     if (!numStr || isNaN(Number(numStr))) continue;
     const num = parseInt(numStr, 10);
-    if (num < 295 || num > 344) continue;
+    // Active V5.4 Core batch is 295-344; the break-even pilot lives at file 030
+    // and the von Mises stress calculator pilot lives at file 278.
+    if ((num < 295 || num > 344) && num !== 30 && num !== 278) continue;
 
     const raw = JSON.parse(readFileSync(join(SCHEMA_DIR, fn), "utf-8")) as Record<string, unknown>;
     const tk = raw?.tool_key as string | undefined;

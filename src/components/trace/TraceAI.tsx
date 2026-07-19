@@ -154,7 +154,6 @@ function useInjectedStyles(): void {
 .traceai-chip:hover{border-color:${C.accent};color:${C.accent};background:#F7EFE9}
 .traceai-send:hover{background:#A94E2F}
 .traceai-close:hover{background:#F0EEE6}
-@media(prefers-reduced-motion:reduce){.traceai-dot,.traceai-ring{animation:none}}
 .traceai-scroll::-webkit-scrollbar{width:8px}
 .traceai-scroll::-webkit-scrollbar-thumb{background:${C.line}}
 @media(max-width:760px){.traceai-trigger{left:14px!important;right:14px!important;bottom:calc(env(safe-area-inset-bottom,0px)+78px)!important;width:auto!important;max-width:none!important;justify-content:center!important;gap:8px!important;padding:8px 14px!important}}

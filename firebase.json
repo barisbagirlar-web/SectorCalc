@@ -75,6 +75,17 @@
       { "source": "/tools/pro/bank-grade-financial-projection-covenant-model", "destination": "/pro-tools", "type": 301 },
       { "source": "/tools/pro/ppap-gauge-rr-cpk-ppk-quality-submission-bundle", "destination": "/pro-tools", "type": 301 }
     ],
+    "headers": [
+      {
+        "source": "**",
+        "headers": [
+          {
+            "key": "Strict-Transport-Security",
+            "value": "max-age=63072000; includeSubDomains; preload"
+          }
+        ]
+      }
+    ],
     "rewrites": [
       {
         "source": "**",

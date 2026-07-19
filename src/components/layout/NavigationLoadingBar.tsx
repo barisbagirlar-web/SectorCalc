@@ -84,13 +84,7 @@ export function NavigationLoadingBar() {
           50% { width: 70%; }
           100% { width: 90%; }
         }
-        @media (prefers-reduced-motion: reduce) {
-          .nav-loading-bar.active {
-            width: 100%;
-            animation: none;
-            opacity: 1;
-          }
-        }
+        /* Loading animation kept active on every device, including OS "reduce motion". */
       `}</style>
     </>
   );

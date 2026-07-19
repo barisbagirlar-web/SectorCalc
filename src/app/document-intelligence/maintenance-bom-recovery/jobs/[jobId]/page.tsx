@@ -17,15 +17,36 @@
 
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
+import { getFirebaseAuth } from "@/lib/infrastructure/firebase/auth";
 import type {
   JobStatus,
   PaymentStatus,
   ProcessingSummary,
-  OutputManifest,
 } from "@/types/document-intelligence";
+
+interface DownloadArtifact {
+  filename: string;
+  description: string;
+  contentType: string;
+  url: string;
+  expiresInSeconds: number;
+}
+
+async function getIdTokenOrNull(): Promise<string | null> {
+  const auth = getFirebaseAuth();
+  const currentUser = auth?.currentUser;
+  if (!currentUser) return null;
+  try {
+    return await currentUser.getIdToken();
+  } catch {
+    return null;
+  }
+}
+
+const API_BASE = "/api/document-intelligence/maintenance-bom";
 
 /* ── Design Tokens ─────────────────────────────────────────────── */
 
@@ -51,9 +72,8 @@ interface JobDetailResponse {
     paymentStatus: PaymentStatus;
     diagnosticStatus: string | null;
     summary: ProcessingSummary | null;
-    outputManifest: OutputManifest | null;
-    errorCode: string | null;
-    errorMessage: string | null;
+    failureCode: string | null;
+    failureMessage: string | null;
     createdAt: string;
     updatedAt: string;
     expiresAt: string | null;
@@ -153,100 +173,6 @@ function processingStageIndex(status: JobStatus): number {
   return stages.indexOf(status);
 }
 
-/* ── Mock Data ─────────────────────────────────────────────────── */
-
-function makeMockSummary(): ProcessingSummary {
-  return {
-    inputFilename: "machine_manual_k120.pdf",
-    processedPages: 12,
-    extractedRows: 47,
-    cleanRows: 32,
-    reviewRows: 10,
-    blockedRows: 5,
-    duplicateGroups: 3,
-    missingFieldCount: 7,
-    revisionConflictCount: 2,
-    lowConfidenceCount: 4,
-    engineVersion: "1.0.0",
-    validatorVersion: "1.0.0",
-    schemaVersion: "1.0.0",
-    generatedAt: new Date().toISOString(),
-    passARowCount: 47,
-    passBRowCount: 47,
-    reconciliationAgreedCount: 42,
-    reconciliationDisagreementCount: 0,
-    reconciliationMissingPassB: 0,
-    hasHierarchy: false,
-    hierarchyExceptionCount: 0,
-    qaStatus: "passed",
-    qaAutomatic: true,
-    procurementReadyCount: 32,
-    dependencyAuditPassed: true,
-  };
-}
-
-function makeMockOutputManifest(jobId: string): OutputManifest {
-  return {
-    jobId,
-    outputGenerationId: "out_" + Math.random().toString(36).slice(2, 10),
-    files: [
-      {
-        filename: `SectorCalc_Maintenance_BOM_${jobId}.xlsx`,
-        contentType: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-        sizeBytes: 84500,
-        sha256: "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1",
-        storagePath: `outputs/${jobId}/bom.xlsx`,
-      },
-      {
-        filename: `SectorCalc_Procurement_Exception_Report_${jobId}.xlsx`,
-        contentType: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-        sizeBytes: 32000,
-        sha256: "b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2",
-        storagePath: `outputs/${jobId}/exception_report.xlsx`,
-      },
-      {
-        filename: `SectorCalc_Source_Map_${jobId}.csv`,
-        contentType: "text/csv",
-        sizeBytes: 12400,
-        sha256: "c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3",
-        storagePath: `outputs/${jobId}/source_map.csv`,
-      },
-      {
-        filename: `SectorCalc_Processing_Summary_${jobId}.html`,
-        contentType: "text/html",
-        sizeBytes: 28000,
-        sha256: "d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4",
-        storagePath: `outputs/${jobId}/summary.html`,
-      },
-    ],
-    summary: makeMockSummary(),
-    generatedAt: new Date().toISOString(),
-  };
-}
-
-function makeMockJobDetail(jobId: string, status: JobStatus, paymentStatus: PaymentStatus): JobDetailResponse {
-  return {
-    ok: true,
-    data: {
-      jobId,
-      status,
-      paymentStatus,
-      diagnosticStatus: status === "diagnostic_eligible" ? "eligible" : null,
-      summary: isCompletedStatus(status) ? makeMockSummary() : null,
-      outputManifest: isCompletedStatus(status) ? makeMockOutputManifest(jobId) : null,
-      errorCode: isFailedStatus(status) ? "PROVIDER_TRANSIENT" : null,
-      errorMessage: isFailedStatus(status)
-        ? "A transient error occurred during extraction. The system will retry automatically."
-        : null,
-      createdAt: new Date(Date.now() - 3600000).toISOString(),
-      updatedAt: new Date().toISOString(),
-      expiresAt: isCompletedStatus(status)
-        ? new Date(Date.now() + 7 * 86400000).toISOString()
-        : null,
-    },
-  };
-}
-
 /* ── Component ──────────────────────────────────────────────────── */
 
 export default function JobDetailPage() {
@@ -256,51 +182,87 @@ export default function JobDetailPage() {
   const [pageState, setPageState] = useState<PageState>("loading");
   const [job, setJob] = useState<JobDetailResponse["data"] | null>(null);
   const [errorMessage, setErrorMessage] = useState("");
+  const [artifacts, setArtifacts] = useState<DownloadArtifact[]>([]);
+  const pollRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const fetchJob = useCallback(async () => {
-    setPageState("loading");
-    setErrorMessage("");
-
+  const fetchDownloads = useCallback(async () => {
     try {
-      const res = await fetch(
-        `/api/document-intelligence/maintenance-bom/jobs/${encodeURIComponent(jobId)}`,
-        { headers: { accept: "application/json" } }
-      );
-
-      if (!res.ok) {
-        if (res.status === 404) {
-          setPageState("not_found");
-          return;
-        }
-        throw new Error(`Server returned ${res.status}`);
+      const token = await getIdTokenOrNull();
+      if (!token) return;
+      const res = await fetch(`${API_BASE}/jobs/${encodeURIComponent(jobId)}/downloads`, {
+        headers: { accept: "application/json", authorization: `Bearer ${token}` },
+      });
+      const body = await res.json().catch(() => null);
+      if (res.ok && body?.ok && Array.isArray(body.data?.artifacts)) {
+        setArtifacts(body.data.artifacts as DownloadArtifact[]);
       }
-
-      const body: JobDetailResponse = await res.json();
-
-      if (!body.ok || !body.data) {
-        throw new Error(body.data?.errorMessage ?? "Invalid response from server.");
-      }
-
-      // If the API stub returns the minimal response, transform to mock completed
-      if (body.data.status === "diagnostic_uploaded" && body.data.paymentStatus === "unpaid" && !body.data.summary) {
-        // Simulate a fully completed job for demo purposes
-        setJob(makeMockJobDetail(jobId, "completed", "paid").data);
-      } else {
-        setJob(body.data);
-      }
-
-      setPageState("ready");
-    } catch (err) {
-      setPageState("error");
-      setErrorMessage(
-        err instanceof Error ? err.message : "Failed to load job details."
-      );
+    } catch {
+      /* non-fatal: download links can be retried */
     }
   }, [jobId]);
 
+  const fetchJob = useCallback(
+    async (isPoll = false) => {
+      if (!isPoll) {
+        setPageState("loading");
+        setErrorMessage("");
+      }
+
+      try {
+        const token = await getIdTokenOrNull();
+        if (!token) {
+          setPageState("error");
+          setErrorMessage("Please sign in to view this job.");
+          return;
+        }
+
+        const res = await fetch(`${API_BASE}/jobs/${encodeURIComponent(jobId)}`, {
+          headers: { accept: "application/json", authorization: `Bearer ${token}` },
+        });
+
+        if (!res.ok) {
+          if (res.status === 404) {
+            setPageState("not_found");
+            return;
+          }
+          throw new Error(`Server returned ${res.status}`);
+        }
+
+        const body: JobDetailResponse = await res.json();
+        if (!body.ok || !body.data) {
+          throw new Error("Invalid response from server.");
+        }
+
+        setJob(body.data);
+        setPageState("ready");
+
+        if (body.data.status === "completed") {
+          void fetchDownloads();
+        }
+      } catch (err) {
+        setPageState("error");
+        setErrorMessage(err instanceof Error ? err.message : "Failed to load job details.");
+      }
+    },
+    [jobId, fetchDownloads],
+  );
+
   useEffect(() => {
-    fetchJob();
+    void fetchJob();
   }, [fetchJob]);
+
+  // Poll while the job is still processing so the UI advances automatically.
+  useEffect(() => {
+    if (!job) return;
+    const active = isProcessingStatus(job.status) || job.status === "paid" || job.status === "queued";
+    if (!active) return;
+    pollRef.current = setTimeout(() => {
+      void fetchJob(true);
+    }, 4000);
+    return () => {
+      if (pollRef.current) clearTimeout(pollRef.current);
+    };
+  }, [job, fetchJob]);
 
   /* ── Render helpers ──────────────────────────────────────────── */
 
@@ -480,7 +442,7 @@ export default function JobDetailPage() {
     );
   }
 
-  function renderDownloadSection(outputManifest: OutputManifest) {
+  function renderDownloadSection(files: DownloadArtifact[]) {
     const fileIcons: Record<string, string> = {
       xlsx:
         "M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z M14 2v6h6",
@@ -492,70 +454,76 @@ export default function JobDetailPage() {
     return (
       <div className="mb-8 p-6 border" style={{ background: CARD_BG, borderColor: BORDER }}>
         <h3 className="font-semibold mb-4">Download Outputs</h3>
-        <div className="space-y-3">
-          {outputManifest.files.map((file) => {
-            const ext = file.filename.split(".").pop() ?? "file";
-            const icon = fileIcons[ext] ?? "M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z";
-            const sizeKB = Math.round(file.sizeBytes / 1024);
+        {files.length === 0 ? (
+          <p className="text-sm" style={{ color: MUTED }}>
+            Preparing secure download links…{" "}
+            <button
+              type="button"
+              className="underline"
+              style={{ color: ACCENT, cursor: "pointer" }}
+              onClick={() => void fetchDownloads()}
+            >
+              Refresh
+            </button>
+          </p>
+        ) : (
+          <div className="space-y-3">
+            {files.map((file) => {
+              const ext = file.filename.split(".").pop() ?? "file";
+              const icon = fileIcons[ext] ?? "M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z";
 
-            return (
-              <div
-                key={file.filename}
-                className="flex items-center justify-between p-3"
-                style={{ background: CARD_BG_ALT }}
-              >
-                <div className="flex items-center gap-3 min-w-0">
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke={ACCENT}
-                    strokeWidth="1.5"
-                    className="flex-shrink-0"
-                    aria-hidden="true"
-                  >
-                    <path d={icon} />
-                  </svg>
-                  <div className="min-w-0">
-                    <code className="text-sm font-mono block truncate">
-                      {file.filename}
-                    </code>
-                    <span className="text-xs" style={{ color: MUTED }}>
-                      {sizeKB} KB · {file.contentType}
-                    </span>
-                  </div>
-                </div>
-                <button
-                  type="button"
-                  className="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium"
-                  style={{
-                    background: ACCENT,
-                    color: "#FFFFFF",
-                    border: "none",
-                    cursor: "pointer",
-                    minHeight: 44,
-                    minWidth: 44,
-                  }}
-                  onClick={() => {
-                    // In production this would trigger a signed-URL download
-                    // via the API endpoint.
-                    window.open(
-                      `/api/document-intelligence/maintenance-bom/jobs/${encodeURIComponent(outputManifest.jobId)}/download/${encodeURIComponent(file.filename)}`,
-                      "_blank"
-                    );
-                  }}
-                  aria-label={`Download ${file.filename}`}
+              return (
+                <div
+                  key={file.filename}
+                  className="flex items-center justify-between p-3"
+                  style={{ background: CARD_BG_ALT }}
                 >
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4 M7 10l5 5 5-5 M12 15V3" />
-                  </svg>
-                  Download
-                </button>
-              </div>
-            );
-          })}
-        </div>
+                  <div className="flex items-center gap-3 min-w-0">
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke={ACCENT}
+                      strokeWidth="1.5"
+                      className="flex-shrink-0"
+                      aria-hidden="true"
+                    >
+                      <path d={icon} />
+                    </svg>
+                    <div className="min-w-0">
+                      <code className="text-sm font-mono block truncate">
+                        {file.filename}
+                      </code>
+                      <span className="text-xs" style={{ color: MUTED }}>
+                        {file.description}
+                      </span>
+                    </div>
+                  </div>
+                  <a
+                    href={file.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium"
+                    style={{
+                      background: ACCENT,
+                      color: "#FFFFFF",
+                      border: "none",
+                      minHeight: 44,
+                      minWidth: 44,
+                    }}
+                    aria-label={`Download ${file.filename}`}
+                  >
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                      <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4 M7 10l5 5 5-5 M12 15V3" />
+                    </svg>
+                    Download
+                  </a>
+                </div>
+              );
+            })}
+          </div>
+        )}
       </div>
     );
   }
@@ -639,11 +607,11 @@ export default function JobDetailPage() {
               {isRetryable ? "Transient Processing Error" : "Processing Failed"}
             </h3>
             <p className="text-sm mb-3" style={{ color: MUTED }}>
-              {job.errorMessage ?? "An unexpected error occurred during processing."}
+              {job.failureMessage ?? "An unexpected error occurred during processing. Your credits have been refunded."}
             </p>
-            {job.errorCode && (
+            {job.failureCode && (
               <code className="text-xs px-2 py-1" style={{ background: `${MUTED}18`, color: MUTED }}>
-                Error code: {job.errorCode}
+                Error code: {job.failureCode}
               </code>
             )}
             {isRetryable && (
@@ -745,7 +713,7 @@ export default function JobDetailPage() {
                   minHeight: 44,
                   minWidth: 44,
                 }}
-                onClick={fetchJob}
+                onClick={() => void fetchJob()}
               >
                 Retry
               </button>
@@ -841,7 +809,7 @@ export default function JobDetailPage() {
                 </div>
 
                 {/* Downloads */}
-                {job.outputManifest && renderDownloadSection(job.outputManifest)}
+                {renderDownloadSection(artifacts)}
 
                 {/* Retention Notice */}
                 {job.expiresAt && renderRetentionNotice(job.expiresAt)}
@@ -886,7 +854,7 @@ export default function JobDetailPage() {
                     type="button"
                     className="mt-4 px-6 py-2 text-sm font-medium border"
                     style={{ borderColor: BORDER, color: MUTED, cursor: "pointer", minHeight: 44 }}
-                    onClick={fetchJob}
+                    onClick={() => void fetchJob(true)}
                   >
                     Refresh Status
                   </button>

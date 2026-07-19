@@ -2,8 +2,11 @@ type AppLocale = "en";
 import { BRAND_ASSETS } from "@/config/brand";
 import {
   FOUNDER_PROFILE,
+  INDUSTRY_WIKIDATA_QID,
+  TOPIC_WIKIDATA_ENTITIES,
   buildFounderSameAs,
   buildOrganizationSameAs,
+  wikidataUrl,
 } from "@/config/knowledge-graph";
 import { ORGANIZATION_TRUST, organizationDescriptionForLocale } from "@/config/organization-trust";
 import { SITE } from "@/config/site";
@@ -76,6 +79,40 @@ function academicPersonNode(ref: (typeof academicReferences)[number]): JsonLdRec
 }
 
 /**
+ * Build one industry DefinedTerm node, attaching a verified Wikidata `sameAs`
+ * when the taxonomy fragment is mapped in INDUSTRY_WIKIDATA_QID.
+ */
+function industryTermNode(fragment: string, name: string): JsonLdRecord {
+  const qid = INDUSTRY_WIKIDATA_QID[fragment];
+  const node: JsonLdRecord = {
+    "@type": "DefinedTerm",
+    "@id": `${SITE_URL}/#${fragment}`,
+    name,
+    inDefinedTermSet: `${SITE_URL}/#industry-set`,
+  };
+  if (qid) {
+    node.sameAs = wikidataUrl(qid);
+  }
+  return node;
+}
+
+/**
+ * Topical entities the platform covers, linked to canonical Wikidata items.
+ * Emitted as DefinedTerm nodes and referenced from Organization.knowsAbout so
+ * knowledge graphs can disambiguate SectorCalc's areas of expertise.
+ */
+function buildTopicKnowledgeNodes(): JsonLdRecord[] {
+  return TOPIC_WIKIDATA_ENTITIES.map((topic) => ({
+    "@type": "DefinedTerm",
+    "@id": `${SITE_URL}/#topic-${topic.qid}`,
+    name: topic.name,
+    termCode: topic.qid,
+    sameAs: wikidataUrl(topic.qid),
+    inDefinedTermSet: `${SITE_URL}/#topic-set`,
+  }));
+}
+
+/**
  * Build the sector/industry relationship map for Graph RAG topology.
  * These relations enable AI systems to traverse entity connections
  * (e.g., "SectorCalc CNC → used in → Manufacturing Industry").
@@ -88,20 +125,27 @@ function buildIndustryRelationships(): JsonLdRecord[] {
       name: "SectorCalc Industry Categories",
       description: "Complete industry taxonomy for SectorCalc platform",
       hasDefinedTerm: [
-        { "@type": "DefinedTerm", "@id": `${SITE_URL}/#industry-cnc-manufacturing`, name: "CNC & Advanced Manufacturing", inDefinedTermSet: `${SITE_URL}/#industry-set` },
-        { "@type": "DefinedTerm", "@id": `${SITE_URL}/#industry-construction`, name: "Construction & Site Management", inDefinedTermSet: `${SITE_URL}/#industry-set` },
-        { "@type": "DefinedTerm", "@id": `${SITE_URL}/#industry-logistics`, name: "Logistics & Transport", inDefinedTermSet: `${SITE_URL}/#industry-set` },
-        { "@type": "DefinedTerm", "@id": `${SITE_URL}/#industry-energy`, name: "Energy & Sustainability", inDefinedTermSet: `${SITE_URL}/#industry-set` },
-        { "@type": "DefinedTerm", "@id": `${SITE_URL}/#industry-agriculture`, name: "Agriculture & Food", inDefinedTermSet: `${SITE_URL}/#industry-set` },
-        { "@type": "DefinedTerm", "@id": `${SITE_URL}/#industry-finance`, name: "Finance & Working Capital", inDefinedTermSet: `${SITE_URL}/#industry-set` },
-        { "@type": "DefinedTerm", "@id": `${SITE_URL}/#industry-quality`, name: "Quality & Six Sigma", inDefinedTermSet: `${SITE_URL}/#industry-set` },
-        { "@type": "DefinedTerm", "@id": `${SITE_URL}/#industry-digital-factory`, name: "Digital Factory & Automation", inDefinedTermSet: `${SITE_URL}/#industry-set` },
-        { "@type": "DefinedTerm", "@id": `${SITE_URL}/#industry-hvac`, name: "HVAC & Mechanical Systems", inDefinedTermSet: `${SITE_URL}/#industry-set` },
-        { "@type": "DefinedTerm", "@id": `${SITE_URL}/#industry-electrical`, name: "Electrical & Power Systems", inDefinedTermSet: `${SITE_URL}/#industry-set` },
-        { "@type": "DefinedTerm", "@id": `${SITE_URL}/#industry-food`, name: "Food, Cold Chain & Hygiene", inDefinedTermSet: `${SITE_URL}/#industry-set` },
-        { "@type": "DefinedTerm", "@id": `${SITE_URL}/#industry-textile`, name: "Textile, Printing & Lab", inDefinedTermSet: `${SITE_URL}/#industry-set` },
-        { "@type": "DefinedTerm", "@id": `${SITE_URL}/#industry-hse`, name: "HSE & Ergonomics", inDefinedTermSet: `${SITE_URL}/#industry-set` },
+        industryTermNode("industry-cnc-manufacturing", "CNC & Advanced Manufacturing"),
+        industryTermNode("industry-construction", "Construction & Site Management"),
+        industryTermNode("industry-logistics", "Logistics & Transport"),
+        industryTermNode("industry-energy", "Energy & Sustainability"),
+        industryTermNode("industry-agriculture", "Agriculture & Food"),
+        industryTermNode("industry-finance", "Finance & Working Capital"),
+        industryTermNode("industry-quality", "Quality & Six Sigma"),
+        industryTermNode("industry-digital-factory", "Digital Factory & Automation"),
+        industryTermNode("industry-hvac", "HVAC & Mechanical Systems"),
+        industryTermNode("industry-electrical", "Electrical & Power Systems"),
+        industryTermNode("industry-food", "Food, Cold Chain & Hygiene"),
+        industryTermNode("industry-textile", "Textile, Printing & Lab"),
+        industryTermNode("industry-hse", "HSE & Ergonomics"),
       ],
+    },
+    {
+      "@type": "DefinedTermSet",
+      "@id": `${SITE_URL}/#topic-set`,
+      name: "SectorCalc Expertise Topics",
+      description: "Topical areas covered by SectorCalc, linked to Wikidata entities",
+      hasDefinedTerm: buildTopicKnowledgeNodes(),
     },
     {
       "@type": "Product",
@@ -230,8 +274,123 @@ function buildPlatformCalculateAction(): JsonLdRecord {
 }
 
 /**
- * Build search action with SpeakableSpecification for voice/AI search optimization.
+ * DIN/ISO Semantic Bridge — the "German Engineering" trust signal.
+ *
+ * Exploits the .de TLD's inherent authority for precision engineering
+ * by cross-referencing German DIN standards with global ISO/ASME
+ * standards in a single English-language entity graph.
+ *
+ * Google Knowledge Graph uses these cross-references to classify
+ * SectorCalc as a Global Engineering Authority rather than a local
+ * German calculator, while still inheriting the .de domain authority.
  */
+export interface DinIsoBridgeInput {
+  /** Tool route slug (e.g. "din-6930-blanking-clearance"). */
+  slug: string;
+  /** DIN standard identifier (e.g. "DIN 6930-2"). */
+  dinStandard: string;
+  /** ISO standard identifier (e.g. "ISO 7438"). */
+  isoStandard: string;
+  /** Human-readable tool name. */
+  toolName: string;
+}
+
+const DIN_ISO_CATALOG: readonly { slug: string; din: string; iso: string; name: string }[] = [
+  { slug: "din-6930-blanking-clearance", din: "DIN 6930-2", iso: "ISO 7438", name: "DIN 6930 vs ISO 7438 Blanking Clearance" },
+  { slug: "din-iso-286-tolerance-fit", din: "DIN 7157", iso: "ISO 286-1", name: "DIN 7157 vs ISO 286 Tolerance Fit" },
+  { slug: "din-iso-2768-general-tolerances", din: "DIN 2768-1", iso: "ISO 2768-1", name: "DIN 2768 vs ISO 2768 General Tolerances" },
+  { slug: "din-iso-1302-surface-roughness", din: "DIN 4768", iso: "ISO 1302", name: "DIN 4768 vs ISO 1302 Surface Roughness" },
+  { slug: "din-en-iso-13920-welding-tolerances", din: "DIN EN ISO 13920", iso: "ISO 13920", name: "DIN EN ISO 13920 Welding Tolerances" },
+  { slug: "din-iso-1101-gdt", din: "DIN 7184", iso: "ISO 1101", name: "DIN 7184 vs ISO 1101 GD&T" },
+  { slug: "din-iso-2862-tolerance", din: "DIN 7167", iso: "ISO 286-2", name: "DIN 7167 vs ISO 286-2 Tolerance Limits" },
+  { slug: "din-iso-14405-tolerance-linier", din: "DIN 14405-1", iso: "ISO 14405-1", name: "DIN vs ISO 14405-1 Linear Tolerance" },
+];
+
+/**
+ * Build a per-tool-page DIN/ISO bridge JSON-LD node.
+ * Emits Standard citations for both DIN and ISO references,
+ * enabling Google Knowledge Graph cross-linking.
+ */
+export function buildDinIsoBridgeNode(input: DinIsoBridgeInput): JsonLdRecord {
+  const canonicalUrl = `${SITE_URL}/calculators/${input.slug}`;
+
+  return {
+    "@type": "WebApplication",
+    "@id": `${canonicalUrl}/#app`,
+    name: input.toolName,
+    inLanguage: "en",
+    applicationCategory: "EngineeringApplication",
+    operatingSystem: "Web, Mobile",
+    knowsAbout: [
+      "GD&T tolerance stack-up",
+      "Metrology",
+      "Lean Manufacturing",
+      "Precision engineering",
+    ],
+    citation: [
+      {
+        "@type": "Standard",
+        name: `DIN ${input.dinStandard} (German Institute for Standardization)`,
+        url: `https://www.din.de/en/search?query=${encodeURIComponent(input.dinStandard)}`,
+      },
+      {
+        "@type": "Standard",
+        name: `${input.isoStandard}`,
+        url: `https://www.iso.org/search.html?q=${encodeURIComponent(input.isoStandard)}`,
+      },
+    ],
+  };
+}
+
+/**
+ * Build a DefinedTermSet containing all DIN/ISO cross-reference standards
+ * as discrete Standard nodes. Injected into the root entity graph so
+ * Knowledge Graph can crawl the full taxonomy.
+ */
+export function buildDinIsoStandardsTaxonomy(): JsonLdRecord[] {
+  const standards: JsonLdRecord[] = [];
+  const seen = new Set<string>();
+
+  for (const entry of DIN_ISO_CATALOG) {
+    if (!seen.has(entry.din)) {
+      seen.add(entry.din);
+      standards.push({
+        "@type": "Standard",
+        "@id": `${SITE_URL}/#standard-din-${entry.din.replace(/\s/g, "-").toLowerCase()}`,
+        name: `DIN ${entry.din}`,
+        publisher: {
+          "@type": "Organization",
+          name: "Deutsches Institut f\u00FCr Normung (DIN)",
+          url: "https://www.din.de/",
+        },
+      });
+    }
+
+    const isoKey = entry.iso.replace(/^ISO /, "");
+    if (!seen.has(isoKey)) {
+      seen.add(isoKey);
+      standards.push({
+        "@type": "Standard",
+        "@id": `${SITE_URL}/#standard-${isoKey.replace(/\s/g, "-").toLowerCase()}`,
+        name: entry.iso,
+        publisher: {
+          "@type": "Organization",
+          name: "International Organization for Standardization (ISO)",
+          url: "https://www.iso.org/",
+        },
+      });
+    }
+  }
+
+  return [{
+    "@type": "DefinedTermSet",
+    "@id": `${SITE_URL}/#din-iso-bridge-set`,
+    name: "SectorCalc DIN-ISO Engineering Standards Cross-Reference",
+    description: "German DIN standards mapped to international ISO/ASME equivalents for global precision engineering calculations.",
+    hasDefinedTerm: standards,
+  }];
+}
+
 function buildSearchActionWithSpeakable(): JsonLdRecord {
   return {
     "@type": "SearchAction",
@@ -284,7 +443,9 @@ export function buildEntityGraph(locale: AppLocale = "en"): JsonLdRecord {
         },
         knowsAbout: [
           { "@id": `${SITE_URL}/#industry-set` },
+          { "@id": `${SITE_URL}/#topic-set` },
           { "@id": PRODUCT_ID },
+          ...TOPIC_WIKIDATA_ENTITIES.map((topic) => ({ "@id": `${SITE_URL}/#topic-${topic.qid}` })),
         ],
       },
       // === FOUNDER ===
@@ -313,6 +474,8 @@ export function buildEntityGraph(locale: AppLocale = "en"): JsonLdRecord {
       },
       // === PLATFORM CALCULATE ACTION (Tool capability) ===
       buildPlatformCalculateAction(),
+      // === DIN/ISO ENGINEERING STANDARDS BRIDGE (German Engineering trust signal) ===
+      ...buildDinIsoStandardsTaxonomy(),
       // === PRODUCT & INDUSTRY RELATIONSHIPS (Graph RAG topology) ===
       ...buildIndustryRelationships(),
     ],

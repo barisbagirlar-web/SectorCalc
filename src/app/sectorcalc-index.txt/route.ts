@@ -1,69 +1,59 @@
-import { siteUrl } from "@/config/site";
-import { INDUSTRIES } from "@/data/industries";
 import { buildAiToolIndexDocument } from "@/lib/features/ai/build-ai-index-export";
-import { addLocaleToPath } from "@/lib/infrastructure/i18n/locale-routing";
-import { listPremiumSchemaSlugs } from "@/lib/features/premium-schema/schemas/index";
-import { PROGRAMMATIC_SEO_PAGES } from "@/lib/infrastructure/seo/programmatic-seo-pages";
-import { FREE_TRAFFIC_TOOLS } from "@/lib/features/tools/free-traffic-catalog";
+import { SITE_URL } from "@/lib/features/semantic/site-url";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
 
-export async function GET(): Promise<Response> {
+function buildIndexTxt(): string {
   const index = buildAiToolIndexDocument();
-  const base = siteUrl.replace(/\/$/, "");
-  const ts = new Date().toISOString();
+  const lines: string[] = [];
 
-  const lines: string[] = [
-    "# SectorCalc Index",
-    `# Site: ${base}`,
-    `# Generated: ${ts}`,
-    `# Languages: en, tr, de, fr, es, ar`,
-    "",
-    "## Core services",
-    `- Free generated calculators (${FREE_TRAFFIC_TOOLS.length})`,
-    `- Pro decision reports (${listPremiumSchemaSlugs().length})`,
-    "- Hidden-loss diagnostics",
-    "- Export-ready PDF/CSV reports (paid access)",
-    `- ${index.categories.length} categories on the root English site`,
-    "",
-    "## Sector categories (the root English site)",
-  ];
+  lines.push("# SectorCalc - Platform Index & Link Map");
+  lines.push(`# Site: ${SITE_URL}`);
+  lines.push(`# Generated: ${new Date().toISOString()}`);
+  lines.push("");
 
-  for (const industry of INDUSTRIES) {
-    lines.push(`- ${industry.name}: ${base}${addLocaleToPath(industry.href, "en")}`);
+  lines.push("## Inventory");
+  lines.push(`- Total tools: ${index.totalTools}`);
+  lines.push(`- Active-route tools (direct link): ${index.totalActiveRoutes}`);
+  lines.push(`- Category-only tools: ${index.totalCategoryOnly}`);
+  lines.push(`- Categories: ${index.categories.length}`);
+  lines.push("- Active sectors/industries: 27");
+  lines.push("");
+
+  lines.push("## Core hubs");
+  lines.push(`- Home: ${SITE_URL}/`);
+  lines.push(`- Free calculators: ${SITE_URL}/free-tools`);
+  lines.push(`- Pro analyzers: ${SITE_URL}/pro-tools`);
+  lines.push(`- Categories: ${SITE_URL}/categories`);
+  lines.push(`- Industries: ${SITE_URL}/industries`);
+  lines.push(`- Engineering diagnostics: ${SITE_URL}/engineering-diagnostics`);
+  lines.push(`- Document intelligence: ${SITE_URL}/document-intelligence`);
+  lines.push(`- Guides: ${SITE_URL}/guides`);
+  lines.push(`- Case studies: ${SITE_URL}/case-studies`);
+  lines.push(`- Pricing: ${SITE_URL}/pricing`);
+  lines.push("");
+
+  lines.push("## AI & machine-readable surfaces");
+  lines.push(`- LLM directive index: ${SITE_URL}/llms.txt (alias ${SITE_URL}/llm.txt)`);
+  lines.push(`- Services & products catalog: ${SITE_URL}/services-products.txt`);
+  lines.push(`- FAQ knowledge base: ${SITE_URL}/faq-knowledge.txt`);
+  lines.push(`- AI access policy: ${SITE_URL}/ai.txt`);
+  lines.push(`- Full tool index (JSON): ${SITE_URL}/ai-tool-index.json`);
+  lines.push(`- Sitemap: ${SITE_URL}/sitemap.xml`);
+  lines.push("");
+
+  lines.push("## Category link map");
+  for (const category of index.categories) {
+    const url = category.categoryUrl.en ?? `${SITE_URL}/pro-tools/${category.slug}`;
+    lines.push(`- ${category.title.en ?? category.slug} (${category.toolCount}): ${url}`);
   }
 
-  lines.push(
-    "",
-    "## Programmatic SEO hubs (the root English site)",
-  );
+  return lines.join("\n");
+}
 
-  for (const page of PROGRAMMATIC_SEO_PAGES) {
-    lines.push(`- ${page.title}: ${base}${addLocaleToPath(`/seo/${page.slug}`, "en")}`);
-  }
-
-  lines.push(
-    "",
-    "## Tool location pattern",
-    "- Generated free tools: https://sectorcalc.com/tools/generated/{slug}",
-    "- Locale-specific: https://sectorcalc.com/{locale}/tools/generated/{slug}",
-    "- Pro tools: https://sectorcalc.com/{locale}/tools/premium-schema/{slug}",
-    "- Where {locale} = tr, de, fr, es, ar (en uses no prefix)",
-    "",
-    "## Internal link map",
-    "- Home → free-tools, pro-tools, categories, industries, pricing, SEO hubs",
-    "- Free tools → related Pro analyzer, industries, SEO hubs",
-    "- Pro tools → pricing, free tools, industries",
-    "- SEO hubs → free tools, Pro analyzers, industries, pricing",
-    "",
-    "## AI indexing priority",
-    "- High: ai-tool-index.json, llms.txt, ai.txt, sitemap.xml",
-    "- Medium: tool pages, category pages, industry pages",
-    "- Standard: case studies, guides, methodology, about pages",
-  );
-
-  const body = lines.join("\n");
+export async function GET(): Promise<Response> {
+  const body = buildIndexTxt();
 
   return new Response(body, {
     status: 200,

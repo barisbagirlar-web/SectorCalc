@@ -18,7 +18,7 @@ import { join } from "node:path";
 import {
   resolveIndexNowSubmitMode,
   submitIndexNowManifest,
-} from "../src/lib/seo/indexnow-submit";
+} from "../src/lib/infrastructure/seo/indexnow-submit";
 
 async function main(): Promise<void> {
   const key = process.env.INDEXNOW_KEY?.trim();

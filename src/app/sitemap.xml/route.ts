@@ -1,14 +1,22 @@
-// SectorCalc — Root-only /sitemap.xml
-// Uses existing manifest + XML builder from lib.
-// No locale prefixes. Single canonical host: https://sectorcalc.com
+// SectorCalc — Sitemap Index (type-split architecture)
+// Returns sitemap index referencing tools.xml, guides.xml, datasets.xml,
+// categories.xml, faq.xml per mandate spec.
+// Lastmod: resolved from source-file mtime, never request-time.
 
-import { getSitemapManifest } from "@/lib/infrastructure/seo/sitemap-manifest";
-import { buildSitemapXmlResponse } from "@/lib/infrastructure/seo/sitemap-generator-helpers";
+import { NextResponse } from "next/server";
+import { buildSitemapIndexXml } from "@/lib/infrastructure/seo/sitemap-index-generator";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-export async function GET(): Promise<Response> {
-  const manifest = getSitemapManifest();
-  return buildSitemapXmlResponse(manifest);
+export async function GET(): Promise<NextResponse> {
+  const xml = buildSitemapIndexXml();
+
+  return new NextResponse(xml, {
+    status: 200,
+    headers: {
+      "Content-Type": "application/xml",
+      "Cache-Control": "public, max-age=3600",
+    },
+  });
 }
