@@ -42,6 +42,7 @@ export const ACTIVE_FREE_TOOL_SLUGS: readonly string[] = [
   "true-employee-cost",
   "quote-margin-markup",
   "break-even-point",
+  "break-even-and-margin-of-safety-analysis",
   "payment-term-cost",
   "machine-investment-payback",
   "customer-profitability",
