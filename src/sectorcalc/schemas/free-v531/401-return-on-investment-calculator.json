@@ -175,6 +175,7 @@
         "public_help_text": "Verify the investment cost source before approval."
       },
       "formula_bindings": [
+        "F_ANNUALIZED_ROI",
         "F_ROI_CORE"
       ],
       "output_bindings": [
@@ -236,6 +237,7 @@
         "public_help_text": "Verify the total return source before approval."
       },
       "formula_bindings": [
+        "F_ANNUALIZED_ROI",
         "F_ROI_CORE"
       ],
       "output_bindings": [
@@ -385,8 +387,8 @@
       ],
       "normalized_id": "n_hurdle_rate_pct",
       "type": "number",
-      "required": false,
-      "criticality": "MEDIUM",
+      "required": true,
+      "criticality": "HIGH",
       "source_status": "USER_VERIFIED",
       "confidence_label": "USER_VERIFIED",
       "physical_hard_bounds": {
@@ -432,9 +434,9 @@
         "payback_period_years",
         "annualized_roi_pct"
       ],
-      "default_policy": "DEFAULT_ZERO",
-      "user_help_text": "Minimum acceptable ROI percent for PASS screening. Defaults to zero when omitted.",
-      "help_text": "Minimum acceptable ROI percent for PASS screening. Defaults to zero when omitted."
+      "default_policy": "NO_DEFAULT",
+      "user_help_text": "Minimum acceptable ROI percent for PASS screening. Required; do not omit.",
+      "help_text": "Minimum acceptable ROI percent for PASS screening. Required; do not omit."
     }
   ],
   "normalized_inputs": [
@@ -674,6 +676,8 @@
       },
       "expression": "INTERNAL_SERVER_ONLY_EXPRESSION_NOT_FOR_PUBLIC_UI",
       "uses": [
+        "n_investment_cost",
+        "n_total_return",
         "n_horizon_years"
       ],
       "output": "annualized_roi_pct",
@@ -693,8 +697,8 @@
       "checker_note": "Disclose compound versus simple linear annualization when reporting.",
       "formula_leak_risk": "LOW",
       "public_formula_expression_policy": "FORBIDDEN",
-      "validation_notes": "Compound annualized ROI uses fractional exponent conversion at the presentation boundary.",
-      "calculation_assumptions": "Core ROI uses Big.js; compound annualization uses a bounded numeric exponent step."
+      "validation_notes": "Compound annualized ROI depends on investment cost, total return, and horizon.",
+      "calculation_assumptions": "Uses Big.js Newton-Raphson nth-root annualization from total ROI over the horizon."
     }
   ],
   "outputs": [

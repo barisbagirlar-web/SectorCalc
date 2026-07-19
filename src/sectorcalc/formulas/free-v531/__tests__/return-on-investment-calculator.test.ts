@@ -186,14 +186,15 @@ describe("return-on-investment-calculator", () => {
     ).toThrow(/BLOCKED_HORIZON_OUT_OF_RANGE:horizon_years/);
   });
 
-  it("defaults hurdle rate to zero when omitted", () => {
-    const response = execute({
-      investment_cost: GOLDEN_ROI_INPUTS.investment_cost,
-      total_return: GOLDEN_ROI_INPUTS.total_return,
-      annual_net_benefit: GOLDEN_ROI_INPUTS.annual_net_benefit,
-      horizon_years: GOLDEN_ROI_INPUTS.horizon_years,
-    });
-    expect(response.status).toBe("PASS");
+  it("blocks when hurdle rate is omitted", () => {
+    expect(() =>
+      execute({
+        investment_cost: GOLDEN_ROI_INPUTS.investment_cost,
+        total_return: GOLDEN_ROI_INPUTS.total_return,
+        annual_net_benefit: GOLDEN_ROI_INPUTS.annual_net_benefit,
+        horizon_years: GOLDEN_ROI_INPUTS.horizon_years,
+      }),
+    ).toThrow(/BLOCKED_NON_FINITE_INPUT:hurdle_rate_pct/);
   });
 
   it("matches hub scenario display numbers from the formula kernel", () => {

@@ -32,7 +32,6 @@ const FUNNEL_TARGET = "Capital Equipment Investment Appraisal PRO";
 const PRIMARY_METRIC_ID = "roi_pct";
 const DEFAULT_DECISION_STATE = "PASS" as const;
 const MAX_HORIZON = 30;
-const DEFAULT_HURDLE_RATE_PCT = 0;
 
 export const runtimeBoundary = "SERVER_ONLY" as const;
 export const publicFormulaExpressionPolicy = "FORBIDDEN" as const;
@@ -89,11 +88,11 @@ export const inputs: readonly FreeV531InputSpec[] = [
     label: "Hurdle Rate (%)",
     quantityKind: "ratio_or_percent",
     required: true,
-    criticality: "MEDIUM",
+    criticality: "HIGH",
     baseUnit: "percent",
     sourceStatus: "USER_VERIFIED",
-    defaultPolicy: "NON_CRITICAL_SAFE_DEFAULT",
-    publicHelpText: "Minimum acceptable ROI percent for PASS screening. Enter zero when no hurdle is set.",
+    defaultPolicy: "NO_DEFAULT_ALLOWED",
+    publicHelpText: "Minimum acceptable ROI percent for PASS screening. Required; enter zero only when the policy hurdle is explicitly zero.",
   },
 ];
 
@@ -136,9 +135,6 @@ function readHorizonYears(raw: unknown): number {
 }
 
 function readHurdleRatePct(raw: unknown): Big {
-  if (raw === undefined || raw === null || raw === "") {
-    return new Big(DEFAULT_HURDLE_RATE_PCT);
-  }
   const parsed = finiteNumber(raw, "hurdle_rate_pct");
   const hurdle = new Big(parsed);
   if (hurdle.lt(0) || hurdle.gte(100)) {
