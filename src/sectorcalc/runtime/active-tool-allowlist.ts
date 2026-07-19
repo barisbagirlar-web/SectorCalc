@@ -57,6 +57,8 @@ export const ACTIVE_FREE_TOOL_SLUGS: readonly string[] = [
   "recipe-cost-menu-price",
   "fabric-consumption-gsm",
   "von-mises-stress-calculator",
+  "net-present-value-calculator",
+  "return-on-investment-calculator",
 ];
 
 // V5.4 Core — PRO active self-service calculators.

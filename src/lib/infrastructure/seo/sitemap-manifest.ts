@@ -94,6 +94,8 @@ export function getCoreSitemapRoutes(): readonly SitemapManifestItem[] {
     createItem("/terms", "core", 0.5, "yearly"),
     createItem("/disclaimer", "core", 0.5, "yearly"),
     createItem("/calculators/fmea-rpn", "core", 0.9, "weekly"),
+    createItem("/calculators/npv", "core", 0.9, "weekly"),
+    createItem("/calculators/roi", "core", 0.9, "weekly"),
     createItem("/resources/fmea-rpn-technical-note", "core", 0.8, "weekly"),
     createItem("/document-intelligence", "core", 0.85, "monthly"),
     createItem("/document-intelligence/maintenance-bom-recovery", "core", 0.85, "monthly"),
@@ -287,6 +289,8 @@ export const SITEMAP_STATIC_ROUTES = [
   "/terms",
   "/disclaimer",
   "/calculators/fmea-rpn",
+  "/calculators/npv",
+  "/calculators/roi",
   "/resources/fmea-rpn-technical-note",
 ] as const;
 
