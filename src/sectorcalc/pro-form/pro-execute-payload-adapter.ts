@@ -86,6 +86,7 @@ export const setupTimeRoiFormToSchemaMap: FormToSchemaMap = {
   setup_time: "setup_time",
   batch_quantity: "batch_quantity",
   labor_rate: "labor_rate",
+  overhead_rate: "overhead_rate",
   annual_volume: "annual_volume",
   source_confidence_ratio: "source_confidence_ratio",
   uncertainty_multiplier: "uncertainty_multiplier",
@@ -167,18 +168,13 @@ export const machineFeasibilityFormToSchemaMap: FormToSchemaMap = {
 
 // ── 10. capital-equipment-investment-appraisal-npv-irr ──
 export const capitalEquipmentFormToSchemaMap: FormToSchemaMap = {
-  initial_investment: "initial_investment",
-  annual_net_cash_flow: "annual_net_cash_flow",
+  capex: "capex",
   discount_rate: "discount_rate",
-  analysis_years: "analysis_years",
+  study_years: "study_years",
+  annual_cash_flow: "annual_cash_flow",
+  cash_flow_growth_rate: "cash_flow_growth_rate",
   residual_value: "residual_value",
-  stress_downside_factor: "stress_downside_factor",
-  annual_volume: "annual_volume",
-  labor_rate: "labor_rate",
-  overhead_rate: "overhead_rate",
-  defect_or_loss_cost: "defect_or_loss_cost",
-  source_confidence_ratio: "source_confidence_ratio",
-  uncertainty_multiplier: "uncertainty_multiplier",
+  working_capital: "working_capital",
 };
 
 // ── 11. customer-sku-profitability-forensics ──

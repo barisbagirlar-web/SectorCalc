@@ -9,6 +9,7 @@ import { executeFormula } from "@/sectorcalc/formulas/pro-v531/machine-hourly-ra
 import type { MachineHourlyRateInputs, MachineHourlyRateOutputs } from "@/sectorcalc/formulas/pro-v531/machine-hourly-rate-proof-report.formula";
 import { useUserSubscription } from "@/lib/features/billing/use-user-subscription";
 import { isProBypassEmail } from "@/lib/features/billing/subscription";
+import { PremiumReportFeedback } from "@/components/reports/PremiumReportFeedback";
 import "@/styles/machine-hourly-rate-tool.css";
 
 const BYPASS_SESSION_ID = "bypass-unlimited";
@@ -563,6 +564,23 @@ export default function MachineHourlyRateToolPage() {
                 <div className="x1-disc">
                   Technical simulation for engineering and financial decision support. Assumes straight-line depreciation and constant power draw/energy price across the planning horizon. Not a substitute for professional accounting or engineering review.
                 </div>
+                <button
+                  type="button"
+                  className="x1-print-btn"
+                  onClick={() => window.print()}
+                  aria-label="Download this report as a PDF"
+                >
+                  Download PDF
+                </button>
+                <PremiumReportFeedback
+                  key={serverResult.seal?.output_hash ?? mockHash(JSON.stringify(inputs) + r.out_rate)}
+                  schemaSlug="machine-hourly-rate-proof-report"
+                  sectorSlug="manufacturing"
+                  reportSlug={serverResult.seal?.output_hash ?? mockHash(JSON.stringify(inputs) + r.out_rate)}
+                  inputSnapshot={{ ...inputs }}
+                  resultSnapshot={serverResult.outputs}
+                  currency={curSym}
+                />
               </div>
             </div>
           )}

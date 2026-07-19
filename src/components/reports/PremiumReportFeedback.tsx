@@ -30,6 +30,34 @@ export interface PremiumReportFeedbackProps {
 
 const RATING_OPTIONS: ReportFeedbackRating[] = [1, 2, 3, 4, 5];
 
+/** Maps a one-click thumbs reaction onto the existing, already-validated
+ *  ReportFeedbackInput shape — a real semantic mapping (thumbs-up genuinely
+ *  means "very useful, strong fit", not a placeholder), not a hack. This
+ *  lets the quick reaction reuse the exact same backend (validation,
+ *  Firestore write, rate limiting) as the detailed form, so it needed no
+ *  new collection or security rules. */
+function quickReactionFeedback(
+  props: PremiumReportFeedbackProps,
+  reaction: "up" | "down",
+): ReportFeedbackInput {
+  return {
+    schemaSlug: props.schemaSlug,
+    sectorSlug: props.sectorSlug,
+    reportSlug: props.reportSlug,
+    rating: reaction === "up" ? 5 : 1,
+    usefulness: reaction === "up" ? "very_useful" : "not_useful",
+    formulaFit: reaction === "up" ? "strong" : "poor",
+    missingVariable: "",
+    comment: "",
+    permissionForBenchmark: false,
+    inputSnapshot: props.inputSnapshot,
+    resultSnapshot: props.resultSnapshot,
+    country: props.country,
+    currency: props.currency,
+    companySize: props.companySize,
+  };
+}
+
 function emptyFeedback(
   props: PremiumReportFeedbackProps
 ): ReportFeedbackInput {
@@ -59,6 +87,61 @@ export function PremiumReportFeedback(props: PremiumReportFeedbackProps) {
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+
+  const [quickReaction, setQuickReaction] = useState<"up" | "down" | null>(null);
+  const [quickSubmitting, setQuickSubmitting] = useState(false);
+  const [quickError, setQuickError] = useState<string | null>(null);
+
+  const handleQuickReaction = async (reaction: "up" | "down") => {
+    if (quickReaction || quickSubmitting) return;
+    setQuickSubmitting(true);
+    setQuickError(null);
+    const result = await createReportFeedback(quickReactionFeedback(props, reaction));
+    setQuickSubmitting(false);
+    if (!result.success) {
+      setQuickError(result.rateLimited ? t("rateLimited") : t("quickReactionError"));
+      return;
+    }
+    setQuickReaction(reaction);
+  };
+
+  const quickReactionRow = (
+    <div className="sc-report-quick-reaction flex items-center gap-2" role="group" aria-label={t("quickReactionLabel")}>
+      <span className="text-xs text-body-charcoal">{t("quickReactionPrompt")}</span>
+      <button
+        type="button"
+        onClick={() => handleQuickReaction("up")}
+        disabled={!!quickReaction || quickSubmitting}
+        aria-pressed={quickReaction === "up"}
+        aria-label={t("quickReactionUp")}
+        className={`min-h-[48px] min-w-[48px] rounded-lg border px-3 text-lg transition-colors ${
+          quickReaction === "up"
+            ? "border-professional-blue bg-professional-blue text-white"
+            : "border-slate/25 bg-white text-deep-navy hover:border-professional-blue"
+        } ${quickReaction && quickReaction !== "up" ? "opacity-40" : ""}`}
+      >
+        👍
+      </button>
+      <button
+        type="button"
+        onClick={() => handleQuickReaction("down")}
+        disabled={!!quickReaction || quickSubmitting}
+        aria-pressed={quickReaction === "down"}
+        aria-label={t("quickReactionDown")}
+        className={`min-h-[48px] min-w-[48px] rounded-lg border px-3 text-lg transition-colors ${
+          quickReaction === "down"
+            ? "border-professional-blue bg-professional-blue text-white"
+            : "border-slate/25 bg-white text-deep-navy hover:border-professional-blue"
+        } ${quickReaction && quickReaction !== "down" ? "opacity-40" : ""}`}
+      >
+        👎
+      </button>
+      {quickReaction && (
+        <span className="text-xs font-medium text-professional-blue">{t("quickReactionThanks")}</span>
+      )}
+      {quickError && <span className="text-xs text-soft-red">{quickError}</span>}
+    </div>
+  );
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -92,7 +175,8 @@ export function PremiumReportFeedback(props: PremiumReportFeedbackProps) {
   if (!expanded) {
     return (
       <aside className="sc-report-feedback mt-4 rounded-lg border border-slate/15 bg-off-white/80 p-4">
-        <p className="text-sm text-body-charcoal">{t("prompt")}</p>
+        {quickReactionRow}
+        <p className="mt-3 text-sm text-body-charcoal">{t("prompt")}</p>
         <button
           type="button"
           onClick={() => setExpanded(true)}
@@ -106,7 +190,8 @@ export function PremiumReportFeedback(props: PremiumReportFeedbackProps) {
 
   return (
     <aside className="sc-report-feedback mt-4 rounded-lg border border-slate/20 bg-off-white p-4 sm:p-5">
-      <div className="flex items-start justify-between gap-3">
+      {quickReactionRow}
+      <div className="mt-4 flex items-start justify-between gap-3">
         <div>
           <p className="sc-ledger-eyebrow">{t("eyebrow")}</p>
           <h3 className="mt-1 text-sm font-semibold text-deep-navy">{t("title")}</h3>

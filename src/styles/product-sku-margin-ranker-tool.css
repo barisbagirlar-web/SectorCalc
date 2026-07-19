@@ -1,0 +1,178 @@
+
+.psmr-shell{
+  --psmr-paper:#F7F5EF; --psmr-panel:#FFFFFF; --psmr-ink:#181713; --psmr-ink-soft:#57544C; --psmr-faint:#8C887E;
+  --psmr-line:#E4E0D6; --psmr-line-soft:#EFEBE2;
+  --psmr-clay:#C15F3C; --psmr-clay-deep:#9A4526;
+  --psmr-ledger:#3A4D8F;
+  --psmr-pos:#2E6B4E; --psmr-pos-bg:#E7F1EB;
+  --psmr-warn:#8A5A12; --psmr-warn-bg:#F8EFDC;
+  --psmr-neg:#9C3520; --psmr-neg-bg:#F7E9E4;
+  --psmr-display:'Fraunces',georgia,serif; --psmr-sans:'Inter',system-ui,sans-serif; --psmr-mono:'JetBrains Mono',monospace;
+}
+.psmr-shell *{box-sizing:border-box;margin:0;padding:0;border-radius:0}
+.psmr-shell{background:var(--psmr-paper);color:var(--psmr-ink);font-family:var(--psmr-sans);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
+.psmr-shell{max-width:1080px;margin:0 auto;padding:0 20px}
+.psmr-mast{border-bottom:1.5px solid var(--psmr-ink);padding:34px 0 20px}
+.psmr-kicker{font-family:var(--psmr-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--psmr-clay);display:flex;gap:10px;align-items:center}
+.psmr-kicker::after{content:"";flex:1;height:1px;background:var(--psmr-line)}
+.psmr-mast h1{font-family:var(--psmr-display);font-weight:500;font-size:clamp(30px,5vw,46px);line-height:1.02;margin:14px 0 8px;letter-spacing:-.01em}
+.psmr-mast .psmr-lede{font-size:16px;color:var(--psmr-ink-soft);max-width:64ch}
+.psmr-mast .psmr-meta{display:flex;gap:22px;margin-top:16px;font-family:var(--psmr-mono);font-size:11px;color:var(--psmr-faint);flex-wrap:wrap}
+.psmr-mast .psmr-meta b{color:var(--psmr-ink);font-weight:500}
+.psmr-curbar{display:flex;align-items:center;gap:12px;margin-top:16px;padding:12px 14px;background:var(--psmr-panel);border:1px solid var(--psmr-line);flex-wrap:wrap}
+.psmr-curbar label{font-family:var(--psmr-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--psmr-ink-soft)}
+.psmr-curbar select{border:1.25px solid var(--psmr-line);background:var(--psmr-paper);font-family:var(--psmr-mono);font-size:13px;padding:6px 10px;color:var(--psmr-ink);outline:none;cursor:pointer}
+.psmr-curbar select:focus{border-color:var(--psmr-ledger)}
+.psmr-curnote{font-size:11.5px;color:var(--psmr-faint);flex:1;min-width:220px}
+.psmr-bench{display:grid;grid-template-columns:1fr 360px;gap:0;border:1.5px solid var(--psmr-ink);border-top:none;background:var(--psmr-panel)}
+@media(max-width:900px){.psmr-bench{grid-template-columns:1fr}}
+.psmr-form-col{padding:8px 30px 30px;border-right:1.5px solid var(--psmr-ink)}
+@media(max-width:900px){.psmr-form-col{border-right:none;border-bottom:1.5px solid var(--psmr-ink)}}
+.psmr-rail{padding:0}
+.psmr-grp{border-bottom:1px solid var(--psmr-line-soft);padding:22px 0}
+.psmr-grp:last-child{border-bottom:none}
+.psmr-grp-h{display:flex;align-items:baseline;gap:10px;margin-bottom:4px}
+.psmr-grp-n{font-family:var(--psmr-mono);font-size:11px;color:var(--psmr-clay);font-weight:500}
+.psmr-grp-t{font-family:var(--psmr-display);font-size:18px;font-weight:500}
+.psmr-grp-d{font-size:12.5px;color:var(--psmr-faint);margin-bottom:16px;max-width:52ch}
+.psmr-f{margin-bottom:18px}
+.psmr-f:last-child{margin-bottom:0}
+.psmr-f-top{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:6px}
+.psmr-f label{font-weight:500;font-size:13.5px}
+.psmr-f .psmr-unitline{font-family:var(--psmr-mono);font-size:10.5px;color:var(--psmr-faint)}
+.psmr-control{display:flex;border:1.25px solid var(--psmr-line);background:var(--psmr-paper);transition:border-color .12s,box-shadow .12s}
+.psmr-control:focus-within{border-color:var(--psmr-ledger);box-shadow:inset 0 0 0 1px var(--psmr-ledger)}
+.psmr-control.psmr-bad{border-color:var(--psmr-neg);box-shadow:inset 0 0 0 1px var(--psmr-neg)}
+.psmr-control.psmr-warn{border-color:var(--psmr-warn);box-shadow:inset 0 0 0 1px var(--psmr-warn)}
+.psmr-prefix{display:flex;align-items:center;padding:0 12px;font-family:var(--psmr-mono);font-size:13px;color:var(--psmr-faint);border-right:1px solid var(--psmr-line);background:var(--psmr-line-soft)}
+.psmr-control input{flex:1;min-width:0;border:none;background:transparent;padding:11px 12px;font-family:var(--psmr-mono);font-size:15px;color:var(--psmr-ink);outline:none}
+.psmr-control select{border:none;border-left:1px solid var(--psmr-line);background:var(--psmr-panel);font-family:var(--psmr-mono);font-size:12px;padding:0 8px;color:var(--psmr-ink);outline:none;cursor:pointer}
+.psmr-f-foot{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-top:6px}
+.psmr-hint{font-size:11.5px;color:var(--psmr-faint);flex:1;line-height:1.4}
+.psmr-bench-ref{font-family:var(--psmr-mono);font-size:10.5px;color:var(--psmr-faint);white-space:nowrap;text-align:right}
+.psmr-msg{font-size:11.5px;margin-top:6px;padding:6px 9px;line-height:1.4;display:none}
+.psmr-msg.psmr-err{display:block;background:var(--psmr-neg-bg);color:var(--psmr-neg);border-left:2px solid var(--psmr-neg)}
+.psmr-msg.psmr-warn{display:block;background:var(--psmr-warn-bg);color:var(--psmr-warn);border-left:2px solid var(--psmr-warn)}
+.psmr-shell details{border:1px solid var(--psmr-line);background:var(--psmr-panel);margin-top:4px}
+.psmr-shell details summary{cursor:pointer;padding:14px 18px;font-family:var(--psmr-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--psmr-faint);list-style:none}
+.psmr-shell details summary::before{content:"+ "}
+.psmr-shell details[open] summary::before{content:"\2212 "}
+.psmr-shell details .psmr-grp{padding:0 18px 18px}
+.psmr-rail-in{position:sticky;top:0;padding:26px 24px}
+.psmr-verdict{border:1.25px solid var(--psmr-ink);padding:2px 0 0;margin-bottom:18px}
+.psmr-verdict-band{padding:6px 12px;font-family:var(--psmr-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#fff}
+.psmr-verdict-band.psmr-pos{background:var(--psmr-pos)} .psmr-verdict-band.psmr-warn{background:var(--psmr-warn)} .psmr-verdict-band.psmr-warn2{background:var(--psmr-warn);color:#fff} .psmr-verdict-band.psmr-neg{background:var(--psmr-neg)}
+.psmr-verdict-body{padding:16px 14px}
+.psmr-big{font-family:var(--psmr-display);font-size:34px;font-weight:500;line-height:1;letter-spacing:-.01em}
+.psmr-big small{font-size:15px;color:var(--psmr-faint);font-weight:400}
+.psmr-big-cap{font-family:var(--psmr-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--psmr-faint);margin-top:6px}
+.psmr-stat{display:flex;justify-content:space-between;align-items:baseline;padding:9px 0;border-top:1px dashed var(--psmr-line);font-size:12.5px}
+.psmr-stat span{color:var(--psmr-ink-soft)}
+.psmr-stat b{font-family:var(--psmr-mono);font-weight:500}
+.psmr-cta{width:100%;border:1.25px solid var(--psmr-clay-deep);background:var(--psmr-clay);color:#fff;font-family:var(--psmr-sans);font-weight:600;font-size:14px;padding:13px;cursor:pointer;margin-top:18px;letter-spacing:.01em}
+.psmr-cta:hover{background:var(--psmr-clay-deep)}
+.psmr-cta:disabled{background:var(--psmr-line);border-color:var(--psmr-line);color:var(--psmr-faint);cursor:not-allowed}
+.psmr-conf{margin-top:12px;font-size:11px;color:var(--psmr-ink-soft);display:flex;gap:7px;align-items:flex-start;line-height:1.4}
+.psmr-conf .psmr-d{width:8px;height:8px;margin-top:3px;flex-shrink:0}
+.psmr-report{border:1.5px solid var(--psmr-clay);border-top:none;background:var(--psmr-paper)}
+.psmr-rep-mast{background:var(--psmr-ink);color:var(--psmr-paper);padding:24px 30px;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:12px}
+.psmr-rep-mast h2{font-family:var(--psmr-display);font-size:26px;font-weight:500}
+.psmr-rep-mast .psmr-rid{font-family:var(--psmr-mono);font-size:10.5px;color:#b9b4a7;text-align:right;line-height:1.7}
+.psmr-rep-body{padding:30px}
+.psmr-sec{margin-bottom:32px}
+.psmr-sec-h{display:flex;align-items:baseline;gap:10px;border-bottom:1px solid var(--psmr-ink);padding-bottom:6px;margin-bottom:14px}
+.psmr-sec-n{font-family:var(--psmr-mono);font-size:12px;color:var(--psmr-clay);font-weight:500}
+.psmr-sec-t{font-family:var(--psmr-display);font-size:19px;font-weight:500}
+.psmr-verdict-box{background:var(--psmr-paper);border-left:4px solid var(--psmr-clay);padding:18px 20px}
+.psmr-verdict-box .psmr-head{font-family:var(--psmr-display);font-size:22px;font-weight:500;margin-bottom:8px;line-height:1.2}
+.psmr-verdict-box p{font-size:14.5px;color:var(--psmr-ink-soft);max-width:74ch}
+.psmr-verdict-box p+p{margin-top:8px}
+.psmr-shell table{width:100%;border-collapse:collapse;font-size:13px}
+.psmr-shell th,.psmr-shell td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--psmr-line);vertical-align:top}
+.psmr-shell th{font-family:var(--psmr-mono);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--psmr-faint);font-weight:500}
+.psmr-shell td.psmr-n{font-family:var(--psmr-mono);text-align:right;white-space:nowrap}
+.psmr-shell tr.psmr-total td{border-top:1.5px solid var(--psmr-ink);border-bottom:none;font-weight:600}
+.psmr-shell tr.psmr-win td{background:var(--psmr-pos-bg)}
+.psmr-note{font-size:11.5px;color:var(--psmr-faint);margin-top:10px;line-height:1.5}
+.psmr-ins{padding:13px 16px;margin-bottom:11px;font-size:13.5px;line-height:1.55;border-left:3px solid}
+.psmr-ins.psmr-crit{background:var(--psmr-neg-bg);border-color:var(--psmr-neg)}
+.psmr-ins.psmr-opp{background:var(--psmr-pos-bg);border-color:var(--psmr-pos)}
+.psmr-ins.psmr-info{background:var(--psmr-paper);border-color:var(--psmr-faint)}
+.psmr-ins .psmr-t{font-family:var(--psmr-mono);font-size:9.5px;letter-spacing:.07em;text-transform:uppercase;display:block;margin-bottom:3px;color:var(--psmr-ink-soft)}
+.psmr-chart{width:100%;overflow:visible;font-family:var(--psmr-mono);font-size:11px}
+.psmr-chart text{font-family:var(--psmr-mono)}
+.psmr-seal{margin-top:8px;padding:14px 16px;background:var(--psmr-paper);border:1px dashed var(--psmr-line);font-family:var(--psmr-mono);font-size:10.5px;color:var(--psmr-faint);word-break:break-all;line-height:1.7}
+.psmr-disc{font-size:11px;color:var(--psmr-faint);margin-top:14px;padding-top:12px;border-top:1px solid var(--psmr-line-soft);line-height:1.6}
+
+/* ── Print / PDF export ──────────────────────────────────────────────
+   Reuses the on-screen report exactly (WYSIWYG) rather than a separate
+   PDF-generation template, so there is no second layout that could drift
+   out of sync or introduce its own overflow bugs. Only .psmr-report and
+   its descendants are printed; the shell, masthead, and input form are
+   hidden. */
+@media print {
+  @page { margin: 14mm 12mm; }
+
+  body * { visibility: hidden; }
+  .psmr-report, .psmr-report * { visibility: visible; }
+  .psmr-report {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Browsers strip background colors/borders by default when printing;
+     the verdict box, insight cards, and win-row highlight all depend on
+     background color to convey meaning, so force it on. */
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    color-adjust: exact;
+  }
+
+  /* Never split a chart, table row, or insight card across a page break —
+     the most common source of a "broken, overflowing" printed report. */
+  .psmr-chart, .psmr-verdict-box, .psmr-ins, tr, .psmr-seal, .psmr-disc {
+    break-inside: avoid;
+  }
+  h2, h3, .psmr-head { break-after: avoid; }
+
+  /* The floating feedback/report-tools chrome and the "Generate sealed
+     report" action button have no place in a printed document. */
+  .sc-report-feedback, .sc-report-quick-reaction, [class*="sticky"] {
+    display: none !important;
+  }
+}
+
+.psmr-print-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 48px;
+  padding: 0 16px;
+  margin-top: 10px;
+  background: var(--psmr-paper);
+  border: 1px solid var(--psmr-line);
+  border-radius: 0;
+  font-family: var(--psmr-mono);
+  font-size: 12px;
+  letter-spacing: 0.03em;
+  color: var(--psmr-ink);
+  cursor: pointer;
+}
+.psmr-print-btn:hover { border-color: var(--psmr-ink-soft); }
+
+@media print {
+  .psmr-print-btn { display: none !important; }
+}
+
+/* 3-tier verdict coloring (0=meets target, 1=below target, 2=loss-making) —
+   this tool has a middle "warning" state buy-lease-keep's binary win/lose
+   pattern doesn't need. */
+.psmr-verdict-0 { border-left: 4px solid var(--psmr-pos); background: var(--psmr-pos-bg); }
+.psmr-verdict-1 { border-left: 4px solid var(--psmr-warn); background: var(--psmr-warn-bg); }
+.psmr-verdict-2 { border-left: 4px solid var(--psmr-neg); background: var(--psmr-neg-bg); }
+.psmr-warn2 { color: var(--psmr-warn); }
+.psmr-prefix-unit { font-size: 10px; opacity: 0.7; display: block; }

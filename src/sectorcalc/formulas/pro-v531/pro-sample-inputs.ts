@@ -69,12 +69,18 @@ export const PRO_SAMPLE_INPUTS: Record<string, Record<string, number>> = {
     // NOTE (2026-07-15 audit): old fixture had n_overhead_rate: 350000 (an "hourly rate" of
     // $350,000/h) and no investment-cost/reduction-target inputs — never sanity-checked
     // against the formula, which used to fabricate investment cost as oh*0.3 anyway.
-    // cycle_time/defect_or_loss_cost/material_cost/overhead_rate/target_margin removed from
-    // the schema entirely (dead inputs — this tool is pure setup-time ROI, not job costing).
+    // cycle_time/defect_or_loss_cost/material_cost/target_margin removed from the schema
+    // entirely (dead inputs — this tool is pure setup-time ROI, not job costing).
+    // NOTE (2026-07-18 rewrite): n_overhead_rate re-added at a realistic $20/h — the old
+    // formula discarded it entirely (`void overheadRate`) so it was correctly omitted from
+    // this fixture at the time; the rewritten formula now uses it as the third burden-rate
+    // component (machine+labor+overhead all sit idle during setup), making it load-bearing
+    // again and required for a non-BLOCKED result.
     n_machine_rate: 85,
     n_setup_time: 3600,
     n_batch_quantity: 500,
     n_labor_rate: 45,
+    n_overhead_rate: 20,
     n_annual_volume: 100000 / 31536000,
     n_source_confidence_ratio: 0.9,
     n_uncertainty_multiplier: 1.4,
@@ -149,18 +155,13 @@ export const PRO_SAMPLE_INPUTS: Record<string, Record<string, number>> = {
     n_scrap_escalation: 0.05,
   },
   "capital-equipment-investment-appraisal-npv-irr": {
-    n_initial_investment: 500000,
-    n_annual_net_cash_flow: 150000,
+    n_capex: 200000,
     n_discount_rate: 0.10,
-    n_analysis_years: 5,
-    n_residual_value: 50000,
-    n_stress_downside_factor: 0.8,
-    n_annual_volume: 10000 / 31536000,
-    n_labor_rate: 80000,
-    n_overhead_rate: 120000,
-    n_defect_or_loss_cost: 15000,
-    n_source_confidence_ratio: 0.95,
-    n_uncertainty_multiplier: 1.2,
+    n_study_years: 8,
+    n_annual_cash_flow: 50000,
+    n_cash_flow_growth_rate: 0.03,
+    n_residual_value: 20000,
+    n_working_capital: 10000,
   },
   "customer-sku-profitability-forensics": {
     // NOTE (2026-07-15 audit): old values (5, 3, 2, 30 for ratio-family fields) only worked

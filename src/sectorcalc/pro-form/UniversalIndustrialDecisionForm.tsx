@@ -58,6 +58,7 @@ import { ProReportPanelV2 } from "@/sectorcalc/pro-report/ProReportPanelV2";
 import { ProReportView, type VerdictData } from "@/components/ProReportView";
 import { BreakEvenReportCharts } from "@/sectorcalc/pro-report/charts/BreakEvenReportCharts";
 import { UniversalKpiPanel } from "@/sectorcalc/pro-report/charts/UniversalKpiPanel";
+import { PremiumReportFeedback } from "@/components/reports/PremiumReportFeedback";
 import { assertCrossToolIdentity } from "@/sectorcalc/runtime/cross-tool-contract-assertions";
 import { registry as referenceRegistry } from "@/generated/reference-registry";
 import {
@@ -69,6 +70,32 @@ import {
 // ── ViewModel types ────────────────────────────────────────────────────────────
 
 /** True only for non-empty strings after trim. */
+// Sector classification for report-feedback records. UniversalIndustrialDecisionForm
+// is shared by 45 pro-v531 schemas spanning finance, compliance, and manufacturing
+// domains -- no schema.metadata.sector field is actually populated anywhere (checked:
+// 0/45), so a single hardcoded value would misclassify Firestore feedback/benchmark
+// data for the non-manufacturing tools. Explicit exceptions for the unambiguous
+// finance/compliance/energy tools; "manufacturing" default for everything else,
+// reflecting this platform's actual majority domain.
+const FEEDBACK_SECTOR_OVERRIDES: Record<string, string> = {
+  "bank-grade-financial-projection-covenant-model": "finance",
+  "break-even-survival-cash-calculator": "finance",
+  "capital-equipment-investment-appraisal-npv-irr": "finance",
+  "fx-commodity-pass-through-pricer": "finance",
+  "receivables-cost-payment-term-addendum": "finance",
+  "true-employee-cost-statement": "finance",
+  "customer-sku-profitability-forensics": "finance",
+  "product-sku-margin-ranker": "finance",
+  "cbam-cost-exposure-hedging-forecaster": "compliance",
+  "cbam-definitive-period-compliance-package": "compliance",
+  "cbam-supplier-emissions-data-sheet": "compliance",
+  "scope-1-2-3-splitter-for-smes": "compliance",
+  "energy-efficiency-grant-incentive-feasibility-pack": "energy",
+};
+function resolveFeedbackSectorSlug(toolSlug: string): string {
+  return FEEDBACK_SECTOR_OVERRIDES[toolSlug] ?? "manufacturing";
+}
+
 function hasMessage(value: unknown): boolean {
   return typeof value === "string" && value.trim().length > 0;
 }
@@ -1476,11 +1503,11 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                   if (pd === "OK") vStatus = "go";
                   else if (pd === "BLOCKED") vStatus = "block";
 
-                  const cmRaw = outputsMap.out_utilization_margin;
+                  const cmRaw = outputsMap.out_contribution_margin_pct;
                   const cm = typeof cmRaw === "number" ? (cmRaw * 100) : null;
                   const moneyAtRisk = outputsMap.out_money_at_risk;
                   const evidence = outputsMap.out_evidence_completeness;
-                  const uncertainty = outputsMap.out_expanded_uncertainty;
+                  const uncertainty = undefined;
 
                   // KPI cards
                   const kpis: Array<{ label: string; value: string | number; unit: string | null; state?: "pos" | "warn" | "neg" }> = [];
@@ -1564,46 +1591,60 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                   // Stats for verdict rail
                   const stats: Array<{ label: string; value: string }> = [];
                   if (cm !== null) stats.push({ label: "Contribution Margin", value: `${cm.toFixed(1)}%` });
-                  if (typeof outputsMap.out_normalized_demand === "number") {
-                    stats.push({ label: "Quoted Price", value: `${selectedCurrency}${outputsMap.out_normalized_demand.toLocaleString("en-US", { maximumFractionDigits: 0 })}` });
+                  const quotedPriceRaw = state.rawInputState.quoted_job_price;
+                  if (typeof quotedPriceRaw === "number" && Number.isFinite(quotedPriceRaw)) {
+                    stats.push({ label: "Quoted Price", value: `${selectedCurrency}${quotedPriceRaw.toLocaleString("en-US", { maximumFractionDigits: 0 })}` });
                   }
-                  if (typeof outputsMap.out_capacity_metric === "number") {
-                    stats.push({ label: "Minimum Acceptable Price", value: `${selectedCurrency}${outputsMap.out_capacity_metric.toLocaleString("en-US", { maximumFractionDigits: 0 })}` });
+                  if (typeof outputsMap.out_minimum_acceptable_price === "number") {
+                    stats.push({ label: "Minimum Acceptable Price", value: `${selectedCurrency}${outputsMap.out_minimum_acceptable_price.toLocaleString("en-US", { maximumFractionDigits: 0 })}` });
                   }
                   if (typeof moneyAtRisk === "number") {
                     stats.push({ label: "Annual Loss Exposure", value: `${selectedCurrency}${moneyAtRisk.toLocaleString("en-US", { maximumFractionDigits: 0 })}` });
                   }
 
                   return (
-                    <ProReportView
-                      toolTitle={vm.title}
-                      toolSubtitle={`SectorCalc PRO · ${safeDisplayCategory(props.schema?.category ?? "")} · Loss detection`}
-                      toolScope={vm.purpose || ""}
-                      engineLabel="PRO V5.3.1"
-                      assertionLabel="15 output assertions passed"
-                      methodLabel="cost-threshold comparison"
-                      currencySymbol={selectedCurrency}
-                      reportId={`SC-PRO-LMJ-${Date.now()}`}
-                      timestamp={new Date().toISOString().slice(0, 10)}
-                      sealHash={`${response?.audit_seal?.output_hash?.slice(0, 16) ?? "demo"}…live`}
-                      verdict={verdict}
-                      kpis={kpis}
-                      verdictStatus={vStatus}
-                      verdictLabel={pd === "OK" ? "GO" : pd === "BLOCKED" ? "BLOCK" : "REVIEW"}
-                      stats={stats}
-                      sensitivityDrivers={sDrivers.length > 0 ? sDrivers : undefined}
-                      paretoSegments={pSegments.length > 0 ? pSegments : undefined}
-                      insights={insights.length > 0 ? insights : undefined}
-                      uncertainty={typeof uncertainty === "number" && Number.isFinite(uncertainty)
-                        ? { total: uncertainty, band: "k=2 (95% coverage)", method: "GUM ISO/IEC 98-3" }
-                        : undefined
-                      }
-                    />
+                    <div className="sc-print-report">
+                      <ProReportView
+                        toolTitle={vm.title}
+                        toolSubtitle={`SectorCalc PRO · ${safeDisplayCategory(props.schema?.category ?? "")} · Loss detection`}
+                        toolScope={vm.purpose || ""}
+                        engineLabel="PRO V5.3.1"
+                        assertionLabel="15 output assertions passed"
+                        methodLabel="cost-threshold comparison"
+                        currencySymbol={selectedCurrency}
+                        reportId={`SC-PRO-LMJ-${Date.now()}`}
+                        timestamp={new Date().toISOString().slice(0, 10)}
+                        sealHash={`${response?.audit_seal?.output_hash?.slice(0, 16) ?? "demo"}…live`}
+                        verdict={verdict}
+                        kpis={kpis}
+                        verdictStatus={vStatus}
+                        verdictLabel={pd === "OK" ? "GO" : pd === "BLOCKED" ? "BLOCK" : "REVIEW"}
+                        stats={stats}
+                        sensitivityDrivers={sDrivers.length > 0 ? sDrivers : undefined}
+                        paretoSegments={pSegments.length > 0 ? pSegments : undefined}
+                        insights={insights.length > 0 ? insights : undefined}
+                        uncertainty={typeof uncertainty === "number" && Number.isFinite(uncertainty)
+                          ? { total: uncertainty, band: "k=2 (95% coverage)", method: "GUM ISO/IEC 98-3" }
+                          : undefined
+                        }
+                      />
+                      {response?.audit_seal?.seal_status === "SEALED" &&
+                        response?.audit_seal?.output_hash && (
+                        <button
+                          type="button"
+                          className="sc-report-print-btn"
+                          onClick={() => window.print()}
+                          aria-label="Download this report as a PDF"
+                        >
+                          Download PDF
+                        </button>
+                      )}
+                    </div>
                   );
                 }
 
                 return (
-                  <>
+                  <div className="sc-print-report">
                     <ProReportPanelV2
                       toolTitle={vm.title}
                       sections={proReportResult.resolvedSections}
@@ -1633,7 +1674,37 @@ export function UniversalIndustrialDecisionForm(props: UniversalIndustrialDecisi
                       )}
                       sensitivity={sensitivityData}
                     />
-                  </>
+                    {response?.audit_seal?.output_hash && (
+                      <PremiumReportFeedback
+                        key={response.audit_seal.output_hash}
+                        schemaSlug={toolSlug}
+                        sectorSlug={resolveFeedbackSectorSlug(toolSlug)}
+                        reportSlug={response.audit_seal.output_hash}
+                        inputSnapshot={Object.fromEntries(
+                          Object.entries(state.rawInputState).filter(
+                            (entry): entry is [string, string | number | boolean] => entry[1] !== null,
+                          ),
+                        )}
+                        resultSnapshot={Object.fromEntries(
+                          response.outputs
+                            .filter((o) => typeof o.value === "number" && Number.isFinite(o.value))
+                            .map((o) => [o.id, o.value as number]),
+                        )}
+                        currency={selectedCurrency}
+                      />
+                    )}
+                    {response?.audit_seal?.seal_status === "SEALED" &&
+                      response?.audit_seal?.output_hash && (
+                      <button
+                        type="button"
+                        className="sc-report-print-btn"
+                        onClick={() => window.print()}
+                        aria-label="Download this report as a PDF"
+                      >
+                        Download PDF
+                      </button>
+                    )}
+                  </div>
                 );
               })()}
 
