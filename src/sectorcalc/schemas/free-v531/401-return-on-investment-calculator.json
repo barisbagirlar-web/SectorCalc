@@ -10,7 +10,7 @@
     "single_operation_scope": "Calculate and evaluate return on investment using user-verified investment cost, total return, annual net benefit, and hurdle rate.",
     "decision_owner": "operator, engineer, owner_cfo, or checker_auditor depending on selected profile mode",
     "decision_after_output": "Decide whether to proceed, hold, revise, reject, or escalate the capital project based on ROI, payback, and annualized ROI screening metrics.",
-    "cost_of_wrong_decision": "Wrong machine investment payback calculator result can cause rework, wrong quote, missed capacity, unsafe screening confidence, downtime, cash leakage, or unnecessary escalation.",
+    "cost_of_wrong_decision": "Wrong return on investment screening can cause rework, wrong capital allocation, missed capacity, unsafe screening confidence, downtime, cash leakage, or unnecessary escalation.",
     "failure_mode_if_formula_wrong": "False PASS, false REPRICE, false HOLD, hidden evidence gap, wrong unit conversion, or public formula leakage.",
     "primary_metric": "roi_pct",
     "secondary_metrics": [
@@ -43,7 +43,7 @@
     "primary": "money_at_risk",
     "technical": "roi_pct",
     "confidence": "evidence_confidence_and_uncertainty_crossing",
-    "description": "Machine Investment Payback Calculator should not create an irreversible purchase, quote, production, safety, or capital commitment without source verification and review when thresholds are crossed."
+    "description": "Return on Investment Calculator should not create an irreversible purchase, quote, production, safety, or capital commitment without source verification and review when thresholds are crossed."
   },
   "standards": [
     {
