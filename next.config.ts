@@ -172,8 +172,12 @@ const nextConfig: NextConfig = {
             value: "application/xml",
           },
           {
+            // MIL-STD §5: Sitemap must signal "always-fresh" to Googlebot.
+            // max-age=0 + must-revalidate ensures every crawl checks the CDN
+            // edge. Firebase Hosting auto-adds ETag (SHA-256), so Googlebot
+            // skips re-download when ETag matches (bandwidth saved).
             key: "Cache-Control",
-            value: "public, max-age=3600",
+            value: "public, max-age=0, must-revalidate",
           },
         ],
       },

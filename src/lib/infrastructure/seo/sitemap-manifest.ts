@@ -172,9 +172,13 @@ export function getFreeToolSitemapRoutes(): readonly SitemapManifestItem[] {
 }
 
 export function getLeanToolSitemapRoutes(): readonly SitemapManifestItem[] {
-  return getAllLeanCalcParams().map(({ concept, metric }) =>
+  const matrixRoutes = getAllLeanCalcParams().map(({ concept, metric }) =>
     createItem(`/lean/${concept}/${metric}`, "lean_tool", 0.82, "weekly"),
   );
+  return [
+    ...matrixRoutes,
+    createItem("/lean/a3-report", "lean_tool", 0.78, "monthly"),
+  ];
 }
 
 export function getCaseStudySitemapRoutes(): readonly SitemapManifestItem[] {

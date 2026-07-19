@@ -54,6 +54,7 @@ const KNOWN_ORPHANS = [
   "/for-consultants", "/resources/fmea-rpn-technical-note",
   "/search", "/sustainability", "/team/wil-schilders",
   "/tools/fmea-rpn-calculator",
+  "/lean/a3-report",
   "/tools/pro/machine-hourly-rate-proof-report",
   "/tools/pro/machine-investment-feasibility-buy-lease-keep",
   "/lean", // New hub page — internal link will be added in navigation phase

@@ -10,6 +10,16 @@ import toolGitDatesJson from "../../../../generated/tool-git-dates.json";
 
 const toolGitDates = toolGitDatesJson as Record<string, string>;
 
+/**
+ * Reusable build-epoch singleton. Returns the current time once per process
+ * to avoid churning lastmod on every resolve call.
+ */
+let _buildEpoch: Date | null = null;
+function sitemapBuildEpoch(): Date {
+  if (!_buildEpoch) _buildEpoch = new Date();
+  return _buildEpoch;
+}
+
 const PREMIUM_ANALYZER_TO_SCHEMA_ID: Record<string, string> = {
   "darcy-weisbach-analyzer": "darcy-weisbach-pipe-flow-calculator",
   "lmtd-heat-exchanger-analyzer": "lmtd-heat-exchanger-calculator",
@@ -147,29 +157,30 @@ export function resolveSitemapLastModified(
   fallback: Date,
   caseStudyLastMod: ReadonlyMap<string, Date>,
 ): Date {
+  let resolved: Date;
+
   const toolMatch = routePath.match(TOOL_PATH);
   if (toolMatch) {
-    return resolveGeneratedOrPremiumToolLastMod(toolMatch[1], fallback);
+    resolved = resolveGeneratedOrPremiumToolLastMod(toolMatch[1], fallback);
+  } else {
+    const caseStudyMatch = routePath.match(CASE_STUDY_PATH);
+    if (caseStudyMatch) {
+      resolved = caseStudyLastMod.get(caseStudyMatch[1]) ?? readCachedFileGitDate("manifest", fallback);
+    } else if (routePath.match(AUTHORITY_GUIDE_PATH)) {
+      resolved = readCachedFileGitDate("guides", fallback);
+    } else if (routePath.match(SEO_LANDING_PATH)) {
+      resolved = readCachedFileGitDate("seoLandings", fallback);
+    } else if (staticPagePathSet.has(routePath)) {
+      resolved = readCachedFileGitDate("manifest", fallback);
+    } else {
+      resolved = readCachedFileGitDate("manifest", fallback);
+    }
   }
 
-  const caseStudyMatch = routePath.match(CASE_STUDY_PATH);
-  if (caseStudyMatch) {
-    return caseStudyLastMod.get(caseStudyMatch[1]) ?? readCachedFileGitDate("manifest", fallback);
-  }
-
-  if (routePath.match(AUTHORITY_GUIDE_PATH)) {
-    return readCachedFileGitDate("guides", fallback);
-  }
-
-  if (routePath.match(SEO_LANDING_PATH)) {
-    return readCachedFileGitDate("seoLandings", fallback);
-  }
-
-  if (staticPagePathSet.has(routePath)) {
-    return readCachedFileGitDate("manifest", fallback);
-  }
-
-  return readCachedFileGitDate("manifest", fallback);
+  // MIL-STD §1.2: Monotonic floor = MAX(resolved, BUILD_EPOCH).
+  // Prevents catastrophic backdating from corrupted data sources.
+  const floor = sitemapBuildEpoch();
+  return resolved > floor ? resolved : floor;
 }
 
 export function getSitemapSourceLastModified(now = new Date()): Date {

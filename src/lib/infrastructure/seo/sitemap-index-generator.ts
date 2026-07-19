@@ -57,16 +57,22 @@ export function getSubSitemapItems(type: SubSitemapType): readonly SitemapManife
   return manifest.filter((item) => mapToSubSitemap(item) === type);
 }
 
-/** Hreflang locales per mandate — same as SUPPORTED_HREFLANG_LOCALES in metadata.ts. */
-const HREFLANG_LOCALES = ["en", "tr", "de", "ar"] as const;
+/** Hreflang locales — MUST match metadata.ts buildHreflangLanguages() output.
+ *  SectorCalc is "Pure English" global authority. tr/de/ar translations do not
+ *  exist yet — not emitted to avoid Google "return URL errors".
+ *  en is the canonical locale and also serves as x-default. */
+const HREFLANG_LOCALES = ["en"] as const;
 
 function buildHreflangXmlLinks(path: string): string {
   const cleanPath = path.startsWith("/") ? path : `/${path}`;
-  const basePath = cleanPath === "/" ? "" : cleanPath;
+  const isRoot = cleanPath === "/";
+  // Single-locale (en-only): hreflang href = canonical bare path (self-referencing).
+  // Google expects the alternate URL to be the actual page URL in that locale.
+  // Since all content is English and bare-path = canonical, use bare path.
+  const href = isRoot ? SITE_BASE_URL : `${SITE_BASE_URL}${cleanPath}`;
 
   const links: string[] = [];
   for (const locale of HREFLANG_LOCALES) {
-    const href = `${SITE_BASE_URL}/${locale}${basePath}`;
     const extra = locale === "en" ? ' x-default="true"' : "";
     links.push(`    <xhtml:link rel="alternate" hreflang="${locale}" href="${href}"${extra} />`);
   }
@@ -104,6 +110,19 @@ export function buildSubSitemapXml(
   resolveLastmod: LastmodResolver,
 ): string {
   const items = getSubSitemapItems(type);
+
+  // FAIL-SAFE: Emit an empty-but-valid XML on zero items rather than crashing,
+  // but log a structured warning for observability.
+  // A persistent zero-item sub-sitemap indicates registry corruption or
+  // an entire content category being accidentally quarantined.
+  if (items.length === 0) {
+    console.warn(
+      `[sitemap] WARNING: Sub-sitemap "${type}" has 0 URLs. ` +
+      `This may indicate an accidental content quarantine or registry corruption. ` +
+      `The XML will be emitted but empty — verify manifest integrity.`,
+    );
+  }
+
   const urlEntries: string[] = [];
 
   for (const item of items) {
@@ -113,16 +132,11 @@ export function buildSubSitemapXml(
     const hreflangLinks = isRoot ? "" : buildHreflangXmlLinks(path);
 
     const hasHreflang = hreflangLinks.length > 0;
-    const changefreq = item.changeFrequency;
-
     const lastmodISO = resolveLastmod(path).toISOString();
-    const priority = item.priority.toFixed(2);
 
     urlEntries.push(`  <url>
     <loc>${loc}</loc>
-    <lastmod>${lastmodISO}</lastmod>
-    <changefreq>${changefreq}</changefreq>
-    <priority>${priority}</priority>${
+    <lastmod>${lastmodISO}</lastmod>${
       hasHreflang ? `\n${hreflangLinks}` : ""
     }
   </url>`);

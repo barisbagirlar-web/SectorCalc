@@ -58,6 +58,9 @@ export function EnterpriseFooter({ hideCta = false }: { hideCta?: boolean }) {
                   <Link href="/free-tools" prefetch={true}>Free Calculators</Link>
                 </li>
                 <li>
+                  <Link href="/lean" prefetch={true}>Lean Manufacturing Calculators</Link>
+                </li>
+                <li>
                   <Link href="/engineering-diagnostics" prefetch={true}>Engineering Diagnostics</Link>
                 </li>
                 <li>

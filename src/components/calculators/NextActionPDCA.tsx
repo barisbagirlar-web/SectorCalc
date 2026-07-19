@@ -39,7 +39,7 @@ export default function NextActionPDCA({
     ? `The calculated ${metricName} of ${result.toFixed(2)} ${unit} meets the target threshold. Standardize this process, update the Gemba control plan, and document the current state as the new baseline for continuous improvement.`
     : `The calculated ${metricName} of ${result.toFixed(2)} ${unit} falls below the target threshold. Initiate an A3 Problem Solving report: define the gap, collect Gemba data, perform root cause analysis, implement countermeasure, and verify sustainment.`;
 
-  const a3Link = `/lean/${conceptSlug}/a3-report?metric=${encodeURIComponent(metricName)}&result=${result}`;
+  const a3Link = `/lean/a3-report?metric=${encodeURIComponent(metricName)}&result=${result.toFixed(2)}&unit=${encodeURIComponent(unit)}&concept=${encodeURIComponent(conceptSlug)}`;
 
   return (
     <section
@@ -47,7 +47,7 @@ export default function NextActionPDCA({
       className="mt-8 border-l-4 border-green-600 bg-green-50 p-4"
     >
       <h3 className="font-bold text-[#1A1915] text-base mb-2">
-        Clear Next Action (PDCA: Act)
+        {actionHeading}
       </h3>
       <p className="text-[#1A1915] text-sm leading-relaxed">{actionDetail}</p>
       <a

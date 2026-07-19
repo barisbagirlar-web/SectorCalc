@@ -52,20 +52,31 @@ function checkPrecision(filePath, lines) {
   const violations = [];
   if (!isCalculatorFile(filePath)) return violations;
   if (isWhitelisted(filePath)) return violations;
+  let inBlockComment = false;
   for (let i = 0; i < lines.length; i++) {
-    const codeOnly = lines[i]
+    const raw = lines[i].trim();
+    // Skip block comment boundaries and JSDoc lines
+    if (raw.startsWith("/*")) { inBlockComment = true; continue; }
+    if (inBlockComment) {
+      if (raw.includes("*/")) inBlockComment = false;
+      continue;
+    }
+    if (/^\*/.test(raw)) continue;  // JSDoc continuation line
+    if (/^\/\/\s*$/.test(raw)) continue; // empty line comment
+    const codeOnly = raw
       .replace(/\/\/.*$/, "")
-      .replace(/\/\*[\s\S]*?\*\//, "")
+      .replace(/\*\/\s*$/, "")
       .replace(/"(?:[^"\\]|\\.)*"/g, '""')
       .replace(/'(?:[^'\\]|\\.)*'/g, "''")
       .replace(/`(?:[^`\\]|\\.)*`/g, "``")
       .trim();
+    if (!codeOnly) continue;
     if (/Big\(|new Big|\.toFixed|\.toPrecision|parseInt|parseFloat|Number\(|String\(/.test(codeOnly)) continue;
     if (/^\s*(const|let|var)\s+\w+\s*=\s*['"`\d]/.test(codeOnly)) continue;
     if (/^\s*(\w+\[|\w+\.\w+;?\s*$)/.test(codeOnly)) continue;
     const m = codeOnly.match(/([a-zA-Z_]\w*|\d+\.\d+|\d+)\s*[+\-*/]\s*([a-zA-Z_]\w*|\d+\.\d+|\d+)/);
     if (m && !/\b(px|em|rem|vh|vw|%)\b/.test(codeOnly)) {
-      violations.push({ gate: "CR-1", file: filePath, line: i + 1, msg: `Native float arithmetic in calculator — use Big.js: "${lines[i].trim().slice(0,80)}"` });
+      violations.push({ gate: "CR-1", file: filePath, line: i + 1, msg: `Native float arithmetic in calculator — use Big.js: "${raw.slice(0,80)}"` });
     }
   }
   return violations;
