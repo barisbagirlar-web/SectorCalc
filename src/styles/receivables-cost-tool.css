@@ -1,0 +1,176 @@
+
+.rcpt-shell{
+  --rcpt-paper:#F7F5EF; --rcpt-panel:#FFFFFF; --rcpt-ink:#181713; --rcpt-ink-soft:#57544C; --rcpt-faint:#8C887E;
+  --rcpt-line:#E4E0D6; --rcpt-line-soft:#EFEBE2;
+  --rcpt-clay:#C15F3C; --rcpt-clay-deep:#9A4526;
+  --rcpt-ledger:#3A4D8F;
+  --rcpt-pos:#2E6B4E; --rcpt-pos-bg:#E7F1EB;
+  --rcpt-warn:#8A5A12; --rcpt-warn-bg:#F8EFDC;
+  --rcpt-neg:#9C3520; --rcpt-neg-bg:#F7E9E4;
+  --rcpt-display:'Fraunces',Georgia,serif; --rcpt-sans:'Inter',system-ui,sans-serif; --rcpt-mono:'JetBrains Mono',monospace;
+}
+.rcpt-shell *{box-sizing:border-box;margin:0;padding:0;border-radius:0}
+.rcpt-shell{background:var(--rcpt-paper);color:var(--rcpt-ink);font-family:var(--rcpt-sans);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
+.rcpt-shell{max-width:1080px;margin:0 auto;padding:0 20px}
+.rcpt-mast{border-bottom:1.5px solid var(--rcpt-ink);padding:34px 0 20px}
+.rcpt-kicker{font-family:var(--rcpt-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--rcpt-clay);display:flex;gap:10px;align-items:center}
+.rcpt-kicker::after{content:"";flex:1;height:1px;background:var(--rcpt-line)}
+.rcpt-mast h1{font-family:var(--rcpt-display);font-weight:500;font-size:clamp(30px,5vw,46px);line-height:1.02;margin:14px 0 8px;letter-spacing:-.01em}
+.rcpt-mast .rcpt-lede{font-size:16px;color:var(--rcpt-ink-soft);max-width:64ch}
+.rcpt-mast .rcpt-meta{display:flex;gap:22px;margin-top:16px;font-family:var(--rcpt-mono);font-size:11px;color:var(--rcpt-faint);flex-wrap:wrap}
+.rcpt-mast .rcpt-meta b{color:var(--rcpt-ink);font-weight:500}
+.rcpt-curbar{display:flex;align-items:center;gap:12px;margin-top:16px;padding:12px 14px;background:var(--rcpt-panel);border:1px solid var(--rcpt-line);flex-wrap:wrap}
+.rcpt-curbar label{font-family:var(--rcpt-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--rcpt-ink-soft)}
+.rcpt-curbar select{border:1.25px solid var(--rcpt-line);background:var(--rcpt-paper);font-family:var(--rcpt-mono);font-size:13px;padding:6px 10px;color:var(--rcpt-ink);outline:none;cursor:pointer}
+.rcpt-curbar select:focus{border-color:var(--rcpt-ledger)}
+.rcpt-curnote{font-size:11.5px;color:var(--rcpt-faint);flex:1;min-width:220px}
+.rcpt-bench{display:grid;grid-template-columns:1fr 360px;gap:0;border:1.5px solid var(--rcpt-ink);border-top:none;background:var(--rcpt-panel)}
+@media(max-width:900px){.rcpt-bench{grid-template-columns:1fr}}
+.rcpt-form-col{padding:8px 30px 30px;border-right:1.5px solid var(--rcpt-ink)}
+@media(max-width:900px){.rcpt-form-col{border-right:none;border-bottom:1.5px solid var(--rcpt-ink)}}
+.rcpt-rail{padding:0}
+.rcpt-grp{border-bottom:1px solid var(--rcpt-line-soft);padding:22px 0}
+.rcpt-grp:last-child{border-bottom:none}
+.rcpt-grp-h{display:flex;align-items:baseline;gap:10px;margin-bottom:4px}
+.rcpt-grp-n{font-family:var(--rcpt-mono);font-size:11px;color:var(--rcpt-clay);font-weight:500}
+.rcpt-grp-t{font-family:var(--rcpt-display);font-size:18px;font-weight:500}
+.rcpt-grp-d{font-size:12.5px;color:var(--rcpt-faint);margin-bottom:16px;max-width:52ch}
+.rcpt-f{margin-bottom:18px}
+.rcpt-f:last-child{margin-bottom:0}
+.rcpt-f-top{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:6px}
+.rcpt-f label{font-weight:500;font-size:13.5px}
+.rcpt-f .rcpt-unitline{font-family:var(--rcpt-mono);font-size:10.5px;color:var(--rcpt-faint)}
+.rcpt-control{display:flex;border:1.25px solid var(--rcpt-line);background:var(--rcpt-paper);transition:border-color .12s,box-shadow .12s}
+.rcpt-control:focus-within{border-color:var(--rcpt-ledger);box-shadow:inset 0 0 0 1px var(--rcpt-ledger)}
+.rcpt-control.rcpt-bad{border-color:var(--rcpt-neg);box-shadow:inset 0 0 0 1px var(--rcpt-neg)}
+.rcpt-control.rcpt-warn{border-color:var(--rcpt-warn);box-shadow:inset 0 0 0 1px var(--rcpt-warn)}
+.rcpt-prefix{display:flex;align-items:center;padding:0 12px;font-family:var(--rcpt-mono);font-size:13px;color:var(--rcpt-faint);border-right:1px solid var(--rcpt-line);background:var(--rcpt-line-soft)}
+.rcpt-control input{flex:1;min-width:0;border:none;background:transparent;padding:11px 12px;font-family:var(--rcpt-mono);font-size:15px;color:var(--rcpt-ink);outline:none}
+.rcpt-control select{border:none;border-left:1px solid var(--rcpt-line);background:var(--rcpt-panel);font-family:var(--rcpt-mono);font-size:12px;padding:0 8px;color:var(--rcpt-ink);outline:none;cursor:pointer}
+.rcpt-f-foot{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-top:6px}
+.rcpt-hint{font-size:11.5px;color:var(--rcpt-faint);flex:1;line-height:1.4}
+.rcpt-bench-ref{font-family:var(--rcpt-mono);font-size:10.5px;color:var(--rcpt-faint);white-space:nowrap;text-align:right}
+.rcpt-msg{font-size:11.5px;margin-top:6px;padding:6px 9px;line-height:1.4;display:none}
+.rcpt-msg.rcpt-err{display:block;background:var(--rcpt-neg-bg);color:var(--rcpt-neg);border-left:2px solid var(--rcpt-neg)}
+.rcpt-msg.rcpt-warn{display:block;background:var(--rcpt-warn-bg);color:var(--rcpt-warn);border-left:2px solid var(--rcpt-warn)}
+.rcpt-shell details{border:1px solid var(--rcpt-line);background:var(--rcpt-panel);margin-top:4px}
+.rcpt-shell details summary{cursor:pointer;padding:14px 18px;font-family:var(--rcpt-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--rcpt-faint);list-style:none}
+.rcpt-shell details summary::before{content:"+ "}
+details[open] summary::before{content:"\2212 "}
+.rcpt-shell details .rcpt-grp{padding:0 18px 18px}
+.rcpt-rail-in{position:sticky;top:0;padding:26px 24px}
+.rcpt-verdict{border:1.25px solid var(--rcpt-ink);padding:2px 0 0;margin-bottom:18px}
+.rcpt-verdict-band{padding:6px 12px;font-family:var(--rcpt-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#fff}
+.rcpt-verdict-band.rcpt-pos{background:var(--rcpt-pos)} .rcpt-verdict-band.rcpt-warn{background:var(--rcpt-warn)} .rcpt-verdict-band.rcpt-neg{background:var(--rcpt-neg)}
+.rcpt-verdict-body{padding:16px 14px}
+.rcpt-big{font-family:var(--rcpt-display);font-size:34px;font-weight:500;line-height:1;letter-spacing:-.01em}
+.rcpt-big small{font-size:15px;color:var(--rcpt-faint);font-weight:400}
+.rcpt-big-cap{font-family:var(--rcpt-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--rcpt-faint);margin-top:6px}
+.rcpt-stat{display:flex;justify-content:space-between;align-items:baseline;padding:9px 0;border-top:1px dashed var(--rcpt-line);font-size:12.5px}
+.rcpt-stat span{color:var(--rcpt-ink-soft)}
+.rcpt-stat b{font-family:var(--rcpt-mono);font-weight:500}
+.rcpt-cta{width:100%;border:1.25px solid var(--rcpt-clay-deep);background:var(--rcpt-clay);color:#fff;font-family:var(--rcpt-sans);font-weight:600;font-size:14px;padding:13px;cursor:pointer;margin-top:18px;letter-spacing:.01em}
+.rcpt-cta:hover{background:var(--rcpt-clay-deep)}
+.rcpt-cta:disabled{background:var(--rcpt-line);border-color:var(--rcpt-line);color:var(--rcpt-faint);cursor:not-allowed}
+.rcpt-conf{margin-top:12px;font-size:11px;color:var(--rcpt-ink-soft);display:flex;gap:7px;align-items:flex-start;line-height:1.4}
+.rcpt-conf .rcpt-d{width:8px;height:8px;margin-top:3px;flex-shrink:0}
+#report{display:none;border:1.5px solid var(--rcpt-ink);border-top:none;background:var(--rcpt-panel)}
+.rcpt-rep-mast{background:var(--rcpt-ink);color:var(--rcpt-paper);padding:24px 30px;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:12px}
+.rcpt-rep-mast h2{font-family:var(--rcpt-display);font-size:26px;font-weight:500}
+.rcpt-rep-mast .rcpt-rid{font-family:var(--rcpt-mono);font-size:10.5px;color:#b9b4a7;text-align:right;line-height:1.7}
+.rcpt-rep-body{padding:30px}
+.rcpt-sec{margin-bottom:32px}
+.rcpt-sec-h{display:flex;align-items:baseline;gap:10px;border-bottom:1px solid var(--rcpt-ink);padding-bottom:6px;margin-bottom:14px}
+.rcpt-sec-n{font-family:var(--rcpt-mono);font-size:12px;color:var(--rcpt-clay);font-weight:500}
+.rcpt-sec-t{font-family:var(--rcpt-display);font-size:19px;font-weight:500}
+.rcpt-verdict-box{background:var(--rcpt-paper);border-left:4px solid var(--rcpt-clay);padding:18px 20px}
+.rcpt-verdict-box .rcpt-head{font-family:var(--rcpt-display);font-size:22px;font-weight:500;margin-bottom:8px;line-height:1.2}
+.rcpt-verdict-box p{font-size:14.5px;color:var(--rcpt-ink-soft);max-width:74ch}
+.rcpt-verdict-box p+p{margin-top:8px}
+.rcpt-shell table{width:100%;border-collapse:collapse;font-size:13px}
+.rcpt-shell th,.rcpt-shell td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--rcpt-line);vertical-align:top}
+.rcpt-shell th{font-family:var(--rcpt-mono);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--rcpt-faint);font-weight:500}
+.rcpt-shell td.rcpt-n{font-family:var(--rcpt-mono);text-align:right;white-space:nowrap}
+.rcpt-shell tr.rcpt-total td{border-top:1.5px solid var(--rcpt-ink);border-bottom:none;font-weight:600}
+.rcpt-shell tr.rcpt-win td{background:var(--rcpt-pos-bg)}
+.rcpt-note{font-size:11.5px;color:var(--rcpt-faint);margin-top:10px;line-height:1.5}
+.rcpt-ins{padding:13px 16px;margin-bottom:11px;font-size:13.5px;line-height:1.55;border-left:3px solid}
+.rcpt-ins.rcpt-crit{background:var(--rcpt-neg-bg);border-color:var(--rcpt-neg)}
+.rcpt-ins.rcpt-opp{background:var(--rcpt-pos-bg);border-color:var(--rcpt-pos)}
+.rcpt-ins.rcpt-info{background:var(--rcpt-paper);border-color:var(--rcpt-faint)}
+.rcpt-ins .rcpt-t{font-family:var(--rcpt-mono);font-size:9.5px;letter-spacing:.07em;text-transform:uppercase;display:block;margin-bottom:3px;color:var(--rcpt-ink-soft)}
+.rcpt-chart{width:100%;overflow:visible;font-family:var(--rcpt-mono);font-size:11px}
+.rcpt-chart text{font-family:var(--rcpt-mono)}
+.rcpt-seal{margin-top:8px;padding:14px 16px;background:var(--rcpt-paper);border:1px dashed var(--rcpt-line);font-family:var(--rcpt-mono);font-size:10.5px;color:var(--rcpt-faint);word-break:break-all;line-height:1.7}
+.rcpt-disc{font-size:11px;color:var(--rcpt-faint);margin-top:14px;padding-top:12px;border-top:1px solid var(--rcpt-line-soft);line-height:1.6}
+
+/* ── Print / PDF export ──────────────────────────────────────────────
+   Reuses the on-screen report exactly (WYSIWYG) rather than a separate
+   PDF-generation template, so there is no second layout that could drift
+   out of sync or introduce its own overflow bugs. Only .rcpt-report and
+   its descendants are printed; the shell, masthead, and input form are
+   hidden. */
+@media print {
+  @page { margin: 14mm 12mm; }
+
+  body * { visibility: hidden; }
+  .rcpt-report, .rcpt-report * { visibility: visible; }
+  .rcpt-report {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Browsers strip background colors/borders by default when printing;
+     the verdict box, insight cards, and win-row highlight all depend on
+     background color to convey meaning, so force it on. */
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    color-adjust: exact;
+  }
+
+  /* Never split a chart, table row, or insight card across a page break —
+     the most common source of a "broken, overflowing" printed report. */
+  .rcpt-chart, .rcpt-verdict-box, .rcpt-ins, tr, .rcpt-seal, .rcpt-disc {
+    break-inside: avoid;
+  }
+  h2, h3, .rcpt-head { break-after: avoid; }
+
+  /* The floating feedback/report-tools chrome and the "Generate sealed
+     report" action button have no place in a printed document. */
+  .sc-report-feedback, .sc-report-quick-reaction, [class*="sticky"] {
+    display: none !important;
+  }
+}
+
+.rcpt-print-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 48px;
+  padding: 0 16px;
+  margin-top: 10px;
+  background: var(--rcpt-paper);
+  border: 1px solid var(--rcpt-line);
+  border-radius: 0;
+  font-family: var(--rcpt-mono);
+  font-size: 12px;
+  letter-spacing: 0.03em;
+  color: var(--rcpt-ink);
+  cursor: pointer;
+}
+.rcpt-print-btn:hover { border-color: var(--rcpt-ink-soft); }
+
+@media print {
+  .rcpt-print-btn { display: none !important; }
+}
+
+/* 3-tier verdict coloring (0=normal, 1=moderate, 2=material drag). */
+.rcpt-verdict-0 { border-left: 4px solid var(--rcpt-pos); background: var(--rcpt-pos-bg); }
+.rcpt-verdict-1 { border-left: 4px solid var(--rcpt-warn); background: var(--rcpt-warn-bg); }
+.rcpt-verdict-2 { border-left: 4px solid var(--rcpt-neg); background: var(--rcpt-neg-bg); }
+.rcpt-warn2 { color: var(--rcpt-warn); }
+.rcpt-prefix-unit { font-size: 10px; opacity: 0.7; display: block; }
