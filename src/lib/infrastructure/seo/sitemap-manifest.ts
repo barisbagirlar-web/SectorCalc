@@ -17,6 +17,7 @@ import { buildCategorizedToolIndex } from "@/lib/catalog/build-categorized-tool-
 import { getPremiumRevenueRouteSlugs } from "@/lib/features/tools/revenue-tools";
 import { listMigratedPremiumRouteSlugs } from "@/lib/features/freemium/resolve-free-to-premium-migration";
 import { getAllLeanCalcParams } from "@/lib/features/tools/lean-calc-registry";
+import { industryRegistry } from "@/lib/features/tools/industry-registry";
 import { ACTIVE_FREE_TOOL_SLUGS } from "@/sectorcalc/runtime/active-tool-allowlist";
 
 export type SitemapRouteType =
@@ -121,6 +122,13 @@ export function getHubSitemapRoutes(): readonly SitemapManifestItem[] {
     createItem("/operating-system", "hub", 0.65, "monthly"),
     createItem("/for-consultants", "hub", 0.7, "monthly"),
   ];
+}
+
+/** All 27 industry detail pages — indexable hubs previously missing from the sitemap. */
+export function getIndustryDetailSitemapRoutes(): readonly SitemapManifestItem[] {
+  return industryRegistry.map((entry) =>
+    createItem(`/industries/${entry.slug}`, "hub", 0.85, "monthly"),
+  );
 }
 
 export function getMigratedPremiumToolSitemapRoutes(): readonly SitemapManifestItem[] {
@@ -232,6 +240,7 @@ export function getSitemapManifest(): readonly SitemapManifestItem[] {
   return dedupeManifestItems([
     ...getCoreSitemapRoutes(),
     ...getHubSitemapRoutes(),
+    ...getIndustryDetailSitemapRoutes(),
     ...getActiveCategorizedToolSitemapRoutes(),
     ...getSeoLandingSitemapRoutes(),
     ...getCaseStudySitemapRoutes(),

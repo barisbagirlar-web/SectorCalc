@@ -1,23 +1,20 @@
 import { NextResponse } from "next/server";
-import {
-  buildSubSitemapXml,
-  createSitemapLastmodResolver,
-  getCaseStudyLastModMap,
-} from "@/lib/infrastructure/seo/sitemap-index-generator";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
+/**
+ * Empty FAQ sub-sitemap retired from the sitemap index (see SUB_SITEMAPS).
+ * Keep this route as an explicit 404 so stale GSC references fail closed
+ * instead of advertising zero URLs.
+ */
 export async function GET(): Promise<NextResponse> {
-  const caseStudyLastMod = await getCaseStudyLastModMap();
-  const resolver = createSitemapLastmodResolver(caseStudyLastMod);
-  const xml = buildSubSitemapXml("faq", resolver);
-
-  return new NextResponse(xml, {
-    status: 200,
+  return new NextResponse("Not Found", {
+    status: 404,
     headers: {
-      "Content-Type": "application/xml",
-      "Cache-Control": "public, max-age=3600",
+      "Content-Type": "text/plain; charset=utf-8",
+      "X-Robots-Tag": "noindex, nofollow",
+      "Cache-Control": "public, max-age=300",
     },
   });
 }

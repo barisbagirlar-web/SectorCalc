@@ -1,9 +1,10 @@
 /**
  * Sitemap Index Generator — type-split architecture per SectorCalc mandate.
  *
- * sitemap.xml (index) → tools.xml | guides.xml | datasets.xml | categories.xml | faq.xml
+ * sitemap.xml (index) → tools.xml | guides.xml | datasets.xml | categories.xml
  *
- * Each sub-sitemap URL entry carries hreflang alternates for 4 locales.
+ * faq.xml retired from the index (no exclusive FAQ routes; empty sitemap waste).
+ * Each sub-sitemap URL entry carries hreflang alternates for the English locale.
  * Lastmod timestamps are git-commit-derived with millisecond precision.
  */
 
@@ -32,7 +33,9 @@ export const SUB_SITEMAPS: readonly SubSitemapMeta[] = [
   { type: "guides", filename: "sitemaps/guides.xml", label: "Guides" },
   { type: "datasets", filename: "sitemaps/datasets.xml", label: "Datasets" },
   { type: "categories", filename: "sitemaps/categories.xml", label: "Categories" },
-  { type: "faq", filename: "sitemaps/faq.xml", label: "FAQ" },
+  // faq.xml removed from the index: no dedicated FAQ-only routes exist that are
+  // not already listed in tools/categories. Emitting an empty faq.xml wastes
+  // crawl budget and invents a content category. Do not fabricate FAQ URLs.
 ];
 
 /** Map manifest route types to sub-sitemap types. */

@@ -1,6 +1,11 @@
 import { type NextRequest, NextResponse } from "next/server";
 import { REGION_HEADER, REGION_SOURCE_HEADER } from "@/config/regions";
+import { SITE } from "@/config/site";
 import { detectRegionFromRequest } from "@/lib/features/compliance/detect-region";
+import {
+  X_ROBOTS_TAG_HEADER,
+  xRobotsTagValue,
+} from "@/lib/infrastructure/seo/seo-indexing-control";
 
 const PROTECTED_ROUTES = ["/account", "/account/", "/dashboard", "/dashboard/"];
 
@@ -25,20 +30,47 @@ function applyRegionHeaders(response: NextResponse, request: NextRequest): NextR
   return response;
 }
 
+/** Firebase preview / local SSR hosts must never compete with the public domain. */
+function isPreviewOrInternalHost(hostHeader: string): boolean {
+  const host = hostHeader.toLowerCase().split(":")[0] ?? "";
+  return (
+    host.endsWith(".web.app") ||
+    host.endsWith(".firebaseapp.com") ||
+    host === "0.0.0.0" ||
+    host === "127.0.0.1" ||
+    host === "localhost"
+  );
+}
+
 /**
- * Inject HTTP Link: <...>; rel="canonical" header (MIL-STD SSOT).
- * Complements the DOM <head> canonical and sitemap <loc>.
+ * Inject HTTP Link: <...>; rel="canonical" locked to the public SITE.url.
+ * Never use request.url host — Firebase SSR binds to 0.0.0.0 and that
+ * internal address must not leak into public Link headers.
  */
 function applyCanonicalLinkHeader(response: NextResponse, request: NextRequest): void {
-  const url = new URL(request.url);
+  const pathname = request.nextUrl.pathname || "/";
+  const normalized =
+    pathname !== "/" && pathname.endsWith("/")
+      ? pathname.replace(/\/+$/, "")
+      : pathname;
   const canonical =
-    `${url.protocol}//${url.host}${url.pathname}`.replace(/\/+$/, "") ||
-    `${url.protocol}//${url.host}`;
+    normalized === "/" ? `${SITE.url}/` : `${SITE.url}${normalized}`;
   response.headers.set("Link", `<${canonical}>; rel="canonical"`);
+}
+
+function applyRobotsHeader(response: NextResponse, request: NextRequest): void {
+  const host = request.headers.get("host") ?? request.nextUrl.host ?? "";
+  if (isPreviewOrInternalHost(host)) {
+    // Preview hosts are deploy mirrors — never indexable.
+    response.headers.set(X_ROBOTS_TAG_HEADER, "noindex, nofollow");
+    return;
+  }
+  response.headers.set(X_ROBOTS_TAG_HEADER, xRobotsTagValue());
 }
 
 function applyStandardHeaders(response: NextResponse, request: NextRequest): NextResponse {
   applyCanonicalLinkHeader(response, request);
+  applyRobotsHeader(response, request);
   return applyRegionHeaders(response, request);
 }
 

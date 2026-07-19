@@ -1,6 +1,6 @@
 // SectorCalc — Sitemap Index (type-split architecture)
 // Returns sitemap index referencing tools.xml, guides.xml, datasets.xml,
-// categories.xml, faq.xml per mandate spec.
+// categories.xml. faq.xml retired (empty / no exclusive FAQ routes).
 // Lastmod: resolved from source-file mtime, never request-time.
 
 import { NextResponse } from "next/server";
