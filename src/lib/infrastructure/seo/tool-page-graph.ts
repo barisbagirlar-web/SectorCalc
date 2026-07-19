@@ -51,6 +51,10 @@ export interface ToolPageSchemaInput {
   dataSources?: readonly { name: string; url: string }[];
   /** Methodology standard reference (e.g. "ECMI Cost Model v3.2 + ISO 22400-2"). */
   methodology?: string;
+  /** Governing theory/standard the tool is based on (schema.org isBasedOn). */
+  isBasedOn?: readonly { name: string; url?: string }[];
+  /** Related standards/terms the tool references (schema.org mentions). */
+  mentions?: readonly { name: string; url?: string }[];
   /** Screenshot URL. */
   screenshotUrl?: string;
   /** Price in USD. */
@@ -163,12 +167,16 @@ function buildWebApplicationNode(input: ToolPageSchemaInput): JsonLdRecord {
       url: canonicalUrl,
     });
 
-    // Secondary reference: lean/engineering principles
-    citations.push({
-      "@type": "CreativeWork",
-      name: "Lean Manufacturing Principles",
-      url: "https://www.lean.org/",
-    });
+    // Secondary reference: lean/engineering principles (only when the tool has
+    // not supplied its own explicit isBasedOn standards — avoids false
+    // attribution on domain-specific engineering tools).
+    if (!input.isBasedOn || input.isBasedOn.length === 0) {
+      citations.push({
+        "@type": "CreativeWork",
+        name: "Lean Manufacturing Principles",
+        url: "https://www.lean.org/",
+      });
+    }
 
     node.citation = citations;
     node.potentialAction = {
@@ -176,6 +184,23 @@ function buildWebApplicationNode(input: ToolPageSchemaInput): JsonLdRecord {
       name: `Calculate ${input.toolName}`,
       description: "Deterministic calculation based on international engineering standards.",
     };
+  }
+
+  // Entity attribution: isBasedOn (governing theory/standard) + mentions
+  // (related standards/terms), emitted only when explicitly provided.
+  if (input.isBasedOn && input.isBasedOn.length > 0) {
+    node.isBasedOn = input.isBasedOn.map((ref) =>
+      ref.url
+        ? { "@type": "CreativeWork", name: ref.name, url: ref.url }
+        : { "@type": "CreativeWork", name: ref.name },
+    );
+  }
+  if (input.mentions && input.mentions.length > 0) {
+    node.mentions = input.mentions.map((ref) =>
+      ref.url
+        ? { "@type": "DefinedTerm", name: ref.name, url: ref.url }
+        : { "@type": "DefinedTerm", name: ref.name },
+    );
   }
 
   if (input.screenshotUrl) {

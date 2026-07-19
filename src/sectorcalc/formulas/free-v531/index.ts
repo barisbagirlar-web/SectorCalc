@@ -49,6 +49,7 @@ import concreteVolumeOrderQuantityFormula from "./concrete-volume-order-quantity
 import rebarWeightCountFormula from "./rebar-weight-count.formula";
 import recipeCostMenuPriceFormula from "./recipe-cost-menu-price.formula";
 import fabricConsumptionGsmFormula from "./fabric-consumption-gsm.formula";
+import vonMisesStressFormula from "./von-mises-stress-calculator.formula";
 
 import type { FreeV531FormulaModule } from "./types";
 
@@ -104,6 +105,7 @@ export const freeV531FormulaRegistry: Readonly<Record<string, FreeV531FormulaMod
   "rebar-weight-count": rebarWeightCountFormula,
   "recipe-cost-menu-price": recipeCostMenuPriceFormula,
   "fabric-consumption-gsm": fabricConsumptionGsmFormula,
+  "von-mises-stress-calculator": vonMisesStressFormula,
 };
 
 export { default as machiningCostPerPartFormula } from "./machining-cost-per-part.formula";
@@ -157,6 +159,7 @@ export { default as concreteVolumeOrderQuantityFormula } from "./concrete-volume
 export { default as rebarWeightCountFormula } from "./rebar-weight-count.formula";
 export { default as recipeCostMenuPriceFormula } from "./recipe-cost-menu-price.formula";
 export { default as fabricConsumptionGsmFormula } from "./fabric-consumption-gsm.formula";
+export { default as vonMisesStressFormula } from "./von-mises-stress-calculator.formula";
 export type {
   FreeV531RiskLevel,
   FreeV531DecisionState,

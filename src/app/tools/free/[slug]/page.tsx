@@ -94,6 +94,53 @@ function fallbackToolName(slug: string): string {
   return DISPLAY_NAME_OVERRIDES[slug] || slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
+// Per-tool JSON-LD entity attribution. Engineering tools must cite their real
+// governing theory/standards instead of the generic manufacturing-KPI default.
+interface ToolGraphAttribution {
+  methodology: string;
+  dataSources: { name: string; url: string }[];
+  isBasedOn?: { name: string; url?: string }[];
+  mentions?: { name: string; url?: string }[];
+}
+
+const DEFAULT_TOOL_ATTRIBUTION: ToolGraphAttribution = {
+  methodology: "ISO 22400-2 + ECMI Cost Model v3.2",
+  dataSources: [
+    { name: "ISO 22400-2:2014", url: "https://www.iso.org/standard/62046.html" },
+    { name: "World Bank Open Data", url: "https://data.worldbank.org/" },
+  ],
+};
+
+const ASME_BPVC_VIII_2_URL =
+  "https://www.asme.org/codes-standards/find-codes-standards/bpvc-viii-2-bpvc-section-viii-rules-construction-pressure-vessels-division-2-alternative-rules";
+const ISO_12100_URL = "https://www.iso.org/standard/51528.html";
+
+const TOOL_GRAPH_ATTRIBUTION: Record<string, ToolGraphAttribution> = {
+  "von-mises-stress-calculator": {
+    methodology: "Maximum Distortion Energy Theory (Hencky-von Mises Yield Criterion)",
+    dataSources: [
+      { name: "ASME BPVC Section VIII Division 2 Part 5", url: ASME_BPVC_VIII_2_URL },
+      { name: "ISO 12100:2010", url: ISO_12100_URL },
+    ],
+    isBasedOn: [
+      { name: "Maximum Distortion Energy Theory (Hencky-von Mises Yield Criterion)" },
+      {
+        name: "ASME BPVC Section VIII Division 2 Part 5 (Design by Analysis - Elastic Stress Analysis)",
+        url: ASME_BPVC_VIII_2_URL,
+      },
+    ],
+    mentions: [
+      { name: "ISO 12100:2010 (Safety of machinery)", url: ISO_12100_URL },
+      { name: "Factor of safety" },
+      { name: "Plane stress" },
+    ],
+  },
+};
+
+function getToolGraphAttribution(slug: string): ToolGraphAttribution {
+  return TOOL_GRAPH_ATTRIBUTION[slug] ?? DEFAULT_TOOL_ATTRIBUTION;
+}
+
 /** Slug → AI Overview definition key mapping for passage indexing. */
 const TOOL_DEFINITION_KEY: Record<string, string> = {
   oee: "oee-calculation",
@@ -225,11 +272,10 @@ export default async function FreeToolDetailPage({
           description: getPublicToolMetaDescription(schema.tool_key, schema.tool_name, getDisplayCategoryLabel(schema.category)),
           featureList: [],
           faq: [],
-          methodology: "ISO 22400-2 + ECMI Cost Model v3.2",
-          dataSources: [
-            { name: "ISO 22400-2:2014", url: "https://www.iso.org/standard/62046.html" },
-            { name: "World Bank Open Data", url: "https://data.worldbank.org/" },
-          ],
+          methodology: getToolGraphAttribution(slug).methodology,
+          dataSources: getToolGraphAttribution(slug).dataSources,
+          isBasedOn: getToolGraphAttribution(slug).isBasedOn,
+          mentions: getToolGraphAttribution(slug).mentions,
           // Source-derived date (schema/generated mtime). Omitted when unknown
           // rather than emitting request-time, which would churn every crawl.
           lastUpdated: getGeneratedToolLastUpdatedIso(slug) ?? undefined,

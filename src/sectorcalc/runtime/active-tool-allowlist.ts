@@ -56,6 +56,7 @@ export const ACTIVE_FREE_TOOL_SLUGS: readonly string[] = [
   "rebar-weight-count",
   "recipe-cost-menu-price",
   "fabric-consumption-gsm",
+  "von-mises-stress-calculator",
 ];
 
 // V5.4 Core — PRO active self-service calculators.

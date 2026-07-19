@@ -169,6 +169,7 @@ export function getFreeToolSitemapRoutes(): readonly SitemapManifestItem[] {
   // so they must never be advertised here (would create GSC coverage errors).
   const INDEXED_FREE_TOOL_SLUGS = [
     "break-even-and-margin-of-safety-analysis",
+    "von-mises-stress-calculator",
   ].filter((slug) => ACTIVE_FREE_TOOL_SLUGS.includes(slug));
 
   return [
