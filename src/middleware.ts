@@ -26,6 +26,24 @@ function applyRegionHeaders(response: NextResponse, request: NextRequest): NextR
 }
 
 /**
+ * Inject HTTP Link: <...>; rel="canonical" header (§3 MIL-STD SSOT).
+ * This is the HTTP-level canonical declaration, complementing the DOM <head>
+ * canonical (metadata.ts) and sitemap <loc> (sitemap-index-generator.ts).
+ * All 3 SSOT components must agree.
+ */
+function applyCanonicalLinkHeader(response: NextResponse, request: NextRequest): void {
+  const url = new URL(request.url);
+  // Strip query params from the canonical URL (query params vary, canonical is bare path)
+  const canonical = `${url.protocol}//${url.host}${url.pathname}`.replace(/\/+$/, "") || `${url.protocol}//${url.host}`;
+  response.headers.set("Link", `<${canonical}>; rel="canonical"`);
+}
+
+function applyStandardHeaders(response: NextResponse, request: NextRequest): NextResponse {
+  applyCanonicalLinkHeader(response, request);
+  return applyRegionHeaders(response, request);
+}
+
+/**
  * Supported hreflang locales — /en, /tr, /de, /ar are active locale routes
  * that internally rewrite to bare paths (English content).
  * Other ISO 639-1 paths return 404 (unsupported locales).
@@ -39,10 +57,19 @@ const LEGACY_LANGUAGE_ROUTES = new Set([
   "/hi", "/th", "/vi", "/id", "/ms",
 ]);
 
+// ── Service Worker Kill (cache invalidation) ────────────────────────────────
+// SW_KILL_VERSION: bump to force all clients to re-fetch the kill SW.
+// Date-based version ensures deterministic cache-busting on every deploy.
+const SW_KILL_VERSION = "2026-07-19-v2";
+
+// Kill SW code — no reload loop. Installs, deletes all caches, claims clients,
+// unregisters silently. No clients.navigate() — avoids infinite reload.
+// Any stale JS chunks already loaded are cleaned on the NEXT navigation.
 const SW_KILL_CODE = [
   `self.addEventListener("install",()=>self.skipWaiting())`,
-  `self.addEventListener("activate",(e)=>{e.waitUntil((async()=>{const k=await caches.keys();await Promise.all(k.map(c=>caches.delete(c)));await self.clients.claim();await self.registration.unregister();(await self.clients.matchAll({type:"window"})).forEach(c=>c.navigate(c.url))})())})`,
+  `self.addEventListener("activate",(e)=>{e.waitUntil((async()=>{const k=await caches.keys();await Promise.all(k.map(c=>caches.delete(c)));await self.clients.claim();await self.registration.unregister()})())})`,
   `self.addEventListener("fetch",()=>{})`,
+  `// ${SW_KILL_VERSION}`,
 ].join(";");
 
 const SW_KILL_HEADERS = {
@@ -180,7 +207,7 @@ export default function middleware(request: NextRequest) {
   annotateAuthGate(request, response);
 
   if (response.headers.get("x-auth-gate") === "challenge") {
-    return applyRegionHeaders(response, request);
+    return applyStandardHeaders(response, request);
   }
 
   if (pathname.startsWith("/sitemap/")) {
@@ -233,7 +260,7 @@ export default function middleware(request: NextRequest) {
     response.headers.set("x-hreflang-locale", locale);
     const robotsDirective = locale === "en" ? "index, follow" : "noindex, follow";
     response.headers.set("x-robots-tag", robotsDirective);
-    return applyRegionHeaders(response, request);
+    return applyStandardHeaders(response, request);
   }
 
   // Root-level language-only paths — return 404
@@ -248,7 +275,7 @@ export default function middleware(request: NextRequest) {
   }
 
   if (pathname.startsWith("/_next") || pathname.startsWith("/api")) {
-    return applyRegionHeaders(NextResponse.next(), request);
+    return applyStandardHeaders(NextResponse.next(), request);
   }
 
   if (pathname === "/sw.js") {
@@ -256,10 +283,10 @@ export default function middleware(request: NextRequest) {
   }
 
   if (pathname.includes(".")) {
-    return applyRegionHeaders(NextResponse.next(), request);
+    return applyStandardHeaders(NextResponse.next(), request);
   }
 
-  return applyRegionHeaders(NextResponse.next(), request);
+  return applyStandardHeaders(NextResponse.next(), request);
 }
 
 export const config = {

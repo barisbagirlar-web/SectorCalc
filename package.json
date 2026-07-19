@@ -59,8 +59,11 @@
     "verify:internal-links": "npx tsx scripts/verify-internal-links.ts",
     "verify:sitemap-parity": "npx tsx scripts/verify-sitemap-parity.ts",
     "verify:hreflang": "npx tsx scripts/verify-hreflang.ts",
+    "verify:hreflang-consistency": "npx tsx scripts/verify-hreflang-consistency.ts",
+    "verify:hreflang-bidirectional": "npx tsx scripts/verify-hreflang-bidirectional.ts",
     "verify:raw-html-metadata": "npx tsx scripts/verify-raw-html-metadata.ts",
-    "seo:gates": "npm run verify:engineering-purity && npm run verify:lean-ux && npm run verify:internal-links && npm run verify:sitemap-parity && npm run verify:hreflang && npm run verify:raw-html-metadata",
+    "verify:invariants": "node scripts/validate-invariants.js",
+    "seo:gates": "npm run verify:engineering-purity && npm run verify:lean-ux && npm run verify:internal-links && npm run verify:sitemap-parity && npm run verify:hreflang && npm run verify:hreflang-consistency && npm run verify:hreflang-bidirectional && npm run verify:raw-html-metadata",
     "guard:no-turkish-public-source": "node scripts/guard-no-turkish-public-source.mjs",
     "guard:free-schema-server-boundary": "node scripts/guard-free-schema-server-boundary.mjs",
     "guard:generated-schema-bindings": "node scripts/guard-generated-schema-bindings.mjs",
@@ -150,7 +153,17 @@
     "guard:no-duplicate-empty-inputs": "node scripts/guard-no-duplicate-empty-inputs.mjs",
     "guard:mobile-form-state-machine": "node scripts/guard-mobile-form-state-machine.mjs",
     "stop:builds": "pkill -f 'next build' 2>/dev/null; pkill -f 'next-build-with-500' 2>/dev/null; pkill -f 'next-firebase-deploy' 2>/dev/null; pkill -f 'firebase-hosting-build' 2>/dev/null; rm -f .sectorcalc-build.lock .next-deploy.lock; echo 'Build processes cleaned.'",
-    "deploy": "node scripts/deploy-production.mjs"
+    "deploy": "node scripts/deploy-production.mjs",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "eslint --fix",
+      "node scripts/validate-invariants.js"
+    ],
+    "src/**/*.{js,mjs}": [
+      "node scripts/validate-invariants.js"
+    ]
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
@@ -207,6 +220,8 @@
     "eslint-config-next": "15.5.19",
     "fast-check": "^4.8.0",
     "firebase-tools": "^15.22.4",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.1.0",
     "playwright": "^1.61.1",
     "server-only": "^0.0.1",
     "tailwindcss": "^3.4.19",
