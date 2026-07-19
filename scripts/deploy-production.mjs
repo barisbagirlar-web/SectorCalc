@@ -114,6 +114,20 @@ function deployNode() {
   console.log("deploy-production: N3 deploy — Firebase Hosting + Firestore rules + SSR function…");
   console.log("deploy-production: (Firebase framework will reuse .next from N2 build)");
 
+  // CI runners start with a clean Firebase CLI state; webframeworks must be
+  // explicitly enabled or `firebase deploy` aborts before packaging the SSR
+  // function. Local machines often already have this flag persisted.
+  const enable = spawnSync(
+    "npx",
+    ["firebase", "experiments:enable", "webframeworks"],
+    { cwd: ROOT, stdio: "inherit", env: process.env },
+  );
+  if ((enable.status ?? 1) !== 0) {
+    console.error("deploy-production: N3 deploy FAILED — could not enable webframeworks experiment.");
+    return 1;
+  }
+  console.log("deploy-production: Firebase CLI experiments enabled: webframeworks");
+
   const result = spawnSync("npx", [
     "firebase",
     "deploy",
