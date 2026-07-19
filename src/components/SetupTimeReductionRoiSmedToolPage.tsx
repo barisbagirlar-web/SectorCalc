@@ -159,7 +159,8 @@ function chartPaybackSweep(x: SmedInputs, o: SmedOutputs, curSym: string): strin
 
 function chartHoursReclaimed(x: SmedInputs, o: SmedOutputs): string {
   const w = 680, h = 100, padL = 140, padR = 90, padT = 14, rowH = 30, gap = 14;
-  const currentHours = x.annualVolume * SECONDS_PER_YEAR * (x.setupTime / 3600);
+  const setupsPerYear = x.batchQuantity > 0 ? (x.annualVolume * SECONDS_PER_YEAR) / x.batchQuantity : 0;
+  const currentHours = setupsPerYear * (x.setupTime / 3600);
   const reclaimed = o.out_annual_hours_reclaimed;
   const remaining = currentHours - reclaimed;
   const max = currentHours;
@@ -433,8 +434,8 @@ export default function SetupTimeReductionRoiSmedToolPage() {
     const ins = buildInsights(rx, sealed, repCur);
     const fmtMoney = (v: number) => repCur + fmt(v);
     const currentSetupHrsPerChangeover = rx.setupTime / 3600;
-    const annualVolumeSetups = rx.annualVolume * SECONDS_PER_YEAR;
-    const currentAnnualSetupHrs = currentSetupHrsPerChangeover * annualVolumeSetups;
+    const setupsPerYear = rx.batchQuantity > 0 ? (rx.annualVolume * SECONDS_PER_YEAR) / rx.batchQuantity : 0;
+    const currentAnnualSetupHrs = currentSetupHrsPerChangeover * setupsPerYear;
     return (
       <div className="smed-report" ref={reportRef}>
         <div className="smed-rep-mast">
