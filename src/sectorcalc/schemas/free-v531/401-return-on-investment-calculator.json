@@ -1,0 +1,929 @@
+{
+  "tool_id": "FREE_401_RETURN_ON_INVESTMENT_CALCULATOR",
+  "tool_key": "return-on-investment-calculator",
+  "tool_name": "Return on Investment Calculator",
+  "category": "Quote & SME Finance",
+  "scope": "Calculate return on investment, net gain, payback period, and compound annualized ROI for a single-project screening case.",
+  "primary_operation": "return_on_investment_calculator_decision_screening",
+  "decision_context": {
+    "system_boundary": "Return on Investment Calculator evaluates one controlled capital-screening boundary inside Quote & SME Finance and excludes broad ERP, portfolio, or multi-project optimization workflows.",
+    "single_operation_scope": "Calculate and evaluate return on investment using user-verified investment cost, total return, annual net benefit, and hurdle rate.",
+    "decision_owner": "operator, engineer, owner_cfo, or checker_auditor depending on selected profile mode",
+    "decision_after_output": "Decide whether to proceed, hold, revise, reject, or escalate the capital project based on ROI, payback, and annualized ROI screening metrics.",
+    "cost_of_wrong_decision": "Wrong machine investment payback calculator result can cause rework, wrong quote, missed capacity, unsafe screening confidence, downtime, cash leakage, or unnecessary escalation.",
+    "failure_mode_if_formula_wrong": "False PASS, false REPRICE, false HOLD, hidden evidence gap, wrong unit conversion, or public formula leakage.",
+    "primary_metric": "roi_pct",
+    "secondary_metrics": [
+      "margin_index",
+      "expanded_uncertainty",
+      "money_at_risk",
+      "primary_decision_state"
+    ],
+    "required_source_documents": [
+      "user-verified source evidence for critical inputs",
+      "unit source confirmation",
+      "measurement or quotation record when available",
+      "calibration or uncertainty note when measured values are used"
+    ],
+    "excluded_use_cases": [
+      "certified compliance claim",
+      "legal proof",
+      "replacement for qualified engineering review",
+      "replacement for official tax or regulatory advice",
+      "broad multi-operation ERP workflow"
+    ],
+    "field_use_limitations": [
+      "Screening-grade decision support only.",
+      "Exact acceptance limits must come from user-verified project, asset, standard, material, tax, or commercial source.",
+      "Public output must not expose internal formula expressions."
+    ],
+    "tool_use_classification": "DECISION_SUPPORT_ONLY_NOT_CERTIFICATION"
+  },
+  "irreversible_commitment_metric": {
+    "primary": "money_at_risk",
+    "technical": "roi_pct",
+    "confidence": "evidence_confidence_and_uncertainty_crossing",
+    "description": "Machine Investment Payback Calculator should not create an irreversible purchase, quote, production, safety, or capital commitment without source verification and review when thresholds are crossed."
+  },
+  "standards": [
+    {
+      "name": "Principles of Corporate Finance (Brealey, Myers & Allen)",
+      "role": "Capital budgeting and NPV decision framework context",
+      "status": "REFERENCE_CONTEXT",
+      "restricted_table_reproduction": "FORBIDDEN"
+    },
+    {
+      "name": "Fundamentals of Corporate Finance (Ross, Westerfield & Jordan)",
+      "role": "Discounted cash-flow valuation and IRR interpretation context",
+      "status": "REFERENCE_CONTEXT",
+      "restricted_table_reproduction": "FORBIDDEN"
+    },
+    {
+      "name": "CFA Program Curriculum — Corporate Finance",
+      "role": "NPV, IRR, and payback screening methodology context",
+      "status": "REFERENCE_CONTEXT",
+      "restricted_table_reproduction": "FORBIDDEN"
+    },
+    {
+      "name": "User-entered currency context",
+      "role": "Single-currency cash-flow entry without FX conversion",
+      "status": "CONTEXT_ONLY",
+      "restricted_table_reproduction": "FORBIDDEN"
+    }
+  ],
+  "standards_clause_map": [],
+  "reference_status": {
+    "overall": "FINANCE_METHOD_REFERENCE_CONTEXT",
+    "exact_standard_clauses_supplied_by_user": false,
+    "standards_clause_map_policy": "EMPTY_UNLESS_USER_SUPPLIES_EXACT_REFERENCES",
+    "restricted_table_reproduction": "FORBIDDEN"
+  },
+  "risk_level": "HIGH",
+  "brand_safety_policy": {
+    "third_party_brand_use": "FORBIDDEN",
+    "comparative_brand_language": "FORBIDDEN",
+    "affiliation_implication": "FORBIDDEN",
+    "competitor_name_generation": "FORBIDDEN",
+    "public_output_brand_mentions": "FORBIDDEN",
+    "legal_proof_claim": "FORBIDDEN",
+    "certified_compliance_claim": "FORBIDDEN",
+    "allowed_description": "Generic professional engineering evidence pattern",
+    "approved_terms": [
+      "review-ready calculation evidence",
+      "auditable engineering calculation note",
+      "checker-ready calculation summary",
+      "engineering proof pack",
+      "standards-context calculation dossier",
+      "source-evidence calculation record",
+      "audit-ready decision support"
+    ],
+    "violation_behavior": "REJECT_SCHEMA"
+  },
+  "calculation_basis": {
+    "mode": "DETERMINISTIC_RUNTIME",
+    "single_operation": true,
+    "not_basic_calculator": true,
+    "calculation_character": "Protected server-side ROI kernel: computes ROI from net gain over investment cost, simple payback when annual net benefit is positive, and compound annualized ROI over the stated horizon.",
+    "public_formula_expression_policy": "FORBIDDEN",
+    "server_formula_registry_required": true,
+    "runtime_llm_usage": "FORBIDDEN",
+    "normalized_base_unit_inputs_only": true
+  },
+  "unit_system": {
+    "primary": "SI",
+    "secondary": "IMPERIAL",
+    "user_selectable": true,
+    "default": "SI",
+    "conversion_policy": "Allow-all with user verification"
+  },
+  "unit_conversion_contract": {
+    "internal_base_system": "SI",
+    "currency_policy": "No currency conversion — user provides single-currency values",
+    "temperature_policy": "Absolute and interval distinction",
+    "conversion_registry": {},
+    "unsupported_conversion_behavior": "BLOCK_CALCULATION",
+    "unit_change_behavior": "PRESERVE_PHYSICAL_QUANTITY",
+    "formula_input_rule": "FORMULAS_USE_NORMALIZED_BASE_UNITS_ONLY"
+  },
+  "inputs": [
+    {
+      "id": "investment_cost",
+      "name": "Investment Cost",
+      "symbol": "C",
+      "quantity_kind": "currency",
+      "unit_selectable": false,
+      "base_unit": null,
+      "allowed_display_units": [],
+      "normalized_id": "n_investment_cost",
+      "type": "number",
+      "required": true,
+      "criticality": "HIGH",
+      "source_status": "USER_VERIFIED",
+      "confidence_label": "USER_VERIFIED",
+      "physical_hard_bounds": {
+        "min": 0.0001,
+        "max": 1000000000,
+        "unit": "currency",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK",
+        "semantic_error_message_min": "Investment cost must be greater than zero.",
+        "semantic_error_message_max": "Investment cost exceeds the permitted upper bound."
+      },
+      "engineering_range": {
+        "min": 1000,
+        "max": 50000000,
+        "unit": "currency",
+        "source": "Typical industrial capex screening band; user must verify against the approved quote or business case.",
+        "status": "USER_VERIFIED"
+      },
+      "reference_values": {
+        "reference_value_type": "USER_VERIFIED",
+        "source": "Total capital outlay for the project. Must be greater than zero.",
+        "reference_status": "USER_VERIFIED",
+        "user_must_verify": true,
+        "public_note": "Total capital outlay for the project. Must be greater than zero."
+      },
+      "evidence_requirement": {
+        "required": true,
+        "accepted_evidence": [
+          "Approved capex quote",
+          "Business case memo",
+          "Vendor proposal",
+          "Operating forecast"
+        ],
+        "missing_evidence_behavior": "REVIEW",
+        "public_help_text": "Verify the investment cost source before approval."
+      },
+      "formula_bindings": [
+        "F_ROI_CORE"
+      ],
+      "output_bindings": [
+        "roi_pct",
+        "net_gain",
+        "payback_period_years",
+        "annualized_roi_pct"
+      ],
+      "default_policy": "NO_DEFAULT",
+      "user_help_text": "Total capital outlay for the project. Must be greater than zero.",
+      "help_text": "Total capital outlay for the project. Must be greater than zero."
+    },
+    {
+      "id": "total_return",
+      "name": "Total Return",
+      "symbol": "R",
+      "quantity_kind": "currency",
+      "unit_selectable": false,
+      "base_unit": null,
+      "allowed_display_units": [],
+      "normalized_id": "n_total_return",
+      "type": "number",
+      "required": true,
+      "criticality": "HIGH",
+      "source_status": "USER_VERIFIED",
+      "confidence_label": "USER_VERIFIED",
+      "physical_hard_bounds": {
+        "min": 0,
+        "max": 1000000000,
+        "unit": "currency",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK",
+        "semantic_error_message_min": "Total return cannot be negative.",
+        "semantic_error_message_max": "Total return exceeds the permitted upper bound."
+      },
+      "engineering_range": {
+        "min": 0,
+        "max": 100000000,
+        "unit": "currency",
+        "source": "Total project return including recovered capital and net gain.",
+        "status": "USER_VERIFIED"
+      },
+      "reference_values": {
+        "reference_value_type": "USER_VERIFIED",
+        "source": "Total project return including recovered capital and net gain. Must be zero or greater.",
+        "reference_status": "USER_VERIFIED",
+        "user_must_verify": true,
+        "public_note": "Total project return including recovered capital and net gain. Must be zero or greater."
+      },
+      "evidence_requirement": {
+        "required": true,
+        "accepted_evidence": [
+          "Approved capex quote",
+          "Business case memo",
+          "Vendor proposal",
+          "Operating forecast"
+        ],
+        "missing_evidence_behavior": "REVIEW",
+        "public_help_text": "Verify the total return source before approval."
+      },
+      "formula_bindings": [
+        "F_ROI_CORE"
+      ],
+      "output_bindings": [
+        "roi_pct",
+        "net_gain",
+        "payback_period_years",
+        "annualized_roi_pct"
+      ],
+      "default_policy": "NO_DEFAULT",
+      "user_help_text": "Total project return including recovered capital and net gain. Must be zero or greater.",
+      "help_text": "Total project return including recovered capital and net gain. Must be zero or greater."
+    },
+    {
+      "id": "annual_net_benefit",
+      "name": "Annual Net Benefit",
+      "symbol": "B",
+      "quantity_kind": "currency",
+      "unit_selectable": false,
+      "base_unit": null,
+      "allowed_display_units": [],
+      "normalized_id": "n_annual_net_benefit",
+      "type": "number",
+      "required": true,
+      "criticality": "HIGH",
+      "source_status": "USER_VERIFIED",
+      "confidence_label": "USER_VERIFIED",
+      "physical_hard_bounds": {
+        "min": 0,
+        "max": 1000000000,
+        "unit": "currency",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK",
+        "semantic_error_message_min": "Annual net benefit cannot be negative.",
+        "semantic_error_message_max": "Annual net benefit exceeds the permitted upper bound."
+      },
+      "engineering_range": {
+        "min": 0,
+        "max": 5000000,
+        "unit": "currency",
+        "source": "Average annual net benefit used for simple payback screening.",
+        "status": "USER_VERIFIED"
+      },
+      "reference_values": {
+        "reference_value_type": "USER_VERIFIED",
+        "source": "Average annual net benefit used for simple payback screening. Must be zero or greater.",
+        "reference_status": "USER_VERIFIED",
+        "user_must_verify": true,
+        "public_note": "Average annual net benefit used for simple payback screening. Must be zero or greater."
+      },
+      "evidence_requirement": {
+        "required": true,
+        "accepted_evidence": [
+          "Approved capex quote",
+          "Business case memo",
+          "Vendor proposal",
+          "Operating forecast"
+        ],
+        "missing_evidence_behavior": "REVIEW",
+        "public_help_text": "Verify the annual net benefit source before approval."
+      },
+      "formula_bindings": [
+        "F_ROI_CORE"
+      ],
+      "output_bindings": [
+        "roi_pct",
+        "net_gain",
+        "payback_period_years",
+        "annualized_roi_pct"
+      ],
+      "default_policy": "NO_DEFAULT",
+      "user_help_text": "Average annual net benefit used for simple payback screening. Must be zero or greater.",
+      "help_text": "Average annual net benefit used for simple payback screening. Must be zero or greater."
+    },
+    {
+      "id": "horizon_years",
+      "name": "Horizon (Years)",
+      "symbol": "N",
+      "quantity_kind": "dimensionless",
+      "unit_selectable": false,
+      "base_unit": "years",
+      "allowed_display_units": [
+        "years"
+      ],
+      "normalized_id": "n_horizon_years",
+      "type": "integer",
+      "required": true,
+      "criticality": "HIGH",
+      "source_status": "USER_VERIFIED",
+      "confidence_label": "USER_VERIFIED",
+      "physical_hard_bounds": {
+        "min": 1,
+        "max": 30,
+        "unit": "years",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK",
+        "semantic_error_message_min": "Horizon must be at least 1 year.",
+        "semantic_error_message_max": "Horizon cannot exceed 30 years in this screening tool."
+      },
+      "engineering_range": {
+        "min": 1,
+        "max": 30,
+        "unit": "years",
+        "source": "Free-tool annualized ROI horizon limit.",
+        "status": "USER_VERIFIED"
+      },
+      "reference_values": {
+        "reference_value_type": "USER_VERIFIED",
+        "source": "Study horizon in whole years from 1 to 30 for compound annualized ROI.",
+        "reference_status": "USER_VERIFIED",
+        "user_must_verify": true,
+        "public_note": "Study horizon in whole years from 1 to 30 for compound annualized ROI."
+      },
+      "evidence_requirement": {
+        "required": true,
+        "accepted_evidence": [
+          "Approved capex quote",
+          "Business case memo",
+          "Vendor proposal",
+          "Operating forecast"
+        ],
+        "missing_evidence_behavior": "REVIEW",
+        "public_help_text": "Verify the horizon (years) source before approval."
+      },
+      "formula_bindings": [
+        "F_ROI_CORE",
+        "F_ANNUALIZED_ROI"
+      ],
+      "output_bindings": [
+        "roi_pct",
+        "net_gain",
+        "payback_period_years",
+        "annualized_roi_pct"
+      ],
+      "default_policy": "NO_DEFAULT",
+      "user_help_text": "Study horizon in whole years from 1 to 30 for compound annualized ROI.",
+      "help_text": "Study horizon in whole years from 1 to 30 for compound annualized ROI."
+    },
+    {
+      "id": "hurdle_rate_pct",
+      "name": "Hurdle Rate (%)",
+      "symbol": "h",
+      "quantity_kind": "ratio_or_percent",
+      "unit_selectable": false,
+      "base_unit": "percent",
+      "allowed_display_units": [
+        "percent"
+      ],
+      "normalized_id": "n_hurdle_rate_pct",
+      "type": "number",
+      "required": false,
+      "criticality": "MEDIUM",
+      "source_status": "USER_VERIFIED",
+      "confidence_label": "USER_VERIFIED",
+      "physical_hard_bounds": {
+        "min": 0,
+        "max": 99.9999,
+        "unit": "percent",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK",
+        "semantic_error_message_min": "Hurdle rate cannot be negative.",
+        "semantic_error_message_max": "Hurdle rate must be less than 100 percent."
+      },
+      "engineering_range": {
+        "min": 0,
+        "max": 50,
+        "unit": "percent",
+        "source": "Typical industrial hurdle-rate screening band; user must verify against company policy.",
+        "status": "USER_VERIFIED"
+      },
+      "reference_values": {
+        "reference_value_type": "USER_VERIFIED",
+        "source": "Minimum acceptable ROI percent for PASS screening. Defaults to zero when omitted.",
+        "reference_status": "USER_VERIFIED",
+        "user_must_verify": true,
+        "public_note": "Minimum acceptable ROI percent for PASS screening. Defaults to zero when omitted."
+      },
+      "evidence_requirement": {
+        "required": true,
+        "accepted_evidence": [
+          "Approved capex quote",
+          "Business case memo",
+          "Vendor proposal",
+          "Operating forecast"
+        ],
+        "missing_evidence_behavior": "REVIEW",
+        "public_help_text": "Verify the hurdle rate (%) source before approval."
+      },
+      "formula_bindings": [
+        "F_ROI_CORE"
+      ],
+      "output_bindings": [
+        "roi_pct",
+        "net_gain",
+        "payback_period_years",
+        "annualized_roi_pct"
+      ],
+      "default_policy": "DEFAULT_ZERO",
+      "user_help_text": "Minimum acceptable ROI percent for PASS screening. Defaults to zero when omitted.",
+      "help_text": "Minimum acceptable ROI percent for PASS screening. Defaults to zero when omitted."
+    }
+  ],
+  "normalized_inputs": [
+    {
+      "id": "n_investment_cost",
+      "from_input": "investment_cost",
+      "quantity_kind": "currency",
+      "base_unit": "user_unit"
+    },
+    {
+      "id": "n_total_return",
+      "from_input": "total_return",
+      "quantity_kind": "currency",
+      "base_unit": "user_unit"
+    },
+    {
+      "id": "n_annual_net_benefit",
+      "from_input": "annual_net_benefit",
+      "quantity_kind": "currency",
+      "base_unit": "user_unit"
+    },
+    {
+      "id": "n_horizon_years",
+      "from_input": "horizon_years",
+      "quantity_kind": "dimensionless",
+      "base_unit": "years"
+    },
+    {
+      "id": "n_hurdle_rate_pct",
+      "from_input": "hurdle_rate_pct",
+      "quantity_kind": "ratio_or_percent",
+      "base_unit": "percent"
+    }
+  ],
+  "reference_value_policy": {
+    "policy": "USER_MUST_VERIFY",
+    "default_status": "USER_VERIFIED",
+    "critical_input_requires_verified_source": true,
+    "non_critical_input_accepts_context_only": true,
+    "restricted_table_reproduction": "FORBIDDEN"
+  },
+  "form_runtime_binding": {
+    "renderer": "UniversalIndustrialDecisionForm",
+    "schema_generation_runtime": "V5.3.1 automated generation",
+    "llm_runtime_usage": "FORBIDDEN",
+    "client_formula_execution": "FORBIDDEN",
+    "server_execution_required": true,
+    "state_management_required": true,
+    "dynamic_ui_contract_required": true,
+    "json_schema_form_substrate_allowed": true,
+    "generic_json_schema_form_alone_sufficient": false,
+    "state_domains": [
+      "schemaState",
+      "profileModeState",
+      "rawInputState",
+      "selectedUnitState",
+      "normalizedPreviewState",
+      "evidenceState",
+      "touchedState",
+      "validationState",
+      "referenceRangeState",
+      "blockerState",
+      "advancedDisclosureState",
+      "scenarioState",
+      "executionState",
+      "serverResponseState",
+      "auditSealState",
+      "exportState"
+    ],
+    "state_transitions": [
+      "INIT_SCHEMA",
+      "VALIDATE_SCHEMA_CONTRACT",
+      "SET_PROFILE_MODE",
+      "SET_INPUT_VALUE",
+      "SET_SELECTED_UNIT",
+      "PRESERVE_PHYSICAL_QUANTITY_ON_UNIT_CHANGE",
+      "UPDATE_NORMALIZED_PREVIEW",
+      "UPDATE_EVIDENCE_STATUS",
+      "RUN_CLIENT_PRECHECK",
+      "BLOCK_CLIENT_EXECUTION",
+      "SUBMIT_SERVER_EXECUTION",
+      "RECEIVE_SERVER_RESPONSE",
+      "RECEIVE_SERVER_BLOCKERS",
+      "RECEIVE_SERVER_ERROR",
+      "RESET_INPUTS",
+      "RESET_RESULT_ONLY"
+    ],
+    "execute_request_contract": {
+      "tool_id": "string",
+      "tool_key": "string",
+      "schema_version": "string",
+      "raw_inputs": "Record<string, unknown>",
+      "selected_units": "Record<string, string>",
+      "output_units": "Record<string, string>",
+      "display_currency": "string | null",
+      "user_profile_mode": "ProfileMode"
+    },
+    "execute_response_contract": {
+      "status": "CalcStatus",
+      "outputs": "ServerOutput[]",
+      "warnings": "ServerWarning[]",
+      "normalized_input_audit": "NormalizedInputAudit[]",
+      "decision_interpretation": "DecisionInterpretation",
+      "audit_seal": "AuditSeal",
+      "redaction_status": "RedactionStatus"
+    }
+  },
+  "physical_bounds_policy": {
+    "policy": "NO_AUTOMATIC_BOUNDS_FOR_PUBLIC_FREE_TOOLS",
+    "default_violation_behavior": "WARNING_ONLY",
+    "critical_input_requires_user_set_bounds": true,
+    "non_critical_input_uses_reference_range_only": true
+  },
+  "validation_contract": {
+    "fail_closed": true,
+    "semantic_errors_required": true,
+    "rules": [
+      {
+        "id": "V_MISSING_REQUIRED",
+        "type": "REQUIRED_INPUT",
+        "affected_inputs": [
+          "investment_cost",
+          "total_return",
+          "annual_net_benefit",
+          "horizon_years"
+        ],
+        "level": "BLOCK",
+        "message": "All required input values must be provided.",
+        "semantic_message": "Enter a value for this required input before calculation."
+      },
+      {
+        "id": "V_NUMERIC_RANGE",
+        "type": "NUMERIC_RANGE",
+        "affected_inputs": [
+          "investment_cost",
+          "total_return",
+          "annual_net_benefit",
+          "horizon_years",
+          "hurdle_rate_pct"
+        ],
+        "level": "WARN",
+        "message": "Check input value range.",
+        "semantic_message": "The entered value may be outside expected range."
+      }
+    ],
+    "custom_validation": "Server-side formula validation",
+    "preflight_validation_required": true,
+    "error_message_style": "Semantic with field reference"
+  },
+  "derating_contract": {
+    "enabled": false,
+    "policy": "No automatic derating for free screening tools.",
+    "derating_factors": []
+  },
+  "precision_policy": {
+    "input_decimals": null,
+    "display_decimals": 2,
+    "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
+    "rounding_rule": "DISPLAY_ONLY"
+  },
+  "formulas": [
+    {
+      "id": "F_ROI_CORE",
+      "name": "Return on investment from net gain over investment cost",
+      "visibility": {
+        "public_ui": false,
+        "public_export": false,
+        "internal_admin_trace": true
+      },
+      "expression": "INTERNAL_SERVER_ONLY_EXPRESSION_NOT_FOR_PUBLIC_UI",
+      "uses": [
+        "n_investment_cost",
+        "n_total_return",
+        "n_hurdle_rate_pct"
+      ],
+      "output": "roi_pct",
+      "unit": "percent",
+      "proof_role": "PRIMARY_DECISION",
+      "assumptions": [
+        "Single-period total return versus investment cost",
+        "No discount-rate adjustment in the free screening model"
+      ],
+      "limitations": [
+        "Screening-grade ROI support only"
+      ],
+      "edge_cases": [
+        "Negative net gain yields negative ROI"
+      ],
+      "public_proof_summary": "ROI is computed server-side as net gain divided by investment cost, multiplied by 100.",
+      "protected_methodology_summary": "Formula execution remains server-only and is not exposed in public UI.",
+      "checker_note": "Verify investment cost and total return use the same currency basis.",
+      "formula_leak_risk": "MEDIUM",
+      "public_formula_expression_policy": "FORBIDDEN",
+      "validation_notes": "Non-finite inputs are blocked before execution.",
+      "calculation_assumptions": "Uses Big.js decimal arithmetic for ROI and net gain."
+    },
+    {
+      "id": "F_PAYBACK",
+      "name": "Simple payback period from annual net benefit",
+      "visibility": {
+        "public_ui": false,
+        "public_export": false,
+        "internal_admin_trace": true
+      },
+      "expression": "INTERNAL_SERVER_ONLY_EXPRESSION_NOT_FOR_PUBLIC_UI",
+      "uses": [
+        "n_investment_cost",
+        "n_annual_net_benefit"
+      ],
+      "output": "payback_period_years",
+      "unit": "years",
+      "proof_role": "SECONDARY_METRIC",
+      "assumptions": [
+        "Linear recovery from constant annual net benefit"
+      ],
+      "limitations": [
+        "Ignores time value of money"
+      ],
+      "edge_cases": [
+        "Output omitted when annual net benefit is zero"
+      ],
+      "public_proof_summary": "Payback is reported only when annual net benefit is positive.",
+      "protected_methodology_summary": "Payback logic remains server-only.",
+      "checker_note": "Compare payback against policy limits separately from ROI.",
+      "formula_leak_risk": "LOW",
+      "public_formula_expression_policy": "FORBIDDEN",
+      "validation_notes": "Output omitted when annual net benefit is zero.",
+      "calculation_assumptions": "Uses Big.js division for payback timing."
+    },
+    {
+      "id": "F_ANNUALIZED_ROI",
+      "name": "Compound annualized ROI over the stated horizon",
+      "visibility": {
+        "public_ui": false,
+        "public_export": false,
+        "internal_admin_trace": true
+      },
+      "expression": "INTERNAL_SERVER_ONLY_EXPRESSION_NOT_FOR_PUBLIC_UI",
+      "uses": [
+        "n_horizon_years"
+      ],
+      "output": "annualized_roi_pct",
+      "unit": "percent",
+      "proof_role": "SECONDARY_METRIC",
+      "assumptions": [
+        "Geometric mean annualization from total ROI over the horizon"
+      ],
+      "limitations": [
+        "Not equivalent to discount-rate-based IRR or NPV"
+      ],
+      "edge_cases": [
+        "Extremely negative ROI may block compound annualization"
+      ],
+      "public_proof_summary": "Compound annualized ROI uses geometric mean annualization over the stated horizon.",
+      "protected_methodology_summary": "Annualization logic remains server-only.",
+      "checker_note": "Disclose compound versus simple linear annualization when reporting.",
+      "formula_leak_risk": "LOW",
+      "public_formula_expression_policy": "FORBIDDEN",
+      "validation_notes": "Compound annualized ROI uses fractional exponent conversion at the presentation boundary.",
+      "calculation_assumptions": "Core ROI uses Big.js; compound annualization uses a bounded numeric exponent step."
+    }
+  ],
+  "outputs": [
+    {
+      "id": "roi_pct",
+      "name": "Return on Investment (%)",
+      "value": null,
+      "unit": "percent",
+      "status": "REVIEW",
+      "formula_source": "F_ROI_CORE",
+      "public_explanation": "Primary ROI decision metric for the project against the stated hurdle rate.",
+      "operator_explanation": "Compare ROI to the hurdle rate when deciding whether to proceed.",
+      "engineer_explanation": "Review return assumptions and cost basis before approval.",
+      "owner_cfo_explanation": "Use ROI versus hurdle rate as the primary accept/reject screening signal.",
+      "checker_explanation": "Verify investment cost and total return evidence before accepting the result.",
+      "decision_use": "Primary decision indicator",
+      "evidence_level": "SCREENING_ONLY"
+    },
+    {
+      "id": "net_gain",
+      "name": "Net Gain",
+      "value": null,
+      "unit": "currency",
+      "status": "REVIEW",
+      "formula_source": "F_ROI_CORE",
+      "public_explanation": "Total return minus investment cost for the selected project boundary.",
+      "operator_explanation": "Shows absolute gain or loss behind the ROI percentage.",
+      "engineer_explanation": "Confirm salvage value and operating benefits are included in total return.",
+      "owner_cfo_explanation": "Absolute gain indicator supporting ROI screening.",
+      "checker_explanation": "Verify net gain build-up from approved business-case evidence.",
+      "decision_use": "Secondary metric",
+      "evidence_level": "SCREENING_ONLY"
+    },
+    {
+      "id": "payback_period_years",
+      "name": "Payback Period (Years)",
+      "value": null,
+      "unit": "years",
+      "status": "REVIEW",
+      "formula_source": "F_PAYBACK",
+      "public_explanation": "Simple payback period when annual net benefit is positive.",
+      "operator_explanation": "Liquidity recovery timing without discounting.",
+      "engineer_explanation": "Compare against policy payback limits separately from ROI.",
+      "owner_cfo_explanation": "Liquidity timing indicator only.",
+      "checker_explanation": "Verify annual net benefit basis.",
+      "decision_use": "Liquidity indicator",
+      "evidence_level": "SCREENING_ONLY"
+    },
+    {
+      "id": "annualized_roi_pct",
+      "name": "Annualized ROI (%)",
+      "value": null,
+      "unit": "percent",
+      "status": "REVIEW",
+      "formula_source": "F_ANNUALIZED_ROI",
+      "public_explanation": "Compound annualized ROI over the stated horizon.",
+      "operator_explanation": "Useful when comparing projects with different horizons.",
+      "engineer_explanation": "Not equivalent to IRR or discount-rate-based annual return.",
+      "owner_cfo_explanation": "Secondary annualization metric with explicit compound assumption.",
+      "checker_explanation": "Disclose compound versus simple linear annualization.",
+      "decision_use": "Secondary metric",
+      "evidence_level": "SCREENING_ONLY"
+    },
+    {
+      "id": "primary_decision_state",
+      "name": "Decision State",
+      "value": null,
+      "unit": null,
+      "status": "REVIEW",
+      "formula_source": null,
+      "public_explanation": "PASS when ROI exceeds the hurdle rate, REVIEW when equal, REJECT when below.",
+      "operator_explanation": "Follow the suggested action based on the decision state.",
+      "engineer_explanation": "Decision state reflects ROI versus the stated hurdle rate.",
+      "owner_cfo_explanation": "Use the decision state to guide next actions.",
+      "checker_explanation": "Verify the decision state logic against your approval policy.",
+      "decision_use": "Decision guidance",
+      "evidence_level": "SCREENING_ONLY"
+    }
+  ],
+  "output_formatting": {
+    "default_decimals": 2,
+    "money_decimals": 2,
+    "ratio_decimals": 4,
+    "percent_display_allowed": true,
+    "rounding_rule": "DISPLAY_ONLY",
+    "non_color_status_labels_required": true,
+    "public_formula_expression_visible": false
+  },
+  "decision_interpretation_contract": {
+    "always_include_decision_state": true,
+    "always_include_hidden_risk": true,
+    "always_include_next_actions": true,
+    "always_include_premium_unlock_reason": true,
+    "profile_modes": [
+      "operator",
+      "engineer",
+      "owner_cfo",
+      "checker_auditor"
+    ]
+  },
+  "business_impact_contract": {
+    "enabled": false,
+    "currency": null,
+    "description": "Business impact analysis not available for free screening tools."
+  },
+  "engine_rules": {
+    "deterministic_execution": true,
+    "formula_redaction_policy": "REDACT_ALL_PUBLIC_FORMULA_EXPRESSIONS",
+    "public_formula_expression_policy": "FORBIDDEN",
+    "llm_runtime_usage": "FORBIDDEN",
+    "client_formula_execution": "FORBIDDEN"
+  },
+  "uncertainty_model": {
+    "model": "NONE",
+    "description": "No uncertainty propagation for free screening tools."
+  },
+  "safety_factor_gauges": [],
+  "proof_pack": {
+    "enabled": true,
+    "redaction_status": "PUBLIC_SAFE_REDACTED",
+    "sections": [
+      {
+        "id": "execution_summary",
+        "title": "Execution Summary",
+        "public_content": "Calculation executed server-side. Results are for decision support only."
+      },
+      {
+        "id": "standard_refs",
+        "title": "Standards Context",
+        "public_content": "This calculation references engineering standards contextually. Full reproduction of tables is forbidden."
+      }
+    ]
+  },
+  "audit_trail_contract": {
+    "enabled": true,
+    "events": [
+      "SCHEMA_LOAD",
+      "INPUT_ENTRY",
+      "UNIT_SELECTION",
+      "EXECUTION",
+      "RESULT_VIEW"
+    ],
+    "required_for_export": true
+  },
+  "export_contract": {
+    "pdf_enabled": true,
+    "json_audit_enabled": true,
+    "copy_summary_enabled": false,
+    "cad_bim_erp_export": {
+      "status": "FUTURE_OPTIONAL_OR_CUSTOM_IMPLEMENTATION",
+      "allowed_formats": []
+    },
+    "free_tier_export_disabled": true,
+    "pdf_generates_free_tier_paywall_message": true
+  },
+  "ui_contract": {
+    "target_renderer": "UniversalIndustrialDecisionForm",
+    "profile_modes": [
+      "quick",
+      "engineering",
+      "cost",
+      "audit"
+    ],
+    "input_groups": [
+      {
+        "id": "primary_inputs",
+        "title": "Inputs",
+        "description": "Enter the required values for calculation.",
+        "fields": [
+          "investment_cost",
+          "total_return",
+          "annual_net_benefit",
+          "horizon_years",
+          "hurdle_rate_pct"
+        ],
+        "mode_visibility": [
+          "quick",
+          "engineering",
+          "cost",
+          "audit"
+        ],
+        "visible_in_modes": [
+          "quick",
+          "engineering",
+          "cost",
+          "audit"
+        ]
+      }
+    ],
+    "sticky_decision_cockpit": true,
+    "mobile_bottom_action_bar": true,
+    "normalized_preview_required": true,
+    "reference_values_visible": true,
+    "evidence_controls_required": false,
+    "semantic_error_summary_required": true,
+    "safety_factor_gauges_required": false,
+    "hidden_risk_panel_required": true,
+    "business_impact_panel_required": false,
+    "standards_clause_panel_required": false,
+    "protected_methodology_panel_required": true,
+    "audit_seal_panel_required": true,
+    "accessibility": {
+      "high_contrast_supported": true,
+      "keyboard_navigation": true,
+      "screen_reader_labels": true,
+      "min_touch_target": "44px"
+    }
+  },
+  "reference_code": {
+    "policy": "No public reference tables reproduced.",
+    "reproduction_policy": "FORBIDDEN"
+  },
+  "test_plan": {
+    "policy": "Golden hash comparison via tests/golden/.",
+    "required_pass_rate": "100%"
+  },
+  "red_team_review": {
+    "status": "AUTOMATED",
+    "findings": []
+  },
+  "metadata": {
+    "schema_version": "5.3.1",
+    "formula_version": "5.3.1",
+    "prompt_version": "5.3.1",
+    "generation_method": "automated_from_formula_registry",
+    "generation_date": "2026-07-20",
+    "source_formula": "return-on-investment-calculator",
+    "tool_id": "FREE_401_RETURN_ON_INVESTMENT_CALCULATOR",
+    "tool_key": "return-on-investment-calculator",
+    "tool_name": "Return on Investment Calculator"
+  }
+}

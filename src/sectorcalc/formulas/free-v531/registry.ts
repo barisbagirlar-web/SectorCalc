@@ -48,6 +48,8 @@ import concreteVolumeOrderQuantityFormula from "./concrete-volume-order-quantity
 import rebarWeightCountFormula from "./rebar-weight-count.formula";
 import recipeCostMenuPriceFormula from "./recipe-cost-menu-price.formula";
 import fabricConsumptionGsmFormula from "./fabric-consumption-gsm.formula";
+import netPresentValueFormula from "./net-present-value-calculator.formula";
+import returnOnInvestmentFormula from "./return-on-investment-calculator.formula";
 
 import type { FreeV531FormulaModule } from "./types";
 
@@ -102,6 +104,8 @@ export const freeV531FormulaRegistryMirror: Readonly<Record<string, FreeV531Form
   "rebar-weight-count": rebarWeightCountFormula,
   "recipe-cost-menu-price": recipeCostMenuPriceFormula,
   "fabric-consumption-gsm": fabricConsumptionGsmFormula,
+  "net-present-value-calculator": netPresentValueFormula,
+  "return-on-investment-calculator": returnOnInvestmentFormula,
 };
 
 export { default as machiningCostPerPartFormula } from "./machining-cost-per-part.formula";
@@ -154,4 +158,6 @@ export { default as concreteVolumeOrderQuantityFormula } from "./concrete-volume
 export { default as rebarWeightCountFormula } from "./rebar-weight-count.formula";
 export { default as recipeCostMenuPriceFormula } from "./recipe-cost-menu-price.formula";
 export { default as fabricConsumptionGsmFormula } from "./fabric-consumption-gsm.formula";
+export { default as netPresentValueFormula } from "./net-present-value-calculator.formula";
+export { default as returnOnInvestmentFormula } from "./return-on-investment-calculator.formula";
 export * from "./types";

@@ -291,7 +291,10 @@ const FREE_TOOLS: FreeToolManifestEntry[] = [
   { slug: "viscous_pump_power_calculator", toolKey: "viscous_pump_power_calculator", toolName: "Viscous Pump Power Calculator", route: "/tools/free/viscous_pump_power_calculator", accessTier: "FREE" },
   { slug: "volumetric_weight_calculator", toolKey: "volumetric_weight_calculator", toolName: "Volumetric Weight Calculator", route: "/tools/free/volumetric_weight_calculator", accessTier: "FREE" },
   { slug: "von-mises-stress-calculator", toolKey: "von-mises-stress-calculator", toolName: "Von Mises Stress Calculator", route: "/tools/free/von-mises-stress-calculator", accessTier: "FREE" },
+  { slug: "net-present-value-calculator", toolKey: "net-present-value-calculator", toolName: "Net Present Value Calculator", route: "/tools/free/net-present-value-calculator", accessTier: "FREE" },
+  { slug: "return-on-investment-calculator", toolKey: "return-on-investment-calculator", toolName: "Return on Investment Calculator", route: "/tools/free/return-on-investment-calculator", accessTier: "FREE" },
   { slug: "vswr_calculator", toolKey: "vswr_calculator", toolName: "Vswr Calculator", route: "/tools/free/vswr_calculator", accessTier: "FREE" },
+
   { slug: "wacc_calculator", toolKey: "wacc_calculator", toolName: "Wacc Calculator", route: "/tools/free/wacc_calculator", accessTier: "FREE" },
   { slug: "wallpaper_roll_calculator", toolKey: "wallpaper_roll_calculator", toolName: "Wallpaper Roll Calculator", route: "/tools/free/wallpaper_roll_calculator", accessTier: "FREE" },
   { slug: "warehouse_capacity_calculator", toolKey: "warehouse_capacity_calculator", toolName: "Warehouse Capacity Calculator", route: "/tools/free/warehouse_capacity_calculator", accessTier: "FREE" },

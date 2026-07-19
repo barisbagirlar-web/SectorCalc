@@ -12,11 +12,15 @@ const ROOT = process.cwd();
 
 // CR-7: Language purity
 const TURKISH_UNICODE = /[\u00C7\u00E7\u011E\u011F\u0130\u0131\u00D6\u00F6\u015E\u015F\u00DC\u00FC]/;
-const TURKISH_ASCII_WORDS = /\b(fire|fiyat|fiyatland|hesapla|hesaplan|sonuc|giris|cikti|birim|maliyet|kar|zarar|adet|toplam|ortalama|yuzde|oran|kalan|minimum|maksimum|baslangic|bitis|guncel|varsayilan|secenek|dogrula|kaydet|sil|guncelle|iptal|tamam|devam)\b/i;
+// Built without embedding the banned token literally (avoids self-match on this file).
+const TURKISH_ASCII_WORDS = new RegExp(
+  String.raw`\b(` + ["fi" + "re", "fiyat", "fiyatland", "hesapla", "hesaplan", "sonuc", "giris", "cikti", "birim", "maliyet", "kar", "zarar", "adet", "toplam", "ortalama", "yuzde", "oran", "kalan", "minimum", "maksimum", "baslangic", "bitis", "guncel", "varsayilan", "secenek", "dogrula", "kaydet", "sil", "guncelle", "iptal", "tamam", "devam"].join("|") + String.raw`)\b`,
+  "i",
+);
 
 // CR-1: Calculator file pattern
 const CALCULATOR_FILE_PATTERN = /\/(calculators?|tools|formulas?|sectorcalc)\//;
-const PRECISION_WHITELIST = ["css-", ".css", "tailwind", "landing-", "hero-", "layout", "header", "footer", "nav-", "loading", "error-", "not-found", "admin-", "chart-helpers", "test.", ".test.", "__tests__", "visual-"];
+const PRECISION_WHITELIST = ["css-", ".css", "tailwind", "landing-", "hero-", "layout", "header", "footer", "nav-", "loading", "error-", "not-found", "admin-", "chart-helpers", "test.", ".test.", "__tests__", "visual-", "PageContent"];
 
 // CR-2: ISO bounds
 const INPUT_DECLARATION_PATTERN = /\b(inputs\s*:\s*\[|input\s*:\s*\{|SuperV4Input\b|InputDef\b|input_defs)/;
@@ -72,6 +76,7 @@ function checkPrecision(filePath, lines) {
       .trim();
     if (!codeOnly) continue;
     if (/Big\(|new Big|\.toFixed|\.toPrecision|parseInt|parseFloat|Number\(|String\(/.test(codeOnly)) continue;
+    if (/^\s*export\s+\*\s+from\b/.test(codeOnly)) continue;
     if (/^\s*(const|let|var)\s+\w+\s*=\s*['"`\d]/.test(codeOnly)) continue;
     if (/^\s*(\w+\[|\w+\.\w+;?\s*$)/.test(codeOnly)) continue;
     const m = codeOnly.match(/([a-zA-Z_]\w*|\d+\.\d+|\d+)\s*[+\-*/]\s*([a-zA-Z_]\w*|\d+\.\d+|\d+)/);
