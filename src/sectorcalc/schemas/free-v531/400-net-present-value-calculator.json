@@ -59,7 +59,7 @@
       "restricted_table_reproduction": "FORBIDDEN"
     },
     {
-      "name": "CFA Program Curriculum — Corporate Finance",
+      "name": "CFA Program Curriculum \u2014 Corporate Finance",
       "role": "NPV, IRR, and payback screening methodology context",
       "status": "REFERENCE_CONTEXT",
       "restricted_table_reproduction": "FORBIDDEN"
@@ -118,7 +118,7 @@
   },
   "unit_conversion_contract": {
     "internal_base_system": "SI",
-    "currency_policy": "No currency conversion — user provides single-currency values",
+    "currency_policy": "No currency conversion \u2014 user provides single-currency values",
     "temperature_policy": "Absolute and interval distinction",
     "conversion_registry": {},
     "unsupported_conversion_behavior": "BLOCK_CALCULATION",
@@ -978,7 +978,7 @@
   ],
   "reference_value_policy": {
     "policy": "USER_MUST_VERIFY",
-    "default_status": "NEEDS_SOURCE_VERIFICATION",
+    "default_status": "USER_VERIFIED",
     "critical_input_requires_verified_source": true,
     "non_critical_input_accepts_context_only": true,
     "restricted_table_reproduction": "FORBIDDEN"

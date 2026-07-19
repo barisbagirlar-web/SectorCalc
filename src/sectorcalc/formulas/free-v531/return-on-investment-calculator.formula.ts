@@ -147,18 +147,46 @@ function readHurdleRatePct(raw: unknown): Big {
   return hurdle;
 }
 
-function computeCompoundAnnualizedRoiPct(roiPct: Big, horizonYears: number): number {
-  const roiDecimal = roiPct.div(100);
-  const base = Number(new Big(1).plus(roiDecimal));
-  if (!Number.isFinite(base) || base <= 0) {
+function nthRootPositive(value: Big, n: number): Big {
+  if (n < 1) {
+    throw new Error("BLOCKED_INVALID_ANNUALIZED_ROI_BASE:horizon_years");
+  }
+  if (value.lte(0)) {
     throw new Error("BLOCKED_INVALID_ANNUALIZED_ROI_BASE:roi_pct");
   }
-  // Fractional exponent via Math.pow; result immediately wrapped in Big.js (CR-1).
-  const annualizedDecimal = Number(new Big(String(Math.pow(base, Number(new Big(1).div(horizonYears))))).minus(1));
-  if (!Number.isFinite(annualizedDecimal)) {
+  if (n === 1) {
+    return value;
+  }
+  // Newton-Raphson for x^n = value (Big.js has integer exponents only).
+  let x = value;
+  const nBig = new Big(n);
+  for (let iteration = 0; iteration < 80; iteration += 1) {
+    const xPowN = x.pow(n);
+    const residual = xPowN.minus(value);
+    if (residual.abs().lte(new Big("1e-14"))) {
+      return x;
+    }
+    const derivative = nBig.times(x.pow(Number(nBig.minus(1))));
+    if (derivative.eq(0)) {
+      break;
+    }
+    x = x.minus(residual.div(derivative));
+    if (x.lte(0)) {
+      x = new Big("1e-12");
+    }
+  }
+  return x;
+}
+
+function computeCompoundAnnualizedRoiPct(roiPct: Big, horizonYears: number): number {
+  const onePlusRoi = new Big(1).plus(roiPct.div(100));
+  const growthFactor = nthRootPositive(onePlusRoi, horizonYears);
+  const annualizedPct = growthFactor.minus(1).times(100);
+  const asNumber = Number(annualizedPct);
+  if (!Number.isFinite(asNumber)) {
     throw new Error("BLOCKED_NON_FINITE_OUTPUT:annualized_roi_pct");
   }
-  return Number(new Big(annualizedDecimal).times(100));
+  return asNumber;
 }
 
 export function execute(rawInputs: Readonly<Record<string, unknown>>): FreeV531ExecuteResponse {
