@@ -10,7 +10,7 @@
     "single_operation_scope": "Calculate and evaluate net present value using user-verified annual cash flows and a stated discount rate.",
     "decision_owner": "operator, engineer, owner_cfo, or checker_auditor depending on selected profile mode",
     "decision_after_output": "Decide whether to proceed, hold, revise, reject, or escalate the capital project based on NPV, IRR, and payback screening metrics.",
-    "cost_of_wrong_decision": "Wrong machine investment payback calculator result can cause rework, wrong quote, missed capacity, unsafe screening confidence, downtime, cash leakage, or unnecessary escalation.",
+    "cost_of_wrong_decision": "Wrong net present value screening can cause rework, wrong capital allocation, missed capacity, unsafe screening confidence, downtime, cash leakage, or unnecessary escalation.",
     "failure_mode_if_formula_wrong": "False PASS, false REPRICE, false HOLD, hidden evidence gap, wrong unit conversion, or public formula leakage.",
     "primary_metric": "npv",
     "secondary_metrics": [
@@ -43,7 +43,7 @@
     "primary": "money_at_risk",
     "technical": "npv",
     "confidence": "evidence_confidence_and_uncertainty_crossing",
-    "description": "Machine Investment Payback Calculator should not create an irreversible purchase, quote, production, safety, or capital commitment without source verification and review when thresholds are crossed."
+    "description": "Net Present Value Calculator should not create an irreversible purchase, quote, production, safety, or capital commitment without source verification and review when thresholds are crossed."
   },
   "standards": [
     {
@@ -59,7 +59,7 @@
       "restricted_table_reproduction": "FORBIDDEN"
     },
     {
-      "name": "CFA Program Curriculum \u2014 Corporate Finance",
+      "name": "CFA Program Curriculum — Corporate Finance",
       "role": "NPV, IRR, and payback screening methodology context",
       "status": "REFERENCE_CONTEXT",
       "restricted_table_reproduction": "FORBIDDEN"
@@ -118,7 +118,7 @@
   },
   "unit_conversion_contract": {
     "internal_base_system": "SI",
-    "currency_policy": "No currency conversion \u2014 user provides single-currency values",
+    "currency_policy": "No currency conversion — user provides single-currency values",
     "temperature_policy": "Absolute and interval distinction",
     "conversion_registry": {},
     "unsupported_conversion_behavior": "BLOCK_CALCULATION",
@@ -928,50 +928,80 @@
   ],
   "normalized_inputs": [
     {
-      "id": "n_annual_extra_margin",
-      "from_input": "annual_extra_margin",
+      "id": "n_initial_investment",
+      "from_input": "initial_investment",
+      "quantity_kind": "currency",
+      "base_unit": "user_unit"
+    },
+    {
+      "id": "n_discount_rate_pct",
+      "from_input": "discount_rate_pct",
       "quantity_kind": "ratio_or_percent",
-      "base_unit": "user_unit"
+      "base_unit": "percent"
     },
     {
-      "id": "n_annual_incremental_maintenance",
-      "from_input": "annual_incremental_maintenance",
-      "quantity_kind": "number",
-      "base_unit": "user_unit"
+      "id": "n_horizon_years",
+      "from_input": "horizon_years",
+      "quantity_kind": "dimensionless",
+      "base_unit": "years"
     },
     {
-      "id": "n_annual_labor_savings",
-      "from_input": "annual_labor_savings",
-      "quantity_kind": "number",
-      "base_unit": "user_unit"
-    },
-    {
-      "id": "n_annual_scrap_savings",
-      "from_input": "annual_scrap_savings",
-      "quantity_kind": "number",
-      "base_unit": "user_unit"
-    },
-    {
-      "id": "n_installation_cost",
-      "from_input": "installation_cost",
+      "id": "n_cf_y1",
+      "from_input": "cf_y1",
       "quantity_kind": "currency",
       "base_unit": "user_unit"
     },
     {
-      "id": "n_machine_capex",
-      "from_input": "machine_capex",
+      "id": "n_cf_y2",
+      "from_input": "cf_y2",
       "quantity_kind": "currency",
       "base_unit": "user_unit"
     },
     {
-      "id": "n_maximum_payback_months",
-      "from_input": "maximum_payback_months",
-      "quantity_kind": "time",
+      "id": "n_cf_y3",
+      "from_input": "cf_y3",
+      "quantity_kind": "currency",
       "base_unit": "user_unit"
     },
     {
-      "id": "n_residual_value",
-      "from_input": "residual_value",
+      "id": "n_cf_y4",
+      "from_input": "cf_y4",
+      "quantity_kind": "currency",
+      "base_unit": "user_unit"
+    },
+    {
+      "id": "n_cf_y5",
+      "from_input": "cf_y5",
+      "quantity_kind": "currency",
+      "base_unit": "user_unit"
+    },
+    {
+      "id": "n_cf_y6",
+      "from_input": "cf_y6",
+      "quantity_kind": "currency",
+      "base_unit": "user_unit"
+    },
+    {
+      "id": "n_cf_y7",
+      "from_input": "cf_y7",
+      "quantity_kind": "currency",
+      "base_unit": "user_unit"
+    },
+    {
+      "id": "n_cf_y8",
+      "from_input": "cf_y8",
+      "quantity_kind": "currency",
+      "base_unit": "user_unit"
+    },
+    {
+      "id": "n_cf_y9",
+      "from_input": "cf_y9",
+      "quantity_kind": "currency",
+      "base_unit": "user_unit"
+    },
+    {
+      "id": "n_cf_y10",
+      "from_input": "cf_y10",
       "quantity_kind": "currency",
       "base_unit": "user_unit"
     }
@@ -1417,17 +1447,22 @@
     "input_groups": [
       {
         "id": "primary_inputs",
-        "title": "Inputs",
-        "description": "Enter the required values for calculation.",
+        "title": "Capital Budgeting Inputs",
+        "description": "Enter initial investment, discount rate, horizon, and annual cash flows.",
         "fields": [
-          "annual_extra_margin",
-          "annual_incremental_maintenance",
-          "annual_labor_savings",
-          "annual_scrap_savings",
-          "installation_cost",
-          "machine_capex",
-          "maximum_payback_months",
-          "residual_value"
+          "initial_investment",
+          "discount_rate_pct",
+          "horizon_years",
+          "cf_y1",
+          "cf_y2",
+          "cf_y3",
+          "cf_y4",
+          "cf_y5",
+          "cf_y6",
+          "cf_y7",
+          "cf_y8",
+          "cf_y9",
+          "cf_y10"
         ],
         "mode_visibility": [
           "quick",
@@ -1440,7 +1475,8 @@
           "engineering",
           "cost",
           "audit"
-        ]
+        ],
+        "label": "Primary inputs"
       }
     ],
     "sticky_decision_cockpit": true,
@@ -1478,11 +1514,11 @@
     "schema_version": "5.3.1",
     "formula_version": "5.3.1",
     "prompt_version": "5.3.1",
-    "generation_method": "automated_from_formula_registry",
-    "generation_date": "2026-07-07",
-    "source_formula": "machine-investment-payback",
-    "tool_id": "FREE_V531_039",
-    "tool_key": "machine-investment-payback",
-    "tool_name": "Machine Investment Payback Calculator"
+    "generation_method": "manual_reference_hub",
+    "generation_date": "2026-07-20",
+    "source_formula": "net-present-value-calculator",
+    "tool_id": "FREE_400_NET_PRESENT_VALUE_CALCULATOR",
+    "tool_key": "net-present-value-calculator",
+    "tool_name": "Net Present Value Calculator"
   }
 }
