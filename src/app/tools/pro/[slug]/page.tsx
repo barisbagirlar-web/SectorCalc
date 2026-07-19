@@ -25,8 +25,13 @@ import "@/sectorcalc/pro-form/universal-industrial-decision-form.css";
 import "@/sectorcalc/pro-report/pro-report-panel.css";
 import "@/styles/pro-report.css";
 
-export const dynamic = "force-dynamic";
-export const dynamicParams = true;
+// Hard-404 architecture (SSOT with /tools/free/[slug]): only allowlisted
+// slugs are statically generated; every other slug returns a real HTTP 404
+// at the routing layer. `force-dynamic` is intentionally NOT set — it would
+// force dynamic rendering and bypass the static 404 enforcement of
+// `dynamicParams = false`. Paywall gating runs client-side (ProToolPaywallGate
+// is a "use client" component), so request-time server rendering is not needed.
+export const dynamicParams = false;
 
 export function generateStaticParams(): Array<{ slug: string }> {
   return ACTIVE_PRO_TOOL_SLUGS.map((slug) => ({ slug }));
@@ -92,6 +97,8 @@ export default async function ProToolDetailPage({
     notFound();
   }
 
+  const articleAccessibilityProps = { "aria-label": schema.tool_name };
+
   // BLOCKED_SOURCE_REQUIRED and BLOCKED_RUNTIME_CONTRACT_MISMATCH tools
   // render an assisted dossier CTA instead of the calculator form
   const barisEntry = getBarisToolCategory(slug);
@@ -113,7 +120,7 @@ export default async function ProToolDetailPage({
   if (slug === "machine-hourly-rate-proof-report") {
     return (
       <PageLayout>
-        <article aria-label={schema.tool_name}>
+        <article {...articleAccessibilityProps}>
           <ProToolPaywallGate toolName={slug}>
             <MachineHourlyRateBespokeForm schema={schema} toolKey={slug} />
           </ProToolPaywallGate>
@@ -126,7 +133,7 @@ export default async function ProToolDetailPage({
 
   return (
     <PageLayout>
-      <article aria-label={schema.tool_name} className="pro-shell">
+      <article {...articleAccessibilityProps} className="pro-shell">
         <ProToolPaywallGate toolName={slug}>
           <ProToolSessionWrapper
             schema={schema}
