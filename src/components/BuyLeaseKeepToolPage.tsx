@@ -104,6 +104,11 @@ function boundValue(f: FieldDef, raw: number, canon: number): number {
   return canon;
 }
 function refCheck(f: FieldDef, canon: number): boolean {
+  if (f.units) {
+    const primary = f.units[0];
+    const inPrimary = canon / primary.f;
+    return inPrimary < f.ref[0] || inPrimary > f.ref[1];
+  }
   const lo = f.dom === "pct" ? f.ref[0] / 100 : f.ref[0];
   const hi = f.dom === "pct" ? f.ref[1] / 100 : f.ref[1];
   return canon < lo || canon > hi;
