@@ -15,9 +15,7 @@ import { getDisplayCategoryLabel } from "@/sectorcalc/pro-form/display-labels";
 import { SITE } from "@/config/site";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { buildToolPageGraph } from "@/lib/infrastructure/seo/tool-page-graph";
-import { EeatTrustBlock } from "@/components/seo/EeatTrustBlock";
 import { AiOverviewParagraph, AI_OVERVIEW_PARAGRAPHS, buildSpeakableJsonLd } from "@/components/seo/AiOverviewOptimization";
-import { FOUNDER_PROFILE } from "@/config/knowledge-graph";
 /* Eager: prevent Next.js from loading this CSS as a lazy preload chunk */
 import "@/sectorcalc/pro-form/universal-industrial-decision-form.css";
 import "@/sectorcalc/free-form/free-tool-result-panel.css";
@@ -227,17 +225,6 @@ export default async function FreeToolDetailPage({
           ],
           lastUpdated: new Date().toISOString(),
         })}
-      />
-      <EeatTrustBlock
-        authorName={FOUNDER_PROFILE.name}
-        authorTitle={(FOUNDER_PROFILE.jobTitle as Record<string, string>).en ?? "Founder & CEO, SectorCalc"}
-        authorLinkedIn="https://www.linkedin.com/in/barisbagirlar"
-        methodology="ISO 22400-2 + ECMI Cost Model v3.2"
-        dataSources={[
-          { name: "ISO 22400-2:2014", url: "https://www.iso.org/standard/62046.html" },
-          { name: "World Bank Open Data", url: "https://data.worldbank.org/" },
-        ]}
-        lastUpdated={new Date().toISOString()}
       />
     </PageLayout>
   );
