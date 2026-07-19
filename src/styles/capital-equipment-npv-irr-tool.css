@@ -7,7 +7,7 @@
   --nir-pos:#2E6B4E; --nir-pos-bg:#E7F1EB;
   --nir-warn:#8A5A12; --nir-warn-bg:#F8EFDC;
   --nir-neg:#9C3520; --nir-neg-bg:#F7E9E4;
-  --nir-display:'Fraunces',Georgia,serif; --nir-sans:'Inter',system-ui,sans-serif; --nir-mono:'JetBrains Mono',monospace;
+  --nir-display:'Fraunces',georgia,serif; --nir-sans:'Inter',system-ui,sans-serif; --nir-mono:'JetBrains Mono',monospace;
 }
 .nir-shell *{box-sizing:border-box;margin:0;padding:0;border-radius:0}
 .nir-shell{background:var(--nir-paper);color:var(--nir-ink);font-family:var(--nir-sans);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
@@ -56,7 +56,7 @@
 .nir-shell details{border:1px solid var(--nir-line);background:var(--nir-panel);margin-top:4px}
 .nir-shell details summary{cursor:pointer;padding:14px 18px;font-family:var(--nir-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--nir-faint);list-style:none}
 .nir-shell details summary::before{content:"+ "}
-details[open] summary::before{content:"\2212 "}
+.nir-shell details[open] summary::before{content:"\2212 "}
 .nir-shell details .nir-grp{padding:0 18px 18px}
 .nir-rail-in{position:sticky;top:0;padding:26px 24px}
 .nir-verdict{border:1.25px solid var(--nir-ink);padding:2px 0 0;margin-bottom:18px}
@@ -74,7 +74,7 @@ details[open] summary::before{content:"\2212 "}
 .nir-cta:disabled{background:var(--nir-line);border-color:var(--nir-line);color:var(--nir-faint);cursor:not-allowed}
 .nir-conf{margin-top:12px;font-size:11px;color:var(--nir-ink-soft);display:flex;gap:7px;align-items:flex-start;line-height:1.4}
 .nir-conf .nir-d{width:8px;height:8px;margin-top:3px;flex-shrink:0}
-#report{display:none;border:1.5px solid var(--nir-ink);border-top:none;background:var(--nir-panel)}
+.nir-report{border:1.5px solid var(--nir-ink);border-top:none;background:var(--nir-panel)}
 .nir-rep-mast{background:var(--nir-ink);color:var(--nir-paper);padding:24px 30px;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:12px}
 .nir-rep-mast h2{font-family:var(--nir-display);font-size:26px;font-weight:500}
 .nir-rep-mast .nir-rid{font-family:var(--nir-mono);font-size:10.5px;color:#b9b4a7;text-align:right;line-height:1.7}

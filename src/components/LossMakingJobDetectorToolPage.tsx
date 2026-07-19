@@ -80,7 +80,11 @@ function fromCanon(f: FieldDef, canon: number, unitKey: string): number {
   const v = canon / unitFactor(f, unitKey);
   return f.dom === "pct" ? v * 100 : v;
 }
-function boundValue(f: FieldDef, raw: number, canon: number): number { return f.dom === "pct" ? raw : canon; }
+function boundValue(f: FieldDef, raw: number, canon: number): number {
+  if (f.dom === "pct") return raw;
+  if (f.units) return canon / f.units[0].f; // compare in the primary display unit, matching refCheck
+  return canon;
+}
 function refCheck(f: FieldDef, canon: number): boolean {
   if (!f.units) {
     const lo = f.dom === "pct" ? f.ref[0] / 100 : f.ref[0];
