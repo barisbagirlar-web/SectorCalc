@@ -18,6 +18,7 @@ import { getPublicToolTitle, getPublicProMetaDescription } from "@/sectorcalc/pu
 import { getDisplayCategoryLabel } from "@/sectorcalc/pro-form/display-labels";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { buildToolPageGraph } from "@/lib/infrastructure/seo/tool-page-graph";
+import { getGeneratedToolLastUpdatedIso } from "@/lib/features/generated-tools/resolve-tool-updated-at";
 import "server-only";
 /* Eager: prevent Next.js from loading this CSS as a lazy preload chunk */
 import "@/sectorcalc/pro-form/universal-industrial-decision-form.css";
@@ -121,6 +122,8 @@ export default async function ProToolDetailPage({
     );
   }
 
+  const category = getDisplayCategoryLabel(schema.category);
+
   return (
     <PageLayout>
       <article aria-label={schema.tool_name} className="pro-shell">
@@ -134,6 +137,19 @@ export default async function ProToolDetailPage({
           />
         </ProToolPaywallGate>
       </article>
+      <JsonLd
+        data={buildToolPageGraph({
+          slug,
+          toolName: schema.tool_name,
+          sectorName: category,
+          tier: "pro",
+          description: getPublicProMetaDescription(schema.tool_key, schema.tool_name, category),
+          featureList: [],
+          faq: [],
+          methodology: "ISO 22400-2 + ECMI Cost Model v3.2",
+          lastUpdated: getGeneratedToolLastUpdatedIso(slug) ?? undefined,
+        })}
+      />
     </PageLayout>
   );
 }
