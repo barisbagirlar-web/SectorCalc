@@ -71,23 +71,50 @@ function applyRegionHeaders(response: NextResponse, request: NextRequest): NextR
 }
 
 /**
- * Resolve the client-facing hostname.
- * Firebase Hosting → Cloud Run rewrites keep `Host` as the rewrite target
- * (often `*.web.app` or `0.0.0.0`) while the public hostname is in
- * `x-fh-requested-host` / `x-forwarded-host`. Prefer those first.
+ * Resolve the client-facing hostname for robots decisions.
+ * Firebase Hosting → Cloud Run rewrites often leave `Host` as *.run.app /
+ * *.web.app / 0.0.0.0. The public hostname is carried in
+ * `x-fh-requested-host` / `x-forwarded-host`. Prefer a public production
+ * host if ANY candidate matches; only then fall back to preview/internal.
  */
-function resolveClientHost(request: NextRequest): string {
-  const candidates = [
+function listClientHosts(request: NextRequest): string[] {
+  const raw = [
     request.headers.get("x-fh-requested-host"),
     request.headers.get("x-forwarded-host")?.split(",")[0]?.trim(),
     request.headers.get("host"),
     request.nextUrl.host,
   ];
-  for (const raw of candidates) {
-    const host = (raw ?? "").trim().toLowerCase().split(":")[0] ?? "";
-    if (host.length > 0) return host;
+  const out: string[] = [];
+  for (const value of raw) {
+    const host = (value ?? "").trim().toLowerCase().split(":")[0] ?? "";
+    if (host.length > 0 && !out.includes(host)) out.push(host);
   }
-  return "";
+  return out;
+}
+
+function resolveClientHost(request: NextRequest): string {
+  const hosts = listClientHosts(request);
+  const publicHost = hosts.find((h) => isPublicSiteHost(h));
+  if (publicHost) return publicHost;
+  return hosts[0] ?? "";
+}
+
+function shouldNoindexHost(request: NextRequest): boolean {
+  const hosts = listClientHosts(request);
+  // Production custom domain always wins.
+  if (hosts.some((h) => isPublicSiteHost(h))) return false;
+
+  // Explicit preview / local mirrors only — NOT *.run.app (that is the
+  // Firebase Hosting SSR rewrite target for production custom domains too).
+  const isExplicitPreview = hosts.some(
+    (h) =>
+      h.endsWith(".web.app") ||
+      h.endsWith(".firebaseapp.com") ||
+      h === "0.0.0.0" ||
+      h === "127.0.0.1" ||
+      h === "localhost",
+  );
+  return isExplicitPreview;
 }
 
 /** Firebase preview / local SSR hosts must never compete with the public domain. */
@@ -95,6 +122,7 @@ function isPreviewOrInternalHost(host: string): boolean {
   return (
     host.endsWith(".web.app") ||
     host.endsWith(".firebaseapp.com") ||
+    host.endsWith(".run.app") ||
     host === "0.0.0.0" ||
     host === "127.0.0.1" ||
     host === "localhost"
@@ -144,8 +172,7 @@ function applyRobotsHeader(
   request: NextRequest,
   options?: { forceNoindex?: boolean },
 ): void {
-  const host = resolveClientHost(request);
-  if (options?.forceNoindex || isPreviewOrInternalHost(host) || !isPublicSiteHost(host)) {
+  if (options?.forceNoindex || shouldNoindexHost(request)) {
     // Preview / non-public hosts / explicit 404 — never indexable.
     // follow kept so link equity can still flow to the canonical domain.
     response.headers.set(X_ROBOTS_TAG_HEADER, "noindex, follow");
@@ -165,10 +192,8 @@ function applyStandardHeaders(
 }
 
 function buildPassThroughHeaders(request: NextRequest): Headers {
-  const host = resolveClientHost(request);
   const requestHeaders = new Headers(request.headers);
-  const policy =
-    isPreviewOrInternalHost(host) || !isPublicSiteHost(host) ? "noindex" : "index";
+  const policy = shouldNoindexHost(request) ? "noindex" : "index";
   requestHeaders.set(SC_ROBOTS_REQUEST_HEADER, policy);
   return requestHeaders;
 }
