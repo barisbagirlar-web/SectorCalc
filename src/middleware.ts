@@ -117,18 +117,6 @@ function shouldNoindexHost(request: NextRequest): boolean {
   return isExplicitPreview;
 }
 
-/** Firebase preview / local SSR hosts must never compete with the public domain. */
-function isPreviewOrInternalHost(host: string): boolean {
-  return (
-    host.endsWith(".web.app") ||
-    host.endsWith(".firebaseapp.com") ||
-    host.endsWith(".run.app") ||
-    host === "0.0.0.0" ||
-    host === "127.0.0.1" ||
-    host === "localhost"
-  );
-}
-
 function isPublicSiteHost(host: string): boolean {
   return host === "sectorcalc.com" || host === "www.sectorcalc.com";
 }
