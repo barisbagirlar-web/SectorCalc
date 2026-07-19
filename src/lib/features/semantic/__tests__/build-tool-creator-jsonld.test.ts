@@ -6,7 +6,7 @@ import {
 import { toolReferenceCreatorJsonLdId } from "@/config/tool-reference-creator";
 
 describe("buildToolReferenceCreatorPersonJsonLd", () => {
-  test("emits stable Person schema with LinkedIn sameAs", () => {
+  test("emits stable Person schema with verified authority sameAs only", () => {
     const schema = buildToolReferenceCreatorPersonJsonLd();
 
     expect(schema["@type"]).toBe("Person");
@@ -15,10 +15,13 @@ describe("buildToolReferenceCreatorPersonJsonLd", () => {
     expect(schema.url).toContain("iitb.ac.in");
     expect(schema.sameAs).toEqual(
       expect.arrayContaining([
+        expect.stringContaining("math.iitb.ac.in/~neela"),
         expect.stringContaining("mathscinet.ams.org"),
-        expect.stringContaining("linkedin.com"),
       ]),
     );
+    // Unverified social profiles must not appear in sameAs.
+    expect(JSON.stringify(schema.sameAs)).not.toContain("linkedin.com");
+    expect(JSON.stringify(schema.sameAs)).not.toContain("researchgate.net");
     expect(schema.worksFor).toEqual(
       expect.objectContaining({
         name: "Indian Institute of Technology Bombay",

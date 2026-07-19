@@ -27,11 +27,14 @@ export const TOOL_REFERENCE_CREATOR = {
   profileUrl: defaultRef?.profileUrl ?? "https://www.math.iitb.ac.in/~neela/",
   /** Set when a verified ORCID is available; omit rel=me head link when null. */
   orcidUrl: null as string | null,
+  // sameAs is restricted to independently verified authority URLs only.
+  // Faculty page (math.iitb.ac.in/~neela/) and MathSciNet MRAuthorID were live-verified.
+  // Unverified social profiles (LinkedIn personal, ResearchGate) and third-party
+  // posts ABOUT the person are intentionally omitted — no fabricated sameAs.
   sameAs: [
     defaultRef?.profileUrl ?? "https://www.math.iitb.ac.in/~neela/",
     defaultRef?.mathSciNetUrl ??
       "https://mathscinet.ams.org/mathscinet/MRAuthorID/613458",
-    "https://www.linkedin.com/posts/indian-institute-of-technology-bombay_prof-neela-nataraj-is-elected-to-be-part-activity-7275006741744939008-w0un/",
   ],
   knowsAbout: [
     "Industrial engineering",
