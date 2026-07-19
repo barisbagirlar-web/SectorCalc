@@ -33,7 +33,7 @@ export function EnterpriseFooter({ hideCta = false }: { hideCta?: boolean }) {
           <div className="footer-grid">
             <div className="footer-col brand-col">
               <Link href="/" prefetch={true} aria-label="SectorCalc home" className="footer-logo">
-                <img src={BRAND_ASSETS.logo.onDark} alt="SectorCalc Logo" className="footer-logo-img" loading="lazy" fetchPriority="low" />
+                <img src={BRAND_ASSETS.logo.onDark} alt="SectorCalc Logo" className="footer-logo-img" width={1231} height={215} loading="lazy" fetchPriority="low" />
               </Link>
               <p className="footer-tagline">
                 Review-ready industrial calculators for cost, risk, quality, production, energy and engineering decisions. Built for decision support, documentation and qualified review.

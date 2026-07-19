@@ -27,7 +27,14 @@ const GLOBAL_DISALLOW_PATHS: readonly string[] = [
   "/verification-queue/",
   "/verification-queue",
   "/logs/",
+  // Crawl-budget protection: faceted / session / pagination parameters create
+  // near-infinite low-value URL spaces. Canonical tags handle utm/ref dedup,
+  // so those are intentionally NOT disallowed (blocking them would hide the
+  // canonical signal from crawlers).
   "/*?*sort=",
+  "/*?*filter=",
+  "/*?*page=",
+  "/*?*session=",
 ];
 
 function allowBlock(agent: string): string {

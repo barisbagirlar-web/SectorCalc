@@ -220,10 +220,39 @@ function buildHowToNode(input: ToolPageSchemaInput): JsonLdRecord {
   };
 }
 
-function buildFAQNode(input: ToolPageSchemaInput): JsonLdRecord {
+function buildBreadcrumbNode(input: ToolPageSchemaInput): JsonLdRecord {
+  const isFree = input.tier === "free";
+  const toolPath = isFree ? `tools/free/${input.slug}` : `tools/pro/${input.slug}`;
+  const canonicalUrl = `${siteUrl}/${toolPath}`;
+  // Level-2 points to the real catalog hub (free-tools / pro-tools), not a
+  // synthetic /tools/free/ index that does not exist as a route.
+  const hubName = isFree ? "Free Tools" : "Pro Tools";
+  const hubPath = isFree ? "free-tools" : "pro-tools";
+
+  return {
+    "@type": "BreadcrumbList",
+    "@id": `${canonicalUrl}/#breadcrumb`,
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
+      { "@type": "ListItem", position: 2, name: hubName, item: `${siteUrl}/${hubPath}` },
+      { "@type": "ListItem", position: 3, name: input.toolName, item: canonicalUrl },
+    ],
+  };
+}
+
+function buildFAQNode(input: ToolPageSchemaInput): JsonLdRecord | null {
+  const valid = input.faq.filter(
+    (item) => item.question.trim().length > 0 && item.answer.trim().length > 0,
+  );
+  // Emitting a FAQPage with an empty mainEntity is invalid structured data and
+  // triggers Google Rich Results warnings; omit the node entirely when empty.
+  if (valid.length === 0) {
+    return null;
+  }
+
   return {
     "@type": "FAQPage",
-    mainEntity: input.faq.map((item) => ({
+    mainEntity: valid.map((item) => ({
       "@type": "Question",
       name: item.question,
       acceptedAnswer: {
@@ -245,7 +274,11 @@ function buildDatasetNode(input: ToolPageSchemaInput): JsonLdRecord | null {
     description: `Benchmark and reference data for ${input.sectorName} calculations in ${input.toolName}.`,
     creator: { "@id": ORG_ID },
     citation: input.dataSources.map((ds) => ds.url),
-    dateModified: input.lastUpdated ?? new Date().toISOString().split("T")[0],
+    // Freshness signal must be a stable, source-derived date. Never fall back to
+    // request-time here: on a force-dynamic page that churns dateModified on
+    // every crawl (a manipulative freshness signal). When no real date is
+    // known, the field is omitted by sanitizeJsonLd (undefined stripped).
+    dateModified: input.lastUpdated,
   };
 }
 
@@ -260,9 +293,14 @@ export function buildToolPageGraph(input: ToolPageSchemaInput): JsonLdRecord {
     buildOrganizationNode(),
     buildPersonNode(input),
     buildWebApplicationNode(input),
+    buildBreadcrumbNode(input),
     buildHowToNode(input),
-    buildFAQNode(input),
   ];
+
+  const faq = buildFAQNode(input);
+  if (faq) {
+    graph.push(faq);
+  }
 
   const dataset = buildDatasetNode(input);
   if (dataset) {

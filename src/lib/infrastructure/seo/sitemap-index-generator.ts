@@ -134,9 +134,18 @@ export function buildSubSitemapXml(
     const hasHreflang = hreflangLinks.length > 0;
     const lastmodISO = resolveLastmod(path).toISOString();
 
+    // Priority + changefreq are sourced from the sitemap manifest (single
+    // source of truth); rounding to one decimal is a presentation-layer
+    // concern only. Element order follows the sitemaps.org XSD:
+    // loc, lastmod, changefreq, priority, then hreflang alternates.
+    const changefreq = item.changeFrequency;
+    const priority = Math.min(1, Math.max(0, item.priority)).toFixed(1);
+
     urlEntries.push(`  <url>
     <loc>${loc}</loc>
-    <lastmod>${lastmodISO}</lastmod>${
+    <lastmod>${lastmodISO}</lastmod>
+    <changefreq>${changefreq}</changefreq>
+    <priority>${priority}</priority>${
       hasHreflang ? `\n${hreflangLinks}` : ""
     }
   </url>`);
