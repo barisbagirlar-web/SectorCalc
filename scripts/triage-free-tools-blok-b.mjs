@@ -61,7 +61,14 @@ async function executeProbe(slug) {
   const res = await fetch(`${BASE}/api/tool-execute`, {
     method: "POST",
     headers: { "Content-Type": "application/json", "Cache-Control": "no-cache" },
-    body: JSON.stringify({ toolKey: slug, inputs: {} }),
+    body: JSON.stringify({
+      toolKey: slug,
+      tool_key: slug,
+      rawInputs: {},
+      raw_inputs: {},
+      selectedUnits: {},
+      selected_units: {},
+    }),
   });
   const text = await res.text();
   let json;

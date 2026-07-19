@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { headers } from "next/headers";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import { NextIntlClientProvider } from "@/lib/i18n-stub";
 import { getMessages, setRequestLocale } from "@/lib/i18n-stub";
@@ -36,9 +37,37 @@ const jetbrainsMono = JetBrains_Mono({
   preload: false,
 });
 
-export const metadata: Metadata = {
-  robots: metadataRobots(),
-};
+/**
+ * Host-aware robots: preview/web.app and non-public hosts get DOM noindex so
+ * header (middleware) and <meta name="robots"> stay consistent.
+ * Middleware sets x-sc-robots-policy on the request.
+ */
+export async function generateMetadata(): Promise<Metadata> {
+  const h = await headers();
+  const policy = h.get("x-sc-robots-policy");
+  const host = (h.get("host") ?? "").toLowerCase().split(":")[0] ?? "";
+  const isPreviewHost =
+    policy === "noindex" ||
+    host.endsWith(".web.app") ||
+    host.endsWith(".firebaseapp.com") ||
+    host === "0.0.0.0" ||
+    host === "localhost" ||
+    host === "127.0.0.1";
+
+  if (isPreviewHost) {
+    return {
+      robots: {
+        index: false,
+        follow: true,
+        googleBot: { index: false, follow: true },
+      },
+    };
+  }
+
+  return {
+    robots: metadataRobots(),
+  };
+}
 
 export const viewport: Viewport = {
   width: "device-width",
