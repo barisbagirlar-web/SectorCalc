@@ -171,14 +171,10 @@ export function getPremiumAnalyzerSitemapRoutes(): readonly SitemapManifestItem[
 }
 
 export function getFreeToolSitemapRoutes(): readonly SitemapManifestItem[] {
-  // V5.4 Core — Only the allowlisted Free pilot is indexed.
-  // SSOT guard: a free tool may appear in the sitemap ONLY if it is in the
-  // ACTIVE_FREE_TOOL_SLUGS allowlist. Quarantined tools return a hard HTTP 404,
-  // so they must never be advertised here (would create GSC coverage errors).
-  const INDEXED_FREE_TOOL_SLUGS = [
-    "break-even-and-margin-of-safety-analysis",
-    "von-mises-stress-calculator",
-  ].filter((slug) => ACTIVE_FREE_TOOL_SLUGS.includes(slug));
+  // BLOK B triage (2026-07-20): all ACTIVE_FREE_TOOL_SLUGS cleared PASS
+  // (SSR-rich + schema clean + formula reachable). Index the full allowlist.
+  // SSOT: sitemap free URLs are a subset of ACTIVE_FREE_TOOL_SLUGS (hard-404 otherwise).
+  const INDEXED_FREE_TOOL_SLUGS: readonly string[] = ACTIVE_FREE_TOOL_SLUGS;
 
   return [
     createItem("/free-tools", "hub", 0.3, "monthly"),
