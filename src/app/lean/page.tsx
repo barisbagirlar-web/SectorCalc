@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   description:
     "Deep Lean methodology hub for PDCA, Gemba, A3, and Muda — linked to canonical KPI calculators for takt time, OEE, scrap rate, cycle time, and capacity utilization.",
   metadataBase: new URL(SITE.url),
-  robots: { index: true, follow: true },
+  // Robots inherited from root layout host-aware generateMetadata (preview noindex).
   alternates: {
     canonical: `${SITE.url}/lean`,
     languages: {

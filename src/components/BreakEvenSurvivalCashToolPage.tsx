@@ -161,11 +161,17 @@ export default function BreakEvenSurvivalCashToolPage() {
     setIsExecuting(true); setExecuteError(null);
     const snap=rawInputs; const snapCur=curSym;
     try {
-      const selectedUnits:Record<string,string>={};
-      for(const id of Object.keys(FIELDS)) if(FIELDS[id].pct) selectedUnits[id]="percent";
+      // Schema input ids omit the UI `n_` prefix (e.g. monthly_fixed_cash_cost).
+      // Values are already canonical (ratios 0–1 for pct fields) — do not mark selected_units as percent.
+      const apiInputs: Record<string, number> = {};
+      for (const [id, val] of Object.entries(snap)) {
+        const apiId = id.startsWith("n_") ? id.slice(2) : id;
+        apiInputs[apiId] = val;
+      }
       const res=await fetch("/api/pro-calculator/execute",{method:"POST",
         headers:{"Content-Type":"application/json",...(authToken?{Authorization:`Bearer ${authToken}`}:{})},
-        body:JSON.stringify({tool_key:TOOL_KEY,raw_inputs:snap,selected_units:selectedUnits,usage_session_id:usageSessionId})});
+        // Execute API contract uses camelCase usageSessionId (bypass-unlimited skips key deduction).
+        body:JSON.stringify({tool_key:TOOL_KEY,raw_inputs:apiInputs,selected_units:{},usageSessionId})});
       if(!res.ok){const d=await res.json().catch(()=>({}));throw new Error(d.error||`Server error ${res.status}`);}
       const data=await res.json();
       const outputsMap:Record<string,number>={};
@@ -174,7 +180,7 @@ export default function BreakEvenSurvivalCashToolPage() {
       const seal=data.audit_seal as Record<string,unknown>|undefined;
       const sealOk=!!seal&&seal.seal_status==="SEALED"&&typeof seal.output_hash==="string";
       if(!sealOk) throw new Error("Sealed response missing — report withheld.");
-      setServerResult({outputs:outputsMap,seal:{output_hash:seal!.output_hash as string,hash_algorithm:seal!.hash_algorithm as string,executed_at:seal!.executed_at as string},inputs:snap,currency:snapCur});
+      setServerResult({outputs:outputsMap,seal:{output_hash:seal!.output_hash as string,hash_algorithm:seal!.hash_algorithm as string,executed_at:seal!.executed_at as string},inputs:apiInputs,currency:snapCur});
       setTimeout(()=>reportRef.current?.scrollIntoView({behavior:"smooth",block:"start"}),100);
     } catch(err){ setExecuteError(err instanceof Error?err.message:"Execution failed"); }
     finally { setIsExecuting(false); }

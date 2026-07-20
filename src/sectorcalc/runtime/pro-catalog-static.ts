@@ -107,9 +107,11 @@ const CATALOG_BY_KEY: ReadonlyMap<string, ProCatalogEntry> = (() => {
   const missing = ACTIVE_PRO_TOOL_SLUGS.filter((slug) => !map.has(slug));
   if (missing.length > 0) {
     throw new Error(
-      `pro-catalog-static: ${missing.length} active PRO slug(s) have no statically imported schema: ${missing.join(
-        ", ",
-      )}. Add the import(s) to STATIC_PRO_SCHEMAS.`,
+      "pro-catalog-static: " +
+        String(missing.length) +
+        " active PRO slug(s) have no statically imported schema: " +
+        missing.join(", ") +
+        ". Add the import(s) to STATIC_PRO_SCHEMAS.",
     );
   }
   return map;

@@ -2,7 +2,7 @@
 
 import { useUserSubscription } from "@/lib/features/billing/use-user-subscription";
 import { getLoginHref } from "@/lib/features/tools/tool-links";
-import type { ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import {
   MobileStickyActionBar,
   resolveToolStickyBarState,
@@ -27,9 +27,22 @@ interface ProToolPaywallGateProps {
  */
 export function ProToolPaywallGate({ children, toolName }: ProToolPaywallGateProps) {
   const { user, loading } = useUserSubscription();
+  // Determinism: if Auth/Firestore bootstrap hangs (common in CI when the emulator
+  // handshake stalls), do not leave the gate on an infinite skeleton.
+  const [authLoadTimedOut, setAuthLoadTimedOut] = useState(false);
+  useEffect(() => {
+    if (!loading) {
+      setAuthLoadTimedOut(false);
+      return;
+    }
+    const timer = window.setTimeout(() => setAuthLoadTimedOut(true), 4000);
+    return () => window.clearTimeout(timer);
+  }, [loading]);
+
+  const showLoading = loading && !authLoadTimedOut && !user;
 
   // Loading skeleton with sticky bar (state from resolver)
-  if (loading) {
+  if (showLoading) {
     const loadingConfig = resolveToolStickyBarState(
       "PRO",
       false, false, true, 0, "",
@@ -42,6 +55,7 @@ export function ProToolPaywallGate({ children, toolName }: ProToolPaywallGatePro
         <div
           role="status"
           aria-label="Checking authentication"
+          data-testid="pro-paywall-loading"
           style={{
             maxWidth: "800px",
             margin: "2rem auto",
@@ -106,6 +120,7 @@ export function ProToolPaywallGate({ children, toolName }: ProToolPaywallGatePro
           }}
         >
           <h2
+            data-testid="pro-paywall-sign-in"
             style={{
               fontFamily: "'Barlow', serif",
               fontSize: "1.5rem",

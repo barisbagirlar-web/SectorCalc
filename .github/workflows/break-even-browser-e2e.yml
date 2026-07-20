@@ -5,13 +5,15 @@ on:
     branches: [main]
   push:
     branches: [main, "fix/*", "release/*"]
+  workflow_dispatch:
 
 permissions:
   contents: read
 
 concurrency:
-  group: break-even-browser-${{ github.ref }}
-  cancel-in-progress: true
+  # workflow_dispatch runs must not cancel each other (3× green proof).
+  group: break-even-browser-${{ github.event_name == 'workflow_dispatch' && github.run_id || github.ref }}
+  cancel-in-progress: ${{ github.event_name != 'workflow_dispatch' }}
 
 jobs:
   browser-e2e:
