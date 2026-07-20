@@ -42,6 +42,7 @@ export const ACTIVE_FREE_TOOL_SLUGS: readonly string[] = [
   "true-employee-cost",
   "quote-margin-markup",
   "break-even-point",
+  "break-even-and-margin-of-safety-analysis",
   "payment-term-cost",
   "machine-investment-payback",
   "customer-profitability",
@@ -55,6 +56,9 @@ export const ACTIVE_FREE_TOOL_SLUGS: readonly string[] = [
   "rebar-weight-count",
   "recipe-cost-menu-price",
   "fabric-consumption-gsm",
+  "von-mises-stress-calculator",
+  "net-present-value-calculator",
+  "return-on-investment-calculator",
 ];
 
 // V5.4 Core — PRO active self-service calculators.

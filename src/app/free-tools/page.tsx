@@ -17,6 +17,7 @@ import {
 import { SLUG_TOKEN_SECTOR_HINTS, SECTORS } from "@/lib/features/tools/taxonomy";
 import type { ToolListItem } from "@/lib/features/tools/getToolsByCategory";
 import { getPublicCatalogTitle } from "@/sectorcalc/public/public-tool-copy-adapter";
+import { SITE } from "@/config/site";
 
 export const dynamic = "force-dynamic";
 
@@ -25,6 +26,15 @@ export const metadata: Metadata = {
   description:
     "Browse 49 free industrial calculators across machining, metal, energy, finance, logistics, and more. Browser-first, privacy-safe, decision-support tools. Quick checks before Pro reports.",
   robots: { index: true, follow: true },
+  alternates: {
+    canonical: `${SITE.url}/free-tools`,
+    languages: {
+      en: `${SITE.url}/en/free-tools`,
+      "en-us": `${SITE.url}/en/free-tools`,
+      "en-gb": `${SITE.url}/en/free-tools`,
+      "x-default": `${SITE.url}/free-tools`,
+    },
+  },
 };
 
 // ─── Sector mapping from free tool slug tokens ─────────────────────────────

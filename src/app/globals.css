@@ -78,13 +78,10 @@
     outline-offset: 3px;
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    * {
-      scroll-behavior: auto !important;
-      animation-duration: 0.01ms !important;
-      transition-duration: 0.01ms !important;
-    }
-  }
+  /* Animations are intentionally kept active on every device, including
+     those with the OS "reduce motion" preference enabled (product decision).
+     The global reduced-motion kill-switch was removed so all app animations
+     still play. */
 
   html {
     scroll-behavior: smooth;

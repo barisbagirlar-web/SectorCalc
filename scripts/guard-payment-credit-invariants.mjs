@@ -56,7 +56,12 @@ function read(path) {
 console.log("\n=== Payment & Credit Invariants Guard ===\n");
 
 // ── 1. paddle_processed_events ────────────────────────────────────────
-const webhook = read("src/app/api/paddle-webhook/route.ts");
+// The webhook route was refactored into a thin delegate; the fulfillment
+// invariants (ledgers, customer mapping, ctm_ guard) now live in the shared
+// handler. Scan BOTH so the guard tracks the logic wherever it resides.
+const webhookRoute = read("src/app/api/paddle-webhook/route.ts") ?? "";
+const webhookHandler = read("src/lib/paddle/paddle-webhook-handler.ts") ?? "";
+const webhook = webhookRoute || webhookHandler ? `${webhookRoute}\n${webhookHandler}` : null;
 if (webhook) {
   if (webhook.includes("paddle_processed_events")) {
     pass("paddle_processed_events collection is referenced in webhook");

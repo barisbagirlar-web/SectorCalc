@@ -3,13 +3,14 @@
  * Firebase Hosting (web frameworks) build entry.
  * Called by firebase.json hosting.build.command during deploy.
  *
- * Prebuild steps only. Firebase framework runs `next build` natively after this exits.
- * We explicitly DO NOT run `npm run build` here — it would create a standalone .next
- * artifact that conflicts with Firebase's framework integration.
+ * n8n Node: This is the SINGLE build node in the deploy pipeline.
+ * It runs the full build with retry/OOM protection, finalizes the
+ * standalone, and leaves .next/ ready for Firebase framework to package.
  *
- * IMPORTANT: Do NOT use global build lock here. Firebase framework integration already
- * manages its own build lifecycle. Locking here conflicts with Firebase's parallel
- * build detection, causing "server.js does not exist" errors.
+ * Firebase framework integration detects .next/BUILD_ID after this exits,
+ * then creates the SSR function AND hosting files from the SAME .next/.
+ * This eliminates the split-brain bug where hosting and function came from
+ * different builds (caused by the old shim mechanism).
  */
 import { spawnSync } from "node:child_process";
 import { cpSync, existsSync, mkdirSync, readdirSync, writeFileSync } from "node:fs";
@@ -17,19 +18,18 @@ import { join } from "node:path";
 
 const ROOT = process.cwd();
 const BUILD_ID_PATH = join(ROOT, ".next/BUILD_ID");
+const SERVER_APP_DIR = join(ROOT, ".next", "server", "app");
+
+// ── Schema copy (always needed for server-side schema loader) ─────────
 
 function copySchemasToNextServer() {
-  // Generated schemas
   const srcSchemas = join(ROOT, "generated", "schemas");
   const dstSchemas = join(ROOT, ".next", "server", "generated", "schemas");
   if (existsSync(srcSchemas)) {
     cpSync(srcSchemas, dstSchemas, { recursive: true, force: true });
     console.log(`firebase-hosting-build: copied schemas → ${dstSchemas}`);
-  } else {
-    console.warn(`firebase-hosting-build: ${srcSchemas} not found — skipping schema copy`);
   }
 
-  // PRO V5.3.1 schemas (Baris tools) for pro-schema-loader
   const srcProV531 = join(ROOT, "src/sectorcalc/schemas/pro-v531");
   const dstProV531 = join(ROOT, ".next/server/src/sectorcalc/schemas/pro-v531");
   if (existsSync(srcProV531)) {
@@ -38,7 +38,6 @@ function copySchemasToNextServer() {
     console.log(`firebase-hosting-build: copied pro-v531 schemas → ${dstProV531}`);
   }
 
-  // V5.3.1 engineering schemas
   const srcV531 = join(ROOT, "src/sectorcalc/schemas/v531");
   const dstV531 = join(ROOT, ".next/server/src/sectorcalc/schemas/v531");
   if (existsSync(srcV531)) {
@@ -48,14 +47,13 @@ function copySchemasToNextServer() {
   }
 }
 
+// ── NFT stubs (required by Firebase framework for function packaging) ──
+
 function createNftStubs() {
-  const serverAppDir = join(ROOT, ".next", "server", "app");
-  if (!existsSync(serverAppDir)) {
-    // Firebase hasn't built yet; create stubs and the nft-creator script runs after
+  if (!existsSync(SERVER_APP_DIR)) {
     console.warn("firebase-hosting-build: .next/server/app not found yet — nft stubs deferred");
     return;
   }
-
   let count = 0;
   function walk(dir) {
     let entries;
@@ -73,28 +71,13 @@ function createNftStubs() {
       }
     }
   }
-  walk(serverAppDir);
+  walk(SERVER_APP_DIR);
   console.log(`firebase-hosting-build: created ${count} .nft.json stubs.`);
 }
 
-// ── Main ──
-// IMPORTANT: No global build lock here. Firebase framework manages its own lifecycle.
+// ── Prebuild guard runner (warn-only — non-blocking for deploy) ────────
 
-const forceRebuild = process.env.DEPLOY_FORCE_REBUILD === "1";
-const hasBuild = !forceRebuild && existsSync(BUILD_ID_PATH);
-
-if (hasBuild) {
-  copySchemasToNextServer();
-  createNftStubs();
-  console.log("firebase-hosting-build: reusing existing .next build for Firebase deploy.");
-  process.exit(0);
-}
-
-console.log("firebase-hosting-build: running prebuild steps (Firebase will run next build)...");
-
-// Run essential guards and generators (skip v531-schema-formula-binding:
-// 20 PRO schemas exist without formula modules yet — non-blocking for deploy)
-const prebuildSteps = [
+const PREBUILD_GUARDS = [
   ["npm", ["run", "guard:free-schema-server-boundary"]],
   ["npm", ["run", "guard:v531-form-architecture"]],
   ["npm", ["run", "guard:forbidden-form-surfaces"]],
@@ -111,19 +94,80 @@ const prebuildSteps = [
   ["npx", ["tsx", "scripts/dump-routes-to-json.ts"]],
 ];
 
-for (const [cmd, args] of prebuildSteps) {
-  const result = spawnSync(cmd, args, {
+function runPrebuildGuards() {
+  for (const [cmd, args] of PREBUILD_GUARDS) {
+    const result = spawnSync(cmd, args, {
+      cwd: ROOT,
+      stdio: "inherit",
+      env: {
+        ...process.env,
+        NODE_OPTIONS: process.env.NODE_OPTIONS ?? "--max-old-space-size=8192",
+        NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://sectorcalc.com",
+      },
+    });
+    if ((result.status ?? 1) !== 0) {
+      console.warn(`firebase-hosting-build: guard "${cmd} ${args.join(" ")}" failed — non-fatal.`);
+    }
+  }
+}
+
+// ── Build composer (runs next-build-with-500-fallback + finalize) ──────
+
+function runBuildPipeline() {
+  console.log("firebase-hosting-build: running full build pipeline (next-build-with-500-fallback)…");
+  const buildResult = spawnSync("node", ["scripts/next-build-with-500-fallback.mjs"], {
     cwd: ROOT,
     stdio: "inherit",
     env: {
       ...process.env,
-      NODE_OPTIONS: process.env.NODE_OPTIONS ?? "--max-old-space-size=8192",
+      NODE_OPTIONS: process.env.NODE_OPTIONS ?? "--max-old-space-size=8192 --dns-result-order=ipv4first",
       NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://sectorcalc.com",
     },
   });
-  if ((result.status ?? 1) !== 0) {
-    console.warn(`firebase-hosting-build: prebuild step "${cmd} ${args.join(" ")}" failed — continuing (non-fatal for deploy).`);
+
+  if ((buildResult.status ?? 1) !== 0) {
+    console.error("firebase-hosting-build: build pipeline FAILED.");
+    return false;
   }
+
+  console.log("firebase-hosting-build: running finalize-next-build…");
+  const finalizeResult = spawnSync("node", ["scripts/finalize-next-build.mjs"], {
+    cwd: ROOT,
+    stdio: "inherit",
+  });
+
+  if ((finalizeResult.status ?? 1) !== 0) {
+    console.error("firebase-hosting-build: finalize FAILED.");
+    return false;
+  }
+
+  return true;
 }
 
-console.log("firebase-hosting-build: prebuild steps done. Firebase will now run next build natively.");
+// ── Main (single-build node) ───────────────────────────────────────────
+
+const forceRebuild = process.env.DEPLOY_FORCE_REBUILD === "1";
+const hasBuild = !forceRebuild && existsSync(BUILD_ID_PATH);
+
+// Always run prebuild guards (non-blocking)
+runPrebuildGuards();
+
+if (hasBuild) {
+  console.log(`firebase-hosting-build: reusing existing .next build (${existsSync(BUILD_ID_PATH) ? "BUILD_ID present" : "BUILD_ID missing"}).`);
+  copySchemasToNextServer();
+  createNftStubs();
+  process.exit(0);
+}
+
+// No valid build — run the full pipeline
+console.log("firebase-hosting-build: no valid .next build found — running full pipeline.");
+if (!runBuildPipeline()) {
+  process.exit(1);
+}
+
+// Post-build: ensure Firebase framework can package the function
+copySchemasToNextServer();
+createNftStubs();
+
+console.log("firebase-hosting-build: done. Firebase framework will now package function + hosting from .next/");
+process.exit(0);

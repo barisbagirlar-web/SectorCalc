@@ -1,8 +1,7 @@
-type AppLocale = "en";
 import type { Metadata } from "next";
 import { BRAND_ASSETS } from "@/config/brand";
 import { SITE } from "@/config/site";
-import { getCanonicalPathForLocale } from "@/lib/infrastructure/i18n/locale-routing";
+import { getCanonicalPathForLocale, type HreflangLocale } from "@/lib/infrastructure/i18n/locale-routing";
 import { normalizeLocale } from "@/lib/core/format/localization";
 import {
   resolveToolMetadataDescription,
@@ -30,7 +29,7 @@ export interface PageMetadataOptions {
   title?: string;
   description?: string;
   path?: string;
-  locale?: AppLocale;
+  locale?: HreflangLocale;
 }
 
 export interface ToolMetadataOptions {
@@ -41,17 +40,39 @@ export interface ToolMetadataOptions {
   locale?: string;
 }
 
-function buildLocalizedPath(path: string, locale: AppLocale): string {
+function buildLocalizedPath(path: string, locale: HreflangLocale): string {
   return getCanonicalPathForLocale(path, locale);
 }
 
-function buildHreflangAlternates(path: string): {} {
-  // V5.3.1 root-only: no hreflang locale alternates
-  return {};
+/**
+ * Build global-English hreflang languages for SEO.
+ *
+ * SectorCalc targets "Pure English" as a Global Technical Authority —
+ * NOT limited to en-US. Google treats x-default as the geographic catch-all.
+ * en-us and en-gb signal that the English content is suitable for US and UK
+ * audiences without triggering duplicate-content penalties.
+ * tr/de/ar translations do not exist yet — not emitted to avoid
+ * Google "return URL errors".
+ *
+ * Canonical URL: bare path (English, no locale prefix).
+ * hreflang="en": /en/{path} (also x-default, en-us, en-gb)
+ */
+function buildHreflangLanguages(path: string): Record<string, string> {
+  const baseUrl = SITE.url;
+  const normalizedPath = path.startsWith("/") ? path : `/${path}`;
+  const cleanPath = normalizedPath === "/" ? "" : normalizedPath;
+  const localeUrl = `${baseUrl}/en${cleanPath}`;
+
+  return {
+    en: localeUrl,
+    "en-us": localeUrl,
+    "en-gb": localeUrl,
+    "x-default": localeUrl,
+  };
 }
 
 export function getToolMetadata(options: ToolMetadataOptions): Metadata {
-  const locale = normalizeLocale(options.locale ?? "en") as AppLocale;
+  const locale = (normalizeLocale(options.locale ?? "en") as HreflangLocale);
   const tierLabel = resolveToolTierLabel(locale, options.tier);
   const title = `${options.toolTitle} - ${tierLabel}`;
   const description = resolveToolMetadataDescription(
@@ -66,7 +87,7 @@ export function getToolMetadata(options: ToolMetadataOptions): Metadata {
     title,
     description,
     path,
-    locale: locale,
+    locale,
   });
 }
 
@@ -85,9 +106,9 @@ export function createPageMetadata(options: PageMetadataOptions = {}): Metadata 
   const path = options.path ?? "/";
   const locale = options.locale ?? "en";
   const url = `${SITE.url}${buildLocalizedPath(path, locale)}`;
-  const h_reflang = buildHreflangAlternates(path);
+  const languages = buildHreflangLanguages(path);
 
-  // Canonical is always English (without locale prefix)
+  // Canonical is always bare path (English, no locale prefix)
   const canonicalUrl = `${SITE.url}${path === "/" ? "" : path}`;
 
   const isEnglish = locale === "en";
@@ -120,7 +141,7 @@ export function createPageMetadata(options: PageMetadataOptions = {}): Metadata 
     },
     alternates: {
       canonical: canonicalUrl,
-      ...h_reflang,
+      languages: languages,
     },
     verification: {
       google: "YC4-K4Q1XVrErVW2UE9eNe4Tni2hhFFmBhF8dZjcVoY",

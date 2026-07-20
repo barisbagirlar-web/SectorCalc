@@ -109,6 +109,9 @@ const V531_SLUGS: readonly string[] = [
   "rebar-weight-count",
   "recipe-cost-menu-price",
   "fabric-consumption-gsm",
+  "von-mises-stress-calculator",
+  "net-present-value-calculator",
+  "return-on-investment-calculator",
 ];
 
 // ─── Helpers ────────────────────────────────────────────────────────────────

@@ -4,10 +4,10 @@ import {
   REGION_MANUAL_COOKIE,
   type RegionCode,
 } from "@/config/regions";
-import { parseLocaleFromPath, type SupportedLocale } from "@/lib/infrastructure/i18n/locale-routing";
+import { parseLocaleFromPath, type HreflangLocale } from "@/lib/infrastructure/i18n/locale-routing";
 
 /** Extract locale from pathname - unprefixed paths are English root. */
-export function extractLocaleFromPathname(pathname: string): SupportedLocale {
+export function extractLocaleFromPathname(pathname: string): HreflangLocale {
   return parseLocaleFromPath(pathname) ?? "en";
 }
 

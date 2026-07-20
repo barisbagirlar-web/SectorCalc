@@ -20,6 +20,15 @@ export async function generateMetadata(): Promise<Metadata> {
       description:
         "Annuitized lease-recovery costing, ISO 15686-5 life-cycle cost, and discounted NPV verdict for buy vs lease vs keep decisions.",
     },
+    alternates: {
+      canonical: "https://sectorcalc.com/tools/pro/machine-investment-feasibility-buy-lease-keep",
+      languages: {
+        en: "https://sectorcalc.com/en/tools/pro/machine-investment-feasibility-buy-lease-keep",
+        "en-us": "https://sectorcalc.com/en/tools/pro/machine-investment-feasibility-buy-lease-keep",
+        "en-gb": "https://sectorcalc.com/en/tools/pro/machine-investment-feasibility-buy-lease-keep",
+        "x-default": "https://sectorcalc.com/tools/pro/machine-investment-feasibility-buy-lease-keep",
+      },
+    },
   };
 }
 

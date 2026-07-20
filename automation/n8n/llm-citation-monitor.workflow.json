@@ -1,0 +1,211 @@
+{
+  "name": "LLM Citation Monitor",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [{ "field": "hours", "hours": 6 }]
+        }
+      },
+      "id": "trigger-llm-citation",
+      "name": "Every 6 hours",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.perplexity.ai/chat/completions",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "model",
+              "value": "sonar-pro"
+            },
+            {
+              "name": "messages",
+              "value": "[{\"role\":\"system\",\"content\":\"Search for pages on sectorcalc.com that are cited or referenced in your training data or recent web crawl.\"},{\"role\":\"user\",\"content\":\"What pages from sectorcalc.com are most commonly referenced or cited? List URLs.\"}]"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "perplexity-api",
+      "name": "Query Perplexity API",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [450, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const text = $input.first().json.choices?.[0]?.message?.content || '';\nconst urlPattern = /https?:\\/\\/sectorcalc\\.com[^\\s\"'<>)]+/gi;\nconst matches = [...new Set(text.match(urlPattern) || [])];\nreturn matches.map(url => ({ url, source: 'perplexity', timestamp: new Date().toISOString() }));"
+      },
+      "id": "extract-urls",
+      "name": "Extract sectorcalc URLs",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [650, 300]
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "llm-citation-log",
+          "mode": "list"
+        },
+        "sheetId": "={{ $env.GOOGLE_SHEETS_ID }}",
+        "columns": {
+          "values": [
+            {
+              "column": "URL",
+              "value": "={{ $json.url }}"
+            },
+            {
+              "column": "Source",
+              "value": "={{ $json.source }}"
+            },
+            {
+              "column": "Timestamp",
+              "value": "={{ $json.timestamp }}"
+            }
+          ]
+        }
+      },
+      "id": "log-citation",
+      "name": "Log Citation to Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [850, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "has-urls",
+              "leftValue": "={{ $json.url }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "isNotEmpty"
+              }
+            }
+          ],
+          "combinator": "or"
+        }
+      },
+      "id": "check-new-citations",
+      "name": "Has New Citations?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [1050, 300]
+    },
+    {
+      "parameters": {
+        "webhookUri": "={{ $env.SLACK_SEO_WEBHOOK }}",
+        "text": "🎯 New LLM citation detected:\n{{ JSON.stringify($json, null, 2) }}"
+      },
+      "id": "slack-notify",
+      "name": "Slack Notification",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [1250, 300]
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [{ "field": "weeks", "weeks": 1 }]
+        }
+      },
+      "id": "weekly-aggregate",
+      "name": "Weekly Aggregate Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [250, 500]
+    },
+    {
+      "parameters": {
+        "operation": "read",
+        "documentId": {
+          "__rl": true,
+          "value": "llm-citation-log",
+          "mode": "list"
+        },
+        "sheetId": "={{ $env.GOOGLE_SHEETS_ID }}",
+        "range": "A:C"
+      },
+      "id": "read-citation-sheet",
+      "name": "Read Citation Log",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [450, 500]
+    },
+    {
+      "parameters": {
+        "jsCode": "const rows = $input.all();\nconst urlCounts = {};\nfor (const row of rows) {\n  const url = row.json.URL;\n  if (url) urlCounts[url] = (urlCounts[url] || 0) + 1;\n}\nconst sorted = Object.entries(urlCounts).sort((a, b) => b[1] - a[1]);\nreturn [{ summary: sorted.map(([url, count]) => `${url}: ${count}x`).join('\\n'), total: sorted.length, top: sorted.slice(0, 5).map(([url]) => url) }];"
+      },
+      "id": "aggregate",
+      "name": "Aggregate Weekly",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [650, 500]
+    },
+    {
+      "parameters": {
+        "webhookUri": "={{ $env.SLACK_SEO_WEBHOOK }}",
+        "text": "📊 Weekly LLM Citation Report\nTotal unique URLs cited: {{ $json.total }}\nTop citations:\n{{ $json.summary }}"
+      },
+      "id": "weekly-slack",
+      "name": "Weekly Report to Slack",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [850, 500]
+    }
+  ],
+  "connections": {
+    "Every 6 hours": {
+      "main": [[{ "node": "Query Perplexity API", "type": "main", "index": 0 }]]
+    },
+    "Query Perplexity API": {
+      "main": [[{ "node": "Extract sectorcalc URLs", "type": "main", "index": 0 }]]
+    },
+    "Extract sectorcalc URLs": {
+      "main": [
+        [
+          { "node": "Log Citation to Sheets", "type": "main", "index": 0 },
+          { "node": "Has New Citations?", "type": "main", "index": 0 }
+        ]
+      ]
+    },
+    "Has New Citations?": {
+      "main": [[{ "node": "Slack Notification", "type": "main", "index": 0 }]]
+    },
+    "Weekly Aggregate Trigger": {
+      "main": [[{ "node": "Read Citation Log", "type": "main", "index": 0 }]]
+    },
+    "Read Citation Log": {
+      "main": [[{ "node": "Aggregate Weekly", "type": "main", "index": 0 }]]
+    },
+    "Aggregate Weekly": {
+      "main": [[{ "node": "Weekly Report to Slack", "type": "main", "index": 0 }]]
+    }
+  },
+  "settings": {
+    "saveExecutionProgress": true,
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "staticData": null,
+  "versionId": "1.0.0",
+  "id": "llm-citation-monitor",
+  "active": false
+}

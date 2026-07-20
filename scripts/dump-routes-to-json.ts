@@ -42,6 +42,21 @@ function main() {
   const unique = [...new Set(routes)].sort();
   console.log(`[dump-routes] Unique URLs: ${unique.length}`);
 
+  // FAIL-SAFE: Never write an empty route manifest.
+  // An empty manifest would cause sitemap-lock.mjs L7 to block deployment,
+  // but the guard here prevents CDN cache poisoning at the source.
+  if (unique.length === 0) {
+    console.error("");
+    console.error("═══════════════════════════════════════════════════════");
+    console.error("  [dump-routes] FATAL: Route manifest is EMPTY (0 URLs).");
+    console.error("  This means the sitemap manifest returned zero entries.");
+    console.error("  Existing sitemap on CDN will NOT be overwritten.");
+    console.error("  Deployment MUST be blocked until this is resolved.");
+    console.error("═══════════════════════════════════════════════════════");
+    console.error("");
+    process.exit(1);
+  }
+
   // Ensure public/ directory exists
   const outDir = dirname(OUT_PATH);
   if (!existsSync(outDir)) {

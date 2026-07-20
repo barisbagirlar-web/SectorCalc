@@ -3,10 +3,6 @@ import type { Compiler } from "webpack";
 import { withSentryConfig } from "@sentry/nextjs";
 import path from "node:path";
 import fs, { existsSync, mkdirSync, writeFileSync } from "node:fs";
-import {
-  xRobotsTagValue,
-  X_ROBOTS_TAG_HEADER,
-} from "./src/lib/infrastructure/seo/seo-indexing-control";
 
 class EnsureManifestStubsPlugin {
   apply(compiler: Compiler): void {
@@ -131,8 +127,16 @@ const nextConfig: NextConfig = {
         source: "/(.*)",
         headers: [
           {
+            key: "Content-Language",
+            value: "en",
+          },
+          {
             key: "Strict-Transport-Security",
             value: "max-age=63072000; includeSubDomains; preload",
+          },
+          {
+            key: "Content-Security-Policy",
+            value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://js.stripe.com https://*.firebaseio.com https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https: blob:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://*.firebaseio.com https://*.googleapis.com https://*.stripe.com https://*.cloudfunctions.net https://api.indexnow.org; frame-src 'self' https://js.stripe.com https://*.firebaseapp.com; object-src 'none'; base-uri 'self'; form-action 'self' https://checkout.stripe.com;",
           },
           {
             key: "X-Content-Type-Options",
@@ -150,22 +154,27 @@ const nextConfig: NextConfig = {
             key: "Permissions-Policy",
             value: "camera=(), microphone=(), geolocation=(), interest-cohort=()",
           },
-          {
-            key: X_ROBOTS_TAG_HEADER,
-            value: xRobotsTagValue(),
-          },
+          // X-Robots-Tag is intentionally NOT set here.
+          // Host-aware robots policy lives in src/middleware.ts
+          // (preview/web.app → noindex; sectorcalc.com → index,follow;
+          // hard-404 responses → noindex). A global next.config header
+          // previously overrode preview noindex and caused dilution.
         ],
       },
       {
-        source: "/(sitemap\\.xml|sitemap-.*\\.xml)",
+        source: "/(sitemap\\.xml|sitemaps/.*\\.xml)",
         headers: [
           {
             key: "Content-Type",
             value: "application/xml",
           },
           {
+            // MIL-STD §5: Sitemap must signal "always-fresh" to Googlebot.
+            // max-age=0 + must-revalidate ensures every crawl checks the CDN
+            // edge. Firebase Hosting auto-adds ETag (SHA-256), so Googlebot
+            // skips re-download when ETag matches (bandwidth saved).
             key: "Cache-Control",
-            value: "public, max-age=3600",
+            value: "public, max-age=0, must-revalidate",
           },
         ],
       },

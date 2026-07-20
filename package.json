@@ -53,6 +53,17 @@
     "guard:header-clickability": "node scripts/sectorcalc-header-controls-clickability-guard.mjs",
     "guard:turkish": "node scripts/zero-tolerance-turkish-guard.mjs",
     "guard:zero-turkish": "node scripts/guard-zero-turkish-build.mjs",
+    "verify:english-purity": "npx tsx scripts/verify-english-purity.ts",
+    "verify:engineering-purity": "npx tsx scripts/verify-engineering-purity.ts",
+    "verify:lean-ux": "npx tsx scripts/verify-lean-ux-invariants.ts",
+    "verify:internal-links": "npx tsx scripts/verify-internal-links.ts",
+    "verify:sitemap-parity": "npx tsx scripts/verify-sitemap-parity.ts",
+    "verify:hreflang": "npx tsx scripts/verify-hreflang.ts",
+    "verify:hreflang-consistency": "npx tsx scripts/verify-hreflang-consistency.ts",
+    "verify:hreflang-bidirectional": "npx tsx scripts/verify-hreflang-bidirectional.ts",
+    "verify:raw-html-metadata": "npx tsx scripts/verify-raw-html-metadata.ts",
+    "verify:invariants": "node scripts/validate-invariants.js",
+    "seo:gates": "npm run verify:engineering-purity && npm run verify:lean-ux && npm run verify:internal-links && npm run verify:sitemap-parity && npm run verify:hreflang && npm run verify:hreflang-consistency && npm run verify:hreflang-bidirectional && npm run verify:raw-html-metadata",
     "guard:no-turkish-public-source": "node scripts/guard-no-turkish-public-source.mjs",
     "guard:free-schema-server-boundary": "node scripts/guard-free-schema-server-boundary.mjs",
     "guard:generated-schema-bindings": "node scripts/guard-generated-schema-bindings.mjs",
@@ -83,7 +94,7 @@
     "smoke:payment-paddle": "node scripts/smoke-payment-paddle.mjs",
     "generate:sitemap-static": "tsx scripts/generate-sitemap-static.ts",
     "validate:translations": "node scripts/validate-schema-translations.mjs",
-    "prebuild": "npm run guard:free-schema-server-boundary && npm run guard:v531-form-architecture && npm run guard:forbidden-form-surfaces && npm run guard:v531-schema-formula-binding && npm run guard:zero-turkish && npm run guard:no-turkish-public-source && node scripts/zero-tolerance-turkish-guard.mjs && npm run guard:i18n-keys && npm run guard:removed-free-tools && node scripts/english-only-lexicon-guard.mjs && node scripts/schema-language-guard.mjs && npm run validate:translations && tsx scripts/prebuild-reference-registry.ts && tsx scripts/prebuild-reference-engine-guard.ts && npm run dump:routes",
+    "prebuild": "npm run guard:free-schema-server-boundary && npm run guard:v531-form-architecture && npm run guard:forbidden-form-surfaces && npm run guard:v531-schema-formula-binding && npm run guard:zero-turkish && npm run guard:no-turkish-public-source && node scripts/zero-tolerance-turkish-guard.mjs && npm run guard:i18n-keys && npm run guard:removed-free-tools && node scripts/english-only-lexicon-guard.mjs && node scripts/schema-language-guard.mjs && npm run validate:translations && tsx scripts/prebuild-reference-registry.ts && tsx scripts/prebuild-reference-engine-guard.ts && npm run dump:routes && npm run seo:export-manifest",
     "audit:runtime": "tsx scripts/audit-premium-runtime.ts",
     "test:v5-form": "vitest run src/sectorcalc/pro-form/__tests__/",
     "test:v5-runtime": "vitest run src/sectorcalc/pro-runtime/__tests__/",
@@ -125,6 +136,9 @@
     "lock:sitemap": "node scripts/sitemap-lock.mjs",
     "audit:seo-copy": "tsx scripts/lint-seo.ts",
     "audit:seo-gates": "npm run dump:routes && node scripts/sitemap-lock.mjs --routes public/routes.json --sample 50 && npm run audit:seo-copy",
+    "seo:indexnow": "npx tsx scripts/submit-indexnow.ts",
+    "seo:export-manifest": "npx tsx scripts/export-url-manifest.ts",
+    "seo:striking-distance": "node scripts/seo/gsc-striking-distance.mjs",
     "audit:live:free-v531": "MAX_FAIL=5 node scripts/audit-live-free-v531-tools.mjs",
     "audit:live:free-v531:calculation": "node scripts/audit-live-free-v531-calculation.mjs",
     "guard:free-v531:schema-binding": "tsx scripts/guard-free-v531-schema-binding.ts",
@@ -139,7 +153,17 @@
     "guard:no-duplicate-empty-inputs": "node scripts/guard-no-duplicate-empty-inputs.mjs",
     "guard:mobile-form-state-machine": "node scripts/guard-mobile-form-state-machine.mjs",
     "stop:builds": "pkill -f 'next build' 2>/dev/null; pkill -f 'next-build-with-500' 2>/dev/null; pkill -f 'next-firebase-deploy' 2>/dev/null; pkill -f 'firebase-hosting-build' 2>/dev/null; rm -f .sectorcalc-build.lock .next-deploy.lock; echo 'Build processes cleaned.'",
-    "deploy": "node scripts/deploy-production.mjs"
+    "deploy": "node scripts/deploy-production.mjs",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "eslint --fix",
+      "node scripts/validate-invariants.js"
+    ],
+    "src/**/*.{js,mjs}": [
+      "node scripts/validate-invariants.js"
+    ]
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
@@ -178,6 +202,7 @@
     "serwist": "^9.5.11",
     "stripe": "^22.3.0",
     "tailwind-merge": "^3.6.0",
+    "unpdf": "^1.6.2",
     "xlsx": "^0.18.5",
     "zod": "^4.4.3"
   },
@@ -195,6 +220,8 @@
     "eslint-config-next": "15.5.19",
     "fast-check": "^4.8.0",
     "firebase-tools": "^15.22.4",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.1.0",
     "playwright": "^1.61.1",
     "server-only": "^0.0.1",
     "tailwindcss": "^3.4.19",

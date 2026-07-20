@@ -1,8 +1,53 @@
 import { type NextRequest, NextResponse } from "next/server";
 import { REGION_HEADER, REGION_SOURCE_HEADER } from "@/config/regions";
 import { detectRegionFromRequest } from "@/lib/features/compliance/detect-region";
+import {
+  X_ROBOTS_TAG_HEADER,
+  xRobotsTagValue,
+} from "@/lib/infrastructure/seo/seo-indexing-control";
+
+/**
+ * Hardcoded public origin for Link/canonical — NEVER derive from request.url
+ * or NEXT_PUBLIC_SITE_URL. Firebase SSR binds to 0.0.0.0:8080 and may inject
+ * that address into env; leaking it into Link headers causes dilution.
+ */
+const PUBLIC_SITE_ORIGIN = "https://sectorcalc.com";
+
+/** Request header read by root layout to keep DOM <meta robots> in sync. */
+const SC_ROBOTS_REQUEST_HEADER = "x-sc-robots-policy";
 
 const PROTECTED_ROUTES = ["/account", "/account/", "/dashboard", "/dashboard/"];
+
+/** Industry registry slugs — middleware hard-404 for anything else. */
+const ACTIVE_INDUSTRY_SLUGS = new Set<string>([
+  "cnc-manufacturing",
+  "construction",
+  "cleaning",
+  "restaurant",
+  "ecommerce",
+  "welding-fabrication",
+  "hvac",
+  "electrical-contracting",
+  "landscaping-lawn-care",
+  "auto-repair-shop",
+  "printing-signage",
+  "plumbing",
+  "carpentry-millwork",
+  "roofing",
+  "painting",
+  "sheet-metal",
+  "3d-printing-service",
+  "logistics-transport",
+  "agriculture-crops",
+  "agriculture-irrigation",
+  "agriculture-feed",
+  "agriculture-dairy",
+  "energy-consumption",
+  "energy-carbon",
+  "daily-renovation",
+  "daily-fuel",
+  "daily-meals",
+]);
 
 function isProtectedRoute(pathname: string): boolean {
   return PROTECTED_ROUTES.some(
@@ -26,6 +71,136 @@ function applyRegionHeaders(response: NextResponse, request: NextRequest): NextR
 }
 
 /**
+ * Resolve the client-facing hostname for robots decisions.
+ * Firebase Hosting → Cloud Run rewrites often leave `Host` as *.run.app /
+ * *.web.app / 0.0.0.0. The public hostname is carried in
+ * `x-fh-requested-host` / `x-forwarded-host`. Prefer a public production
+ * host if ANY candidate matches; only then fall back to preview/internal.
+ */
+function listClientHosts(request: NextRequest): string[] {
+  const raw = [
+    request.headers.get("x-fh-requested-host"),
+    request.headers.get("x-forwarded-host")?.split(",")[0]?.trim(),
+    request.headers.get("host"),
+    request.nextUrl.host,
+  ];
+  const out: string[] = [];
+  for (const value of raw) {
+    const host = (value ?? "").trim().toLowerCase().split(":")[0] ?? "";
+    if (host.length > 0 && !out.includes(host)) out.push(host);
+  }
+  return out;
+}
+
+function resolveClientHost(request: NextRequest): string {
+  const hosts = listClientHosts(request);
+  const publicHost = hosts.find((h) => isPublicSiteHost(h));
+  if (publicHost) return publicHost;
+  return hosts[0] ?? "";
+}
+
+function shouldNoindexHost(request: NextRequest): boolean {
+  const hosts = listClientHosts(request);
+  // Production custom domain always wins.
+  if (hosts.some((h) => isPublicSiteHost(h))) return false;
+
+  // Explicit preview / local mirrors only — NOT *.run.app (that is the
+  // Firebase Hosting SSR rewrite target for production custom domains too).
+  const isExplicitPreview = hosts.some(
+    (h) =>
+      h.endsWith(".web.app") ||
+      h.endsWith(".firebaseapp.com") ||
+      h === "0.0.0.0" ||
+      h === "127.0.0.1" ||
+      h === "localhost",
+  );
+  return isExplicitPreview;
+}
+
+function isPublicSiteHost(host: string): boolean {
+  return host === "sectorcalc.com" || host === "www.sectorcalc.com";
+}
+
+function normalizePathname(pathname: string): string {
+  if (pathname !== "/" && pathname.endsWith("/")) {
+    return pathname.replace(/\/+$/, "") || "/";
+  }
+  return pathname || "/";
+}
+
+function publicCanonicalFor(pathname: string): string {
+  const normalized = normalizePathname(pathname);
+  // Match createPageMetadata: root has no trailing slash.
+  return normalized === "/" ? PUBLIC_SITE_ORIGIN : `${PUBLIC_SITE_ORIGIN}${normalized}`;
+}
+
+/**
+ * Inject HTTP Link: <...>; rel="canonical" locked to PUBLIC_SITE_ORIGIN.
+ * Never use request.url host — Firebase SSR binds to 0.0.0.0.
+ */
+function applyCanonicalLinkHeader(response: NextResponse, request: NextRequest): void {
+  const canonical = publicCanonicalFor(request.nextUrl.pathname || "/");
+  // Preserve any existing non-canonical Link values (font preloads, etc.).
+  const existing = response.headers.get("Link");
+  const canonicalPart = `<${canonical}>; rel="canonical"`;
+  if (!existing) {
+    response.headers.set("Link", canonicalPart);
+    return;
+  }
+  const parts = existing
+    .split(",")
+    .map((p) => p.trim())
+    .filter((p) => p.length > 0 && !/rel=["']?canonical["']?/i.test(p));
+  parts.unshift(canonicalPart);
+  response.headers.set("Link", parts.join(", "));
+}
+
+function applyRobotsHeader(
+  response: NextResponse,
+  request: NextRequest,
+  options?: { forceNoindex?: boolean },
+): void {
+  if (options?.forceNoindex || shouldNoindexHost(request)) {
+    // Preview / non-public hosts / explicit 404 — never indexable.
+    // follow kept so link equity can still flow to the canonical domain.
+    response.headers.set(X_ROBOTS_TAG_HEADER, "noindex, follow");
+    return;
+  }
+  response.headers.set(X_ROBOTS_TAG_HEADER, xRobotsTagValue());
+}
+
+function applyStandardHeaders(
+  response: NextResponse,
+  request: NextRequest,
+  options?: { forceNoindex?: boolean },
+): NextResponse {
+  applyCanonicalLinkHeader(response, request);
+  applyRobotsHeader(response, request, options);
+  return applyRegionHeaders(response, request);
+}
+
+function buildPassThroughHeaders(request: NextRequest): Headers {
+  const requestHeaders = new Headers(request.headers);
+  const policy = shouldNoindexHost(request) ? "noindex" : "index";
+  requestHeaders.set(SC_ROBOTS_REQUEST_HEADER, policy);
+  return requestHeaders;
+}
+
+function nextWithRobotsPolicy(request: NextRequest): NextResponse {
+  return NextResponse.next({
+    request: { headers: buildPassThroughHeaders(request) },
+  });
+}
+
+function notFoundResponse(request: NextRequest): NextResponse {
+  const response = new NextResponse("Not Found", {
+    status: 404,
+    headers: { "content-type": "text/plain; charset=utf-8" },
+  });
+  return applyStandardHeaders(response, request, { forceNoindex: true });
+}
+
+/**
  * Known ISO 639-1 language paths at root level — return 404.
  * These are not active routes; they exist only as legacy/misguided URL patterns.
  */
@@ -37,10 +212,16 @@ const LEGACY_LANGUAGE_ROUTES = new Set([
   "/hi", "/th", "/vi", "/id", "/ms",
 ]);
 
+// SW_KILL_VERSION: bump to force clients to re-fetch the kill SW.
+const SW_KILL_VERSION = "2026-07-19-v2";
+
+// Kill SW — no reload loop. Installs, deletes caches, claims, unregisters.
+// No clients.navigate() — avoids infinite reload.
 const SW_KILL_CODE = [
   `self.addEventListener("install",()=>self.skipWaiting())`,
-  `self.addEventListener("activate",(e)=>{e.waitUntil((async()=>{const k=await caches.keys();await Promise.all(k.map(c=>caches.delete(c)));await self.clients.claim();await self.registration.unregister();(await self.clients.matchAll({type:"window"})).forEach(c=>c.navigate(c.url))})())})`,
+  `self.addEventListener("activate",(e)=>{e.waitUntil((async()=>{const k=await caches.keys();await Promise.all(k.map(c=>caches.delete(c)));await self.clients.claim();await self.registration.unregister()})())})`,
   `self.addEventListener("fetch",()=>{})`,
+  `// ${SW_KILL_VERSION}`,
 ].join(";");
 
 const SW_KILL_HEADERS = {
@@ -144,7 +325,7 @@ export default function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // ── www → non-www canonical redirect (Firebase SSR host match fix) ──
-  const host = request.headers.get("host") ?? "";
+  const host = resolveClientHost(request);
   if (host === "www.sectorcalc.com" || host.startsWith("www.")) {
     const url = new URL(request.url);
     url.host = "sectorcalc.com";
@@ -174,21 +355,12 @@ export default function middleware(request: NextRequest) {
     }
   }
 
-  const response = NextResponse.next();
-  annotateAuthGate(request, response);
-
-  if (response.headers.get("x-auth-gate") === "challenge") {
-    return applyRegionHeaders(response, request);
-  }
-
   if (pathname.startsWith("/sitemap/")) {
-    return new Response("Gone", {
+    const gone = new NextResponse("Gone", {
       status: 410,
-      headers: {
-        "content-type": "text/plain; charset=utf-8",
-        "x-robots-tag": "noindex, nofollow",
-      },
+      headers: { "content-type": "text/plain; charset=utf-8" },
     });
+    return applyStandardHeaders(gone, request, { forceNoindex: true });
   }
 
   // ── Legacy singular /guide/ → /guides/ redirect ──
@@ -198,19 +370,34 @@ export default function middleware(request: NextRequest) {
     return NextResponse.redirect(url, 301);
   }
 
-  // Root-level language-only paths — return 404
+  // ── Legacy free-tool URL structure → canonical route (301) ──
+  // Old/indexed URLs used /free-tools/{category}/{slug}; live route is
+  // /tools/free/{slug}. Strip the category segment and redirect.
+  if (pathname.startsWith("/free-tools/")) {
+    const segments = pathname.split("/").filter(Boolean);
+    if (segments.length >= 3) {
+      const slug = segments[segments.length - 1];
+      const url = new URL(request.url);
+      url.pathname = `/tools/free/${slug}`;
+      return NextResponse.redirect(url, 301);
+    }
+  }
+
+  // Root-level language-only paths — return 404 + noindex (no meta/header conflict)
   if (LEGACY_LANGUAGE_ROUTES.has(pathname)) {
-    return new Response("Not Found", {
-      status: 404,
-      headers: {
-        "content-type": "text/plain; charset=utf-8",
-        "x-robots-tag": "noindex, nofollow",
-      },
-    });
+    return notFoundResponse(request);
+  }
+
+  // Industry detail: unknown slug → hard 404 + noindex at the edge (before soft shells)
+  if (pathname.startsWith("/industries/")) {
+    const slug = pathname.slice("/industries/".length).replace(/\/+$/, "");
+    if (!slug || slug.includes("/") || !ACTIVE_INDUSTRY_SLUGS.has(slug)) {
+      return notFoundResponse(request);
+    }
   }
 
   if (pathname.startsWith("/_next") || pathname.startsWith("/api")) {
-    return applyRegionHeaders(NextResponse.next(), request);
+    return applyStandardHeaders(nextWithRobotsPolicy(request), request);
   }
 
   if (pathname === "/sw.js") {
@@ -218,10 +405,17 @@ export default function middleware(request: NextRequest) {
   }
 
   if (pathname.includes(".")) {
-    return applyRegionHeaders(NextResponse.next(), request);
+    return applyStandardHeaders(nextWithRobotsPolicy(request), request);
   }
 
-  return applyRegionHeaders(NextResponse.next(), request);
+  const response = nextWithRobotsPolicy(request);
+  annotateAuthGate(request, response);
+
+  if (response.headers.get("x-auth-gate") === "challenge") {
+    return applyStandardHeaders(response, request, { forceNoindex: true });
+  }
+
+  return applyStandardHeaders(response, request);
 }
 
 export const config = {

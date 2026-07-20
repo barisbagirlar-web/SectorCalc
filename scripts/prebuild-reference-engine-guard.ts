@@ -46,6 +46,8 @@ const SKIP_DIRS = new Set([
 const SKIP_FILES = new Set([
   "src/lib/core/schema/schema-loader.ts",
   "src/lib/core/schema/schema-registry.ts",
+  // DIN/ISO bridge intentional — German engineering trust signal in entity graph
+  "src/lib/infrastructure/seo/entity-graph.ts",
 ]);
 
 interface Violation {

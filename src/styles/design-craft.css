@@ -669,11 +669,7 @@ form[data-calculation-form="true"] {
   animation: sc-ledger-tick 120ms ease-out;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .sc-ledger-number-tick {
-    animation: none;
-  }
-}
+/* Motion kept active on every device, including OS "reduce motion". */
 
 .sc-result-secondary-grid {
   display: grid;
@@ -6093,15 +6089,7 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .sc-about-cta {
-    transition: none;
-  }
-
-  .sc-about-cta:hover {
-    transform: none;
-  }
-}
+/* Motion kept active on every device, including OS "reduce motion". */
 
 
 /* SectorCalc Assistant (P10) */
@@ -6737,23 +6725,7 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
   50% { opacity: 0.6; r: calc(var(--dot-r, 2.2) + 0.8); }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .sc-trace-ai-logo__glow,
-  .sc-trace-ai-logo__ring-path,
-  .sc-trace-ai-logo__body-circle,
-  .sc-trace-ai-logo__highlight,
-  .sc-trace-ai-logo__glyph,
-  .sc-trace-ai-logo__mark,
-  .sc-trace-ai-logo__dot {
-    animation: none !important;
-  }
-  .sc-trace-ai-logo__ring-path {
-    transform: rotate(0deg);
-  }
-  .sc-trace-ai-logo__mark {
-    stroke-dashoffset: 0;
-  }
-}
+/* Motion kept active on every device, including OS "reduce motion". */
 
 .sc-trace {
   position: fixed;
@@ -7062,23 +7034,7 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
     bottom: 1.125rem;
   }
 }
-@media (prefers-reduced-motion: reduce) {
-  .sc-trace__bubble-greeting {
-    animation: none;
-    opacity: 1;
-    transform: none;
-  }
-  .sc-trace__bubble-greeting-card,
-  .sc-trace__bubble-text,
-  .sc-trace__bubble-stats {
-    animation: none !important;
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .sc-trace__fab {
-    transition: none;
-  }
-}
+/* Motion kept active on every device, including OS "reduce motion". */
 .sc-trace__panel {
   width: min(380px, calc(100vw - 2rem));
   height: min(500px, 70vh);
@@ -7561,24 +7517,7 @@ main > section.bg-bg-subtle:not(.rounded-sm):not(.shadow-card) {
   outline-offset: 2px;
 }
 
-/* Reduced motion - disable all Trace animations */
-@media (prefers-reduced-motion: reduce) {
-  .sc-trace__panel-wrap--open,
-  .sc-trace__panel-wrap--closing {
-    animation: none !important;
-    opacity: 1 !important;
-    transform: none !important;
-  }
-  .sc-trace__msg-row {
-    animation: none !important;
-  }
-  .sc-trace__skeleton-line {
-    animation: none !important;
-  }
-  .sc-trace__typing-dot {
-    animation: none !important;
-  }
-}
+/* Trace animations kept active on every device, including OS "reduce motion". */
 
 /* Trace homepage intro - hero-aligned premium light card */
 .sc-trace-intro {

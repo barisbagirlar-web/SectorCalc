@@ -18,6 +18,7 @@ import {
 import { SLUG_TOKEN_SECTOR_HINTS, SECTORS } from "@/lib/features/tools/taxonomy";
 import type { ToolListItem } from "@/lib/features/tools/getToolsByCategory";
 import { getPublicCatalogTitle } from "@/sectorcalc/public/public-tool-copy-adapter";
+import { SITE } from "@/config/site";
 
 export const dynamic = "force-dynamic";
 
@@ -26,6 +27,15 @@ export const metadata: Metadata = {
   description:
     "Access 20 live Pro industrial calculators for manufacturing, energy, quality, logistics, and engineering decision support. Deterministic, auditable, server-side execution. Assisted dossiers for source-required cases.",
   robots: { index: true, follow: true },
+  alternates: {
+    canonical: `${SITE.url}/pro-tools`,
+    languages: {
+      en: `${SITE.url}/en/pro-tools`,
+      "en-us": `${SITE.url}/en/pro-tools`,
+      "en-gb": `${SITE.url}/en/pro-tools`,
+      "x-default": `${SITE.url}/pro-tools`,
+    },
+  },
 };
 
 // ─── Sector mapping from PRO tool_key tokens ───────────────────────────────
