@@ -162,17 +162,16 @@ export default function BreakEvenSurvivalCashToolPage() {
     const snap=rawInputs; const snapCur=curSym;
     try {
       // Schema input ids omit the UI `n_` prefix (e.g. monthly_fixed_cash_cost).
+      // Values are already canonical (ratios 0–1 for pct fields) — do not mark selected_units as percent.
       const apiInputs: Record<string, number> = {};
-      const selectedUnits: Record<string, string> = {};
       for (const [id, val] of Object.entries(snap)) {
         const apiId = id.startsWith("n_") ? id.slice(2) : id;
         apiInputs[apiId] = val;
-        if (FIELDS[id]?.pct) selectedUnits[apiId] = "percent";
       }
       const res=await fetch("/api/pro-calculator/execute",{method:"POST",
         headers:{"Content-Type":"application/json",...(authToken?{Authorization:`Bearer ${authToken}`}:{})},
         // Execute API contract uses camelCase usageSessionId (bypass-unlimited skips key deduction).
-        body:JSON.stringify({tool_key:TOOL_KEY,raw_inputs:apiInputs,selected_units:selectedUnits,usageSessionId})});
+        body:JSON.stringify({tool_key:TOOL_KEY,raw_inputs:apiInputs,selected_units:{},usageSessionId})});
       if(!res.ok){const d=await res.json().catch(()=>({}));throw new Error(d.error||`Server error ${res.status}`);}
       const data=await res.json();
       const outputsMap:Record<string,number>={};

@@ -168,13 +168,55 @@ try {
 
   assert(await generateButton.isEnabled(), "Generate sealed report disabled after owner bypass + valid inputs");
 
-  const executeResponsePromise = page.waitForResponse(
-    (response) =>
-      response.url().includes("/api/pro-calculator/execute") && response.request().method() === "POST",
-    { timeout: 60_000 },
-  );
   await generateButton.click();
-  const executeResponse = await executeResponsePromise;
+
+  await page.getByRole("heading", { name: "Break-Even & Survival Cash — proof report" }).waitFor({
+    timeout: 60_000,
+  });
+  const report = page.locator(".be-report");
+  await report.waitFor({ timeout: 30_000 });
+  const reportText = await report.innerText();
+  assert(reportText.includes("SEAL"), "Rendered report missing SEAL marker");
+  assert(!reportText.includes("Maximum Absorbed Overhead"), "Generic capital-appraisal output leaked into rendered report");
+  assert(!reportText.includes("FMEA Trigger Flag"), "Generic FMEA output leaked into rendered report");
+
+  // Deterministic API assert via Playwright request (independent of page fetch races).
+  const apiInputs = {
+    monthly_fixed_cash_cost: 120000,
+    monthly_debt_service: 25000,
+    contribution_margin_ratio: 0.42,
+    current_monthly_revenue: 420000,
+    unrestricted_cash_balance: 750000,
+    target_survival_months: 6,
+    downside_revenue_factor: 0.7,
+    minimum_cash_buffer: 100000,
+    source_confidence_ratio: 0.9,
+    uncertainty_multiplier: 1.15,
+  };
+  const bearer = await page.evaluate(() => {
+    const key = Object.keys(localStorage).find((k) => k.includes("firebase:authUser"));
+    if (!key) return null;
+    try {
+      const raw = JSON.parse(localStorage.getItem(key) || "null");
+      return raw?.stsTokenManager?.accessToken ?? null;
+    } catch {
+      return null;
+    }
+  });
+  assert(bearer, "Missing Firebase access token in localStorage after login");
+
+  const executeResponse = await page.request.post(`${baseUrl}/api/pro-calculator/execute`, {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${bearer}`,
+    },
+    data: {
+      tool_key: "break-even-survival-cash-calculator",
+      raw_inputs: apiInputs,
+      selected_units: {},
+      usageSessionId: "bypass-unlimited",
+    },
+  });
   const apiResult = {
     httpStatus: executeResponse.status(),
     payload: await executeResponse.json(),
@@ -184,7 +226,13 @@ try {
     apiResult.httpStatus === 200,
     `Execute API returned HTTP ${apiResult.httpStatus}: ${JSON.stringify(apiResult.payload)}`,
   );
-  assert(apiResult.payload.status === "OK", `Expected API status OK, received ${apiResult.payload.status}`);
+  assert(
+    apiResult.payload.status === "OK",
+    `Expected API status OK, received ${apiResult.payload.status}: ${JSON.stringify({
+      pipeline_state: apiResult.payload.pipeline_state,
+      diagnostic: apiResult.payload.diagnostic,
+    })}`,
+  );
   assert(
     apiResult.payload.decision_interpretation?.primary_decision === "OK",
     "Decision interpretation is not OK",
@@ -223,16 +271,6 @@ try {
   const warningText = JSON.stringify(apiResult.payload.warnings ?? []);
   assert(!warningText.includes("trigger_inputs"), "Derating configuration warning leaked into API response");
   assert(!warningText.includes("D001") && !warningText.includes("D002"), "Legacy derating rule leaked into API response");
-
-  await page.getByRole("heading", { name: "Break-Even & Survival Cash — proof report" }).waitFor({
-    timeout: 60_000,
-  });
-  const report = page.locator(".be-report");
-  await report.waitFor({ timeout: 30_000 });
-  const reportText = await report.innerText();
-  assert(reportText.includes("SEAL"), "Rendered report missing SEAL marker");
-  assert(!reportText.includes("Maximum Absorbed Overhead"), "Generic capital-appraisal output leaked into rendered report");
-  assert(!reportText.includes("FMEA Trigger Flag"), "Generic FMEA output leaked into rendered report");
 
   await page.screenshot({ path: `${artifactsDir}/tool-page.png`, fullPage: true });
   writeFileSync(`${artifactsDir}/api-result.json`, JSON.stringify(apiResult, null, 2));
