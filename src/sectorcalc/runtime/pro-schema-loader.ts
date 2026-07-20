@@ -294,6 +294,18 @@ function loadAllSchemas(): void {
   } catch (err) {
     loadErrors.push(`Failed to initialize PRO schema loader: ${err instanceof Error ? err.message : String(err)}`);
   }
+
+  // Surface load diagnostics to Cloud Logging. getProSchemaLoadErrors() exists
+  // but nothing was calling it, so failures here were previously silent —
+  // the catalog page would just render 0 tools with no trace in the logs.
+  const loadedCount = loadedSchemas?.size ?? 0;
+  if (loadErrors.length > 0 || loadedCount === 0) {
+    console.error(
+      `[pro-schema-loader] loaded=${loadedCount} dirs_checked=${JSON.stringify(getSchemasDirs())} errors=${JSON.stringify(loadErrors)}`,
+    );
+  } else {
+    console.log(`[pro-schema-loader] loaded=${loadedCount} schemas successfully`);
+  }
 }
 
 /**
