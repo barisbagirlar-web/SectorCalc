@@ -158,17 +158,16 @@ function getToolDefinitionKey(slug: string): string | undefined {
 
 /**
  * Build global-English hreflang languages for a given tool path.
- * en, en-us, en-gb, x-default all point to /en{path}.
+ * en, en-us, en-gb, x-default all self-reference the bare canonical URL.
  */
 function buildToolHreflangLanguages(slug: string): Record<string, string> {
-  const baseUrl = SITE.url;
-  const localeUrl = `${baseUrl}/en/tools/free/${slug}`;
+  const canonicalUrl = `${SITE.url}/tools/free/${slug}`;
 
   return {
-    en: localeUrl,
-    "en-us": localeUrl,
-    "en-gb": localeUrl,
-    "x-default": localeUrl,
+    en: canonicalUrl,
+    "en-us": canonicalUrl,
+    "en-gb": canonicalUrl,
+    "x-default": canonicalUrl,
   };
 }
 
@@ -185,10 +184,9 @@ export async function generateMetadata({
     return {
       title: `${name} | SectorCalc FREE`,
       description: `Free ${name} industrial calculator. Calculate costs, measure efficiency, and make data-driven decisions.`,
-      robots: { index: true, follow: true },
+      robots: { index: false, follow: false },
       alternates: {
         canonical: `${SITE.url}/tools/free/${slug}`,
-        languages: buildToolHreflangLanguages(slug),
       },
     };
   }

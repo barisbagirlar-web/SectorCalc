@@ -5,6 +5,7 @@ import {
   X_ROBOTS_TAG_HEADER,
   xRobotsTagValue,
 } from "@/lib/infrastructure/seo/seo-indexing-control";
+import { ACTIVE_FREE_TOOL_SLUGS } from "@/sectorcalc/runtime/active-tool-allowlist";
 
 /**
  * Hardcoded public origin for Link/canonical — NEVER derive from request.url
@@ -48,6 +49,9 @@ const ACTIVE_INDUSTRY_SLUGS = new Set<string>([
   "daily-fuel",
   "daily-meals",
 ]);
+
+/** Free-tool allowlist — middleware hard-404 for unknown/quarantined slug variants. */
+const ACTIVE_FREE_TOOL_SLUG_SET = new Set<string>(ACTIVE_FREE_TOOL_SLUGS);
 
 function isProtectedRoute(pathname: string): boolean {
   return PROTECTED_ROUTES.some(
@@ -174,7 +178,11 @@ function applyStandardHeaders(
   request: NextRequest,
   options?: { forceNoindex?: boolean },
 ): NextResponse {
-  applyCanonicalLinkHeader(response, request);
+  // Never self-canonicalize 404/410/noindex responses — Google treats that as
+  // an indexable URL signal even when status is 404.
+  if (!options?.forceNoindex) {
+    applyCanonicalLinkHeader(response, request);
+  }
   applyRobotsHeader(response, request, options);
   return applyRegionHeaders(response, request);
 }
@@ -201,16 +209,21 @@ function notFoundResponse(request: NextRequest): NextResponse {
 }
 
 /**
- * Known ISO 639-1 language paths at root level — return 404.
- * These are not active routes; they exist only as legacy/misguided URL patterns.
+ * Known ISO 639-1 language path prefixes — permanently retired.
+ * Exact roots (/tr) and nested paths (/tr/tools/...) both hard-404 + noindex.
+ * /en and /en/... redirect to bare English paths (legacy equity preservation).
  */
-const LEGACY_LANGUAGE_ROUTES = new Set([
-  "/en", "/tr", "/de", "/fr", "/es", "/ar",
-  "/ru", "/zh", "/ja", "/ko", "/pt", "/it",
-  "/nl", "/pl", "/sv", "/da", "/fi", "/nb",
-  "/cs", "/hu", "/ro", "/uk", "/el", "/he",
-  "/hi", "/th", "/vi", "/id", "/ms",
-]);
+const LEGACY_LANGUAGE_CODES = [
+  "en", "tr", "de", "fr", "es", "ar",
+  "ru", "zh", "ja", "ko", "pt", "it",
+  "nl", "pl", "sv", "da", "fi", "nb",
+  "cs", "hu", "ro", "uk", "el", "he",
+  "hi", "th", "vi", "id", "ms",
+] as const;
+
+const LEGACY_LANGUAGE_PREFIX_RE = new RegExp(
+  `^/(${LEGACY_LANGUAGE_CODES.join("|")})(/|$)`,
+);
 
 // SW_KILL_VERSION: bump to force clients to re-fetch the kill SW.
 const SW_KILL_VERSION = "2026-07-19-v2";
@@ -327,9 +340,12 @@ export default function middleware(request: NextRequest) {
   // ── www → non-www canonical redirect (Firebase SSR host match fix) ──
   const host = resolveClientHost(request);
   if (host === "www.sectorcalc.com" || host.startsWith("www.")) {
-    const url = new URL(request.url);
-    url.host = "sectorcalc.com";
-    return NextResponse.redirect(url, 301);
+    const barePath = pathname || "/";
+    const target =
+      barePath === "/"
+        ? `${PUBLIC_SITE_ORIGIN}/`
+        : `${PUBLIC_SITE_ORIGIN}${barePath}${request.nextUrl.search}`;
+    return NextResponse.redirect(target, 301);
   }
 
   // ── Defense-in-depth: rate limit POST to non-API expensive endpoints ──
@@ -399,15 +415,47 @@ export default function middleware(request: NextRequest) {
     }
   }
 
-  // Root-level language-only paths — return 404 + noindex (no meta/header conflict)
-  if (LEGACY_LANGUAGE_ROUTES.has(pathname)) {
-    return notFoundResponse(request);
+  // ── Legacy language prefixes (English-only apex site) ──
+  // /en and /en/... → 301 to bare path (preserve crawl equity).
+  // /tr|/de|/fr|/es|/ar|... (exact + nested) → hard 404 + noindex.
+  {
+    const languagePrefixMatch = pathname.match(LEGACY_LANGUAGE_PREFIX_RE);
+    if (languagePrefixMatch) {
+      const code = languagePrefixMatch[1];
+      if (code === "en") {
+        const rest =
+          pathname === "/en" || pathname === "/en/"
+            ? "/"
+            : pathname.slice("/en".length) || "/";
+        const barePath = rest.startsWith("/") ? rest : `/${rest}`;
+        // Never clone request.nextUrl — Firebase SSR binds :8080 and leaks it
+        // into Location. Build absolute apex URL from PUBLIC_SITE_ORIGIN only.
+        const targetUrl = new URL(
+          barePath === "/" ? `${PUBLIC_SITE_ORIGIN}/` : `${PUBLIC_SITE_ORIGIN}${barePath}`,
+        );
+        targetUrl.search = request.nextUrl.search;
+        return NextResponse.redirect(targetUrl.toString(), 301);
+      }
+      return notFoundResponse(request);
+    }
   }
 
   // Industry detail: unknown slug → hard 404 + noindex at the edge (before soft shells)
   if (pathname.startsWith("/industries/")) {
     const slug = pathname.slice("/industries/".length).replace(/\/+$/, "");
     if (!slug || slug.includes("/") || !ACTIVE_INDUSTRY_SLUGS.has(slug)) {
+      return notFoundResponse(request);
+    }
+  }
+
+  // Free tools: unknown / quarantined / underscore variants → hard 404 at the edge.
+  // Firebase SSR otherwise emits HTTP 200 + noindex soft shells (crawl-budget waste).
+  if (pathname === "/tools/free" || pathname === "/tools/free/") {
+    return notFoundResponse(request);
+  }
+  if (pathname.startsWith("/tools/free/")) {
+    const slug = pathname.slice("/tools/free/".length).replace(/\/+$/, "");
+    if (!slug || slug.includes("/") || !ACTIVE_FREE_TOOL_SLUG_SET.has(slug)) {
       return notFoundResponse(request);
     }
   }

@@ -22,9 +22,9 @@ export async function generateMetadata({
     alternates: {
       canonical: `${SITE.url}/lean/a3-report`,
       languages: {
-        en: `${SITE.url}/en/lean/a3-report`,
-        "en-us": `${SITE.url}/en/lean/a3-report`,
-        "en-gb": `${SITE.url}/en/lean/a3-report`,
+        en: `${SITE.url}/lean/a3-report`,
+        "en-us": `${SITE.url}/lean/a3-report`,
+        "en-gb": `${SITE.url}/lean/a3-report`,
         "x-default": `${SITE.url}/lean/a3-report`,
       },
     },

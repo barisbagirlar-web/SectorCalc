@@ -13,6 +13,7 @@ import { RegionProvider } from "@/lib/features/compliance/region-context";
 import { ServiceWorkerRegister } from "@/components/field-mode/ServiceWorkerRegister";
 import { AttributionBootstrap } from "@/components/campaign/AttributionBootstrap";
 import { THEME_COLOR } from "@/config/organization-trust";
+import { SITE } from "@/config/site";
 import { metadataRobots } from "@/lib/infrastructure/seo/seo-indexing-control";
 import { RootShell } from "@/components/layout/RootShell";
 import { getFreeToolCount, getPremiumToolCount } from "@/lib/features/tools/tool-counts";
@@ -23,6 +24,7 @@ import "../lib/ui-shared/auth/auth-status.css";
 import "../sectorcalc/pro-form/universal-industrial-decision-form.css";
 import "../styles/mobile-navigation.css";
 
+const ROOT_METADATA_BASE = new URL(SITE.url);
 const inter = Inter({
   subsets: ["latin", "latin-ext"],
   variable: "--font-inter",
@@ -64,10 +66,11 @@ export async function generateMetadata(): Promise<Metadata> {
   const h = await headers();
   const policy = h.get("x-sc-robots-policy");
   if (policy === "index") {
-    return { robots: metadataRobots() };
+    return { metadataBase: ROOT_METADATA_BASE, robots: metadataRobots() };
   }
   if (policy === "noindex") {
     return {
+      metadataBase: ROOT_METADATA_BASE,
       robots: {
         index: false,
         follow: true,
@@ -88,7 +91,7 @@ export async function generateMetadata(): Promise<Metadata> {
     (host) => host === "sectorcalc.com" || host === "www.sectorcalc.com",
   );
   if (isPublic) {
-    return { robots: metadataRobots() };
+    return { metadataBase: ROOT_METADATA_BASE, robots: metadataRobots() };
   }
 
   const isPreviewHost = hosts.some(
@@ -103,6 +106,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   if (isPreviewHost) {
     return {
+      metadataBase: ROOT_METADATA_BASE,
       robots: {
         index: false,
         follow: true,
@@ -112,6 +116,7 @@ export async function generateMetadata(): Promise<Metadata> {
   }
 
   return {
+    metadataBase: ROOT_METADATA_BASE,
     robots: metadataRobots(),
   };
 }

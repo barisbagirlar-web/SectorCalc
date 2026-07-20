@@ -19,6 +19,7 @@ import { getDisplayCategoryLabel } from "@/sectorcalc/pro-form/display-labels";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { buildToolPageGraph } from "@/lib/infrastructure/seo/tool-page-graph";
 import { getGeneratedToolLastUpdatedIso } from "@/lib/features/generated-tools/resolve-tool-updated-at";
+import { SITE } from "@/config/site";
 import "server-only";
 /* Eager: prevent Next.js from loading this CSS as a lazy preload chunk */
 import "@/sectorcalc/pro-form/universal-industrial-decision-form.css";
@@ -58,6 +59,7 @@ export async function generateMetadata({
   const publicTitle = getPublicToolTitle(schema.tool_key, schema.tool_name);
   const publicDesc = getPublicProMetaDescription(schema.tool_key, schema.tool_name, category);
   const seoTitle = `${publicTitle} | SectorCalc PRO`;
+  const canonicalUrl = `${SITE.url}/tools/pro/${slug}`;
 
   return {
     title: seoTitle,
@@ -66,6 +68,16 @@ export async function generateMetadata({
     openGraph: {
       title: seoTitle,
       description: publicDesc,
+      url: canonicalUrl,
+    },
+    alternates: {
+      canonical: canonicalUrl,
+      languages: {
+        en: canonicalUrl,
+        "en-us": canonicalUrl,
+        "en-gb": canonicalUrl,
+        "x-default": canonicalUrl,
+      },
     },
   };
 }

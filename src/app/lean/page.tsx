@@ -16,9 +16,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: `${SITE.url}/lean`,
     languages: {
-      en: `${SITE.url}/en/lean`,
-      "en-us": `${SITE.url}/en/lean`,
-      "en-gb": `${SITE.url}/en/lean`,
+      en: `${SITE.url}/lean`,
+      "en-us": `${SITE.url}/lean`,
+      "en-gb": `${SITE.url}/lean`,
       "x-default": `${SITE.url}/lean`,
     },
   },

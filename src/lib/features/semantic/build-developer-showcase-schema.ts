@@ -44,10 +44,10 @@ export function buildDeveloperShowcaseSchema(locale: string): JsonLdRecord {
       "@type": "Action",
       additionalType: "https://schema.org/CalculateAction",
       name: "SectorCalc CalculateAction API",
-      description: "Execute sector-specific calculations via URL-based API. Each calculator is accessible at {locale}/tools/generated/{slug} with input parameters as query string.",
+      description: "Execute sector-specific calculations via URL-based API. Each calculator is accessible at /tools/free/{slug} with input parameters as query string.",
       target: {
         "@type": "EntryPoint",
-        urlTemplate: `${SITE_URL}/{locale}/tools/generated/{slug}?{input_params}`,
+        urlTemplate: `${SITE_URL}/tools/free/{slug}?{input_params}`,
         actionPlatform: [
           "https://schema.org/DesktopWebPlatform",
           "https://schema.org/MobileWebPlatform",
@@ -55,15 +55,6 @@ export function buildDeveloperShowcaseSchema(locale: string): JsonLdRecord {
         contentType: "application/json",
       },
       instrument: [
-        {
-          "@type": "PropertyValueSpecification",
-          valueName: "locale",
-          valueRequired: true,
-          valueType: "Text",
-          defaultValue: "en",
-          valuePattern: "en|tr|de|fr|es|ar",
-          description: "Target locale for the calculation and result display (ISO 639-1)",
-        },
         {
           "@type": "PropertyValueSpecification",
           valueName: "slug",

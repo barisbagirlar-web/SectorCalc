@@ -1,4 +1,4 @@
-/* eslint-disable */
+ 
 // @ts-nocheck
 
 import type { CalculationReportCopy } from "@/lib/content/pdf/calculation-report-types";
@@ -99,7 +99,7 @@ const EMAIL_COPY: Record<AppLocale, CalculationReportEmailCopy> = {
     body: "Your <strong>{toolName}</strong> calculation report is attached.",
     methodology: "This report was generated using SectorCalc's transparent industrial methodology.",
     upsellHtml:
-      'Explore <a href="https://sectorcalc.com/en/pricing" style="color:#1E3A5F;">Premium decision tools</a> for deeper loss analysis and export-ready reports.',
+      'Explore <a href="https://sectorcalc.com/pricing" style="color:#1E3A5F;">Premium decision tools</a> for deeper loss analysis and export-ready reports.',
     signature: "SectorCalc Team",
     attribution: "IIT Bombay · Prof. Dr. Neela Nataraj",
   },
@@ -109,7 +109,7 @@ const EMAIL_COPY: Record<AppLocale, CalculationReportEmailCopy> = {
     body: "<strong>{toolName}</strong> hesaplama raporunuz ektedir.",
     methodology: "Bu report SectorCalc'in seffaf endustriyel metodolojisi ile olusturulmustur.",
     upsellHtml:
-      'Daha detayli analizler icin <a href="https://sectorcalc.com/tr/pricing" style="color:#1E3A5F;">Premium araclarimizi</a> inceleyin.',
+      'Daha detayli analizler icin <a href="https://sectorcalc.com/pricing" style="color:#1E3A5F;">Premium araclarimizi</a> inceleyin.',
     signature: "SectorCalc Ekibi",
     attribution: "IIT Bombay · Prof. Dr. Neela Nataraj",
   },
@@ -119,7 +119,7 @@ const EMAIL_COPY: Record<AppLocale, CalculationReportEmailCopy> = {
     body: "Ihr Berechnungsbericht fur <strong>{toolName}</strong> ist im Anhang.",
     methodology: "Dieser Bericht wurde mit der transparenten Industriemethodik von SectorCalc erstellt.",
     upsellHtml:
-      'Entdecken Sie unsere <a href="https://sectorcalc.com/de/pricing" style="color:#1E3A5F;">Premium-Entscheidungstools</a> fur tiefere Verlustanalysen.',
+      'Entdecken Sie unsere <a href="https://sectorcalc.com/pricing" style="color:#1E3A5F;">Premium-Entscheidungstools</a> fur tiefere Verlustanalysen.',
     signature: "SectorCalc Team",
     attribution: "IIT Bombay · Prof. Dr. Neela Nataraj",
   },
@@ -129,7 +129,7 @@ const EMAIL_COPY: Record<AppLocale, CalculationReportEmailCopy> = {
     body: "Votre rapport de calcul <strong>{toolName}</strong> est en pièce jointe.",
     methodology: "Ce rapport a été généré avec la méthodologie industrielle transparente de SectorCalc.",
     upsellHtml:
-      'Découvrez nos <a href="https://sectorcalc.com/fr/pricing" style="color:#1E3A5F;">outils Premium</a> pour une analyse plus approfondie.',
+      'Découvrez nos <a href="https://sectorcalc.com/pricing" style="color:#1E3A5F;">outils Premium</a> pour une analyse plus approfondie.',
     signature: "Équipe SectorCalc",
     attribution: "IIT Bombay · Prof. Dr. Neela Nataraj",
   },
@@ -139,7 +139,7 @@ const EMAIL_COPY: Record<AppLocale, CalculationReportEmailCopy> = {
     body: "Su informe de cálculo de <strong>{toolName}</strong> está adjunto.",
     methodology: "Este informe se generó con la metodología industrial transparente de SectorCalc.",
     upsellHtml:
-      'Explore nuestras <a href="https://sectorcalc.com/es/pricing" style="color:#1E3A5F;">herramientas Premium</a> para un análisis más profundo.',
+      'Explore nuestras <a href="https://sectorcalc.com/pricing" style="color:#1E3A5F;">herramientas Premium</a> para un análisis más profundo.',
     signature: "Equipo SectorCalc",
     attribution: "IIT Bombay · Prof. Dr. Neela Nataraj",
   },
@@ -149,7 +149,7 @@ const EMAIL_COPY: Record<AppLocale, CalculationReportEmailCopy> = {
     body: "تقرير حساب <strong>{toolName}</strong> مرفق.",
     methodology: "تم إنشاء هذا التقرير باستخدام منهجية SectorCalc الصناعية الشفافة.",
     upsellHtml:
-      'استكشف <a href="https://sectorcalc.com/ar/pricing" style="color:#1E3A5F;">أدوات Premium</a> لتحليل أعمq.',
+      'استكشف <a href="https://sectorcalc.com/pricing" style="color:#1E3A5F;">أدوات Premium</a> لتحليل أعمq.',
     signature: "فريق SectorCalc",
     attribution: "IIT Bombay · Prof. Dr. Neela Nataraj",
   },
