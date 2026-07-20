@@ -25,7 +25,7 @@ const FIELDS: Record<string,FieldDef> = {
   "n_rework_hours": { label:"Rework hours", def:12, hard:[0,10000.0], ref:[0,200], refUnit:"h", hint:"Total labor/machine hours spent on rework.", src:"quality log", grp:2 },
   "n_rework_rate": { label:"Rework hourly rate", def:65, hard:[0,50000.0], ref:[10,500], refUnit:"/h", hint:"Cost per hour of rework (often different from the production rate).", src:"costing system", grp:3 },
   "n_material_cost": { label:"Period material cost", def:45000, hard:[0,500000000.0], ref:[0,5000000.0], refUnit:"", hint:"Total material consumed this period (for context/ratio).", src:"purchase ledger", grp:3 },
-  "n_defect_rate_pct": { label:"Observed defect rate", def:2.8000000000000003, hard:[0,100], ref:[0,0.1], refUnit:"%", hint:"Defects as a fraction of units produced.", src:"quality report", grp:2, pct:true },
+  "n_defect_rate_pct": { label:"Observed defect rate", def:2.8, hard:[0,100], ref:[0,10], refUnit:"%", hint:"Defects as a fraction of units produced (canonical: raw percent number, e.g. 2.5 = 2.5%).", src:"quality report", grp:2 },
   "n_source_confidence_ratio": { label:"Source confidence", def:85.0, hard:[0,100], ref:[0.7,1], refUnit:"%", hint:"How verified are these figures?", src:"engineer's assessment", grp:3, pct:true },
 };
 const GROUPS: Record<number,{n:string;t:string;d:string}> = {
@@ -36,7 +36,8 @@ const GROUPS: Record<number,{n:string;t:string;d:string}> = {
 
 function fmtRef(f:FieldDef,cs:string):string {
   if(f.pct) return `Ref: ${(f.ref[0]*100).toFixed(0)}–${(f.ref[1]*100).toFixed(0)}%`;
-  return `Ref: ${cs}${f.ref[0].toLocaleString()}–${cs}${f.ref[1].toLocaleString()}${f.refUnit?" "+f.refUnit:""}`;
+  if(f.refUnit) return `Ref: ${f.ref[0].toLocaleString()}–${f.ref[1].toLocaleString()} ${f.refUnit}`;
+  return `Ref: ${cs}${f.ref[0].toLocaleString()}–${cs}${f.ref[1].toLocaleString()}`;
 }
 
 interface ServerSeal { output_hash?:string; hash_algorithm?:string; executed_at?:string; }
@@ -136,7 +137,8 @@ export default function DowntimeScrapLossStatementToolPage() {
         <div className={`${p}-f-top`}><label htmlFor={`in_${id}`}>{f.label}</label></div>
         <div className={`${p}-control ${cls}`}>
           <input id={`in_${id}`} type="number" step="any" inputMode="decimal" value={st.value} onChange={e=>updateField(id,e.target.value)} aria-invalid={!!st.error} />
-          {!f.pct&&<span className={`${p}-prefix`}>{f.refUnit?f.refUnit:curSym}</span>}
+          {!f.pct&&!f.refUnit&&<span className={`${p}-prefix`}>{curSym}</span>}
+          {!f.pct&&f.refUnit&&<span className={`${p}-prefix`} style={{borderLeft:"1px solid var(--"+p+"-line)",borderRight:"none"}}>{f.refUnit}</span>}
           {f.pct&&<span className={`${p}-prefix`} style={{borderLeft:"1px solid var(--"+p+"-line)",borderRight:"none"}}>%</span>}
         </div>
         <div className={`${p}-f-foot`}><span className={`${p}-hint`}>{f.hint} <em style={{fontStyle:"normal",color:"var(--"+p+"-faint)"}}>· {f.src}</em></span><span className={`${p}-bench-ref`}>{fmtRef(f,curSym)}</span></div>

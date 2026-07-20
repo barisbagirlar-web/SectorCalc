@@ -24,7 +24,7 @@ const FIELDS: Record<string,FieldDef> = {
   "n_unit_labor_cost": { label:"Unit direct labor cost", def:12, hard:[0,100000.0], ref:[0,500], refUnit:"", hint:"Labor cost embedded in each produced unit.", src:"job costing", grp:2 },
   "n_rework_labor_rate": { label:"Rework labor rate", def:35, hard:[0,50000.0], ref:[10,300], refUnit:"/h", hint:"Hourly rate for rework operators.", src:"HR / payroll", grp:2 },
   "n_rework_time_per_unit": { label:"Rework time per unit", def:0.75, hard:[0,100], ref:[0.1,8], refUnit:"h", hint:"Average time to rework one defective unit.", src:"time study / work measurement", grp:2 },
-  "n_defect_rate_target_pct": { label:"Defect rate target", def:1.0, hard:[0,100], ref:[0,0.05], refUnit:"%", hint:"The defect rate you're trying to achieve (for variance tracking).", src:"quality improvement plan", grp:3, pct:true },
+  "n_defect_rate_target_pct": { label:"Defect rate target", def:1.0, hard:[0,100], ref:[0,5], refUnit:"%", hint:"The defect rate you're trying to achieve (canonical: raw percent number, e.g. 2 = 2%).", src:"quality improvement plan", grp:3 },
   "n_monthly_volume": { label:"Monthly production volume", def:5000, hard:[1,10000000.0], ref:[100,100000], refUnit:"units", hint:"Typical monthly output volume (to annualise quality loss).", src:"production schedule", grp:3 },
   "n_source_confidence_ratio": { label:"Source confidence", def:85.0, hard:[0,100], ref:[0.7,1], refUnit:"%", hint:"How verified are these figures?", src:"engineer's assessment", grp:3, pct:true },
 };
@@ -36,7 +36,8 @@ const GROUPS: Record<number,{n:string;t:string;d:string}> = {
 
 function fmtRef(f:FieldDef,cs:string):string {
   if(f.pct) return `Ref: ${(f.ref[0]*100).toFixed(0)}–${(f.ref[1]*100).toFixed(0)}%`;
-  return `Ref: ${cs}${f.ref[0].toLocaleString()}–${cs}${f.ref[1].toLocaleString()}${f.refUnit?" "+f.refUnit:""}`;
+  if(f.refUnit) return `Ref: ${f.ref[0].toLocaleString()}–${f.ref[1].toLocaleString()} ${f.refUnit}`;
+  return `Ref: ${cs}${f.ref[0].toLocaleString()}–${cs}${f.ref[1].toLocaleString()}`;
 }
 
 interface ServerSeal { output_hash?:string; hash_algorithm?:string; executed_at?:string; }
@@ -136,7 +137,8 @@ export default function ScrapReworkCostTrackerToolPage() {
         <div className={`${p}-f-top`}><label htmlFor={`in_${id}`}>{f.label}</label></div>
         <div className={`${p}-control ${cls}`}>
           <input id={`in_${id}`} type="number" step="any" inputMode="decimal" value={st.value} onChange={e=>updateField(id,e.target.value)} aria-invalid={!!st.error} />
-          {!f.pct&&<span className={`${p}-prefix`}>{f.refUnit?f.refUnit:curSym}</span>}
+          {!f.pct&&!f.refUnit&&<span className={`${p}-prefix`}>{curSym}</span>}
+          {!f.pct&&f.refUnit&&<span className={`${p}-prefix`} style={{borderLeft:"1px solid var(--"+p+"-line)",borderRight:"none"}}>{f.refUnit}</span>}
           {f.pct&&<span className={`${p}-prefix`} style={{borderLeft:"1px solid var(--"+p+"-line)",borderRight:"none"}}>%</span>}
         </div>
         <div className={`${p}-f-foot`}><span className={`${p}-hint`}>{f.hint} <em style={{fontStyle:"normal",color:"var(--"+p+"-faint)"}}>· {f.src}</em></span><span className={`${p}-bench-ref`}>{fmtRef(f,curSym)}</span></div>

@@ -26,7 +26,7 @@ const FIELDS: Record<string,FieldDef> = {
   "n_weld_time_min": { label:"Total weld time", def:35, hard:[0,10000.0], ref:[1,1000], refUnit:"min", hint:"Total operator time including setup, tacking, inspection.", src:"weld log / time study", grp:3 },
   "n_labor_rate": { label:"Welder labor rate", def:42, hard:[0,500000.0], ref:[15,200], refUnit:"/h", hint:"Fully-loaded welder hourly cost.", src:"HR / payroll", grp:3 },
   "n_overhead_rate": { label:"Shop overhead rate", def:25, hard:[0,1000000.0], ref:[5,200], refUnit:"/h", hint:"Overhead per operator-hour in the welding shop.", src:"cost accounting", grp:3 },
-  "n_deposition_efficiency_pct": { label:"Deposition efficiency", def:85.0, hard:[0,100], ref:[0.6,0.98], refUnit:"%", hint:"Fraction of wire mass that ends up in the weld.", src:"AWS / manufacturer data", grp:3, pct:true },
+  "n_deposition_efficiency_pct": { label:"Deposition efficiency", def:85.0, hard:[0,100], ref:[60,98], refUnit:"%", hint:"Fraction of wire mass that ends up in the weld (canonical: raw percent number, e.g. 85 = 85%).", src:"AWS / manufacturer data", grp:3 },
   "n_source_confidence_ratio": { label:"Source confidence", def:85.0, hard:[0,100], ref:[0.7,1], refUnit:"%", hint:"How verified are these figures?", src:"engineer's assessment", grp:3, pct:true },
 };
 const GROUPS: Record<number,{n:string;t:string;d:string}> = {
@@ -37,7 +37,8 @@ const GROUPS: Record<number,{n:string;t:string;d:string}> = {
 
 function fmtRef(f:FieldDef,cs:string):string {
   if(f.pct) return `Ref: ${(f.ref[0]*100).toFixed(0)}–${(f.ref[1]*100).toFixed(0)}%`;
-  return `Ref: ${cs}${f.ref[0].toLocaleString()}–${cs}${f.ref[1].toLocaleString()}${f.refUnit?" "+f.refUnit:""}`;
+  if(f.refUnit) return `Ref: ${f.ref[0].toLocaleString()}–${f.ref[1].toLocaleString()} ${f.refUnit}`;
+  return `Ref: ${cs}${f.ref[0].toLocaleString()}–${cs}${f.ref[1].toLocaleString()}`;
 }
 
 interface ServerSeal { output_hash?:string; hash_algorithm?:string; executed_at?:string; }
@@ -137,7 +138,8 @@ export default function WeldProcedureCostToolPage() {
         <div className={`${p}-f-top`}><label htmlFor={`in_${id}`}>{f.label}</label></div>
         <div className={`${p}-control ${cls}`}>
           <input id={`in_${id}`} type="number" step="any" inputMode="decimal" value={st.value} onChange={e=>updateField(id,e.target.value)} aria-invalid={!!st.error} />
-          {!f.pct&&<span className={`${p}-prefix`}>{f.refUnit?f.refUnit:curSym}</span>}
+          {!f.pct&&!f.refUnit&&<span className={`${p}-prefix`}>{curSym}</span>}
+          {!f.pct&&f.refUnit&&<span className={`${p}-prefix`} style={{borderLeft:"1px solid var(--"+p+"-line)",borderRight:"none"}}>{f.refUnit}</span>}
           {f.pct&&<span className={`${p}-prefix`} style={{borderLeft:"1px solid var(--"+p+"-line)",borderRight:"none"}}>%</span>}
         </div>
         <div className={`${p}-f-foot`}><span className={`${p}-hint`}>{f.hint} <em style={{fontStyle:"normal",color:"var(--"+p+"-faint)"}}>· {f.src}</em></span><span className={`${p}-bench-ref`}>{fmtRef(f,curSym)}</span></div>
