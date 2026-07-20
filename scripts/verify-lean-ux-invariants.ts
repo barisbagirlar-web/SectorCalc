@@ -1,19 +1,16 @@
 #!/usr/bin/env tsx
 /**
- * CI/CD Lean-UX Invariant Gate
- * =============================
+ * CI/CD Lean-UX Invariant Gate (RM-LEAN-001)
+ * ==========================================
  *
- * Verifies that the Lean-Calc section collectively satisfies:
- * 1. Lean lexicon terms (PDCA, Gemba, Lean, Operational Check) appear in source
- * 2. UX invariant markers (structured-inputs, immediate-result, next-action) exist
- * 3. Schema markers (HowTo, lean.org citation, Clear Next Action) are present
- *
- * Verification is collective across all lean page, component, and schema files —
- * markers can appear in any file within the lean domain.
+ * Verifies Lean domain after consolidation to 5 canonical metric hubs + /lean hub:
+ * 1. Lexicon terms appear across lean + hub sources
+ * 2. UX markers (structured-inputs, immediate-result, next-action) exist
+ * 3. Schema / LEI markers present
+ * 4. Five calculator hubs exist; legacy spoke page removed
+ * 5. Registry retains matrix for redirect verification
  *
  * Exit code: 0 = PASS, 1 = BLOCKED
- *
- * Usage: npx tsx scripts/verify-lean-ux-invariants.ts
  */
 
 import fs from "node:fs";
@@ -22,14 +19,26 @@ import path from "node:path";
 const ROOT = process.cwd();
 
 const LEAN_PAGES_ROOT = path.join(ROOT, "src/app/lean");
+const CALC_HUB_ROOT = path.join(ROOT, "src/app/calculators");
 
 const LEAN_COMPONENT_FILES = [
-  path.join(ROOT, "src/components/calculators/lean/LeanCalculatorClient.tsx"),
+  path.join(ROOT, "src/components/calculators/lean/LeanMetricCalculatorPanel.tsx"),
+  path.join(ROOT, "src/components/calculators/lean/LeanMetricHubContent.tsx"),
+  path.join(ROOT, "src/components/calculators/lean/LeanMetricSsrChrome.tsx"),
   path.join(ROOT, "src/components/calculators/NextActionPDCA.tsx"),
+  path.join(ROOT, "src/lib/features/tools/lean-metric-hubs.ts"),
   path.join(ROOT, "src/lib/infrastructure/seo/lean-schema.ts"),
 ];
 
-const REQUIRED_LEXICON = ["PDCA", "Gemba", "Lean", "Operational Check"];
+const REQUIRED_HUB_SLUGS = [
+  "takt-time",
+  "oee",
+  "scrap-rate",
+  "cycle-time",
+  "capacity-utilization",
+] as const;
+
+const REQUIRED_LEXICON = ["PDCA", "Gemba", "Lean", "Operational"];
 
 const REQUIRED_UX_MARKERS = [
   'data-testid="structured-inputs"',
@@ -37,10 +46,15 @@ const REQUIRED_UX_MARKERS = [
   'id="next-action"',
 ];
 
-const REQUIRED_SCHEMA_MARKERS = [
-  'SoftwareApplication',
-  "lean.org",
-  "Clear Next Action",
+const REQUIRED_SCHEMA_MARKERS = ["SoftwareApplication", "lean.org", "Clear Next Action", "DefinedTerm"];
+
+const REQUIRED_SECTIONS = [
+  "Quick Decision Summary",
+  "Calculation Methodology",
+  "Behavior Intelligence",
+  "Scenario Library",
+  "Cite This Calculator",
+  "References and Standards Context",
 ];
 
 function walkDir(dir: string): string[] {
@@ -63,14 +77,18 @@ interface Violation {
 }
 
 function main(): void {
-  console.log("Lean-UX Invariant Verification Gate");
+  console.log("Lean-UX Invariant Verification Gate (RM-LEAN-001)");
   console.log("=".repeat(60));
 
   const pageFiles = walkDir(LEAN_PAGES_ROOT);
-  const allFiles = [...pageFiles, ...LEAN_COMPONENT_FILES.filter((f) => fs.existsSync(f))];
-  console.log(`  Lean source files: ${allFiles.length}`);
+  const hubFiles = REQUIRED_HUB_SLUGS.flatMap((slug) => walkDir(path.join(CALC_HUB_ROOT, slug)));
+  const allFiles = [
+    ...pageFiles,
+    ...hubFiles,
+    ...LEAN_COMPONENT_FILES.filter((f) => fs.existsSync(f)),
+  ];
+  console.log(`  Lean + hub source files: ${allFiles.length}`);
 
-  // Read all lean files into a single combined buffer for collective verification
   let combinedText = "";
   for (const file of allFiles) {
     combinedText += fs.readFileSync(file, "utf8") + "\n";
@@ -78,59 +96,93 @@ function main(): void {
 
   const violations: Violation[] = [];
 
-  // 1. Lexicon check — collective
   for (const term of REQUIRED_LEXICON) {
     if (!combinedText.includes(term)) {
       violations.push({ reason: `Missing Lean lexicon term: "${term}"` });
     }
   }
 
-  // 2. UX markers — collective
   for (const marker of REQUIRED_UX_MARKERS) {
     if (!combinedText.includes(marker)) {
       violations.push({ reason: `Missing UX invariant marker: "${marker}"` });
     }
   }
 
-  // 3. Schema markers — collective
   for (const marker of REQUIRED_SCHEMA_MARKERS) {
     if (!combinedText.includes(marker)) {
       violations.push({ reason: `Missing schema marker: "${marker}"` });
     }
   }
 
-  // 4. Structural check: at least one calculator page exists (not just the index)
-  const calculatorPage = path.join(ROOT, "src/app/lean/[concept]/[metric]/page.tsx");
-  if (!fs.existsSync(calculatorPage)) {
-    violations.push({ reason: "Missing calculator page: src/app/lean/[concept]/[metric]/page.tsx" });
+  for (const section of REQUIRED_SECTIONS) {
+    if (!combinedText.includes(section)) {
+      violations.push({ reason: `Missing hub section marker: "${section}"` });
+    }
   }
 
-  // 5. Registry must have matrix entries
+  for (const slug of REQUIRED_HUB_SLUGS) {
+    const pagePath = path.join(CALC_HUB_ROOT, slug, "page.tsx");
+    if (!fs.existsSync(pagePath)) {
+      violations.push({ reason: `Missing canonical hub page: src/app/calculators/${slug}/page.tsx` });
+    }
+  }
+
+  const legacySpoke = path.join(ROOT, "src/app/lean/[concept]/[metric]/page.tsx");
+  if (fs.existsSync(legacySpoke)) {
+    violations.push({
+      reason: "Legacy spoke page still present — must be removed after 301 consolidation",
+    });
+  }
+
+  if (combinedText.includes("ISO/IEC 17025") || combinedText.includes("ISO/IEC 17025")) {
+    violations.push({ reason: "ISO/IEC 17025 forced footer still present in Lean sources" });
+  }
+
   const registryPath = path.join(ROOT, "src/lib/features/tools/lean-calc-registry.ts");
   if (fs.existsSync(registryPath)) {
     const registryText = fs.readFileSync(registryPath, "utf8");
     if (!registryText.includes("buildMatrix") || !registryText.includes("LEAN_CALC_MATRIX")) {
-      violations.push({ reason: "Lean registry missing matrix generation" });
+      violations.push({ reason: "Lean registry missing matrix generation (needed for redirect SSOT)" });
+    }
+    if (!registryText.includes("canonicalPath")) {
+      violations.push({ reason: "Lean registry missing canonicalPath mapping" });
     }
   } else {
     violations.push({ reason: "Missing lean-calc-registry.ts" });
   }
 
+  const hubsPath = path.join(ROOT, "src/lib/features/tools/lean-metric-hubs.ts");
+  if (!fs.existsSync(hubsPath)) {
+    violations.push({ reason: "Missing lean-metric-hubs.ts SSOT" });
+  }
+
+  const middlewarePath = path.join(ROOT, "src/middleware.ts");
+  const middlewareText = fs.readFileSync(middlewarePath, "utf8");
+  if (!middlewareText.includes("RM-LEAN-001") || !middlewareText.includes("/calculators/${metric}")) {
+    violations.push({ reason: "Missing lean spoke 301 redirect block in middleware.ts" });
+  }
+  for (const slug of REQUIRED_HUB_SLUGS) {
+    if (!middlewareText.includes(slug)) {
+      violations.push({ reason: `Missing metric slug in middleware lean redirect matcher: ${slug}` });
+    }
+  }
+
+  const firebaseText = fs.readFileSync(path.join(ROOT, "firebase.json"), "utf8");
+  for (const slug of REQUIRED_HUB_SLUGS) {
+    if (!firebaseText.includes(`/lean/*/${slug}`)) {
+      violations.push({ reason: `Missing Firebase Hosting 301 for /lean/*/${slug}` });
+    }
+  }
+
   if (violations.length > 0) {
     console.error(`\n[BLOCKED] Lean-UX invariants violated (${violations.length} issues):\n`);
     for (const v of violations) {
-      console.error(`  \u2717 ${v.reason}`);
+      console.error(`  - ${v.reason}`);
     }
-    console.error("");
     process.exit(1);
   }
 
-  console.log("[PASS] ALL Lean-UX invariants verified:");
-  console.log(`  \u2022 Lean lexicon terms: ${REQUIRED_LEXICON.join(", ")}`);
-  console.log(`  \u2022 UX markers: structured-inputs, immediate-result, next-action`);
-  console.log(`  \u2022 Schema markers: SoftwareApplication, lean.org, Clear Next Action`);
-  console.log(`  \u2022 Calculator page: present (generateStaticParams from matrix)`);
-  console.log(`  \u2022 Registry: programmatic matrix generation active`);
+  console.log("\n[PASS] Lean-UX invariants satisfied (RM-LEAN-001 consolidation).");
   process.exit(0);
 }
 

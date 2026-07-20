@@ -16,7 +16,6 @@ import { listGlobalCategories } from "@/lib/catalog/global-tool-category-taxonom
 import { buildCategorizedToolIndex } from "@/lib/catalog/build-categorized-tool-index";
 import { getPremiumRevenueRouteSlugs } from "@/lib/features/tools/revenue-tools";
 import { listMigratedPremiumRouteSlugs } from "@/lib/features/freemium/resolve-free-to-premium-migration";
-import { getAllLeanCalcParams } from "@/lib/features/tools/lean-calc-registry";
 import { industryRegistry } from "@/lib/features/tools/industry-registry";
 import { ACTIVE_FREE_TOOL_SLUGS } from "@/sectorcalc/runtime/active-tool-allowlist";
 
@@ -96,6 +95,11 @@ export function getCoreSitemapRoutes(): readonly SitemapManifestItem[] {
     createItem("/calculators/fmea-rpn", "core", 0.9, "weekly"),
     createItem("/calculators/npv", "core", 0.9, "weekly"),
     createItem("/calculators/roi", "core", 0.9, "weekly"),
+    createItem("/calculators/takt-time", "core", 0.9, "weekly"),
+    createItem("/calculators/oee", "core", 0.9, "weekly"),
+    createItem("/calculators/scrap-rate", "core", 0.9, "weekly"),
+    createItem("/calculators/cycle-time", "core", 0.9, "weekly"),
+    createItem("/calculators/capacity-utilization", "core", 0.9, "weekly"),
     createItem("/resources/fmea-rpn-technical-note", "core", 0.8, "weekly"),
     createItem("/document-intelligence", "core", 0.85, "monthly"),
     createItem("/document-intelligence/maintenance-bom-recovery", "core", 0.85, "monthly"),
@@ -187,11 +191,10 @@ export function getFreeToolSitemapRoutes(): readonly SitemapManifestItem[] {
 }
 
 export function getLeanToolSitemapRoutes(): readonly SitemapManifestItem[] {
-  const matrixRoutes = getAllLeanCalcParams().map(({ concept, metric }) =>
-    createItem(`/lean/${concept}/${metric}`, "lean_tool", 0.82, "weekly"),
-  );
+  // RM-LEAN-001: 20 framework×metric spokes removed from sitemap (301 → /calculators/{metric}).
+  // Keep methodology hub + A3 template only.
   return [
-    ...matrixRoutes,
+    createItem("/lean", "lean_tool", 0.88, "weekly"),
     createItem("/lean/a3-report", "lean_tool", 0.78, "monthly"),
   ];
 }
@@ -291,6 +294,11 @@ export const SITEMAP_STATIC_ROUTES = [
   "/calculators/fmea-rpn",
   "/calculators/npv",
   "/calculators/roi",
+  "/calculators/takt-time",
+  "/calculators/oee",
+  "/calculators/scrap-rate",
+  "/calculators/cycle-time",
+  "/calculators/capacity-utilization",
   "/resources/fmea-rpn-technical-note",
 ] as const;
 

@@ -370,6 +370,22 @@ export default function middleware(request: NextRequest) {
     return NextResponse.redirect(url, 301);
   }
 
+  // ── RM-LEAN-001: /lean/{framework}/{metric} → /calculators/{metric} (301) ──
+  // Exact 301 (not Next.js redirects() 308) so GSC/crawlers see permanent HTTP 301.
+  {
+    const leanSpoke = pathname.match(
+      /^\/lean\/(pdca|gemba|a3|muda)\/(takt-time|oee|scrap-rate|cycle-time|capacity-utilization)\/?$/,
+    );
+    if (leanSpoke) {
+      const metric = leanSpoke[2];
+      const url = new URL(request.url);
+      url.pathname = `/calculators/${metric}`;
+      url.search = "";
+      url.hash = "";
+      return NextResponse.redirect(url, { status: 301 });
+    }
+  }
+
   // ── Legacy free-tool URL structure → canonical route (301) ──
   // Old/indexed URLs used /free-tools/{category}/{slug}; live route is
   // /tools/free/{slug}. Strip the category segment and redirect.

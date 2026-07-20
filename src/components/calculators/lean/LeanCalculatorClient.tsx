@@ -13,6 +13,8 @@ interface InputDef {
   type: "number" | "percentage";
   placeholder: string;
   defaultValue: string;
+  lowerBound: number;
+  upperBound: number;
 }
 
 interface MetricCalcDef {
@@ -24,8 +26,8 @@ interface MetricCalcDef {
 const METRIC_CALC_MAP: Record<string, MetricCalcDef> = {
   "takt-time": {
     inputs: [
-      { key: "availableTime", label: "Available Production Time (min/day)", type: "number", placeholder: "480", defaultValue: "480" },
-      { key: "customerDemand", label: "Customer Demand (units/day)", type: "number", placeholder: "240", defaultValue: "240" },
+      { key: "availableTime", label: "Available Production Time (min/day)", type: "number", placeholder: "480", defaultValue: "480", lowerBound: 0.001, upperBound: 1440 },
+      { key: "customerDemand", label: "Customer Demand (units/day)", type: "number", placeholder: "240", defaultValue: "240", lowerBound: 1, upperBound: 1000000 },
     ],
     defaultTarget: 2.0,
     compute: (v) => {
@@ -35,9 +37,9 @@ const METRIC_CALC_MAP: Record<string, MetricCalcDef> = {
   },
   oee: {
     inputs: [
-      { key: "availability", label: "Availability (%)", type: "percentage", placeholder: "90", defaultValue: "90" },
-      { key: "performance", label: "Performance (%)", type: "percentage", placeholder: "95", defaultValue: "95" },
-      { key: "quality", label: "Quality (%)", type: "percentage", placeholder: "99", defaultValue: "99" },
+      { key: "availability", label: "Availability (%)", type: "percentage", placeholder: "90", defaultValue: "90", lowerBound: 0, upperBound: 100 },
+      { key: "performance", label: "Performance (%)", type: "percentage", placeholder: "95", defaultValue: "95", lowerBound: 0, upperBound: 100 },
+      { key: "quality", label: "Quality (%)", type: "percentage", placeholder: "99", defaultValue: "99", lowerBound: 0, upperBound: 100 },
     ],
     defaultTarget: 85,
     compute: (v) => {
@@ -47,8 +49,8 @@ const METRIC_CALC_MAP: Record<string, MetricCalcDef> = {
   },
   "scrap-rate": {
     inputs: [
-      { key: "scrapUnits", label: "Scrap Units", type: "number", placeholder: "150", defaultValue: "150" },
-      { key: "totalUnits", label: "Total Units Produced", type: "number", placeholder: "10000", defaultValue: "10000" },
+      { key: "scrapUnits", label: "Scrap Units", type: "number", placeholder: "150", defaultValue: "150", lowerBound: 0, upperBound: 1000000000 },
+      { key: "totalUnits", label: "Total Units Produced", type: "number", placeholder: "10000", defaultValue: "10000", lowerBound: 1, upperBound: 1000000000 },
     ],
     defaultTarget: 5,
     compute: (v) => {
@@ -58,8 +60,8 @@ const METRIC_CALC_MAP: Record<string, MetricCalcDef> = {
   },
   "cycle-time": {
     inputs: [
-      { key: "totalTime", label: "Total Production Time (min/shift)", type: "number", placeholder: "480", defaultValue: "480" },
-      { key: "unitsProduced", label: "Units Produced", type: "number", placeholder: "200", defaultValue: "200" },
+      { key: "totalTime", label: "Total Production Time (min/shift)", type: "number", placeholder: "480", defaultValue: "480", lowerBound: 0.001, upperBound: 10080 },
+      { key: "unitsProduced", label: "Units Produced", type: "number", placeholder: "200", defaultValue: "200", lowerBound: 1, upperBound: 1000000 },
     ],
     defaultTarget: 5,
     compute: (v) => {
@@ -69,8 +71,8 @@ const METRIC_CALC_MAP: Record<string, MetricCalcDef> = {
   },
   "capacity-utilization": {
     inputs: [
-      { key: "actualOutput", label: "Actual Output (units/shift)", type: "number", placeholder: "180", defaultValue: "180" },
-      { key: "maxOutput", label: "Maximum Possible Output (units/shift)", type: "number", placeholder: "240", defaultValue: "240" },
+      { key: "actualOutput", label: "Actual Output (units/shift)", type: "number", placeholder: "180", defaultValue: "180", lowerBound: 0, upperBound: 1000000000 },
+      { key: "maxOutput", label: "Maximum Possible Output (units/shift)", type: "number", placeholder: "240", defaultValue: "240", lowerBound: 1, upperBound: 1000000000 },
     ],
     defaultTarget: 75,
     compute: (v) => {
@@ -309,9 +311,9 @@ export default function LeanCalculatorClient({ entry }: LeanCalculatorClientProp
         </div>
       )}
 
-      {/* ISO/IEC Note */}
+      {/* Lean standards note — ISO 22400-2 / LEI (RM-LEAN-001 KARAR-3) */}
       <p className="mt-6 text-[10px] text-[#1A1915]/30 uppercase tracking-widest text-center">
-        ISO/IEC 17025 — Deterministic Engineering Simulation. Not financial advice.
+        ISO 22400-2 manufacturing KPI context · Lean Enterprise Institute practice. Not financial advice.
       </p>
     </article>
   );

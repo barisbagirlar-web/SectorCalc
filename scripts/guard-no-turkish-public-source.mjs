@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { readFileSync } from "node:fs";
+import { readFileSync, existsSync } from "node:fs";
 import { join, extname } from "node:path";
 import { execFileSync } from "node:child_process";
 
@@ -76,6 +76,10 @@ const failures = [];
 
 for (const file of gitFiles().filter(shouldScan)) {
   const absolute = join(ROOT, file);
+  if (!existsSync(absolute)) {
+    // Deleted in working tree but still tracked until commit — skip.
+    continue;
+  }
   const text = readFileSync(absolute, "utf8");
   const lines = text.split(/\r?\n/);
 

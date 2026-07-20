@@ -109,7 +109,7 @@ export default async function A3ReportTemplatePage({
       </div>
 
       <p className="mt-6 text-[10px] text-[#1A1915]/30 uppercase tracking-widest">
-        ISO/IEC 17025 — Deterministic Engineering Simulation. Not financial advice.
+        ISO 22400-2 manufacturing KPI context · A3 problem-solving template. Not financial advice.
       </p>
       </div>
     </>

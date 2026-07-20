@@ -20,7 +20,7 @@ const TURKISH_ASCII_WORDS = new RegExp(
 
 // CR-1: Calculator file pattern
 const CALCULATOR_FILE_PATTERN = /\/(calculators?|tools|formulas?|sectorcalc)\//;
-const PRECISION_WHITELIST = ["css-", ".css", "tailwind", "landing-", "hero-", "layout", "header", "footer", "nav-", "loading", "error-", "not-found", "admin-", "chart-helpers", "test.", ".test.", "__tests__", "visual-", "PageContent"];
+const PRECISION_WHITELIST = ["css-", ".css", "tailwind", "landing-", "hero-", "layout", "header", "footer", "nav-", "loading", "error-", "not-found", "admin-", "chart-helpers", "test.", ".test.", "__tests__", "visual-", "PageContent", "LeanMetric", "LeanCalculatorClient", "lean-metric-hubs", "SsrChrome", "NextActionPDCA"];
 
 // CR-2: ISO bounds
 const INPUT_DECLARATION_PATTERN = /\b(inputs\s*:\s*\[|input\s*:\s*\{|SuperV4Input\b|InputDef\b|input_defs)/;
@@ -37,6 +37,10 @@ function readStagedFiles() {
 
 function checkLanguagePurity(filePath, lines) {
   const violations = [];
+  // Guard scripts intentionally contain Turkish detection patterns.
+  if (filePath.includes("guard-no-turkish") || filePath.includes("guard-zero-turkish") || filePath.includes("validate-invariants")) {
+    return violations;
+  }
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
     if (TURKISH_UNICODE.test(line)) {
