@@ -8,9 +8,7 @@ import { PageLayout } from "@/components/layout/PageLayout";
 import { CatalogPageShell } from "@/components/catalog/CatalogPageShell";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { buildLocalizedBreadcrumbJsonLd } from "@/lib/infrastructure/seo/localized-breadcrumbs";
-import { getAllProToolSchemas } from "@/sectorcalc/runtime/pro-schema-loader";
-import { ACTIVE_PRO_TOOL_SLUGS } from "@/sectorcalc/runtime/active-tool-allowlist";
-import type { SuperV4Schema } from "@/sectorcalc/pro-form/contract-types";
+import { getStaticProCatalog } from "@/sectorcalc/runtime/pro-catalog-static";
 import {
   buildTaxonomySectorCards,
   withTaxonomyCountLabels,
@@ -232,12 +230,12 @@ function resolveProSectorKey(toolKey: string): string {
   return "diger";
 }
 
-function proSchemaToToolListItem(toolKey: string, schema: SuperV4Schema): ToolListItem {
+function proSchemaToToolListItem(toolKey: string, toolName: string): ToolListItem {
   const sectorKey = resolveProSectorKey(toolKey);
-  const catalogTitle = getPublicCatalogTitle(toolKey, schema.tool_name);
+  const catalogTitle = getPublicCatalogTitle(toolKey, toolName);
   return {
     slug: toolKey,
-    name: schema.tool_name,
+    name: toolName,
     title: catalogTitle,
     tier: "premium",
     href: `/tools/pro/${toolKey}`,
@@ -251,13 +249,12 @@ function proSchemaToToolListItem(toolKey: string, schema: SuperV4Schema): ToolLi
 
 async function ProCatalogContent() {
   const locale = "en";
-  const allProEntries = getAllProToolSchemas();
-  const activeSlugs = new Set(ACTIVE_PRO_TOOL_SLUGS);
-  const proEntries = allProEntries.filter((e) => activeSlugs.has(e.toolKey));
-  const count = proEntries.length;
-
-  const tools: ToolListItem[] = proEntries.map(({ toolKey, schema }) =>
-    proSchemaToToolListItem(toolKey, schema),
+  // Compile-time catalog: exactly the ACTIVE_PRO_TOOL_SLUGS set with names
+  // sourced from each tool's own schema JSON via static imports. No runtime
+  // fs — immune to deployed-bundle filesystem layout (root cause of the
+  // "0 tools" production regression on this page).
+  const tools: ToolListItem[] = getStaticProCatalog().map(({ toolKey, toolName }) =>
+    proSchemaToToolListItem(toolKey, toolName),
   );
 
   const taxonomySectorCards = withTaxonomyCountLabels(
