@@ -119,8 +119,8 @@ export default function MotorCompressorReplacementRoiToolPage() {
       if(!res.ok){ const d=await res.json().catch(()=>({})); throw new Error(d.error||`Server error ${res.status}`); }
       const data=await res.json();
       const outputsMap:Record<string,number>={};
-      if(Array.isArray(data.outputs)) for(const o of data.outputs) if(typeof o.value==="number") outputsMap[o.id]=o.value;
-      else if(data.outputs) Object.assign(outputsMap,data.outputs);
+      if(Array.isArray(data.outputs)) { for(const o of data.outputs) if(typeof o.value==="number") outputsMap[o.id]=o.value; }
+      else if(data.outputs && typeof data.outputs==="object") { Object.assign(outputsMap,data.outputs); }
       const seal=data.audit_seal as Record<string,unknown>|undefined;
       if(!seal||seal.seal_status!=="SEALED"||typeof seal.output_hash!=="string") throw new Error("Sealed response missing.");
       setServerResult({outputs:outputsMap,seal:{output_hash:seal.output_hash as string,hash_algorithm:seal.hash_algorithm as string,executed_at:seal.executed_at as string},inputs:snap,currency:snapCur});

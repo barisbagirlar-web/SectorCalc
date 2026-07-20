@@ -35,7 +35,97 @@ const GROUPS: Record<number,{n:string;t:string;d:string}> = {
 
 function fmtRef(f:FieldDef,cs:string):string {
   if(f.pct) return `Ref: ${(f.ref[0]*100).toFixed(0)}–${(f.ref[1]*100).toFixed(0)}%`;
-  return `Ref: ${cs}${f.ref[0].toLocaleString()}–${cs}${f.ref[1].toLocaleString()}${f.refUnit?" "+f.refUnit:""}`;
+  if(f.refUnit) return `Ref: ${f.ref[0].toLocaleString()}–${f.ref[1].toLocaleString()} ${f.refUnit}`;
+  return `Ref: ${cs}${f.ref[0].toLocaleString()}–${cs}${f.ref[1].toLocaleString()}`;
+}
+
+function fmtN(x: number | null | undefined): string {
+  if (x == null || Number.isNaN(x)) return "—";
+  if (!Number.isFinite(x)) return "∞";
+  const a = Math.abs(x);
+  return x.toLocaleString("en-US", { maximumFractionDigits: a >= 100 ? 0 : a >= 1 ? 2 : 4 });
+}
+
+function verdictTier(o: Record<string, number>): number {
+  const mult = o["out_base_to_loaded_multiplier"];
+  if (mult == null || !Number.isFinite(mult)) return 1;
+  if (mult < 1.3) return 0;
+  if (mult <= 1.6) return 1;
+  return 2;
+}
+
+const TECS_COL = { ink: "#181713", faint: "#8C887E", accent: "#C15F3C", pos: "#2E6B4E", neg: "#9C3520" };
+function svgOpenTecs(w: number, h: number) { return `<svg class="tecs-chart" viewBox="0 0 ${w} ${h}" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">`; }
+
+function chartCostBreakdown(o: Record<string, number>, curSym: string): string {
+  const w = 680, padL = 190, padR = 90, padT = 14, rowH = 26, gap = 10;
+  const items = [
+    { n: "Base compensation", v: o["out_base_annual_compensation"] },
+    { n: "Payroll taxes", v: o["out_employer_payroll_taxes"] },
+    { n: "Benefits", v: o["out_benefits_cost"] },
+    { n: "Paid leave", v: o["out_paid_leave_cost"] },
+    { n: "Insurance", v: o["out_insurance_burden"] },
+    { n: "Training", v: o["out_training_allocation"] },
+    { n: "Equipment / IT", v: o["out_equipment_it_cost"] },
+    { n: "Workspace", v: o["out_workspace_facility_cost"] },
+  ].filter((d) => typeof d.v === "number" && Number.isFinite(d.v)).sort((a, b) => b.v - a.v);
+  const h = padT + items.length * (rowH + gap) + 10;
+  const max = Math.max(...items.map((d) => d.v), 1);
+  let s = svgOpenTecs(w, h);
+  items.forEach((d, k) => {
+    const y = padT + k * (rowH + gap);
+    const bw = (w - padL - padR) * (d.v / max);
+    s += `<text x="${padL - 10}" y="${y + rowH / 2 + 4}" text-anchor="end" fill="${TECS_COL.ink}" font-size="12">${d.n}</text>`;
+    s += `<rect x="${padL}" y="${y}" width="${w - padL - padR}" height="${rowH}" fill="#EFEBE2"/>`;
+    s += `<rect x="${padL}" y="${y}" width="${bw.toFixed(1)}" height="${rowH}" fill="${TECS_COL.accent}"/>`;
+    s += `<text x="${padL + bw + 8}" y="${y + rowH / 2 + 4}" fill="${TECS_COL.ink}" font-size="12">${curSym}${fmtN(d.v)}</text>`;
+  });
+  return s + "</svg>";
+}
+
+function chartBaseVsLoaded(o: Record<string, number>, curSym: string): string {
+  const w = 680, h = 130, padL = 190, padR = 90, padT = 14, rowH = 30, gap = 14;
+  const items = [
+    { n: "Base salary", v: o["out_base_annual_compensation"], col: TECS_COL.faint },
+    { n: "Fully-loaded cost", v: o["out_fully_loaded_annual_cost"], col: TECS_COL.accent },
+  ];
+  const max = Math.max(...items.map((d) => d.v), 1);
+  let s = svgOpenTecs(w, h);
+  items.forEach((d, k) => {
+    const y = padT + k * (rowH + gap);
+    const bw = (w - padL - padR) * (d.v / max);
+    s += `<text x="${padL - 10}" y="${y + rowH / 2 + 4}" text-anchor="end" fill="${TECS_COL.ink}" font-size="12">${d.n}</text>`;
+    s += `<rect x="${padL}" y="${y}" width="${w - padL - padR}" height="${rowH}" fill="#EFEBE2"/>`;
+    s += `<rect x="${padL}" y="${y}" width="${bw.toFixed(1)}" height="${rowH}" fill="${d.col}"/>`;
+    s += `<text x="${padL + bw + 8}" y="${y + rowH / 2 + 4}" fill="${TECS_COL.ink}" font-size="12">${curSym}${fmtN(d.v)}</text>`;
+  });
+  return s + "</svg>";
+}
+
+interface TecsInsight { sev: "opp" | "info" | "crit"; t: string; msg: string }
+function buildInsights(o: Record<string, number>, curSym: string): TecsInsight[] {
+  const out: TecsInsight[] = [];
+  const mult = o["out_base_to_loaded_multiplier"];
+  const tier = verdictTier(o);
+  if (tier === 2)
+    out.push({ sev: "crit", t: "high loaded-cost multiplier",
+      msg: `At <strong>${fmtN(mult)}×</strong> base salary, this role's true cost is significantly higher than the headline salary — budget hiring plans on the fully-loaded figure, not base pay.` });
+  else if (tier === 0)
+    out.push({ sev: "opp", t: "lean overhead structure",
+      msg: `A <strong>${fmtN(mult)}×</strong> multiplier is relatively lean — overhead and benefits are a modest addition on top of base pay.` });
+  else
+    out.push({ sev: "info", t: "typical loaded-cost multiplier",
+      msg: `A <strong>${fmtN(mult)}×</strong> multiplier is within the typical 1.3-1.6× range seen across most employers.` });
+  out.push({ sev: "info", t: "hourly cost basis",
+    msg: `Productive hourly cost of <strong>${curSym}${fmtN(o["out_productive_hourly_cost"])}/h</strong> is the number to use when pricing this person's time into a job quote or billable rate.` });
+  const dominant = [
+    ["payroll taxes", o["out_employer_payroll_taxes"]],
+    ["benefits", o["out_benefits_cost"]],
+    ["paid leave", o["out_paid_leave_cost"]],
+  ].sort((a, b) => (b[1] as number) - (a[1] as number))[0];
+  out.push({ sev: "info", t: "largest non-salary cost",
+    msg: `<strong>${dominant[0]}</strong> is the single largest addition on top of base salary at <strong>${curSym}${fmtN(dominant[1] as number)}/yr</strong>.` });
+  return out;
 }
 
 interface ServerSeal { output_hash?:string; hash_algorithm?:string; executed_at?:string; }
@@ -117,8 +207,8 @@ export default function TrueEmployeeCostStatementToolPage() {
       if(!res.ok){ const d=await res.json().catch(()=>({})); throw new Error(d.error||`Server error ${res.status}`); }
       const data=await res.json();
       const outputsMap:Record<string,number>={};
-      if(Array.isArray(data.outputs)) for(const o of data.outputs) if(typeof o.value==="number") outputsMap[o.id]=o.value;
-      else if(data.outputs) Object.assign(outputsMap,data.outputs);
+      if(Array.isArray(data.outputs)) { for(const o of data.outputs) if(typeof o.value==="number") outputsMap[o.id]=o.value; }
+      else if(data.outputs && typeof data.outputs==="object") { Object.assign(outputsMap,data.outputs); }
       const seal=data.audit_seal as Record<string,unknown>|undefined;
       if(!seal||seal.seal_status!=="SEALED"||typeof seal.output_hash!=="string") throw new Error("Sealed response missing.");
       setServerResult({outputs:outputsMap,seal:{output_hash:seal.output_hash as string,hash_algorithm:seal.hash_algorithm as string,executed_at:seal.executed_at as string},inputs:snap,currency:snapCur});
@@ -135,7 +225,8 @@ export default function TrueEmployeeCostStatementToolPage() {
         <div className={`${p}-f-top`}><label htmlFor={`in_${id}`}>{f.label}</label></div>
         <div className={`${p}-control ${cls}`}>
           <input id={`in_${id}`} type="number" step="any" inputMode="decimal" value={st.value} onChange={e=>updateField(id,e.target.value)} aria-invalid={!!st.error} />
-          {!f.pct&&<span className={`${p}-prefix`}>{f.refUnit?f.refUnit:curSym}</span>}
+          {!f.pct&&!f.refUnit&&<span className={`${p}-prefix`}>{curSym}</span>}
+          {!f.pct&&f.refUnit&&<span className={`${p}-prefix`} style={{borderLeft:"1px solid var(--"+p+"-line)",borderRight:"none"}}>{f.refUnit}</span>}
           {f.pct&&<span className={`${p}-prefix`} style={{borderLeft:"1px solid var(--"+p+"-line)",borderRight:"none"}}>%</span>}
         </div>
         <div className={`${p}-f-foot`}><span className={`${p}-hint`}>{f.hint} <em style={{fontStyle:"normal",color:"var(--"+p+"-faint)"}}>· {f.src}</em></span><span className={`${p}-bench-ref`}>{fmtRef(f,curSym)}</span></div>
@@ -200,14 +291,32 @@ export default function TrueEmployeeCostStatementToolPage() {
             <div className="tecs-rid">SC-PRO · {new Date().toISOString().slice(0,10)}<br/>engine v5.3.2-domain · {serverResult.currency}</div>
           </div>
           <div className="tecs-rep-body">
-            <h3 className="tecs-sec-h">Key outputs</h3>
-                        <div className="tecs-stat"><span>Hourly cost (productive)</span><b>{serverResult.outputs["out_productive_hourly_cost"]!=null?(!isFinite(serverResult.outputs["out_productive_hourly_cost"])?"—":serverResult.outputs["out_productive_hourly_cost"].toFixed(2)):"—"}</b></div>
-            <div className="tecs-stat"><span>Monthly employer cost</span><b>{serverResult.outputs["out_monthly_employer_cost"]!=null?(!isFinite(serverResult.outputs["out_monthly_employer_cost"])?"—":serverResult.outputs["out_monthly_employer_cost"].toFixed(2)):"—"}</b></div>
-            <div className="tecs-stat"><span>Base-to-loaded multiplier</span><b>{serverResult.outputs["out_base_to_loaded_multiplier"]!=null?(!isFinite(serverResult.outputs["out_base_to_loaded_multiplier"])?"—":serverResult.outputs["out_base_to_loaded_multiplier"].toFixed(2)):"—"}</b></div>
-            <div className="tecs-sec-h" style={{marginTop:"24px"}}>All computed outputs</div>
-            {Object.entries(serverResult.outputs).filter(([k])=>!k.includes("Payload")&&!k.includes("fmea")&&!k.includes("Trigger")).slice(0,10).map(([k,v])=>(
-              <div className="tecs-stat-row" key={k}><span>{k.replace(/^out_/,"").replace(/_/g," ")}</span><b>{typeof v==="number"?(!isFinite(v)||Math.abs(v)>1e9?"—":v.toFixed(2)):"—"}</b></div>
-            ))}
+            <div className="tecs-sec">
+              <div className={`tecs-verdict-box tecs-verdict-${verdictTier(serverResult.outputs)}`}>
+                <div className="tecs-head">Fully-loaded annual cost: {curSym}{fmtN(serverResult.outputs["out_fully_loaded_annual_cost"])}.</div>
+                <p>Base salary of <strong>{curSym}{fmtN(serverResult.outputs["out_base_annual_compensation"])}</strong> becomes <strong>{curSym}{fmtN(serverResult.outputs["out_fully_loaded_annual_cost"])}</strong> once payroll tax, benefits, and overhead are added — a <strong>{fmtN(serverResult.outputs["out_base_to_loaded_multiplier"])}×</strong> multiplier.</p>
+                <p>Productive hourly cost: <strong>{curSym}{fmtN(serverResult.outputs["out_productive_hourly_cost"])}/h</strong> over {fmtN(serverResult.outputs["out_productive_hours_annual"])} productive hours/yr.</p>
+              </div>
+            </div>
+            <div className="tecs-sec">
+              <div className="tecs-sec-h"><span className="tecs-sec-n">1</span><span className="tecs-sec-t">Cost component breakdown</span></div>
+              <div dangerouslySetInnerHTML={{ __html: chartCostBreakdown(serverResult.outputs, serverResult.currency) }} />
+              <div className="tecs-note">Every component that adds up to the fully-loaded annual cost, largest first.</div>
+            </div>
+            <div className="tecs-sec">
+              <div className="tecs-sec-h"><span className="tecs-sec-n">2</span><span className="tecs-sec-t">Base salary vs. fully-loaded cost</span></div>
+              <div dangerouslySetInnerHTML={{ __html: chartBaseVsLoaded(serverResult.outputs, serverResult.currency) }} />
+              <div className="tecs-note">The gap between the two bars is what's easy to forget when budgeting a new hire on base salary alone.</div>
+            </div>
+            <div className="tecs-sec">
+              <div className="tecs-sec-h"><span className="tecs-sec-n">3</span><span className="tecs-sec-t">Engineering insights</span></div>
+              {buildInsights(serverResult.outputs, serverResult.currency).map((ins, k) => (
+                <div className={`tecs-ins tecs-${ins.sev}`} key={k}>
+                  <span className="tecs-t">{ins.t}</span>
+                  <span dangerouslySetInnerHTML={{ __html: ins.msg }} />
+                </div>
+              ))}
+            </div>
             <div className="tecs-seal">SEAL · {serverResult.seal.hash_algorithm} {serverResult.seal.output_hash}<br/>Sealed at {serverResult.seal.executed_at??"—"}.</div>
             <button type="button" className="tecs-print-btn" onClick={()=>window.print()}>Download PDF</button>
             <div className="tecs-disc">Technical simulation only; not financial, legal, or engineering advice.</div>
