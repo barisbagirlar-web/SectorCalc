@@ -115,7 +115,9 @@ function buildMatrix(): readonly LeanCalcEntry[] {
         path: `/lean/${concept.slug}/${metric.slug}`,
         canonicalPath,
         title: `${metric.name} for ${concept.name}`,
-        description: `Fast operational check for ${metric.name} aligned with ${concept.name} principles — create more value with fewer resources. ${metric.formula}. Immediate result, clear next action.`,
+        // RM-LEAN-001 GAP-2: no near-duplicate marketing boilerplate across the 20 legacy spokes.
+        // Legacy path only exists for redirect SSOT; description is metric+framework role, not a template.
+        description: `${metric.name} (${metric.formula}) in ${concept.name} context.`,
       });
     }
   }
