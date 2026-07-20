@@ -682,6 +682,14 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     const rawBody: Record<string, unknown> = await request.json();
     toolKey = resolveToolKey(rawBody);
 
+    // Accept snake_case alias from bespoke clients (break-even page historically sent usage_session_id).
+    if (
+      (rawBody.usageSessionId === undefined || rawBody.usageSessionId === null) &&
+      typeof rawBody.usage_session_id === "string"
+    ) {
+      rawBody.usageSessionId = rawBody.usage_session_id;
+    }
+
     if (rawBody.raw_inputs === undefined || rawBody.raw_inputs === null) {
       rawBody.raw_inputs = (rawBody.inputs as Record<string, unknown>) ?? (rawBody.values as Record<string, unknown>) ?? {};
     }
@@ -840,7 +848,9 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     registerFreePilotFormulas(validatedSchema);
     registerProPilotFormulas(validatedSchema);
 
-    if (toolKey && userId && hasNoSession) {
+    const ownerBypassEmail = (process.env.OWNER_BYPASS_EMAIL ?? "barisbagirlar@gmail.com").toLowerCase();
+    const isOwnerBypass = (userEmail ?? "").toLowerCase() === ownerBypassEmail;
+    if (toolKey && userId && hasNoSession && !isOwnerBypass) {
       const tk: string = toolKey;
       const uid: string = userId;
       const barisProduct = await import("@/sectorcalc/pro-commerce/baris-pro-products").then(m => m.getBarisProduct(tk));

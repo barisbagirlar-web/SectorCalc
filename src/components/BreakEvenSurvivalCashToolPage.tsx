@@ -165,7 +165,8 @@ export default function BreakEvenSurvivalCashToolPage() {
       for(const id of Object.keys(FIELDS)) if(FIELDS[id].pct) selectedUnits[id]="percent";
       const res=await fetch("/api/pro-calculator/execute",{method:"POST",
         headers:{"Content-Type":"application/json",...(authToken?{Authorization:`Bearer ${authToken}`}:{})},
-        body:JSON.stringify({tool_key:TOOL_KEY,raw_inputs:snap,selected_units:selectedUnits,usage_session_id:usageSessionId})});
+        // Execute API contract uses camelCase usageSessionId (bypass-unlimited skips key deduction).
+        body:JSON.stringify({tool_key:TOOL_KEY,raw_inputs:snap,selected_units:selectedUnits,usageSessionId})});
       if(!res.ok){const d=await res.json().catch(()=>({}));throw new Error(d.error||`Server error ${res.status}`);}
       const data=await res.json();
       const outputsMap:Record<string,number>={};
