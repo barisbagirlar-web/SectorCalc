@@ -7,7 +7,8 @@
  * UniversalIndustrialDecisionForm (Advanced details uses static copy).
  *
  * Stubs keep SuperV4Schema structural shape for client contract checks without
- * shipping QA/red-team corpora to the browser.
+ * shipping QA/red-team corpora to the browser. Execute continues to load the
+ * full schema server-side.
  */
 
 import type { SuperV4Schema } from "./contract-types";
