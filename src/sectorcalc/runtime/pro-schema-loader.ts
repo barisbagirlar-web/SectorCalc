@@ -238,8 +238,15 @@ function loadAllSchemas(): void {
   loadedSchemas = new Map();
   loadErrors = [];
 
+  // Captured once, outside the try block, so the diagnostic log below
+  // reflects exactly what this load pass used — not a fresh re-scan that
+  // could differ (or throw and mask the original error) if the filesystem
+  // changed between initialization and logging.
+  let schemasDirsForDiagnostics: string[] = [];
+
   try {
     const schemasDirs = getSchemasDirs();
+    schemasDirsForDiagnostics = schemasDirs;
 
     for (const schemasDir of schemasDirs) {
       if (!existsSync(schemasDir)) {
@@ -301,7 +308,7 @@ function loadAllSchemas(): void {
   const loadedCount = loadedSchemas?.size ?? 0;
   if (loadErrors.length > 0 || loadedCount === 0) {
     console.error(
-      `[pro-schema-loader] loaded=${loadedCount} dirs_checked=${JSON.stringify(getSchemasDirs())} errors=${JSON.stringify(loadErrors)}`,
+      `[pro-schema-loader] loaded=${loadedCount} dirs_checked=${JSON.stringify(schemasDirsForDiagnostics)} errors=${JSON.stringify(loadErrors)}`,
     );
   } else {
     console.log(`[pro-schema-loader] loaded=${loadedCount} schemas successfully`);
