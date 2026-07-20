@@ -138,8 +138,28 @@ async function main() {
   mustContain("roi-hub", roiHub.html, ["Return on Investment", "ROI"]);
   console.log(`ROI_HUB=PASS bytes=${roiHub.bytes}`);
 
+  // F) RM-LEAN-001 — five Lean metric hubs + methodology hub identity
+  const leanHubs = [
+    { path: "/calculators/oee", needles: ["Overall Equipment Effectiveness", "Source verification"] },
+    { path: "/calculators/takt-time", needles: ["Takt Time", "Source verification"] },
+    { path: "/calculators/scrap-rate", needles: ["Scrap Rate", "Source verification"] },
+    { path: "/calculators/cycle-time", needles: ["Cycle Time", "Source verification"] },
+    { path: "/calculators/capacity-utilization", needles: ["Capacity Utilization", "Source verification"] },
+    { path: "/lean", needles: ["Lean Manufacturing Methodology Hub", "PDCA"] },
+  ];
+  for (const hub of leanHubs) {
+    const page = await fetchHtml(hub.path);
+    const safeName = hub.path.replace(/\//g, "_").replace(/^_/, "");
+    writeFileSync(join(outDir, `${safeName}.html`), page.html);
+    assert(page.status === 200, `${hub.path} HTTP ${page.status}`);
+    mustContain(hub.path, page.html, hub.needles);
+    mustNotContainNpvLabels(hub.path, page.html);
+    console.log(`LEAN_HUB_${safeName.toUpperCase()}=PASS bytes=${page.bytes}`);
+  }
+
   console.log("LIVE_CALCULATOR_ROUTE=PASS");
   console.log("CROSS_TOOL_INPUT_CONTAMINATION=PASS");
+  console.log("LEAN_METRIC_HUBS=PASS");
 }
 
 main().catch((error) => {

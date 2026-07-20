@@ -73,7 +73,12 @@
       { "source": "/tools/pro/shaft-deflection-critical-speed-check", "destination": "/pro-tools", "type": 301 },
       { "source": "/tools/pro/scope-1-2-3-splitter-for-smes", "destination": "/pro-tools", "type": 301 },
       { "source": "/tools/pro/bank-grade-financial-projection-covenant-model", "destination": "/pro-tools", "type": 301 },
-      { "source": "/tools/pro/ppap-gauge-rr-cpk-ppk-quality-submission-bundle", "destination": "/pro-tools", "type": 301 }
+      { "source": "/tools/pro/ppap-gauge-rr-cpk-ppk-quality-submission-bundle", "destination": "/pro-tools", "type": 301 },
+      { "source": "/lean/*/takt-time", "destination": "/calculators/takt-time", "type": 301 },
+      { "source": "/lean/*/oee", "destination": "/calculators/oee", "type": 301 },
+      { "source": "/lean/*/scrap-rate", "destination": "/calculators/scrap-rate", "type": 301 },
+      { "source": "/lean/*/cycle-time", "destination": "/calculators/cycle-time", "type": 301 },
+      { "source": "/lean/*/capacity-utilization", "destination": "/calculators/capacity-utilization", "type": 301 }
     ],
     "headers": [
       {

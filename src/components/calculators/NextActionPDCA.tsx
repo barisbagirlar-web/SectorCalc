@@ -46,6 +46,9 @@ export default function NextActionPDCA({
       id="next-action"
       className="mt-8 border-l-4 border-green-600 bg-green-50 p-4"
     >
+      <p className="text-xs uppercase tracking-widest text-[#1A1915]/50 font-semibold mb-1">
+        Clear Next Action
+      </p>
       <h3 className="font-bold text-[#1A1915] text-base mb-2">
         {actionHeading}
       </h3>
