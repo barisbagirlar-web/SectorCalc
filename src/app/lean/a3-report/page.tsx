@@ -18,7 +18,7 @@ export async function generateMetadata({
     title: `A3 Countermeasure Report — ${metric} | SectorCalc Lean`,
     description: `Download an A3 Problem Solving template for ${metric}. Fill in root cause analysis, countermeasure, and follow-up. PDCA structured problem-solving.`,
     metadataBase: new URL(SITE.url),
-    robots: { index: true, follow: true },
+    // Robots inherited from root layout host-aware generateMetadata (preview noindex).
     alternates: {
       canonical: `${SITE.url}/lean/a3-report`,
       languages: {
