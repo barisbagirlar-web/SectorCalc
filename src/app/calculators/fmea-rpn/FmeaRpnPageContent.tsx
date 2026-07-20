@@ -796,7 +796,7 @@ export function FmeaRpnPageContent() {
                 <li><strong className="text-[var(--sc-text)]">O</strong> = Occurrence (1-10)</li>
                 <li><strong className="text-[var(--sc-text)]">D</strong> = Detection (1-10)</li>
               </ul>
-              <p>Output Range: Minimum RPN is 1. Maximum RPN is 1000.</p>
+              <p>Output Range: RPN spans 1 to 1000.</p>
               <h3 className="text-xl font-heading heading-serif text-[var(--sc-text)] mt-8 mb-4">Method Assumptions</h3>
               <ol className="list-decimal pl-5 space-y-2">
                 <li>Each input is an integer from 1 to 10.</li>
@@ -848,57 +848,81 @@ export function FmeaRpnPageContent() {
             />
           </SectionCard>
 
-          {/* 07. PFMEA Dataset Library */}
+          {/* 07. PFMEA Dataset Library — collapsed by default (CWV: defer large tables from LCP/DOM) */}
           <SectionCard id="datasets" title="PFMEA Dataset Library">
             <p className="text-[var(--sc-muted)] mb-8 max-w-[760px]">
               The examples below show how traditional FMEA RPN scoring can be applied to industrial processes. They are training examples only. They are not universal rating templates, release criteria, regulatory acceptance rules or substitutes for approved FMEA procedures.
             </p>
 
-            <h3 className="text-xl font-heading heading-serif text-[var(--sc-text)] mb-4">Dataset A: CNC Machining</h3>
-            <ResponsiveDataTable
-              caption="CNC Machining PFMEA Dataset"
-              instructions="How to read this table: Illustrative PFMEA for CNC processes."
-              headers={PFMEA_TABLE_HEADERS}
-              rows={PFMEA_CNC}
-            />
-            
-            <h3 className="text-xl font-heading heading-serif text-[var(--sc-text)] mb-4">Dataset B: Assembly</h3>
-            <ResponsiveDataTable
-              caption="Assembly PFMEA Dataset"
-              instructions="How to read this table: Illustrative PFMEA for assembly processes."
-              headers={PFMEA_TABLE_HEADERS}
-              rows={PFMEA_ASSEMBLY}
-            />
-
-            <h3 className="text-xl font-heading heading-serif text-[var(--sc-text)] mb-4 mt-12">Dataset C: Maintenance</h3>
-            <ResponsiveDataTable
-              caption="Maintenance PFMEA Dataset"
-              instructions="How to read this table: Illustrative PFMEA for maintenance processes."
-              headers={PFMEA_TABLE_HEADERS}
-              rows={PFMEA_MAINTENANCE}
-            />
-
-            <h3 className="text-xl font-heading heading-serif text-[var(--sc-text)] mb-4 mt-12">Dataset D: High-Consequence Industrial Process PFMEA Examples</h3>
-            <p className="text-[var(--sc-muted)] mb-4 max-w-[760px]">
-              Use these examples to understand how severe process consequences can be documented without treating total RPN as a standalone release decision.
-            </p>
-            <ResponsiveDataTable
-              caption="High-Consequence PFMEA Dataset"
-              instructions="How to read this table: Illustrative PFMEA for high consequence processes (weld, composite, quench, AM, concrete, silo)."
-              headers={PFMEA_TABLE_HEADERS}
-              rows={PFMEA_DATASET_D}
-            />
-
-            <div className="bg-[var(--sc-surface-strong)] border border-[var(--sc-border)] p-6 shadow-sm mt-8">
-              <h3 className="text-lg font-heading heading-serif text-[var(--sc-text)] mb-2">Dataset D Interpretation</h3>
-              <div className="text-[var(--sc-muted)] text-sm space-y-3 leading-relaxed">
-                <p>Dataset D shows why the individual S/O/D signature must remain visible.</p>
-                <p>A moderate RPN can still contain a severe effect when Occurrence is low or Detection is strong. A high RPN can also represent recurring operational loss rather than a safety, regulatory or mission-critical consequence.</p>
-                <p>The engineering meaning is not contained in the RPN value alone. It is contained in the full failure chain:<br/>
-                <code className="bg-[var(--sc-surface)] border border-[var(--sc-border)] px-2 py-1 mt-2 mb-2 inline-block font-mono font-semibold">Failure mode &rarr; Effect &rarr; Cause &rarr; Current controls &rarr; S/O/D signature &rarr; Recommended action &rarr; Evidence &rarr; Revised S/O/D</code></p>
-                <p>Do not reduce Severity unless the actual failure effect has changed. Most process actions reduce Occurrence, Detection or both. Revised RPN should be accepted only when implementation evidence supports the revised rating.</p>
+            <details className="mb-6 border border-[var(--sc-border)] bg-[var(--sc-surface)]" data-testid="fmea-dataset-a">
+              <summary className="cursor-pointer list-none px-4 py-3 text-xl font-heading heading-serif text-[var(--sc-text)]">
+                Dataset A: CNC Machining
+              </summary>
+              <div className="px-4 pb-4">
+                <ResponsiveDataTable
+                  caption="CNC Machining PFMEA Dataset"
+                  instructions="How to read this table: Illustrative PFMEA for CNC processes."
+                  headers={PFMEA_TABLE_HEADERS}
+                  rows={PFMEA_CNC}
+                />
               </div>
-            </div>
+            </details>
+
+            <details className="mb-6 border border-[var(--sc-border)] bg-[var(--sc-surface)]" data-testid="fmea-dataset-b">
+              <summary className="cursor-pointer list-none px-4 py-3 text-xl font-heading heading-serif text-[var(--sc-text)]">
+                Dataset B: Assembly
+              </summary>
+              <div className="px-4 pb-4">
+                <ResponsiveDataTable
+                  caption="Assembly PFMEA Dataset"
+                  instructions="How to read this table: Illustrative PFMEA for assembly processes."
+                  headers={PFMEA_TABLE_HEADERS}
+                  rows={PFMEA_ASSEMBLY}
+                />
+              </div>
+            </details>
+
+            <details className="mb-6 border border-[var(--sc-border)] bg-[var(--sc-surface)]" data-testid="fmea-dataset-c">
+              <summary className="cursor-pointer list-none px-4 py-3 text-xl font-heading heading-serif text-[var(--sc-text)]">
+                Dataset C: Maintenance
+              </summary>
+              <div className="px-4 pb-4">
+                <ResponsiveDataTable
+                  caption="Maintenance PFMEA Dataset"
+                  instructions="How to read this table: Illustrative PFMEA for maintenance processes."
+                  headers={PFMEA_TABLE_HEADERS}
+                  rows={PFMEA_MAINTENANCE}
+                />
+              </div>
+            </details>
+
+            <details className="mb-6 border border-[var(--sc-border)] bg-[var(--sc-surface)]" data-testid="fmea-dataset-d">
+              <summary className="cursor-pointer list-none px-4 py-3 text-xl font-heading heading-serif text-[var(--sc-text)]">
+                Dataset D: High-Consequence Industrial Process PFMEA Examples
+              </summary>
+              <div className="px-4 pb-4">
+                <p className="text-[var(--sc-muted)] mb-4 max-w-[760px]">
+                  Use these examples to understand how severe process consequences can be documented without treating total RPN as a standalone release decision.
+                </p>
+                <ResponsiveDataTable
+                  caption="High-Consequence PFMEA Dataset"
+                  instructions="How to read this table: Illustrative PFMEA for high consequence processes (weld, composite, quench, AM, concrete, silo)."
+                  headers={PFMEA_TABLE_HEADERS}
+                  rows={PFMEA_DATASET_D}
+                />
+
+                <div className="bg-[var(--sc-surface-strong)] border border-[var(--sc-border)] p-6 shadow-sm mt-8">
+                  <h3 className="text-lg font-heading heading-serif text-[var(--sc-text)] mb-2">Dataset D Interpretation</h3>
+                  <div className="text-[var(--sc-muted)] text-sm space-y-3 leading-relaxed">
+                    <p>Dataset D shows why the individual S/O/D signature must remain visible.</p>
+                    <p>A moderate RPN can still contain a severe effect when Occurrence is low or Detection is strong. A high RPN can also represent recurring operational loss rather than a safety, regulatory or mission-critical consequence.</p>
+                    <p>The engineering meaning is not contained in the RPN value alone. It is contained in the full failure chain:<br/>
+                    <code className="bg-[var(--sc-surface)] border border-[var(--sc-border)] px-2 py-1 mt-2 mb-2 inline-block font-mono font-semibold">Failure mode &rarr; Effect &rarr; Cause &rarr; Current controls &rarr; S/O/D signature &rarr; Recommended action &rarr; Evidence &rarr; Revised S/O/D</code></p>
+                    <p>Do not reduce Severity unless the actual failure effect has changed. Most process actions reduce Occurrence, Detection or both. Revised RPN should be accepted only when implementation evidence supports the revised rating.</p>
+                  </div>
+                </div>
+              </div>
+            </details>
           </SectionCard>
 
           {/* 08. Citation Authority Layer */}

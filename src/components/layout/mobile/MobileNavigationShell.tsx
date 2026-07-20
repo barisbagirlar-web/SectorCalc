@@ -155,6 +155,9 @@ export function MobileNavigationShell({
               src={BRAND_ASSETS.logo.headerDefault}
               alt="SectorCalc"
               className="sc-mnav-logo-img"
+              width={137}
+              height={28}
+              decoding="async"
             />
           </Link>
           <button

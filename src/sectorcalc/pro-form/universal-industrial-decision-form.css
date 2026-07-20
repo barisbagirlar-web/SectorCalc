@@ -656,6 +656,9 @@
 .pro-placeholder {
   text-align: center;
   padding: 40px 16px;
+  /* Reserve stable result-slot height — hydration must not collapse → expand (CLS). */
+  min-height: 168px;
+  box-sizing: border-box;
 }
 .pro-placeholder-title {
   font-family: "Barlow", ui-sans-serif, sans-serif;
@@ -1827,6 +1830,9 @@
   margin-top: 12px;
   padding-top: 10px;
   border-top: 1px solid var(--pro-line);
+  /* Stable strip height before reference copy settles (CLS). */
+  min-height: 72px;
+  box-sizing: border-box;
 }
 
 .pro-field-reference-strip {
