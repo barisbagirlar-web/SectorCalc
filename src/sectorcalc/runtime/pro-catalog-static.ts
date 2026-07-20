@@ -81,8 +81,8 @@ const STATIC_PRO_SCHEMAS: readonly StaticProSchemaHead[] = [
 ] as const;
 
 export interface ProCatalogEntry {
-  toolKey: string;
-  toolName: string;
+  readonly toolKey: string;
+  readonly toolName: string;
 }
 
 const CATALOG_BY_KEY: ReadonlyMap<string, ProCatalogEntry> = (() => {
@@ -98,7 +98,10 @@ const CATALOG_BY_KEY: ReadonlyMap<string, ProCatalogEntry> = (() => {
     if (map.has(s.tool_key)) {
       throw new Error(`pro-catalog-static: duplicate tool_key ${s.tool_key}`);
     }
-    map.set(s.tool_key, { toolKey: s.tool_key, toolName: s.tool_name });
+    map.set(
+      s.tool_key,
+      Object.freeze({ toolKey: s.tool_key, toolName: s.tool_name }),
+    );
   }
   // Identity + coverage assertion: every ACTIVE pro slug must be present.
   const missing = ACTIVE_PRO_TOOL_SLUGS.filter((slug) => !map.has(slug));
