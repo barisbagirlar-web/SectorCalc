@@ -168,6 +168,14 @@ try {
 
   assert(await generateButton.isEnabled(), "Generate sealed report disabled after owner bypass + valid inputs");
 
+  let authHeader = null;
+  const onRequest = (request) => {
+    if (request.url().includes("/api/pro-calculator/execute") && request.method() === "POST") {
+      authHeader = request.headers().authorization ?? null;
+    }
+  };
+  page.on("request", onRequest);
+
   await generateButton.click();
 
   await page.getByRole("heading", { name: "Break-Even & Survival Cash — proof report" }).waitFor({
@@ -179,6 +187,9 @@ try {
   assert(reportText.includes("SEAL"), "Rendered report missing SEAL marker");
   assert(!reportText.includes("Maximum Absorbed Overhead"), "Generic capital-appraisal output leaked into rendered report");
   assert(!reportText.includes("FMEA Trigger Flag"), "Generic FMEA output leaked into rendered report");
+
+  page.off("request", onRequest);
+  assert(authHeader, "UI execute request did not send Authorization header");
 
   // Deterministic API assert via Playwright request (independent of page fetch races).
   const apiInputs = {
@@ -193,22 +204,11 @@ try {
     source_confidence_ratio: 0.9,
     uncertainty_multiplier: 1.15,
   };
-  const bearer = await page.evaluate(() => {
-    const key = Object.keys(localStorage).find((k) => k.includes("firebase:authUser"));
-    if (!key) return null;
-    try {
-      const raw = JSON.parse(localStorage.getItem(key) || "null");
-      return raw?.stsTokenManager?.accessToken ?? null;
-    } catch {
-      return null;
-    }
-  });
-  assert(bearer, "Missing Firebase access token in localStorage after login");
 
   const executeResponse = await page.request.post(`${baseUrl}/api/pro-calculator/execute`, {
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${bearer}`,
+      Authorization: authHeader,
     },
     data: {
       tool_key: "break-even-survival-cash-calculator",
