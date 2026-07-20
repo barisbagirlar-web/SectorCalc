@@ -36,7 +36,8 @@ const GROUPS: Record<number,{n:string;t:string;d:string}> = {
 
 function fmtRef(f:FieldDef,cs:string):string {
   if(f.pct) return `Ref: ${(f.ref[0]*100).toFixed(0)}–${(f.ref[1]*100).toFixed(0)}%`;
-  return `Ref: ${cs}${f.ref[0].toLocaleString()}–${cs}${f.ref[1].toLocaleString()}${f.refUnit?" "+f.refUnit:""}`;
+  if(f.refUnit) return `Ref: ${f.ref[0].toLocaleString()}–${f.ref[1].toLocaleString()} ${f.refUnit}`;
+  return `Ref: ${cs}${f.ref[0].toLocaleString()}–${cs}${f.ref[1].toLocaleString()}`;
 }
 
 interface ServerSeal { output_hash?:string; hash_algorithm?:string; executed_at?:string; }
@@ -136,7 +137,8 @@ export default function ScrapReworkCostTrackerToolPage() {
         <div className={`${p}-f-top`}><label htmlFor={`in_${id}`}>{f.label}</label></div>
         <div className={`${p}-control ${cls}`}>
           <input id={`in_${id}`} type="number" step="any" inputMode="decimal" value={st.value} onChange={e=>updateField(id,e.target.value)} aria-invalid={!!st.error} />
-          {!f.pct&&<span className={`${p}-prefix`}>{f.refUnit?f.refUnit:curSym}</span>}
+          {!f.pct&&!f.refUnit&&<span className={`${p}-prefix`}>{curSym}</span>}
+          {!f.pct&&f.refUnit&&<span className={`${p}-prefix`} style={{borderLeft:"1px solid var(--"+p+"-line)",borderRight:"none"}}>{f.refUnit}</span>}
           {f.pct&&<span className={`${p}-prefix`} style={{borderLeft:"1px solid var(--"+p+"-line)",borderRight:"none"}}>%</span>}
         </div>
         <div className={`${p}-f-foot`}><span className={`${p}-hint`}>{f.hint} <em style={{fontStyle:"normal",color:"var(--"+p+"-faint)"}}>· {f.src}</em></span><span className={`${p}-bench-ref`}>{fmtRef(f,curSym)}</span></div>

@@ -21,13 +21,13 @@ const FIELDS: Record<string,FieldDef> = {
   "n_cycle_time": { label:"Cycle time (whole batch)", def:12, hard:[0,600], ref:[1,120], refUnit:"min", hint:"Total machine cycle time for the whole batch (canonical minutes) — not per-part. Despite the schema's stated base unit of seconds, the formula's own arithmetic (divides by 60 to get hours) confirms this field is canonical minutes.", src:"time study / CAM estimate", grp:1 },
   "n_setup_time": { label:"Setup time (whole batch)", def:8, hard:[0,600], ref:[1,120], refUnit:"min", hint:"Total setup/changeover time for the batch (canonical minutes, added directly to cycle time in the formula).", src:"shop floor log", grp:1 },
   "n_labor_rate": { label:"Labor rate", def:45, hard:[0,500000], ref:[15,200], refUnit:"/h", hint:"Fully loaded operator cost per hour.", src:"HR / payroll", grp:1 },
-  "n_overhead_rate": { label:"Annual overhead", def:60000, hard:[0,1e8], ref:[5000,500000], refUnit:"/yr", hint:"Total annual overhead cost (canonical currency/year) — allocated to this job as overhead/annualVolume × batchQuantity.", src:"cost accounting", grp:2 },
-  "n_material_cost": { label:"Material cost per unit", def:45, hard:[0,500000000.0], ref:[1,10000], refUnit:"", hint:"Material cost per unit (canonical currency/unit) — multiplied by batch quantity internally to get total material cost.", src:"BOM / purchasing", grp:2 },
+  "n_overhead_rate": { label:"Annual overhead", def:60000, hard:[0,1e8], ref:[5000,500000], refUnit:"/yr", hint:"Total annual overhead cost for the facility or line producing this job (canonical currency/year), allocated proportionally to this job.", src:"cost accounting", grp:2 },
+  "n_material_cost": { label:"Material cost per unit", def:45, hard:[0,500000000.0], ref:[1,10000], refUnit:"", hint:"Material cost per unit (canonical currency/unit) — not the total for the batch.", src:"BOM / purchasing", grp:2 },
   "n_batch_quantity": { label:"Batch quantity", def:500, hard:[1,1000000], ref:[1,100000], refUnit:"units", hint:"Units in this batch.", src:"work order", grp:2 },
-  "n_annual_volume": { label:"Annual volume (units/yr canonical)", def:100000, hard:[0,500000000.0], ref:[100,10000000], refUnit:"units/yr", hint:"Total annual production volume for this part.", src:"production forecast", grp:2 },
+  "n_annual_volume": { label:"Annual volume (units/yr canonical)", def:100000, hard:[1,500000000.0], ref:[100,10000000], refUnit:"units/yr", hint:"Total annual production volume for this part. Must be greater than zero.", src:"production forecast", grp:2 },
   "n_defect_or_loss_cost": { label:"Defect/loss allowance", def:150, hard:[0,5000000.0], ref:[0,50000], refUnit:"", hint:"Expected scrap/defect cost allowance for the batch.", src:"quality history", grp:3 },
   "n_target_margin": { label:"Target margin", def:25.0, hard:[0,100], ref:[0.1,0.5], refUnit:"%", hint:"The margin you want to price into this job.", src:"pricing policy", grp:3, pct:true },
-  "n_uncertainty_multiplier": { label:"Uncertainty/risk factor", def:0.15, hard:[0,2], ref:[0,0.5], refUnit:"", hint:"Risk factor applied to the recommended price: risk-adjusted price = recommended price × (1 + factor × 0.1). E.g. 0.15 → a 1.5% buffer.", src:"risk policy", grp:3 },
+  "n_uncertainty_multiplier": { label:"Uncertainty/risk factor", def:0.15, hard:[0,2], ref:[0,0.5], refUnit:"", hint:"How much extra risk buffer to build into the price beyond the target margin — 0 means none, higher means more caution.", src:"risk policy", grp:3 },
   "n_source_confidence_ratio": { label:"Source confidence", def:90.0, hard:[0,100], ref:[0.7,1], refUnit:"%", hint:"How verified are these figures?", src:"engineer's assessment", grp:3, pct:true },
 };
 const GROUPS: Record<number,{n:string;t:string;d:string}> = {
@@ -38,7 +38,8 @@ const GROUPS: Record<number,{n:string;t:string;d:string}> = {
 
 function fmtRef(f:FieldDef,cs:string):string {
   if(f.pct) return `Ref: ${(f.ref[0]*100).toFixed(0)}–${(f.ref[1]*100).toFixed(0)}%`;
-  return `Ref: ${cs}${f.ref[0].toLocaleString()}–${cs}${f.ref[1].toLocaleString()}${f.refUnit?" "+f.refUnit:""}`;
+  if(f.refUnit) return `Ref: ${f.ref[0].toLocaleString()}–${f.ref[1].toLocaleString()} ${f.refUnit}`;
+  return `Ref: ${cs}${f.ref[0].toLocaleString()}–${cs}${f.ref[1].toLocaleString()}`;
 }
 
 interface ServerSeal { output_hash?:string; hash_algorithm?:string; executed_at?:string; }
@@ -138,7 +139,8 @@ export default function JobQuoteBuilderProPackToolPage() {
         <div className={`${p}-f-top`}><label htmlFor={`in_${id}`}>{f.label}</label></div>
         <div className={`${p}-control ${cls}`}>
           <input id={`in_${id}`} type="number" step="any" inputMode="decimal" value={st.value} onChange={e=>updateField(id,e.target.value)} aria-invalid={!!st.error} />
-          {!f.pct&&<span className={`${p}-prefix`}>{f.refUnit?f.refUnit:curSym}</span>}
+          {!f.pct&&!f.refUnit&&<span className={`${p}-prefix`}>{curSym}</span>}
+          {!f.pct&&f.refUnit&&<span className={`${p}-prefix`} style={{borderLeft:"1px solid var(--"+p+"-line)",borderRight:"none"}}>{f.refUnit}</span>}
           {f.pct&&<span className={`${p}-prefix`} style={{borderLeft:"1px solid var(--"+p+"-line)",borderRight:"none"}}>%</span>}
         </div>
         <div className={`${p}-f-foot`}><span className={`${p}-hint`}>{f.hint} <em style={{fontStyle:"normal",color:"var(--"+p+"-faint)"}}>· {f.src}</em></span><span className={`${p}-bench-ref`}>{fmtRef(f,curSym)}</span></div>
