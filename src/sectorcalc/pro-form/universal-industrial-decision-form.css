@@ -1457,7 +1457,10 @@
 }
 
 .pro-shell[data-presentation-mode="FREE_COMPACT"] .pro-title {
-  font-size: clamp(28px, 4.5vw, 40px);
+  /* Prefer h1 paint area over field Source lines as LCP candidate (Constraint 1). */
+  font-size: clamp(34px, 6vw, 46px);
+  line-height: 1.05;
+  max-width: 22ch;
 }
 
 .pro-shell[data-presentation-mode="FREE_COMPACT"] .pro-section {
@@ -1466,6 +1469,30 @@
 
 .pro-shell[data-presentation-mode="FREE_COMPACT"] .pro-layout {
   padding-bottom: 0;
+  /* CLS: reserve first-viewport form chrome before field cards paint. */
+  min-height: 420px;
+}
+
+/*
+ * Constraint 1 follow-up: after scope deferral, LCP moved to Source/evidence lines.
+ * Keep full E-E-A-T text in the DOM (SEO); visually clamp so h1 wins LCP area.
+ */
+.pro-shell[data-presentation-mode="FREE_COMPACT"] .pro-ref-line,
+.pro-shell[data-presentation-mode="FREE_COMPACT"] .pro-field-tolerance,
+.pro-shell[data-presentation-mode="FREE_COMPACT"] .pro-field-help,
+.pro-shell[data-presentation-mode="FREE_COMPACT"] .pro-ref-helper {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+  max-height: calc(1.45em * 2);
+}
+
+.pro-shell[data-presentation-mode="FREE_COMPACT"] .pro-field-reference-strip {
+  min-height: 0;
+  max-height: 3.2em;
+  overflow: hidden;
 }
 
 /* FREE_COMPACT: Clean result panel — reserved height reduces expand CLS */
