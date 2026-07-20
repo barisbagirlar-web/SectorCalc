@@ -37,12 +37,19 @@ const context = await browser.newContext({ viewport: { width: 1440, height: 1100
 const page = await context.newPage();
 
 try {
+  // Root cause of flake: networkidle races Firebase/analytics chatter, and the
+  // paywall heading only mounts after useUserSubscription() leaves loading.
+  // Wait for DOM, then for the stable paywall test id (not a transient skeleton).
   const unauthenticatedResponse = await page.goto(`${baseUrl}${toolPath}`, {
-    waitUntil: "networkidle",
+    waitUntil: "domcontentloaded",
     timeout: 60_000,
   });
   assert(unauthenticatedResponse?.status() === 200, `Unauthenticated tool route returned HTTP ${unauthenticatedResponse?.status()}`);
-  await page.getByText("Sign in to access this PRO calculator", { exact: true }).waitFor({ timeout: 30_000 });
+  await page.getByTestId("pro-paywall-sign-in").waitFor({ state: "visible", timeout: 60_000 });
+  await page.getByRole("heading", { name: "Sign in to access this PRO calculator", exact: true }).waitFor({
+    state: "visible",
+    timeout: 10_000,
+  });
 
   await assertTextAbsent(page, [
     "Initial Investment",
@@ -56,7 +63,7 @@ try {
   ]);
 
   const loginUrl = `${baseUrl}/login?next=${encodeURIComponent(toolPath)}`;
-  await page.goto(loginUrl, { waitUntil: "networkidle", timeout: 60_000 });
+  await page.goto(loginUrl, { waitUntil: "domcontentloaded", timeout: 60_000 });
   await page.getByPlaceholder("Email address").fill(ownerEmail);
   await page.getByPlaceholder("Password").fill(ownerPassword);
 

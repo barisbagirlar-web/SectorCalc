@@ -106,6 +106,7 @@ export function ProToolPaywallGate({ children, toolName }: ProToolPaywallGatePro
           }}
         >
           <h2
+            data-testid="pro-paywall-sign-in"
             style={{
               fontFamily: "'Barlow', serif",
               fontSize: "1.5rem",
