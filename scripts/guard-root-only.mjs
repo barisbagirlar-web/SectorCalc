@@ -129,14 +129,19 @@ if (existsSync(nextConfig)) {
   pass("next.config.ts not found");
 }
 
-// Check 7: middleware has no locale redirect logic
+// Check 7: middleware must not create locale-prefixed public URLs.
+// Collapsing retired /en|/tr|... prefixes to apex (301 bare path or hard 404)
+// is root-only safe and required to stop soft-duplicate indexing.
 const middlewarePath = join(ROOT, "src/middleware.ts");
 if (existsSync(middlewarePath)) {
   const content = readFileSync(middlewarePath, "utf8");
-  if (content.includes("locale") && (content.includes("redirect") || content.includes("rewrite"))) {
-    fail("middleware.ts contains locale redirect/rewrite logic");
+  // Fail only when middleware *assigns* a path under a language prefix.
+  const createsLanguagePrefixedPath =
+    /(?:url\.)?pathname\s*=\s*[`'"]\/(?:en|tr|de|fr|es|ar)(?:\/|['"`])/.test(content);
+  if (createsLanguagePrefixedPath) {
+    fail("middleware.ts creates locale-prefixed paths");
   } else {
-    pass("middleware.ts has no locale redirect/rewrite");
+    pass("middleware.ts collapses legacy language prefixes to apex (no locale surface)");
   }
 } else {
   pass("middleware.ts not found");

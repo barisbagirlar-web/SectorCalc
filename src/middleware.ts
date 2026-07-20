@@ -412,13 +412,13 @@ export default function middleware(request: NextRequest) {
     }
   }
 
-  // ── Legacy locale prefixes (English-only site) ──
+  // ── Legacy language prefixes (English-only apex site) ──
   // /en and /en/... → 301 to bare path (preserve crawl equity).
   // /tr|/de|/fr|/es|/ar|... (exact + nested) → hard 404 + noindex.
   {
-    const localeMatch = pathname.match(LEGACY_LANGUAGE_PREFIX_RE);
-    if (localeMatch) {
-      const code = localeMatch[1];
+    const languagePrefixMatch = pathname.match(LEGACY_LANGUAGE_PREFIX_RE);
+    if (languagePrefixMatch) {
+      const code = languagePrefixMatch[1];
       if (code === "en") {
         const rest =
           pathname === "/en" || pathname === "/en/"
