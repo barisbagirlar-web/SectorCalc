@@ -169,8 +169,8 @@ export default function BreakEvenSurvivalCashToolPage() {
       if(!res.ok){const d=await res.json().catch(()=>({}));throw new Error(d.error||`Server error ${res.status}`);}
       const data=await res.json();
       const outputsMap:Record<string,number>={};
-      if(Array.isArray(data.outputs)) { for(const o of data.outputs) if(typeof o.value==="number") outputsMap[o.id]=o.value; }
-      else if(data.outputs && typeof data.outputs==="object") { Object.assign(outputsMap,data.outputs); }
+      if(Array.isArray(data.outputs)) { for(const o of data.outputs) if(o && typeof o.id==="string" && typeof o.value==="number" && Number.isFinite(o.value)) outputsMap[o.id]=o.value; }
+      else if(data.outputs && typeof data.outputs==="object") { for(const [k,v] of Object.entries(data.outputs as Record<string,unknown>)) if(typeof v==="number" && Number.isFinite(v)) outputsMap[k]=v; }
       const seal=data.audit_seal as Record<string,unknown>|undefined;
       const sealOk=!!seal&&seal.seal_status==="SEALED"&&typeof seal.output_hash==="string";
       if(!sealOk) throw new Error("Sealed response missing — report withheld.");
