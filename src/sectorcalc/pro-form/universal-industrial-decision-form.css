@@ -60,7 +60,7 @@
 }
 
 .pro-title {
-  font-family: var(--font-barlow-semi-condensed), "Barlow Semi Condensed", ui-serif, serif;
+  font-family: var(--font-barlow-semi-condensed), ui-serif, serif;
   font-size: clamp(32px, 5vw, 46px);
   font-weight: 600;
   letter-spacing: -0.04em;
@@ -76,7 +76,7 @@
 .pro-hero__scope {
   margin: 0;
   color: var(--pro-muted);
-  font-family: var(--font-barlow), "Barlow", ui-sans-serif, sans-serif;
+  font-family: var(--font-barlow), ui-sans-serif, sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 1.5;
@@ -96,7 +96,7 @@
 }
 
 .pro-badge {
-  font-family: "Barlow", ui-sans-serif, sans-serif;
+  font-family: var(--font-barlow), ui-sans-serif, sans-serif;
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.04em;
@@ -126,7 +126,7 @@
 }
 
 .pro-chip {
-  font-family: "Barlow", ui-sans-serif, sans-serif;
+  font-family: var(--font-barlow), ui-sans-serif, sans-serif;
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.04em;
@@ -228,7 +228,7 @@
   flex-wrap: wrap;
 }
 .pro-field-title {
-  font-family: "Barlow", ui-sans-serif, sans-serif;
+  font-family: var(--font-barlow), ui-sans-serif, sans-serif;
   font-size: 13px;
   font-weight: 600;
   color: var(--pro-fg);
@@ -393,7 +393,7 @@
 }
 
 .pro-primary-action {
-  font-family: "Barlow", ui-sans-serif, sans-serif;
+  font-family: var(--font-barlow), ui-sans-serif, sans-serif;
   font-weight: 600;
   font-size: 14px;
   padding: 10px 28px;
@@ -414,7 +414,7 @@
 }
 
 .pro-action-secondary {
-  font-family: "Barlow", ui-sans-serif, sans-serif;
+  font-family: var(--font-barlow), ui-sans-serif, sans-serif;
   font-weight: 500;
   font-size: 13px;
   padding: 8px 16px;
@@ -436,7 +436,7 @@
 }
 
 .pro-primary-button {
-  font-family: "Barlow", ui-sans-serif, sans-serif;
+  font-family: var(--font-barlow), ui-sans-serif, sans-serif;
   font-weight: 600;
   font-size: 14px;
   padding: 10px 24px;
@@ -489,7 +489,7 @@
 }
 
 .pro-cockpit-panel-title {
-  font-family: "Barlow", ui-sans-serif, sans-serif;
+  font-family: var(--font-barlow), ui-sans-serif, sans-serif;
   font-size: 15px;
   font-weight: 600;
   margin: 0 0 8px;
@@ -556,7 +556,7 @@
 /* ── FREE results ── */
 
 .pro-free-results-title {
-  font-family: "Barlow", ui-sans-serif, sans-serif;
+  font-family: var(--font-barlow), ui-sans-serif, sans-serif;
   font-size: 15px;
   font-weight: 600;
   margin: 0 0 8px;
@@ -579,7 +579,7 @@
   padding: 10px 12px;
 }
 .pro-free-result-name {
-  font-family: "Barlow", ui-sans-serif, sans-serif;
+  font-family: var(--font-barlow), ui-sans-serif, sans-serif;
   font-size: 11px;
   font-weight: 500;
   color: var(--pro-muted-strong);
@@ -663,7 +663,7 @@
   box-sizing: border-box;
 }
 .pro-placeholder-title {
-  font-family: "Barlow", ui-sans-serif, sans-serif;
+  font-family: var(--font-barlow), ui-sans-serif, sans-serif;
   font-size: 15px;
   font-weight: 600;
   margin: 0 0 6px;
@@ -684,7 +684,7 @@
 }
 
 .pro-pro-section-title {
-  font-family: "Barlow", ui-sans-serif, sans-serif;
+  font-family: var(--font-barlow), ui-sans-serif, sans-serif;
   font-size: 14px;
   font-weight: 600;
   margin: 0 0 8px;
@@ -743,7 +743,7 @@
   padding: 10px 12px;
 }
 .pro-pro-result-name {
-  font-family: "Barlow", ui-sans-serif, sans-serif;
+  font-family: var(--font-barlow), ui-sans-serif, sans-serif;
   font-size: 10px;
   font-weight: 500;
   color: var(--pro-muted-strong);
@@ -785,7 +785,7 @@
   padding: 12px;
 }
 .pro-pro-ri-card-title {
-  font-family: "Barlow", ui-sans-serif, sans-serif;
+  font-family: var(--font-barlow), ui-sans-serif, sans-serif;
   font-size: 12px;
   font-weight: 600;
   margin: 0 0 6px;
@@ -825,7 +825,7 @@
   margin-bottom: 12px;
 }
 .pro-pro-pi-subtitle {
-  font-family: "Barlow", ui-sans-serif, sans-serif;
+  font-family: var(--font-barlow), ui-sans-serif, sans-serif;
   font-size: 12px;
   font-weight: 600;
   margin: 0 0 4px;
@@ -852,7 +852,7 @@
   padding: 10px 14px;
 }
 .pro-warning-card h4 {
-  font-family: "Barlow", ui-sans-serif, sans-serif;
+  font-family: var(--font-barlow), ui-sans-serif, sans-serif;
   font-size: 12px;
   font-weight: 600;
   margin: 0 0 4px;
@@ -894,7 +894,7 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-family: "Barlow", ui-sans-serif, sans-serif;
+  font-family: var(--font-barlow), ui-sans-serif, sans-serif;
   font-size: 12px;
   font-weight: 600;
   color: var(--pro-accent);
@@ -921,7 +921,7 @@
 }
 
 .pro-advanced-title {
-  font-family: "Barlow", ui-sans-serif, sans-serif;
+  font-family: var(--font-barlow), ui-sans-serif, sans-serif;
   font-size: 13px;
   font-weight: 600;
   margin: 0;
@@ -952,7 +952,7 @@
 }
 
 .pro-contract-blocker h3 {
-  font-family: "Barlow", ui-sans-serif, sans-serif;
+  font-family: var(--font-barlow), ui-sans-serif, sans-serif;
   font-size: 16px;
   font-weight: 600;
   margin: 0;
@@ -990,7 +990,7 @@
   margin: 0;
 }
 .pro-premium-action {
-  font-family: "Barlow", ui-sans-serif, sans-serif;
+  font-family: var(--font-barlow), ui-sans-serif, sans-serif;
   font-weight: 600;
   font-size: 13px;
   padding: 8px 20px;
@@ -1445,15 +1445,15 @@
 .pro-shell[data-presentation-mode="FREE_COMPACT"] .pro-hero__scope {
   font-size: 16px;
   line-height: 1.45;
-  /* Constraint 1: full scope text remains in DOM (SEO); visual weight deferred so h1 is LCP. */
+  /* Full scope text remains in DOM (SEO); clamp visual height for stable LCP/CLS. */
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   line-clamp: 2;
   overflow: hidden;
   max-height: calc(1.45em * 2);
-  content-visibility: auto;
-  contain-intrinsic-size: auto 2.9em;
+  /* Do NOT use content-visibility here — skipped→rendered height mismatch caused
+     ~0.19 CLS on von-mises (pro-layout / FREE chip jumped ~31px). */
 }
 
 .pro-shell[data-presentation-mode="FREE_COMPACT"] .pro-title {
@@ -1577,7 +1577,7 @@
   flex-wrap: wrap;
   cursor: pointer;
   padding: 6px 0;
-  font-family: "Barlow", ui-sans-serif, sans-serif;
+  font-family: var(--font-barlow), ui-sans-serif, sans-serif;
   font-size: 14px;
   font-weight: 700;
   color: var(--pro-accent);
@@ -1807,7 +1807,7 @@
 }
 
 .pro-report-error-title {
-  font-family: "Barlow", serif;
+  font-family: var(--font-barlow), ui-serif, serif;
   font-size: 18px;
   font-weight: 600;
   color: #1A1915;
@@ -1815,7 +1815,7 @@
 }
 
 .pro-report-error-desc {
-  font-family: "Barlow", sans-serif;
+  font-family: var(--font-barlow), ui-sans-serif, sans-serif;
   font-size: 14px;
   color: #6B6A63;
   margin: 0;
