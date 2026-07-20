@@ -1,7 +1,7 @@
 # RELEASE EVIDENCE PACK — RM-LEAN-001
 
 **Mandate:** RM-LEAN-001 Lean Authority Reference Transformation  
-**Stamp:** `RELEASE READY FOR MERGE/DEPLOY` (local gates PASS; G-LIVE pending production deploy after commit)  
+**Stamp:** `RELEASE READY FOR MERGE/DEPLOY` · commit `949e15283` (local gates PASS; G-LIVE pending production deploy after merge)  
 **Date:** 2026-07-20  
 **Branch:** `fix/cwv-lcp-h1-over-source` (working tree changes for RM-LEAN-001)
 
@@ -90,8 +90,8 @@ Shared shell: `LeanMetricHubContent.tsx` + per-metric SSOT `lean-metric-hubs.ts`
 | **G-SCHEMA** | **PASS (lab)** | JSON-LD graph emitted (`application/ld+json` ×3 on OEE hub HTML); DefinedTerm present in builder. Rich Results Test on production = **pending human after deploy** |
 | **G-SEO** | **PASS (lab)** | Canonical hubs in sitemap; spokes purged; robots on localhost = noindex by middleware host policy (expected); production host policy unchanged (`shouldNoindexHost`) |
 | **G-CWV** | **PASS (pattern)** | Same hub layout as NPV/ROI/FMEA (perf~90 pattern). Lab Lighthouse on production URLs = **pending after deploy** |
-| **G-CI** | **PASS (local)** | `npm run verify:lean-ux` PASS; `npm run verify:lean-redirects` PASS; `verify-live-calculator-route.mjs` extended with lean hubs. CI run ID = **pending push** |
-| **G-REGRESSION** | **PASS (build)** | `npx tsc --noEmit` PASS; `npm run lint` 0 errors; `npm run build` PASS (BUILD_ID=`JCO4OHF1Cq2BXDths75YT`) |
+| **G-CI** | **PASS (local)** | `verify:lean-ux` + `verify:lean-redirects` PASS; live-route script extended. CI run ID = **pending push/PR** |
+| **G-REGRESSION** | **PASS** | `tsc` PASS; `lint` 0 errors; `build` PASS; local curl FMEA/NPV/ROI/free-oee/lean/oee-hub → HTTP 200 + meta robots `index, follow` |
 | **G-LIVE** | **BLOCKED → pending deploy** | Production not yet updated. Requires commit → merge → Firebase deploy → cache-bust curl |
 
 ---
