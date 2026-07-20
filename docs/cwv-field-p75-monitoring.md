@@ -34,7 +34,7 @@ window.__SC_WEB_VITALS__
 ## Until field data exists
 
 - Prefer **observed** LCP/CLS (`throttling-method=provided`) over simulated lab.
-- Keep ŞART 3 SEO checks on every CWV CSS change.
+- Keep Constraint 3 SEO checks on every CWV CSS change.
 - Do not declare FAZ 2.1 LCP “closed” on lab alone if field later fails.
 
 ## First meaningful field read
