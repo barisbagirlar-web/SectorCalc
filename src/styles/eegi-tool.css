@@ -1,0 +1,183 @@
+
+.eegi-shell{
+  --eegi-paper:#F7F5EF; --eegi-panel:#FFFFFF; --eegi-ink:#181713; --eegi-ink-soft:#57544C; --eegi-faint:#8C887E;
+  --eegi-line:#E4E0D6; --eegi-line-soft:#EFEBE2;
+  --eegi-clay:#C15F3C; --eegi-clay-deep:#9A4526;
+  --eegi-ledger:#3A4D8F;
+  --eegi-pos:#2E6B4E; --eegi-pos-bg:#E7F1EB;
+  --eegi-warn:#8A5A12; --eegi-warn-bg:#F8EFDC;
+  --eegi-neg:#9C3520; --eegi-neg-bg:#F7E9E4;
+  --eegi-display:'Fraunces',georgia,serif; --eegi-sans:'Inter',system-ui,sans-serif; --eegi-mono:'JetBrains Mono',monospace;
+}
+.eegi-shell *{box-sizing:border-box;margin:0;padding:0;border-radius:0}
+.eegi-shell{background:var(--eegi-paper);color:var(--eegi-ink);font-family:var(--eegi-sans);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
+.eegi-shell{max-width:1080px;margin:0 auto;padding:0 20px}
+.eegi-mast{border-bottom:1.5px solid var(--eegi-ink);padding:34px 0 20px}
+.eegi-kicker{font-family:var(--eegi-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--eegi-clay);display:flex;gap:10px;align-items:center}
+.eegi-kicker::after{content:"";flex:1;height:1px;background:var(--eegi-line)}
+.eegi-mast h1{font-family:var(--eegi-display);font-weight:500;font-size:clamp(30px,5vw,46px);line-height:1.02;margin:14px 0 8px;letter-spacing:-.01em}
+.eegi-mast .eegi-lede{font-size:16px;color:var(--eegi-ink-soft);max-width:64ch}
+.eegi-mast .eegi-meta{display:flex;gap:22px;margin-top:16px;font-family:var(--eegi-mono);font-size:11px;color:var(--eegi-faint);flex-wrap:wrap}
+.eegi-mast .eegi-meta b{color:var(--eegi-ink);font-weight:500}
+.eegi-curbar{display:flex;align-items:center;gap:12px;margin-top:16px;padding:12px 14px;background:var(--eegi-panel);border:1px solid var(--eegi-line);flex-wrap:wrap}
+.eegi-curbar label{font-family:var(--eegi-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--eegi-ink-soft)}
+.eegi-curbar select{border:1.25px solid var(--eegi-line);background:var(--eegi-paper);font-family:var(--eegi-mono);font-size:13px;padding:6px 10px;min-height:48px;color:var(--eegi-ink);outline:none;cursor:pointer}
+.eegi-curbar select:focus{border-color:var(--eegi-ledger)}
+.eegi-curnote{font-size:11.5px;color:var(--eegi-faint);flex:1;min-width:220px}
+.eegi-bench{display:grid;grid-template-columns:1fr 360px;gap:0;border:1.5px solid var(--eegi-ink);border-top:none;background:var(--eegi-panel)}
+@media(max-width:900px){.eegi-bench{grid-template-columns:1fr}}
+.eegi-form-col{padding:8px 30px 30px;border-right:1.5px solid var(--eegi-ink)}
+@media(max-width:900px){.eegi-form-col{border-right:none;border-bottom:1.5px solid var(--eegi-ink)}}
+.eegi-rail{padding:0}
+.eegi-grp{border-bottom:1px solid var(--eegi-line-soft);padding:22px 0}
+.eegi-grp:last-child{border-bottom:none}
+.eegi-grp-h{display:flex;align-items:baseline;gap:10px;margin-bottom:4px}
+.eegi-grp-n{font-family:var(--eegi-mono);font-size:11px;color:var(--eegi-clay);font-weight:500}
+.eegi-grp-t{font-family:var(--eegi-display);font-size:18px;font-weight:500}
+.eegi-grp-d{font-size:12.5px;color:var(--eegi-faint);margin-bottom:16px;max-width:52ch}
+.eegi-f{margin-bottom:18px}
+.eegi-f:last-child{margin-bottom:0}
+.eegi-f-top{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:6px}
+.eegi-f label{font-weight:500;font-size:13.5px}
+.eegi-f .eegi-unitline{font-family:var(--eegi-mono);font-size:10.5px;color:var(--eegi-faint)}
+.eegi-control{display:flex;border:1.25px solid var(--eegi-line);background:var(--eegi-paper);transition:border-color .12s,box-shadow .12s}
+.eegi-control:focus-within{border-color:var(--eegi-ledger);box-shadow:inset 0 0 0 1px var(--eegi-ledger)}
+.eegi-control.eegi-bad{border-color:var(--eegi-neg);box-shadow:inset 0 0 0 1px var(--eegi-neg)}
+.eegi-control.eegi-warn{border-color:var(--eegi-warn);box-shadow:inset 0 0 0 1px var(--eegi-warn)}
+.eegi-prefix{display:flex;align-items:center;padding:0 12px;font-family:var(--eegi-mono);font-size:13px;color:var(--eegi-faint);border-right:1px solid var(--eegi-line);background:var(--eegi-line-soft)}
+.eegi-control input{flex:1;min-width:0;border:none;background:transparent;padding:11px 12px;font-family:var(--eegi-mono);font-size:15px;color:var(--eegi-ink);outline:none}
+.eegi-control select{border:none;border-left:1px solid var(--eegi-line);background:var(--eegi-panel);font-family:var(--eegi-mono);font-size:12px;padding:0 8px;color:var(--eegi-ink);outline:none;cursor:pointer}
+.eegi-f-foot{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-top:6px}
+.eegi-hint{font-size:11.5px;color:var(--eegi-faint);flex:1;line-height:1.4}
+.eegi-bench-ref{font-family:var(--eegi-mono);font-size:10.5px;color:var(--eegi-faint);white-space:nowrap;text-align:right}
+.eegi-msg{font-size:11.5px;margin-top:6px;padding:6px 9px;line-height:1.4;display:none}
+.eegi-msg.eegi-err{display:block;background:var(--eegi-neg-bg);color:var(--eegi-neg);border-left:2px solid var(--eegi-neg)}
+.eegi-msg.eegi-warn{display:block;background:var(--eegi-warn-bg);color:var(--eegi-warn);border-left:2px solid var(--eegi-warn)}
+.eegi-shell details{border:1px solid var(--eegi-line);background:var(--eegi-panel);margin-top:4px}
+.eegi-shell details summary{cursor:pointer;padding:14px 18px;font-family:var(--eegi-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--eegi-faint);list-style:none}
+.eegi-shell details summary::before{content:"+ "}
+.eegi-shell details[open] summary::before{content:"\2212 "}
+.eegi-shell details .eegi-grp{padding:0 18px 18px}
+.eegi-rail-in{position:sticky;top:0;padding:26px 24px}
+.eegi-verdict{border:1.25px solid var(--eegi-ink);padding:2px 0 0;margin-bottom:18px}
+.eegi-verdict-band{padding:6px 12px;font-family:var(--eegi-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#fff}
+.eegi-verdict-band.eegi-pos{background:var(--eegi-pos)} .eegi-verdict-band.eegi-warn{background:var(--eegi-warn)} .eegi-verdict-band.eegi-warn2{background:var(--eegi-warn);color:#fff} .eegi-verdict-band.eegi-neg{background:var(--eegi-neg)}
+.eegi-verdict-body{padding:16px 14px}
+.eegi-big{font-family:var(--eegi-display);font-size:34px;font-weight:500;line-height:1;letter-spacing:-.01em}
+.eegi-big small{font-size:15px;color:var(--eegi-faint);font-weight:400}
+.eegi-big-cap{font-family:var(--eegi-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--eegi-faint);margin-top:6px}
+.eegi-stat{display:flex;justify-content:space-between;align-items:baseline;padding:9px 0;border-top:1px dashed var(--eegi-line);font-size:12.5px}
+.eegi-stat span{color:var(--eegi-ink-soft)}
+.eegi-stat b{font-family:var(--eegi-mono);font-weight:500}
+.eegi-cta{width:100%;border:1.25px solid var(--eegi-clay-deep);background:var(--eegi-clay);color:#fff;font-family:var(--eegi-sans);font-weight:600;font-size:14px;padding:13px;cursor:pointer;margin-top:18px;letter-spacing:.01em}
+.eegi-cta:hover{background:var(--eegi-clay-deep)}
+.eegi-cta:disabled{background:var(--eegi-line);border-color:var(--eegi-line);color:var(--eegi-faint);cursor:not-allowed}
+.eegi-conf{margin-top:12px;font-size:11px;color:var(--eegi-ink-soft);display:flex;gap:7px;align-items:flex-start;line-height:1.4}
+.eegi-conf .eegi-d{width:8px;height:8px;margin-top:3px;flex-shrink:0}
+.eegi-report{border:1.5px solid var(--eegi-clay);border-top:none;background:var(--eegi-paper)}
+.eegi-rep-mast{background:var(--eegi-ink);color:var(--eegi-paper);padding:24px 30px;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:12px}
+.eegi-rep-mast h2{font-family:var(--eegi-display);font-size:26px;font-weight:500}
+.eegi-rep-mast .eegi-rid{font-family:var(--eegi-mono);font-size:10.5px;color:#b9b4a7;text-align:right;line-height:1.7}
+.eegi-rep-body{padding:30px}
+.eegi-sec{margin-bottom:32px}
+.eegi-sec-h{display:flex;align-items:baseline;gap:10px;border-bottom:1px solid var(--eegi-ink);padding-bottom:6px;margin-bottom:14px}
+.eegi-sec-n{font-family:var(--eegi-mono);font-size:12px;color:var(--eegi-clay);font-weight:500}
+.eegi-sec-t{font-family:var(--eegi-display);font-size:19px;font-weight:500}
+.eegi-verdict-box{background:var(--eegi-paper);border-left:4px solid var(--eegi-clay);padding:18px 20px}
+.eegi-verdict-box .eegi-head{font-family:var(--eegi-display);font-size:22px;font-weight:500;margin-bottom:8px;line-height:1.2}
+.eegi-verdict-box p{font-size:14.5px;color:var(--eegi-ink-soft);max-width:74ch}
+.eegi-verdict-box p+p{margin-top:8px}
+.eegi-shell table{width:100%;border-collapse:collapse;font-size:13px}
+.eegi-shell th,.eegi-shell td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--eegi-line);vertical-align:top}
+.eegi-shell th{font-family:var(--eegi-mono);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--eegi-faint);font-weight:500}
+.eegi-shell td.eegi-n{font-family:var(--eegi-mono);text-align:right;white-space:nowrap}
+.eegi-shell tr.eegi-total td{border-top:1.5px solid var(--eegi-ink);border-bottom:none;font-weight:600}
+.eegi-shell tr.eegi-win td{background:var(--eegi-pos-bg)}
+.eegi-note{font-size:11.5px;color:var(--eegi-faint);margin-top:10px;line-height:1.5}
+.eegi-ins{padding:13px 16px;margin-bottom:11px;font-size:13.5px;line-height:1.55;border-left:3px solid}
+.eegi-ins.eegi-crit{background:var(--eegi-neg-bg);border-color:var(--eegi-neg)}
+.eegi-ins.eegi-opp{background:var(--eegi-pos-bg);border-color:var(--eegi-pos)}
+.eegi-ins.eegi-info{background:var(--eegi-paper);border-color:var(--eegi-faint)}
+.eegi-ins .eegi-t{font-family:var(--eegi-mono);font-size:9.5px;letter-spacing:.07em;text-transform:uppercase;display:block;margin-bottom:3px;color:var(--eegi-ink-soft)}
+.eegi-chart{width:100%;overflow:visible;font-family:var(--eegi-mono);font-size:11px}
+.eegi-chart text{font-family:var(--eegi-mono)}
+.eegi-seal{margin-top:8px;padding:14px 16px;background:var(--eegi-paper);border:1px dashed var(--eegi-line);font-family:var(--eegi-mono);font-size:10.5px;color:var(--eegi-faint);word-break:break-all;line-height:1.7}
+.eegi-disc{font-size:11px;color:var(--eegi-faint);margin-top:14px;padding-top:12px;border-top:1px solid var(--eegi-line-soft);line-height:1.6}
+
+/* ── Print / PDF export ──────────────────────────────────────────────
+   Reuses the on-screen report exactly (WYSIWYG) rather than a separate
+   PDF-generation template, so there is no second layout that could drift
+   out of sync or introduce its own overflow bugs. Only .eegi-report and
+   its descendants are printed; the shell, masthead, and input form are
+   hidden. */
+@media print {
+  @page { margin: 14mm 12mm; }
+
+  body * { visibility: hidden; }
+  .eegi-report, .eegi-report * { visibility: visible; }
+  .eegi-report {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Browsers strip background colors/borders by default when printing;
+     the verdict box, insight cards, and win-row highlight all depend on
+     background color to convey meaning, so force it on. */
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    color-adjust: exact;
+  }
+
+  /* Never split a chart, table row, or insight card across a page break —
+     the most common source of a "broken, overflowing" printed report. */
+  .eegi-chart, .eegi-verdict-box, .eegi-ins, tr, .eegi-seal, .eegi-disc {
+    break-inside: avoid;
+  }
+  h2, h3, .eegi-head { break-after: avoid; }
+
+  /* The floating feedback/report-tools chrome and the "Generate sealed
+     report" action button have no place in a printed document. */
+  .sc-report-feedback, .sc-report-quick-reaction, [class*="sticky"] {
+    display: none !important;
+  }
+}
+
+.eegi-print-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 48px;
+  padding: 0 16px;
+  margin-top: 10px;
+  background: var(--eegi-paper);
+  border: 1px solid var(--eegi-line);
+  border-radius: 0;
+  font-family: var(--eegi-mono);
+  font-size: 12px;
+  letter-spacing: 0.03em;
+  color: var(--eegi-ink);
+  cursor: pointer;
+}
+.eegi-print-btn:hover { border-color: var(--eegi-ink-soft); }
+
+@media print {
+  .eegi-print-btn { display: none !important; }
+}
+
+/* 3-tier verdict coloring (0=meets target, 1=below target, 2=loss-making) —
+   this tool has a middle "warning" state buy-lease-keep's binary win/lose
+   pattern doesn't need. */
+.eegi-verdict-0 { border-left: 4px solid var(--eegi-pos); background: var(--eegi-pos-bg); }
+.eegi-verdict-1 { border-left: 4px solid var(--eegi-warn); background: var(--eegi-warn-bg); }
+.eegi-verdict-2 { border-left: 4px solid var(--eegi-neg); background: var(--eegi-neg-bg); }
+.eegi-warn2 { color: var(--eegi-warn); }
+.eegi-prefix-unit { font-size: 10px; opacity: 0.7; display: block; }
+
+
+.eegi-stat-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--eegi-line-soft);font-size:13px}
+.eegi-stat-row span{color:var(--eegi-ink-soft);text-transform:capitalize}
+.eegi-stat-row b{font-family:var(--eegi-mono);color:var(--eegi-ink)}
