@@ -306,7 +306,7 @@ export default function TrueEmployeeCostStatementToolPage() {
             <div className="tecs-sec">
               <div className="tecs-sec-h"><span className="tecs-sec-n">2</span><span className="tecs-sec-t">Base salary vs. fully-loaded cost</span></div>
               <div dangerouslySetInnerHTML={{ __html: chartBaseVsLoaded(serverResult.outputs, serverResult.currency) }} />
-              <div className="tecs-note">The gap between the two bars is what's easy to forget when budgeting a new hire on base salary alone.</div>
+              <div className="tecs-note">The gap between the two bars is what&apos;s easy to forget when budgeting a new hire on base salary alone.</div>
             </div>
             <div className="tecs-sec">
               <div className="tecs-sec-h"><span className="tecs-sec-n">3</span><span className="tecs-sec-t">Engineering insights</span></div>
