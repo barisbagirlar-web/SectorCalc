@@ -253,21 +253,14 @@ jobs:
 
       - name: Verify live calculator route
         shell: bash
+        env:
+          PUBLIC_SITE_URL: https://sectorcalc.com
+          RELEASE_SHA: ${{ env.RELEASE_SHA }}
         run: |
-          page_file="$(mktemp)"
-          status="$(curl --silent --show-error \
-            -H 'Cache-Control: no-cache' \
-            -o "$page_file" \
-            -w '%{http_code}' \
-            "https://sectorcalc.com/tools/pro/break-even-survival-cash-calculator?release=${RELEASE_SHA}")"
-          test "$status" = "200"
-          grep -Fq "Break-Even &amp; Survival Cash Calculator" "$page_file" || \
-            grep -Fq "Break-Even & Survival Cash Calculator" "$page_file"
-          if grep -Eq "Initial Investment|Annual Net Cash Flow|Discount Rate|Residual Value" "$page_file"; then
-            echo "CROSS_TOOL_INPUT_CONTAMINATION=FAIL"
-            exit 1
-          fi
-          echo "LIVE_CALCULATOR_ROUTE=PASS"
+          # Robust isolation check (SSR-rich free pages + PRO slug identity +
+          # NPV positive control). Replaces brittle title-only PRO grep that
+          # failed on streaming shells without proving contamination.
+          node scripts/verify-live-calculator-route.mjs
 
 # workflow_dispatch cache refresh
 # force cache refresh

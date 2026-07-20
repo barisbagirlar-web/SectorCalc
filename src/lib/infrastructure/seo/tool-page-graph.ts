@@ -84,7 +84,7 @@ function buildOrganizationNode(): JsonLdRecord {
         "sector analysis",
         "CAPEX calculation",
         "OPEX modeling",
-        "IRR/NPV",
+        "capital budgeting",
         "break-even analysis",
         "ISO 22400-2",
         "ECMI Cost Model",
