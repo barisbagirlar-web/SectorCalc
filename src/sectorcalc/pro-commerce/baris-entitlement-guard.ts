@@ -36,10 +36,10 @@ export async function checkBarisExecutionEntitlement(ctx: EntitlementContext): P
     return { ok: false, reason: "ASSISTED_DOSSIER_ONLY" };
   }
 
-  // Dev bypass: owner email or dev mode
+  // Dev bypass: owner email or dev mode (case-insensitive email match).
   if (ctx.userEmail) {
-    const ownerBypass = process.env.OWNER_BYPASS_EMAIL ?? "barisbagirlar@gmail.com";
-    if (ctx.userEmail === ownerBypass || process.env.NODE_ENV === "development") {
+    const ownerBypass = (process.env.OWNER_BYPASS_EMAIL ?? "barisbagirlar@gmail.com").toLowerCase();
+    if (ctx.userEmail.toLowerCase() === ownerBypass || process.env.NODE_ENV === "development") {
       return { ok: true, reason: null };
     }
   }

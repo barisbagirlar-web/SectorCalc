@@ -791,6 +791,13 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 
         const rawUsageSessionId2 = (rawBody as Record<string, unknown>).usageSessionId;
         const hasRealSession = rawUsageSessionId2 && rawUsageSessionId2 !== "bypass-unlimited";
+        const ownerBypassEmailEarly = (process.env.OWNER_BYPASS_EMAIL ?? "barisbagirlar@gmail.com").toLowerCase();
+        const isOwnerBypassSession =
+          rawUsageSessionId2 === "bypass-unlimited" &&
+          (verifiedEmail ?? "").toLowerCase() === ownerBypassEmailEarly;
+        if (isOwnerBypassSession) {
+          authMethod = "bypass";
+        }
         if (hasRealSession) {
           if (authMethod !== "token" || !verifiedUserId) {
             const errorResponse = buildFullBlockedResponse(

@@ -5,6 +5,7 @@ import {
   X_ROBOTS_TAG_HEADER,
   xRobotsTagValue,
 } from "@/lib/infrastructure/seo/seo-indexing-control";
+import { ACTIVE_FREE_TOOL_SLUGS } from "@/sectorcalc/runtime/active-tool-allowlist";
 
 /**
  * Hardcoded public origin for Link/canonical — NEVER derive from request.url
@@ -48,6 +49,9 @@ const ACTIVE_INDUSTRY_SLUGS = new Set<string>([
   "daily-fuel",
   "daily-meals",
 ]);
+
+/** Free-tool allowlist — middleware hard-404 for unknown/quarantined slug variants. */
+const ACTIVE_FREE_TOOL_SLUG_SET = new Set<string>(ACTIVE_FREE_TOOL_SLUGS);
 
 function isProtectedRoute(pathname: string): boolean {
   return PROTECTED_ROUTES.some(
@@ -408,6 +412,15 @@ export default function middleware(request: NextRequest) {
   if (pathname.startsWith("/industries/")) {
     const slug = pathname.slice("/industries/".length).replace(/\/+$/, "");
     if (!slug || slug.includes("/") || !ACTIVE_INDUSTRY_SLUGS.has(slug)) {
+      return notFoundResponse(request);
+    }
+  }
+
+  // Free tools: unknown / quarantined / underscore variants → hard 404 at the edge.
+  // Firebase SSR otherwise emits HTTP 200 + noindex soft shells (crawl-budget waste).
+  if (pathname.startsWith("/tools/free/")) {
+    const slug = pathname.slice("/tools/free/".length).replace(/\/+$/, "");
+    if (!slug || slug.includes("/") || !ACTIVE_FREE_TOOL_SLUG_SET.has(slug)) {
       return notFoundResponse(request);
     }
   }
