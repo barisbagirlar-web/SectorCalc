@@ -85,10 +85,30 @@ try {
   await page.getByPlaceholder("Email address").fill(ownerEmail);
   await page.getByPlaceholder("Password").fill(ownerPassword);
 
-  await Promise.all([
-    page.waitForURL((url) => url.pathname === toolPath, { timeout: 60_000 }),
-    page.getByRole("button", { name: "Sign in with Email", exact: true }).click(),
-  ]);
+  // Client-side Firebase Auth + router.replace — do not rely on full document
+  // navigation "load". Fail fast on visible auth errors (CSP/emulator/network).
+  await page.getByRole("button", { name: "Sign in with Email", exact: true }).click();
+
+  const leftLogin = page.waitForURL(
+    (url) => url.pathname !== "/login",
+    { timeout: 60_000, waitUntil: "domcontentloaded" },
+  );
+  const authError = (async () => {
+    const err = page
+      .locator("[data-auth-state='ready']")
+      .getByText(/signInErrors\.|Authentication failed|network|invalid/i)
+      .first();
+    await err.waitFor({ state: "visible", timeout: 60_000 });
+    const text = (await err.textContent())?.trim() || "unknown auth error";
+    throw new Error(`Login failed on /login (auth UI error): ${text}`);
+  })();
+
+  await Promise.race([leftLogin, authError]);
+
+  // Explicit next= tool path wins; if admin claim redirected elsewhere, recover.
+  if (!page.url().includes(toolPath)) {
+    await page.goto(`${baseUrl}${toolPath}`, { waitUntil: "domcontentloaded", timeout: 60_000 });
+  }
 
   await page.locator(".be-shell").waitFor({ state: "visible", timeout: 60_000 });
   await page.getByRole("heading", { name: "Break-Even & Survival Cash Calculator", exact: true }).waitFor({

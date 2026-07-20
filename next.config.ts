@@ -122,6 +122,19 @@ const nextConfig: NextConfig = {
     staticGenerationMinPagesPerWorker: 50,
   },
   async headers() {
+    // E2E / local emulator builds set NEXT_PUBLIC_*_EMULATOR_HOST. Without these
+    // connect-src allowances, Chromium CSP blocks Auth/Firestore emulator XHR and
+    // login fails with auth/network-request-failed (break-even browser-e2e).
+    const emulatorConnect =
+      process.env.NEXT_PUBLIC_FIREBASE_AUTH_EMULATOR_HOST ||
+      process.env.NEXT_PUBLIC_FIREBASE_FIRESTORE_EMULATOR_HOST
+        ? " http://127.0.0.1:9099 http://localhost:9099 http://127.0.0.1:8080 http://localhost:8080 ws://127.0.0.1:8080 ws://localhost:8080"
+        : "";
+    const contentSecurityPolicy =
+      "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://js.stripe.com https://*.firebaseio.com https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https: blob:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://*.firebaseio.com https://*.googleapis.com https://*.stripe.com https://*.cloudfunctions.net https://api.indexnow.org" +
+      emulatorConnect +
+      "; frame-src 'self' https://js.stripe.com https://*.firebaseapp.com; object-src 'none'; base-uri 'self'; form-action 'self' https://checkout.stripe.com;";
+
     return [
       {
         source: "/(.*)",
@@ -136,7 +149,7 @@ const nextConfig: NextConfig = {
           },
           {
             key: "Content-Security-Policy",
-            value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://js.stripe.com https://*.firebaseio.com https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https: blob:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://*.firebaseio.com https://*.googleapis.com https://*.stripe.com https://*.cloudfunctions.net https://api.indexnow.org; frame-src 'self' https://js.stripe.com https://*.firebaseapp.com; object-src 'none'; base-uri 'self'; form-action 'self' https://checkout.stripe.com;",
+            value: contentSecurityPolicy,
           },
           {
             key: "X-Content-Type-Options",
