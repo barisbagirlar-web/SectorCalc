@@ -340,9 +340,12 @@ export default function middleware(request: NextRequest) {
   // ── www → non-www canonical redirect (Firebase SSR host match fix) ──
   const host = resolveClientHost(request);
   if (host === "www.sectorcalc.com" || host.startsWith("www.")) {
-    const url = new URL(request.url);
-    url.host = "sectorcalc.com";
-    return NextResponse.redirect(url, 301);
+    const barePath = pathname || "/";
+    const target =
+      barePath === "/"
+        ? `${PUBLIC_SITE_ORIGIN}/`
+        : `${PUBLIC_SITE_ORIGIN}${barePath}${request.nextUrl.search}`;
+    return NextResponse.redirect(target, 301);
   }
 
   // ── Defense-in-depth: rate limit POST to non-API expensive endpoints ──
