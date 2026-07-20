@@ -24,7 +24,7 @@ const FIELDS: Record<string,FieldDef> = {
   "n_unit_labor_cost": { label:"Unit direct labor cost", def:12, hard:[0,100000.0], ref:[0,500], refUnit:"", hint:"Labor cost embedded in each produced unit.", src:"job costing", grp:2 },
   "n_rework_labor_rate": { label:"Rework labor rate", def:35, hard:[0,50000.0], ref:[10,300], refUnit:"/h", hint:"Hourly rate for rework operators.", src:"HR / payroll", grp:2 },
   "n_rework_time_per_unit": { label:"Rework time per unit", def:0.75, hard:[0,100], ref:[0.1,8], refUnit:"h", hint:"Average time to rework one defective unit.", src:"time study / work measurement", grp:2 },
-  "n_defect_rate_target_pct": { label:"Defect rate target", def:1.0, hard:[0,100], ref:[0,0.05], refUnit:"%", hint:"The defect rate you're trying to achieve (for variance tracking).", src:"quality improvement plan", grp:3, pct:true },
+  "n_defect_rate_target_pct": { label:"Defect rate target", def:1.0, hard:[0,100], ref:[0,5], refUnit:"%", hint:"The defect rate you're trying to achieve (canonical: raw percent number, e.g. 2 = 2%).", src:"quality improvement plan", grp:3 },
   "n_monthly_volume": { label:"Monthly production volume", def:5000, hard:[1,10000000.0], ref:[100,100000], refUnit:"units", hint:"Typical monthly output volume (to annualise quality loss).", src:"production schedule", grp:3 },
   "n_source_confidence_ratio": { label:"Source confidence", def:85.0, hard:[0,100], ref:[0.7,1], refUnit:"%", hint:"How verified are these figures?", src:"engineer's assessment", grp:3, pct:true },
 };

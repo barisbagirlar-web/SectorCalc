@@ -26,7 +26,7 @@ const FIELDS: Record<string,FieldDef> = {
   "n_weld_time_min": { label:"Total weld time", def:35, hard:[0,10000.0], ref:[1,1000], refUnit:"min", hint:"Total operator time including setup, tacking, inspection.", src:"weld log / time study", grp:3 },
   "n_labor_rate": { label:"Welder labor rate", def:42, hard:[0,500000.0], ref:[15,200], refUnit:"/h", hint:"Fully-loaded welder hourly cost.", src:"HR / payroll", grp:3 },
   "n_overhead_rate": { label:"Shop overhead rate", def:25, hard:[0,1000000.0], ref:[5,200], refUnit:"/h", hint:"Overhead per operator-hour in the welding shop.", src:"cost accounting", grp:3 },
-  "n_deposition_efficiency_pct": { label:"Deposition efficiency", def:85.0, hard:[0,100], ref:[0.6,0.98], refUnit:"%", hint:"Fraction of wire mass that ends up in the weld.", src:"AWS / manufacturer data", grp:3, pct:true },
+  "n_deposition_efficiency_pct": { label:"Deposition efficiency", def:85.0, hard:[0,100], ref:[60,98], refUnit:"%", hint:"Fraction of wire mass that ends up in the weld (canonical: raw percent number, e.g. 85 = 85%).", src:"AWS / manufacturer data", grp:3 },
   "n_source_confidence_ratio": { label:"Source confidence", def:85.0, hard:[0,100], ref:[0.7,1], refUnit:"%", hint:"How verified are these figures?", src:"engineer's assessment", grp:3, pct:true },
 };
 const GROUPS: Record<number,{n:string;t:string;d:string}> = {

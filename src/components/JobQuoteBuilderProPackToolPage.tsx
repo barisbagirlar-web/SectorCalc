@@ -18,16 +18,16 @@ interface FieldDef { label:string; def:number; hard:[number,number]; ref:[number
 
 const FIELDS: Record<string,FieldDef> = {
   "n_machine_rate": { label:"Machine hourly rate", def:85, hard:[0,10000], ref:[20,2000], refUnit:"/h", hint:"Fully burdened machine cost per hour.", src:"SectorCalc Machine Hourly Rate tool", grp:1 },
-  "n_cycle_time": { label:"Cycle time per part (seconds)", def:90, hard:[0,36000], ref:[5,3600], refUnit:"s", hint:"Time to machine/process one part.", src:"time study / CAM estimate", grp:1 },
-  "n_setup_time": { label:"Setup time (seconds)", def:1800, hard:[0,36000], ref:[60,7200], refUnit:"s", hint:"Time to set up the job (once per batch).", src:"shop floor log", grp:1 },
+  "n_cycle_time": { label:"Cycle time (whole batch)", def:12, hard:[0,600], ref:[1,120], refUnit:"min", hint:"Total machine cycle time for the whole batch (canonical minutes) — not per-part. Despite the schema's stated base unit of seconds, the formula's own arithmetic (divides by 60 to get hours) confirms this field is canonical minutes.", src:"time study / CAM estimate", grp:1 },
+  "n_setup_time": { label:"Setup time (whole batch)", def:8, hard:[0,600], ref:[1,120], refUnit:"min", hint:"Total setup/changeover time for the batch (canonical minutes, added directly to cycle time in the formula).", src:"shop floor log", grp:1 },
   "n_labor_rate": { label:"Labor rate", def:45, hard:[0,500000], ref:[15,200], refUnit:"/h", hint:"Fully loaded operator cost per hour.", src:"HR / payroll", grp:1 },
-  "n_overhead_rate": { label:"Overhead rate", def:20, hard:[0,1000000], ref:[5,200], refUnit:"/h", hint:"Overhead allocated per machine-hour.", src:"cost accounting", grp:1 },
-  "n_material_cost": { label:"Material cost per batch", def:22500, hard:[0,500000000.0], ref:[100,1000000], refUnit:"", hint:"Total material cost for the batch.", src:"BOM / purchasing", grp:2 },
+  "n_overhead_rate": { label:"Annual overhead", def:60000, hard:[0,1e8], ref:[5000,500000], refUnit:"/yr", hint:"Total annual overhead cost (canonical currency/year) — allocated to this job as overhead/annualVolume × batchQuantity.", src:"cost accounting", grp:2 },
+  "n_material_cost": { label:"Material cost per unit", def:45, hard:[0,500000000.0], ref:[1,10000], refUnit:"", hint:"Material cost per unit (canonical currency/unit) — multiplied by batch quantity internally to get total material cost.", src:"BOM / purchasing", grp:2 },
   "n_batch_quantity": { label:"Batch quantity", def:500, hard:[1,1000000], ref:[1,100000], refUnit:"units", hint:"Units in this batch.", src:"work order", grp:2 },
   "n_annual_volume": { label:"Annual volume (units/yr canonical)", def:100000, hard:[0,500000000.0], ref:[100,10000000], refUnit:"units/yr", hint:"Total annual production volume for this part.", src:"production forecast", grp:2 },
   "n_defect_or_loss_cost": { label:"Defect/loss allowance", def:150, hard:[0,5000000.0], ref:[0,50000], refUnit:"", hint:"Expected scrap/defect cost allowance for the batch.", src:"quality history", grp:3 },
   "n_target_margin": { label:"Target margin", def:25.0, hard:[0,100], ref:[0.1,0.5], refUnit:"%", hint:"The margin you want to price into this job.", src:"pricing policy", grp:3, pct:true },
-  "n_uncertainty_multiplier": { label:"Uncertainty multiplier", def:1.015, hard:[1,3], ref:[1,1.5], refUnit:"x", hint:"Risk buffer applied to the recommended price.", src:"risk policy", grp:3 },
+  "n_uncertainty_multiplier": { label:"Uncertainty/risk factor", def:0.15, hard:[0,2], ref:[0,0.5], refUnit:"", hint:"Risk factor applied to the recommended price: risk-adjusted price = recommended price × (1 + factor × 0.1). E.g. 0.15 → a 1.5% buffer.", src:"risk policy", grp:3 },
   "n_source_confidence_ratio": { label:"Source confidence", def:90.0, hard:[0,100], ref:[0.7,1], refUnit:"%", hint:"How verified are these figures?", src:"engineer's assessment", grp:3, pct:true },
 };
 const GROUPS: Record<number,{n:string;t:string;d:string}> = {

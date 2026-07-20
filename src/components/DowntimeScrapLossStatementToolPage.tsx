@@ -25,7 +25,7 @@ const FIELDS: Record<string,FieldDef> = {
   "n_rework_hours": { label:"Rework hours", def:12, hard:[0,10000.0], ref:[0,200], refUnit:"h", hint:"Total labor/machine hours spent on rework.", src:"quality log", grp:2 },
   "n_rework_rate": { label:"Rework hourly rate", def:65, hard:[0,50000.0], ref:[10,500], refUnit:"/h", hint:"Cost per hour of rework (often different from the production rate).", src:"costing system", grp:3 },
   "n_material_cost": { label:"Period material cost", def:45000, hard:[0,500000000.0], ref:[0,5000000.0], refUnit:"", hint:"Total material consumed this period (for context/ratio).", src:"purchase ledger", grp:3 },
-  "n_defect_rate_pct": { label:"Observed defect rate", def:2.8000000000000003, hard:[0,100], ref:[0,0.1], refUnit:"%", hint:"Defects as a fraction of units produced.", src:"quality report", grp:2, pct:true },
+  "n_defect_rate_pct": { label:"Observed defect rate", def:2.8, hard:[0,100], ref:[0,10], refUnit:"%", hint:"Defects as a fraction of units produced (canonical: raw percent number, e.g. 2.5 = 2.5%).", src:"quality report", grp:2 },
   "n_source_confidence_ratio": { label:"Source confidence", def:85.0, hard:[0,100], ref:[0.7,1], refUnit:"%", hint:"How verified are these figures?", src:"engineer's assessment", grp:3, pct:true },
 };
 const GROUPS: Record<number,{n:string;t:string;d:string}> = {
