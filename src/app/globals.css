@@ -231,9 +231,13 @@
     z-index: 10001;
     height: 2px;
     width: 100%;
+    /* Fixed overlay — must not participate in document layout (CLS). */
+    pointer-events: none;
+    contain: layout size style;
     background: var(--action-industrial-orange);
     animation: route-loading-pulse 0.9s ease-in-out infinite;
     transform-origin: 0 50%;
+    will-change: transform, opacity;
   }
 
   @keyframes fadeIn {

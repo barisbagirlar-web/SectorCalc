@@ -60,7 +60,7 @@
 }
 
 .pro-title {
-  font-family: "Barlow Semi Condensed", ui-serif, serif;
+  font-family: var(--font-barlow-semi-condensed), "Barlow Semi Condensed", ui-serif, serif;
   font-size: clamp(32px, 5vw, 46px);
   font-weight: 600;
   letter-spacing: -0.04em;
@@ -69,12 +69,14 @@
   color: var(--pro-fg);
   text-wrap: pretty;
   word-break: break-word;
+  /* LCP: keep title paint stable (Constraint 1 - H1 text unchanged). */
+  contain: layout style;
 }
 
 .pro-hero__scope {
   margin: 0;
   color: var(--pro-muted);
-  font-family: "Barlow", ui-sans-serif, sans-serif;
+  font-family: var(--font-barlow), "Barlow", ui-sans-serif, sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 1.5;
@@ -1443,6 +1445,15 @@
 .pro-shell[data-presentation-mode="FREE_COMPACT"] .pro-hero__scope {
   font-size: 16px;
   line-height: 1.45;
+  /* Constraint 1: full scope text remains in DOM (SEO); visual weight deferred so h1 is LCP. */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+  max-height: calc(1.45em * 2);
+  content-visibility: auto;
+  contain-intrinsic-size: auto 2.9em;
 }
 
 .pro-shell[data-presentation-mode="FREE_COMPACT"] .pro-title {
@@ -1457,8 +1468,9 @@
   padding-bottom: 0;
 }
 
-/* FREE_COMPACT: Clean result panel */
+/* FREE_COMPACT: Clean result panel — reserved height reduces expand CLS */
 .pro-shell[data-presentation-mode="FREE_COMPACT"] .pro-placeholder {
+  min-height: 120px;
   padding: 20px 16px;
   text-align: left;
   display: grid;

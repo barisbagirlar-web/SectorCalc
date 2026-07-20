@@ -1,6 +1,6 @@
 /**
  * Free tool detail page loading skeleton.
- * Shows form-like placeholder while schema resolves.
+ * Height budget mirrors FREE_COMPACT hero + input card to reduce CLS on swap.
  */
 export default function FreeToolDetailLoading() {
   return (
@@ -12,38 +12,47 @@ export default function FreeToolDetailLoading() {
         maxWidth: "800px",
         margin: "0 auto",
         padding: "2rem 1.5rem",
+        minHeight: "640px",
+        boxSizing: "border-box",
       }}
     >
-      {/* Tool header */}
+      {/* Hero: title + clamped scope (matches FREE_COMPACT LCP layout) */}
       <div
         style={{
-          height: "1.8rem",
-          width: "40%",
-          background: "#E0DDD4",
-          borderRadius: "6px",
-          marginBottom: "0.5rem",
+          minHeight: "108px",
+          marginBottom: "1rem",
+          boxSizing: "border-box",
         }}
-        className="skeleton-pulse"
-      />
-      <div
-        style={{
-          height: "0.9rem",
-          width: "60%",
-          background: "#E0DDD4",
-          borderRadius: "4px",
-          marginBottom: "2rem",
-        }}
-        className="skeleton-pulse"
-      />
+      >
+        <div
+          style={{
+            height: "2.5rem",
+            width: "55%",
+            maxWidth: "420px",
+            background: "#E0DDD4",
+            marginBottom: "0.75rem",
+          }}
+          className="skeleton-pulse"
+        />
+        <div
+          style={{
+            height: "2.9em",
+            width: "92%",
+            background: "#E0DDD4",
+          }}
+          className="skeleton-pulse"
+        />
+      </div>
 
       {/* Input form skeleton */}
       <div
         style={{
           background: "#F0EEE6",
-          borderRadius: "8px",
           border: "1px solid #E0DDD4",
           padding: "1.5rem",
           marginBottom: "1.5rem",
+          minHeight: "280px",
+          boxSizing: "border-box",
         }}
       >
         <div
@@ -51,7 +60,6 @@ export default function FreeToolDetailLoading() {
             height: "1.2rem",
             width: "25%",
             background: "#E0DDD4",
-            borderRadius: "4px",
             marginBottom: "1.25rem",
           }}
           className="skeleton-pulse"
@@ -62,7 +70,6 @@ export default function FreeToolDetailLoading() {
             style={{
               height: "3.5rem",
               background: "#fff",
-              borderRadius: "6px",
               border: "1px solid #E0DDD4",
               marginBottom: "0.75rem",
             }}
@@ -72,13 +79,12 @@ export default function FreeToolDetailLoading() {
       </div>
 
       {/* Action buttons */}
-      <div style={{ display: "flex", gap: "1rem" }}>
+      <div style={{ display: "flex", gap: "1rem", minHeight: "48px" }}>
         <div
           style={{
             height: "2.75rem",
             width: "140px",
             background: "#E0DDD4",
-            borderRadius: "6px",
           }}
           className="skeleton-pulse"
         />
@@ -87,7 +93,6 @@ export default function FreeToolDetailLoading() {
             height: "2.75rem",
             width: "100px",
             background: "#E0DDD4",
-            borderRadius: "6px",
           }}
           className="skeleton-pulse"
         />
