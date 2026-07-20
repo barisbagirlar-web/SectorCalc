@@ -424,11 +424,14 @@ export default function middleware(request: NextRequest) {
           pathname === "/en" || pathname === "/en/"
             ? "/"
             : pathname.slice("/en".length) || "/";
-        const url = request.nextUrl.clone();
-        url.host = "sectorcalc.com";
-        url.protocol = "https:";
-        url.pathname = rest.startsWith("/") ? rest : `/${rest}`;
-        return NextResponse.redirect(url, 301);
+        const barePath = rest.startsWith("/") ? rest : `/${rest}`;
+        // Never clone request.nextUrl — Firebase SSR binds :8080 and leaks it
+        // into Location. Build absolute apex URL from PUBLIC_SITE_ORIGIN only.
+        const target =
+          barePath === "/"
+            ? `${PUBLIC_SITE_ORIGIN}/`
+            : `${PUBLIC_SITE_ORIGIN}${barePath}`;
+        return NextResponse.redirect(target, 301);
       }
       return notFoundResponse(request);
     }
