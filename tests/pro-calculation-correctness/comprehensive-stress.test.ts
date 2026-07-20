@@ -8,12 +8,13 @@
  * 4. No silent failures
  *
  * AUTO-DISCOVERS input IDs from each formula's input spec
- * and generates valid test data for all 50 tools.
+ * and generates valid test data for all registered free-v531 tools.
  */
 import { describe, it, expect, afterAll } from "vitest";
 import fs from "fs";
 import path from "path";
 import { freeV531FormulaRegistry } from "@/sectorcalc/formulas/free-v531";
+import { ACTIVE_FREE_TOOL_SLUGS } from "@/sectorcalc/runtime/active-tool-allowlist";
 
 interface ToolResult {
   tool_key: string;
@@ -84,6 +85,7 @@ function generateInputs(toolKey: string, inputIds: string[]): Record<string, num
 function applyToolOverrides(toolKey: string, inputs: Record<string, number>): void {
   switch (toolKey) {
     case "break-even-point":
+    case "break-even-and-margin-of-safety-analysis":
       // Ensure selling_price > variable_cost so contribution margin > 0
       if (inputs["selling_price_per_unit"] !== undefined && inputs["variable_cost_per_unit"] !== undefined) {
         const vc = inputs["variable_cost_per_unit"];
@@ -91,6 +93,25 @@ function applyToolOverrides(toolKey: string, inputs: Record<string, number>): vo
           inputs["selling_price_per_unit"] = vc * 2; // 2x variable cost
         }
       }
+      break;
+
+    case "net-present-value-calculator": {
+      // Cash-flow IDs are template literals in the formula source; force a complete set.
+      inputs["initial_investment"] = 100000;
+      inputs["discount_rate_pct"] = 10;
+      inputs["horizon_years"] = 5;
+      for (let year = 1; year <= 10; year += 1) {
+        inputs[`cf_y${year}`] = year <= 5 ? 25000 + year * 1000 : 0;
+      }
+      break;
+    }
+
+    case "return-on-investment-calculator":
+      inputs["investment_cost"] = 100000;
+      inputs["total_return"] = 150000;
+      inputs["annual_net_benefit"] = 25000;
+      inputs["horizon_years"] = 5;
+      inputs["hurdle_rate_pct"] = 10;
       break;
 
     case "bolt-preload-clamp-force":
@@ -199,8 +220,10 @@ describe("COMPREHENSIVE STRESS — ALL FREE TOOLS", () => {
   const results: ToolResult[] = [];
   const allKeys = Object.keys(freeV531FormulaRegistry);
 
-  it("all 50 tools are registered in freeV531FormulaRegistry", () => {
-    expect(allKeys.length).toBe(50);
+  it("all ACTIVE free tools are registered in freeV531FormulaRegistry", () => {
+    const active = [...ACTIVE_FREE_TOOL_SLUGS].sort();
+    const registered = [...allKeys].sort();
+    expect(registered).toEqual(active);
   });
 
   for (const toolKey of allKeys) {

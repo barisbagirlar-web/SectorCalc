@@ -89,13 +89,28 @@ export async function POST(
       return NextResponse.json({ ok: false, error: { code: "RESERVATION_FAILED", message: "Failed to reserve credits. Please try again." } }, { status: 500 });
     }
 
-    // ── Transition job status to awaiting_payment ─────────────────
+    // ── Confirm payment ──────────────────────────────────────────
+    // Credit-based payment is atomic: the credit deduction in reserveCredits
+    // IS the payment. There is no external gateway round-trip, so the job
+    // transitions straight to `paid`. The transient `awaiting_payment` state
+    // is recorded in the event log for auditability.
+    const paidAt = new Date().toISOString();
     await jobRef.update({
-      status: "awaiting_payment",
-      paymentStatus: "checkout_pending",
+      status: "paid",
+      paymentStatus: "paid",
       entitlementStatus: "reserved",
       checkoutRequestId: reservation.checkoutRequestId,
-      updatedAt: new Date().toISOString(),
+      paidAt,
+      updatedAt: paidAt,
+    });
+    await jobRef.collection("events").add({
+      type: "payment_confirmed",
+      fromStatus: "diagnostic_eligible",
+      toStatus: "paid",
+      actor: "credit-system",
+      creditsCharged: entitlement.requiredCredits,
+      checkoutRequestId: reservation.checkoutRequestId,
+      timestamp: paidAt,
     });
 
     // ── Return checkout data ─────────────────────────────────────
@@ -107,7 +122,11 @@ export async function POST(
         jobId,
         ...checkoutData,
         checkoutRequestId: reservation.checkoutRequestId,
-        availableCredits: entitlement.availableCredits,
+        paid: true,
+        status: "paid",
+        paymentStatus: "paid",
+        availableCredits: entitlement.availableCredits - entitlement.requiredCredits,
+        creditsCharged: entitlement.requiredCredits,
         sufficientCredits: true,
       },
     });

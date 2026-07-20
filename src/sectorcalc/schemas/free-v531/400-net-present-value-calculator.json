@@ -1,0 +1,1524 @@
+{
+  "tool_id": "FREE_400_NET_PRESENT_VALUE_CALCULATOR",
+  "tool_key": "net-present-value-calculator",
+  "tool_name": "Net Present Value Calculator",
+  "category": "Quote & SME Finance",
+  "scope": "Calculate net present value, internal rate of return, and payback metrics for a discrete annual cash-flow investment screening case.",
+  "primary_operation": "net_present_value_calculator_decision_screening",
+  "decision_context": {
+    "system_boundary": "Net Present Value Calculator evaluates one controlled capital-budgeting boundary inside Quote & SME Finance and excludes broad ERP, portfolio, or multi-project optimization workflows.",
+    "single_operation_scope": "Calculate and evaluate net present value using user-verified annual cash flows and a stated discount rate.",
+    "decision_owner": "operator, engineer, owner_cfo, or checker_auditor depending on selected profile mode",
+    "decision_after_output": "Decide whether to proceed, hold, revise, reject, or escalate the capital project based on NPV, IRR, and payback screening metrics.",
+    "cost_of_wrong_decision": "Wrong net present value screening can cause rework, wrong capital allocation, missed capacity, unsafe screening confidence, downtime, cash leakage, or unnecessary escalation.",
+    "failure_mode_if_formula_wrong": "False PASS, false REPRICE, false HOLD, hidden evidence gap, wrong unit conversion, or public formula leakage.",
+    "primary_metric": "npv",
+    "secondary_metrics": [
+      "margin_index",
+      "expanded_uncertainty",
+      "money_at_risk",
+      "primary_decision_state"
+    ],
+    "required_source_documents": [
+      "user-verified source evidence for critical inputs",
+      "unit source confirmation",
+      "measurement or quotation record when available",
+      "calibration or uncertainty note when measured values are used"
+    ],
+    "excluded_use_cases": [
+      "certified compliance claim",
+      "legal proof",
+      "replacement for qualified engineering review",
+      "replacement for official tax or regulatory advice",
+      "broad multi-operation ERP workflow"
+    ],
+    "field_use_limitations": [
+      "Screening-grade decision support only.",
+      "Exact acceptance limits must come from user-verified project, asset, standard, material, tax, or commercial source.",
+      "Public output must not expose internal formula expressions."
+    ],
+    "tool_use_classification": "DECISION_SUPPORT_ONLY_NOT_CERTIFICATION"
+  },
+  "irreversible_commitment_metric": {
+    "primary": "money_at_risk",
+    "technical": "npv",
+    "confidence": "evidence_confidence_and_uncertainty_crossing",
+    "description": "Net Present Value Calculator should not create an irreversible purchase, quote, production, safety, or capital commitment without source verification and review when thresholds are crossed."
+  },
+  "standards": [
+    {
+      "name": "Principles of Corporate Finance (Brealey, Myers & Allen)",
+      "role": "Capital budgeting and NPV decision framework context",
+      "status": "REFERENCE_CONTEXT",
+      "restricted_table_reproduction": "FORBIDDEN"
+    },
+    {
+      "name": "Fundamentals of Corporate Finance (Ross, Westerfield & Jordan)",
+      "role": "Discounted cash-flow valuation and IRR interpretation context",
+      "status": "REFERENCE_CONTEXT",
+      "restricted_table_reproduction": "FORBIDDEN"
+    },
+    {
+      "name": "CFA Program Curriculum — Corporate Finance",
+      "role": "NPV, IRR, and payback screening methodology context",
+      "status": "REFERENCE_CONTEXT",
+      "restricted_table_reproduction": "FORBIDDEN"
+    },
+    {
+      "name": "User-entered currency context",
+      "role": "Single-currency cash-flow entry without FX conversion",
+      "status": "CONTEXT_ONLY",
+      "restricted_table_reproduction": "FORBIDDEN"
+    }
+  ],
+  "standards_clause_map": [],
+  "reference_status": {
+    "overall": "FINANCE_METHOD_REFERENCE_CONTEXT",
+    "exact_standard_clauses_supplied_by_user": false,
+    "standards_clause_map_policy": "EMPTY_UNLESS_USER_SUPPLIES_EXACT_REFERENCES",
+    "restricted_table_reproduction": "FORBIDDEN"
+  },
+  "risk_level": "HIGH",
+  "brand_safety_policy": {
+    "third_party_brand_use": "FORBIDDEN",
+    "comparative_brand_language": "FORBIDDEN",
+    "affiliation_implication": "FORBIDDEN",
+    "competitor_name_generation": "FORBIDDEN",
+    "public_output_brand_mentions": "FORBIDDEN",
+    "legal_proof_claim": "FORBIDDEN",
+    "certified_compliance_claim": "FORBIDDEN",
+    "allowed_description": "Generic professional engineering evidence pattern",
+    "approved_terms": [
+      "review-ready calculation evidence",
+      "auditable engineering calculation note",
+      "checker-ready calculation summary",
+      "engineering proof pack",
+      "standards-context calculation dossier",
+      "source-evidence calculation record",
+      "audit-ready decision support"
+    ],
+    "violation_behavior": "REJECT_SCHEMA"
+  },
+  "calculation_basis": {
+    "mode": "DETERMINISTIC_RUNTIME",
+    "single_operation": true,
+    "not_basic_calculator": true,
+    "calculation_character": "Protected server-side capital-budgeting kernel: computes NPV from discounted annual cash flows, optional IRR via bracketed root search, and undiscounted or discounted payback when recoverable within the horizon.",
+    "public_formula_expression_policy": "FORBIDDEN",
+    "server_formula_registry_required": true,
+    "runtime_llm_usage": "FORBIDDEN",
+    "normalized_base_unit_inputs_only": true
+  },
+  "unit_system": {
+    "primary": "SI",
+    "secondary": "IMPERIAL",
+    "user_selectable": true,
+    "default": "SI",
+    "conversion_policy": "Allow-all with user verification"
+  },
+  "unit_conversion_contract": {
+    "internal_base_system": "SI",
+    "currency_policy": "No currency conversion — user provides single-currency values",
+    "temperature_policy": "Absolute and interval distinction",
+    "conversion_registry": {},
+    "unsupported_conversion_behavior": "BLOCK_CALCULATION",
+    "unit_change_behavior": "PRESERVE_PHYSICAL_QUANTITY",
+    "formula_input_rule": "FORMULAS_USE_NORMALIZED_BASE_UNITS_ONLY"
+  },
+  "inputs": [
+    {
+      "id": "initial_investment",
+      "name": "Initial Investment",
+      "symbol": "I0",
+      "quantity_kind": "currency",
+      "unit_selectable": false,
+      "base_unit": null,
+      "allowed_display_units": [],
+      "normalized_id": "n_initial_investment",
+      "type": "number",
+      "required": true,
+      "criticality": "HIGH",
+      "source_status": "USER_VERIFIED",
+      "confidence_label": "USER_VERIFIED",
+      "physical_hard_bounds": {
+        "min": 0.0001,
+        "max": 1000000000,
+        "unit": "currency",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK",
+        "semantic_error_message_min": "Initial investment must be greater than zero.",
+        "semantic_error_message_max": "Initial investment exceeds the permitted upper bound."
+      },
+      "engineering_range": {
+        "min": 1000,
+        "max": 50000000,
+        "unit": "currency",
+        "source": "Typical industrial capex screening band; user must verify against the approved quote or business case.",
+        "status": "USER_VERIFIED"
+      },
+      "reference_values": {
+        "reference_value_type": "USER_VERIFIED",
+        "source": "Up-front capital outlay at time zero.",
+        "reference_status": "USER_VERIFIED",
+        "user_must_verify": true,
+        "public_note": "Enter the initial investment in project currency."
+      },
+      "evidence_requirement": {
+        "required": true,
+        "accepted_evidence": [
+          "Approved capex quote",
+          "Purchase order",
+          "Business case memo",
+          "Vendor proposal"
+        ],
+        "missing_evidence_behavior": "REVIEW",
+        "public_help_text": "Verify the initial investment source before approval."
+      },
+      "formula_bindings": [
+        "F_NPV_CORE"
+      ],
+      "output_bindings": [
+        "npv",
+        "simple_payback_years",
+        "discounted_payback_years"
+      ],
+      "default_policy": "NO_DEFAULT",
+      "user_help_text": "Up-front capital outlay at time zero. Must be greater than zero.",
+      "help_text": "Up-front capital outlay at time zero."
+    },
+    {
+      "id": "discount_rate_pct",
+      "name": "Discount Rate (%)",
+      "symbol": "r",
+      "quantity_kind": "ratio_or_percent",
+      "unit_selectable": false,
+      "base_unit": "percent",
+      "allowed_display_units": [
+        "percent"
+      ],
+      "normalized_id": "n_discount_rate_pct",
+      "type": "number",
+      "required": true,
+      "criticality": "HIGH",
+      "source_status": "USER_VERIFIED",
+      "confidence_label": "USER_VERIFIED",
+      "physical_hard_bounds": {
+        "min": 0.0001,
+        "max": 99.9999,
+        "unit": "percent",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK",
+        "semantic_error_message_min": "Discount rate must be greater than zero percent.",
+        "semantic_error_message_max": "Discount rate must be less than 100 percent."
+      },
+      "engineering_range": {
+        "min": 3,
+        "max": 30,
+        "unit": "percent",
+        "source": "Typical industrial hurdle-rate screening band; user must verify against company policy or WACC memo.",
+        "status": "USER_VERIFIED"
+      },
+      "reference_values": {
+        "reference_value_type": "USER_VERIFIED",
+        "source": "Nominal discount rate or hurdle rate expressed as a percentage.",
+        "reference_status": "USER_VERIFIED",
+        "user_must_verify": true,
+        "public_note": "Enter 10 for 10 percent."
+      },
+      "evidence_requirement": {
+        "required": true,
+        "accepted_evidence": [
+          "Company hurdle-rate policy",
+          "WACC worksheet",
+          "Financing memo",
+          "Board approval note"
+        ],
+        "missing_evidence_behavior": "REVIEW",
+        "public_help_text": "Verify the discount-rate basis before approval."
+      },
+      "formula_bindings": [
+        "F_NPV_CORE",
+        "F_IRR",
+        "F_DISCOUNTED_PAYBACK"
+      ],
+      "output_bindings": [
+        "npv",
+        "irr_pct",
+        "discounted_payback_years"
+      ],
+      "default_policy": "NO_DEFAULT",
+      "user_help_text": "Nominal discount rate as a percentage. Must be between 0 and 100 exclusive.",
+      "help_text": "Nominal discount rate as a percentage."
+    },
+    {
+      "id": "horizon_years",
+      "name": "Horizon (Years)",
+      "symbol": "N",
+      "quantity_kind": "dimensionless",
+      "unit_selectable": false,
+      "base_unit": "years",
+      "allowed_display_units": [
+        "years"
+      ],
+      "normalized_id": "n_horizon_years",
+      "type": "integer",
+      "required": true,
+      "criticality": "HIGH",
+      "source_status": "USER_VERIFIED",
+      "confidence_label": "USER_VERIFIED",
+      "physical_hard_bounds": {
+        "min": 1,
+        "max": 10,
+        "unit": "years",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK",
+        "semantic_error_message_min": "Horizon must be at least 1 year.",
+        "semantic_error_message_max": "Horizon cannot exceed 10 years in this screening tool."
+      },
+      "engineering_range": {
+        "min": 1,
+        "max": 10,
+        "unit": "years",
+        "source": "Free-tool screening horizon limit.",
+        "status": "USER_VERIFIED"
+      },
+      "reference_values": {
+        "reference_value_type": "USER_VERIFIED",
+        "source": "Whole-year study horizon.",
+        "reference_status": "USER_VERIFIED",
+        "user_must_verify": true,
+        "public_note": "Cash flows beyond the horizon are ignored."
+      },
+      "evidence_requirement": {
+        "required": true,
+        "accepted_evidence": [
+          "Business case horizon",
+          "Asset life memo",
+          "Contract term sheet"
+        ],
+        "missing_evidence_behavior": "REVIEW",
+        "public_help_text": "Verify the study horizon against the business case."
+      },
+      "formula_bindings": [
+        "F_NPV_CORE",
+        "F_IRR",
+        "F_SIMPLE_PAYBACK",
+        "F_DISCOUNTED_PAYBACK"
+      ],
+      "output_bindings": [
+        "npv",
+        "irr_pct",
+        "simple_payback_years",
+        "discounted_payback_years"
+      ],
+      "default_policy": "NO_DEFAULT",
+      "user_help_text": "Study horizon from 1 to 10 whole years.",
+      "help_text": "Study horizon from 1 to 10 whole years."
+    },
+    {
+      "id": "cf_y1",
+      "name": "Cash Flow Year 1",
+      "symbol": "CF_1",
+      "quantity_kind": "currency",
+      "unit_selectable": false,
+      "base_unit": null,
+      "allowed_display_units": [],
+      "normalized_id": "n_cf_y1",
+      "type": "number",
+      "required": true,
+      "criticality": "HIGH",
+      "source_status": "USER_VERIFIED",
+      "confidence_label": "USER_VERIFIED",
+      "physical_hard_bounds": {
+        "min": -1000000000,
+        "max": 1000000000,
+        "unit": "currency",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK",
+        "semantic_error_message_min": "Cash flow is below the permitted lower bound.",
+        "semantic_error_message_max": "Cash flow is above the permitted upper bound."
+      },
+      "engineering_range": {
+        "min": -5000000,
+        "max": 5000000,
+        "unit": "currency",
+        "source": "Typical industrial project cash-flow screening band; user must verify against the business case.",
+        "status": "USER_VERIFIED"
+      },
+      "reference_values": {
+        "reference_value_type": "USER_VERIFIED",
+        "source": "Annual net cash inflow for the project year.",
+        "reference_status": "USER_VERIFIED",
+        "user_must_verify": true,
+        "public_note": "Enter the net cash inflow for year 1."
+      },
+      "evidence_requirement": {
+        "required": true,
+        "accepted_evidence": [
+          "Business case forecast",
+          "Vendor quote savings schedule",
+          "Engineering estimate",
+          "Historical operating data"
+        ],
+        "missing_evidence_behavior": "REVIEW",
+        "public_help_text": "Verify the year 1 cash-flow source before approval."
+      },
+      "formula_bindings": [
+        "F_NPV_CORE"
+      ],
+      "output_bindings": [
+        "npv",
+        "irr_pct",
+        "simple_payback_years",
+        "discounted_payback_years"
+      ],
+      "default_policy": "NO_DEFAULT",
+      "user_help_text": "Net cash inflow for year 1. Ignored when horizon is shorter than 1.",
+      "help_text": "Net cash inflow for year 1."
+    },
+    {
+      "id": "cf_y2",
+      "name": "Cash Flow Year 2",
+      "symbol": "CF_2",
+      "quantity_kind": "currency",
+      "unit_selectable": false,
+      "base_unit": null,
+      "allowed_display_units": [],
+      "normalized_id": "n_cf_y2",
+      "type": "number",
+      "required": true,
+      "criticality": "HIGH",
+      "source_status": "USER_VERIFIED",
+      "confidence_label": "USER_VERIFIED",
+      "physical_hard_bounds": {
+        "min": -1000000000,
+        "max": 1000000000,
+        "unit": "currency",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK",
+        "semantic_error_message_min": "Cash flow is below the permitted lower bound.",
+        "semantic_error_message_max": "Cash flow is above the permitted upper bound."
+      },
+      "engineering_range": {
+        "min": -5000000,
+        "max": 5000000,
+        "unit": "currency",
+        "source": "Typical industrial project cash-flow screening band; user must verify against the business case.",
+        "status": "USER_VERIFIED"
+      },
+      "reference_values": {
+        "reference_value_type": "USER_VERIFIED",
+        "source": "Annual net cash inflow for the project year.",
+        "reference_status": "USER_VERIFIED",
+        "user_must_verify": true,
+        "public_note": "Enter the net cash inflow for year 2."
+      },
+      "evidence_requirement": {
+        "required": true,
+        "accepted_evidence": [
+          "Business case forecast",
+          "Vendor quote savings schedule",
+          "Engineering estimate",
+          "Historical operating data"
+        ],
+        "missing_evidence_behavior": "REVIEW",
+        "public_help_text": "Verify the year 2 cash-flow source before approval."
+      },
+      "formula_bindings": [
+        "F_NPV_CORE"
+      ],
+      "output_bindings": [
+        "npv",
+        "irr_pct",
+        "simple_payback_years",
+        "discounted_payback_years"
+      ],
+      "default_policy": "NO_DEFAULT",
+      "user_help_text": "Net cash inflow for year 2. Ignored when horizon is shorter than 2.",
+      "help_text": "Net cash inflow for year 2."
+    },
+    {
+      "id": "cf_y3",
+      "name": "Cash Flow Year 3",
+      "symbol": "CF_3",
+      "quantity_kind": "currency",
+      "unit_selectable": false,
+      "base_unit": null,
+      "allowed_display_units": [],
+      "normalized_id": "n_cf_y3",
+      "type": "number",
+      "required": true,
+      "criticality": "HIGH",
+      "source_status": "USER_VERIFIED",
+      "confidence_label": "USER_VERIFIED",
+      "physical_hard_bounds": {
+        "min": -1000000000,
+        "max": 1000000000,
+        "unit": "currency",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK",
+        "semantic_error_message_min": "Cash flow is below the permitted lower bound.",
+        "semantic_error_message_max": "Cash flow is above the permitted upper bound."
+      },
+      "engineering_range": {
+        "min": -5000000,
+        "max": 5000000,
+        "unit": "currency",
+        "source": "Typical industrial project cash-flow screening band; user must verify against the business case.",
+        "status": "USER_VERIFIED"
+      },
+      "reference_values": {
+        "reference_value_type": "USER_VERIFIED",
+        "source": "Annual net cash inflow for the project year.",
+        "reference_status": "USER_VERIFIED",
+        "user_must_verify": true,
+        "public_note": "Enter the net cash inflow for year 3."
+      },
+      "evidence_requirement": {
+        "required": true,
+        "accepted_evidence": [
+          "Business case forecast",
+          "Vendor quote savings schedule",
+          "Engineering estimate",
+          "Historical operating data"
+        ],
+        "missing_evidence_behavior": "REVIEW",
+        "public_help_text": "Verify the year 3 cash-flow source before approval."
+      },
+      "formula_bindings": [
+        "F_NPV_CORE"
+      ],
+      "output_bindings": [
+        "npv",
+        "irr_pct",
+        "simple_payback_years",
+        "discounted_payback_years"
+      ],
+      "default_policy": "NO_DEFAULT",
+      "user_help_text": "Net cash inflow for year 3. Ignored when horizon is shorter than 3.",
+      "help_text": "Net cash inflow for year 3."
+    },
+    {
+      "id": "cf_y4",
+      "name": "Cash Flow Year 4",
+      "symbol": "CF_4",
+      "quantity_kind": "currency",
+      "unit_selectable": false,
+      "base_unit": null,
+      "allowed_display_units": [],
+      "normalized_id": "n_cf_y4",
+      "type": "number",
+      "required": false,
+      "criticality": "MEDIUM",
+      "source_status": "USER_VERIFIED",
+      "confidence_label": "USER_VERIFIED",
+      "physical_hard_bounds": {
+        "min": -1000000000,
+        "max": 1000000000,
+        "unit": "currency",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK",
+        "semantic_error_message_min": "Cash flow is below the permitted lower bound.",
+        "semantic_error_message_max": "Cash flow is above the permitted upper bound."
+      },
+      "engineering_range": {
+        "min": -5000000,
+        "max": 5000000,
+        "unit": "currency",
+        "source": "Typical industrial project cash-flow screening band; user must verify against the business case.",
+        "status": "USER_VERIFIED"
+      },
+      "reference_values": {
+        "reference_value_type": "USER_VERIFIED",
+        "source": "Annual net cash inflow for the project year.",
+        "reference_status": "USER_VERIFIED",
+        "user_must_verify": true,
+        "public_note": "Enter the net cash inflow for year 4."
+      },
+      "evidence_requirement": {
+        "required": true,
+        "accepted_evidence": [
+          "Business case forecast",
+          "Vendor quote savings schedule",
+          "Engineering estimate",
+          "Historical operating data"
+        ],
+        "missing_evidence_behavior": "REVIEW",
+        "public_help_text": "Verify the year 4 cash-flow source before approval."
+      },
+      "formula_bindings": [
+        "F_NPV_CORE"
+      ],
+      "output_bindings": [
+        "npv",
+        "irr_pct",
+        "simple_payback_years",
+        "discounted_payback_years"
+      ],
+      "default_policy": "NO_DEFAULT",
+      "user_help_text": "Net cash inflow for year 4. Ignored when horizon is shorter than 4.",
+      "help_text": "Net cash inflow for year 4."
+    },
+    {
+      "id": "cf_y5",
+      "name": "Cash Flow Year 5",
+      "symbol": "CF_5",
+      "quantity_kind": "currency",
+      "unit_selectable": false,
+      "base_unit": null,
+      "allowed_display_units": [],
+      "normalized_id": "n_cf_y5",
+      "type": "number",
+      "required": false,
+      "criticality": "MEDIUM",
+      "source_status": "USER_VERIFIED",
+      "confidence_label": "USER_VERIFIED",
+      "physical_hard_bounds": {
+        "min": -1000000000,
+        "max": 1000000000,
+        "unit": "currency",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK",
+        "semantic_error_message_min": "Cash flow is below the permitted lower bound.",
+        "semantic_error_message_max": "Cash flow is above the permitted upper bound."
+      },
+      "engineering_range": {
+        "min": -5000000,
+        "max": 5000000,
+        "unit": "currency",
+        "source": "Typical industrial project cash-flow screening band; user must verify against the business case.",
+        "status": "USER_VERIFIED"
+      },
+      "reference_values": {
+        "reference_value_type": "USER_VERIFIED",
+        "source": "Annual net cash inflow for the project year.",
+        "reference_status": "USER_VERIFIED",
+        "user_must_verify": true,
+        "public_note": "Enter the net cash inflow for year 5."
+      },
+      "evidence_requirement": {
+        "required": true,
+        "accepted_evidence": [
+          "Business case forecast",
+          "Vendor quote savings schedule",
+          "Engineering estimate",
+          "Historical operating data"
+        ],
+        "missing_evidence_behavior": "REVIEW",
+        "public_help_text": "Verify the year 5 cash-flow source before approval."
+      },
+      "formula_bindings": [
+        "F_NPV_CORE"
+      ],
+      "output_bindings": [
+        "npv",
+        "irr_pct",
+        "simple_payback_years",
+        "discounted_payback_years"
+      ],
+      "default_policy": "NO_DEFAULT",
+      "user_help_text": "Net cash inflow for year 5. Ignored when horizon is shorter than 5.",
+      "help_text": "Net cash inflow for year 5."
+    },
+    {
+      "id": "cf_y6",
+      "name": "Cash Flow Year 6",
+      "symbol": "CF_6",
+      "quantity_kind": "currency",
+      "unit_selectable": false,
+      "base_unit": null,
+      "allowed_display_units": [],
+      "normalized_id": "n_cf_y6",
+      "type": "number",
+      "required": false,
+      "criticality": "MEDIUM",
+      "source_status": "USER_VERIFIED",
+      "confidence_label": "USER_VERIFIED",
+      "physical_hard_bounds": {
+        "min": -1000000000,
+        "max": 1000000000,
+        "unit": "currency",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK",
+        "semantic_error_message_min": "Cash flow is below the permitted lower bound.",
+        "semantic_error_message_max": "Cash flow is above the permitted upper bound."
+      },
+      "engineering_range": {
+        "min": -5000000,
+        "max": 5000000,
+        "unit": "currency",
+        "source": "Typical industrial project cash-flow screening band; user must verify against the business case.",
+        "status": "USER_VERIFIED"
+      },
+      "reference_values": {
+        "reference_value_type": "USER_VERIFIED",
+        "source": "Annual net cash inflow for the project year.",
+        "reference_status": "USER_VERIFIED",
+        "user_must_verify": true,
+        "public_note": "Enter the net cash inflow for year 6."
+      },
+      "evidence_requirement": {
+        "required": true,
+        "accepted_evidence": [
+          "Business case forecast",
+          "Vendor quote savings schedule",
+          "Engineering estimate",
+          "Historical operating data"
+        ],
+        "missing_evidence_behavior": "REVIEW",
+        "public_help_text": "Verify the year 6 cash-flow source before approval."
+      },
+      "formula_bindings": [
+        "F_NPV_CORE"
+      ],
+      "output_bindings": [
+        "npv",
+        "irr_pct",
+        "simple_payback_years",
+        "discounted_payback_years"
+      ],
+      "default_policy": "NO_DEFAULT",
+      "user_help_text": "Net cash inflow for year 6. Ignored when horizon is shorter than 6.",
+      "help_text": "Net cash inflow for year 6."
+    },
+    {
+      "id": "cf_y7",
+      "name": "Cash Flow Year 7",
+      "symbol": "CF_7",
+      "quantity_kind": "currency",
+      "unit_selectable": false,
+      "base_unit": null,
+      "allowed_display_units": [],
+      "normalized_id": "n_cf_y7",
+      "type": "number",
+      "required": false,
+      "criticality": "MEDIUM",
+      "source_status": "USER_VERIFIED",
+      "confidence_label": "USER_VERIFIED",
+      "physical_hard_bounds": {
+        "min": -1000000000,
+        "max": 1000000000,
+        "unit": "currency",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK",
+        "semantic_error_message_min": "Cash flow is below the permitted lower bound.",
+        "semantic_error_message_max": "Cash flow is above the permitted upper bound."
+      },
+      "engineering_range": {
+        "min": -5000000,
+        "max": 5000000,
+        "unit": "currency",
+        "source": "Typical industrial project cash-flow screening band; user must verify against the business case.",
+        "status": "USER_VERIFIED"
+      },
+      "reference_values": {
+        "reference_value_type": "USER_VERIFIED",
+        "source": "Annual net cash inflow for the project year.",
+        "reference_status": "USER_VERIFIED",
+        "user_must_verify": true,
+        "public_note": "Enter the net cash inflow for year 7."
+      },
+      "evidence_requirement": {
+        "required": true,
+        "accepted_evidence": [
+          "Business case forecast",
+          "Vendor quote savings schedule",
+          "Engineering estimate",
+          "Historical operating data"
+        ],
+        "missing_evidence_behavior": "REVIEW",
+        "public_help_text": "Verify the year 7 cash-flow source before approval."
+      },
+      "formula_bindings": [
+        "F_NPV_CORE"
+      ],
+      "output_bindings": [
+        "npv",
+        "irr_pct",
+        "simple_payback_years",
+        "discounted_payback_years"
+      ],
+      "default_policy": "NO_DEFAULT",
+      "user_help_text": "Net cash inflow for year 7. Ignored when horizon is shorter than 7.",
+      "help_text": "Net cash inflow for year 7."
+    },
+    {
+      "id": "cf_y8",
+      "name": "Cash Flow Year 8",
+      "symbol": "CF_8",
+      "quantity_kind": "currency",
+      "unit_selectable": false,
+      "base_unit": null,
+      "allowed_display_units": [],
+      "normalized_id": "n_cf_y8",
+      "type": "number",
+      "required": false,
+      "criticality": "MEDIUM",
+      "source_status": "USER_VERIFIED",
+      "confidence_label": "USER_VERIFIED",
+      "physical_hard_bounds": {
+        "min": -1000000000,
+        "max": 1000000000,
+        "unit": "currency",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK",
+        "semantic_error_message_min": "Cash flow is below the permitted lower bound.",
+        "semantic_error_message_max": "Cash flow is above the permitted upper bound."
+      },
+      "engineering_range": {
+        "min": -5000000,
+        "max": 5000000,
+        "unit": "currency",
+        "source": "Typical industrial project cash-flow screening band; user must verify against the business case.",
+        "status": "USER_VERIFIED"
+      },
+      "reference_values": {
+        "reference_value_type": "USER_VERIFIED",
+        "source": "Annual net cash inflow for the project year.",
+        "reference_status": "USER_VERIFIED",
+        "user_must_verify": true,
+        "public_note": "Enter the net cash inflow for year 8."
+      },
+      "evidence_requirement": {
+        "required": true,
+        "accepted_evidence": [
+          "Business case forecast",
+          "Vendor quote savings schedule",
+          "Engineering estimate",
+          "Historical operating data"
+        ],
+        "missing_evidence_behavior": "REVIEW",
+        "public_help_text": "Verify the year 8 cash-flow source before approval."
+      },
+      "formula_bindings": [
+        "F_NPV_CORE"
+      ],
+      "output_bindings": [
+        "npv",
+        "irr_pct",
+        "simple_payback_years",
+        "discounted_payback_years"
+      ],
+      "default_policy": "NO_DEFAULT",
+      "user_help_text": "Net cash inflow for year 8. Ignored when horizon is shorter than 8.",
+      "help_text": "Net cash inflow for year 8."
+    },
+    {
+      "id": "cf_y9",
+      "name": "Cash Flow Year 9",
+      "symbol": "CF_9",
+      "quantity_kind": "currency",
+      "unit_selectable": false,
+      "base_unit": null,
+      "allowed_display_units": [],
+      "normalized_id": "n_cf_y9",
+      "type": "number",
+      "required": false,
+      "criticality": "MEDIUM",
+      "source_status": "USER_VERIFIED",
+      "confidence_label": "USER_VERIFIED",
+      "physical_hard_bounds": {
+        "min": -1000000000,
+        "max": 1000000000,
+        "unit": "currency",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK",
+        "semantic_error_message_min": "Cash flow is below the permitted lower bound.",
+        "semantic_error_message_max": "Cash flow is above the permitted upper bound."
+      },
+      "engineering_range": {
+        "min": -5000000,
+        "max": 5000000,
+        "unit": "currency",
+        "source": "Typical industrial project cash-flow screening band; user must verify against the business case.",
+        "status": "USER_VERIFIED"
+      },
+      "reference_values": {
+        "reference_value_type": "USER_VERIFIED",
+        "source": "Annual net cash inflow for the project year.",
+        "reference_status": "USER_VERIFIED",
+        "user_must_verify": true,
+        "public_note": "Enter the net cash inflow for year 9."
+      },
+      "evidence_requirement": {
+        "required": true,
+        "accepted_evidence": [
+          "Business case forecast",
+          "Vendor quote savings schedule",
+          "Engineering estimate",
+          "Historical operating data"
+        ],
+        "missing_evidence_behavior": "REVIEW",
+        "public_help_text": "Verify the year 9 cash-flow source before approval."
+      },
+      "formula_bindings": [
+        "F_NPV_CORE"
+      ],
+      "output_bindings": [
+        "npv",
+        "irr_pct",
+        "simple_payback_years",
+        "discounted_payback_years"
+      ],
+      "default_policy": "NO_DEFAULT",
+      "user_help_text": "Net cash inflow for year 9. Ignored when horizon is shorter than 9.",
+      "help_text": "Net cash inflow for year 9."
+    },
+    {
+      "id": "cf_y10",
+      "name": "Cash Flow Year 10",
+      "symbol": "CF_10",
+      "quantity_kind": "currency",
+      "unit_selectable": false,
+      "base_unit": null,
+      "allowed_display_units": [],
+      "normalized_id": "n_cf_y10",
+      "type": "number",
+      "required": false,
+      "criticality": "MEDIUM",
+      "source_status": "USER_VERIFIED",
+      "confidence_label": "USER_VERIFIED",
+      "physical_hard_bounds": {
+        "min": -1000000000,
+        "max": 1000000000,
+        "unit": "currency",
+        "basis": "PROCESS_LIMIT",
+        "violation_behavior": "BLOCK",
+        "semantic_error_message_min": "Cash flow is below the permitted lower bound.",
+        "semantic_error_message_max": "Cash flow is above the permitted upper bound."
+      },
+      "engineering_range": {
+        "min": -5000000,
+        "max": 5000000,
+        "unit": "currency",
+        "source": "Typical industrial project cash-flow screening band; user must verify against the business case.",
+        "status": "USER_VERIFIED"
+      },
+      "reference_values": {
+        "reference_value_type": "USER_VERIFIED",
+        "source": "Annual net cash inflow for the project year.",
+        "reference_status": "USER_VERIFIED",
+        "user_must_verify": true,
+        "public_note": "Enter the net cash inflow for year 10."
+      },
+      "evidence_requirement": {
+        "required": true,
+        "accepted_evidence": [
+          "Business case forecast",
+          "Vendor quote savings schedule",
+          "Engineering estimate",
+          "Historical operating data"
+        ],
+        "missing_evidence_behavior": "REVIEW",
+        "public_help_text": "Verify the year 10 cash-flow source before approval."
+      },
+      "formula_bindings": [
+        "F_NPV_CORE"
+      ],
+      "output_bindings": [
+        "npv",
+        "irr_pct",
+        "simple_payback_years",
+        "discounted_payback_years"
+      ],
+      "default_policy": "NO_DEFAULT",
+      "user_help_text": "Net cash inflow for year 10. Ignored when horizon is shorter than 10.",
+      "help_text": "Net cash inflow for year 10."
+    }
+  ],
+  "normalized_inputs": [
+    {
+      "id": "n_initial_investment",
+      "from_input": "initial_investment",
+      "quantity_kind": "currency",
+      "base_unit": "user_unit"
+    },
+    {
+      "id": "n_discount_rate_pct",
+      "from_input": "discount_rate_pct",
+      "quantity_kind": "ratio_or_percent",
+      "base_unit": "percent"
+    },
+    {
+      "id": "n_horizon_years",
+      "from_input": "horizon_years",
+      "quantity_kind": "dimensionless",
+      "base_unit": "years"
+    },
+    {
+      "id": "n_cf_y1",
+      "from_input": "cf_y1",
+      "quantity_kind": "currency",
+      "base_unit": "user_unit"
+    },
+    {
+      "id": "n_cf_y2",
+      "from_input": "cf_y2",
+      "quantity_kind": "currency",
+      "base_unit": "user_unit"
+    },
+    {
+      "id": "n_cf_y3",
+      "from_input": "cf_y3",
+      "quantity_kind": "currency",
+      "base_unit": "user_unit"
+    },
+    {
+      "id": "n_cf_y4",
+      "from_input": "cf_y4",
+      "quantity_kind": "currency",
+      "base_unit": "user_unit"
+    },
+    {
+      "id": "n_cf_y5",
+      "from_input": "cf_y5",
+      "quantity_kind": "currency",
+      "base_unit": "user_unit"
+    },
+    {
+      "id": "n_cf_y6",
+      "from_input": "cf_y6",
+      "quantity_kind": "currency",
+      "base_unit": "user_unit"
+    },
+    {
+      "id": "n_cf_y7",
+      "from_input": "cf_y7",
+      "quantity_kind": "currency",
+      "base_unit": "user_unit"
+    },
+    {
+      "id": "n_cf_y8",
+      "from_input": "cf_y8",
+      "quantity_kind": "currency",
+      "base_unit": "user_unit"
+    },
+    {
+      "id": "n_cf_y9",
+      "from_input": "cf_y9",
+      "quantity_kind": "currency",
+      "base_unit": "user_unit"
+    },
+    {
+      "id": "n_cf_y10",
+      "from_input": "cf_y10",
+      "quantity_kind": "currency",
+      "base_unit": "user_unit"
+    }
+  ],
+  "reference_value_policy": {
+    "policy": "USER_MUST_VERIFY",
+    "default_status": "USER_VERIFIED",
+    "critical_input_requires_verified_source": true,
+    "non_critical_input_accepts_context_only": true,
+    "restricted_table_reproduction": "FORBIDDEN"
+  },
+  "form_runtime_binding": {
+    "renderer": "UniversalIndustrialDecisionForm",
+    "schema_generation_runtime": "V5.3.1 automated generation",
+    "llm_runtime_usage": "FORBIDDEN",
+    "client_formula_execution": "FORBIDDEN",
+    "server_execution_required": true,
+    "state_management_required": true,
+    "dynamic_ui_contract_required": true,
+    "json_schema_form_substrate_allowed": true,
+    "generic_json_schema_form_alone_sufficient": false,
+    "state_domains": [
+      "schemaState",
+      "profileModeState",
+      "rawInputState",
+      "selectedUnitState",
+      "normalizedPreviewState",
+      "evidenceState",
+      "touchedState",
+      "validationState",
+      "referenceRangeState",
+      "blockerState",
+      "advancedDisclosureState",
+      "scenarioState",
+      "executionState",
+      "serverResponseState",
+      "auditSealState",
+      "exportState"
+    ],
+    "state_transitions": [
+      "INIT_SCHEMA",
+      "VALIDATE_SCHEMA_CONTRACT",
+      "SET_PROFILE_MODE",
+      "SET_INPUT_VALUE",
+      "SET_SELECTED_UNIT",
+      "PRESERVE_PHYSICAL_QUANTITY_ON_UNIT_CHANGE",
+      "UPDATE_NORMALIZED_PREVIEW",
+      "UPDATE_EVIDENCE_STATUS",
+      "RUN_CLIENT_PRECHECK",
+      "BLOCK_CLIENT_EXECUTION",
+      "SUBMIT_SERVER_EXECUTION",
+      "RECEIVE_SERVER_RESPONSE",
+      "RECEIVE_SERVER_BLOCKERS",
+      "RECEIVE_SERVER_ERROR",
+      "RESET_INPUTS",
+      "RESET_RESULT_ONLY"
+    ],
+    "execute_request_contract": {
+      "tool_id": "string",
+      "tool_key": "string",
+      "schema_version": "string",
+      "raw_inputs": "Record<string, unknown>",
+      "selected_units": "Record<string, string>",
+      "output_units": "Record<string, string>",
+      "display_currency": "string | null",
+      "user_profile_mode": "ProfileMode"
+    },
+    "execute_response_contract": {
+      "status": "CalcStatus",
+      "outputs": "ServerOutput[]",
+      "warnings": "ServerWarning[]",
+      "normalized_input_audit": "NormalizedInputAudit[]",
+      "decision_interpretation": "DecisionInterpretation",
+      "audit_seal": "AuditSeal",
+      "redaction_status": "RedactionStatus"
+    }
+  },
+  "physical_bounds_policy": {
+    "policy": "NO_AUTOMATIC_BOUNDS_FOR_PUBLIC_FREE_TOOLS",
+    "default_violation_behavior": "WARNING_ONLY",
+    "critical_input_requires_user_set_bounds": true,
+    "non_critical_input_uses_reference_range_only": true
+  },
+  "validation_contract": {
+    "fail_closed": true,
+    "semantic_errors_required": true,
+    "rules": [
+      {
+        "id": "V_MISSING_REQUIRED",
+        "type": "REQUIRED_INPUT",
+        "affected_inputs": [
+          "annual_extra_margin",
+          "annual_incremental_maintenance",
+          "annual_labor_savings",
+          "annual_scrap_savings",
+          "installation_cost",
+          "machine_capex",
+          "maximum_payback_months",
+          "residual_value"
+        ],
+        "level": "BLOCK",
+        "message": "All required input values must be provided.",
+        "semantic_message": "Enter a value for this required input before calculation."
+      },
+      {
+        "id": "V_NUMERIC_RANGE",
+        "type": "NUMERIC_RANGE",
+        "affected_inputs": [
+          "annual_extra_margin",
+          "annual_incremental_maintenance",
+          "annual_labor_savings",
+          "annual_scrap_savings",
+          "installation_cost",
+          "machine_capex",
+          "maximum_payback_months",
+          "residual_value"
+        ],
+        "level": "WARN",
+        "message": "Check input value range.",
+        "semantic_message": "The entered value may be outside expected range."
+      }
+    ],
+    "custom_validation": "Server-side formula validation",
+    "preflight_validation_required": true,
+    "error_message_style": "Semantic with field reference"
+  },
+  "derating_contract": {
+    "enabled": false,
+    "policy": "No automatic derating for free screening tools.",
+    "derating_factors": []
+  },
+  "precision_policy": {
+    "input_decimals": null,
+    "display_decimals": 2,
+    "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
+    "rounding_rule": "DISPLAY_ONLY"
+  },
+  "formulas": [
+    {
+      "id": "F_NPV_CORE",
+      "name": "Net present value from discounted annual cash flows",
+      "visibility": {
+        "public_ui": false,
+        "public_export": false,
+        "internal_admin_trace": true
+      },
+      "expression": "INTERNAL_SERVER_ONLY_EXPRESSION_NOT_FOR_PUBLIC_UI",
+      "uses": [
+        "n_initial_investment",
+        "n_discount_rate_pct",
+        "n_horizon_years"
+      ],
+      "output": "npv",
+      "unit": "currency",
+      "proof_role": "PRIMARY_DECISION",
+      "assumptions": [
+        "End-of-period annual cash flows",
+        "Constant discount rate across the horizon",
+        "Initial investment occurs at time zero",
+        "No tax shield or inflation layer in the free screening model"
+      ],
+      "limitations": [
+        "Screening-grade capital-budgeting support only",
+        "Cash flows beyond the selected horizon are ignored"
+      ],
+      "edge_cases": [
+        "Zero discount rate is blocked at input validation",
+        "Missing sign change may prevent IRR bracketing"
+      ],
+      "public_proof_summary": "NPV is computed server-side by discounting each in-period cash flow and subtracting the initial investment.",
+      "protected_methodology_summary": "Formula execution remains server-only and is not exposed in public UI.",
+      "checker_note": "Verify cash-flow signs, currency consistency, and discount-rate basis before accepting the decision state.",
+      "formula_leak_risk": "MEDIUM",
+      "public_formula_expression_policy": "FORBIDDEN",
+      "validation_notes": "Non-finite inputs are blocked before execution. Horizon must be an integer from 1 to 10.",
+      "calculation_assumptions": "Uses Big.js decimal arithmetic for discounting and summation."
+    },
+    {
+      "id": "F_IRR",
+      "name": "Internal rate of return approximation",
+      "visibility": {
+        "public_ui": false,
+        "public_export": false,
+        "internal_admin_trace": true
+      },
+      "expression": "INTERNAL_SERVER_ONLY_EXPRESSION_NOT_FOR_PUBLIC_UI",
+      "uses": [
+        "n_initial_investment",
+        "n_horizon_years"
+      ],
+      "output": "irr_pct",
+      "unit": "percent",
+      "proof_role": "SECONDARY_METRIC",
+      "assumptions": [
+        "Same cash-flow stream as the NPV model",
+        "Bracketed root search when Newton-Raphson does not converge quickly"
+      ],
+      "limitations": [
+        "IRR may be undefined when NPV does not change sign across the search bracket"
+      ],
+      "edge_cases": [
+        "Non-conventional cash-flow patterns may yield multiple mathematical IRR roots; only one bracketed solution is reported"
+      ],
+      "public_proof_summary": "IRR is returned only when a valid bracket is found; otherwise a warning is issued without a numeric IRR output.",
+      "protected_methodology_summary": "Root-finding remains server-only.",
+      "checker_note": "Do not rely on IRR alone when cash flows change sign more than once.",
+      "formula_leak_risk": "MEDIUM",
+      "public_formula_expression_policy": "FORBIDDEN",
+      "validation_notes": "IRR output is omitted when no bracket is found.",
+      "calculation_assumptions": "Newton-Raphson with bisection fallback over a bounded rate range."
+    },
+    {
+      "id": "F_SIMPLE_PAYBACK",
+      "name": "Undiscounted cumulative payback period",
+      "visibility": {
+        "public_ui": false,
+        "public_export": false,
+        "internal_admin_trace": true
+      },
+      "expression": "INTERNAL_SERVER_ONLY_EXPRESSION_NOT_FOR_PUBLIC_UI",
+      "uses": [
+        "n_initial_investment",
+        "n_horizon_years"
+      ],
+      "output": "simple_payback_years",
+      "unit": "years",
+      "proof_role": "SECONDARY_METRIC",
+      "assumptions": [
+        "Undiscounted cumulative cash-flow recovery",
+        "Linear interpolation inside the recovery year"
+      ],
+      "limitations": [
+        "Ignores time value of money"
+      ],
+      "edge_cases": [
+        "Returns no value when cumulative inflows never recover the investment within the horizon"
+      ],
+      "public_proof_summary": "Simple payback is reported only when undiscounted cumulative cash flows cross zero within the horizon.",
+      "protected_methodology_summary": "Payback logic remains server-only.",
+      "checker_note": "Compare against policy payback limits separately from NPV.",
+      "formula_leak_risk": "LOW",
+      "public_formula_expression_policy": "FORBIDDEN",
+      "validation_notes": "Output omitted when payback is not reached within the horizon.",
+      "calculation_assumptions": "Fractional payback year is computed from the recovery-year inflow."
+    },
+    {
+      "id": "F_DISCOUNTED_PAYBACK",
+      "name": "Discounted cumulative payback period",
+      "visibility": {
+        "public_ui": false,
+        "public_export": false,
+        "internal_admin_trace": true
+      },
+      "expression": "INTERNAL_SERVER_ONLY_EXPRESSION_NOT_FOR_PUBLIC_UI",
+      "uses": [
+        "n_initial_investment",
+        "n_discount_rate_pct",
+        "n_horizon_years"
+      ],
+      "output": "discounted_payback_years",
+      "unit": "years",
+      "proof_role": "SECONDARY_METRIC",
+      "assumptions": [
+        "Uses the same discount rate as the NPV calculation",
+        "Linear interpolation inside the discounted recovery year"
+      ],
+      "limitations": [
+        "May exceed the selected horizon even when NPV is positive"
+      ],
+      "edge_cases": [
+        "Returns no value when discounted cumulative cash flows never recover the investment within the horizon"
+      ],
+      "public_proof_summary": "Discounted payback is reported only when discounted cumulative cash flows cross zero within the horizon.",
+      "protected_methodology_summary": "Payback logic remains server-only.",
+      "checker_note": "Review discounted payback together with NPV and IRR.",
+      "formula_leak_risk": "LOW",
+      "public_formula_expression_policy": "FORBIDDEN",
+      "validation_notes": "Output omitted when discounted payback is not reached within the horizon.",
+      "calculation_assumptions": "Discount each annual inflow before cumulative summation."
+    }
+  ],
+  "outputs": [
+    {
+      "id": "npv",
+      "name": "Net Present Value",
+      "value": null,
+      "unit": "currency",
+      "status": "REVIEW",
+      "formula_source": "F_NPV_CORE",
+      "public_explanation": "Primary capital-budgeting decision metric for the project at the stated discount rate.",
+      "operator_explanation": "Positive NPV supports proceeding when other constraints are satisfied.",
+      "engineer_explanation": "Review cash-flow assumptions and discount-rate basis before approval.",
+      "owner_cfo_explanation": "Use NPV sign as the primary accept/reject screening signal.",
+      "checker_explanation": "Verify cash-flow evidence and discount-rate source before accepting the result.",
+      "decision_use": "Primary decision indicator",
+      "evidence_level": "SCREENING_ONLY"
+    },
+    {
+      "id": "irr_pct",
+      "name": "Internal Rate of Return (%)",
+      "value": null,
+      "unit": "percent",
+      "status": "REVIEW",
+      "formula_source": "F_IRR",
+      "public_explanation": "Secondary return metric when a valid IRR bracket exists.",
+      "operator_explanation": "Compare IRR to the discount rate when reported.",
+      "engineer_explanation": "Do not use IRR alone for non-conventional cash-flow patterns.",
+      "owner_cfo_explanation": "IRR supplements NPV; absence of IRR indicates review is required.",
+      "checker_explanation": "Confirm bracket validity and cash-flow sign pattern.",
+      "decision_use": "Secondary metric",
+      "evidence_level": "SCREENING_ONLY"
+    },
+    {
+      "id": "simple_payback_years",
+      "name": "Simple Payback (Years)",
+      "value": null,
+      "unit": "years",
+      "status": "REVIEW",
+      "formula_source": "F_SIMPLE_PAYBACK",
+      "public_explanation": "Undiscounted cumulative payback period when recovered within the horizon.",
+      "operator_explanation": "Useful liquidity screen without time-value adjustment.",
+      "engineer_explanation": "Compare against policy payback limits separately from NPV.",
+      "owner_cfo_explanation": "Liquidity recovery timing indicator only.",
+      "checker_explanation": "Verify cumulative cash-flow build-up.",
+      "decision_use": "Liquidity indicator",
+      "evidence_level": "SCREENING_ONLY"
+    },
+    {
+      "id": "discounted_payback_years",
+      "name": "Discounted Payback (Years)",
+      "value": null,
+      "unit": "years",
+      "status": "REVIEW",
+      "formula_source": "F_DISCOUNTED_PAYBACK",
+      "public_explanation": "Discounted cumulative payback period when recovered within the horizon.",
+      "operator_explanation": "Shows risk-adjusted capital recovery timing.",
+      "engineer_explanation": "May exceed simple payback and still leave NPV positive.",
+      "owner_cfo_explanation": "Use with NPV for timing-sensitive approvals.",
+      "checker_explanation": "Verify discount-rate consistency with NPV.",
+      "decision_use": "Timing indicator",
+      "evidence_level": "SCREENING_ONLY"
+    },
+    {
+      "id": "primary_decision_state",
+      "name": "Decision State",
+      "value": null,
+      "unit": null,
+      "status": "REVIEW",
+      "formula_source": null,
+      "public_explanation": "PASS when NPV is positive, REVIEW when NPV is zero, REJECT when NPV is negative.",
+      "operator_explanation": "Follow the suggested action based on the decision state.",
+      "engineer_explanation": "Decision state reflects the NPV sign at the stated discount rate.",
+      "owner_cfo_explanation": "Use the decision state to guide next actions.",
+      "checker_explanation": "Verify the decision state logic against your approval policy.",
+      "decision_use": "Decision guidance",
+      "evidence_level": "SCREENING_ONLY"
+    }
+  ],
+  "output_formatting": {
+    "default_decimals": 2,
+    "money_decimals": 2,
+    "ratio_decimals": 4,
+    "percent_display_allowed": true,
+    "rounding_rule": "DISPLAY_ONLY",
+    "non_color_status_labels_required": true,
+    "public_formula_expression_visible": false
+  },
+  "decision_interpretation_contract": {
+    "always_include_decision_state": true,
+    "always_include_hidden_risk": true,
+    "always_include_next_actions": true,
+    "always_include_premium_unlock_reason": true,
+    "profile_modes": [
+      "operator",
+      "engineer",
+      "owner_cfo",
+      "checker_auditor"
+    ]
+  },
+  "business_impact_contract": {
+    "enabled": false,
+    "currency": null,
+    "description": "Business impact analysis not available for free screening tools."
+  },
+  "engine_rules": {
+    "deterministic_execution": true,
+    "formula_redaction_policy": "REDACT_ALL_PUBLIC_FORMULA_EXPRESSIONS",
+    "public_formula_expression_policy": "FORBIDDEN",
+    "llm_runtime_usage": "FORBIDDEN",
+    "client_formula_execution": "FORBIDDEN"
+  },
+  "uncertainty_model": {
+    "model": "NONE",
+    "description": "No uncertainty propagation for free screening tools."
+  },
+  "safety_factor_gauges": [],
+  "proof_pack": {
+    "enabled": true,
+    "redaction_status": "PUBLIC_SAFE_REDACTED",
+    "sections": [
+      {
+        "id": "execution_summary",
+        "title": "Execution Summary",
+        "public_content": "Calculation executed server-side. Results are for decision support only."
+      },
+      {
+        "id": "standard_refs",
+        "title": "Standards Context",
+        "public_content": "This calculation references engineering standards contextually. Full reproduction of tables is forbidden."
+      }
+    ]
+  },
+  "audit_trail_contract": {
+    "enabled": true,
+    "events": [
+      "SCHEMA_LOAD",
+      "INPUT_ENTRY",
+      "UNIT_SELECTION",
+      "EXECUTION",
+      "RESULT_VIEW"
+    ],
+    "required_for_export": true
+  },
+  "export_contract": {
+    "pdf_enabled": true,
+    "json_audit_enabled": true,
+    "copy_summary_enabled": false,
+    "cad_bim_erp_export": {
+      "status": "FUTURE_OPTIONAL_OR_CUSTOM_IMPLEMENTATION",
+      "allowed_formats": []
+    },
+    "free_tier_export_disabled": true,
+    "pdf_generates_free_tier_paywall_message": true
+  },
+  "ui_contract": {
+    "target_renderer": "UniversalIndustrialDecisionForm",
+    "profile_modes": [
+      "quick",
+      "engineering",
+      "cost",
+      "audit"
+    ],
+    "input_groups": [
+      {
+        "id": "primary_inputs",
+        "title": "Capital Budgeting Inputs",
+        "description": "Enter initial investment, discount rate, horizon, and annual cash flows.",
+        "fields": [
+          "initial_investment",
+          "discount_rate_pct",
+          "horizon_years",
+          "cf_y1",
+          "cf_y2",
+          "cf_y3",
+          "cf_y4",
+          "cf_y5",
+          "cf_y6",
+          "cf_y7",
+          "cf_y8",
+          "cf_y9",
+          "cf_y10"
+        ],
+        "mode_visibility": [
+          "quick",
+          "engineering",
+          "cost",
+          "audit"
+        ],
+        "visible_in_modes": [
+          "quick",
+          "engineering",
+          "cost",
+          "audit"
+        ],
+        "label": "Primary inputs"
+      }
+    ],
+    "sticky_decision_cockpit": true,
+    "mobile_bottom_action_bar": true,
+    "normalized_preview_required": true,
+    "reference_values_visible": true,
+    "evidence_controls_required": false,
+    "semantic_error_summary_required": true,
+    "safety_factor_gauges_required": false,
+    "hidden_risk_panel_required": true,
+    "business_impact_panel_required": false,
+    "standards_clause_panel_required": false,
+    "protected_methodology_panel_required": true,
+    "audit_seal_panel_required": true,
+    "accessibility": {
+      "high_contrast_supported": true,
+      "keyboard_navigation": true,
+      "screen_reader_labels": true,
+      "min_touch_target": "44px"
+    }
+  },
+  "reference_code": {
+    "policy": "No public reference tables reproduced.",
+    "reproduction_policy": "FORBIDDEN"
+  },
+  "test_plan": {
+    "policy": "Golden hash comparison via tests/golden/.",
+    "required_pass_rate": "100%"
+  },
+  "red_team_review": {
+    "status": "AUTOMATED",
+    "findings": []
+  },
+  "metadata": {
+    "schema_version": "5.3.1",
+    "formula_version": "5.3.1",
+    "prompt_version": "5.3.1",
+    "generation_method": "manual_reference_hub",
+    "generation_date": "2026-07-20",
+    "source_formula": "net-present-value-calculator",
+    "tool_id": "FREE_400_NET_PRESENT_VALUE_CALCULATOR",
+    "tool_key": "net-present-value-calculator",
+    "tool_name": "Net Present Value Calculator"
+  }
+}

@@ -7,7 +7,6 @@ import {
 import {
   checkProductUsage,
   grantProductUsesFromCredits,
-  decrementProductUse,
   getProductUsageDoc,
   PRODUCT_KEYS,
 } from "@/lib/credits/product-usage-policy";
@@ -87,11 +86,13 @@ export async function POST(req: Request) {
     /* ── Execute ───────────────────────────────────────────────── */
     const result = runDiagnostic(parsed.data);
 
-    /* ── Deduct 1 product use (compute first, spend after) ─────── */
-    if (!isOwner) {
-      await decrementProductUse(user.uid, PRODUCT_KEY);
-    }
-
+    /* ── Single-charge model ────────────────────────────────────
+     * Analyze is the entitlement GATE, not the charge point. Purchasing the
+     * 5-credit package (grant above) is what unlocks the service; a use is
+     * consumed only when the persisted deliverable is generated in
+     * /full-diagnostic. This prevents double-charging one analysis session
+     * (analyze use + full-diagnostic use). No decrement here.
+     */
     const usageDoc = !isOwner ? await getProductUsageDoc(user.uid, PRODUCT_KEY) : null;
     const remainingUses = usageDoc?.remainingUses ?? null;
 

@@ -15,7 +15,7 @@ export interface VisualObservation {
 export interface PhotoPreviewResponse {
   ok: boolean;
   mode: "visual_preview";
-  credits_consumed: number;
+  uses_consumed: number;
   probable_domain: string;
   probable_issue_type: string;
   observations: VisualObservation[];
@@ -475,7 +475,7 @@ export function CameraOnlyPreview() {
       {result && (
         <div style={{ marginTop: "1.5rem" }}>
           {/* Credit consumption */}
-          {result.credits_consumed > 0 && (
+          {result.uses_consumed > 0 && (
             <div
               style={{
                 padding: "0.5rem 0.75rem",

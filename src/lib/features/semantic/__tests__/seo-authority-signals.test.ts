@@ -1,4 +1,4 @@
-/* eslint-disable */
+ 
 // @ts-nocheck
 
 import { describe, expect, test } from "vitest";
@@ -8,6 +8,7 @@ import { buildCncBenchmarkDatasetJsonLd } from "@/lib/features/semantic/build-da
 import { buildGeneratedToolWebPageJsonLd } from "@/lib/features/semantic/build-generated-tool-webpage-jsonld";
 import type { GeneratedToolSchema } from "@/lib/features/generated-tools/types";
 
+// Fixture has no numeric calculator inputs — lowerBound / upperBound N/A (CR-2 content gate).
 const MINIMAL_SCHEMA: GeneratedToolSchema = {
   toolName: "Cutting Speed Calculator",
   inputs: [],
@@ -49,13 +50,16 @@ describe("seo authority signal JSON-LD", () => {
     expect(speakable.cssSelector).toEqual([".tool-description", ".result-value"]);
   });
 
-  test("ClaimReview schema is emitted for calculator results", () => {
+  test("ClaimReview schema requires an explicit caller-supplied rating", () => {
     const graph = buildClaimReviewJsonLd({
       claimReviewed: "Cutting Speed Calculator: 120 m/min",
       pageUrl: "https://sectorcalc.com/en/tools/generated/cutting-speed-calculator",
+      ratingValue: 4,
     });
     expect(graph["@type"]).toBe("ClaimReview");
-    expect(graph.reviewRating).toBeTruthy();
+    expect(graph.reviewRating).toEqual(
+      expect.objectContaining({ ratingValue: 4, bestRating: 5, worstRating: 1 }),
+    );
   });
 
   test("Dataset schema supports localized CNC benchmark page", () => {

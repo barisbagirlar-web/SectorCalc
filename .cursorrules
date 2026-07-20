@@ -49,3 +49,54 @@ Output is FORBIDDEN unless ALL pass:
 - TRADE-OFFS: Max 3-line structured comparison (A vs B | Trade-off | Verdict).
 - LANGUAGE: Technical Academic Engineering English. Precise. Unambiguous. Dense.
 - INSUFFICIENT CONTEXT: Ask EXACTLY ONE clarifying question. Never produce partial/spec
+
+## 5. CODE RABBIT AI SYNCHRONIZATION (CI/CD QUALITY GATE ALIGNMENT)
+The following rules are 1:1 synchronized with `.coderabbit.yml` to ensure
+Cursor IDE pre-commit behavior matches CodeRabbit's server-side PR gates.
+
+### PRECISION GATE (CR-1)
+- Use `Big.js` for ALL monetary, financial, and engineering calculations.
+- `const result = a + b` with native floats in calculator files = REJECT.
+- Acceptable only in pure-DOM rendering or CSS helper functions.
+
+### ISO 22400-2 BOUNDS GATE (CR-2)
+- Every calculator input MUST declare `lowerBound` and `upperBound` properties.
+- Non-finite values (NaN, Infinity) must be caught at the input layer, not at formula execution.
+- Missing bounds = structural defect flagged at code review.
+
+### SITEMAP INTEGRITY GATE (CR-3)
+- Sitemap XML generation must use Node.js Streams (`fs.createWriteStream`, `pipeline`).
+- Array accumulation with `.push()` for sitemap URLs is FORBIDDEN (OOM risk).
+- Empty sitemap must abort with `process.exit(1)` — never overwrite last-known-good.
+
+### TEMPORAL LOGIC GATE (CR-4)
+- Sitemap `<lastmod>` timestamps must be ISO 8601 and monotonically non-decreasing.
+- Apply `MAX(resolved_date, BUILD_EPOCH)` at the single exit point of lastmod resolution.
+- Backdating to epoch-zero dates = CRITICAL.
+
+### UNIT CONSISTENCY GATE (CR-5)
+- Dimensional analysis required for formula validation.
+- USD/h * h = USD. Mismatched unit dimensions in formula chains = BLOCK.
+- Use TypeScript branded types or explicit unit-conversion wrappers at API boundaries.
+
+### COMPONENT INTEGRITY GATE (CR-6)
+- Every interactive UI component must have `data-testid`.
+- No global state mutations outside Zustand/Context API.
+- React Server Components must never import `"use client"` modules.
+
+### LANGUAGE PURITY GATE (CR-7)
+- Technical Academic Engineering English ONLY.
+- Turkish Unicode (ç ğ ı ö ş ü) or ASCII (fire, fiyat, hesapla, sonuc) in code = REJECT.
+- Commit messages in English following Conventional Commits.
+
+### TYPE SAFETY GATE (CR-8)
+- TypeScript strict mode. `any` type in public API contracts = REJECT.
+- All API routes must return `ExecuteResponse` contract shape.
+- Implicit `as` casts without runtime guard = REJECT.
+
+## 6. RESPONSE FORMAT (CODE RABBIT OVERRIDE)
+When proposing code changes, prepend validation header:
+```
+[CR-1: PASS] Big.js used | [CR-2: PASS] Bounds declared | [CR-5: PASS] Units consistent
+```
+If any gate fails, include the failing gate ID and reason BEFORE proposing code.

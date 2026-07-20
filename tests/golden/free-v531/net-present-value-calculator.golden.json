@@ -1,0 +1,16 @@
+{
+  "tool_key": "net-present-value-calculator",
+  "tool_id": "FREE_400_NET_PRESENT_VALUE_CALCULATOR",
+  "raw_inputs": {
+    "initial_investment": 250000,
+    "discount_rate_pct": 12,
+    "horizon_years": 5,
+    "cf_y1": 65000,
+    "cf_y2": 72000,
+    "cf_y3": 78000,
+    "cf_y4": 80000,
+    "cf_y5": 85000
+  },
+  "expected_redaction_status": "PUBLIC_SAFE_REDACTED",
+  "expected_no_public_formula_exposure": true
+}

@@ -1,0 +1,1753 @@
+{
+  "generatedAt": "2026-07-19T22:49:12.039Z",
+  "host": "sectorcalc.com",
+  "total": 248,
+  "byType": {
+    "core": 11,
+    "hub": 50,
+    "free_tool": 54,
+    "premium_analyzer": 46,
+    "seo_landing": 58,
+    "authority_guide": 8,
+    "ai_index": 0,
+    "lean_tool": 21
+  },
+  "urls": [
+    {
+      "url": "https://sectorcalc.com/",
+      "path": "/",
+      "type": "core",
+      "priority": "critical",
+      "inspectionOrder": 1
+    },
+    {
+      "url": "https://sectorcalc.com/free-tools",
+      "path": "/free-tools",
+      "type": "hub",
+      "priority": "critical",
+      "inspectionOrder": 2
+    },
+    {
+      "url": "https://sectorcalc.com/pro-tools",
+      "path": "/pro-tools",
+      "type": "hub",
+      "priority": "critical",
+      "inspectionOrder": 3
+    },
+    {
+      "url": "https://sectorcalc.com/categories",
+      "path": "/categories",
+      "type": "hub",
+      "priority": "critical",
+      "inspectionOrder": 4
+    },
+    {
+      "url": "https://sectorcalc.com/industries",
+      "path": "/industries",
+      "type": "hub",
+      "priority": "critical",
+      "inspectionOrder": 5
+    },
+    {
+      "url": "https://sectorcalc.com/pricing",
+      "path": "/pricing",
+      "type": "core",
+      "priority": "critical",
+      "inspectionOrder": 6
+    },
+    {
+      "url": "https://sectorcalc.com/seo/manufacturing-cost-calculators",
+      "path": "/seo/manufacturing-cost-calculators",
+      "type": "seo_landing",
+      "priority": "critical",
+      "inspectionOrder": 7
+    },
+    {
+      "url": "https://sectorcalc.com/guides/what-is-oee-and-how-to-calculate-it",
+      "path": "/guides/what-is-oee-and-how-to-calculate-it",
+      "type": "authority_guide",
+      "priority": "critical",
+      "inspectionOrder": 8
+    },
+    {
+      "url": "https://sectorcalc.com/guides/how-to-calculate-construction-cost-overrun",
+      "path": "/guides/how-to-calculate-construction-cost-overrun",
+      "type": "authority_guide",
+      "priority": "high",
+      "inspectionOrder": 14
+    },
+    {
+      "url": "https://sectorcalc.com/guides/how-to-calculate-energy-cost-and-carbon-exposure",
+      "path": "/guides/how-to-calculate-energy-cost-and-carbon-exposure",
+      "type": "authority_guide",
+      "priority": "high",
+      "inspectionOrder": 15
+    },
+    {
+      "url": "https://sectorcalc.com/guides/how-to-calculate-manufacturing-cost",
+      "path": "/guides/how-to-calculate-manufacturing-cost",
+      "type": "authority_guide",
+      "priority": "high",
+      "inspectionOrder": 16
+    },
+    {
+      "url": "https://sectorcalc.com/guides/how-to-calculate-restaurant-food-cost",
+      "path": "/guides/how-to-calculate-restaurant-food-cost",
+      "type": "authority_guide",
+      "priority": "high",
+      "inspectionOrder": 17
+    },
+    {
+      "url": "https://sectorcalc.com/guides/how-to-calculate-route-cost",
+      "path": "/guides/how-to-calculate-route-cost",
+      "type": "authority_guide",
+      "priority": "high",
+      "inspectionOrder": 18
+    },
+    {
+      "url": "https://sectorcalc.com/guides/how-to-calculate-scrap-rate",
+      "path": "/guides/how-to-calculate-scrap-rate",
+      "type": "authority_guide",
+      "priority": "high",
+      "inspectionOrder": 19
+    },
+    {
+      "url": "https://sectorcalc.com/guides/how-to-use-area-converter",
+      "path": "/guides/how-to-use-area-converter",
+      "type": "authority_guide",
+      "priority": "high",
+      "inspectionOrder": 20
+    },
+    {
+      "url": "https://sectorcalc.com/seo/3d-print-job-margin-tool",
+      "path": "/seo/3d-print-job-margin-tool",
+      "type": "seo_landing",
+      "priority": "high",
+      "inspectionOrder": 21
+    },
+    {
+      "url": "https://sectorcalc.com/seo/agriculture-calculators",
+      "path": "/seo/agriculture-calculators",
+      "type": "seo_landing",
+      "priority": "high",
+      "inspectionOrder": 22
+    },
+    {
+      "url": "https://sectorcalc.com/seo/annual-leave-severance-notice-calculator",
+      "path": "/seo/annual-leave-severance-notice-calculator",
+      "type": "seo_landing",
+      "priority": "high",
+      "inspectionOrder": 23
+    },
+    {
+      "url": "https://sectorcalc.com/seo/auto-repair-parts-labor-quote-calculator",
+      "path": "/seo/auto-repair-parts-labor-quote-calculator",
+      "type": "seo_landing",
+      "priority": "high",
+      "inspectionOrder": 24
+    },
+    {
+      "url": "https://sectorcalc.com/seo/auto-shop-margin-leak-detector",
+      "path": "/seo/auto-shop-margin-leak-detector",
+      "type": "seo_landing",
+      "priority": "high",
+      "inspectionOrder": 25
+    },
+    {
+      "url": "https://sectorcalc.com/seo/break-even-safety-margin-calculator",
+      "path": "/seo/break-even-safety-margin-calculator",
+      "type": "seo_landing",
+      "priority": "high",
+      "inspectionOrder": 26
+    },
+    {
+      "url": "https://sectorcalc.com/seo/carbon-footprint-compliance-risk",
+      "path": "/seo/carbon-footprint-compliance-risk",
+      "type": "seo_landing",
+      "priority": "high",
+      "inspectionOrder": 27
+    },
+    {
+      "url": "https://sectorcalc.com/seo/cbam-compliance-verdict",
+      "path": "/seo/cbam-compliance-verdict",
+      "type": "seo_landing",
+      "priority": "high",
+      "inspectionOrder": 28
+    },
+    {
+      "url": "https://sectorcalc.com/seo/cbam-exposure-quick-check",
+      "path": "/seo/cbam-exposure-quick-check",
+      "type": "seo_landing",
+      "priority": "high",
+      "inspectionOrder": 29
+    },
+    {
+      "url": "https://sectorcalc.com/seo/cbam-unit-product-carbon-footprint-calculator",
+      "path": "/seo/cbam-unit-product-carbon-footprint-calculator",
+      "type": "seo_landing",
+      "priority": "high",
+      "inspectionOrder": 30
+    },
+    {
+      "url": "https://sectorcalc.com/seo/change-order-impact-analyzer",
+      "path": "/seo/change-order-impact-analyzer",
+      "type": "seo_landing",
+      "priority": "high",
+      "inspectionOrder": 31
+    },
+    {
+      "url": "https://sectorcalc.com/seo/cnc-quote-risk-analyzer",
+      "path": "/seo/cnc-quote-risk-analyzer",
+      "type": "seo_landing",
+      "priority": "high",
+      "inspectionOrder": 32
+    },
+    {
+      "url": "https://sectorcalc.com/seo/compressor-leak-cost-calculator",
+      "path": "/seo/compressor-leak-cost-calculator",
+      "type": "seo_landing",
+      "priority": "high",
+      "inspectionOrder": 33
+    },
+    {
+      "url": "https://sectorcalc.com/seo/construction-cost-calculators",
+      "path": "/seo/construction-cost-calculators",
+      "type": "seo_landing",
+      "priority": "high",
+      "inspectionOrder": 34
+    },
+    {
+      "url": "https://sectorcalc.com/seo/crop-yield-loss-analyzer",
+      "path": "/seo/crop-yield-loss-analyzer",
+      "type": "seo_landing",
+      "priority": "high",
+      "inspectionOrder": 35
+    },
+    {
+      "url": "https://sectorcalc.com/seo/dairy-profit-detector",
+      "path": "/seo/dairy-profit-detector",
+      "type": "seo_landing",
+      "priority": "high",
+      "inspectionOrder": 36
+    },
+    {
+      "url": "https://sectorcalc.com/seo/downtime-minute-cost-calculator",
+      "path": "/seo/downtime-minute-cost-calculator",
+      "type": "seo_landing",
+      "priority": "high",
+      "inspectionOrder": 37
+    },
+    {
+      "url": "https://sectorcalc.com/seo/employee-total-cost-calculator",
+      "path": "/seo/employee-total-cost-calculator",
+      "type": "seo_landing",
+      "priority": "high",
+      "inspectionOrder": 38
+    },
+    {
+      "url": "https://sectorcalc.com/seo/energy-carbon-calculators",
+      "path": "/seo/energy-carbon-calculators",
+      "type": "seo_landing",
+      "priority": "high",
+      "inspectionOrder": 39
+    },
+    {
+      "url": "https://sectorcalc.com/seo/energy-compressor-leak-cost",
+      "path": "/seo/energy-compressor-leak-cost",
+      "type": "seo_landing",
+      "priority": "high",
+      "inspectionOrder": 40
+    },
+    {
+      "url": "https://sectorcalc.com/seo/energy-efficiency-report",
+      "path": "/seo/energy-efficiency-report",
+      "type": "seo_landing",
+      "priority": "high",
+      "inspectionOrder": 41
+    },
+    {
+      "url": "https://sectorcalc.com/seo/energy-savings-package-calculator",
+      "path": "/seo/energy-savings-package-calculator",
+      "type": "seo_landing",
+      "priority": "high",
+      "inspectionOrder": 42
+    },
+    {
+      "url": "https://sectorcalc.com/seo/feed-efficiency-analyzer",
+      "path": "/seo/feed-efficiency-analyzer",
+      "type": "seo_landing",
+      "priority": "high",
+      "inspectionOrder": 43
+    },
+    {
+      "url": "https://sectorcalc.com/seo/finance-business-calculators",
+      "path": "/seo/finance-business-calculators",
+      "type": "seo_landing",
+      "priority": "high",
+      "inspectionOrder": 44
+    },
+    {
+      "url": "https://sectorcalc.com/seo/heat-loss-calculator",
+      "path": "/seo/heat-loss-calculator",
+      "type": "seo_landing",
+      "priority": "high",
+      "inspectionOrder": 45
+    },
+    {
+      "url": "https://sectorcalc.com/seo/hidden-loss-decision-reports",
+      "path": "/seo/hidden-loss-decision-reports",
+      "type": "seo_landing",
+      "priority": "high",
+      "inspectionOrder": 46
+    },
+    {
+      "url": "https://sectorcalc.com/seo/hvac-project-margin-guard",
+      "path": "/seo/hvac-project-margin-guard",
+      "type": "seo_landing",
+      "priority": "high",
+      "inspectionOrder": 47
+    },
+    {
+      "url": "https://sectorcalc.com/seo/inventory-carrying-cost-eoq-calculator",
+      "path": "/seo/inventory-carrying-cost-eoq-calculator",
+      "type": "seo_landing",
+      "priority": "high",
+      "inspectionOrder": 48
+    },
+    {
+      "url": "https://sectorcalc.com/seo/investment-payback-npv-calculator",
+      "path": "/seo/investment-payback-npv-calculator",
+      "type": "seo_landing",
+      "priority": "high",
+      "inspectionOrder": 49
+    },
+    {
+      "url": "https://sectorcalc.com/seo/landscaping-contract-profit-tool",
+      "path": "/seo/landscaping-contract-profit-tool",
+      "type": "seo_landing",
+      "priority": "high",
+      "inspectionOrder": 50
+    },
+    {
+      "url": "https://sectorcalc.com/seo/logistics-route-calculators",
+      "path": "/seo/logistics-route-calculators",
+      "type": "seo_landing",
+      "priority": "high",
+      "inspectionOrder": 51
+    },
+    {
+      "url": "https://sectorcalc.com/seo/material-waste-calculator",
+      "path": "/seo/material-waste-calculator",
+      "type": "seo_landing",
+      "priority": "high",
+      "inspectionOrder": 52
+    },
+    {
+      "url": "https://sectorcalc.com/seo/meal-planning-verdict",
+      "path": "/seo/meal-planning-verdict",
+      "type": "seo_landing",
+      "priority": "high",
+      "inspectionOrder": 53
+    },
+    {
+      "url": "https://sectorcalc.com/seo/menu-profit-leak-detector",
+      "path": "/seo/menu-profit-leak-detector",
+      "type": "seo_landing",
+      "priority": "high",
+      "inspectionOrder": 54
+    },
+    {
+      "url": "https://sectorcalc.com/seo/millwork-bid-risk-analyzer",
+      "path": "/seo/millwork-bid-risk-analyzer",
+      "type": "seo_landing",
+      "priority": "high",
+      "inspectionOrder": 55
+    },
+    {
+      "url": "https://sectorcalc.com/seo/oee-equipment-effectiveness-calculator",
+      "path": "/seo/oee-equipment-effectiveness-calculator",
+      "type": "seo_landing",
+      "priority": "high",
+      "inspectionOrder": 56
+    },
+    {
+      "url": "https://sectorcalc.com/seo/office-cleaning-bid-optimizer",
+      "path": "/seo/office-cleaning-bid-optimizer",
+      "type": "seo_landing",
+      "priority": "high",
+      "inspectionOrder": 57
+    },
+    {
+      "url": "https://sectorcalc.com/seo/painting-job-profit-verdict",
+      "path": "/seo/painting-job-profit-verdict",
+      "type": "seo_landing",
+      "priority": "high",
+      "inspectionOrder": 58
+    },
+    {
+      "url": "https://sectorcalc.com/seo/panel-shop-margin-verdict",
+      "path": "/seo/panel-shop-margin-verdict",
+      "type": "seo_landing",
+      "priority": "high",
+      "inspectionOrder": 59
+    },
+    {
+      "url": "https://sectorcalc.com/seo/plumbing-job-margin-verdict",
+      "path": "/seo/plumbing-job-margin-verdict",
+      "type": "seo_landing",
+      "priority": "high",
+      "inspectionOrder": 60
+    },
+    {
+      "url": "https://sectorcalc.com/seo/product-customer-profitability-calculator",
+      "path": "/seo/product-customer-profitability-calculator",
+      "type": "seo_landing",
+      "priority": "high",
+      "inspectionOrder": 61
+    },
+    {
+      "url": "https://sectorcalc.com/seo/profit-margin-calculator",
+      "path": "/seo/profit-margin-calculator",
+      "type": "seo_landing",
+      "priority": "high",
+      "inspectionOrder": 62
+    },
+    {
+      "url": "https://sectorcalc.com/seo/quality-cost-paf-calculator",
+      "path": "/seo/quality-cost-paf-calculator",
+      "type": "seo_landing",
+      "priority": "high",
+      "inspectionOrder": 63
+    },
+    {
+      "url": "https://sectorcalc.com/seo/quote-price-profit-margin-calculator",
+      "path": "/seo/quote-price-profit-margin-calculator",
+      "type": "seo_landing",
+      "priority": "high",
+      "inspectionOrder": 64
+    },
+    {
+      "url": "https://sectorcalc.com/seo/renovation-budget-optimizer",
+      "path": "/seo/renovation-budget-optimizer",
+      "type": "seo_landing",
+      "priority": "high",
+      "inspectionOrder": 65
+    },
+    {
+      "url": "https://sectorcalc.com/seo/return-profit-erosion-tool",
+      "path": "/seo/return-profit-erosion-tool",
+      "type": "seo_landing",
+      "priority": "high",
+      "inspectionOrder": 66
+    },
+    {
+      "url": "https://sectorcalc.com/seo/roofing-contract-margin-guard",
+      "path": "/seo/roofing-contract-margin-guard",
+      "type": "seo_landing",
+      "priority": "high",
+      "inspectionOrder": 67
+    },
+    {
+      "url": "https://sectorcalc.com/seo/route-optimization-analyzer",
+      "path": "/seo/route-optimization-analyzer",
+      "type": "seo_landing",
+      "priority": "high",
+      "inspectionOrder": 68
+    },
+    {
+      "url": "https://sectorcalc.com/seo/scrap-rate-calculator",
+      "path": "/seo/scrap-rate-calculator",
+      "type": "seo_landing",
+      "priority": "high",
+      "inspectionOrder": 69
+    },
+    {
+      "url": "https://sectorcalc.com/seo/sheet-metal-quote-risk-tool",
+      "path": "/seo/sheet-metal-quote-risk-tool",
+      "type": "seo_landing",
+      "priority": "high",
+      "inspectionOrder": 70
+    },
+    {
+      "url": "https://sectorcalc.com/seo/shop-rate-hourly-cost-calculator",
+      "path": "/seo/shop-rate-hourly-cost-calculator",
+      "type": "seo_landing",
+      "priority": "high",
+      "inspectionOrder": 71
+    },
+    {
+      "url": "https://sectorcalc.com/seo/signage-bid-safe-price-tool",
+      "path": "/seo/signage-bid-safe-price-tool",
+      "type": "seo_landing",
+      "priority": "high",
+      "inspectionOrder": 72
+    },
+    {
+      "url": "https://sectorcalc.com/seo/trip-budget-optimizer",
+      "path": "/seo/trip-budget-optimizer",
+      "type": "seo_landing",
+      "priority": "high",
+      "inspectionOrder": 73
+    },
+    {
+      "url": "https://sectorcalc.com/seo/unit-conversion-calculators",
+      "path": "/seo/unit-conversion-calculators",
+      "type": "seo_landing",
+      "priority": "high",
+      "inspectionOrder": 74
+    },
+    {
+      "url": "https://sectorcalc.com/seo/value-stream-map-vsm-calculator",
+      "path": "/seo/value-stream-map-vsm-calculator",
+      "type": "seo_landing",
+      "priority": "high",
+      "inspectionOrder": 75
+    },
+    {
+      "url": "https://sectorcalc.com/seo/water-optimization-verdict",
+      "path": "/seo/water-optimization-verdict",
+      "type": "seo_landing",
+      "priority": "high",
+      "inspectionOrder": 76
+    },
+    {
+      "url": "https://sectorcalc.com/seo/welding-bid-risk-analyzer",
+      "path": "/seo/welding-bid-risk-analyzer",
+      "type": "seo_landing",
+      "priority": "high",
+      "inspectionOrder": 77
+    },
+    {
+      "url": "https://sectorcalc.com/calculator-library",
+      "path": "/calculator-library",
+      "type": "hub",
+      "priority": "medium",
+      "inspectionOrder": 78
+    },
+    {
+      "url": "https://sectorcalc.com/calculators/fmea-rpn",
+      "path": "/calculators/fmea-rpn",
+      "type": "core",
+      "priority": "medium",
+      "inspectionOrder": 79
+    },
+    {
+      "url": "https://sectorcalc.com/calculators/npv",
+      "path": "/calculators/npv",
+      "type": "core",
+      "priority": "medium",
+      "inspectionOrder": 80
+    },
+    {
+      "url": "https://sectorcalc.com/calculators/roi",
+      "path": "/calculators/roi",
+      "type": "core",
+      "priority": "medium",
+      "inspectionOrder": 81
+    },
+    {
+      "url": "https://sectorcalc.com/case-studies",
+      "path": "/case-studies",
+      "type": "hub",
+      "priority": "medium",
+      "inspectionOrder": 82
+    },
+    {
+      "url": "https://sectorcalc.com/case-studies/representative-cbam-compliance",
+      "path": "/case-studies/representative-cbam-compliance",
+      "type": "hub",
+      "priority": "medium",
+      "inspectionOrder": 83
+    },
+    {
+      "url": "https://sectorcalc.com/case-studies/representative-change-order-impact",
+      "path": "/case-studies/representative-change-order-impact",
+      "type": "hub",
+      "priority": "medium",
+      "inspectionOrder": 84
+    },
+    {
+      "url": "https://sectorcalc.com/case-studies/representative-cleaning-contract",
+      "path": "/case-studies/representative-cleaning-contract",
+      "type": "hub",
+      "priority": "medium",
+      "inspectionOrder": 85
+    },
+    {
+      "url": "https://sectorcalc.com/case-studies/representative-cnc-job-shop",
+      "path": "/case-studies/representative-cnc-job-shop",
+      "type": "hub",
+      "priority": "medium",
+      "inspectionOrder": 86
+    },
+    {
+      "url": "https://sectorcalc.com/case-studies/representative-construction-bid-margin",
+      "path": "/case-studies/representative-construction-bid-margin",
+      "type": "hub",
+      "priority": "medium",
+      "inspectionOrder": 87
+    },
+    {
+      "url": "https://sectorcalc.com/case-studies/representative-ecommerce-returns",
+      "path": "/case-studies/representative-ecommerce-returns",
+      "type": "hub",
+      "priority": "medium",
+      "inspectionOrder": 88
+    },
+    {
+      "url": "https://sectorcalc.com/case-studies/representative-energy-compressor-peak",
+      "path": "/case-studies/representative-energy-compressor-peak",
+      "type": "hub",
+      "priority": "medium",
+      "inspectionOrder": 89
+    },
+    {
+      "url": "https://sectorcalc.com/case-studies/representative-energy-efficiency",
+      "path": "/case-studies/representative-energy-efficiency",
+      "type": "hub",
+      "priority": "medium",
+      "inspectionOrder": 90
+    },
+    {
+      "url": "https://sectorcalc.com/case-studies/representative-hvac-install",
+      "path": "/case-studies/representative-hvac-install",
+      "type": "hub",
+      "priority": "medium",
+      "inspectionOrder": 91
+    },
+    {
+      "url": "https://sectorcalc.com/case-studies/representative-logistics-route",
+      "path": "/case-studies/representative-logistics-route",
+      "type": "hub",
+      "priority": "medium",
+      "inspectionOrder": 92
+    },
+    {
+      "url": "https://sectorcalc.com/case-studies/representative-plumbing-panel",
+      "path": "/case-studies/representative-plumbing-panel",
+      "type": "hub",
+      "priority": "medium",
+      "inspectionOrder": 93
+    },
+    {
+      "url": "https://sectorcalc.com/case-studies/representative-restaurant-menu",
+      "path": "/case-studies/representative-restaurant-menu",
+      "type": "hub",
+      "priority": "medium",
+      "inspectionOrder": 94
+    },
+    {
+      "url": "https://sectorcalc.com/case-studies/representative-sheet-metal-fab",
+      "path": "/case-studies/representative-sheet-metal-fab",
+      "type": "hub",
+      "priority": "medium",
+      "inspectionOrder": 95
+    },
+    {
+      "url": "https://sectorcalc.com/case-studies/representative-welding-shop",
+      "path": "/case-studies/representative-welding-shop",
+      "type": "hub",
+      "priority": "medium",
+      "inspectionOrder": 96
+    },
+    {
+      "url": "https://sectorcalc.com/disclaimer",
+      "path": "/disclaimer",
+      "type": "core",
+      "priority": "medium",
+      "inspectionOrder": 97
+    },
+    {
+      "url": "https://sectorcalc.com/document-intelligence",
+      "path": "/document-intelligence",
+      "type": "core",
+      "priority": "medium",
+      "inspectionOrder": 98
+    },
+    {
+      "url": "https://sectorcalc.com/document-intelligence/maintenance-bom-recovery",
+      "path": "/document-intelligence/maintenance-bom-recovery",
+      "type": "core",
+      "priority": "medium",
+      "inspectionOrder": 99
+    },
+    {
+      "url": "https://sectorcalc.com/for-consultants",
+      "path": "/for-consultants",
+      "type": "hub",
+      "priority": "medium",
+      "inspectionOrder": 100
+    },
+    {
+      "url": "https://sectorcalc.com/how-it-works",
+      "path": "/how-it-works",
+      "type": "hub",
+      "priority": "medium",
+      "inspectionOrder": 101
+    },
+    {
+      "url": "https://sectorcalc.com/industries/3d-printing-service",
+      "path": "/industries/3d-printing-service",
+      "type": "hub",
+      "priority": "medium",
+      "inspectionOrder": 102
+    },
+    {
+      "url": "https://sectorcalc.com/industries/agriculture-crops",
+      "path": "/industries/agriculture-crops",
+      "type": "hub",
+      "priority": "medium",
+      "inspectionOrder": 103
+    },
+    {
+      "url": "https://sectorcalc.com/industries/agriculture-dairy",
+      "path": "/industries/agriculture-dairy",
+      "type": "hub",
+      "priority": "medium",
+      "inspectionOrder": 104
+    },
+    {
+      "url": "https://sectorcalc.com/industries/agriculture-feed",
+      "path": "/industries/agriculture-feed",
+      "type": "hub",
+      "priority": "medium",
+      "inspectionOrder": 105
+    },
+    {
+      "url": "https://sectorcalc.com/industries/agriculture-irrigation",
+      "path": "/industries/agriculture-irrigation",
+      "type": "hub",
+      "priority": "medium",
+      "inspectionOrder": 106
+    },
+    {
+      "url": "https://sectorcalc.com/industries/auto-repair-shop",
+      "path": "/industries/auto-repair-shop",
+      "type": "hub",
+      "priority": "medium",
+      "inspectionOrder": 107
+    },
+    {
+      "url": "https://sectorcalc.com/industries/carpentry-millwork",
+      "path": "/industries/carpentry-millwork",
+      "type": "hub",
+      "priority": "medium",
+      "inspectionOrder": 108
+    },
+    {
+      "url": "https://sectorcalc.com/industries/cleaning",
+      "path": "/industries/cleaning",
+      "type": "hub",
+      "priority": "medium",
+      "inspectionOrder": 109
+    },
+    {
+      "url": "https://sectorcalc.com/industries/cnc-manufacturing",
+      "path": "/industries/cnc-manufacturing",
+      "type": "hub",
+      "priority": "medium",
+      "inspectionOrder": 110
+    },
+    {
+      "url": "https://sectorcalc.com/industries/construction",
+      "path": "/industries/construction",
+      "type": "hub",
+      "priority": "medium",
+      "inspectionOrder": 111
+    },
+    {
+      "url": "https://sectorcalc.com/industries/daily-fuel",
+      "path": "/industries/daily-fuel",
+      "type": "hub",
+      "priority": "medium",
+      "inspectionOrder": 112
+    },
+    {
+      "url": "https://sectorcalc.com/industries/daily-meals",
+      "path": "/industries/daily-meals",
+      "type": "hub",
+      "priority": "medium",
+      "inspectionOrder": 113
+    },
+    {
+      "url": "https://sectorcalc.com/industries/daily-renovation",
+      "path": "/industries/daily-renovation",
+      "type": "hub",
+      "priority": "medium",
+      "inspectionOrder": 114
+    },
+    {
+      "url": "https://sectorcalc.com/industries/ecommerce",
+      "path": "/industries/ecommerce",
+      "type": "hub",
+      "priority": "medium",
+      "inspectionOrder": 115
+    },
+    {
+      "url": "https://sectorcalc.com/industries/electrical-contracting",
+      "path": "/industries/electrical-contracting",
+      "type": "hub",
+      "priority": "medium",
+      "inspectionOrder": 116
+    },
+    {
+      "url": "https://sectorcalc.com/industries/energy-carbon",
+      "path": "/industries/energy-carbon",
+      "type": "hub",
+      "priority": "medium",
+      "inspectionOrder": 117
+    },
+    {
+      "url": "https://sectorcalc.com/industries/energy-consumption",
+      "path": "/industries/energy-consumption",
+      "type": "hub",
+      "priority": "medium",
+      "inspectionOrder": 118
+    },
+    {
+      "url": "https://sectorcalc.com/industries/hvac",
+      "path": "/industries/hvac",
+      "type": "hub",
+      "priority": "medium",
+      "inspectionOrder": 119
+    },
+    {
+      "url": "https://sectorcalc.com/industries/landscaping-lawn-care",
+      "path": "/industries/landscaping-lawn-care",
+      "type": "hub",
+      "priority": "medium",
+      "inspectionOrder": 120
+    },
+    {
+      "url": "https://sectorcalc.com/industries/logistics-transport",
+      "path": "/industries/logistics-transport",
+      "type": "hub",
+      "priority": "medium",
+      "inspectionOrder": 121
+    },
+    {
+      "url": "https://sectorcalc.com/industries/painting",
+      "path": "/industries/painting",
+      "type": "hub",
+      "priority": "medium",
+      "inspectionOrder": 122
+    },
+    {
+      "url": "https://sectorcalc.com/industries/plumbing",
+      "path": "/industries/plumbing",
+      "type": "hub",
+      "priority": "medium",
+      "inspectionOrder": 123
+    },
+    {
+      "url": "https://sectorcalc.com/industries/printing-signage",
+      "path": "/industries/printing-signage",
+      "type": "hub",
+      "priority": "medium",
+      "inspectionOrder": 124
+    },
+    {
+      "url": "https://sectorcalc.com/industries/restaurant",
+      "path": "/industries/restaurant",
+      "type": "hub",
+      "priority": "medium",
+      "inspectionOrder": 125
+    },
+    {
+      "url": "https://sectorcalc.com/industries/roofing",
+      "path": "/industries/roofing",
+      "type": "hub",
+      "priority": "medium",
+      "inspectionOrder": 126
+    },
+    {
+      "url": "https://sectorcalc.com/industries/sheet-metal",
+      "path": "/industries/sheet-metal",
+      "type": "hub",
+      "priority": "medium",
+      "inspectionOrder": 127
+    },
+    {
+      "url": "https://sectorcalc.com/industries/welding-fabrication",
+      "path": "/industries/welding-fabrication",
+      "type": "hub",
+      "priority": "medium",
+      "inspectionOrder": 128
+    },
+    {
+      "url": "https://sectorcalc.com/lean/a3-report",
+      "path": "/lean/a3-report",
+      "type": "lean_tool",
+      "priority": "medium",
+      "inspectionOrder": 129
+    },
+    {
+      "url": "https://sectorcalc.com/lean/a3/capacity-utilization",
+      "path": "/lean/a3/capacity-utilization",
+      "type": "lean_tool",
+      "priority": "medium",
+      "inspectionOrder": 130
+    },
+    {
+      "url": "https://sectorcalc.com/lean/a3/cycle-time",
+      "path": "/lean/a3/cycle-time",
+      "type": "lean_tool",
+      "priority": "medium",
+      "inspectionOrder": 131
+    },
+    {
+      "url": "https://sectorcalc.com/lean/a3/oee",
+      "path": "/lean/a3/oee",
+      "type": "lean_tool",
+      "priority": "medium",
+      "inspectionOrder": 132
+    },
+    {
+      "url": "https://sectorcalc.com/lean/a3/scrap-rate",
+      "path": "/lean/a3/scrap-rate",
+      "type": "lean_tool",
+      "priority": "medium",
+      "inspectionOrder": 133
+    },
+    {
+      "url": "https://sectorcalc.com/lean/a3/takt-time",
+      "path": "/lean/a3/takt-time",
+      "type": "lean_tool",
+      "priority": "medium",
+      "inspectionOrder": 134
+    },
+    {
+      "url": "https://sectorcalc.com/lean/gemba/capacity-utilization",
+      "path": "/lean/gemba/capacity-utilization",
+      "type": "lean_tool",
+      "priority": "medium",
+      "inspectionOrder": 135
+    },
+    {
+      "url": "https://sectorcalc.com/lean/gemba/cycle-time",
+      "path": "/lean/gemba/cycle-time",
+      "type": "lean_tool",
+      "priority": "medium",
+      "inspectionOrder": 136
+    },
+    {
+      "url": "https://sectorcalc.com/lean/gemba/oee",
+      "path": "/lean/gemba/oee",
+      "type": "lean_tool",
+      "priority": "medium",
+      "inspectionOrder": 137
+    },
+    {
+      "url": "https://sectorcalc.com/lean/gemba/scrap-rate",
+      "path": "/lean/gemba/scrap-rate",
+      "type": "lean_tool",
+      "priority": "medium",
+      "inspectionOrder": 138
+    },
+    {
+      "url": "https://sectorcalc.com/lean/gemba/takt-time",
+      "path": "/lean/gemba/takt-time",
+      "type": "lean_tool",
+      "priority": "medium",
+      "inspectionOrder": 139
+    },
+    {
+      "url": "https://sectorcalc.com/lean/muda/capacity-utilization",
+      "path": "/lean/muda/capacity-utilization",
+      "type": "lean_tool",
+      "priority": "medium",
+      "inspectionOrder": 140
+    },
+    {
+      "url": "https://sectorcalc.com/lean/muda/cycle-time",
+      "path": "/lean/muda/cycle-time",
+      "type": "lean_tool",
+      "priority": "medium",
+      "inspectionOrder": 141
+    },
+    {
+      "url": "https://sectorcalc.com/lean/muda/oee",
+      "path": "/lean/muda/oee",
+      "type": "lean_tool",
+      "priority": "medium",
+      "inspectionOrder": 142
+    },
+    {
+      "url": "https://sectorcalc.com/lean/muda/scrap-rate",
+      "path": "/lean/muda/scrap-rate",
+      "type": "lean_tool",
+      "priority": "medium",
+      "inspectionOrder": 143
+    },
+    {
+      "url": "https://sectorcalc.com/lean/muda/takt-time",
+      "path": "/lean/muda/takt-time",
+      "type": "lean_tool",
+      "priority": "medium",
+      "inspectionOrder": 144
+    },
+    {
+      "url": "https://sectorcalc.com/lean/pdca/capacity-utilization",
+      "path": "/lean/pdca/capacity-utilization",
+      "type": "lean_tool",
+      "priority": "medium",
+      "inspectionOrder": 145
+    },
+    {
+      "url": "https://sectorcalc.com/lean/pdca/cycle-time",
+      "path": "/lean/pdca/cycle-time",
+      "type": "lean_tool",
+      "priority": "medium",
+      "inspectionOrder": 146
+    },
+    {
+      "url": "https://sectorcalc.com/lean/pdca/oee",
+      "path": "/lean/pdca/oee",
+      "type": "lean_tool",
+      "priority": "medium",
+      "inspectionOrder": 147
+    },
+    {
+      "url": "https://sectorcalc.com/lean/pdca/scrap-rate",
+      "path": "/lean/pdca/scrap-rate",
+      "type": "lean_tool",
+      "priority": "medium",
+      "inspectionOrder": 148
+    },
+    {
+      "url": "https://sectorcalc.com/lean/pdca/takt-time",
+      "path": "/lean/pdca/takt-time",
+      "type": "lean_tool",
+      "priority": "medium",
+      "inspectionOrder": 149
+    },
+    {
+      "url": "https://sectorcalc.com/operating-system",
+      "path": "/operating-system",
+      "type": "hub",
+      "priority": "medium",
+      "inspectionOrder": 150
+    },
+    {
+      "url": "https://sectorcalc.com/privacy",
+      "path": "/privacy",
+      "type": "core",
+      "priority": "medium",
+      "inspectionOrder": 151
+    },
+    {
+      "url": "https://sectorcalc.com/resources/fmea-rpn-technical-note",
+      "path": "/resources/fmea-rpn-technical-note",
+      "type": "core",
+      "priority": "medium",
+      "inspectionOrder": 152
+    },
+    {
+      "url": "https://sectorcalc.com/terms",
+      "path": "/terms",
+      "type": "core",
+      "priority": "medium",
+      "inspectionOrder": 153
+    },
+    {
+      "url": "https://sectorcalc.com/tools/free/beam-load-deflection-quick-check",
+      "path": "/tools/free/beam-load-deflection-quick-check",
+      "type": "free_tool",
+      "priority": "medium",
+      "inspectionOrder": 154
+    },
+    {
+      "url": "https://sectorcalc.com/tools/free/bolt-preload-clamp-force",
+      "path": "/tools/free/bolt-preload-clamp-force",
+      "type": "free_tool",
+      "priority": "medium",
+      "inspectionOrder": 155
+    },
+    {
+      "url": "https://sectorcalc.com/tools/free/bolt-torque",
+      "path": "/tools/free/bolt-torque",
+      "type": "free_tool",
+      "priority": "medium",
+      "inspectionOrder": 156
+    },
+    {
+      "url": "https://sectorcalc.com/tools/free/break-even-and-margin-of-safety-analysis",
+      "path": "/tools/free/break-even-and-margin-of-safety-analysis",
+      "type": "free_tool",
+      "priority": "medium",
+      "inspectionOrder": 157
+    },
+    {
+      "url": "https://sectorcalc.com/tools/free/break-even-point",
+      "path": "/tools/free/break-even-point",
+      "type": "free_tool",
+      "priority": "medium",
+      "inspectionOrder": 158
+    },
+    {
+      "url": "https://sectorcalc.com/tools/free/carbon-price-exposure",
+      "path": "/tools/free/carbon-price-exposure",
+      "type": "free_tool",
+      "priority": "medium",
+      "inspectionOrder": 159
+    },
+    {
+      "url": "https://sectorcalc.com/tools/free/cbam-cost-quick-estimator",
+      "path": "/tools/free/cbam-cost-quick-estimator",
+      "type": "free_tool",
+      "priority": "medium",
+      "inspectionOrder": 160
+    },
+    {
+      "url": "https://sectorcalc.com/tools/free/cnc-shop-hourly-rate",
+      "path": "/tools/free/cnc-shop-hourly-rate",
+      "type": "free_tool",
+      "priority": "medium",
+      "inspectionOrder": 161
+    },
+    {
+      "url": "https://sectorcalc.com/tools/free/compressed-air-leak-cost",
+      "path": "/tools/free/compressed-air-leak-cost",
+      "type": "free_tool",
+      "priority": "medium",
+      "inspectionOrder": 162
+    },
+    {
+      "url": "https://sectorcalc.com/tools/free/concrete-volume-order-quantity",
+      "path": "/tools/free/concrete-volume-order-quantity",
+      "type": "free_tool",
+      "priority": "medium",
+      "inspectionOrder": 163
+    },
+    {
+      "url": "https://sectorcalc.com/tools/free/currency-adjusted-pricing",
+      "path": "/tools/free/currency-adjusted-pricing",
+      "type": "free_tool",
+      "priority": "medium",
+      "inspectionOrder": 164
+    },
+    {
+      "url": "https://sectorcalc.com/tools/free/customer-profitability",
+      "path": "/tools/free/customer-profitability",
+      "type": "free_tool",
+      "priority": "medium",
+      "inspectionOrder": 165
+    },
+    {
+      "url": "https://sectorcalc.com/tools/free/cutting-speed-feed-rpm",
+      "path": "/tools/free/cutting-speed-feed-rpm",
+      "type": "free_tool",
+      "priority": "medium",
+      "inspectionOrder": 166
+    },
+    {
+      "url": "https://sectorcalc.com/tools/free/diesel-fuel-co2-emissions",
+      "path": "/tools/free/diesel-fuel-co2-emissions",
+      "type": "free_tool",
+      "priority": "medium",
+      "inspectionOrder": 167
+    },
+    {
+      "url": "https://sectorcalc.com/tools/free/downtime-cost",
+      "path": "/tools/free/downtime-cost",
+      "type": "free_tool",
+      "priority": "medium",
+      "inspectionOrder": 168
+    },
+    {
+      "url": "https://sectorcalc.com/tools/free/electric-motor-running-cost",
+      "path": "/tools/free/electric-motor-running-cost",
+      "type": "free_tool",
+      "priority": "medium",
+      "inspectionOrder": 169
+    },
+    {
+      "url": "https://sectorcalc.com/tools/free/electricity-co2-emissions",
+      "path": "/tools/free/electricity-co2-emissions",
+      "type": "free_tool",
+      "priority": "medium",
+      "inspectionOrder": 170
+    },
+    {
+      "url": "https://sectorcalc.com/tools/free/energy-cost-per-part",
+      "path": "/tools/free/energy-cost-per-part",
+      "type": "free_tool",
+      "priority": "medium",
+      "inspectionOrder": 171
+    },
+    {
+      "url": "https://sectorcalc.com/tools/free/eoq",
+      "path": "/tools/free/eoq",
+      "type": "free_tool",
+      "priority": "medium",
+      "inspectionOrder": 172
+    },
+    {
+      "url": "https://sectorcalc.com/tools/free/fabric-consumption-gsm",
+      "path": "/tools/free/fabric-consumption-gsm",
+      "type": "free_tool",
+      "priority": "medium",
+      "inspectionOrder": 173
+    },
+    {
+      "url": "https://sectorcalc.com/tools/free/fillet-weld-size-strength",
+      "path": "/tools/free/fillet-weld-size-strength",
+      "type": "free_tool",
+      "priority": "medium",
+      "inspectionOrder": 174
+    },
+    {
+      "url": "https://sectorcalc.com/tools/free/freight-cost-per-km-trip",
+      "path": "/tools/free/freight-cost-per-km-trip",
+      "type": "free_tool",
+      "priority": "medium",
+      "inspectionOrder": 175
+    },
+    {
+      "url": "https://sectorcalc.com/tools/free/inventory-carrying-cost",
+      "path": "/tools/free/inventory-carrying-cost",
+      "type": "free_tool",
+      "priority": "medium",
+      "inspectionOrder": 176
+    },
+    {
+      "url": "https://sectorcalc.com/tools/free/iso-286-tolerance-fit",
+      "path": "/tools/free/iso-286-tolerance-fit",
+      "type": "free_tool",
+      "priority": "medium",
+      "inspectionOrder": 177
+    },
+    {
+      "url": "https://sectorcalc.com/tools/free/knurling-drill-point-depth",
+      "path": "/tools/free/knurling-drill-point-depth",
+      "type": "free_tool",
+      "priority": "medium",
+      "inspectionOrder": 178
+    },
+    {
+      "url": "https://sectorcalc.com/tools/free/line-balancing-efficiency",
+      "path": "/tools/free/line-balancing-efficiency",
+      "type": "free_tool",
+      "priority": "medium",
+      "inspectionOrder": 179
+    },
+    {
+      "url": "https://sectorcalc.com/tools/free/machine-investment-payback",
+      "path": "/tools/free/machine-investment-payback",
+      "type": "free_tool",
+      "priority": "medium",
+      "inspectionOrder": 180
+    },
+    {
+      "url": "https://sectorcalc.com/tools/free/machining-cost-per-part",
+      "path": "/tools/free/machining-cost-per-part",
+      "type": "free_tool",
+      "priority": "medium",
+      "inspectionOrder": 181
+    },
+    {
+      "url": "https://sectorcalc.com/tools/free/material-removal-rate",
+      "path": "/tools/free/material-removal-rate",
+      "type": "free_tool",
+      "priority": "medium",
+      "inspectionOrder": 182
+    },
+    {
+      "url": "https://sectorcalc.com/tools/free/net-present-value-calculator",
+      "path": "/tools/free/net-present-value-calculator",
+      "type": "free_tool",
+      "priority": "medium",
+      "inspectionOrder": 183
+    },
+    {
+      "url": "https://sectorcalc.com/tools/free/oee",
+      "path": "/tools/free/oee",
+      "type": "free_tool",
+      "priority": "medium",
+      "inspectionOrder": 184
+    },
+    {
+      "url": "https://sectorcalc.com/tools/free/pallet-container-load-cbm",
+      "path": "/tools/free/pallet-container-load-cbm",
+      "type": "free_tool",
+      "priority": "medium",
+      "inspectionOrder": 185
+    },
+    {
+      "url": "https://sectorcalc.com/tools/free/payment-term-cost",
+      "path": "/tools/free/payment-term-cost",
+      "type": "free_tool",
+      "priority": "medium",
+      "inspectionOrder": 186
+    },
+    {
+      "url": "https://sectorcalc.com/tools/free/product-carbon-footprint-basic",
+      "path": "/tools/free/product-carbon-footprint-basic",
+      "type": "free_tool",
+      "priority": "medium",
+      "inspectionOrder": 187
+    },
+    {
+      "url": "https://sectorcalc.com/tools/free/quote-margin-markup",
+      "path": "/tools/free/quote-margin-markup",
+      "type": "free_tool",
+      "priority": "medium",
+      "inspectionOrder": 188
+    },
+    {
+      "url": "https://sectorcalc.com/tools/free/rebar-weight-count",
+      "path": "/tools/free/rebar-weight-count",
+      "type": "free_tool",
+      "priority": "medium",
+      "inspectionOrder": 189
+    },
+    {
+      "url": "https://sectorcalc.com/tools/free/recipe-cost-menu-price",
+      "path": "/tools/free/recipe-cost-menu-price",
+      "type": "free_tool",
+      "priority": "medium",
+      "inspectionOrder": 190
+    },
+    {
+      "url": "https://sectorcalc.com/tools/free/return-on-investment-calculator",
+      "path": "/tools/free/return-on-investment-calculator",
+      "type": "free_tool",
+      "priority": "medium",
+      "inspectionOrder": 191
+    },
+    {
+      "url": "https://sectorcalc.com/tools/free/rework-vs-scrap-decision",
+      "path": "/tools/free/rework-vs-scrap-decision",
+      "type": "free_tool",
+      "priority": "medium",
+      "inspectionOrder": 192
+    },
+    {
+      "url": "https://sectorcalc.com/tools/free/safety-stock-reorder-point",
+      "path": "/tools/free/safety-stock-reorder-point",
+      "type": "free_tool",
+      "priority": "medium",
+      "inspectionOrder": 193
+    },
+    {
+      "url": "https://sectorcalc.com/tools/free/scrap-cost",
+      "path": "/tools/free/scrap-cost",
+      "type": "free_tool",
+      "priority": "medium",
+      "inspectionOrder": 194
+    },
+    {
+      "url": "https://sectorcalc.com/tools/free/setup-time-cost",
+      "path": "/tools/free/setup-time-cost",
+      "type": "free_tool",
+      "priority": "medium",
+      "inspectionOrder": 195
+    },
+    {
+      "url": "https://sectorcalc.com/tools/free/sheet-metal-bend-allowance",
+      "path": "/tools/free/sheet-metal-bend-allowance",
+      "type": "free_tool",
+      "priority": "medium",
+      "inspectionOrder": 196
+    },
+    {
+      "url": "https://sectorcalc.com/tools/free/steel-weight",
+      "path": "/tools/free/steel-weight",
+      "type": "free_tool",
+      "priority": "medium",
+      "inspectionOrder": 197
+    },
+    {
+      "url": "https://sectorcalc.com/tools/free/surface-roughness-converter",
+      "path": "/tools/free/surface-roughness-converter",
+      "type": "free_tool",
+      "priority": "medium",
+      "inspectionOrder": 198
+    },
+    {
+      "url": "https://sectorcalc.com/tools/free/takt-time-cycle-time",
+      "path": "/tools/free/takt-time-cycle-time",
+      "type": "free_tool",
+      "priority": "medium",
+      "inspectionOrder": 199
+    },
+    {
+      "url": "https://sectorcalc.com/tools/free/tap-drill-size",
+      "path": "/tools/free/tap-drill-size",
+      "type": "free_tool",
+      "priority": "medium",
+      "inspectionOrder": 200
+    },
+    {
+      "url": "https://sectorcalc.com/tools/free/thread-dimensions-reference",
+      "path": "/tools/free/thread-dimensions-reference",
+      "type": "free_tool",
+      "priority": "medium",
+      "inspectionOrder": 201
+    },
+    {
+      "url": "https://sectorcalc.com/tools/free/tool-life-tool-cost-per-part",
+      "path": "/tools/free/tool-life-tool-cost-per-part",
+      "type": "free_tool",
+      "priority": "medium",
+      "inspectionOrder": 202
+    },
+    {
+      "url": "https://sectorcalc.com/tools/free/true-employee-cost",
+      "path": "/tools/free/true-employee-cost",
+      "type": "free_tool",
+      "priority": "medium",
+      "inspectionOrder": 203
+    },
+    {
+      "url": "https://sectorcalc.com/tools/free/von-mises-stress-calculator",
+      "path": "/tools/free/von-mises-stress-calculator",
+      "type": "free_tool",
+      "priority": "medium",
+      "inspectionOrder": 204
+    },
+    {
+      "url": "https://sectorcalc.com/tools/free/weld-metal-weight-consumable",
+      "path": "/tools/free/weld-metal-weight-consumable",
+      "type": "free_tool",
+      "priority": "medium",
+      "inspectionOrder": 205
+    },
+    {
+      "url": "https://sectorcalc.com/tools/free/welding-cost-per-meter",
+      "path": "/tools/free/welding-cost-per-meter",
+      "type": "free_tool",
+      "priority": "medium",
+      "inspectionOrder": 206
+    },
+    {
+      "url": "https://sectorcalc.com/tools/free/welding-heat-input",
+      "path": "/tools/free/welding-heat-input",
+      "type": "free_tool",
+      "priority": "medium",
+      "inspectionOrder": 207
+    },
+    {
+      "url": "https://sectorcalc.com/tools/premium-schema/ai-token-cost-analyzer",
+      "path": "/tools/premium-schema/ai-token-cost-analyzer",
+      "type": "premium_analyzer",
+      "priority": "medium",
+      "inspectionOrder": 208
+    },
+    {
+      "url": "https://sectorcalc.com/tools/premium-schema/break-even-margin-of-safety-analyzer",
+      "path": "/tools/premium-schema/break-even-margin-of-safety-analyzer",
+      "type": "premium_analyzer",
+      "priority": "medium",
+      "inspectionOrder": 209
+    },
+    {
+      "url": "https://sectorcalc.com/tools/premium-schema/cash-flow-gap-analyzer",
+      "path": "/tools/premium-schema/cash-flow-gap-analyzer",
+      "type": "premium_analyzer",
+      "priority": "medium",
+      "inspectionOrder": 210
+    },
+    {
+      "url": "https://sectorcalc.com/tools/premium-schema/cleaning-bid-optimizer-analyzer",
+      "path": "/tools/premium-schema/cleaning-bid-optimizer-analyzer",
+      "type": "premium_analyzer",
+      "priority": "medium",
+      "inspectionOrder": 211
+    },
+    {
+      "url": "https://sectorcalc.com/tools/premium-schema/contract-incentive-analyzer",
+      "path": "/tools/premium-schema/contract-incentive-analyzer",
+      "type": "premium_analyzer",
+      "priority": "medium",
+      "inspectionOrder": 212
+    },
+    {
+      "url": "https://sectorcalc.com/tools/premium-schema/crop-yield-loss-analyzer",
+      "path": "/tools/premium-schema/crop-yield-loss-analyzer",
+      "type": "premium_analyzer",
+      "priority": "medium",
+      "inspectionOrder": 213
+    },
+    {
+      "url": "https://sectorcalc.com/tools/premium-schema/dairy-profit-detector-analyzer",
+      "path": "/tools/premium-schema/dairy-profit-detector-analyzer",
+      "type": "premium_analyzer",
+      "priority": "medium",
+      "inspectionOrder": 214
+    },
+    {
+      "url": "https://sectorcalc.com/tools/premium-schema/demand-forecast-stock-analyzer",
+      "path": "/tools/premium-schema/demand-forecast-stock-analyzer",
+      "type": "premium_analyzer",
+      "priority": "medium",
+      "inspectionOrder": 215
+    },
+    {
+      "url": "https://sectorcalc.com/tools/premium-schema/employee-turnover-cost-analyzer",
+      "path": "/tools/premium-schema/employee-turnover-cost-analyzer",
+      "type": "premium_analyzer",
+      "priority": "medium",
+      "inspectionOrder": 216
+    },
+    {
+      "url": "https://sectorcalc.com/tools/premium-schema/fabric-cutting-optimizer-analyzer",
+      "path": "/tools/premium-schema/fabric-cutting-optimizer-analyzer",
+      "type": "premium_analyzer",
+      "priority": "medium",
+      "inspectionOrder": 217
+    },
+    {
+      "url": "https://sectorcalc.com/tools/premium-schema/inventory-turnover-risk-analyzer",
+      "path": "/tools/premium-schema/inventory-turnover-risk-analyzer",
+      "type": "premium_analyzer",
+      "priority": "medium",
+      "inspectionOrder": 218
+    },
+    {
+      "url": "https://sectorcalc.com/tools/premium-schema/irrigation-cost-check-analyzer",
+      "path": "/tools/premium-schema/irrigation-cost-check-analyzer",
+      "type": "premium_analyzer",
+      "priority": "medium",
+      "inspectionOrder": 219
+    },
+    {
+      "url": "https://sectorcalc.com/tools/premium-schema/office-supplies-cost-analyzer",
+      "path": "/tools/premium-schema/office-supplies-cost-analyzer",
+      "type": "premium_analyzer",
+      "priority": "medium",
+      "inspectionOrder": 220
+    },
+    {
+      "url": "https://sectorcalc.com/tools/premium-schema/overtime-hiring-breakeven-analyzer",
+      "path": "/tools/premium-schema/overtime-hiring-breakeven-analyzer",
+      "type": "premium_analyzer",
+      "priority": "medium",
+      "inspectionOrder": 221
+    },
+    {
+      "url": "https://sectorcalc.com/tools/premium-schema/pallet-rack-optimizer-analyzer",
+      "path": "/tools/premium-schema/pallet-rack-optimizer-analyzer",
+      "type": "premium_analyzer",
+      "priority": "medium",
+      "inspectionOrder": 222
+    },
+    {
+      "url": "https://sectorcalc.com/tools/premium-schema/payment-terms-optimizer-analyzer",
+      "path": "/tools/premium-schema/payment-terms-optimizer-analyzer",
+      "type": "premium_analyzer",
+      "priority": "medium",
+      "inspectionOrder": 223
+    },
+    {
+      "url": "https://sectorcalc.com/tools/premium-schema/recipe-cost-check-analyzer",
+      "path": "/tools/premium-schema/recipe-cost-check-analyzer",
+      "type": "premium_analyzer",
+      "priority": "medium",
+      "inspectionOrder": 224
+    },
+    {
+      "url": "https://sectorcalc.com/tools/premium-schema/restaurant-menu-margin-leak-analyzer",
+      "path": "/tools/premium-schema/restaurant-menu-margin-leak-analyzer",
+      "type": "premium_analyzer",
+      "priority": "medium",
+      "inspectionOrder": 225
+    },
+    {
+      "url": "https://sectorcalc.com/tools/premium-schema/saas-shelfware-analyzer",
+      "path": "/tools/premium-schema/saas-shelfware-analyzer",
+      "type": "premium_analyzer",
+      "priority": "medium",
+      "inspectionOrder": 226
+    },
+    {
+      "url": "https://sectorcalc.com/tools/premium-schema/seed-rate-analyzer",
+      "path": "/tools/premium-schema/seed-rate-analyzer",
+      "type": "premium_analyzer",
+      "priority": "medium",
+      "inspectionOrder": 227
+    },
+    {
+      "url": "https://sectorcalc.com/tools/premium-schema/supply-chain-disruption-analyzer",
+      "path": "/tools/premium-schema/supply-chain-disruption-analyzer",
+      "type": "premium_analyzer",
+      "priority": "medium",
+      "inspectionOrder": 228
+    },
+    {
+      "url": "https://sectorcalc.com/tools/premium-schema/taguchi-quality-loss-analyzer",
+      "path": "/tools/premium-schema/taguchi-quality-loss-analyzer",
+      "type": "premium_analyzer",
+      "priority": "medium",
+      "inspectionOrder": 229
+    },
+    {
+      "url": "https://sectorcalc.com/tools/premium-schema/textile-waste-risk-analyzer",
+      "path": "/tools/premium-schema/textile-waste-risk-analyzer",
+      "type": "premium_analyzer",
+      "priority": "medium",
+      "inspectionOrder": 230
+    },
+    {
+      "url": "https://sectorcalc.com/tools/premium-schema/total-employee-cost-analyzer",
+      "path": "/tools/premium-schema/total-employee-cost-analyzer",
+      "type": "premium_analyzer",
+      "priority": "medium",
+      "inspectionOrder": 231
+    },
+    {
+      "url": "https://sectorcalc.com/tools/premium-schema/transfer-pricing-optimizer-analyzer",
+      "path": "/tools/premium-schema/transfer-pricing-optimizer-analyzer",
+      "type": "premium_analyzer",
+      "priority": "medium",
+      "inspectionOrder": 232
+    },
+    {
+      "url": "https://sectorcalc.com/tools/premium-schema/water-usage-optimizer-analyzer",
+      "path": "/tools/premium-schema/water-usage-optimizer-analyzer",
+      "type": "premium_analyzer",
+      "priority": "medium",
+      "inspectionOrder": 233
+    },
+    {
+      "url": "https://sectorcalc.com/tools/pro/break-even-survival-cash-calculator",
+      "path": "/tools/pro/break-even-survival-cash-calculator",
+      "type": "premium_analyzer",
+      "priority": "medium",
+      "inspectionOrder": 234
+    },
+    {
+      "url": "https://sectorcalc.com/tools/pro/capital-equipment-investment-appraisal-npv-irr",
+      "path": "/tools/pro/capital-equipment-investment-appraisal-npv-irr",
+      "type": "premium_analyzer",
+      "priority": "medium",
+      "inspectionOrder": 235
+    },
+    {
+      "url": "https://sectorcalc.com/tools/pro/customer-sku-profitability-forensics",
+      "path": "/tools/pro/customer-sku-profitability-forensics",
+      "type": "premium_analyzer",
+      "priority": "medium",
+      "inspectionOrder": 236
+    },
+    {
+      "url": "https://sectorcalc.com/tools/pro/downtime-scrap-loss-statement",
+      "path": "/tools/pro/downtime-scrap-loss-statement",
+      "type": "premium_analyzer",
+      "priority": "medium",
+      "inspectionOrder": 237
+    },
+    {
+      "url": "https://sectorcalc.com/tools/pro/energy-efficiency-grant-incentive-feasibility-pack",
+      "path": "/tools/pro/energy-efficiency-grant-incentive-feasibility-pack",
+      "type": "premium_analyzer",
+      "priority": "medium",
+      "inspectionOrder": 238
+    },
+    {
+      "url": "https://sectorcalc.com/tools/pro/fx-commodity-pass-through-pricer",
+      "path": "/tools/pro/fx-commodity-pass-through-pricer",
+      "type": "premium_analyzer",
+      "priority": "medium",
+      "inspectionOrder": 239
+    },
+    {
+      "url": "https://sectorcalc.com/tools/pro/job-quote-builder-pro-pack",
+      "path": "/tools/pro/job-quote-builder-pro-pack",
+      "type": "premium_analyzer",
+      "priority": "medium",
+      "inspectionOrder": 240
+    },
+    {
+      "url": "https://sectorcalc.com/tools/pro/loss-making-job-detector",
+      "path": "/tools/pro/loss-making-job-detector",
+      "type": "premium_analyzer",
+      "priority": "medium",
+      "inspectionOrder": 241
+    },
+    {
+      "url": "https://sectorcalc.com/tools/pro/machine-hourly-rate-proof-report",
+      "path": "/tools/pro/machine-hourly-rate-proof-report",
+      "type": "premium_analyzer",
+      "priority": "medium",
+      "inspectionOrder": 242
+    },
+    {
+      "url": "https://sectorcalc.com/tools/pro/machine-investment-feasibility-buy-lease-keep",
+      "path": "/tools/pro/machine-investment-feasibility-buy-lease-keep",
+      "type": "premium_analyzer",
+      "priority": "medium",
+      "inspectionOrder": 243
+    },
+    {
+      "url": "https://sectorcalc.com/tools/pro/motor-compressor-replacement-roi",
+      "path": "/tools/pro/motor-compressor-replacement-roi",
+      "type": "premium_analyzer",
+      "priority": "medium",
+      "inspectionOrder": 244
+    },
+    {
+      "url": "https://sectorcalc.com/tools/pro/oee-loss-monetization-improvement-business-case",
+      "path": "/tools/pro/oee-loss-monetization-improvement-business-case",
+      "type": "premium_analyzer",
+      "priority": "medium",
+      "inspectionOrder": 245
+    },
+    {
+      "url": "https://sectorcalc.com/tools/pro/outsource-vs-in-house-analyzer",
+      "path": "/tools/pro/outsource-vs-in-house-analyzer",
+      "type": "premium_analyzer",
+      "priority": "medium",
+      "inspectionOrder": 246
+    },
+    {
+      "url": "https://sectorcalc.com/tools/pro/plant-wide-shop-rate-cost-structure-audit",
+      "path": "/tools/pro/plant-wide-shop-rate-cost-structure-audit",
+      "type": "premium_analyzer",
+      "priority": "medium",
+      "inspectionOrder": 247
+    },
+    {
+      "url": "https://sectorcalc.com/tools/pro/product-sku-margin-ranker",
+      "path": "/tools/pro/product-sku-margin-ranker",
+      "type": "premium_analyzer",
+      "priority": "medium",
+      "inspectionOrder": 248
+    },
+    {
+      "url": "https://sectorcalc.com/tools/pro/receivables-cost-payment-term-addendum",
+      "path": "/tools/pro/receivables-cost-payment-term-addendum",
+      "type": "premium_analyzer",
+      "priority": "medium",
+      "inspectionOrder": 249
+    },
+    {
+      "url": "https://sectorcalc.com/tools/pro/scrap-rework-cost-tracker",
+      "path": "/tools/pro/scrap-rework-cost-tracker",
+      "type": "premium_analyzer",
+      "priority": "medium",
+      "inspectionOrder": 250
+    },
+    {
+      "url": "https://sectorcalc.com/tools/pro/setup-time-reduction-roi-smed",
+      "path": "/tools/pro/setup-time-reduction-roi-smed",
+      "type": "premium_analyzer",
+      "priority": "medium",
+      "inspectionOrder": 251
+    },
+    {
+      "url": "https://sectorcalc.com/tools/pro/true-employee-cost-statement",
+      "path": "/tools/pro/true-employee-cost-statement",
+      "type": "premium_analyzer",
+      "priority": "medium",
+      "inspectionOrder": 252
+    },
+    {
+      "url": "https://sectorcalc.com/tools/pro/weld-procedure-cost-consumable-estimation-suite",
+      "path": "/tools/pro/weld-procedure-cost-consumable-estimation-suite",
+      "type": "premium_analyzer",
+      "priority": "medium",
+      "inspectionOrder": 253
+    }
+  ]
+}

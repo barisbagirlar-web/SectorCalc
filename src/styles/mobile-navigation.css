@@ -934,21 +934,6 @@ body.sc-mnav-locked {
   }
 }
 
-/* ── Reduced motion ── */
-@media (prefers-reduced-motion: reduce) {
-  .sc-mnav-drawer {
-    transition: none;
-  }
-
-  .sc-mnav-overlay {
-    transition: none;
-  }
-
-  .sc-mnav-section-body {
-    transition: none;
-  }
-
-  .sc-mnav-section-chevron {
-    transition: none;
-  }
-}
+/* ── Reduced motion ──
+   Intentionally not disabling motion: navigation animations stay active on
+   every device, including those with the OS "reduce motion" preference. */

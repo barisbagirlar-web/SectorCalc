@@ -12,12 +12,22 @@ import { assertToolSchemaIdentity } from "@/sectorcalc/runtime/assert-tool-schem
 import { ACTIVE_FREE_TOOL_SLUGS } from "@/sectorcalc/runtime/active-tool-allowlist";
 import { getPublicToolTitle, getPublicToolMetaDescription } from "@/sectorcalc/public/public-tool-copy-adapter";
 import { getDisplayCategoryLabel } from "@/sectorcalc/pro-form/display-labels";
+import { SITE } from "@/config/site";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { buildToolPageGraph } from "@/lib/infrastructure/seo/tool-page-graph";
+import { getGeneratedToolLastUpdatedIso } from "@/lib/features/generated-tools/resolve-tool-updated-at";
+import { AiOverviewParagraph, AI_OVERVIEW_PARAGRAPHS, buildSpeakableJsonLd } from "@/components/seo/AiOverviewOptimization";
 /* Eager: prevent Next.js from loading this CSS as a lazy preload chunk */
 import "@/sectorcalc/pro-form/universal-industrial-decision-form.css";
 import "@/sectorcalc/free-form/free-tool-result-panel.css";
 
-export const dynamic = "force-dynamic";
-export const dynamicParams = true;
+// Hard-404 architecture: only allowlisted slugs are statically generated.
+// Any slug outside generateStaticParams returns a real HTTP 404 at the
+// routing layer (Next.js built-in not-found), eliminating the soft-404
+// (HTTP 200 + noindex) shell that wasted crawl budget. `force-dynamic` is
+// intentionally NOT set — it would force dynamic rendering and bypass the
+// static 404 enforcement of `dynamicParams = false`.
+export const dynamicParams = false;
 
 export function generateStaticParams(): Array<{ slug: string }> {
   return ACTIVE_FREE_TOOL_SLUGS.map((slug) => ({ slug }));
@@ -84,6 +94,84 @@ function fallbackToolName(slug: string): string {
   return DISPLAY_NAME_OVERRIDES[slug] || slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
+// Per-tool JSON-LD entity attribution. Engineering tools must cite their real
+// governing theory/standards instead of the generic manufacturing-KPI default.
+interface ToolGraphAttribution {
+  methodology: string;
+  dataSources: { name: string; url: string }[];
+  isBasedOn?: { name: string; url?: string }[];
+  mentions?: { name: string; url?: string }[];
+}
+
+const DEFAULT_TOOL_ATTRIBUTION: ToolGraphAttribution = {
+  methodology: "ISO 22400-2 + ECMI Cost Model v3.2",
+  dataSources: [
+    { name: "ISO 22400-2:2014", url: "https://www.iso.org/standard/62046.html" },
+    { name: "World Bank Open Data", url: "https://data.worldbank.org/" },
+  ],
+};
+
+const ASME_BPVC_VIII_2_URL =
+  "https://www.asme.org/codes-standards/find-codes-standards/bpvc-viii-2-bpvc-section-viii-rules-construction-pressure-vessels-division-2-alternative-rules";
+const ISO_12100_URL = "https://www.iso.org/standard/51528.html";
+
+const TOOL_GRAPH_ATTRIBUTION: Record<string, ToolGraphAttribution> = {
+  "von-mises-stress-calculator": {
+    methodology: "Maximum Distortion Energy Theory (Hencky-von Mises Yield Criterion)",
+    dataSources: [
+      { name: "ASME BPVC Section VIII Division 2 Part 5", url: ASME_BPVC_VIII_2_URL },
+      { name: "ISO 12100:2010", url: ISO_12100_URL },
+    ],
+    isBasedOn: [
+      { name: "Maximum Distortion Energy Theory (Hencky-von Mises Yield Criterion)" },
+      {
+        name: "ASME BPVC Section VIII Division 2 Part 5 (Design by Analysis - Elastic Stress Analysis)",
+        url: ASME_BPVC_VIII_2_URL,
+      },
+    ],
+    mentions: [
+      { name: "ISO 12100:2010 (Safety of machinery)", url: ISO_12100_URL },
+      { name: "Factor of safety" },
+      { name: "Plane stress" },
+    ],
+  },
+};
+
+function getToolGraphAttribution(slug: string): ToolGraphAttribution {
+  return TOOL_GRAPH_ATTRIBUTION[slug] ?? DEFAULT_TOOL_ATTRIBUTION;
+}
+
+/** Slug → AI Overview definition key mapping for passage indexing. */
+const TOOL_DEFINITION_KEY: Record<string, string> = {
+  oee: "oee-calculation",
+  "scrap-cost": "scrap-rate",
+  "break-even-point": "break-even-analysis",
+  "downtime-cost": "oee-calculation",
+  "setup-time-cost": "oee-calculation",
+  "machine-investment-payback": "break-even-analysis",
+  "roi-payback": "break-even-analysis",
+};
+
+function getToolDefinitionKey(slug: string): string | undefined {
+  return TOOL_DEFINITION_KEY[slug];
+}
+
+/**
+ * Build global-English hreflang languages for a given tool path.
+ * en, en-us, en-gb, x-default all point to /en{path}.
+ */
+function buildToolHreflangLanguages(slug: string): Record<string, string> {
+  const baseUrl = SITE.url;
+  const localeUrl = `${baseUrl}/en/tools/free/${slug}`;
+
+  return {
+    en: localeUrl,
+    "en-us": localeUrl,
+    "en-gb": localeUrl,
+    "x-default": localeUrl,
+  };
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -98,6 +186,10 @@ export async function generateMetadata({
       title: `${name} | SectorCalc FREE`,
       description: `Free ${name} industrial calculator. Calculate costs, measure efficiency, and make data-driven decisions.`,
       robots: { index: true, follow: true },
+      alternates: {
+        canonical: `${SITE.url}/tools/free/${slug}`,
+        languages: buildToolHreflangLanguages(slug),
+      },
     };
   }
 
@@ -114,6 +206,10 @@ export async function generateMetadata({
     openGraph: {
       title: seoTitle,
       description: publicDesc,
+    },
+    alternates: {
+      canonical: `${SITE.url}/tools/free/${slug}`,
+      languages: buildToolHreflangLanguages(slug),
     },
   };
 }
@@ -145,9 +241,13 @@ export default async function FreeToolDetailPage({
     notFound();
   }
 
+  const definitionKey = getToolDefinitionKey(slug);
+  const definitionParagraph = definitionKey ? AI_OVERVIEW_PARAGRAPHS[definitionKey] : undefined;
+  const articleAccessibilityProps = { "aria-label": schema.tool_name };
+
   return (
     <PageLayout>
-      <article aria-label={schema.tool_name} className="pro-shell">
+      <article {...articleAccessibilityProps} className="pro-shell">
         <ProToolSessionWrapper
           schema={schema}
           toolKey={slug}
@@ -156,7 +256,31 @@ export default async function FreeToolDetailPage({
           accessTier="FREE"
           presentationMode="FREE_COMPACT"
         />
+        {definitionParagraph && (
+          <AiOverviewParagraph text={definitionParagraph.text} />
+        )}
       </article>
+      {definitionParagraph && (
+        <JsonLd data={buildSpeakableJsonLd()} />
+      )}
+      <JsonLd
+        data={buildToolPageGraph({
+          slug,
+          toolName: schema.tool_name,
+          sectorName: getDisplayCategoryLabel(schema.category),
+          tier: "free",
+          description: getPublicToolMetaDescription(schema.tool_key, schema.tool_name, getDisplayCategoryLabel(schema.category)),
+          featureList: [],
+          faq: [],
+          methodology: getToolGraphAttribution(slug).methodology,
+          dataSources: getToolGraphAttribution(slug).dataSources,
+          isBasedOn: getToolGraphAttribution(slug).isBasedOn,
+          mentions: getToolGraphAttribution(slug).mentions,
+          // Source-derived date (schema/generated mtime). Omitted when unknown
+          // rather than emitting request-time, which would churn every crawl.
+          lastUpdated: getGeneratedToolLastUpdatedIso(slug) ?? undefined,
+        })}
+      />
     </PageLayout>
   );
 }

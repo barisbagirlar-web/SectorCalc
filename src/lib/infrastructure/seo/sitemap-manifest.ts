@@ -16,6 +16,9 @@ import { listGlobalCategories } from "@/lib/catalog/global-tool-category-taxonom
 import { buildCategorizedToolIndex } from "@/lib/catalog/build-categorized-tool-index";
 import { getPremiumRevenueRouteSlugs } from "@/lib/features/tools/revenue-tools";
 import { listMigratedPremiumRouteSlugs } from "@/lib/features/freemium/resolve-free-to-premium-migration";
+import { getAllLeanCalcParams } from "@/lib/features/tools/lean-calc-registry";
+import { industryRegistry } from "@/lib/features/tools/industry-registry";
+import { ACTIVE_FREE_TOOL_SLUGS } from "@/sectorcalc/runtime/active-tool-allowlist";
 
 export type SitemapRouteType =
   | "core"
@@ -24,7 +27,8 @@ export type SitemapRouteType =
   | "premium_analyzer"
   | "seo_landing"
   | "authority_guide"
-  | "ai_index";
+  | "ai_index"
+  | "lean_tool";
 
 export type SitemapChangeFrequency = "daily" | "weekly" | "monthly" | "yearly";
 
@@ -90,6 +94,8 @@ export function getCoreSitemapRoutes(): readonly SitemapManifestItem[] {
     createItem("/terms", "core", 0.5, "yearly"),
     createItem("/disclaimer", "core", 0.5, "yearly"),
     createItem("/calculators/fmea-rpn", "core", 0.9, "weekly"),
+    createItem("/calculators/npv", "core", 0.9, "weekly"),
+    createItem("/calculators/roi", "core", 0.9, "weekly"),
     createItem("/resources/fmea-rpn-technical-note", "core", 0.8, "weekly"),
     createItem("/document-intelligence", "core", 0.85, "monthly"),
     createItem("/document-intelligence/maintenance-bom-recovery", "core", 0.85, "monthly"),
@@ -118,6 +124,13 @@ export function getHubSitemapRoutes(): readonly SitemapManifestItem[] {
     createItem("/operating-system", "hub", 0.65, "monthly"),
     createItem("/for-consultants", "hub", 0.7, "monthly"),
   ];
+}
+
+/** All 27 industry detail pages — indexable hubs previously missing from the sitemap. */
+export function getIndustryDetailSitemapRoutes(): readonly SitemapManifestItem[] {
+  return industryRegistry.map((entry) =>
+    createItem(`/industries/${entry.slug}`, "hub", 0.85, "monthly"),
+  );
 }
 
 export function getMigratedPremiumToolSitemapRoutes(): readonly SitemapManifestItem[] {
@@ -160,12 +173,26 @@ export function getPremiumAnalyzerSitemapRoutes(): readonly SitemapManifestItem[
 }
 
 export function getFreeToolSitemapRoutes(): readonly SitemapManifestItem[] {
-  // V5.4 Core — Only the allowlisted Free pilot is indexed.
-  // All other Free tools remain quarantined until V5.4 Core rebuild.
-  // PRO inactive tools removed from sitemap.
+  // BLOK B triage (2026-07-20): all ACTIVE_FREE_TOOL_SLUGS cleared PASS
+  // (SSR-rich + schema clean + formula reachable). Index the full allowlist.
+  // SSOT: sitemap free URLs are a subset of ACTIVE_FREE_TOOL_SLUGS (hard-404 otherwise).
+  const INDEXED_FREE_TOOL_SLUGS: readonly string[] = ACTIVE_FREE_TOOL_SLUGS;
+
   return [
     createItem("/free-tools", "hub", 0.3, "monthly"),
-    createItem("/tools/free/break-even-and-margin-of-safety-analysis", "free_tool", 0.8, "monthly"),
+    ...INDEXED_FREE_TOOL_SLUGS.map((slug) =>
+      createItem(`/tools/free/${slug}`, "free_tool", 0.8, "monthly"),
+    ),
+  ];
+}
+
+export function getLeanToolSitemapRoutes(): readonly SitemapManifestItem[] {
+  const matrixRoutes = getAllLeanCalcParams().map(({ concept, metric }) =>
+    createItem(`/lean/${concept}/${metric}`, "lean_tool", 0.82, "weekly"),
+  );
+  return [
+    ...matrixRoutes,
+    createItem("/lean/a3-report", "lean_tool", 0.78, "monthly"),
   ];
 }
 
@@ -211,12 +238,14 @@ export function getSitemapManifest(): readonly SitemapManifestItem[] {
   return dedupeManifestItems([
     ...getCoreSitemapRoutes(),
     ...getHubSitemapRoutes(),
+    ...getIndustryDetailSitemapRoutes(),
     ...getActiveCategorizedToolSitemapRoutes(),
     ...getSeoLandingSitemapRoutes(),
     ...getCaseStudySitemapRoutes(),
     ...getAuthorityGuideSitemapRoutes(),
     ...getPremiumAnalyzerSitemapRoutes(),
     ...getFreeToolSitemapRoutes(),
+    ...getLeanToolSitemapRoutes(),
     ...getDocumentIntelligenceSitemapRoutes(),
     ...getAiIndexSitemapRoutes(),
   ]);
@@ -260,6 +289,8 @@ export const SITEMAP_STATIC_ROUTES = [
   "/terms",
   "/disclaimer",
   "/calculators/fmea-rpn",
+  "/calculators/npv",
+  "/calculators/roi",
   "/resources/fmea-rpn-technical-note",
 ] as const;
 

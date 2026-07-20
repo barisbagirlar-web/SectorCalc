@@ -1,0 +1,75 @@
+{
+  "name": "SectorCalc - Striking Distance Keywords (GSC)",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "weeks",
+              "triggerAtDay": [1],
+              "triggerAtHour": 6
+            }
+          ]
+        }
+      },
+      "id": "b2e1d3f5-1111-4b02-9c02-000000000001",
+      "name": "Weekly Mon 06:00",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [-420, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Compute a 28-day date range for the Search Analytics query.\nconst end = new Date();\nconst start = new Date(end.getTime() - 28 * 24 * 60 * 60 * 1000);\nconst fmt = (d) => d.toISOString().slice(0, 10);\nreturn [{ json: { startDate: fmt(start), endDate: fmt(end) } }];"
+      },
+      "id": "b2e1d3f5-2222-4b02-9c02-000000000002",
+      "name": "Date Range",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [-200, 0]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://searchconsole.googleapis.com/webmasters/v3/sites/sc-domain%3Asectorcalc.com/searchAnalytics/query",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "googleApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ startDate: $json.startDate, endDate: $json.endDate, dimensions: ['query','page'], rowLimit: 25000, dataState: 'final' }) }}",
+        "options": {}
+      },
+      "id": "b2e1d3f5-3333-4b02-9c02-000000000003",
+      "name": "GSC Search Analytics",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [20, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Filter + rank striking-distance opportunities (avg position 8-20).\nconst MIN_POS = 8, MAX_POS = 20, MIN_IMPR = 20, LIMIT = 200;\nconst rows = $input.first().json.rows || [];\nconst out = rows\n  .filter((r) => r.position >= MIN_POS && r.position <= MAX_POS && r.impressions >= MIN_IMPR)\n  .map((r) => {\n    const [query, page] = r.keys;\n    const proximity = 1 - (r.position - MIN_POS) / (MAX_POS - MIN_POS || 1);\n    const ctrHeadroom = 1 - Math.min(r.ctr, 0.5) / 0.5;\n    const opportunityScore = Math.round(r.impressions * (0.6 * proximity + 0.4 * ctrHeadroom));\n    return {\n      query,\n      page,\n      impressions: r.impressions,\n      clicks: r.clicks,\n      ctr: Number((r.ctr * 100).toFixed(2)),\n      position: Number(r.position.toFixed(1)),\n      opportunityScore,\n    };\n  })\n  .sort((a, b) => b.opportunityScore - a.opportunityScore)\n  .slice(0, LIMIT);\nreturn out.map((json) => ({ json }));"
+      },
+      "id": "b2e1d3f5-4444-4b02-9c02-000000000004",
+      "name": "Filter Striking Distance",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [240, 0]
+    }
+  ],
+  "connections": {
+    "Weekly Mon 06:00": {
+      "main": [[{ "node": "Date Range", "type": "main", "index": 0 }]]
+    },
+    "Date Range": {
+      "main": [[{ "node": "GSC Search Analytics", "type": "main", "index": 0 }]]
+    },
+    "GSC Search Analytics": {
+      "main": [[{ "node": "Filter Striking Distance", "type": "main", "index": 0 }]]
+    }
+  },
+  "active": false,
+  "settings": { "executionOrder": "v1" },
+  "pinData": {},
+  "meta": {}
+}

@@ -6,7 +6,8 @@ interface LedgerNumberTickProps {
 }
 
 /**
- * Micro number tick - 120ms, result values only. Respects prefers-reduced-motion.
+ * Micro number tick - 120ms, result values only. Animation stays active on
+ * every device, including those with the OS "reduce motion" preference.
  */
 export function LedgerNumberTick({ value, className = "" }: LedgerNumberTickProps) {
   return (

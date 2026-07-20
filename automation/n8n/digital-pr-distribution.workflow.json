@@ -1,0 +1,83 @@
+{
+  "name": "SectorCalc - Digital PR Distribution",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "sectorcalc-linkable-asset",
+        "options": {}
+      },
+      "id": "c3f2e4a6-1111-4c03-ad03-000000000001",
+      "name": "New Asset Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [-420, 0]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Expect { assetUrl, title, summary } in the webhook body.\nconst key = $env.INDEXNOW_KEY;\nif (!key) {\n  throw new Error('INDEXNOW_KEY env var is not set');\n}\nconst body = $input.first().json.body || $input.first().json;\nconst assetUrl = body.assetUrl;\nif (!assetUrl) {\n  throw new Error('assetUrl is required in the webhook payload');\n}\nconst host = new URL(assetUrl).host;\nreturn [{\n  json: {\n    assetUrl,\n    title: body.title || assetUrl,\n    summary: body.summary || '',\n    indexNow: {\n      host,\n      key,\n      keyLocation: `https://${host}/${key}.txt`,\n      urlList: [assetUrl],\n    },\n  },\n}];"
+      },
+      "id": "c3f2e4a6-2222-4c03-ad03-000000000002",
+      "name": "Prepare Distribution",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [-200, 0]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.indexnow.org/indexnow",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($json.indexNow) }}",
+        "options": {}
+      },
+      "id": "c3f2e4a6-3333-4c03-ad03-000000000003",
+      "name": "Fast-Index (IndexNow)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [20, -100]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $env.PR_WEBHOOK_URL }}",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ text: `New SectorCalc resource: ${$json.title}\\n${$json.summary}\\n${$json.assetUrl}` }) }}",
+        "options": {}
+      },
+      "id": "c3f2e4a6-4444-4c03-ad03-000000000004",
+      "name": "Notify Distribution Webhook",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [20, 100]
+    }
+  ],
+  "connections": {
+    "New Asset Webhook": {
+      "main": [[{ "node": "Prepare Distribution", "type": "main", "index": 0 }]]
+    },
+    "Prepare Distribution": {
+      "main": [
+        [
+          { "node": "Fast-Index (IndexNow)", "type": "main", "index": 0 },
+          { "node": "Notify Distribution Webhook", "type": "main", "index": 0 }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": { "executionOrder": "v1" },
+  "pinData": {},
+  "meta": {}
+}

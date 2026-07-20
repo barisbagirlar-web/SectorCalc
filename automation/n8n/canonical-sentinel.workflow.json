@@ -1,0 +1,200 @@
+{
+  "name": "Daily Canonical Sentinel",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [{ "field": "hours", "hours": 6 }]
+        }
+      },
+      "id": "trigger-daily-canonical",
+      "name": "Every 6 hours",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "url": "https://sectorcalc.com/sitemap.xml",
+        "options": {}
+      },
+      "id": "fetch-sitemap-index",
+      "name": "Fetch Sitemap Index",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [450, 300]
+    },
+    {
+      "parameters": {
+        "mode": "xml",
+        "xmlOptions": {
+          "selector": "sitemap loc"
+        }
+      },
+      "id": "parse-sub-sitemaps",
+      "name": "Extract Sub-sitemap URLs",
+      "type": "n8n-nodes-base.itemLists",
+      "typeVersion": 1,
+      "position": [650, 300]
+    },
+    {
+      "parameters": {
+        "url": "={{ $json }}",
+        "options": {}
+      },
+      "id": "fetch-each-sub-sitemap",
+      "name": "Fetch Each Sub-sitemap",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [850, 300]
+    },
+    {
+      "parameters": {
+        "mode": "xml",
+        "xmlOptions": {
+          "selector": "url loc"
+        }
+      },
+      "id": "extract-urls",
+      "name": "Extract All URLs",
+      "type": "n8n-nodes-base.itemLists",
+      "typeVersion": 1,
+      "position": [1050, 300]
+    },
+    {
+      "parameters": {
+        "url": "={{ $json }}",
+        "options": {
+          "resolveWithFullResponse": true
+        }
+      },
+      "id": "check-canonical-header",
+      "name": "Check Canonical per URL",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [1250, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "canonical-mismatch",
+              "leftValue": "={{ $json.headers.link }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notContains"
+              }
+            }
+          ],
+          "combinator": "or"
+        }
+      },
+      "id": "filter-canonical-mismatch",
+      "name": "Filter Canonical Mismatches",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [1450, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const mismatches = items.map(item => ({\n  url: item.json.url,\n  canonical: item.json.headers?.link || 'missing',\n  timestamp: new Date().toISOString()\n}));\nreturn mismatches;"
+      },
+      "id": "format-mismatches",
+      "name": "Format Mismatch Report",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1650, 300]
+    },
+    {
+      "parameters": {
+        "webhookUri": "={{ $env.SLACK_CANONICAL_WEBHOOK }}",
+        "text": "🚨 CANONICAL SENTINEL ALERT\n{{ $json.length }} canonical mismatches detected:\n{{ JSON.stringify($json, null, 2) }}"
+      },
+      "id": "slack-alert",
+      "name": "Slack Alert (CRITICAL)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [1850, 300]
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "canonical-sentinel-log",
+          "mode": "list"
+        },
+        "sheetId": "={{ $env.GOOGLE_SHEETS_ID }}",
+        "columns": {
+          "values": [
+            {
+              "column": "URL",
+              "value": "={{ $json.url }}"
+            },
+            {
+              "column": "Canonical",
+              "value": "={{ $json.canonical }}"
+            },
+            {
+              "column": "Timestamp",
+              "value": "={{ $json.timestamp }}"
+            }
+          ]
+        }
+      },
+      "id": "log-to-sheets",
+      "name": "Log to Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [2050, 300]
+    }
+  ],
+  "connections": {
+    "Every 6 hours": {
+      "main": [[{ "node": "Fetch Sitemap Index", "type": "main", "index": 0 }]]
+    },
+    "Fetch Sitemap Index": {
+      "main": [[{ "node": "Extract Sub-sitemap URLs", "type": "main", "index": 0 }]]
+    },
+    "Extract Sub-sitemap URLs": {
+      "main": [[{ "node": "Fetch Each Sub-sitemap", "type": "main", "index": 0 }]]
+    },
+    "Fetch Each Sub-sitemap": {
+      "main": [[{ "node": "Extract All URLs", "type": "main", "index": 0 }]]
+    },
+    "Extract All URLs": {
+      "main": [[{ "node": "Check Canonical per URL", "type": "main", "index": 0 }]]
+    },
+    "Check Canonical per URL": {
+      "main": [[{ "node": "Filter Canonical Mismatches", "type": "main", "index": 0 }]]
+    },
+    "Filter Canonical Mismatches": {
+      "main": [
+        [{ "node": "Format Mismatch Report", "type": "main", "index": 0 }]
+      ]
+    },
+    "Format Mismatch Report": {
+      "main": [
+        [
+          { "node": "Slack Alert (CRITICAL)", "type": "main", "index": 0 },
+          { "node": "Log to Google Sheets", "type": "main", "index": 0 }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "saveExecutionProgress": true,
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "staticData": null,
+  "versionId": "1.0.0",
+  "id": "canonical-sentinel-daily",
+  "active": false
+}

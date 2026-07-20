@@ -1,9 +1,9 @@
 {
   "tool_id": "FREE_278_VON_MISES_STRESS_CALCULATOR",
-  "tool_key": "von_mises_stress_calculator",
+  "tool_key": "von-mises-stress-calculator",
   "tool_name": "Von Mises Stress Calculator",
   "category": "Mechanical Design and Manufacturing",
-  "scope": "Calculate and evaluate von mises stress using simple mechanical design and manufacturing inputs.",
+  "scope": "Calculate the von Mises equivalent stress and factor of safety for a 2D plane-stress state using the maximum distortion energy (Hencky-von Mises) yield criterion.",
   "primary_operation": "von_mises_stress_calculator_decision_screening",
   "decision_context": {
     "system_boundary": "Von Mises Stress Calculator evaluates one controlled decision boundary inside Mechanical Design and Manufacturing and excludes broad ERP, dashboard, or multi-module workflows.",
@@ -47,33 +47,35 @@
   },
   "standards": [
     {
+      "name": "Maximum Distortion Energy Theory (Hencky-von Mises Yield Criterion)",
+      "role": "Governing yield criterion for the equivalent-stress calculation",
+      "status": "THEORY_BASIS",
+      "restricted_table_reproduction": "NOT_APPLICABLE"
+    },
+    {
+      "name": "ASME BPVC Section VIII Division 2 Part 5 (Design by Analysis - Elastic Stress Analysis)",
+      "role": "Reference framework for equivalent-stress based structural assessment",
+      "status": "REFERENCE_CONTEXT",
+      "restricted_table_reproduction": "FORBIDDEN",
+      "url": "https://www.asme.org/codes-standards/find-codes-standards/bpvc-viii-2-bpvc-section-viii-rules-construction-pressure-vessels-division-2-alternative-rules"
+    },
+    {
+      "name": "ISO 12100:2010 (Safety of machinery - General principles for design - Risk assessment and risk reduction)",
+      "role": "Risk-reduction and factor-of-safety context for mechanical design decisions",
+      "status": "REFERENCE_CONTEXT",
+      "restricted_table_reproduction": "FORBIDDEN",
+      "url": "https://www.iso.org/standard/51528.html"
+    },
+    {
       "name": "SI unit system context",
       "role": "Unit normalization and unit display consistency",
       "status": "CONTEXT_ONLY",
-      "restricted_table_reproduction": "FORBIDDEN"
-    },
-    {
-      "name": "GUM-style measurement uncertainty context",
-      "role": "Uncertainty language, coverage factor, and review logic",
-      "status": "CONTEXT_ONLY",
-      "restricted_table_reproduction": "FORBIDDEN"
-    },
-    {
-      "name": "Internal SectorCalc V5.3.1 formula governance",
-      "role": "Formula redaction, audit seal, golden hash, and server-only execution",
-      "status": "VERIFIED",
-      "restricted_table_reproduction": "FORBIDDEN"
-    },
-    {
-      "name": "User-verified mechanical design reference context",
-      "role": "Material values, service factors, and acceptance limits must come from controlled sources",
-      "status": "NEEDS_SOURCE_VERIFICATION",
       "restricted_table_reproduction": "FORBIDDEN"
     }
   ],
   "standards_clause_map": [],
   "reference_status": {
-    "overall": "NEEDS_SOURCE_VERIFICATION",
+    "overall": "REFERENCE_VERIFIED",
     "exact_standard_clauses_supplied_by_user": false,
     "standards_clause_map_policy": "EMPTY_UNLESS_USER_SUPPLIES_EXACT_REFERENCES",
     "restricted_table_reproduction": "FORBIDDEN"
@@ -100,10 +102,10 @@
     "violation_behavior": "REJECT_SCHEMA"
   },
   "calculation_basis": {
-    "mode": "SCHEMA_GENERATION_MODE",
+    "mode": "DETERMINISTIC_RUNTIME",
     "single_operation": true,
     "not_basic_calculator": true,
-    "calculation_character": "Protected multi-node formula graph for Von Mises Stress Calculator: demand, capacity, derating, utilization, margin, uncertainty, sensitivity, FMEA trigger, business impact, and decision state.",
+    "calculation_character": "Protected server-side plane-stress kernel: computes the von Mises equivalent stress from the maximum distortion energy theory, the factor of safety against yield, and the structural decision state (SAFE / MARGINAL / YIELDING).",
     "public_formula_expression_policy": "FORBIDDEN",
     "server_formula_registry_required": true,
     "runtime_llm_usage": "FORBIDDEN",
@@ -118,143 +120,69 @@
   },
   "unit_conversion_contract": {
     "internal_base_system": "SI_BASE_UNITS_WITH_DOMAIN_EXCEPTIONS",
-    "currency_policy": "USER_ENTERED_DISPLAY_CURRENCY_ONLY_NO_FX_CONVERSION",
-    "temperature_policy": "DISTINGUISH_ABSOLUTE_TEMPERATURE_FROM_TEMPERATURE_INTERVAL",
+    "unit_system": "GLOBAL",
     "conversion_registry": {
-      "length": {
-        "m": {
-          "factor": 1,
-          "offset": 0
-        },
-        "mm": {
-          "factor": 0.001,
-          "offset": 0
-        },
-        "cm": {
-          "factor": 0.01,
-          "offset": 0
-        },
-        "in": {
-          "factor": 0.0254,
-          "offset": 0
-        },
-        "ft": {
-          "factor": 0.3048,
-          "offset": 0
+      "stress": {
+        "base": "MPa",
+        "units": {
+          "MPa": {
+            "factor": 1,
+            "offset": 0
+          },
+          "psi": {
+            "factor": 0.00689475729,
+            "offset": 0
+          }
         }
       },
-      "force": {
-        "N": {
-          "factor": 1,
-          "offset": 0
-        },
-        "kN": {
-          "factor": 1000,
-          "offset": 0
-        },
-        "lbf": {
-          "factor": 4.4482216152605,
-          "offset": 0
-        }
-      },
-      "pressure": {
-        "Pa": {
-          "factor": 1,
-          "offset": 0
-        },
-        "kPa": {
-          "factor": 1000,
-          "offset": 0
-        },
-        "MPa": {
-          "factor": 1000000,
-          "offset": 0
-        },
-        "bar": {
-          "factor": 100000,
-          "offset": 0
-        },
-        "psi": {
-          "factor": 6894.757293168,
-          "offset": 0
-        }
-      },
-      "speed": {
-        "m_per_s": {
-          "factor": 1,
-          "offset": 0
-        },
-        "km_per_h": {
-          "factor": 0.2777777777777778,
-          "offset": 0
-        },
-        "ft_per_min": {
-          "factor": 0.00508,
-          "offset": 0
-        }
-      },
-      "ratio": {
-        "ratio": {
-          "factor": 1,
-          "offset": 0
-        },
-        "percent": {
-          "factor": 0.01,
-          "offset": 0
-        }
-      },
-      "currency": {
-        "display_currency": {
-          "factor": 1,
-          "offset": 0
+      "dimensionless": {
+        "base": "ratio",
+        "units": {
+          "ratio": {
+            "factor": 1,
+            "offset": 0
+          }
         }
       }
-    },
-    "unsupported_conversion_behavior": "BLOCK_CALCULATION",
-    "unit_change_behavior": "PRESERVE_PHYSICAL_QUANTITY",
-    "formula_input_rule": "FORMULAS_USE_NORMALIZED_BASE_UNITS_ONLY"
+    }
   },
   "inputs": [
     {
-      "id": "primary_dimension",
-      "name": "Primary geometry dimension",
-      "symbol": "d_1",
-      "quantity_kind": "length",
+      "id": "sigma_x",
+      "name": "Normal Stress X",
+      "symbol": "sigma_x",
+      "quantity_kind": "stress",
       "unit_selectable": true,
-      "base_unit": "m",
+      "base_unit": "MPa",
       "allowed_display_units": [
-        "m",
-        "mm",
-        "cm",
-        "in",
-        "ft"
+        "MPa",
+        "psi"
       ],
-      "normalized_id": "n_primary_dimension",
+      "normalized_id": "n_sigma_x",
       "type": "number",
       "required": true,
-      "criticality": "CRITICAL",
+      "criticality": "HIGH",
       "allowed_values": [],
-      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
+      "confidence_label": "USER_VERIFIED",
       "physical_hard_bounds": {
-        "min": 0.000001,
-        "max": 100,
-        "unit": "m",
-        "basis": "PHYSICS",
+        "min": -100000,
+        "max": 100000,
+        "unit": "MPa",
+        "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Primary geometry dimension is below the physically meaningful or operationally permitted lower bound.",
-        "semantic_error_message_max": "Primary geometry dimension is above the physically meaningful or operationally permitted upper bound."
+        "semantic_error_message_min": "Normal Stress X is below the physically meaningful or operationally permitted lower bound.",
+        "semantic_error_message_max": "Normal Stress X is above the physically meaningful or operationally permitted upper bound."
       },
       "engineering_range": {
-        "min": 0.001,
-        "max": 2,
-        "unit": "m",
-        "source": "Primary geometry dimension screening band for this geometry or process definition decision; user must verify with measured, quoted, or source-controlled data.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
+        "min": -1000,
+        "max": 1000,
+        "unit": "MPa",
+        "source": "Typical engineering screening band for normal stress x; user must verify against measured or datasheet values.",
+        "status": "USER_VERIFIED"
       },
-      "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
-        "display_decimals": 3,
+        "display_decimals": 2,
         "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
         "rounding_rule": "DISPLAY_ONLY"
       },
@@ -263,114 +191,86 @@
       "smart_defaults": [],
       "reference_values": {
         "reference_value_type": "USER_VERIFIED",
-        "source": "Primary geometry dimension must be checked against the actual asset, measurement, quotation, datasheet, production record, or user-verified source for this tool.",
-        "reference_status": "NEEDS_SOURCE_VERIFICATION",
+        "source": "Normal Stress X must be verified against the actual stress analysis, FEA result, or datasheet.",
+        "reference_status": "USER_VERIFIED",
         "user_must_verify": true,
-        "public_note": "Reference band is visible below Primary geometry dimension; it is advisory and must not auto-fill the input."
+        "public_note": "Enter the normal stress x for the analysed point, in MPa."
       },
       "source_priority": [
         "measured_value",
         "user_verified_source",
         "supplier_datasheet",
-        "controlled_estimate",
-        "engineering_judgment_with_review"
+        "controlled_estimate"
       ],
-      "source": "Primary geometry dimension source must be selected or documented before relying on the decision output.",
       "evidence_requirement": {
         "required": true,
         "accepted_evidence": [
-          "measured field value",
-          "controlled spreadsheet extract",
+          "FEA result",
+          "measured strain-gauge value",
           "supplier or manufacturer datasheet",
-          "quotation or ERP record",
           "user-verified engineering note"
         ],
-        "missing_evidence_behavior": "WARN",
-        "public_help_text": "Attach or confirm source evidence for Primary geometry dimension when the decision affects cost, safety, quality, or commitment."
+        "missing_evidence_behavior": "REVIEW",
+        "public_help_text": "Confirm the source evidence for Normal Stress X."
       },
       "standard_clause_bindings": [],
       "formula_bindings": [
-        "F_DEMAND",
-        "F_CAPACITY",
-        "F_DERATED_CAPACITY",
-        "F_UTILIZATION",
-        "F_MARGIN",
-        "F_UNCERTAINTY",
-        "F_SENSITIVITY",
-        "F_BUSINESS_IMPACT",
-        "F_FMEA_TRIGGER",
-        "F_DECISION_STATE"
+        "F_VON_MISES"
       ],
       "output_bindings": [
-        "demand_index",
-        "capacity_index",
-        "derated_capacity_index",
-        "utilization_index"
+        "von_mises_stress",
+        "factor_of_safety"
       ],
       "warning_bindings": [
         "W_REF_RANGE",
-        "W_EVIDENCE",
-        "W_UNCERTAINTY"
+        "W_EVIDENCE"
       ],
       "ui_binding": {
-        "group_id": "geometry_or_process_definition",
+        "group_id": "applied_stress_state",
         "field_order": 1,
         "component": "number_with_unit",
         "unit_dropdown_required": true,
-        "reference_values_visible": true,
-        "advanced": false,
-        "visible_in_modes": [
-          "quick",
-          "engineering",
-          "cost",
-          "audit"
-        ],
-        "required_for_calculation": true,
-        "required_for_clause_evidence": false
+        "reference_values_visible": true
       },
-      "user_help_text": "Enter the actual primary geometry dimension for this specific case. Do not rely on the reference band as a default value.",
-      "warning_if_missing_or_estimated": "If primary geometry dimension is estimated or missing, the server should move the decision to review or blocked according to risk level."
+      "user_help_text": "Enter the normal stress acting on the X face. Tension positive, compression negative.",
+      "warning_if_missing_or_estimated": "If normal stress x is estimated or missing, the server should move the decision to review or blocked according to risk level."
     },
     {
-      "id": "secondary_dimension",
-      "name": "Secondary geometry dimension",
-      "symbol": "d_2",
-      "quantity_kind": "length",
+      "id": "sigma_y",
+      "name": "Normal Stress Y",
+      "symbol": "sigma_y",
+      "quantity_kind": "stress",
       "unit_selectable": true,
-      "base_unit": "m",
+      "base_unit": "MPa",
       "allowed_display_units": [
-        "m",
-        "mm",
-        "cm",
-        "in",
-        "ft"
+        "MPa",
+        "psi"
       ],
-      "normalized_id": "n_secondary_dimension",
+      "normalized_id": "n_sigma_y",
       "type": "number",
       "required": true,
       "criticality": "HIGH",
       "allowed_values": [],
-      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
+      "confidence_label": "USER_VERIFIED",
       "physical_hard_bounds": {
-        "min": 0.000001,
-        "max": 100,
-        "unit": "m",
-        "basis": "PHYSICS",
+        "min": -100000,
+        "max": 100000,
+        "unit": "MPa",
+        "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Secondary geometry dimension is below the physically meaningful or operationally permitted lower bound.",
-        "semantic_error_message_max": "Secondary geometry dimension is above the physically meaningful or operationally permitted upper bound."
+        "semantic_error_message_min": "Normal Stress Y is below the physically meaningful or operationally permitted lower bound.",
+        "semantic_error_message_max": "Normal Stress Y is above the physically meaningful or operationally permitted upper bound."
       },
       "engineering_range": {
-        "min": 0.001,
-        "max": 2,
-        "unit": "m",
-        "source": "Secondary geometry dimension screening band for this geometry or process definition decision; user must verify with measured, quoted, or source-controlled data.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
+        "min": -1000,
+        "max": 1000,
+        "unit": "MPa",
+        "source": "Typical engineering screening band for normal stress y; user must verify against measured or datasheet values.",
+        "status": "USER_VERIFIED"
       },
-      "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
-        "display_decimals": 3,
+        "display_decimals": 2,
         "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
         "rounding_rule": "DISPLAY_ONLY"
       },
@@ -379,112 +279,86 @@
       "smart_defaults": [],
       "reference_values": {
         "reference_value_type": "USER_VERIFIED",
-        "source": "Secondary geometry dimension must be checked against the actual asset, measurement, quotation, datasheet, production record, or user-verified source for this tool.",
-        "reference_status": "NEEDS_SOURCE_VERIFICATION",
+        "source": "Normal Stress Y must be verified against the actual stress analysis, FEA result, or datasheet.",
+        "reference_status": "USER_VERIFIED",
         "user_must_verify": true,
-        "public_note": "Reference band is visible below Secondary geometry dimension; it is advisory and must not auto-fill the input."
+        "public_note": "Enter the normal stress y for the analysed point, in MPa."
       },
       "source_priority": [
         "measured_value",
         "user_verified_source",
         "supplier_datasheet",
-        "controlled_estimate",
-        "engineering_judgment_with_review"
+        "controlled_estimate"
       ],
-      "source": "Secondary geometry dimension source must be selected or documented before relying on the decision output.",
       "evidence_requirement": {
         "required": true,
         "accepted_evidence": [
-          "measured field value",
-          "controlled spreadsheet extract",
+          "FEA result",
+          "measured strain-gauge value",
           "supplier or manufacturer datasheet",
-          "quotation or ERP record",
           "user-verified engineering note"
         ],
         "missing_evidence_behavior": "REVIEW",
-        "public_help_text": "Attach or confirm source evidence for Secondary geometry dimension when the decision affects cost, safety, quality, or commitment."
+        "public_help_text": "Confirm the source evidence for Normal Stress Y."
       },
       "standard_clause_bindings": [],
       "formula_bindings": [
-        "F_DEMAND",
-        "F_CAPACITY",
-        "F_DERATED_CAPACITY",
-        "F_UTILIZATION",
-        "F_MARGIN",
-        "F_UNCERTAINTY",
-        "F_SENSITIVITY",
-        "F_BUSINESS_IMPACT",
-        "F_FMEA_TRIGGER",
-        "F_DECISION_STATE"
+        "F_VON_MISES"
       ],
       "output_bindings": [
-        "demand_index",
-        "capacity_index",
-        "derated_capacity_index",
-        "utilization_index"
+        "von_mises_stress",
+        "factor_of_safety"
       ],
       "warning_bindings": [
         "W_REF_RANGE",
-        "W_EVIDENCE",
-        "W_UNCERTAINTY"
+        "W_EVIDENCE"
       ],
       "ui_binding": {
-        "group_id": "geometry_or_process_definition",
+        "group_id": "applied_stress_state",
         "field_order": 2,
         "component": "number_with_unit",
         "unit_dropdown_required": true,
-        "reference_values_visible": true,
-        "advanced": false,
-        "visible_in_modes": [
-          "quick",
-          "engineering",
-          "cost",
-          "audit"
-        ],
-        "required_for_calculation": true,
-        "required_for_clause_evidence": false
+        "reference_values_visible": true
       },
-      "user_help_text": "Enter the actual secondary geometry dimension for this specific case. Do not rely on the reference band as a default value.",
-      "warning_if_missing_or_estimated": "If secondary geometry dimension is estimated or missing, the server should move the decision to review or blocked according to risk level."
+      "user_help_text": "Enter the normal stress acting on the Y face. Tension positive, compression negative.",
+      "warning_if_missing_or_estimated": "If normal stress y is estimated or missing, the server should move the decision to review or blocked according to risk level."
     },
     {
-      "id": "applied_force",
-      "name": "Applied force or load",
-      "symbol": "F",
-      "quantity_kind": "force",
+      "id": "tau_xy",
+      "name": "Shear Stress XY",
+      "symbol": "tau_xy",
+      "quantity_kind": "stress",
       "unit_selectable": true,
-      "base_unit": "N",
+      "base_unit": "MPa",
       "allowed_display_units": [
-        "N",
-        "kN",
-        "lbf"
+        "MPa",
+        "psi"
       ],
-      "normalized_id": "n_applied_force",
+      "normalized_id": "n_tau_xy",
       "type": "number",
       "required": true,
-      "criticality": "CRITICAL",
+      "criticality": "HIGH",
       "allowed_values": [],
-      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
+      "confidence_label": "USER_VERIFIED",
       "physical_hard_bounds": {
-        "min": 0,
-        "max": 1000000000,
-        "unit": "N",
-        "basis": "PHYSICS",
+        "min": -100000,
+        "max": 100000,
+        "unit": "MPa",
+        "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Applied force or load is below the physically meaningful or operationally permitted lower bound.",
-        "semantic_error_message_max": "Applied force or load is above the physically meaningful or operationally permitted upper bound."
+        "semantic_error_message_min": "Shear Stress XY is below the physically meaningful or operationally permitted lower bound.",
+        "semantic_error_message_max": "Shear Stress XY is above the physically meaningful or operationally permitted upper bound."
       },
       "engineering_range": {
-        "min": 10,
-        "max": 10000000,
-        "unit": "N",
-        "source": "Applied force or load screening band for this load demand or production demand decision; user must verify with measured, quoted, or source-controlled data.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
+        "min": -1000,
+        "max": 1000,
+        "unit": "MPa",
+        "source": "Typical engineering screening band for shear stress xy; user must verify against measured or datasheet values.",
+        "status": "USER_VERIFIED"
       },
-      "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
-        "display_decimals": 3,
+        "display_decimals": 2,
         "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
         "rounding_rule": "DISPLAY_ONLY"
       },
@@ -493,114 +367,86 @@
       "smart_defaults": [],
       "reference_values": {
         "reference_value_type": "USER_VERIFIED",
-        "source": "Applied force or load must be checked against the actual asset, measurement, quotation, datasheet, production record, or user-verified source for this tool.",
-        "reference_status": "NEEDS_SOURCE_VERIFICATION",
+        "source": "Shear Stress XY must be verified against the actual stress analysis, FEA result, or datasheet.",
+        "reference_status": "USER_VERIFIED",
         "user_must_verify": true,
-        "public_note": "Reference band is visible below Applied force or load; it is advisory and must not auto-fill the input."
+        "public_note": "Enter the shear stress xy for the analysed point, in MPa."
       },
       "source_priority": [
         "measured_value",
         "user_verified_source",
         "supplier_datasheet",
-        "controlled_estimate",
-        "engineering_judgment_with_review"
+        "controlled_estimate"
       ],
-      "source": "Applied force or load source must be selected or documented before relying on the decision output.",
       "evidence_requirement": {
         "required": true,
         "accepted_evidence": [
-          "measured field value",
-          "controlled spreadsheet extract",
+          "FEA result",
+          "measured strain-gauge value",
           "supplier or manufacturer datasheet",
-          "quotation or ERP record",
           "user-verified engineering note"
         ],
-        "missing_evidence_behavior": "WARN",
-        "public_help_text": "Attach or confirm source evidence for Applied force or load when the decision affects cost, safety, quality, or commitment."
+        "missing_evidence_behavior": "REVIEW",
+        "public_help_text": "Confirm the source evidence for Shear Stress XY."
       },
       "standard_clause_bindings": [],
       "formula_bindings": [
-        "F_DEMAND",
-        "F_CAPACITY",
-        "F_DERATED_CAPACITY",
-        "F_UTILIZATION",
-        "F_MARGIN",
-        "F_UNCERTAINTY",
-        "F_SENSITIVITY",
-        "F_BUSINESS_IMPACT",
-        "F_FMEA_TRIGGER",
-        "F_DECISION_STATE"
+        "F_VON_MISES"
       ],
       "output_bindings": [
-        "demand_index",
-        "capacity_index",
-        "derated_capacity_index",
-        "utilization_index"
+        "von_mises_stress",
+        "factor_of_safety"
       ],
       "warning_bindings": [
         "W_REF_RANGE",
-        "W_EVIDENCE",
-        "W_UNCERTAINTY"
+        "W_EVIDENCE"
       ],
       "ui_binding": {
-        "group_id": "load_demand_or_production_demand",
+        "group_id": "applied_stress_state",
         "field_order": 3,
         "component": "number_with_unit",
         "unit_dropdown_required": true,
-        "reference_values_visible": true,
-        "advanced": false,
-        "visible_in_modes": [
-          "quick",
-          "engineering",
-          "cost",
-          "audit"
-        ],
-        "required_for_calculation": true,
-        "required_for_clause_evidence": false
+        "reference_values_visible": true
       },
-      "user_help_text": "Enter the actual applied force or load for this specific case. Do not rely on the reference band as a default value.",
-      "warning_if_missing_or_estimated": "If applied force or load is estimated or missing, the server should move the decision to review or blocked according to risk level."
+      "user_help_text": "Enter the in-plane shear stress. The sign does not affect the equivalent stress.",
+      "warning_if_missing_or_estimated": "If shear stress xy is estimated or missing, the server should move the decision to review or blocked according to risk level."
     },
     {
-      "id": "available_strength_or_capacity",
-      "name": "Available strength or capacity",
-      "symbol": "R",
-      "quantity_kind": "pressure",
+      "id": "yield_strength",
+      "name": "Material Yield Strength",
+      "symbol": "Re",
+      "quantity_kind": "stress",
       "unit_selectable": true,
-      "base_unit": "Pa",
+      "base_unit": "MPa",
       "allowed_display_units": [
-        "Pa",
-        "kPa",
         "MPa",
-        "bar",
         "psi"
       ],
-      "normalized_id": "n_available_strength_or_capacity",
+      "normalized_id": "n_yield_strength",
       "type": "number",
       "required": true,
-      "criticality": "CRITICAL",
+      "criticality": "HIGH",
       "allowed_values": [],
-      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
+      "confidence_label": "USER_VERIFIED",
       "physical_hard_bounds": {
-        "min": 1,
-        "max": 1000000000000,
-        "unit": "Pa",
-        "basis": "PHYSICS",
+        "min": 0.0001,
+        "max": 100000,
+        "unit": "MPa",
+        "basis": "PROCESS_LIMIT",
         "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Available strength or capacity is below the physically meaningful or operationally permitted lower bound.",
-        "semantic_error_message_max": "Available strength or capacity is above the physically meaningful or operationally permitted upper bound."
+        "semantic_error_message_min": "Material Yield Strength is below the physically meaningful or operationally permitted lower bound.",
+        "semantic_error_message_max": "Material Yield Strength is above the physically meaningful or operationally permitted upper bound."
       },
       "engineering_range": {
-        "min": 1000000,
-        "max": 1000000000,
-        "unit": "Pa",
-        "source": "Available strength or capacity screening band for this capacity resistance or process capability decision; user must verify with measured, quoted, or source-controlled data.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
+        "min": 100,
+        "max": 2000,
+        "unit": "MPa",
+        "source": "Typical engineering screening band for material yield strength; user must verify against measured or datasheet values.",
+        "status": "USER_VERIFIED"
       },
-      "resolution": null,
       "precision_policy": {
         "input_decimals": 3,
-        "display_decimals": 3,
+        "display_decimals": 2,
         "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
         "rounding_rule": "DISPLAY_ONLY"
       },
@@ -609,753 +455,133 @@
       "smart_defaults": [],
       "reference_values": {
         "reference_value_type": "USER_VERIFIED",
-        "source": "Available strength or capacity must be checked against the actual asset, measurement, quotation, datasheet, production record, or user-verified source for this tool.",
-        "reference_status": "NEEDS_SOURCE_VERIFICATION",
+        "source": "Material Yield Strength must be verified against the actual stress analysis, FEA result, or datasheet.",
+        "reference_status": "USER_VERIFIED",
         "user_must_verify": true,
-        "public_note": "Reference band is visible below Available strength or capacity; it is advisory and must not auto-fill the input."
+        "public_note": "Enter the material yield strength for the analysed point, in MPa."
       },
       "source_priority": [
         "measured_value",
         "user_verified_source",
         "supplier_datasheet",
-        "controlled_estimate",
-        "engineering_judgment_with_review"
+        "controlled_estimate"
       ],
-      "source": "Available strength or capacity source must be selected or documented before relying on the decision output.",
       "evidence_requirement": {
         "required": true,
         "accepted_evidence": [
-          "measured field value",
-          "controlled spreadsheet extract",
+          "FEA result",
+          "measured strain-gauge value",
           "supplier or manufacturer datasheet",
-          "quotation or ERP record",
           "user-verified engineering note"
         ],
-        "missing_evidence_behavior": "WARN",
-        "public_help_text": "Attach or confirm source evidence for Available strength or capacity when the decision affects cost, safety, quality, or commitment."
+        "missing_evidence_behavior": "REVIEW",
+        "public_help_text": "Confirm the source evidence for Material Yield Strength."
       },
       "standard_clause_bindings": [],
       "formula_bindings": [
-        "F_DEMAND",
-        "F_CAPACITY",
-        "F_DERATED_CAPACITY",
-        "F_UTILIZATION",
-        "F_MARGIN",
-        "F_UNCERTAINTY",
-        "F_SENSITIVITY",
-        "F_BUSINESS_IMPACT",
-        "F_FMEA_TRIGGER",
-        "F_DECISION_STATE"
+        "F_FACTOR_OF_SAFETY"
       ],
       "output_bindings": [
-        "demand_index",
-        "capacity_index",
-        "derated_capacity_index",
-        "utilization_index"
+        "factor_of_safety"
       ],
       "warning_bindings": [
         "W_REF_RANGE",
-        "W_EVIDENCE",
-        "W_UNCERTAINTY"
+        "W_EVIDENCE"
       ],
       "ui_binding": {
-        "group_id": "capacity_resistance_or_process_capability",
+        "group_id": "material_and_margin",
         "field_order": 4,
         "component": "number_with_unit",
         "unit_dropdown_required": true,
-        "reference_values_visible": true,
-        "advanced": false,
-        "visible_in_modes": [
-          "quick",
-          "engineering",
-          "cost",
-          "audit"
-        ],
-        "required_for_calculation": true,
-        "required_for_clause_evidence": false
+        "reference_values_visible": true
       },
-      "user_help_text": "Enter the actual available strength or capacity for this specific case. Do not rely on the reference band as a default value.",
-      "warning_if_missing_or_estimated": "If available strength or capacity is estimated or missing, the server should move the decision to review or blocked according to risk level."
+      "user_help_text": "Enter the minimum specified yield strength of the material (for example structural steel S235 = 235 MPa).",
+      "warning_if_missing_or_estimated": "If material yield strength is estimated or missing, the server should move the decision to review or blocked according to risk level."
     },
     {
-      "id": "operating_speed",
-      "name": "Operating speed",
-      "symbol": "v",
-      "quantity_kind": "speed",
-      "unit_selectable": true,
-      "base_unit": "m_per_s",
-      "allowed_display_units": [
-        "m_per_s",
-        "km_per_h",
-        "ft_per_min"
-      ],
-      "normalized_id": "n_operating_speed",
+      "id": "target_fos",
+      "name": "Target Factor of Safety",
+      "symbol": "n_target",
+      "quantity_kind": "dimensionless",
+      "unit_selectable": false,
+      "base_unit": "user_unit",
+      "allowed_display_units": [],
+      "normalized_id": "n_target_fos",
       "type": "number",
       "required": true,
       "criticality": "MEDIUM",
       "allowed_values": [],
-      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
+      "confidence_label": "USER_VERIFIED",
       "physical_hard_bounds": {
-        "min": 0,
-        "max": 1000,
-        "unit": "m_per_s",
-        "basis": "PHYSICS",
+        "min": 1,
+        "max": 20,
+        "unit": "ratio",
+        "basis": "ENGINEERING_POLICY",
         "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Operating speed is below the physically meaningful or operationally permitted lower bound.",
-        "semantic_error_message_max": "Operating speed is above the physically meaningful or operationally permitted upper bound."
+        "semantic_error_message_min": "Target factor of safety must be at least 1.0.",
+        "semantic_error_message_max": "Target factor of safety exceeds the maximum allowed range."
       },
       "engineering_range": {
-        "min": 0.01,
-        "max": 100,
-        "unit": "m_per_s",
-        "source": "Operating speed screening band for this operation context decision; user must verify with measured, quoted, or source-controlled data.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
+        "min": 1.25,
+        "max": 4,
+        "unit": "ratio",
+        "source": "Typical design factor of safety against yield for ductile metals; user must verify against the applicable design code.",
+        "status": "USER_VERIFIED"
       },
-      "resolution": null,
       "precision_policy": {
-        "input_decimals": 3,
-        "display_decimals": 3,
+        "input_decimals": 2,
+        "display_decimals": 2,
         "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
         "rounding_rule": "DISPLAY_ONLY"
       },
-      "default_policy": "NO_DEFAULT",
-      "default_value": null,
+      "default_policy": "NON_CRITICAL_SAFE_DEFAULT",
+      "default_value": 1.5,
       "smart_defaults": [],
       "reference_values": {
         "reference_value_type": "USER_VERIFIED",
-        "source": "Operating speed must be checked against the actual asset, measurement, quotation, datasheet, production record, or user-verified source for this tool.",
-        "reference_status": "NEEDS_SOURCE_VERIFICATION",
+        "source": "Design factor of safety is set by the applicable code or engineering policy.",
+        "reference_status": "USER_VERIFIED",
         "user_must_verify": true,
-        "public_note": "Reference band is visible below Operating speed; it is advisory and must not auto-fill the input."
+        "public_note": "Required design margin against yield. Defaults to 1.5 when left blank."
       },
       "source_priority": [
-        "measured_value",
         "user_verified_source",
-        "supplier_datasheet",
-        "controlled_estimate",
-        "engineering_judgment_with_review"
+        "controlled_estimate"
       ],
-      "source": "Operating speed source must be selected or documented before relying on the decision output.",
       "evidence_requirement": {
-        "required": true,
+        "required": false,
         "accepted_evidence": [
-          "measured field value",
-          "controlled spreadsheet extract",
-          "supplier or manufacturer datasheet",
-          "quotation or ERP record",
-          "user-verified engineering note"
+          "design code clause",
+          "engineering policy note"
         ],
-        "missing_evidence_behavior": "REVIEW",
-        "public_help_text": "Attach or confirm source evidence for Operating speed when the decision affects cost, safety, quality, or commitment."
+        "missing_evidence_behavior": "WARN",
+        "public_help_text": "Confirm the target factor of safety against the applicable design code."
       },
       "standard_clause_bindings": [],
       "formula_bindings": [
-        "F_DEMAND",
-        "F_CAPACITY",
-        "F_DERATED_CAPACITY",
-        "F_UTILIZATION",
-        "F_MARGIN",
-        "F_UNCERTAINTY",
-        "F_SENSITIVITY",
-        "F_BUSINESS_IMPACT",
-        "F_FMEA_TRIGGER",
-        "F_DECISION_STATE"
+        "F_DECISION"
       ],
-      "output_bindings": [
-        "demand_index",
-        "capacity_index",
-        "derated_capacity_index",
-        "utilization_index"
-      ],
+      "output_bindings": [],
       "warning_bindings": [
-        "W_REF_RANGE",
-        "W_EVIDENCE",
-        "W_UNCERTAINTY"
+        "W_REF_RANGE"
       ],
       "ui_binding": {
-        "group_id": "operation_context",
+        "group_id": "material_and_margin",
         "field_order": 5,
-        "component": "number_with_unit",
-        "unit_dropdown_required": true,
-        "reference_values_visible": true,
-        "advanced": false,
-        "visible_in_modes": [
-          "engineering",
-          "cost",
-          "audit"
-        ],
-        "required_for_calculation": true,
-        "required_for_clause_evidence": false
+        "component": "number",
+        "unit_dropdown_required": false,
+        "reference_values_visible": true
       },
-      "user_help_text": "Enter the actual operating speed for this specific case. Do not rely on the reference band as a default value.",
-      "warning_if_missing_or_estimated": "If operating speed is estimated or missing, the server should move the decision to review or blocked according to risk level."
-    },
-    {
-      "id": "friction_or_loss_factor",
-      "name": "Friction or loss factor",
-      "symbol": "mu",
-      "quantity_kind": "ratio",
-      "unit_selectable": true,
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio",
-        "percent"
-      ],
-      "normalized_id": "n_friction_or_loss_factor",
-      "type": "number",
-      "required": true,
-      "criticality": "HIGH",
-      "allowed_values": [],
-      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
-      "physical_hard_bounds": {
-        "min": 0,
-        "max": 2,
-        "unit": "ratio",
-        "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Friction or loss factor is below the physically meaningful or operationally permitted lower bound.",
-        "semantic_error_message_max": "Friction or loss factor is above the physically meaningful or operationally permitted upper bound."
-      },
-      "engineering_range": {
-        "min": 0.01,
-        "max": 0.3,
-        "unit": "ratio",
-        "source": "Friction or loss factor screening band for this advanced derating inputs decision; user must verify with measured, quoted, or source-controlled data.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
-      },
-      "resolution": null,
-      "precision_policy": {
-        "input_decimals": 3,
-        "display_decimals": 3,
-        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
-        "rounding_rule": "DISPLAY_ONLY"
-      },
-      "default_policy": "NO_DEFAULT",
-      "default_value": null,
-      "smart_defaults": [],
-      "reference_values": {
-        "reference_value_type": "USER_VERIFIED",
-        "source": "Friction or loss factor must be checked against the actual asset, measurement, quotation, datasheet, production record, or user-verified source for this tool.",
-        "reference_status": "NEEDS_SOURCE_VERIFICATION",
-        "user_must_verify": true,
-        "public_note": "Reference band is visible below Friction or loss factor; it is advisory and must not auto-fill the input."
-      },
-      "source_priority": [
-        "measured_value",
-        "user_verified_source",
-        "supplier_datasheet",
-        "controlled_estimate",
-        "engineering_judgment_with_review"
-      ],
-      "source": "Friction or loss factor source must be selected or documented before relying on the decision output.",
-      "evidence_requirement": {
-        "required": true,
-        "accepted_evidence": [
-          "measured field value",
-          "controlled spreadsheet extract",
-          "supplier or manufacturer datasheet",
-          "quotation or ERP record",
-          "user-verified engineering note"
-        ],
-        "missing_evidence_behavior": "REVIEW",
-        "public_help_text": "Attach or confirm source evidence for Friction or loss factor when the decision affects cost, safety, quality, or commitment."
-      },
-      "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F_DEMAND",
-        "F_CAPACITY",
-        "F_DERATED_CAPACITY",
-        "F_UTILIZATION",
-        "F_MARGIN",
-        "F_UNCERTAINTY",
-        "F_SENSITIVITY",
-        "F_BUSINESS_IMPACT",
-        "F_FMEA_TRIGGER",
-        "F_DECISION_STATE"
-      ],
-      "output_bindings": [
-        "demand_index",
-        "capacity_index",
-        "derated_capacity_index",
-        "utilization_index"
-      ],
-      "warning_bindings": [
-        "W_REF_RANGE",
-        "W_EVIDENCE",
-        "W_UNCERTAINTY"
-      ],
-      "ui_binding": {
-        "group_id": "advanced_derating_inputs",
-        "field_order": 6,
-        "component": "number_with_unit",
-        "unit_dropdown_required": true,
-        "reference_values_visible": true,
-        "advanced": false,
-        "visible_in_modes": [
-          "engineering",
-          "cost",
-          "audit"
-        ],
-        "required_for_calculation": true,
-        "required_for_clause_evidence": false
-      },
-      "user_help_text": "Enter the actual friction or loss factor for this specific case. Do not rely on the reference band as a default value.",
-      "warning_if_missing_or_estimated": "If friction or loss factor is estimated or missing, the server should move the decision to review or blocked according to risk level."
-    },
-    {
-      "id": "duty_or_service_factor",
-      "name": "Duty or service factor",
-      "symbol": "K_s",
-      "quantity_kind": "ratio",
-      "unit_selectable": true,
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio",
-        "percent"
-      ],
-      "normalized_id": "n_duty_or_service_factor",
-      "type": "number",
-      "required": true,
-      "criticality": "HIGH",
-      "allowed_values": [],
-      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
-      "physical_hard_bounds": {
-        "min": 0.1,
-        "max": 5,
-        "unit": "ratio",
-        "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Duty or service factor is below the physically meaningful or operationally permitted lower bound.",
-        "semantic_error_message_max": "Duty or service factor is above the physically meaningful or operationally permitted upper bound."
-      },
-      "engineering_range": {
-        "min": 0.8,
-        "max": 2,
-        "unit": "ratio",
-        "source": "Duty or service factor screening band for this advanced derating inputs decision; user must verify with measured, quoted, or source-controlled data.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
-      },
-      "resolution": null,
-      "precision_policy": {
-        "input_decimals": 3,
-        "display_decimals": 3,
-        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
-        "rounding_rule": "DISPLAY_ONLY"
-      },
-      "default_policy": "NO_DEFAULT",
-      "default_value": null,
-      "smart_defaults": [],
-      "reference_values": {
-        "reference_value_type": "USER_VERIFIED",
-        "source": "Duty or service factor must be checked against the actual asset, measurement, quotation, datasheet, production record, or user-verified source for this tool.",
-        "reference_status": "NEEDS_SOURCE_VERIFICATION",
-        "user_must_verify": true,
-        "public_note": "Reference band is visible below Duty or service factor; it is advisory and must not auto-fill the input."
-      },
-      "source_priority": [
-        "measured_value",
-        "user_verified_source",
-        "supplier_datasheet",
-        "controlled_estimate",
-        "engineering_judgment_with_review"
-      ],
-      "source": "Duty or service factor source must be selected or documented before relying on the decision output.",
-      "evidence_requirement": {
-        "required": true,
-        "accepted_evidence": [
-          "measured field value",
-          "controlled spreadsheet extract",
-          "supplier or manufacturer datasheet",
-          "quotation or ERP record",
-          "user-verified engineering note"
-        ],
-        "missing_evidence_behavior": "REVIEW",
-        "public_help_text": "Attach or confirm source evidence for Duty or service factor when the decision affects cost, safety, quality, or commitment."
-      },
-      "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F_DEMAND",
-        "F_CAPACITY",
-        "F_DERATED_CAPACITY",
-        "F_UTILIZATION",
-        "F_MARGIN",
-        "F_UNCERTAINTY",
-        "F_SENSITIVITY",
-        "F_BUSINESS_IMPACT",
-        "F_FMEA_TRIGGER",
-        "F_DECISION_STATE"
-      ],
-      "output_bindings": [
-        "demand_index",
-        "capacity_index",
-        "derated_capacity_index",
-        "utilization_index"
-      ],
-      "warning_bindings": [
-        "W_REF_RANGE",
-        "W_EVIDENCE",
-        "W_UNCERTAINTY"
-      ],
-      "ui_binding": {
-        "group_id": "advanced_derating_inputs",
-        "field_order": 7,
-        "component": "number_with_unit",
-        "unit_dropdown_required": true,
-        "reference_values_visible": true,
-        "advanced": true,
-        "visible_in_modes": [
-          "engineering",
-          "cost",
-          "audit"
-        ],
-        "required_for_calculation": true,
-        "required_for_clause_evidence": false
-      },
-      "user_help_text": "Enter the actual duty or service factor for this specific case. Do not rely on the reference band as a default value.",
-      "warning_if_missing_or_estimated": "If duty or service factor is estimated or missing, the server should move the decision to review or blocked according to risk level."
-    },
-    {
-      "id": "unit_failure_cost",
-      "name": "Unit failure or rework cost",
-      "symbol": "C_f",
-      "quantity_kind": "currency",
-      "unit_selectable": true,
-      "base_unit": "display_currency",
-      "allowed_display_units": [
-        "display_currency"
-      ],
-      "normalized_id": "n_unit_failure_cost",
-      "type": "number",
-      "required": true,
-      "criticality": "MEDIUM",
-      "allowed_values": [],
-      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
-      "physical_hard_bounds": {
-        "min": 0,
-        "max": 1000000000,
-        "unit": "display_currency",
-        "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Unit failure or rework cost is below the physically meaningful or operationally permitted lower bound.",
-        "semantic_error_message_max": "Unit failure or rework cost is above the physically meaningful or operationally permitted upper bound."
-      },
-      "engineering_range": {
-        "min": 10,
-        "max": 1000000,
-        "unit": "display_currency",
-        "source": "Unit failure or rework cost screening band for this commercial impact inputs decision; user must verify with measured, quoted, or source-controlled data.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
-      },
-      "resolution": null,
-      "precision_policy": {
-        "input_decimals": 3,
-        "display_decimals": 3,
-        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
-        "rounding_rule": "DISPLAY_ONLY"
-      },
-      "default_policy": "NO_DEFAULT",
-      "default_value": null,
-      "smart_defaults": [],
-      "reference_values": {
-        "reference_value_type": "USER_VERIFIED",
-        "source": "Unit failure or rework cost must be checked against the actual asset, measurement, quotation, datasheet, production record, or user-verified source for this tool.",
-        "reference_status": "NEEDS_SOURCE_VERIFICATION",
-        "user_must_verify": true,
-        "public_note": "Reference band is visible below Unit failure or rework cost; it is advisory and must not auto-fill the input."
-      },
-      "source_priority": [
-        "measured_value",
-        "user_verified_source",
-        "supplier_datasheet",
-        "controlled_estimate",
-        "engineering_judgment_with_review"
-      ],
-      "source": "Unit failure or rework cost source must be selected or documented before relying on the decision output.",
-      "evidence_requirement": {
-        "required": true,
-        "accepted_evidence": [
-          "measured field value",
-          "controlled spreadsheet extract",
-          "supplier or manufacturer datasheet",
-          "quotation or ERP record",
-          "user-verified engineering note"
-        ],
-        "missing_evidence_behavior": "REVIEW",
-        "public_help_text": "Attach or confirm source evidence for Unit failure or rework cost when the decision affects cost, safety, quality, or commitment."
-      },
-      "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F_DEMAND",
-        "F_CAPACITY",
-        "F_DERATED_CAPACITY",
-        "F_UTILIZATION",
-        "F_MARGIN",
-        "F_UNCERTAINTY",
-        "F_SENSITIVITY",
-        "F_BUSINESS_IMPACT",
-        "F_FMEA_TRIGGER",
-        "F_DECISION_STATE"
-      ],
-      "output_bindings": [
-        "demand_index",
-        "capacity_index",
-        "derated_capacity_index",
-        "utilization_index"
-      ],
-      "warning_bindings": [
-        "W_REF_RANGE",
-        "W_EVIDENCE",
-        "W_UNCERTAINTY"
-      ],
-      "ui_binding": {
-        "group_id": "commercial_impact_inputs",
-        "field_order": 8,
-        "component": "number_with_unit",
-        "unit_dropdown_required": true,
-        "reference_values_visible": true,
-        "advanced": true,
-        "visible_in_modes": [
-          "engineering",
-          "cost",
-          "audit"
-        ],
-        "required_for_calculation": true,
-        "required_for_clause_evidence": false
-      },
-      "user_help_text": "Enter the actual unit failure or rework cost for this specific case. Do not rely on the reference band as a default value.",
-      "warning_if_missing_or_estimated": "If unit failure or rework cost is estimated or missing, the server should move the decision to review or blocked according to risk level."
-    },
-    {
-      "id": "measurement_uncertainty",
-      "name": "Measurement uncertainty",
-      "symbol": "u_m",
-      "quantity_kind": "ratio",
-      "unit_selectable": true,
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio",
-        "percent"
-      ],
-      "normalized_id": "n_measurement_uncertainty",
-      "type": "number",
-      "required": true,
-      "criticality": "HIGH",
-      "allowed_values": [],
-      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
-      "physical_hard_bounds": {
-        "min": 0,
-        "max": 1,
-        "unit": "ratio",
-        "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Measurement uncertainty is below the physically meaningful or operationally permitted lower bound.",
-        "semantic_error_message_max": "Measurement uncertainty is above the physically meaningful or operationally permitted upper bound."
-      },
-      "engineering_range": {
-        "min": 0.001,
-        "max": 0.1,
-        "unit": "ratio",
-        "source": "Measurement uncertainty screening band for this quality tolerance calibration data decision; user must verify with measured, quoted, or source-controlled data.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
-      },
-      "resolution": null,
-      "precision_policy": {
-        "input_decimals": 3,
-        "display_decimals": 3,
-        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
-        "rounding_rule": "DISPLAY_ONLY"
-      },
-      "default_policy": "NO_DEFAULT",
-      "default_value": null,
-      "smart_defaults": [],
-      "reference_values": {
-        "reference_value_type": "USER_VERIFIED",
-        "source": "Measurement uncertainty must be checked against the actual asset, measurement, quotation, datasheet, production record, or user-verified source for this tool.",
-        "reference_status": "NEEDS_SOURCE_VERIFICATION",
-        "user_must_verify": true,
-        "public_note": "Reference band is visible below Measurement uncertainty; it is advisory and must not auto-fill the input."
-      },
-      "source_priority": [
-        "measured_value",
-        "user_verified_source",
-        "supplier_datasheet",
-        "controlled_estimate",
-        "engineering_judgment_with_review"
-      ],
-      "source": "Measurement uncertainty source must be selected or documented before relying on the decision output.",
-      "evidence_requirement": {
-        "required": true,
-        "accepted_evidence": [
-          "measured field value",
-          "controlled spreadsheet extract",
-          "supplier or manufacturer datasheet",
-          "quotation or ERP record",
-          "user-verified engineering note"
-        ],
-        "missing_evidence_behavior": "REVIEW",
-        "public_help_text": "Attach or confirm source evidence for Measurement uncertainty when the decision affects cost, safety, quality, or commitment."
-      },
-      "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F_DEMAND",
-        "F_CAPACITY",
-        "F_DERATED_CAPACITY",
-        "F_UTILIZATION",
-        "F_MARGIN",
-        "F_UNCERTAINTY",
-        "F_SENSITIVITY",
-        "F_BUSINESS_IMPACT",
-        "F_FMEA_TRIGGER",
-        "F_DECISION_STATE"
-      ],
-      "output_bindings": [
-        "demand_index",
-        "capacity_index",
-        "derated_capacity_index",
-        "utilization_index"
-      ],
-      "warning_bindings": [
-        "W_REF_RANGE",
-        "W_EVIDENCE",
-        "W_UNCERTAINTY"
-      ],
-      "ui_binding": {
-        "group_id": "quality_tolerance_calibration_data",
-        "field_order": 9,
-        "component": "number_with_unit",
-        "unit_dropdown_required": true,
-        "reference_values_visible": true,
-        "advanced": true,
-        "visible_in_modes": [
-          "engineering",
-          "cost",
-          "audit"
-        ],
-        "required_for_calculation": true,
-        "required_for_clause_evidence": false
-      },
-      "user_help_text": "Enter the actual measurement uncertainty for this specific case. Do not rely on the reference band as a default value.",
-      "warning_if_missing_or_estimated": "If measurement uncertainty is estimated or missing, the server should move the decision to review or blocked according to risk level."
-    },
-    {
-      "id": "evidence_confidence",
-      "name": "Evidence confidence score",
-      "symbol": "E_c",
-      "quantity_kind": "ratio",
-      "unit_selectable": true,
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio",
-        "percent"
-      ],
-      "normalized_id": "n_evidence_confidence",
-      "type": "number",
-      "required": true,
-      "criticality": "HIGH",
-      "allowed_values": [],
-      "confidence_label": "NEEDS_SOURCE_VERIFICATION",
-      "physical_hard_bounds": {
-        "min": 0,
-        "max": 1,
-        "unit": "ratio",
-        "basis": "PROCESS_LIMIT",
-        "violation_behavior": "BLOCK",
-        "semantic_error_message_min": "Evidence confidence score is below the physically meaningful or operationally permitted lower bound.",
-        "semantic_error_message_max": "Evidence confidence score is above the physically meaningful or operationally permitted upper bound."
-      },
-      "engineering_range": {
-        "min": 0.7,
-        "max": 1,
-        "unit": "ratio",
-        "source": "Evidence confidence score screening band for this evidence and source status decision; user must verify with measured, quoted, or source-controlled data.",
-        "status": "NEEDS_SOURCE_VERIFICATION"
-      },
-      "resolution": null,
-      "precision_policy": {
-        "input_decimals": 3,
-        "display_decimals": 3,
-        "calculation_precision": "FULL_DOUBLE_PRECISION_NO_PRE_ROUNDING",
-        "rounding_rule": "DISPLAY_ONLY"
-      },
-      "default_policy": "NO_DEFAULT",
-      "default_value": null,
-      "smart_defaults": [],
-      "reference_values": {
-        "reference_value_type": "USER_VERIFIED",
-        "source": "Evidence confidence score must be checked against the actual asset, measurement, quotation, datasheet, production record, or user-verified source for this tool.",
-        "reference_status": "NEEDS_SOURCE_VERIFICATION",
-        "user_must_verify": true,
-        "public_note": "Reference band is visible below Evidence confidence score; it is advisory and must not auto-fill the input."
-      },
-      "source_priority": [
-        "measured_value",
-        "user_verified_source",
-        "supplier_datasheet",
-        "controlled_estimate",
-        "engineering_judgment_with_review"
-      ],
-      "source": "Evidence confidence score source must be selected or documented before relying on the decision output.",
-      "evidence_requirement": {
-        "required": true,
-        "accepted_evidence": [
-          "measured field value",
-          "controlled spreadsheet extract",
-          "supplier or manufacturer datasheet",
-          "quotation or ERP record",
-          "user-verified engineering note"
-        ],
-        "missing_evidence_behavior": "REVIEW",
-        "public_help_text": "Attach or confirm source evidence for Evidence confidence score when the decision affects cost, safety, quality, or commitment."
-      },
-      "standard_clause_bindings": [],
-      "formula_bindings": [
-        "F_DEMAND",
-        "F_CAPACITY",
-        "F_DERATED_CAPACITY",
-        "F_UTILIZATION",
-        "F_MARGIN",
-        "F_UNCERTAINTY",
-        "F_SENSITIVITY",
-        "F_BUSINESS_IMPACT",
-        "F_FMEA_TRIGGER",
-        "F_DECISION_STATE"
-      ],
-      "output_bindings": [
-        "demand_index",
-        "capacity_index",
-        "derated_capacity_index",
-        "utilization_index"
-      ],
-      "warning_bindings": [
-        "W_REF_RANGE",
-        "W_EVIDENCE",
-        "W_UNCERTAINTY"
-      ],
-      "ui_binding": {
-        "group_id": "evidence_and_source_status",
-        "field_order": 10,
-        "component": "number_with_unit",
-        "unit_dropdown_required": true,
-        "reference_values_visible": true,
-        "advanced": true,
-        "visible_in_modes": [
-          "engineering",
-          "cost",
-          "audit"
-        ],
-        "required_for_calculation": true,
-        "required_for_clause_evidence": false
-      },
-      "user_help_text": "Enter the actual evidence confidence score for this specific case. Do not rely on the reference band as a default value.",
-      "warning_if_missing_or_estimated": "If evidence confidence score is estimated or missing, the server should move the decision to review or blocked according to risk level."
+      "user_help_text": "Enter the required design factor of safety against yield. Leave blank to use 1.5.",
+      "warning_if_missing_or_estimated": "If the target factor of safety is missing, a default of 1.5 is applied."
     }
   ],
   "normalized_inputs": [
     {
-      "id": "n_primary_dimension",
-      "from_input": "primary_dimension",
-      "quantity_kind": "length",
-      "base_unit": "m",
+      "id": "n_sigma_x",
+      "from_input": "sigma_x",
+      "quantity_kind": "stress",
+      "base_unit": "MPa",
       "conversion_source": "unit_conversion_contract.conversion_registry",
       "validation_after_conversion": [
         "V_NON_FINITE_INPUT",
@@ -1366,10 +592,10 @@
       "audit_required": true
     },
     {
-      "id": "n_secondary_dimension",
-      "from_input": "secondary_dimension",
-      "quantity_kind": "length",
-      "base_unit": "m",
+      "id": "n_sigma_y",
+      "from_input": "sigma_y",
+      "quantity_kind": "stress",
+      "base_unit": "MPa",
       "conversion_source": "unit_conversion_contract.conversion_registry",
       "validation_after_conversion": [
         "V_NON_FINITE_INPUT",
@@ -1380,10 +606,10 @@
       "audit_required": true
     },
     {
-      "id": "n_applied_force",
-      "from_input": "applied_force",
-      "quantity_kind": "force",
-      "base_unit": "N",
+      "id": "n_tau_xy",
+      "from_input": "tau_xy",
+      "quantity_kind": "stress",
+      "base_unit": "MPa",
       "conversion_source": "unit_conversion_contract.conversion_registry",
       "validation_after_conversion": [
         "V_NON_FINITE_INPUT",
@@ -1394,10 +620,10 @@
       "audit_required": true
     },
     {
-      "id": "n_available_strength_or_capacity",
-      "from_input": "available_strength_or_capacity",
-      "quantity_kind": "pressure",
-      "base_unit": "Pa",
+      "id": "n_yield_strength",
+      "from_input": "yield_strength",
+      "quantity_kind": "stress",
+      "base_unit": "MPa",
       "conversion_source": "unit_conversion_contract.conversion_registry",
       "validation_after_conversion": [
         "V_NON_FINITE_INPUT",
@@ -1408,80 +634,10 @@
       "audit_required": true
     },
     {
-      "id": "n_operating_speed",
-      "from_input": "operating_speed",
-      "quantity_kind": "speed",
-      "base_unit": "m_per_s",
-      "conversion_source": "unit_conversion_contract.conversion_registry",
-      "validation_after_conversion": [
-        "V_NON_FINITE_INPUT",
-        "V_PHYSICAL_BOUND",
-        "V_ENGINEERING_LOW",
-        "V_ENGINEERING_HIGH"
-      ],
-      "audit_required": true
-    },
-    {
-      "id": "n_friction_or_loss_factor",
-      "from_input": "friction_or_loss_factor",
-      "quantity_kind": "ratio",
-      "base_unit": "ratio",
-      "conversion_source": "unit_conversion_contract.conversion_registry",
-      "validation_after_conversion": [
-        "V_NON_FINITE_INPUT",
-        "V_PHYSICAL_BOUND",
-        "V_ENGINEERING_LOW",
-        "V_ENGINEERING_HIGH"
-      ],
-      "audit_required": true
-    },
-    {
-      "id": "n_duty_or_service_factor",
-      "from_input": "duty_or_service_factor",
-      "quantity_kind": "ratio",
-      "base_unit": "ratio",
-      "conversion_source": "unit_conversion_contract.conversion_registry",
-      "validation_after_conversion": [
-        "V_NON_FINITE_INPUT",
-        "V_PHYSICAL_BOUND",
-        "V_ENGINEERING_LOW",
-        "V_ENGINEERING_HIGH"
-      ],
-      "audit_required": true
-    },
-    {
-      "id": "n_unit_failure_cost",
-      "from_input": "unit_failure_cost",
-      "quantity_kind": "currency",
-      "base_unit": "display_currency",
-      "conversion_source": "unit_conversion_contract.conversion_registry",
-      "validation_after_conversion": [
-        "V_NON_FINITE_INPUT",
-        "V_PHYSICAL_BOUND",
-        "V_ENGINEERING_LOW",
-        "V_ENGINEERING_HIGH"
-      ],
-      "audit_required": true
-    },
-    {
-      "id": "n_measurement_uncertainty",
-      "from_input": "measurement_uncertainty",
-      "quantity_kind": "ratio",
-      "base_unit": "ratio",
-      "conversion_source": "unit_conversion_contract.conversion_registry",
-      "validation_after_conversion": [
-        "V_NON_FINITE_INPUT",
-        "V_PHYSICAL_BOUND",
-        "V_ENGINEERING_LOW",
-        "V_ENGINEERING_HIGH"
-      ],
-      "audit_required": true
-    },
-    {
-      "id": "n_evidence_confidence",
-      "from_input": "evidence_confidence",
-      "quantity_kind": "ratio",
-      "base_unit": "ratio",
+      "id": "n_target_fos",
+      "from_input": "target_fos",
+      "quantity_kind": "dimensionless",
+      "base_unit": "user_unit",
       "conversion_source": "unit_conversion_contract.conversion_registry",
       "validation_after_conversion": [
         "V_NON_FINITE_INPUT",
@@ -2018,8 +1174,8 @@
   },
   "formulas": [
     {
-      "id": "F_DEMAND",
-      "name": "Normalize and aggregate decision demand",
+      "id": "F_VON_MISES",
+      "name": "Von Mises equivalent stress (maximum distortion energy theory, 2D plane stress)",
       "visibility": {
         "public_ui": false,
         "public_export": false,
@@ -2027,66 +1183,28 @@
       },
       "expression": "INTERNAL_SERVER_ONLY_EXPRESSION_NOT_FOR_PUBLIC_UI",
       "uses": [
-        "n_primary_dimension",
-        "n_secondary_dimension",
-        "n_applied_force",
-        "n_available_strength_or_capacity"
+        "n_sigma_x",
+        "n_sigma_y",
+        "n_tau_xy"
       ],
-      "output": "demand_index",
-      "unit": "SI_BASE_OR_DOMAIN_BASE_UNIT",
+      "output": "von_mises_stress",
+      "unit": "MPa",
       "proof_role": "LOAD_EFFECT",
       "standard_clause_bindings": [],
       "input_bindings": [
-        "primary_dimension",
-        "secondary_dimension",
-        "applied_force",
-        "available_strength_or_capacity",
-        "operating_speed",
-        "friction_or_loss_factor",
-        "duty_or_service_factor",
-        "unit_failure_cost",
-        "measurement_uncertainty",
-        "evidence_confidence"
+        "sigma_x",
+        "sigma_y",
+        "tau_xy"
       ],
       "normalized_input_bindings": [
-        "n_primary_dimension",
-        "n_secondary_dimension",
-        "n_applied_force",
-        "n_available_strength_or_capacity"
-      ],
-      "output_bindings": [
-        "demand_index"
-      ],
-      "assumptions": [
-        "Von Mises Stress Calculator is treated as a single-operation screening step.",
-        "Inputs are normalized to base units before the private server formula registry executes.",
-        "Reference ranges are advisory and never replace measured or user-verified values.",
-        "Exact formula expressions are restricted to server/admin/test trace and are not public UI content."
-      ],
-      "limitations": [
-        "This schema is decision-support only and not certification, legal proof, or approval.",
-        "User must verify standards-sensitive values, rates, material properties, limits, and evidence sources.",
-        "If evidence is missing for a critical input, the response must move to REVIEW or BLOCKED according to configured risk level."
-      ],
-      "edge_cases": [
-        "Zero or negative denominators must block execution.",
-        "Non-finite outputs must block public response.",
-        "Unit conversion mismatch must block execution.",
-        "Uncertainty band crossing a threshold must trigger review or FMEA."
-      ],
-      "public_proof_summary": "Normalize and aggregate decision demand is summarized publicly as a protected methodology step for Von Mises Stress Calculator; exact formula details remain server-only.",
-      "protected_methodology_summary": "Private formula registry evaluates Normalize and aggregate decision demand using normalized input IDs only and stores deterministic hash evidence.",
-      "checker_note": "Checker should verify that Normalize and aggregate decision demand used only normalized IDs and that source evidence aligns with the decision scope.",
-      "acceptance_logic": "ACCEPT_OR_PASS_ONLY_WHEN_DEMAND_CAPACITY_MARGIN_CONFIDENCE_AND_EVIDENCE_CONDITIONS_ARE_INSIDE_ALLOWED_SERVER_RULES",
-      "rejection_logic": "REJECT_OR_BLOCK_WHEN_PHYSICAL_BOUNDS_FORMULA_LEAK_NON_FINITE_OUTPUT_OR_MISSING_CRITICAL_EVIDENCE_OCCURS",
-      "review_required_logic": "REVIEW_WHEN_REFERENCE_RANGE_DEVIATION_UNCERTAINTY_THRESHOLD_CROSSING_OR_LOW_EVIDENCE_CONFIDENCE_IS_DETECTED",
-      "uncertainty_expression": "INTERNAL_SERVER_ONLY_UNCERTAINTY_EXPRESSION_NOT_FOR_PUBLIC_UI",
-      "formula_leak_risk": "MEDIUM",
-      "public_formula_expression_policy": "FORBIDDEN"
+        "n_sigma_x",
+        "n_sigma_y",
+        "n_tau_xy"
+      ]
     },
     {
-      "id": "F_CAPACITY",
-      "name": "Normalize and aggregate available capacity",
+      "id": "F_FACTOR_OF_SAFETY",
+      "name": "Factor of safety against yield",
       "visibility": {
         "public_ui": false,
         "public_export": false,
@@ -2094,283 +1212,22 @@
       },
       "expression": "INTERNAL_SERVER_ONLY_EXPRESSION_NOT_FOR_PUBLIC_UI",
       "uses": [
-        "n_secondary_dimension",
-        "n_applied_force",
-        "n_available_strength_or_capacity",
-        "n_operating_speed"
+        "n_yield_strength"
       ],
-      "output": "capacity_index",
-      "unit": "SI_BASE_OR_DOMAIN_BASE_UNIT",
-      "proof_role": "CAPACITY",
-      "standard_clause_bindings": [],
-      "input_bindings": [
-        "primary_dimension",
-        "secondary_dimension",
-        "applied_force",
-        "available_strength_or_capacity",
-        "operating_speed",
-        "friction_or_loss_factor",
-        "duty_or_service_factor",
-        "unit_failure_cost",
-        "measurement_uncertainty",
-        "evidence_confidence"
-      ],
-      "normalized_input_bindings": [
-        "n_secondary_dimension",
-        "n_applied_force",
-        "n_available_strength_or_capacity",
-        "n_operating_speed"
-      ],
-      "output_bindings": [
-        "capacity_index"
-      ],
-      "assumptions": [
-        "Von Mises Stress Calculator is treated as a single-operation screening step.",
-        "Inputs are normalized to base units before the private server formula registry executes.",
-        "Reference ranges are advisory and never replace measured or user-verified values.",
-        "Exact formula expressions are restricted to server/admin/test trace and are not public UI content."
-      ],
-      "limitations": [
-        "This schema is decision-support only and not certification, legal proof, or approval.",
-        "User must verify standards-sensitive values, rates, material properties, limits, and evidence sources.",
-        "If evidence is missing for a critical input, the response must move to REVIEW or BLOCKED according to configured risk level."
-      ],
-      "edge_cases": [
-        "Zero or negative denominators must block execution.",
-        "Non-finite outputs must block public response.",
-        "Unit conversion mismatch must block execution.",
-        "Uncertainty band crossing a threshold must trigger review or FMEA."
-      ],
-      "public_proof_summary": "Normalize and aggregate available capacity is summarized publicly as a protected methodology step for Von Mises Stress Calculator; exact formula details remain server-only.",
-      "protected_methodology_summary": "Private formula registry evaluates Normalize and aggregate available capacity using normalized input IDs only and stores deterministic hash evidence.",
-      "checker_note": "Checker should verify that Normalize and aggregate available capacity used only normalized IDs and that source evidence aligns with the decision scope.",
-      "acceptance_logic": "ACCEPT_OR_PASS_ONLY_WHEN_DEMAND_CAPACITY_MARGIN_CONFIDENCE_AND_EVIDENCE_CONDITIONS_ARE_INSIDE_ALLOWED_SERVER_RULES",
-      "rejection_logic": "REJECT_OR_BLOCK_WHEN_PHYSICAL_BOUNDS_FORMULA_LEAK_NON_FINITE_OUTPUT_OR_MISSING_CRITICAL_EVIDENCE_OCCURS",
-      "review_required_logic": "REVIEW_WHEN_REFERENCE_RANGE_DEVIATION_UNCERTAINTY_THRESHOLD_CROSSING_OR_LOW_EVIDENCE_CONFIDENCE_IS_DETECTED",
-      "uncertainty_expression": "INTERNAL_SERVER_ONLY_UNCERTAINTY_EXPRESSION_NOT_FOR_PUBLIC_UI",
-      "formula_leak_risk": "MEDIUM",
-      "public_formula_expression_policy": "FORBIDDEN"
-    },
-    {
-      "id": "F_DERATED_CAPACITY",
-      "name": "Apply evidence and service derating",
-      "visibility": {
-        "public_ui": false,
-        "public_export": false,
-        "internal_admin_trace": true
-      },
-      "expression": "INTERNAL_SERVER_ONLY_EXPRESSION_NOT_FOR_PUBLIC_UI",
-      "uses": [
-        "n_operating_speed",
-        "n_friction_or_loss_factor",
-        "n_duty_or_service_factor",
-        "n_unit_failure_cost"
-      ],
-      "output": "derated_capacity_index",
-      "unit": "SI_BASE_OR_DOMAIN_BASE_UNIT",
-      "proof_role": "DERATING",
-      "standard_clause_bindings": [],
-      "input_bindings": [
-        "primary_dimension",
-        "secondary_dimension",
-        "applied_force",
-        "available_strength_or_capacity",
-        "operating_speed",
-        "friction_or_loss_factor",
-        "duty_or_service_factor",
-        "unit_failure_cost",
-        "measurement_uncertainty",
-        "evidence_confidence"
-      ],
-      "normalized_input_bindings": [
-        "n_operating_speed",
-        "n_friction_or_loss_factor",
-        "n_duty_or_service_factor",
-        "n_unit_failure_cost"
-      ],
-      "output_bindings": [
-        "derated_capacity_index"
-      ],
-      "assumptions": [
-        "Von Mises Stress Calculator is treated as a single-operation screening step.",
-        "Inputs are normalized to base units before the private server formula registry executes.",
-        "Reference ranges are advisory and never replace measured or user-verified values.",
-        "Exact formula expressions are restricted to server/admin/test trace and are not public UI content."
-      ],
-      "limitations": [
-        "This schema is decision-support only and not certification, legal proof, or approval.",
-        "User must verify standards-sensitive values, rates, material properties, limits, and evidence sources.",
-        "If evidence is missing for a critical input, the response must move to REVIEW or BLOCKED according to configured risk level."
-      ],
-      "edge_cases": [
-        "Zero or negative denominators must block execution.",
-        "Non-finite outputs must block public response.",
-        "Unit conversion mismatch must block execution.",
-        "Uncertainty band crossing a threshold must trigger review or FMEA."
-      ],
-      "public_proof_summary": "Apply evidence and service derating is summarized publicly as a protected methodology step for Von Mises Stress Calculator; exact formula details remain server-only.",
-      "protected_methodology_summary": "Private formula registry evaluates Apply evidence and service derating using normalized input IDs only and stores deterministic hash evidence.",
-      "checker_note": "Checker should verify that Apply evidence and service derating used only normalized IDs and that source evidence aligns with the decision scope.",
-      "acceptance_logic": "ACCEPT_OR_PASS_ONLY_WHEN_DEMAND_CAPACITY_MARGIN_CONFIDENCE_AND_EVIDENCE_CONDITIONS_ARE_INSIDE_ALLOWED_SERVER_RULES",
-      "rejection_logic": "REJECT_OR_BLOCK_WHEN_PHYSICAL_BOUNDS_FORMULA_LEAK_NON_FINITE_OUTPUT_OR_MISSING_CRITICAL_EVIDENCE_OCCURS",
-      "review_required_logic": "REVIEW_WHEN_REFERENCE_RANGE_DEVIATION_UNCERTAINTY_THRESHOLD_CROSSING_OR_LOW_EVIDENCE_CONFIDENCE_IS_DETECTED",
-      "uncertainty_expression": "INTERNAL_SERVER_ONLY_UNCERTAINTY_EXPRESSION_NOT_FOR_PUBLIC_UI",
-      "formula_leak_risk": "MEDIUM",
-      "public_formula_expression_policy": "FORBIDDEN"
-    },
-    {
-      "id": "F_UTILIZATION",
-      "name": "Calculate utilization index",
-      "visibility": {
-        "public_ui": false,
-        "public_export": false,
-        "internal_admin_trace": true
-      },
-      "expression": "INTERNAL_SERVER_ONLY_EXPRESSION_NOT_FOR_PUBLIC_UI",
-      "uses": [
-        "n_primary_dimension",
-        "n_secondary_dimension",
-        "n_applied_force",
-        "n_available_strength_or_capacity",
-        "n_operating_speed",
-        "n_friction_or_loss_factor",
-        "n_duty_or_service_factor",
-        "n_unit_failure_cost"
-      ],
-      "output": "utilization_index",
-      "unit": "SI_BASE_OR_DOMAIN_BASE_UNIT",
-      "proof_role": "UTILIZATION",
-      "standard_clause_bindings": [],
-      "input_bindings": [
-        "primary_dimension",
-        "secondary_dimension",
-        "applied_force",
-        "available_strength_or_capacity",
-        "operating_speed",
-        "friction_or_loss_factor",
-        "duty_or_service_factor",
-        "unit_failure_cost",
-        "measurement_uncertainty",
-        "evidence_confidence"
-      ],
-      "normalized_input_bindings": [
-        "n_primary_dimension",
-        "n_secondary_dimension",
-        "n_applied_force",
-        "n_available_strength_or_capacity",
-        "n_operating_speed",
-        "n_friction_or_loss_factor",
-        "n_duty_or_service_factor",
-        "n_unit_failure_cost"
-      ],
-      "output_bindings": [
-        "utilization_index"
-      ],
-      "assumptions": [
-        "Von Mises Stress Calculator is treated as a single-operation screening step.",
-        "Inputs are normalized to base units before the private server formula registry executes.",
-        "Reference ranges are advisory and never replace measured or user-verified values.",
-        "Exact formula expressions are restricted to server/admin/test trace and are not public UI content."
-      ],
-      "limitations": [
-        "This schema is decision-support only and not certification, legal proof, or approval.",
-        "User must verify standards-sensitive values, rates, material properties, limits, and evidence sources.",
-        "If evidence is missing for a critical input, the response must move to REVIEW or BLOCKED according to configured risk level."
-      ],
-      "edge_cases": [
-        "Zero or negative denominators must block execution.",
-        "Non-finite outputs must block public response.",
-        "Unit conversion mismatch must block execution.",
-        "Uncertainty band crossing a threshold must trigger review or FMEA."
-      ],
-      "public_proof_summary": "Calculate utilization index is summarized publicly as a protected methodology step for Von Mises Stress Calculator; exact formula details remain server-only.",
-      "protected_methodology_summary": "Private formula registry evaluates Calculate utilization index using normalized input IDs only and stores deterministic hash evidence.",
-      "checker_note": "Checker should verify that Calculate utilization index used only normalized IDs and that source evidence aligns with the decision scope.",
-      "acceptance_logic": "ACCEPT_OR_PASS_ONLY_WHEN_DEMAND_CAPACITY_MARGIN_CONFIDENCE_AND_EVIDENCE_CONDITIONS_ARE_INSIDE_ALLOWED_SERVER_RULES",
-      "rejection_logic": "REJECT_OR_BLOCK_WHEN_PHYSICAL_BOUNDS_FORMULA_LEAK_NON_FINITE_OUTPUT_OR_MISSING_CRITICAL_EVIDENCE_OCCURS",
-      "review_required_logic": "REVIEW_WHEN_REFERENCE_RANGE_DEVIATION_UNCERTAINTY_THRESHOLD_CROSSING_OR_LOW_EVIDENCE_CONFIDENCE_IS_DETECTED",
-      "uncertainty_expression": "INTERNAL_SERVER_ONLY_UNCERTAINTY_EXPRESSION_NOT_FOR_PUBLIC_UI",
-      "formula_leak_risk": "MEDIUM",
-      "public_formula_expression_policy": "FORBIDDEN"
-    },
-    {
-      "id": "F_MARGIN",
-      "name": "Calculate margin index",
-      "visibility": {
-        "public_ui": false,
-        "public_export": false,
-        "internal_admin_trace": true
-      },
-      "expression": "INTERNAL_SERVER_ONLY_EXPRESSION_NOT_FOR_PUBLIC_UI",
-      "uses": [
-        "n_primary_dimension",
-        "n_secondary_dimension",
-        "n_applied_force",
-        "n_available_strength_or_capacity",
-        "n_operating_speed",
-        "n_friction_or_loss_factor",
-        "n_duty_or_service_factor",
-        "n_unit_failure_cost"
-      ],
-      "output": "margin_index",
-      "unit": "SI_BASE_OR_DOMAIN_BASE_UNIT",
+      "output": "factor_of_safety",
+      "unit": "ratio",
       "proof_role": "MARGIN",
       "standard_clause_bindings": [],
       "input_bindings": [
-        "primary_dimension",
-        "secondary_dimension",
-        "applied_force",
-        "available_strength_or_capacity",
-        "operating_speed",
-        "friction_or_loss_factor",
-        "duty_or_service_factor",
-        "unit_failure_cost",
-        "measurement_uncertainty",
-        "evidence_confidence"
+        "yield_strength"
       ],
       "normalized_input_bindings": [
-        "n_primary_dimension",
-        "n_secondary_dimension",
-        "n_applied_force",
-        "n_available_strength_or_capacity",
-        "n_operating_speed",
-        "n_friction_or_loss_factor",
-        "n_duty_or_service_factor",
-        "n_unit_failure_cost"
-      ],
-      "output_bindings": [
-        "margin_index"
-      ],
-      "assumptions": [
-        "Von Mises Stress Calculator is treated as a single-operation screening step.",
-        "Inputs are normalized to base units before the private server formula registry executes.",
-        "Reference ranges are advisory and never replace measured or user-verified values.",
-        "Exact formula expressions are restricted to server/admin/test trace and are not public UI content."
-      ],
-      "limitations": [
-        "This schema is decision-support only and not certification, legal proof, or approval.",
-        "User must verify standards-sensitive values, rates, material properties, limits, and evidence sources.",
-        "If evidence is missing for a critical input, the response must move to REVIEW or BLOCKED according to configured risk level."
-      ],
-      "edge_cases": [
-        "Zero or negative denominators must block execution.",
-        "Non-finite outputs must block public response.",
-        "Unit conversion mismatch must block execution.",
-        "Uncertainty band crossing a threshold must trigger review or FMEA."
-      ],
-      "public_proof_summary": "Calculate margin index is summarized publicly as a protected methodology step for Von Mises Stress Calculator; exact formula details remain server-only.",
-      "protected_methodology_summary": "Private formula registry evaluates Calculate margin index using normalized input IDs only and stores deterministic hash evidence.",
-      "checker_note": "Checker should verify that Calculate margin index used only normalized IDs and that source evidence aligns with the decision scope.",
-      "acceptance_logic": "ACCEPT_OR_PASS_ONLY_WHEN_DEMAND_CAPACITY_MARGIN_CONFIDENCE_AND_EVIDENCE_CONDITIONS_ARE_INSIDE_ALLOWED_SERVER_RULES",
-      "rejection_logic": "REJECT_OR_BLOCK_WHEN_PHYSICAL_BOUNDS_FORMULA_LEAK_NON_FINITE_OUTPUT_OR_MISSING_CRITICAL_EVIDENCE_OCCURS",
-      "review_required_logic": "REVIEW_WHEN_REFERENCE_RANGE_DEVIATION_UNCERTAINTY_THRESHOLD_CROSSING_OR_LOW_EVIDENCE_CONFIDENCE_IS_DETECTED",
-      "uncertainty_expression": "INTERNAL_SERVER_ONLY_UNCERTAINTY_EXPRESSION_NOT_FOR_PUBLIC_UI",
-      "formula_leak_risk": "MEDIUM",
-      "public_formula_expression_policy": "FORBIDDEN"
+        "n_yield_strength"
+      ]
     },
     {
-      "id": "F_UNCERTAINTY",
-      "name": "Propagate critical output uncertainty",
+      "id": "F_DECISION",
+      "name": "Structural decision state (SAFE / MARGINAL / YIELDING)",
       "visibility": {
         "public_ui": false,
         "public_export": false,
@@ -2378,635 +1235,46 @@
       },
       "expression": "INTERNAL_SERVER_ONLY_EXPRESSION_NOT_FOR_PUBLIC_UI",
       "uses": [
-        "n_unit_failure_cost",
-        "n_measurement_uncertainty",
-        "n_evidence_confidence"
+        "n_target_fos"
       ],
-      "output": "expanded_uncertainty",
-      "unit": "SI_BASE_OR_DOMAIN_BASE_UNIT",
-      "proof_role": "UNCERTAINTY",
+      "output": null,
+      "unit": "state",
+      "proof_role": "DECISION",
       "standard_clause_bindings": [],
       "input_bindings": [
-        "primary_dimension",
-        "secondary_dimension",
-        "applied_force",
-        "available_strength_or_capacity",
-        "operating_speed",
-        "friction_or_loss_factor",
-        "duty_or_service_factor",
-        "unit_failure_cost",
-        "measurement_uncertainty",
-        "evidence_confidence"
+        "target_fos"
       ],
       "normalized_input_bindings": [
-        "n_unit_failure_cost",
-        "n_measurement_uncertainty",
-        "n_evidence_confidence"
-      ],
-      "output_bindings": [
-        "expanded_uncertainty"
-      ],
-      "assumptions": [
-        "Von Mises Stress Calculator is treated as a single-operation screening step.",
-        "Inputs are normalized to base units before the private server formula registry executes.",
-        "Reference ranges are advisory and never replace measured or user-verified values.",
-        "Exact formula expressions are restricted to server/admin/test trace and are not public UI content."
-      ],
-      "limitations": [
-        "This schema is decision-support only and not certification, legal proof, or approval.",
-        "User must verify standards-sensitive values, rates, material properties, limits, and evidence sources.",
-        "If evidence is missing for a critical input, the response must move to REVIEW or BLOCKED according to configured risk level."
-      ],
-      "edge_cases": [
-        "Zero or negative denominators must block execution.",
-        "Non-finite outputs must block public response.",
-        "Unit conversion mismatch must block execution.",
-        "Uncertainty band crossing a threshold must trigger review or FMEA."
-      ],
-      "public_proof_summary": "Propagate critical output uncertainty is summarized publicly as a protected methodology step for Von Mises Stress Calculator; exact formula details remain server-only.",
-      "protected_methodology_summary": "Private formula registry evaluates Propagate critical output uncertainty using normalized input IDs only and stores deterministic hash evidence.",
-      "checker_note": "Checker should verify that Propagate critical output uncertainty used only normalized IDs and that source evidence aligns with the decision scope.",
-      "acceptance_logic": "ACCEPT_OR_PASS_ONLY_WHEN_DEMAND_CAPACITY_MARGIN_CONFIDENCE_AND_EVIDENCE_CONDITIONS_ARE_INSIDE_ALLOWED_SERVER_RULES",
-      "rejection_logic": "REJECT_OR_BLOCK_WHEN_PHYSICAL_BOUNDS_FORMULA_LEAK_NON_FINITE_OUTPUT_OR_MISSING_CRITICAL_EVIDENCE_OCCURS",
-      "review_required_logic": "REVIEW_WHEN_REFERENCE_RANGE_DEVIATION_UNCERTAINTY_THRESHOLD_CROSSING_OR_LOW_EVIDENCE_CONFIDENCE_IS_DETECTED",
-      "uncertainty_expression": "INTERNAL_SERVER_ONLY_UNCERTAINTY_EXPRESSION_NOT_FOR_PUBLIC_UI",
-      "formula_leak_risk": "MEDIUM",
-      "public_formula_expression_policy": "FORBIDDEN"
-    },
-    {
-      "id": "F_SENSITIVITY",
-      "name": "Rank decision-flip sensitivity drivers",
-      "visibility": {
-        "public_ui": false,
-        "public_export": false,
-        "internal_admin_trace": true
-      },
-      "expression": "INTERNAL_SERVER_ONLY_EXPRESSION_NOT_FOR_PUBLIC_UI",
-      "uses": [
-        "n_primary_dimension",
-        "n_secondary_dimension",
-        "n_applied_force",
-        "n_available_strength_or_capacity",
-        "n_operating_speed",
-        "n_friction_or_loss_factor",
-        "n_duty_or_service_factor",
-        "n_unit_failure_cost",
-        "n_measurement_uncertainty",
-        "n_evidence_confidence"
-      ],
-      "output": "dominant_sensitivity_driver",
-      "unit": "SI_BASE_OR_DOMAIN_BASE_UNIT",
-      "proof_role": "DIAGNOSTIC",
-      "standard_clause_bindings": [],
-      "input_bindings": [
-        "primary_dimension",
-        "secondary_dimension",
-        "applied_force",
-        "available_strength_or_capacity",
-        "operating_speed",
-        "friction_or_loss_factor",
-        "duty_or_service_factor",
-        "unit_failure_cost",
-        "measurement_uncertainty",
-        "evidence_confidence"
-      ],
-      "normalized_input_bindings": [
-        "n_primary_dimension",
-        "n_secondary_dimension",
-        "n_applied_force",
-        "n_available_strength_or_capacity",
-        "n_operating_speed",
-        "n_friction_or_loss_factor",
-        "n_duty_or_service_factor",
-        "n_unit_failure_cost",
-        "n_measurement_uncertainty",
-        "n_evidence_confidence"
-      ],
-      "output_bindings": [
-        "dominant_sensitivity_driver"
-      ],
-      "assumptions": [
-        "Von Mises Stress Calculator is treated as a single-operation screening step.",
-        "Inputs are normalized to base units before the private server formula registry executes.",
-        "Reference ranges are advisory and never replace measured or user-verified values.",
-        "Exact formula expressions are restricted to server/admin/test trace and are not public UI content."
-      ],
-      "limitations": [
-        "This schema is decision-support only and not certification, legal proof, or approval.",
-        "User must verify standards-sensitive values, rates, material properties, limits, and evidence sources.",
-        "If evidence is missing for a critical input, the response must move to REVIEW or BLOCKED according to configured risk level."
-      ],
-      "edge_cases": [
-        "Zero or negative denominators must block execution.",
-        "Non-finite outputs must block public response.",
-        "Unit conversion mismatch must block execution.",
-        "Uncertainty band crossing a threshold must trigger review or FMEA."
-      ],
-      "public_proof_summary": "Rank decision-flip sensitivity drivers is summarized publicly as a protected methodology step for Von Mises Stress Calculator; exact formula details remain server-only.",
-      "protected_methodology_summary": "Private formula registry evaluates Rank decision-flip sensitivity drivers using normalized input IDs only and stores deterministic hash evidence.",
-      "checker_note": "Checker should verify that Rank decision-flip sensitivity drivers used only normalized IDs and that source evidence aligns with the decision scope.",
-      "acceptance_logic": "ACCEPT_OR_PASS_ONLY_WHEN_DEMAND_CAPACITY_MARGIN_CONFIDENCE_AND_EVIDENCE_CONDITIONS_ARE_INSIDE_ALLOWED_SERVER_RULES",
-      "rejection_logic": "REJECT_OR_BLOCK_WHEN_PHYSICAL_BOUNDS_FORMULA_LEAK_NON_FINITE_OUTPUT_OR_MISSING_CRITICAL_EVIDENCE_OCCURS",
-      "review_required_logic": "REVIEW_WHEN_REFERENCE_RANGE_DEVIATION_UNCERTAINTY_THRESHOLD_CROSSING_OR_LOW_EVIDENCE_CONFIDENCE_IS_DETECTED",
-      "uncertainty_expression": "INTERNAL_SERVER_ONLY_UNCERTAINTY_EXPRESSION_NOT_FOR_PUBLIC_UI",
-      "formula_leak_risk": "MEDIUM",
-      "public_formula_expression_policy": "FORBIDDEN"
-    },
-    {
-      "id": "F_BUSINESS_IMPACT",
-      "name": "Estimate money or operating impact",
-      "visibility": {
-        "public_ui": false,
-        "public_export": false,
-        "internal_admin_trace": true
-      },
-      "expression": "INTERNAL_SERVER_ONLY_EXPRESSION_NOT_FOR_PUBLIC_UI",
-      "uses": [
-        "n_friction_or_loss_factor",
-        "n_duty_or_service_factor",
-        "n_unit_failure_cost",
-        "n_measurement_uncertainty",
-        "n_evidence_confidence"
-      ],
-      "output": "money_at_risk",
-      "unit": "SI_BASE_OR_DOMAIN_BASE_UNIT",
-      "proof_role": "BUSINESS_IMPACT",
-      "standard_clause_bindings": [],
-      "input_bindings": [
-        "primary_dimension",
-        "secondary_dimension",
-        "applied_force",
-        "available_strength_or_capacity",
-        "operating_speed",
-        "friction_or_loss_factor",
-        "duty_or_service_factor",
-        "unit_failure_cost",
-        "measurement_uncertainty",
-        "evidence_confidence"
-      ],
-      "normalized_input_bindings": [
-        "n_friction_or_loss_factor",
-        "n_duty_or_service_factor",
-        "n_unit_failure_cost",
-        "n_measurement_uncertainty",
-        "n_evidence_confidence"
-      ],
-      "output_bindings": [
-        "money_at_risk"
-      ],
-      "assumptions": [
-        "Von Mises Stress Calculator is treated as a single-operation screening step.",
-        "Inputs are normalized to base units before the private server formula registry executes.",
-        "Reference ranges are advisory and never replace measured or user-verified values.",
-        "Exact formula expressions are restricted to server/admin/test trace and are not public UI content."
-      ],
-      "limitations": [
-        "This schema is decision-support only and not certification, legal proof, or approval.",
-        "User must verify standards-sensitive values, rates, material properties, limits, and evidence sources.",
-        "If evidence is missing for a critical input, the response must move to REVIEW or BLOCKED according to configured risk level."
-      ],
-      "edge_cases": [
-        "Zero or negative denominators must block execution.",
-        "Non-finite outputs must block public response.",
-        "Unit conversion mismatch must block execution.",
-        "Uncertainty band crossing a threshold must trigger review or FMEA."
-      ],
-      "public_proof_summary": "Estimate money or operating impact is summarized publicly as a protected methodology step for Von Mises Stress Calculator; exact formula details remain server-only.",
-      "protected_methodology_summary": "Private formula registry evaluates Estimate money or operating impact using normalized input IDs only and stores deterministic hash evidence.",
-      "checker_note": "Checker should verify that Estimate money or operating impact used only normalized IDs and that source evidence aligns with the decision scope.",
-      "acceptance_logic": "ACCEPT_OR_PASS_ONLY_WHEN_DEMAND_CAPACITY_MARGIN_CONFIDENCE_AND_EVIDENCE_CONDITIONS_ARE_INSIDE_ALLOWED_SERVER_RULES",
-      "rejection_logic": "REJECT_OR_BLOCK_WHEN_PHYSICAL_BOUNDS_FORMULA_LEAK_NON_FINITE_OUTPUT_OR_MISSING_CRITICAL_EVIDENCE_OCCURS",
-      "review_required_logic": "REVIEW_WHEN_REFERENCE_RANGE_DEVIATION_UNCERTAINTY_THRESHOLD_CROSSING_OR_LOW_EVIDENCE_CONFIDENCE_IS_DETECTED",
-      "uncertainty_expression": "INTERNAL_SERVER_ONLY_UNCERTAINTY_EXPRESSION_NOT_FOR_PUBLIC_UI",
-      "formula_leak_risk": "MEDIUM",
-      "public_formula_expression_policy": "FORBIDDEN"
-    },
-    {
-      "id": "F_FMEA_TRIGGER",
-      "name": "Trigger FMEA review when thresholds are crossed",
-      "visibility": {
-        "public_ui": false,
-        "public_export": false,
-        "internal_admin_trace": true
-      },
-      "expression": "INTERNAL_SERVER_ONLY_EXPRESSION_NOT_FOR_PUBLIC_UI",
-      "uses": [
-        "n_primary_dimension",
-        "n_secondary_dimension",
-        "n_applied_force",
-        "n_available_strength_or_capacity",
-        "n_operating_speed",
-        "n_friction_or_loss_factor",
-        "n_duty_or_service_factor",
-        "n_unit_failure_cost",
-        "n_measurement_uncertainty",
-        "n_evidence_confidence"
-      ],
-      "output": "fmea_required",
-      "unit": "SI_BASE_OR_DOMAIN_BASE_UNIT",
-      "proof_role": "DIAGNOSTIC",
-      "standard_clause_bindings": [],
-      "input_bindings": [
-        "primary_dimension",
-        "secondary_dimension",
-        "applied_force",
-        "available_strength_or_capacity",
-        "operating_speed",
-        "friction_or_loss_factor",
-        "duty_or_service_factor",
-        "unit_failure_cost",
-        "measurement_uncertainty",
-        "evidence_confidence"
-      ],
-      "normalized_input_bindings": [
-        "n_primary_dimension",
-        "n_secondary_dimension",
-        "n_applied_force",
-        "n_available_strength_or_capacity",
-        "n_operating_speed",
-        "n_friction_or_loss_factor",
-        "n_duty_or_service_factor",
-        "n_unit_failure_cost",
-        "n_measurement_uncertainty",
-        "n_evidence_confidence"
-      ],
-      "output_bindings": [
-        "fmea_required"
-      ],
-      "assumptions": [
-        "Von Mises Stress Calculator is treated as a single-operation screening step.",
-        "Inputs are normalized to base units before the private server formula registry executes.",
-        "Reference ranges are advisory and never replace measured or user-verified values.",
-        "Exact formula expressions are restricted to server/admin/test trace and are not public UI content."
-      ],
-      "limitations": [
-        "This schema is decision-support only and not certification, legal proof, or approval.",
-        "User must verify standards-sensitive values, rates, material properties, limits, and evidence sources.",
-        "If evidence is missing for a critical input, the response must move to REVIEW or BLOCKED according to configured risk level."
-      ],
-      "edge_cases": [
-        "Zero or negative denominators must block execution.",
-        "Non-finite outputs must block public response.",
-        "Unit conversion mismatch must block execution.",
-        "Uncertainty band crossing a threshold must trigger review or FMEA."
-      ],
-      "public_proof_summary": "Trigger FMEA review when thresholds are crossed is summarized publicly as a protected methodology step for Von Mises Stress Calculator; exact formula details remain server-only.",
-      "protected_methodology_summary": "Private formula registry evaluates Trigger FMEA review when thresholds are crossed using normalized input IDs only and stores deterministic hash evidence.",
-      "checker_note": "Checker should verify that Trigger FMEA review when thresholds are crossed used only normalized IDs and that source evidence aligns with the decision scope.",
-      "acceptance_logic": "ACCEPT_OR_PASS_ONLY_WHEN_DEMAND_CAPACITY_MARGIN_CONFIDENCE_AND_EVIDENCE_CONDITIONS_ARE_INSIDE_ALLOWED_SERVER_RULES",
-      "rejection_logic": "REJECT_OR_BLOCK_WHEN_PHYSICAL_BOUNDS_FORMULA_LEAK_NON_FINITE_OUTPUT_OR_MISSING_CRITICAL_EVIDENCE_OCCURS",
-      "review_required_logic": "REVIEW_WHEN_REFERENCE_RANGE_DEVIATION_UNCERTAINTY_THRESHOLD_CROSSING_OR_LOW_EVIDENCE_CONFIDENCE_IS_DETECTED",
-      "uncertainty_expression": "INTERNAL_SERVER_ONLY_UNCERTAINTY_EXPRESSION_NOT_FOR_PUBLIC_UI",
-      "formula_leak_risk": "MEDIUM",
-      "public_formula_expression_policy": "FORBIDDEN"
-    },
-    {
-      "id": "F_DECISION_STATE",
-      "name": "Generate protected decision state",
-      "visibility": {
-        "public_ui": false,
-        "public_export": false,
-        "internal_admin_trace": true
-      },
-      "expression": "INTERNAL_SERVER_ONLY_EXPRESSION_NOT_FOR_PUBLIC_UI",
-      "uses": [
-        "n_primary_dimension",
-        "n_secondary_dimension",
-        "n_applied_force",
-        "n_available_strength_or_capacity",
-        "n_operating_speed",
-        "n_friction_or_loss_factor",
-        "n_duty_or_service_factor",
-        "n_unit_failure_cost",
-        "n_measurement_uncertainty",
-        "n_evidence_confidence"
-      ],
-      "output": "primary_decision_state",
-      "unit": "SI_BASE_OR_DOMAIN_BASE_UNIT",
-      "proof_role": "DECISION_RULE",
-      "standard_clause_bindings": [],
-      "input_bindings": [
-        "primary_dimension",
-        "secondary_dimension",
-        "applied_force",
-        "available_strength_or_capacity",
-        "operating_speed",
-        "friction_or_loss_factor",
-        "duty_or_service_factor",
-        "unit_failure_cost",
-        "measurement_uncertainty",
-        "evidence_confidence"
-      ],
-      "normalized_input_bindings": [
-        "n_primary_dimension",
-        "n_secondary_dimension",
-        "n_applied_force",
-        "n_available_strength_or_capacity",
-        "n_operating_speed",
-        "n_friction_or_loss_factor",
-        "n_duty_or_service_factor",
-        "n_unit_failure_cost",
-        "n_measurement_uncertainty",
-        "n_evidence_confidence"
-      ],
-      "output_bindings": [
-        "primary_decision_state"
-      ],
-      "assumptions": [
-        "Von Mises Stress Calculator is treated as a single-operation screening step.",
-        "Inputs are normalized to base units before the private server formula registry executes.",
-        "Reference ranges are advisory and never replace measured or user-verified values.",
-        "Exact formula expressions are restricted to server/admin/test trace and are not public UI content."
-      ],
-      "limitations": [
-        "This schema is decision-support only and not certification, legal proof, or approval.",
-        "User must verify standards-sensitive values, rates, material properties, limits, and evidence sources.",
-        "If evidence is missing for a critical input, the response must move to REVIEW or BLOCKED according to configured risk level."
-      ],
-      "edge_cases": [
-        "Zero or negative denominators must block execution.",
-        "Non-finite outputs must block public response.",
-        "Unit conversion mismatch must block execution.",
-        "Uncertainty band crossing a threshold must trigger review or FMEA."
-      ],
-      "public_proof_summary": "Generate protected decision state is summarized publicly as a protected methodology step for Von Mises Stress Calculator; exact formula details remain server-only.",
-      "protected_methodology_summary": "Private formula registry evaluates Generate protected decision state using normalized input IDs only and stores deterministic hash evidence.",
-      "checker_note": "Checker should verify that Generate protected decision state used only normalized IDs and that source evidence aligns with the decision scope.",
-      "acceptance_logic": "ACCEPT_OR_PASS_ONLY_WHEN_DEMAND_CAPACITY_MARGIN_CONFIDENCE_AND_EVIDENCE_CONDITIONS_ARE_INSIDE_ALLOWED_SERVER_RULES",
-      "rejection_logic": "REJECT_OR_BLOCK_WHEN_PHYSICAL_BOUNDS_FORMULA_LEAK_NON_FINITE_OUTPUT_OR_MISSING_CRITICAL_EVIDENCE_OCCURS",
-      "review_required_logic": "REVIEW_WHEN_REFERENCE_RANGE_DEVIATION_UNCERTAINTY_THRESHOLD_CROSSING_OR_LOW_EVIDENCE_CONFIDENCE_IS_DETECTED",
-      "uncertainty_expression": "INTERNAL_SERVER_ONLY_UNCERTAINTY_EXPRESSION_NOT_FOR_PUBLIC_UI",
-      "formula_leak_risk": "MEDIUM",
-      "public_formula_expression_policy": "FORBIDDEN"
+        "n_target_fos"
+      ]
     }
   ],
   "outputs": [
     {
-      "id": "demand_index",
-      "name": "Normalized demand index",
-      "symbol": "D_i",
-      "quantity_kind": "ratio",
-      "base_unit": "ratio",
+      "id": "von_mises_stress",
+      "name": "Von Mises Equivalent Stress",
+      "symbol": "sigma_vm",
+      "quantity_kind": "stress",
+      "base_unit": "MPa",
       "allowed_display_units": [
-        "ratio",
-        "percent"
+        "MPa",
+        "psi"
       ],
       "type": "number",
-      "formula_source": "F_DEMAND",
+      "formula_source": "F_VON_MISES",
       "decision_use": "PRIMARY_DECISION",
-      "proof_status_role": "DEMAND",
-      "acceptance_threshold": "Server-owned threshold from approved schema and private formula registry.",
-      "review_threshold": "Server-owned review threshold with uncertainty and evidence confidence check.",
-      "failure_threshold": "Server-owned blocker or rejection threshold for non-finite, physical bound, or critical evidence failures.",
-      "governing_clause": "",
-      "governing_formula": "F_DEMAND",
+      "proof_status_role": "LOAD_EFFECT",
+      "acceptance_threshold": "Must be below yield strength divided by the target factor of safety.",
+      "review_threshold": "Approaching the yield strength triggers review.",
+      "failure_threshold": "At or above the yield strength indicates yielding.",
+      "governing_formula": "F_VON_MISES",
       "governing_input_sensitivity": [
-        "evidence_confidence",
-        "measurement_uncertainty",
-        "available_capacity",
-        "measured_demand"
+        "sigma_x",
+        "sigma_y",
+        "tau_xy"
       ],
-      "public_explanation": "Normalized demand index tells the user how Von Mises Stress Calculator affects the proceed, hold, reprice, reject, inspect, derate, or escalate decision.",
-      "operator_explanation": "Use Normalized demand index to decide whether the field case can proceed or needs a stop-and-check action.",
-      "engineer_explanation": "Use Normalized demand index to identify the governing technical driver and whether the calculation needs deeper verification.",
-      "owner_cfo_explanation": "Use Normalized demand index to judge money at risk, rework exposure, quote impact, or cash commitment.",
-      "checker_explanation": "Use Normalized demand index to verify evidence level, redaction status, uncertainty, and audit reproducibility.",
-      "hidden_risk_note": "A favorable value can still be unsafe or commercially wrong if evidence confidence is low, hidden defaults were used, or uncertainty crosses the decision threshold.",
-      "suggested_action": "Review the dominant sensitivity driver, verify source evidence, and escalate if the uncertainty band crosses the decision threshold.",
-      "evidence_level": "SCREENING_ONLY",
-      "output_format": {
-        "decimals": 3,
-        "rounding": "DISPLAY_ONLY",
-        "show_unit": true
-      }
-    },
-    {
-      "id": "capacity_index",
-      "name": "Normalized available capacity index",
-      "symbol": "C_i",
-      "quantity_kind": "ratio",
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio",
-        "percent"
-      ],
-      "type": "number",
-      "formula_source": "F_CAPACITY",
-      "decision_use": "SECONDARY_METRIC",
-      "proof_status_role": "CAPACITY",
-      "acceptance_threshold": "Server-owned threshold from approved schema and private formula registry.",
-      "review_threshold": "Server-owned review threshold with uncertainty and evidence confidence check.",
-      "failure_threshold": "Server-owned blocker or rejection threshold for non-finite, physical bound, or critical evidence failures.",
-      "governing_clause": "",
-      "governing_formula": "F_CAPACITY",
-      "governing_input_sensitivity": [
-        "evidence_confidence",
-        "measurement_uncertainty",
-        "available_capacity",
-        "measured_demand"
-      ],
-      "public_explanation": "Normalized available capacity index tells the user how Von Mises Stress Calculator affects the proceed, hold, reprice, reject, inspect, derate, or escalate decision.",
-      "operator_explanation": "Use Normalized available capacity index to decide whether the field case can proceed or needs a stop-and-check action.",
-      "engineer_explanation": "Use Normalized available capacity index to identify the governing technical driver and whether the calculation needs deeper verification.",
-      "owner_cfo_explanation": "Use Normalized available capacity index to judge money at risk, rework exposure, quote impact, or cash commitment.",
-      "checker_explanation": "Use Normalized available capacity index to verify evidence level, redaction status, uncertainty, and audit reproducibility.",
-      "hidden_risk_note": "A favorable value can still be unsafe or commercially wrong if evidence confidence is low, hidden defaults were used, or uncertainty crosses the decision threshold.",
-      "suggested_action": "Review the dominant sensitivity driver, verify source evidence, and escalate if the uncertainty band crosses the decision threshold.",
-      "evidence_level": "SCREENING_ONLY",
-      "output_format": {
-        "decimals": 3,
-        "rounding": "DISPLAY_ONLY",
-        "show_unit": true
-      }
-    },
-    {
-      "id": "derated_capacity_index",
-      "name": "Derated capacity index",
-      "symbol": "C_d",
-      "quantity_kind": "ratio",
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio",
-        "percent"
-      ],
-      "type": "number",
-      "formula_source": "F_DERATED_CAPACITY",
-      "decision_use": "PRIMARY_DECISION",
-      "proof_status_role": "CAPACITY",
-      "acceptance_threshold": "Server-owned threshold from approved schema and private formula registry.",
-      "review_threshold": "Server-owned review threshold with uncertainty and evidence confidence check.",
-      "failure_threshold": "Server-owned blocker or rejection threshold for non-finite, physical bound, or critical evidence failures.",
-      "governing_clause": "",
-      "governing_formula": "F_DERATED_CAPACITY",
-      "governing_input_sensitivity": [
-        "evidence_confidence",
-        "measurement_uncertainty",
-        "available_capacity",
-        "measured_demand"
-      ],
-      "public_explanation": "Derated capacity index tells the user how Von Mises Stress Calculator affects the proceed, hold, reprice, reject, inspect, derate, or escalate decision.",
-      "operator_explanation": "Use Derated capacity index to decide whether the field case can proceed or needs a stop-and-check action.",
-      "engineer_explanation": "Use Derated capacity index to identify the governing technical driver and whether the calculation needs deeper verification.",
-      "owner_cfo_explanation": "Use Derated capacity index to judge money at risk, rework exposure, quote impact, or cash commitment.",
-      "checker_explanation": "Use Derated capacity index to verify evidence level, redaction status, uncertainty, and audit reproducibility.",
-      "hidden_risk_note": "A favorable value can still be unsafe or commercially wrong if evidence confidence is low, hidden defaults were used, or uncertainty crosses the decision threshold.",
-      "suggested_action": "Review the dominant sensitivity driver, verify source evidence, and escalate if the uncertainty band crosses the decision threshold.",
-      "evidence_level": "SCREENING_ONLY",
-      "output_format": {
-        "decimals": 3,
-        "rounding": "DISPLAY_ONLY",
-        "show_unit": true
-      }
-    },
-    {
-      "id": "utilization_index",
-      "name": "Utilization index",
-      "symbol": "U",
-      "quantity_kind": "ratio",
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio",
-        "percent"
-      ],
-      "type": "number",
-      "formula_source": "F_UTILIZATION",
-      "decision_use": "PRIMARY_DECISION",
-      "proof_status_role": "UTILIZATION",
-      "acceptance_threshold": "Server-owned threshold from approved schema and private formula registry.",
-      "review_threshold": "Server-owned review threshold with uncertainty and evidence confidence check.",
-      "failure_threshold": "Server-owned blocker or rejection threshold for non-finite, physical bound, or critical evidence failures.",
-      "governing_clause": "",
-      "governing_formula": "F_UTILIZATION",
-      "governing_input_sensitivity": [
-        "evidence_confidence",
-        "measurement_uncertainty",
-        "available_capacity",
-        "measured_demand"
-      ],
-      "public_explanation": "Utilization index tells the user how Von Mises Stress Calculator affects the proceed, hold, reprice, reject, inspect, derate, or escalate decision.",
-      "operator_explanation": "Use Utilization index to decide whether the field case can proceed or needs a stop-and-check action.",
-      "engineer_explanation": "Use Utilization index to identify the governing technical driver and whether the calculation needs deeper verification.",
-      "owner_cfo_explanation": "Use Utilization index to judge money at risk, rework exposure, quote impact, or cash commitment.",
-      "checker_explanation": "Use Utilization index to verify evidence level, redaction status, uncertainty, and audit reproducibility.",
-      "hidden_risk_note": "A favorable value can still be unsafe or commercially wrong if evidence confidence is low, hidden defaults were used, or uncertainty crosses the decision threshold.",
-      "suggested_action": "Review the dominant sensitivity driver, verify source evidence, and escalate if the uncertainty band crosses the decision threshold.",
-      "evidence_level": "SCREENING_ONLY",
-      "output_format": {
-        "decimals": 3,
-        "rounding": "DISPLAY_ONLY",
-        "show_unit": true
-      }
-    },
-    {
-      "id": "margin_index",
-      "name": "Decision margin index",
-      "symbol": "M",
-      "quantity_kind": "ratio",
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio",
-        "percent"
-      ],
-      "type": "number",
-      "formula_source": "F_MARGIN",
-      "decision_use": "PRIMARY_DECISION",
-      "proof_status_role": "MARGIN",
-      "acceptance_threshold": "Server-owned threshold from approved schema and private formula registry.",
-      "review_threshold": "Server-owned review threshold with uncertainty and evidence confidence check.",
-      "failure_threshold": "Server-owned blocker or rejection threshold for non-finite, physical bound, or critical evidence failures.",
-      "governing_clause": "",
-      "governing_formula": "F_MARGIN",
-      "governing_input_sensitivity": [
-        "evidence_confidence",
-        "measurement_uncertainty",
-        "available_capacity",
-        "measured_demand"
-      ],
-      "public_explanation": "Decision margin index tells the user how Von Mises Stress Calculator affects the proceed, hold, reprice, reject, inspect, derate, or escalate decision.",
-      "operator_explanation": "Use Decision margin index to decide whether the field case can proceed or needs a stop-and-check action.",
-      "engineer_explanation": "Use Decision margin index to identify the governing technical driver and whether the calculation needs deeper verification.",
-      "owner_cfo_explanation": "Use Decision margin index to judge money at risk, rework exposure, quote impact, or cash commitment.",
-      "checker_explanation": "Use Decision margin index to verify evidence level, redaction status, uncertainty, and audit reproducibility.",
-      "hidden_risk_note": "A favorable value can still be unsafe or commercially wrong if evidence confidence is low, hidden defaults were used, or uncertainty crosses the decision threshold.",
-      "suggested_action": "Review the dominant sensitivity driver, verify source evidence, and escalate if the uncertainty band crosses the decision threshold.",
-      "evidence_level": "SCREENING_ONLY",
-      "output_format": {
-        "decimals": 3,
-        "rounding": "DISPLAY_ONLY",
-        "show_unit": true
-      }
-    },
-    {
-      "id": "expanded_uncertainty",
-      "name": "Expanded uncertainty",
-      "symbol": "U95",
-      "quantity_kind": "ratio",
-      "base_unit": "ratio",
-      "allowed_display_units": [
-        "ratio",
-        "percent"
-      ],
-      "type": "number",
-      "formula_source": "F_UNCERTAINTY",
-      "decision_use": "SENSITIVITY",
-      "proof_status_role": "DIAGNOSTIC",
-      "acceptance_threshold": "Server-owned threshold from approved schema and private formula registry.",
-      "review_threshold": "Server-owned review threshold with uncertainty and evidence confidence check.",
-      "failure_threshold": "Server-owned blocker or rejection threshold for non-finite, physical bound, or critical evidence failures.",
-      "governing_clause": "",
-      "governing_formula": "F_UNCERTAINTY",
-      "governing_input_sensitivity": [
-        "evidence_confidence",
-        "measurement_uncertainty",
-        "available_capacity",
-        "measured_demand"
-      ],
-      "public_explanation": "Expanded uncertainty tells the user how Von Mises Stress Calculator affects the proceed, hold, reprice, reject, inspect, derate, or escalate decision.",
-      "operator_explanation": "Use Expanded uncertainty to decide whether the field case can proceed or needs a stop-and-check action.",
-      "engineer_explanation": "Use Expanded uncertainty to identify the governing technical driver and whether the calculation needs deeper verification.",
-      "owner_cfo_explanation": "Use Expanded uncertainty to judge money at risk, rework exposure, quote impact, or cash commitment.",
-      "checker_explanation": "Use Expanded uncertainty to verify evidence level, redaction status, uncertainty, and audit reproducibility.",
-      "hidden_risk_note": "A favorable value can still be unsafe or commercially wrong if evidence confidence is low, hidden defaults were used, or uncertainty crosses the decision threshold.",
-      "suggested_action": "Review the dominant sensitivity driver, verify source evidence, and escalate if the uncertainty band crosses the decision threshold.",
-      "evidence_level": "SCREENING_ONLY",
-      "output_format": {
-        "decimals": 3,
-        "rounding": "DISPLAY_ONLY",
-        "show_unit": true
-      }
-    },
-    {
-      "id": "money_at_risk",
-      "name": "Estimated money at risk",
-      "symbol": "MAR",
-      "quantity_kind": "currency",
-      "base_unit": "display_currency",
-      "allowed_display_units": [
-        "display_currency"
-      ],
-      "type": "number",
-      "formula_source": "F_BUSINESS_IMPACT",
-      "decision_use": "BUSINESS_IMPACT",
-      "proof_status_role": "BUSINESS_IMPACT",
-      "acceptance_threshold": "Server-owned threshold from approved schema and private formula registry.",
-      "review_threshold": "Server-owned review threshold with uncertainty and evidence confidence check.",
-      "failure_threshold": "Server-owned blocker or rejection threshold for non-finite, physical bound, or critical evidence failures.",
-      "governing_clause": "",
-      "governing_formula": "F_BUSINESS_IMPACT",
-      "governing_input_sensitivity": [
-        "evidence_confidence",
-        "measurement_uncertainty",
-        "available_capacity",
-        "measured_demand"
-      ],
-      "public_explanation": "Estimated money at risk tells the user how Von Mises Stress Calculator affects the proceed, hold, reprice, reject, inspect, derate, or escalate decision.",
-      "operator_explanation": "Use Estimated money at risk to decide whether the field case can proceed or needs a stop-and-check action.",
-      "engineer_explanation": "Use Estimated money at risk to identify the governing technical driver and whether the calculation needs deeper verification.",
-      "owner_cfo_explanation": "Use Estimated money at risk to judge money at risk, rework exposure, quote impact, or cash commitment.",
-      "checker_explanation": "Use Estimated money at risk to verify evidence level, redaction status, uncertainty, and audit reproducibility.",
-      "hidden_risk_note": "A favorable value can still be unsafe or commercially wrong if evidence confidence is low, hidden defaults were used, or uncertainty crosses the decision threshold.",
-      "suggested_action": "Review the dominant sensitivity driver, verify source evidence, and escalate if the uncertainty band crosses the decision threshold.",
-      "evidence_level": "SCREENING_ONLY",
+      "public_explanation": "Equivalent uniaxial stress from the maximum distortion energy theory for a 2D plane-stress state.",
+      "operator_explanation": "Compare this value against the material yield strength to judge structural safety.",
       "output_format": {
         "decimals": 2,
         "rounding": "DISPLAY_ONLY",
@@ -3014,41 +1282,32 @@
       }
     },
     {
-      "id": "primary_decision_state",
-      "name": "Primary decision state",
-      "symbol": "S",
-      "quantity_kind": "decision_state",
-      "base_unit": "enum",
+      "id": "factor_of_safety",
+      "name": "Factor of Safety (against yield)",
+      "symbol": "FoS",
+      "quantity_kind": "dimensionless",
+      "base_unit": "ratio",
       "allowed_display_units": [
-        "enum"
+        "ratio"
       ],
-      "type": "enum",
-      "formula_source": "F_DECISION_STATE",
+      "type": "number",
+      "formula_source": "F_FACTOR_OF_SAFETY",
       "decision_use": "PRIMARY_DECISION",
-      "proof_status_role": "PASS_FAIL",
-      "acceptance_threshold": "Server-owned threshold from approved schema and private formula registry.",
-      "review_threshold": "Server-owned review threshold with uncertainty and evidence confidence check.",
-      "failure_threshold": "Server-owned blocker or rejection threshold for non-finite, physical bound, or critical evidence failures.",
-      "governing_clause": "",
-      "governing_formula": "F_DECISION_STATE",
+      "proof_status_role": "MARGIN",
+      "acceptance_threshold": "Should be greater than or equal to the target factor of safety.",
+      "review_threshold": "Between 1.0 and the target triggers review.",
+      "failure_threshold": "At or below 1.0 indicates yielding / failure.",
+      "governing_formula": "F_FACTOR_OF_SAFETY",
       "governing_input_sensitivity": [
-        "evidence_confidence",
-        "measurement_uncertainty",
-        "available_capacity",
-        "measured_demand"
+        "yield_strength",
+        "von_mises_stress"
       ],
-      "public_explanation": "Primary decision state tells the user how Von Mises Stress Calculator affects the proceed, hold, reprice, reject, inspect, derate, or escalate decision.",
-      "operator_explanation": "Use Primary decision state to decide whether the field case can proceed or needs a stop-and-check action.",
-      "engineer_explanation": "Use Primary decision state to identify the governing technical driver and whether the calculation needs deeper verification.",
-      "owner_cfo_explanation": "Use Primary decision state to judge money at risk, rework exposure, quote impact, or cash commitment.",
-      "checker_explanation": "Use Primary decision state to verify evidence level, redaction status, uncertainty, and audit reproducibility.",
-      "hidden_risk_note": "A favorable value can still be unsafe or commercially wrong if evidence confidence is low, hidden defaults were used, or uncertainty crosses the decision threshold.",
-      "suggested_action": "Review the dominant sensitivity driver, verify source evidence, and escalate if the uncertainty band crosses the decision threshold.",
-      "evidence_level": "SCREENING_ONLY",
+      "public_explanation": "Material yield strength divided by the von Mises equivalent stress.",
+      "operator_explanation": "A value at or below 1.0 means the material is predicted to yield.",
       "output_format": {
-        "decimals": 0,
+        "decimals": 2,
         "rounding": "DISPLAY_ONLY",
-        "show_unit": true
+        "show_unit": false
       }
     }
   ],
@@ -3340,13 +1599,19 @@
     ],
     "input_groups": [
       {
-        "id": "geometry_or_process_definition",
-        "title": "Geometry Or Process Definition",
-        "description": "Inputs required for geometry or process definition.",
+        "id": "applied_stress_state",
+        "title": "Applied Stress State",
+        "description": "Enter the in-plane stress tensor components at the analysed point (MPa).",
         "order": 1,
         "input_ids": [
-          "primary_dimension",
-          "secondary_dimension"
+          "sigma_x",
+          "sigma_y",
+          "tau_xy"
+        ],
+        "fields": [
+          "sigma_x",
+          "sigma_y",
+          "tau_xy"
         ],
         "visible_in_modes": [
           "quick",
@@ -3356,101 +1621,20 @@
         ]
       },
       {
-        "id": "load_demand_or_production_demand",
-        "title": "Load Demand Or Production Demand",
-        "description": "Inputs required for load demand or production demand.",
+        "id": "material_and_margin",
+        "title": "Material and Design Margin",
+        "description": "Enter the material yield strength and the required design factor of safety.",
         "order": 2,
         "input_ids": [
-          "applied_force"
+          "yield_strength",
+          "target_fos"
+        ],
+        "fields": [
+          "yield_strength",
+          "target_fos"
         ],
         "visible_in_modes": [
           "quick",
-          "engineering",
-          "cost",
-          "audit"
-        ]
-      },
-      {
-        "id": "capacity_resistance_or_process_capability",
-        "title": "Capacity Resistance Or Process Capability",
-        "description": "Inputs required for capacity resistance or process capability.",
-        "order": 3,
-        "input_ids": [
-          "available_strength_or_capacity"
-        ],
-        "visible_in_modes": [
-          "quick",
-          "engineering",
-          "cost",
-          "audit"
-        ]
-      },
-      {
-        "id": "operation_context",
-        "title": "Operation Context",
-        "description": "Inputs required for operation context.",
-        "order": 4,
-        "input_ids": [
-          "operating_speed"
-        ],
-        "visible_in_modes": [
-          "engineering",
-          "cost",
-          "audit"
-        ]
-      },
-      {
-        "id": "advanced_derating_inputs",
-        "title": "Advanced Derating Inputs",
-        "description": "Inputs required for advanced derating inputs.",
-        "order": 5,
-        "input_ids": [
-          "friction_or_loss_factor",
-          "duty_or_service_factor"
-        ],
-        "visible_in_modes": [
-          "engineering",
-          "cost",
-          "audit"
-        ]
-      },
-      {
-        "id": "commercial_impact_inputs",
-        "title": "Commercial Impact Inputs",
-        "description": "Inputs required for commercial impact inputs.",
-        "order": 6,
-        "input_ids": [
-          "unit_failure_cost"
-        ],
-        "visible_in_modes": [
-          "engineering",
-          "cost",
-          "audit"
-        ]
-      },
-      {
-        "id": "quality_tolerance_calibration_data",
-        "title": "Quality Tolerance Calibration Data",
-        "description": "Inputs required for quality tolerance calibration data.",
-        "order": 7,
-        "input_ids": [
-          "measurement_uncertainty"
-        ],
-        "visible_in_modes": [
-          "engineering",
-          "cost",
-          "audit"
-        ]
-      },
-      {
-        "id": "evidence_and_source_status",
-        "title": "Evidence And Source Status",
-        "description": "Inputs required for evidence and source status.",
-        "order": 8,
-        "input_ids": [
-          "evidence_confidence"
-        ],
-        "visible_in_modes": [
           "engineering",
           "cost",
           "audit"

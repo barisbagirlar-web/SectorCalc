@@ -10,6 +10,7 @@
 import { useState, useRef, useCallback } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { getFirebaseAuth } from "@/lib/infrastructure/firebase/auth";
 
 type DiagnosticState =
   | "idle"
@@ -18,6 +19,7 @@ type DiagnosticState =
   | "eligible"
   | "manual_review"
   | "rejected"
+  | "processing"
   | "error";
 
 interface DiagnosticResult {
@@ -27,6 +29,19 @@ interface DiagnosticResult {
   previewRows: Array<{ rowIndex: number; columns: Record<string, string> }>;
   rejectionReasons: string[];
 }
+
+async function getIdTokenOrNull(): Promise<string | null> {
+  const auth = getFirebaseAuth();
+  const currentUser = auth?.currentUser;
+  if (!currentUser) return null;
+  try {
+    return await currentUser.getIdToken();
+  } catch {
+    return null;
+  }
+}
+
+const API_BASE = "/api/document-intelligence/maintenance-bom";
 
 const ACCENT = "#BD5D3A";
 const TEXT = "#1A1915";
@@ -42,6 +57,8 @@ export default function NewJobPage() {
   const [fileName, setFileName] = useState<string>("");
   const [result, setResult] = useState<DiagnosticResult | null>(null);
   const [errorMessage, setErrorMessage] = useState<string>("");
+  const [jobId, setJobId] = useState<string>("");
+  const [insufficientCredits, setInsufficientCredits] = useState(false);
 
   const handleFileSelect = useCallback(async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -59,49 +76,126 @@ export default function NewJobPage() {
 
     setFileName(file.name);
     setErrorMessage("");
+    setInsufficientCredits(false);
     setState("uploading");
 
     try {
-      // In production, this uploads to a signed URL / Cloud Storage.
-      // For the V1 implementation, we simulate the diagnostic flow.
+      const token = await getIdTokenOrNull();
+      if (!token) {
+        setState("error");
+        setErrorMessage("Please sign in to run a diagnostic.");
+        return;
+      }
+
       setState("scanning");
 
-      // Simulate diagnostic processing
-      await new Promise((r) => setTimeout(r, 1500));
+      const res = await fetch(`${API_BASE}/diagnostic/upload`, {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          filename: file.name,
+          fileSizeBytes: file.size,
+          mimeType: file.type,
+        }),
+      });
 
-      // Simulated result: always eligible for demo
-      const diagResult: DiagnosticResult = {
+      const body = await res.json().catch(() => null);
+
+      if (res.status === 503) {
+        setState("error");
+        setErrorMessage("This service is not currently available.");
+        return;
+      }
+      if (!res.ok || !body?.ok || !body?.data) {
+        setState("error");
+        setErrorMessage(body?.error?.message ?? "Diagnostic failed. Please try again.");
+        return;
+      }
+
+      setJobId(body.data.jobId);
+
+      if (!body.data.eligible) {
+        setResult({
+          status: "rejected",
+          pageCount: 0,
+          estimatedRows: 0,
+          previewRows: [],
+          rejectionReasons: body.data.rejectionReasons ?? [],
+        });
+        setState("rejected");
+        return;
+      }
+
+      setResult({
         status: "eligible",
-        pageCount: 12,
-        estimatedRows: 45,
-        previewRows: [
-          {
-            rowIndex: 1,
-            columns: {
-              "Part Number": "ABC-123",
-              Description: "Bearing, Ball",
-              Quantity: "4",
-            },
-          },
-          {
-            rowIndex: 2,
-            columns: {
-              "Part Number": "DEF-456",
-              Description: "Seal, Oil",
-              Quantity: "2",
-            },
-          },
-        ],
+        pageCount: body.data.pageCount ?? 0,
+        estimatedRows: body.data.estimatedRows ?? 0,
+        previewRows: [],
         rejectionReasons: [],
-      };
-
-      setResult(diagResult);
+      });
       setState("eligible");
     } catch {
       setState("error");
       setErrorMessage("Diagnostic failed. Please try again.");
     }
   }, []);
+
+  const handleProcess = useCallback(async () => {
+    if (!jobId) return;
+    setErrorMessage("");
+    setInsufficientCredits(false);
+    setState("processing");
+
+    try {
+      const token = await getIdTokenOrNull();
+      if (!token) {
+        setState("error");
+        setErrorMessage("Please sign in to continue.");
+        return;
+      }
+      const authHeaders = { "content-type": "application/json", authorization: `Bearer ${token}` };
+
+      // Step 1 — Checkout: atomically deduct 149 credits and confirm payment.
+      const checkoutRes = await fetch(`${API_BASE}/jobs/${encodeURIComponent(jobId)}/checkout`, {
+        method: "POST",
+        headers: authHeaders,
+      });
+      const checkoutBody = await checkoutRes.json().catch(() => null);
+
+      if (checkoutRes.status === 402 || checkoutBody?.error?.code === "INSUFFICIENT_CREDITS") {
+        setInsufficientCredits(true);
+        setState("eligible");
+        setErrorMessage("You do not have enough credits (149 required).");
+        return;
+      }
+      if (!checkoutRes.ok || !checkoutBody?.ok) {
+        setState("error");
+        setErrorMessage(checkoutBody?.error?.message ?? "Checkout failed. Please try again.");
+        return;
+      }
+
+      // Step 2 — Execute: run the processing workflow (refund is automatic on failure).
+      const executeRes = await fetch(`${API_BASE}/jobs/${encodeURIComponent(jobId)}/execute`, {
+        method: "POST",
+        headers: authHeaders,
+      });
+      const executeBody = await executeRes.json().catch(() => null);
+
+      if (!executeRes.ok || !executeBody?.ok) {
+        setState("error");
+        setErrorMessage(executeBody?.error?.message ?? "Processing failed. Your credits have been refunded.");
+        return;
+      }
+
+      router.push(`/document-intelligence/maintenance-bom-recovery/jobs/${encodeURIComponent(jobId)}`);
+    } catch {
+      setState("error");
+      setErrorMessage("An unexpected error occurred. Please try again.");
+    }
+  }, [jobId, router]);
 
   return (
     <main className="min-h-screen" style={{ background: BG, color: TEXT }}>
@@ -117,10 +211,10 @@ export default function NewJobPage() {
           <span>New Job</span>
         </nav>
 
-        <h1 className="text-3xl font-bold mb-2">Check My Manual Free</h1>
+        <h1 className="text-3xl font-bold mb-2">Check Document Eligibility</h1>
         <p className="mb-8" style={{ color: MUTED }}>
-          Upload a machine manual or spare-parts PDF for a free eligibility
-          diagnostic. No credit card required.
+          Upload a machine manual or spare-parts PDF. We first run an eligibility
+          check; full processing is a paid job of 149 credits (USD 149).
         </p>
 
         {/* Upload Area */}
@@ -161,24 +255,26 @@ export default function NewJobPage() {
             </svg>
             <p className="font-semibold mb-1">Upload a PDF</p>
             <p className="text-sm" style={{ color: MUTED }}>
-              PDF up to 50 MB. First 3 pages analyzed for free.
+              Native digital PDF up to 50 MB. Eligibility check runs before any charge.
             </p>
           </div>
         )}
 
         {/* Progress States */}
-        {(state === "uploading" || state === "scanning") && (
+        {(state === "uploading" || state === "scanning" || state === "processing") && (
           <div className="p-8 text-center" style={{ background: CARD_BG, border: `1px solid ${BORDER}` }}>
             <div className="animate-pulse mb-4">
               <div className="w-12 h-12 mx-auto rounded-full" style={{ background: ACCENT }} />
             </div>
             <p className="font-semibold">
-              {state === "uploading" ? "Uploading..." : "Analyzing document..."}
+              {state === "uploading" ? "Uploading..." : state === "scanning" ? "Analyzing document..." : "Processing — deducting 149 credits and generating outputs..."}
             </p>
             <p className="text-sm mt-2" style={{ color: MUTED }}>
               {state === "uploading"
                 ? `Uploading ${fileName}`
-                : "Checking page count, structure, and language"}
+                : state === "scanning"
+                  ? "Checking document type and size"
+                  : "Do not close this page. You will be redirected to your job when it completes."}
             </p>
           </div>
         )}
@@ -206,46 +302,58 @@ export default function NewJobPage() {
               </div>
               <div className="grid grid-cols-2 gap-4 mb-4 text-sm">
                 <div>
-                  <span style={{ color: MUTED }}>Pages detected:</span>
-                  <span className="ml-2 font-semibold">{result.pageCount}</span>
+                  <span style={{ color: MUTED }}>File:</span>
+                  <span className="ml-2 font-semibold break-all">{fileName}</span>
                 </div>
-                <div>
-                  <span style={{ color: MUTED }}>Estimated BOM rows:</span>
-                  <span className="ml-2 font-semibold">{result.estimatedRows}</span>
-                </div>
+                {result.pageCount > 0 && (
+                  <div>
+                    <span style={{ color: MUTED }}>Pages detected:</span>
+                    <span className="ml-2 font-semibold">{result.pageCount}</span>
+                  </div>
+                )}
+                {result.estimatedRows > 0 && (
+                  <div>
+                    <span style={{ color: MUTED }}>Estimated BOM rows:</span>
+                    <span className="ml-2 font-semibold">{result.estimatedRows}</span>
+                  </div>
+                )}
               </div>
 
-              {/* Preview Rows */}
-              <h3 className="font-semibold mb-2">Preview (first rows)</h3>
-              <div className="overflow-x-auto mb-6">
-                <table className="w-full text-sm border-collapse">
-                  <thead>
-                    <tr className="border-b" style={{ borderColor: BORDER }}>
-                      <th className="text-left py-2 pr-4 font-medium" style={{ color: MUTED }}>#</th>
-                      <th className="text-left py-2 pr-4 font-medium" style={{ color: MUTED }}>Part Number</th>
-                      <th className="text-left py-2 pr-4 font-medium" style={{ color: MUTED }}>Description</th>
-                      <th className="text-left py-2 font-medium" style={{ color: MUTED }}>Qty</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {result.previewRows.map((row) => (
-                      <tr key={row.rowIndex} className="border-b" style={{ borderColor: BORDER }}>
-                        <td className="py-2 pr-4">{row.rowIndex}</td>
-                        <td className="py-2 pr-4">{row.columns["Part Number"]}</td>
-                        <td className="py-2 pr-4">{row.columns["Description"]}</td>
-                        <td className="py-2">{row.columns["Quantity"]}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
+              {/* Preview Rows (only rendered when the provider returns a preview) */}
+              {result.previewRows.length > 0 && (
+                <>
+                  <h3 className="font-semibold mb-2">Preview (first rows)</h3>
+                  <div className="overflow-x-auto mb-6">
+                    <table className="w-full text-sm border-collapse">
+                      <thead>
+                        <tr className="border-b" style={{ borderColor: BORDER }}>
+                          <th className="text-left py-2 pr-4 font-medium" style={{ color: MUTED }}>#</th>
+                          <th className="text-left py-2 pr-4 font-medium" style={{ color: MUTED }}>Part Number</th>
+                          <th className="text-left py-2 pr-4 font-medium" style={{ color: MUTED }}>Description</th>
+                          <th className="text-left py-2 font-medium" style={{ color: MUTED }}>Qty</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {result.previewRows.map((row) => (
+                          <tr key={row.rowIndex} className="border-b" style={{ borderColor: BORDER }}>
+                            <td className="py-2 pr-4">{row.rowIndex}</td>
+                            <td className="py-2 pr-4">{row.columns["Part Number"]}</td>
+                            <td className="py-2 pr-4">{row.columns["Description"]}</td>
+                            <td className="py-2">{row.columns["Quantity"]}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </>
+              )}
 
-              {/* Risks */}
+              {/* Notice */}
               <div className="p-4 mb-6 text-sm" style={{ background: "#FEF3C7", borderRadius: 0 }}>
-                <p className="font-semibold mb-1">Detected Risks</p>
+                <p className="font-semibold mb-1">Before you proceed</p>
                 <ul className="list-disc pl-4 space-y-1" style={{ color: "#92400E" }}>
-                  <li>Some rows may have inconsistent formatting</li>
-                  <li>Verify extracted data against source document</li>
+                  <li>The full BOM, exception report, and source map are generated after payment.</li>
+                  <li>Review flagged records against the source document before ERP import.</li>
                 </ul>
               </div>
 
@@ -255,16 +363,30 @@ export default function NewJobPage() {
                   149 Credits
                 </div>
                 <p className="text-sm mb-4" style={{ color: MUTED }}>
-                  Fixed price for full processing of this document.
+                  Fixed price for full processing of this document. Credits are
+                  deducted at checkout and automatically refunded if processing fails.
                 </p>
-                <button
-                  className="w-full py-3 font-semibold text-white"
-                  style={{ background: ACCENT }}
-                  type="button"
-                  onClick={() => router.push("/pricing")}
-                >
-                  Process Full Manual — 149 Credits
-                </button>
+                {errorMessage && (
+                  <p className="text-sm mb-3" style={{ color: "#B91C1C" }}>{errorMessage}</p>
+                )}
+                {insufficientCredits ? (
+                  <Link
+                    href="/pricing"
+                    className="block w-full py-3 font-semibold text-white text-center"
+                    style={{ background: ACCENT }}
+                  >
+                    Buy Credits
+                  </Link>
+                ) : (
+                  <button
+                    className="w-full py-3 font-semibold text-white"
+                    style={{ background: ACCENT }}
+                    type="button"
+                    onClick={handleProcess}
+                  >
+                    Pay &amp; Process — 149 Credits
+                  </button>
+                )}
               </div>
             </div>
           </div>
@@ -282,11 +404,15 @@ export default function NewJobPage() {
               <h2 className="text-xl font-bold">Document Not Eligible</h2>
             </div>
             <p className="text-sm mb-4" style={{ color: MUTED }}>
-              This document cannot be processed automatically.
+              This document cannot be processed automatically. No credits have been charged.
             </p>
-            <p className="text-sm" style={{ color: MUTED }}>
-              Automatic 149-credit processing is unavailable for this file.
-            </p>
+            {result && result.rejectionReasons.length > 0 && (
+              <ul className="list-disc pl-5 text-sm space-y-1" style={{ color: MUTED }}>
+                {result.rejectionReasons.map((reason, i) => (
+                  <li key={i}>{reason}</li>
+                ))}
+              </ul>
+            )}
           </div>
         )}
 
