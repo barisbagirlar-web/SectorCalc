@@ -23,12 +23,14 @@ export default function RootLoading() {
         }}
       />
 
-      {/* Content skeleton */}
+      {/* Content skeleton — reserved height approximates first-viewport chrome swap */}
       <div
         style={{
           maxWidth: "1200px",
           margin: "2rem auto",
           padding: "2rem 1.5rem",
+          minHeight: "520px",
+          boxSizing: "border-box",
         }}
       >
         {/* Hero skeleton */}
@@ -37,7 +39,6 @@ export default function RootLoading() {
             height: "2.5rem",
             width: "40%",
             background: "#E0DDD4",
-            borderRadius: "6px",
             marginBottom: "1rem",
           }}
           className="skeleton-pulse"
@@ -47,7 +48,6 @@ export default function RootLoading() {
             height: "1.2rem",
             width: "60%",
             background: "#E0DDD4",
-            borderRadius: "4px",
             marginBottom: "2.5rem",
           }}
           className="skeleton-pulse"
@@ -67,7 +67,6 @@ export default function RootLoading() {
               style={{
                 height: "180px",
                 background: "#F0EEE6",
-                borderRadius: "8px",
                 border: "1px solid #E0DDD4",
               }}
               className="skeleton-pulse"

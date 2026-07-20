@@ -138,29 +138,7 @@ function isAsyncIterable(x: unknown): x is AsyncIterable<string> {
   return !!x && typeof (x as AsyncIterable<string>)[Symbol.asyncIterator] === "function";
 }
 
-const STYLE_ID = "trace-ai-styles";
-
-function useInjectedStyles(): void {
-  useEffect(() => {
-    if (document.getElementById(STYLE_ID)) return;
-    const el = document.createElement("style");
-    el.id = STYLE_ID;
-    el.textContent = `
-@keyframes traceai-move{0%{transform:translateX(0)}100%{transform:translateX(48px)}}
-@keyframes traceai-pulse{0%{transform:scale(1);opacity:.6}100%{transform:scale(2.6);opacity:0}}
-.traceai-dot{animation:traceai-move 2.2s linear infinite}
-.traceai-ring{animation:traceai-pulse 1.8s ease-out infinite}
-.traceai-trigger:hover{transform:translateY(-2px)}
-.traceai-chip:hover{border-color:${C.accent};color:${C.accent};background:#F7EFE9}
-.traceai-send:hover{background:#A94E2F}
-.traceai-close:hover{background:#F0EEE6}
-.traceai-scroll::-webkit-scrollbar{width:8px}
-.traceai-scroll::-webkit-scrollbar-thumb{background:${C.line}}
-@media(max-width:760px){.traceai-trigger{left:14px!important;right:14px!important;bottom:calc(env(safe-area-inset-bottom,0px)+78px)!important;width:auto!important;max-width:none!important;justify-content:center!important;gap:8px!important;padding:8px 14px!important}}
-`;
-    document.head.appendChild(el);
-  }, []);
-}
+/* Styles: src/styles/trace-ai.css (static import — avoids post-hydration CLS) */
 
 /* ----------------------------- Sub-components ----------------------------- */
 
@@ -194,7 +172,6 @@ export function TraceAI({
   defaultOpen = false,
   title = "Trace AI",
 }: TraceAIProps) {
-  useInjectedStyles();
   const [open, setOpen] = useState(defaultOpen);
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
@@ -590,71 +567,55 @@ export function TraceAI({
         </div>
       )}
 
-      {/* trigger */}
-      {!open && (
-        <button
-          className="traceai-trigger"
-          aria-label="Open Trace AI assistant"
-          aria-expanded={open}
-          onClick={() => setOpen(true)}
-          style={{
-            position: "fixed",
-            right: 22,
-            bottom: 22,
-            zIndex: 9999,
-            display: "flex",
-            alignItems: "center",
-            gap: 11,
-            background: C.ink,
-            border: "none",
-            borderTop: `2px solid ${C.accent}`,
-            color: C.white,
-            padding: "10px 15px",
-            cursor: "pointer",
-            boxShadow: "0 10px 26px rgba(26,25,21,.28)",
-            transition: "transform .16s ease",
-          }}
-        >
-          <TraceMark dotColor={C.accent2} />
-          <span style={{ textAlign: "left", lineHeight: 1.15 }}>
-            <span
-              style={{ fontFamily: C.serif, fontSize: 15, display: "block" }}
-            >
-              Trace AI
-            </span>
-            <span
-              style={{
-                fontFamily: C.mono,
-                fontSize: 11,
-                color: C.onDark,
-                letterSpacing: ".5px",
-              }}
-            >
-              audit-grounded copilot
-            </span>
+      {/* Trigger stays mounted with stable box — hide via data-hidden when open (CLS). */}
+      <button
+        className="traceai-trigger"
+        data-hidden={open ? "true" : "false"}
+        aria-label="Open Trace AI assistant"
+        aria-expanded={open}
+        aria-hidden={open}
+        tabIndex={open ? -1 : 0}
+        onClick={() => setOpen(true)}
+      >
+        <TraceMark dotColor={C.accent2} />
+        <span style={{ textAlign: "left", lineHeight: 1.15 }}>
+          <span
+            style={{ fontFamily: C.serif, fontSize: 15, display: "block" }}
+          >
+            Trace AI
           </span>
-          <span style={{ position: "relative", width: 9, height: 9, flex: "none" }}>
-            <span
-              style={{
-                position: "absolute",
-                inset: 0,
-                background: C.accent2,
-                borderRadius: "50%",
-              }}
-            />
-            <span
-              className="traceai-ring"
-              style={{
-                position: "absolute",
-                inset: 0,
-                background: C.accent2,
-                borderRadius: "50%",
-                opacity: 0.6,
-              }}
-            />
+          <span
+            style={{
+              fontFamily: C.mono,
+              fontSize: 11,
+              color: C.onDark,
+              letterSpacing: ".5px",
+            }}
+          >
+            audit-grounded copilot
           </span>
-        </button>
-      )}
+        </span>
+        <span style={{ position: "relative", width: 9, height: 9, flex: "none" }}>
+          <span
+            style={{
+              position: "absolute",
+              inset: 0,
+              background: C.accent2,
+              borderRadius: "50%",
+            }}
+          />
+          <span
+            className="traceai-ring"
+            style={{
+              position: "absolute",
+              inset: 0,
+              background: C.accent2,
+              borderRadius: "50%",
+              opacity: 0.6,
+            }}
+          />
+        </span>
+      </button>
     </>
   );
 }

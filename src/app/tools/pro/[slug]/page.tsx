@@ -6,8 +6,8 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { resolveApprovedToolSchema } from "@/sectorcalc/runtime/resolve-approved-tool-schema";
-import { UniversalIndustrialDecisionForm } from "@/sectorcalc/pro-form";
 import { ProToolSessionWrapper } from "@/sectorcalc/pro-form/ProToolSessionWrapper";
+import { toClientRenderableSchema } from "@/sectorcalc/pro-form/to-client-renderable-schema";
 import { MachineHourlyRateBespokeForm } from "@/sectorcalc/pro-form/bespoke/MachineHourlyRateBespokeForm";
 import { assertToolSchemaIdentity } from "@/sectorcalc/runtime/assert-tool-schema-identity";
 import { ACTIVE_PRO_TOOL_SLUGS } from "@/sectorcalc/runtime/active-tool-allowlist";
@@ -136,7 +136,7 @@ export default async function ProToolDetailPage({
       <article {...articleAccessibilityProps} className="pro-shell">
         <ProToolPaywallGate toolName={slug}>
           <ProToolSessionWrapper
-            schema={schema}
+            schema={toClientRenderableSchema(schema)}
             toolKey={slug}
             executeEndpoint="/api/pro-calculator/execute"
             initialProfileMode="engineering"

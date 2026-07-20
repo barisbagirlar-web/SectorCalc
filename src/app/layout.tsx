@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { headers } from "next/headers";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Barlow, Barlow_Semi_Condensed, Inter, JetBrains_Mono } from "next/font/google";
 import { NextIntlClientProvider } from "@/lib/i18n-stub";
 import { getMessages, setRequestLocale } from "@/lib/i18n-stub";
 import { AuthorAuthorityHeadLinks } from "@/components/seo/AuthorAuthorityHeadLinks";
@@ -27,6 +27,23 @@ const inter = Inter({
   subsets: ["latin", "latin-ext"],
   variable: "--font-inter",
   display: "swap",
+});
+
+/** Heading font for .pro-title - preload for free-tool LCP (Constraint 1). */
+const barlowSemiCondensed = Barlow_Semi_Condensed({
+  subsets: ["latin", "latin-ext"],
+  weight: ["600", "700"],
+  variable: "--font-barlow-semi-condensed",
+  display: "swap",
+  preload: true,
+});
+
+const barlow = Barlow({
+  subsets: ["latin", "latin-ext"],
+  weight: ["400", "500", "600"],
+  variable: "--font-barlow",
+  display: "swap",
+  preload: false,
 });
 
 const jetbrainsMono = JetBrains_Mono({
@@ -123,7 +140,7 @@ export default async function RootLayout({
     <html
       lang={locale}
       dir="ltr"
-      className={`${inter.variable} ${jetbrainsMono.variable}`.trim()}
+      className={`${inter.variable} ${barlowSemiCondensed.variable} ${barlow.variable} ${jetbrainsMono.variable}`.trim()}
       data-region={region}
       data-locale={locale}
     >

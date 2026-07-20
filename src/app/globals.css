@@ -231,9 +231,13 @@
     z-index: 10001;
     height: 2px;
     width: 100%;
+    /* Fixed overlay — must not participate in document layout (CLS). */
+    pointer-events: none;
+    contain: layout size style;
     background: var(--action-industrial-orange);
     animation: route-loading-pulse 0.9s ease-in-out infinite;
     transform-origin: 0 50%;
+    will-change: transform, opacity;
   }
 
   @keyframes fadeIn {
@@ -575,17 +579,17 @@ canvas {
     height: 54px !important;
   }
 
-  /* Trace AI trigger — never overlaps CTA */
+  /* Trace AI trigger — compact FAB (not full-bleed); never overlaps CTA */
   .traceai-trigger,
   [data-trace-assistant="true"] .sc-trace__fab,
   .sc-trace__fab {
     position: fixed !important;
-    left: 14px !important;
+    left: auto !important;
     right: 14px !important;
     bottom: calc(var(--sc-mobile-safe-bottom) + 78px) !important;
     width: auto !important;
-    max-width: none !important;
-    height: 44px !important;
+    max-width: min(280px, calc(100vw - 28px)) !important;
+    height: 52px !important;
     z-index: 80 !important;
   }
 
