@@ -4,7 +4,8 @@
 **Merge:** [PR #97](https://github.com/barisbagirlar-web/SectorCalc/pull/97) → `ff26e7bf5`  
 **Feature commit:** `949e15283`  
 **Deploy CI:** [run 29739821816](https://github.com/barisbagirlar-web/SectorCalc/actions/runs/29739821816) — **success**  
-**Stamp önerisi:** `RELEASE BLOCKED` (G-CWV hard-fail: LCP >4s on 4/6 pages) — G-LIVE PASS, G-SCHEMA structural PASS
+**Stamp önerisi (lab-only, 2026-07-20T12:05Z):** `RELEASE BLOCKED` (G-CWV lab LCP >4s on 4/6 pages) — G-LIVE PASS, G-SCHEMA structural PASS.  
+**Superseded by:** `docs/releases/RM-LEAN-001-eksik-closure.md` — architect hard gate = **observed LCP ≤4s**; observed re-measure → lab FAIL **DOWNGRADED**. Publication stamp remains pending live GAP-2 confirm in that pack.
 
 ---
 
@@ -52,7 +53,9 @@ Full matrix: all `pdca|gemba|a3|muda` × five metrics → matching `/calculators
 
 ---
 
-## 2) G-CWV — FAIL (hard)
+## 2) G-CWV — FAIL (lab-only; pre-remeasurement)
+
+> **Historical lab verdict only.** Authoritative G-CWV decision is in `RM-LEAN-001-eksik-closure.md` (observed LCP ≤1.98s → LAB_INFLATION downgrade). Do not use this section alone for publication stamp.
 
 Lighthouse 13.4.0 · mobile · simulated throttling · cache-bust.
 
@@ -118,18 +121,16 @@ Automated extraction of live `application/ld+json` on 5 hubs:
 
 ---
 
-## 6) Final stamp
+## 6) Final stamp (historical — superseded)
 
-| Gate | Result |
+| Gate | Result (this pack, lab-era) |
 |---|---|
 | G-LIVE | **PASS** |
 | G-SCHEMA (structural) | **PASS** (official RRT UI = human) |
 | G-CI | **PASS** |
-| G-CWV | **FAIL** (LCP >4s on takt-time, oee, scrap-rate, /lean) |
+| G-CWV | **FAIL** lab-only (LCP >4s on takt-time, oee, scrap-rate, /lean) — **superseded** by observed pack |
 | GÖREV 0 | **DONE** (pre-/lean; von-mises fixed; fmea/home = noise) |
 
-### `RM-LEAN-001 TAM YAYIN-KABUL` → **BLOCKED**
+### `RM-LEAN-001 TAM YAYIN-KABUL` → see closure pack
 
-**Neden:** ŞART-2 G-CWV hard rule ihlali (LCP >4s).  
-**G-LIVE + merge/deploy + sitemap + 301 + schema types:** yeşil.  
-**Sonraki:** düzeltme mandate (hub LCP — SSR H1 paint / flight / font, GÖREV 0 observed method) → yeniden Lighthouse → tam kabul.
+**This file's lab-era block is superseded.** Authoritative status: `docs/releases/RM-LEAN-001-eksik-closure.md` (G-CWV observed PASS / lab downgraded; publication stamp after live GAP-2).

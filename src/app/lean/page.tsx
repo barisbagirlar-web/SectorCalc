@@ -149,14 +149,17 @@ export default function LeanHubPage() {
         <div className="space-y-12">
           {LEAN_CONCEPTS_PUBLIC.map((concept) => {
             const depth = FRAMEWORK_DEPTH[concept.slug];
+            const FRAMEWORK_LABEL_BY_SLUG = {
+              pdca: "PDCA",
+              gemba: "Gemba",
+              a3: "A3",
+              muda: "Muda",
+            } as const;
             const frameworkLabel =
-              concept.slug === "pdca"
-                ? "PDCA"
-                : concept.slug === "gemba"
-                  ? "Gemba"
-                  : concept.slug === "a3"
-                    ? "A3"
-                    : "Muda";
+              FRAMEWORK_LABEL_BY_SLUG[concept.slug as keyof typeof FRAMEWORK_LABEL_BY_SLUG];
+            if (!frameworkLabel) {
+              throw new Error(`Lean hub: unknown framework slug "${concept.slug}"`);
+            }
             return (
               <section key={concept.slug} id={concept.slug}>
                 <div className="mb-3 flex items-center gap-3">
@@ -200,9 +203,13 @@ export default function LeanHubPage() {
                 >
                   {LEAN_METRIC_HUB_SLUGS.map((slug) => {
                     const hub = LEAN_METRIC_HUBS[slug];
-                    const role =
-                      hub.frameworkContext.find((n) => n.framework === frameworkLabel)?.body ??
-                      hub.formulaDisplay;
+                    const roleNote = hub.frameworkContext.find((n) => n.framework === frameworkLabel);
+                    if (!roleNote?.body) {
+                      throw new Error(
+                        `Lean hub: missing frameworkContext for ${hub.definedTerm} / ${frameworkLabel}`,
+                      );
+                    }
+                    const role = roleNote.body;
                     return (
                       <Link
                         key={`${concept.slug}-${slug}`}

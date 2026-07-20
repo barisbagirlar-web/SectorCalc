@@ -1,7 +1,9 @@
-# RM-LEAN-001 — EKSİK 1+2 Closure Pack
+# RM-LEAN-001 — GAP 1+2 Closure Pack
 
 **Date (UTC):** 2026-07-20  
-**Stamp:** `RM-LEAN-001 TAM YAYIN-KABUL` (pending deploy of EKSİK-2 HTML; G-CWV downgraded on observed evidence)
+**Authority:** This pack supersedes lab-only G-CWV block in `RM-LEAN-001-production-verification.md`.  
+**Stamp (pre-deploy):** `PENDING_LIVE_GAP2` — G-CWV observed PASS (lab FAIL downgraded); GAP-2 HTML awaiting merge/deploy + live phrase/href confirm.  
+**Stamp (post-deploy target):** `RM-LEAN-001 TAM YAYIN-KABUL` only after live `/lean` checks below pass.
 
 ---
 
@@ -24,7 +26,7 @@ Method: Puppeteer-core mobile 412×915 · **observed** (no throttle) + **throttl
 - **All observed ≤ ~2.5s** (FMEA-class 1.1–2.3s band)  
 - **All observed ≤ 4s hard gate** + CLS ≪ 0.25  
 
-### G-CWV nihai hüküm
+### G-CWV gate verdict (distinct from publication stamp)
 
 **Previous lab FAIL → DOWNGRADED to LAB_INFLATION (not a real hub LCP defect).**  
 Hub LCP lab pressure rolls into **FAZ 2.1b site-wide TTFB/CSS** (no separate hub mandate).  
@@ -46,7 +48,7 @@ Raw: `/tmp/rm-lean-g0/puppeteer.json`, `/tmp/rm-lean-g0/summary.json`
 
 ### Source SSOT still had boilerplate
 
-`lean-calc-registry.ts` matrix `description` still generated the 20× template string (redirect SSOT only, not rendered — but G-CONTENT ruhu).
+`lean-calc-registry.ts` matrix `description` still generated the 20× template string (redirect SSOT only, not rendered — but G-CONTENT spirit).
 
 ### After (this patch)
 
@@ -56,7 +58,7 @@ Raw: `/tmp/rm-lean-g0/puppeteer.json`, `/tmp/rm-lean-g0/summary.json`
    - **unique** `frameworkContext` role line from `LEAN_METRIC_HUBS` (PDCA/Gemba/A3/Muda-specific)  
    - `href={hub.path}` → `/calculators/{metric}` only  
 
-Expected post-deploy verification:
+Live verification checklist (required for TAM YAYIN-KABUL):
 
 - `aligned with … create more value` count = **0**  
 - framework card hrefs = `/calculators/*` only (no spoke 301 chain from hub)
@@ -78,16 +80,17 @@ Pre-patch live (still valid for hubs):
 ## CI
 
 Local: `verify:lean-ux` PASS · `verify:lean-redirects` PASS · `tsc --noEmit` PASS  
-Post-merge: SEO gates + Firebase deploy + `verify-live-calculator-route` (includes LEAN_HUB_*).
+Merge gates: SEO Quality Gates + industrial-pipeline + Canonical (Break-Even Browser E2E / Vercel = non-blocking per prior RM-LEAN admin merge practice).
 
 ---
 
-## Final stamp
+## Gate matrix (authoritative)
 
 | Gate | Result |
 |---|---|
-| G-CWV (observed hard) | **PASS** (lab FAIL downgraded) |
-| EKSİK-2 matrix hygiene | **PASS** (code; live confirm after deploy) |
+| G-CWV (observed hard ≤4s) | **PASS** (lab FAIL downgraded) |
+| EKSİK-2 matrix hygiene (code) | **PASS** |
+| EKSİK-2 live HTML | **PENDING** until deploy |
 | G-LIVE / G-CI / GÖREV 0 | prior PASS unchanged |
 
-**RM-LEAN-001 TAM YAYIN-KABUL** after EKSİK-2 deploy + live phrase/href confirm.
+**Publication stamp:** set `RM-LEAN-001 TAM YAYIN-KABUL` in a follow-up amend of this file only after live GAP-2 confirm.
