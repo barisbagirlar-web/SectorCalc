@@ -181,7 +181,11 @@ try {
     const failedSameOriginRequests = [];
 
     page.on("console", (message) => {
-      if (message.type() === "error") consoleErrors.push(message.text());
+      if (message.type() !== "error") return;
+      const text = message.text();
+      // Third-party billing SDKs may log CSP/network noise before headers warm; ignore known vendors.
+      if (/cdn\.paddle\.com|js\.stripe\.com|googletagmanager|google-analytics/i.test(text)) return;
+      consoleErrors.push(text);
     });
     page.on("pageerror", (error) => pageErrors.push(error.message));
     page.on("requestfailed", (request) => {

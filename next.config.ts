@@ -131,9 +131,9 @@ const nextConfig: NextConfig = {
         ? " http://127.0.0.1:9099 http://localhost:9099 http://127.0.0.1:8080 http://localhost:8080 ws://127.0.0.1:8080 ws://localhost:8080"
         : "";
     const contentSecurityPolicy =
-      "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://js.stripe.com https://*.firebaseio.com https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https: blob:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://*.firebaseio.com https://*.googleapis.com https://*.stripe.com https://*.cloudfunctions.net https://api.indexnow.org" +
+      "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://js.stripe.com https://cdn.paddle.com https://*.firebaseio.com https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https: blob:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://*.firebaseio.com https://*.googleapis.com https://*.stripe.com https://*.paddle.com https://*.cloudfunctions.net https://api.indexnow.org" +
       emulatorConnect +
-      "; frame-src 'self' https://js.stripe.com https://*.firebaseapp.com; object-src 'none'; base-uri 'self'; form-action 'self' https://checkout.stripe.com;";
+      "; frame-src 'self' https://js.stripe.com https://*.paddle.com https://*.firebaseapp.com; object-src 'none'; base-uri 'self'; form-action 'self' https://checkout.stripe.com https://*.paddle.com;";
 
     return [
       {
