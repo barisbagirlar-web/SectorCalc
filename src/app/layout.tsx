@@ -43,7 +43,7 @@ const barlow = Barlow({
   weight: ["400", "500", "600"],
   variable: "--font-barlow",
   display: "swap",
-  preload: false,
+  preload: true,
 });
 
 const jetbrainsMono = JetBrains_Mono({
