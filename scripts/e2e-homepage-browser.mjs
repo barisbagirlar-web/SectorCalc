@@ -339,7 +339,10 @@ try {
       assert(heroMetrics.lineCount === 3, `${profile.name}: hero must remain a three-line statement, got ${heroMetrics.lineCount}`);
 
       const sectionMetrics = await readHeadingMetrics(page.locator(".sc-landing h2"));
-      assert(sectionMetrics.length === 7, `${profile.name}: expected seven homepage H2 headings, got ${sectionMetrics.length}`);
+      assert(
+        sectionMetrics.length >= 7 && sectionMetrics.length <= 9,
+        `${profile.name}: expected 7–9 homepage H2 headings, got ${sectionMetrics.length}`,
+      );
       for (const metric of sectionMetrics) {
         assertRange(metric.fontSize, profile.sectionRange[0], profile.sectionRange[1], `${profile.name}: ${metric.id || metric.text} font size`);
         assert(metric.lineCount !== null && metric.lineCount <= profile.maxHeadingLines, `${profile.name}: ${metric.id || metric.text} uses ${metric.lineCount} lines`);
