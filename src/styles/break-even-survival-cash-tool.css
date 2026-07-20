@@ -1,0 +1,178 @@
+
+.be-shell{
+  --be-paper:#F7F5EF; --be-panel:#FFFFFF; --be-ink:#181713; --be-ink-soft:#57544C; --be-faint:#8C887E;
+  --be-line:#E4E0D6; --be-line-soft:#EFEBE2;
+  --be-clay:#C15F3C; --be-clay-deep:#9A4526;
+  --be-ledger:#3A4D8F;
+  --be-pos:#2E6B4E; --be-pos-bg:#E7F1EB;
+  --be-warn:#8A5A12; --be-warn-bg:#F8EFDC;
+  --be-neg:#9C3520; --be-neg-bg:#F7E9E4;
+  --be-display:'Fraunces',georgia,serif; --be-sans:'Inter',system-ui,sans-serif; --be-mono:'JetBrains Mono',monospace;
+}
+.be-shell *{box-sizing:border-box;margin:0;padding:0;border-radius:0}
+.be-shell{background:var(--be-paper);color:var(--be-ink);font-family:var(--be-sans);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
+.be-shell{max-width:1080px;margin:0 auto;padding:0 20px}
+.be-mast{border-bottom:1.5px solid var(--be-ink);padding:34px 0 20px}
+.be-kicker{font-family:var(--be-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--be-clay);display:flex;gap:10px;align-items:center}
+.be-kicker::after{content:"";flex:1;height:1px;background:var(--be-line)}
+.be-mast h1{font-family:var(--be-display);font-weight:500;font-size:clamp(30px,5vw,46px);line-height:1.02;margin:14px 0 8px;letter-spacing:-.01em}
+.be-mast .be-lede{font-size:16px;color:var(--be-ink-soft);max-width:64ch}
+.be-mast .be-meta{display:flex;gap:22px;margin-top:16px;font-family:var(--be-mono);font-size:11px;color:var(--be-faint);flex-wrap:wrap}
+.be-mast .be-meta b{color:var(--be-ink);font-weight:500}
+.be-curbar{display:flex;align-items:center;gap:12px;margin-top:16px;padding:12px 14px;background:var(--be-panel);border:1px solid var(--be-line);flex-wrap:wrap}
+.be-curbar label{font-family:var(--be-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--be-ink-soft)}
+.be-curbar select{border:1.25px solid var(--be-line);background:var(--be-paper);font-family:var(--be-mono);font-size:13px;padding:6px 10px;min-height:48px;color:var(--be-ink);outline:none;cursor:pointer}
+.be-curbar select:focus{border-color:var(--be-ledger)}
+.be-curnote{font-size:11.5px;color:var(--be-faint);flex:1;min-width:220px}
+.be-bench{display:grid;grid-template-columns:1fr 360px;gap:0;border:1.5px solid var(--be-ink);border-top:none;background:var(--be-panel)}
+@media(max-width:900px){.be-bench{grid-template-columns:1fr}}
+.be-form-col{padding:8px 30px 30px;border-right:1.5px solid var(--be-ink)}
+@media(max-width:900px){.be-form-col{border-right:none;border-bottom:1.5px solid var(--be-ink)}}
+.be-rail{padding:0}
+.be-grp{border-bottom:1px solid var(--be-line-soft);padding:22px 0}
+.be-grp:last-child{border-bottom:none}
+.be-grp-h{display:flex;align-items:baseline;gap:10px;margin-bottom:4px}
+.be-grp-n{font-family:var(--be-mono);font-size:11px;color:var(--be-clay);font-weight:500}
+.be-grp-t{font-family:var(--be-display);font-size:18px;font-weight:500}
+.be-grp-d{font-size:12.5px;color:var(--be-faint);margin-bottom:16px;max-width:52ch}
+.be-f{margin-bottom:18px}
+.be-f:last-child{margin-bottom:0}
+.be-f-top{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:6px}
+.be-f label{font-weight:500;font-size:13.5px}
+.be-f .be-unitline{font-family:var(--be-mono);font-size:10.5px;color:var(--be-faint)}
+.be-control{display:flex;border:1.25px solid var(--be-line);background:var(--be-paper);transition:border-color .12s,box-shadow .12s}
+.be-control:focus-within{border-color:var(--be-ledger);box-shadow:inset 0 0 0 1px var(--be-ledger)}
+.be-control.be-bad{border-color:var(--be-neg);box-shadow:inset 0 0 0 1px var(--be-neg)}
+.be-control.be-warn{border-color:var(--be-warn);box-shadow:inset 0 0 0 1px var(--be-warn)}
+.be-prefix{display:flex;align-items:center;padding:0 12px;font-family:var(--be-mono);font-size:13px;color:var(--be-faint);border-right:1px solid var(--be-line);background:var(--be-line-soft)}
+.be-control input{flex:1;min-width:0;border:none;background:transparent;padding:11px 12px;font-family:var(--be-mono);font-size:15px;color:var(--be-ink);outline:none}
+.be-control select{border:none;border-left:1px solid var(--be-line);background:var(--be-panel);font-family:var(--be-mono);font-size:12px;padding:0 8px;color:var(--be-ink);outline:none;cursor:pointer}
+.be-f-foot{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-top:6px}
+.be-hint{font-size:11.5px;color:var(--be-faint);flex:1;line-height:1.4}
+.be-bench-ref{font-family:var(--be-mono);font-size:10.5px;color:var(--be-faint);white-space:nowrap;text-align:right}
+.be-msg{font-size:11.5px;margin-top:6px;padding:6px 9px;line-height:1.4;display:none}
+.be-msg.be-err{display:block;background:var(--be-neg-bg);color:var(--be-neg);border-left:2px solid var(--be-neg)}
+.be-msg.be-warn{display:block;background:var(--be-warn-bg);color:var(--be-warn);border-left:2px solid var(--be-warn)}
+.be-shell details{border:1px solid var(--be-line);background:var(--be-panel);margin-top:4px}
+.be-shell details summary{cursor:pointer;padding:14px 18px;font-family:var(--be-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--be-faint);list-style:none}
+.be-shell details summary::before{content:"+ "}
+.be-shell details[open] summary::before{content:"\2212 "}
+.be-shell details .be-grp{padding:0 18px 18px}
+.be-rail-in{position:sticky;top:0;padding:26px 24px}
+.be-verdict{border:1.25px solid var(--be-ink);padding:2px 0 0;margin-bottom:18px}
+.be-verdict-band{padding:6px 12px;font-family:var(--be-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#fff}
+.be-verdict-band.be-pos{background:var(--be-pos)} .be-verdict-band.be-warn{background:var(--be-warn)} .be-verdict-band.be-warn2{background:var(--be-warn);color:#fff} .be-verdict-band.be-neg{background:var(--be-neg)}
+.be-verdict-body{padding:16px 14px}
+.be-big{font-family:var(--be-display);font-size:34px;font-weight:500;line-height:1;letter-spacing:-.01em}
+.be-big small{font-size:15px;color:var(--be-faint);font-weight:400}
+.be-big-cap{font-family:var(--be-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--be-faint);margin-top:6px}
+.be-stat{display:flex;justify-content:space-between;align-items:baseline;padding:9px 0;border-top:1px dashed var(--be-line);font-size:12.5px}
+.be-stat span{color:var(--be-ink-soft)}
+.be-stat b{font-family:var(--be-mono);font-weight:500}
+.be-cta{width:100%;border:1.25px solid var(--be-clay-deep);background:var(--be-clay);color:#fff;font-family:var(--be-sans);font-weight:600;font-size:14px;padding:13px;cursor:pointer;margin-top:18px;letter-spacing:.01em}
+.be-cta:hover{background:var(--be-clay-deep)}
+.be-cta:disabled{background:var(--be-line);border-color:var(--be-line);color:var(--be-faint);cursor:not-allowed}
+.be-conf{margin-top:12px;font-size:11px;color:var(--be-ink-soft);display:flex;gap:7px;align-items:flex-start;line-height:1.4}
+.be-conf .be-d{width:8px;height:8px;margin-top:3px;flex-shrink:0}
+.be-report{border:1.5px solid var(--be-clay);border-top:none;background:var(--be-paper)}
+.be-rep-mast{background:var(--be-ink);color:var(--be-paper);padding:24px 30px;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:12px}
+.be-rep-mast h2{font-family:var(--be-display);font-size:26px;font-weight:500}
+.be-rep-mast .be-rid{font-family:var(--be-mono);font-size:10.5px;color:#b9b4a7;text-align:right;line-height:1.7}
+.be-rep-body{padding:30px}
+.be-sec{margin-bottom:32px}
+.be-sec-h{display:flex;align-items:baseline;gap:10px;border-bottom:1px solid var(--be-ink);padding-bottom:6px;margin-bottom:14px}
+.be-sec-n{font-family:var(--be-mono);font-size:12px;color:var(--be-clay);font-weight:500}
+.be-sec-t{font-family:var(--be-display);font-size:19px;font-weight:500}
+.be-verdict-box{background:var(--be-paper);border-left:4px solid var(--be-clay);padding:18px 20px}
+.be-verdict-box .be-head{font-family:var(--be-display);font-size:22px;font-weight:500;margin-bottom:8px;line-height:1.2}
+.be-verdict-box p{font-size:14.5px;color:var(--be-ink-soft);max-width:74ch}
+.be-verdict-box p+p{margin-top:8px}
+.be-shell table{width:100%;border-collapse:collapse;font-size:13px}
+.be-shell th,.be-shell td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--be-line);vertical-align:top}
+.be-shell th{font-family:var(--be-mono);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--be-faint);font-weight:500}
+.be-shell td.be-n{font-family:var(--be-mono);text-align:right;white-space:nowrap}
+.be-shell tr.be-total td{border-top:1.5px solid var(--be-ink);border-bottom:none;font-weight:600}
+.be-shell tr.be-win td{background:var(--be-pos-bg)}
+.be-note{font-size:11.5px;color:var(--be-faint);margin-top:10px;line-height:1.5}
+.be-ins{padding:13px 16px;margin-bottom:11px;font-size:13.5px;line-height:1.55;border-left:3px solid}
+.be-ins.be-crit{background:var(--be-neg-bg);border-color:var(--be-neg)}
+.be-ins.be-opp{background:var(--be-pos-bg);border-color:var(--be-pos)}
+.be-ins.be-info{background:var(--be-paper);border-color:var(--be-faint)}
+.be-ins .be-t{font-family:var(--be-mono);font-size:9.5px;letter-spacing:.07em;text-transform:uppercase;display:block;margin-bottom:3px;color:var(--be-ink-soft)}
+.be-chart{width:100%;overflow:visible;font-family:var(--be-mono);font-size:11px}
+.be-chart text{font-family:var(--be-mono)}
+.be-seal{margin-top:8px;padding:14px 16px;background:var(--be-paper);border:1px dashed var(--be-line);font-family:var(--be-mono);font-size:10.5px;color:var(--be-faint);word-break:break-all;line-height:1.7}
+.be-disc{font-size:11px;color:var(--be-faint);margin-top:14px;padding-top:12px;border-top:1px solid var(--be-line-soft);line-height:1.6}
+
+/* ── Print / PDF export ──────────────────────────────────────────────
+   Reuses the on-screen report exactly (WYSIWYG) rather than a separate
+   PDF-generation template, so there is no second layout that could drift
+   out of sync or introduce its own overflow bugs. Only .be-report and
+   its descendants are printed; the shell, masthead, and input form are
+   hidden. */
+@media print {
+  @page { margin: 14mm 12mm; }
+
+  body * { visibility: hidden; }
+  .be-report, .be-report * { visibility: visible; }
+  .be-report {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Browsers strip background colors/borders by default when printing;
+     the verdict box, insight cards, and win-row highlight all depend on
+     background color to convey meaning, so force it on. */
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    color-adjust: exact;
+  }
+
+  /* Never split a chart, table row, or insight card across a page break —
+     the most common source of a "broken, overflowing" printed report. */
+  .be-chart, .be-verdict-box, .be-ins, tr, .be-seal, .be-disc {
+    break-inside: avoid;
+  }
+  h2, h3, .be-head { break-after: avoid; }
+
+  /* The floating feedback/report-tools chrome and the "Generate sealed
+     report" action button have no place in a printed document. */
+  .sc-report-feedback, .sc-report-quick-reaction, [class*="sticky"] {
+    display: none !important;
+  }
+}
+
+.be-print-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 48px;
+  padding: 0 16px;
+  margin-top: 10px;
+  background: var(--be-paper);
+  border: 1px solid var(--be-line);
+  border-radius: 0;
+  font-family: var(--be-mono);
+  font-size: 12px;
+  letter-spacing: 0.03em;
+  color: var(--be-ink);
+  cursor: pointer;
+}
+.be-print-btn:hover { border-color: var(--be-ink-soft); }
+
+@media print {
+  .be-print-btn { display: none !important; }
+}
+
+/* 3-tier verdict coloring (0=meets target, 1=below target, 2=loss-making) —
+   this tool has a middle "warning" state buy-lease-keep's binary win/lose
+   pattern doesn't need. */
+.be-verdict-0 { border-left: 4px solid var(--be-pos); background: var(--be-pos-bg); }
+.be-verdict-1 { border-left: 4px solid var(--be-warn); background: var(--be-warn-bg); }
+.be-verdict-2 { border-left: 4px solid var(--be-neg); background: var(--be-neg-bg); }
+.be-warn2 { color: var(--be-warn); }
+.be-prefix-unit { font-size: 10px; opacity: 0.7; display: block; }
