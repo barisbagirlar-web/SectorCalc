@@ -1,0 +1,183 @@
+
+.cspf-shell{
+  --cspf-paper:#F7F5EF; --cspf-panel:#FFFFFF; --cspf-ink:#181713; --cspf-ink-soft:#57544C; --cspf-faint:#8C887E;
+  --cspf-line:#E4E0D6; --cspf-line-soft:#EFEBE2;
+  --cspf-clay:#C15F3C; --cspf-clay-deep:#9A4526;
+  --cspf-ledger:#3A4D8F;
+  --cspf-pos:#2E6B4E; --cspf-pos-bg:#E7F1EB;
+  --cspf-warn:#8A5A12; --cspf-warn-bg:#F8EFDC;
+  --cspf-neg:#9C3520; --cspf-neg-bg:#F7E9E4;
+  --cspf-display:'Fraunces',georgia,serif; --cspf-sans:'Inter',system-ui,sans-serif; --cspf-mono:'JetBrains Mono',monospace;
+}
+.cspf-shell *{box-sizing:border-box;margin:0;padding:0;border-radius:0}
+.cspf-shell{background:var(--cspf-paper);color:var(--cspf-ink);font-family:var(--cspf-sans);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
+.cspf-shell{max-width:1080px;margin:0 auto;padding:0 20px}
+.cspf-mast{border-bottom:1.5px solid var(--cspf-ink);padding:34px 0 20px}
+.cspf-kicker{font-family:var(--cspf-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--cspf-clay);display:flex;gap:10px;align-items:center}
+.cspf-kicker::after{content:"";flex:1;height:1px;background:var(--cspf-line)}
+.cspf-mast h1{font-family:var(--cspf-display);font-weight:500;font-size:clamp(30px,5vw,46px);line-height:1.02;margin:14px 0 8px;letter-spacing:-.01em}
+.cspf-mast .cspf-lede{font-size:16px;color:var(--cspf-ink-soft);max-width:64ch}
+.cspf-mast .cspf-meta{display:flex;gap:22px;margin-top:16px;font-family:var(--cspf-mono);font-size:11px;color:var(--cspf-faint);flex-wrap:wrap}
+.cspf-mast .cspf-meta b{color:var(--cspf-ink);font-weight:500}
+.cspf-curbar{display:flex;align-items:center;gap:12px;margin-top:16px;padding:12px 14px;background:var(--cspf-panel);border:1px solid var(--cspf-line);flex-wrap:wrap}
+.cspf-curbar label{font-family:var(--cspf-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--cspf-ink-soft)}
+.cspf-curbar select{border:1.25px solid var(--cspf-line);background:var(--cspf-paper);font-family:var(--cspf-mono);font-size:13px;padding:6px 10px;min-height:48px;color:var(--cspf-ink);outline:none;cursor:pointer}
+.cspf-curbar select:focus{border-color:var(--cspf-ledger)}
+.cspf-curnote{font-size:11.5px;color:var(--cspf-faint);flex:1;min-width:220px}
+.cspf-bench{display:grid;grid-template-columns:1fr 360px;gap:0;border:1.5px solid var(--cspf-ink);border-top:none;background:var(--cspf-panel)}
+@media(max-width:900px){.cspf-bench{grid-template-columns:1fr}}
+.cspf-form-col{padding:8px 30px 30px;border-right:1.5px solid var(--cspf-ink)}
+@media(max-width:900px){.cspf-form-col{border-right:none;border-bottom:1.5px solid var(--cspf-ink)}}
+.cspf-rail{padding:0}
+.cspf-grp{border-bottom:1px solid var(--cspf-line-soft);padding:22px 0}
+.cspf-grp:last-child{border-bottom:none}
+.cspf-grp-h{display:flex;align-items:baseline;gap:10px;margin-bottom:4px}
+.cspf-grp-n{font-family:var(--cspf-mono);font-size:11px;color:var(--cspf-clay);font-weight:500}
+.cspf-grp-t{font-family:var(--cspf-display);font-size:18px;font-weight:500}
+.cspf-grp-d{font-size:12.5px;color:var(--cspf-faint);margin-bottom:16px;max-width:52ch}
+.cspf-f{margin-bottom:18px}
+.cspf-f:last-child{margin-bottom:0}
+.cspf-f-top{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:6px}
+.cspf-f label{font-weight:500;font-size:13.5px}
+.cspf-f .cspf-unitline{font-family:var(--cspf-mono);font-size:10.5px;color:var(--cspf-faint)}
+.cspf-control{display:flex;border:1.25px solid var(--cspf-line);background:var(--cspf-paper);transition:border-color .12s,box-shadow .12s}
+.cspf-control:focus-within{border-color:var(--cspf-ledger);box-shadow:inset 0 0 0 1px var(--cspf-ledger)}
+.cspf-control.cspf-bad{border-color:var(--cspf-neg);box-shadow:inset 0 0 0 1px var(--cspf-neg)}
+.cspf-control.cspf-warn{border-color:var(--cspf-warn);box-shadow:inset 0 0 0 1px var(--cspf-warn)}
+.cspf-prefix{display:flex;align-items:center;padding:0 12px;font-family:var(--cspf-mono);font-size:13px;color:var(--cspf-faint);border-right:1px solid var(--cspf-line);background:var(--cspf-line-soft)}
+.cspf-control input{flex:1;min-width:0;border:none;background:transparent;padding:11px 12px;font-family:var(--cspf-mono);font-size:15px;color:var(--cspf-ink);outline:none}
+.cspf-control select{border:none;border-left:1px solid var(--cspf-line);background:var(--cspf-panel);font-family:var(--cspf-mono);font-size:12px;padding:0 8px;color:var(--cspf-ink);outline:none;cursor:pointer}
+.cspf-f-foot{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-top:6px}
+.cspf-hint{font-size:11.5px;color:var(--cspf-faint);flex:1;line-height:1.4}
+.cspf-bench-ref{font-family:var(--cspf-mono);font-size:10.5px;color:var(--cspf-faint);white-space:nowrap;text-align:right}
+.cspf-msg{font-size:11.5px;margin-top:6px;padding:6px 9px;line-height:1.4;display:none}
+.cspf-msg.cspf-err{display:block;background:var(--cspf-neg-bg);color:var(--cspf-neg);border-left:2px solid var(--cspf-neg)}
+.cspf-msg.cspf-warn{display:block;background:var(--cspf-warn-bg);color:var(--cspf-warn);border-left:2px solid var(--cspf-warn)}
+.cspf-shell details{border:1px solid var(--cspf-line);background:var(--cspf-panel);margin-top:4px}
+.cspf-shell details summary{cursor:pointer;padding:14px 18px;font-family:var(--cspf-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--cspf-faint);list-style:none}
+.cspf-shell details summary::before{content:"+ "}
+.cspf-shell details[open] summary::before{content:"\2212 "}
+.cspf-shell details .cspf-grp{padding:0 18px 18px}
+.cspf-rail-in{position:sticky;top:0;padding:26px 24px}
+.cspf-verdict{border:1.25px solid var(--cspf-ink);padding:2px 0 0;margin-bottom:18px}
+.cspf-verdict-band{padding:6px 12px;font-family:var(--cspf-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#fff}
+.cspf-verdict-band.cspf-pos{background:var(--cspf-pos)} .cspf-verdict-band.cspf-warn{background:var(--cspf-warn)} .cspf-verdict-band.cspf-warn2{background:var(--cspf-warn);color:#fff} .cspf-verdict-band.cspf-neg{background:var(--cspf-neg)}
+.cspf-verdict-body{padding:16px 14px}
+.cspf-big{font-family:var(--cspf-display);font-size:34px;font-weight:500;line-height:1;letter-spacing:-.01em}
+.cspf-big small{font-size:15px;color:var(--cspf-faint);font-weight:400}
+.cspf-big-cap{font-family:var(--cspf-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--cspf-faint);margin-top:6px}
+.cspf-stat{display:flex;justify-content:space-between;align-items:baseline;padding:9px 0;border-top:1px dashed var(--cspf-line);font-size:12.5px}
+.cspf-stat span{color:var(--cspf-ink-soft)}
+.cspf-stat b{font-family:var(--cspf-mono);font-weight:500}
+.cspf-cta{width:100%;border:1.25px solid var(--cspf-clay-deep);background:var(--cspf-clay);color:#fff;font-family:var(--cspf-sans);font-weight:600;font-size:14px;padding:13px;cursor:pointer;margin-top:18px;letter-spacing:.01em}
+.cspf-cta:hover{background:var(--cspf-clay-deep)}
+.cspf-cta:disabled{background:var(--cspf-line);border-color:var(--cspf-line);color:var(--cspf-faint);cursor:not-allowed}
+.cspf-conf{margin-top:12px;font-size:11px;color:var(--cspf-ink-soft);display:flex;gap:7px;align-items:flex-start;line-height:1.4}
+.cspf-conf .cspf-d{width:8px;height:8px;margin-top:3px;flex-shrink:0}
+.cspf-report{border:1.5px solid var(--cspf-clay);border-top:none;background:var(--cspf-paper)}
+.cspf-rep-mast{background:var(--cspf-ink);color:var(--cspf-paper);padding:24px 30px;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:12px}
+.cspf-rep-mast h2{font-family:var(--cspf-display);font-size:26px;font-weight:500}
+.cspf-rep-mast .cspf-rid{font-family:var(--cspf-mono);font-size:10.5px;color:#b9b4a7;text-align:right;line-height:1.7}
+.cspf-rep-body{padding:30px}
+.cspf-sec{margin-bottom:32px}
+.cspf-sec-h{display:flex;align-items:baseline;gap:10px;border-bottom:1px solid var(--cspf-ink);padding-bottom:6px;margin-bottom:14px}
+.cspf-sec-n{font-family:var(--cspf-mono);font-size:12px;color:var(--cspf-clay);font-weight:500}
+.cspf-sec-t{font-family:var(--cspf-display);font-size:19px;font-weight:500}
+.cspf-verdict-box{background:var(--cspf-paper);border-left:4px solid var(--cspf-clay);padding:18px 20px}
+.cspf-verdict-box .cspf-head{font-family:var(--cspf-display);font-size:22px;font-weight:500;margin-bottom:8px;line-height:1.2}
+.cspf-verdict-box p{font-size:14.5px;color:var(--cspf-ink-soft);max-width:74ch}
+.cspf-verdict-box p+p{margin-top:8px}
+.cspf-shell table{width:100%;border-collapse:collapse;font-size:13px}
+.cspf-shell th,.cspf-shell td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--cspf-line);vertical-align:top}
+.cspf-shell th{font-family:var(--cspf-mono);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--cspf-faint);font-weight:500}
+.cspf-shell td.cspf-n{font-family:var(--cspf-mono);text-align:right;white-space:nowrap}
+.cspf-shell tr.cspf-total td{border-top:1.5px solid var(--cspf-ink);border-bottom:none;font-weight:600}
+.cspf-shell tr.cspf-win td{background:var(--cspf-pos-bg)}
+.cspf-note{font-size:11.5px;color:var(--cspf-faint);margin-top:10px;line-height:1.5}
+.cspf-ins{padding:13px 16px;margin-bottom:11px;font-size:13.5px;line-height:1.55;border-left:3px solid}
+.cspf-ins.cspf-crit{background:var(--cspf-neg-bg);border-color:var(--cspf-neg)}
+.cspf-ins.cspf-opp{background:var(--cspf-pos-bg);border-color:var(--cspf-pos)}
+.cspf-ins.cspf-info{background:var(--cspf-paper);border-color:var(--cspf-faint)}
+.cspf-ins .cspf-t{font-family:var(--cspf-mono);font-size:9.5px;letter-spacing:.07em;text-transform:uppercase;display:block;margin-bottom:3px;color:var(--cspf-ink-soft)}
+.cspf-chart{width:100%;overflow:visible;font-family:var(--cspf-mono);font-size:11px}
+.cspf-chart text{font-family:var(--cspf-mono)}
+.cspf-seal{margin-top:8px;padding:14px 16px;background:var(--cspf-paper);border:1px dashed var(--cspf-line);font-family:var(--cspf-mono);font-size:10.5px;color:var(--cspf-faint);word-break:break-all;line-height:1.7}
+.cspf-disc{font-size:11px;color:var(--cspf-faint);margin-top:14px;padding-top:12px;border-top:1px solid var(--cspf-line-soft);line-height:1.6}
+
+/* ── Print / PDF export ──────────────────────────────────────────────
+   Reuses the on-screen report exactly (WYSIWYG) rather than a separate
+   PDF-generation template, so there is no second layout that could drift
+   out of sync or introduce its own overflow bugs. Only .cspf-report and
+   its descendants are printed; the shell, masthead, and input form are
+   hidden. */
+@media print {
+  @page { margin: 14mm 12mm; }
+
+  body * { visibility: hidden; }
+  .cspf-report, .cspf-report * { visibility: visible; }
+  .cspf-report {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Browsers strip background colors/borders by default when printing;
+     the verdict box, insight cards, and win-row highlight all depend on
+     background color to convey meaning, so force it on. */
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    color-adjust: exact;
+  }
+
+  /* Never split a chart, table row, or insight card across a page break —
+     the most common source of a "broken, overflowing" printed report. */
+  .cspf-chart, .cspf-verdict-box, .cspf-ins, tr, .cspf-seal, .cspf-disc {
+    break-inside: avoid;
+  }
+  h2, h3, .cspf-head { break-after: avoid; }
+
+  /* The floating feedback/report-tools chrome and the "Generate sealed
+     report" action button have no place in a printed document. */
+  .sc-report-feedback, .sc-report-quick-reaction, [class*="sticky"] {
+    display: none !important;
+  }
+}
+
+.cspf-print-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 48px;
+  padding: 0 16px;
+  margin-top: 10px;
+  background: var(--cspf-paper);
+  border: 1px solid var(--cspf-line);
+  border-radius: 0;
+  font-family: var(--cspf-mono);
+  font-size: 12px;
+  letter-spacing: 0.03em;
+  color: var(--cspf-ink);
+  cursor: pointer;
+}
+.cspf-print-btn:hover { border-color: var(--cspf-ink-soft); }
+
+@media print {
+  .cspf-print-btn { display: none !important; }
+}
+
+/* 3-tier verdict coloring (0=meets target, 1=below target, 2=loss-making) —
+   this tool has a middle "warning" state buy-lease-keep's binary win/lose
+   pattern doesn't need. */
+.cspf-verdict-0 { border-left: 4px solid var(--cspf-pos); background: var(--cspf-pos-bg); }
+.cspf-verdict-1 { border-left: 4px solid var(--cspf-warn); background: var(--cspf-warn-bg); }
+.cspf-verdict-2 { border-left: 4px solid var(--cspf-neg); background: var(--cspf-neg-bg); }
+.cspf-warn2 { color: var(--cspf-warn); }
+.cspf-prefix-unit { font-size: 10px; opacity: 0.7; display: block; }
+
+
+.cspf-stat-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--cspf-line-soft);font-size:13px}
+.cspf-stat-row span{color:var(--cspf-ink-soft);text-transform:capitalize}
+.cspf-stat-row b{font-family:var(--cspf-mono);color:var(--cspf-ink)}
