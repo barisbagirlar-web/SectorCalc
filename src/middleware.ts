@@ -430,11 +430,11 @@ export default function middleware(request: NextRequest) {
         const barePath = rest.startsWith("/") ? rest : `/${rest}`;
         // Never clone request.nextUrl — Firebase SSR binds :8080 and leaks it
         // into Location. Build absolute apex URL from PUBLIC_SITE_ORIGIN only.
-        const target =
-          barePath === "/"
-            ? `${PUBLIC_SITE_ORIGIN}/`
-            : `${PUBLIC_SITE_ORIGIN}${barePath}`;
-        return NextResponse.redirect(target, 301);
+        const targetUrl = new URL(
+          barePath === "/" ? `${PUBLIC_SITE_ORIGIN}/` : `${PUBLIC_SITE_ORIGIN}${barePath}`,
+        );
+        targetUrl.search = request.nextUrl.search;
+        return NextResponse.redirect(targetUrl.toString(), 301);
       }
       return notFoundResponse(request);
     }
@@ -450,6 +450,9 @@ export default function middleware(request: NextRequest) {
 
   // Free tools: unknown / quarantined / underscore variants → hard 404 at the edge.
   // Firebase SSR otherwise emits HTTP 200 + noindex soft shells (crawl-budget waste).
+  if (pathname === "/tools/free" || pathname === "/tools/free/") {
+    return notFoundResponse(request);
+  }
   if (pathname.startsWith("/tools/free/")) {
     const slug = pathname.slice("/tools/free/".length).replace(/\/+$/, "");
     if (!slug || slug.includes("/") || !ACTIVE_FREE_TOOL_SLUG_SET.has(slug)) {

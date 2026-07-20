@@ -772,14 +772,12 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
         }
 
         if (authMethod === "none") {
-          const rawUsageSessionId = (rawBody as Record<string, unknown>).usageSessionId;
-          if (rawUsageSessionId === "bypass-unlimited") {
-            verifiedEmail = process.env.OWNER_BYPASS_EMAIL ?? "barisbagirlar@gmail.com";
-            authMethod = "bypass";
-          } else {
+          // Never synthesize owner identity from env or trust x-user-email in production.
+          // Owner bypass requires a verified Firebase ID token (handled below).
+          if (process.env.NODE_ENV === "development") {
             const headerEmail = request.headers.get("x-user-email") ?? null;
-            const ownerBypass = process.env.OWNER_BYPASS_EMAIL ?? "barisbagirlar@gmail.com";
-            if (headerEmail === ownerBypass || process.env.NODE_ENV === "development") {
+            const ownerBypass = (process.env.OWNER_BYPASS_EMAIL ?? "barisbagirlar@gmail.com").toLowerCase();
+            if (headerEmail && headerEmail.toLowerCase() === ownerBypass) {
               verifiedEmail = headerEmail;
               authMethod = "bypass";
             }
@@ -792,7 +790,9 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
         const rawUsageSessionId2 = (rawBody as Record<string, unknown>).usageSessionId;
         const hasRealSession = rawUsageSessionId2 && rawUsageSessionId2 !== "bypass-unlimited";
         const ownerBypassEmailEarly = (process.env.OWNER_BYPASS_EMAIL ?? "barisbagirlar@gmail.com").toLowerCase();
+        // bypass-unlimited is honored only with a verified Firebase token for the owner email.
         const isOwnerBypassSession =
+          authMethod === "token" &&
           rawUsageSessionId2 === "bypass-unlimited" &&
           (verifiedEmail ?? "").toLowerCase() === ownerBypassEmailEarly;
         if (isOwnerBypassSession) {
