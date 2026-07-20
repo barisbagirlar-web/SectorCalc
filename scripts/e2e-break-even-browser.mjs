@@ -37,15 +37,22 @@ const context = await browser.newContext({ viewport: { width: 1440, height: 1100
 const page = await context.newPage();
 
 try {
-  // Root cause of flake: networkidle races Firebase/analytics chatter, and the
-  // paywall heading only mounts after useUserSubscription() leaves loading.
-  // Wait for DOM, then for the stable paywall test id (not a transient skeleton).
+  // Root cause (flake): Auth bootstrap can leave loading=true if emulator/network
+  // stalls after hydration replaces SSR paywall with the loading skeleton.
+  // Gate now times out → sign-in; wait for that stable test id (not networkidle).
   const unauthenticatedResponse = await page.goto(`${baseUrl}${toolPath}`, {
     waitUntil: "domcontentloaded",
     timeout: 60_000,
   });
   assert(unauthenticatedResponse?.status() === 200, `Unauthenticated tool route returned HTTP ${unauthenticatedResponse?.status()}`);
-  await page.getByTestId("pro-paywall-sign-in").waitFor({ state: "visible", timeout: 60_000 });
+  try {
+    await page.getByTestId("pro-paywall-sign-in").waitFor({ state: "visible", timeout: 60_000 });
+  } catch (err) {
+    const html = await page.content();
+    writeFileSync(`${artifactsDir}/paywall-timeout.html`, html);
+    await page.screenshot({ path: `${artifactsDir}/paywall-timeout.png`, fullPage: true });
+    throw err;
+  }
   await page.getByRole("heading", { name: "Sign in to access this PRO calculator", exact: true }).waitFor({
     state: "visible",
     timeout: 10_000,
