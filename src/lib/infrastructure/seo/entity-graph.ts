@@ -198,10 +198,10 @@ function buildPlatformCalculateAction(): JsonLdRecord {
     "@id": `${SITE_URL}/#calculate-action-platform`,
     name: "SectorCalc - Sector-specific calculation platform",
     description: "Run sector-specific calculations across manufacturing, construction, logistics, energy, agriculture, food, finance and business operations.",
-    inLanguage: ["en", "tr", "de", "fr", "es", "ar"],
+    inLanguage: "en",
     target: {
       "@type": "EntryPoint",
-      urlTemplate: `${SITE_URL}/{locale}/tools/generated/{slug}?{input_params}`,
+      urlTemplate: `${SITE_URL}/tools/free/{slug}?{input_params}`,
       actionPlatform: [
         "https://schema.org/DesktopWebPlatform",
         "https://schema.org/MobileWebPlatform",

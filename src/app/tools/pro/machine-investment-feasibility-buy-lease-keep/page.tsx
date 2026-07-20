@@ -23,9 +23,9 @@ export async function generateMetadata(): Promise<Metadata> {
     alternates: {
       canonical: "https://sectorcalc.com/tools/pro/machine-investment-feasibility-buy-lease-keep",
       languages: {
-        en: "https://sectorcalc.com/en/tools/pro/machine-investment-feasibility-buy-lease-keep",
-        "en-us": "https://sectorcalc.com/en/tools/pro/machine-investment-feasibility-buy-lease-keep",
-        "en-gb": "https://sectorcalc.com/en/tools/pro/machine-investment-feasibility-buy-lease-keep",
+        en: "https://sectorcalc.com/tools/pro/machine-investment-feasibility-buy-lease-keep",
+        "en-us": "https://sectorcalc.com/tools/pro/machine-investment-feasibility-buy-lease-keep",
+        "en-gb": "https://sectorcalc.com/tools/pro/machine-investment-feasibility-buy-lease-keep",
         "x-default": "https://sectorcalc.com/tools/pro/machine-investment-feasibility-buy-lease-keep",
       },
     },
@@ -35,7 +35,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default function MachineInvestmentFeasibilityPage() {
   return (
     <PageLayout>
-      <article aria-label="Machine Investment Feasibility — Buy vs Lease vs Keep">
+      <article>
         <BuyLeaseKeepToolPage />
       </article>
     </PageLayout>

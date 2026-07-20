@@ -8,6 +8,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { DiBreadcrumbs } from "@/components/document-intelligence/DiBreadcrumbs";
+import { SITE } from "@/config/site";
 
 export const metadata: Metadata = {
   title: "Document Intelligence — SectorCalc",
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
     title: "Document Intelligence — SectorCalc",
     description:
       "Convert unstructured engineering documents into controlled, traceable operational outputs.",
-    url: "/document-intelligence",
+    url: `${SITE.url}/document-intelligence`,
     siteName: "SectorCalc",
     type: "website",
   },
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
       "Convert unstructured engineering documents into controlled, traceable operational outputs.",
     card: "summary_large_image",
   },
-  alternates: { canonical: "/document-intelligence" },
+  alternates: { canonical: `${SITE.url}/document-intelligence` },
 };
 
 export default function DocumentIntelligencePage() {

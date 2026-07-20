@@ -10,6 +10,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { DiBreadcrumbs } from "@/components/document-intelligence/DiBreadcrumbs";
+import { SITE } from "@/config/site";
 
 export const metadata: Metadata = {
   title:
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
     title: "Maintenance BOM Recovery — SectorCalc",
     description:
       "Recover spare-parts data from legacy machine manuals. Validated, ERP-ready Excel BOM with source-page traceability.",
-    url: "/document-intelligence/maintenance-bom-recovery",
+    url: `${SITE.url}/document-intelligence/maintenance-bom-recovery`,
     siteName: "SectorCalc",
     type: "website",
   },
@@ -31,7 +32,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
   },
   alternates: {
-    canonical: "/document-intelligence/maintenance-bom-recovery",
+    canonical: `${SITE.url}/document-intelligence/maintenance-bom-recovery`,
   },
 };
 

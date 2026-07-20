@@ -61,23 +61,18 @@ export function getSubSitemapItems(type: SubSitemapType): readonly SitemapManife
 }
 
 /** Hreflang locales — MUST match metadata.ts buildHreflangLanguages() output.
- *  SectorCalc is "Pure English" global authority. tr/de/ar translations do not
- *  exist yet — not emitted to avoid Google "return URL errors".
- *  en is the canonical locale and also serves as x-default. */
-const HREFLANG_LOCALES = ["en"] as const;
+ *  SectorCalc is English-only on bare paths. Emit separate hreflang="en" and
+ *  hreflang="x-default" links (Google does not recognize x-default="true"). */
+const HREFLANG_LOCALES = ["en", "x-default"] as const;
 
 function buildHreflangXmlLinks(path: string): string {
   const cleanPath = path.startsWith("/") ? path : `/${path}`;
   const isRoot = cleanPath === "/";
-  // Single-locale (en-only): hreflang href = canonical bare path (self-referencing).
-  // Google expects the alternate URL to be the actual page URL in that locale.
-  // Since all content is English and bare-path = canonical, use bare path.
   const href = isRoot ? SITE_BASE_URL : `${SITE_BASE_URL}${cleanPath}`;
 
   const links: string[] = [];
   for (const locale of HREFLANG_LOCALES) {
-    const extra = locale === "en" ? ' x-default="true"' : "";
-    links.push(`    <xhtml:link rel="alternate" hreflang="${locale}" href="${href}"${extra} />`);
+    links.push(`    <xhtml:link rel="alternate" hreflang="${locale}" href="${href}" />`);
   }
   return links.join("\n");
 }

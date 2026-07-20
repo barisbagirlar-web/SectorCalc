@@ -1,14 +1,11 @@
 /**
  * Active locale definitions - single source of truth for routing, formatting, and UI.
  *
- * Two concepts:
- *   SUPPORTED_LOCALES — locales the app actually renders (EN only for now).
- *   HREFLANG_LOCALES   — locales used for hreflang SEO tags and locale routing
- *                         (en, tr, de, ar per SectorCalc mandate).
- *
- * The app serves English content under all hreflang-prefixed paths
- * (/en/..., /tr/..., /de/..., /ar/...) via middleware rewrite. Canonical
- * always points to bare path (English).
+ * English-only public site (V5.3.1+):
+ *   SUPPORTED_LOCALES — locales the app renders (EN only).
+ *   HREFLANG_LOCALES   — historical list retained for type compatibility; public
+ *                         routes must NOT emit locale-prefixed URLs. Middleware
+ *                         hard-404s /tr|/de|/ar|/fr|/es/... and 301s /en → bare path.
  */
 
 /** Locales the application renders actual content for. */

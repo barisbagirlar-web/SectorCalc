@@ -178,7 +178,11 @@ function applyStandardHeaders(
   request: NextRequest,
   options?: { forceNoindex?: boolean },
 ): NextResponse {
-  applyCanonicalLinkHeader(response, request);
+  // Never self-canonicalize 404/410/noindex responses — Google treats that as
+  // an indexable URL signal even when status is 404.
+  if (!options?.forceNoindex) {
+    applyCanonicalLinkHeader(response, request);
+  }
   applyRobotsHeader(response, request, options);
   return applyRegionHeaders(response, request);
 }
@@ -205,16 +209,21 @@ function notFoundResponse(request: NextRequest): NextResponse {
 }
 
 /**
- * Known ISO 639-1 language paths at root level — return 404.
- * These are not active routes; they exist only as legacy/misguided URL patterns.
+ * Known ISO 639-1 language path prefixes — permanently retired.
+ * Exact roots (/tr) and nested paths (/tr/tools/...) both hard-404 + noindex.
+ * /en and /en/... redirect to bare English paths (legacy equity preservation).
  */
-const LEGACY_LANGUAGE_ROUTES = new Set([
-  "/en", "/tr", "/de", "/fr", "/es", "/ar",
-  "/ru", "/zh", "/ja", "/ko", "/pt", "/it",
-  "/nl", "/pl", "/sv", "/da", "/fi", "/nb",
-  "/cs", "/hu", "/ro", "/uk", "/el", "/he",
-  "/hi", "/th", "/vi", "/id", "/ms",
-]);
+const LEGACY_LANGUAGE_CODES = [
+  "en", "tr", "de", "fr", "es", "ar",
+  "ru", "zh", "ja", "ko", "pt", "it",
+  "nl", "pl", "sv", "da", "fi", "nb",
+  "cs", "hu", "ro", "uk", "el", "he",
+  "hi", "th", "vi", "id", "ms",
+] as const;
+
+const LEGACY_LANGUAGE_PREFIX_RE = new RegExp(
+  `^/(${LEGACY_LANGUAGE_CODES.join("|")})(/|$)`,
+);
 
 // SW_KILL_VERSION: bump to force clients to re-fetch the kill SW.
 const SW_KILL_VERSION = "2026-07-19-v2";
@@ -403,9 +412,26 @@ export default function middleware(request: NextRequest) {
     }
   }
 
-  // Root-level language-only paths — return 404 + noindex (no meta/header conflict)
-  if (LEGACY_LANGUAGE_ROUTES.has(pathname)) {
-    return notFoundResponse(request);
+  // ── Legacy locale prefixes (English-only site) ──
+  // /en and /en/... → 301 to bare path (preserve crawl equity).
+  // /tr|/de|/fr|/es|/ar|... (exact + nested) → hard 404 + noindex.
+  {
+    const localeMatch = pathname.match(LEGACY_LANGUAGE_PREFIX_RE);
+    if (localeMatch) {
+      const code = localeMatch[1];
+      if (code === "en") {
+        const rest =
+          pathname === "/en" || pathname === "/en/"
+            ? "/"
+            : pathname.slice("/en".length) || "/";
+        const url = request.nextUrl.clone();
+        url.host = "sectorcalc.com";
+        url.protocol = "https:";
+        url.pathname = rest.startsWith("/") ? rest : `/${rest}`;
+        return NextResponse.redirect(url, 301);
+      }
+      return notFoundResponse(request);
+    }
   }
 
   // Industry detail: unknown slug → hard 404 + noindex at the edge (before soft shells)

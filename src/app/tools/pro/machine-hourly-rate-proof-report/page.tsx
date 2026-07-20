@@ -23,9 +23,9 @@ export async function generateMetadata(): Promise<Metadata> {
     alternates: {
       canonical: "https://sectorcalc.com/tools/pro/machine-hourly-rate-proof-report",
       languages: {
-        en: "https://sectorcalc.com/en/tools/pro/machine-hourly-rate-proof-report",
-        "en-us": "https://sectorcalc.com/en/tools/pro/machine-hourly-rate-proof-report",
-        "en-gb": "https://sectorcalc.com/en/tools/pro/machine-hourly-rate-proof-report",
+        en: "https://sectorcalc.com/tools/pro/machine-hourly-rate-proof-report",
+        "en-us": "https://sectorcalc.com/tools/pro/machine-hourly-rate-proof-report",
+        "en-gb": "https://sectorcalc.com/tools/pro/machine-hourly-rate-proof-report",
         "x-default": "https://sectorcalc.com/tools/pro/machine-hourly-rate-proof-report",
       },
     },
@@ -35,7 +35,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default function MachineHourlyRatePage() {
   return (
     <PageLayout>
-      <article aria-label="Machine Hourly Rate Proof Report">
+      <article>
         <MachineHourlyRateToolPage />
       </article>
     </PageLayout>

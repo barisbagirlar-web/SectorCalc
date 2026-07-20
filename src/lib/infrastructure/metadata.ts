@@ -47,27 +47,19 @@ function buildLocalizedPath(path: string, locale: HreflangLocale): string {
 /**
  * Build global-English hreflang languages for SEO.
  *
- * SectorCalc targets "Pure English" as a Global Technical Authority —
- * NOT limited to en-US. Google treats x-default as the geographic catch-all.
- * en-us and en-gb signal that the English content is suitable for US and UK
- * audiences without triggering duplicate-content penalties.
- * tr/de/ar translations do not exist yet — not emitted to avoid
- * Google "return URL errors".
- *
- * Canonical URL: bare path (English, no locale prefix).
- * hreflang="en": /en/{path} (also x-default, en-us, en-gb)
+ * English-only site on bare paths (no /en, /tr, /de, …).
+ * en / en-us / en-gb / x-default all self-reference the canonical URL.
  */
 function buildHreflangLanguages(path: string): Record<string, string> {
   const baseUrl = SITE.url;
   const normalizedPath = path.startsWith("/") ? path : `/${path}`;
-  const cleanPath = normalizedPath === "/" ? "" : normalizedPath;
-  const localeUrl = `${baseUrl}/en${cleanPath}`;
+  const canonicalUrl = normalizedPath === "/" ? baseUrl : `${baseUrl}${normalizedPath}`;
 
   return {
-    en: localeUrl,
-    "en-us": localeUrl,
-    "en-gb": localeUrl,
-    "x-default": localeUrl,
+    en: canonicalUrl,
+    "en-us": canonicalUrl,
+    "en-gb": canonicalUrl,
+    "x-default": canonicalUrl,
   };
 }
 

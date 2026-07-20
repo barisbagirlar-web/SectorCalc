@@ -28,9 +28,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: `${SITE.url}/pro-tools`,
     languages: {
-      en: `${SITE.url}/en/pro-tools`,
-      "en-us": `${SITE.url}/en/pro-tools`,
-      "en-gb": `${SITE.url}/en/pro-tools`,
+      en: `${SITE.url}/pro-tools`,
+      "en-us": `${SITE.url}/pro-tools`,
+      "en-gb": `${SITE.url}/pro-tools`,
       "x-default": `${SITE.url}/pro-tools`,
     },
   },
