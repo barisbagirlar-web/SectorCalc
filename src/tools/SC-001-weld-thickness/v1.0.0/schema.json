@@ -8,12 +8,16 @@
   "category": "structural",
   "type": "object",
   "required": ["designLoadN", "weldLengthMm", "weldStrengthMpa", "safetyFactor", "materialThicknessMm"],
+  "x-presets": [
+    { "label": "Light fixture", "values": { "designLoadN": 5000, "weldLengthMm": 100, "materialThicknessMm": 3 } },
+    { "label": "Structural joint", "values": { "designLoadN": 50000, "weldLengthMm": 200, "materialThicknessMm": 10 } }
+  ],
   "properties": {
-    "designLoadN": { "type": "number", "minimum": 0, "default": 10000, "x-unit": "N", "description": "Design load on the weld joint." },
-    "weldLengthMm": { "type": "number", "exclusiveMinimum": 0, "default": 100, "x-unit": "mm", "description": "Effective weld length." },
-    "weldStrengthMpa": { "type": "number", "exclusiveMinimum": 0, "default": 70, "x-unit": "MPa", "description": "Allowable weld metal strength." },
+    "designLoadN": { "type": "number", "exclusiveMinimum": 0, "default": 50000, "x-unit": "N", "x-dimension": "pressure", "description": "Design load (force). Note: enter in N; pressure dim used for conversion scaffolding." },
+    "weldLengthMm": { "type": "number", "exclusiveMinimum": 0, "default": 200, "x-unit": "mm", "x-dimension": "length", "description": "Total effective weld length." },
+    "weldStrengthMpa": { "type": "number", "exclusiveMinimum": 0, "default": 480, "x-unit": "MPa", "x-dimension": "pressure", "description": "Allowable weld metal strength." },
     "safetyFactor": { "type": "number", "exclusiveMinimum": 0, "default": 2, "x-unit": "x", "description": "Design safety factor applied to the load." },
-    "materialThicknessMm": { "type": "number", "exclusiveMinimum": 0, "default": 6, "x-unit": "mm", "description": "Thinner base-metal thickness (AWS D1.1 table)." },
+    "materialThicknessMm": { "type": "number", "exclusiveMinimum": 0, "default": 10, "x-unit": "mm", "x-dimension": "length", "description": "Base material thickness." },
     "jointType": { "type": "string", "enum": ["fillet", "butt"], "default": "fillet", "description": "Weld joint type for throat geometry." }
   }
 }

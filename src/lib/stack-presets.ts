@@ -30,5 +30,21 @@ export const PRESETS: StackPreset[] = [
       { name: 'Part A', nominal: '10', tol: '0.02', distribution: 'normal', cpk: '1.67' },
       { name: 'Part B', nominal: '20', tol: '0.03', distribution: 'normal', cpk: '1.67' }
     ]
+  },
+  {
+    id: 'medical', label: 'Medical device',
+    spec: { usl: '30.05', lsl: '29.95', target: '30', seed: '12345', iterations: '5000' },
+    components: [
+      { name: 'Part A', nominal: '10', tol: '0.01', distribution: 'normal', cpk: '2.0' },
+      { name: 'Part B', nominal: '20', tol: '0.015', distribution: 'normal', cpk: '2.0' }
+    ]
+  },
+  {
+    id: 'heavy', label: 'Heavy fabrication',
+    spec: { usl: '32', lsl: '28', target: '30', seed: '12345', iterations: '5000' },
+    components: [
+      { name: 'Part A', nominal: '10', tol: '0.5', distribution: 'normal', cpk: '' },
+      { name: 'Part B', nominal: '20', tol: '0.8', distribution: 'normal', cpk: '' }
+    ]
   }
 ];

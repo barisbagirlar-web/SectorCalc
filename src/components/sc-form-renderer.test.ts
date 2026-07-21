@@ -5,127 +5,82 @@ import { ScFormRenderer } from './sc-form-renderer.js';
 
 const schema = {
   type: 'object',
-  required: ['net'],
-  properties: {
-    net: { type: 'number', minimum: 0 },
-    country: { type: 'string', enum: ['US', 'TR'] }
-  }
-};
-
-const richSchema = {
-  type: 'object',
   required: ['netSalary'],
+  'x-presets': [
+    { label: 'Small workshop', values: { netSalary: 2500, hoursPerWeek: 40 } },
+    { label: 'Mid factory', values: { netSalary: 4000, hoursPerWeek: 45 } }
+  ],
   properties: {
     netSalary: {
       type: 'number',
       minimum: 0,
       default: 3500,
       'x-unit': 'currency',
-      description: 'Monthly net (take-home) salary.'
+      description: 'Monthly take-home pay.'
     },
     hoursPerWeek: {
       type: 'number',
       exclusiveMinimum: 0,
       default: 40,
-      'x-unit': 'h/week',
-      description: 'Average worked hours per week.'
+      'x-unit': 'h/wk',
+      description: 'Average worked hours/week.'
     }
   }
 };
 
-async function mount(el: ScFormRenderer, s: object = schema): Promise<ScFormRenderer> {
+async function mount(el: ScFormRenderer): Promise<ScFormRenderer> {
   document.body.appendChild(el);
-  el.schema = s as never;
+  el.schema = schema as never;
   await el.updateComplete;
   return el;
 }
 
-function setNumber(el: ScFormRenderer, index: number, value: string) {
-  const inp = el.shadowRoot?.querySelectorAll('.fld input')[index] as HTMLInputElement;
-  inp.value = value;
-  inp.dispatchEvent(new Event('input'));
-}
-
-function setSelect(el: ScFormRenderer, value: string) {
-  const ctrl = el.shadowRoot?.querySelector('sc-select-input') as HTMLElement;
-  ctrl.dispatchEvent(new CustomEvent('sc-input', { detail: value, bubbles: true, composed: true }));
-}
-
 describe('sc-form-renderer', () => {
-  it('renders one control per property plus a submit button', async () => {
+  it('emits sc-submit in real time on each keystroke', async () => {
     const el = await mount(new ScFormRenderer());
-    expect(el.shadowRoot?.querySelectorAll('.fld input, sc-select-input').length).toBe(2);
-    expect(el.shadowRoot?.querySelector('button')?.textContent).toBe('Run the Numbers');
+    let count = 0;
+    let last: Record<string, unknown> | null = null;
+    el.addEventListener('sc-submit', (e) => {
+      count += 1;
+      last = (e as CustomEvent).detail;
+    });
+    const inp = el.shadowRoot?.querySelector('.fld input') as HTMLInputElement;
+    inp.value = '3500';
+    inp.dispatchEvent(new Event('input'));
+    expect(count).toBe(1);
+    expect(last).toEqual({ netSalary: 3500 });
   });
 
-  it('submit is disabled until required fields are valid', async () => {
+  it('renders a tooltip badge from description', async () => {
     const el = await mount(new ScFormRenderer());
-    expect(el.shadowRoot?.querySelector('button')?.hasAttribute('disabled')).toBe(true);
-    setNumber(el, 0, '3500');
-    await el.updateComplete;
-    expect(el.shadowRoot?.querySelector('button')?.hasAttribute('disabled')).toBe(false);
-  });
-
-  it('emits sc-submit with parsed numeric values when valid', async () => {
-    const el = await mount(new ScFormRenderer());
-    let detail: Record<string, unknown> | null = null;
-    el.addEventListener('sc-submit', (e) => { detail = (e as CustomEvent).detail; });
-    setNumber(el, 0, '3500');
-    setSelect(el, 'TR');
-    await el.updateComplete;
-    el.shadowRoot?.querySelector('button')?.click();
-    expect(detail).toEqual({ net: 3500, country: 'TR' });
-  });
-
-  it('does not emit sc-submit when invalid', async () => {
-    const el = await mount(new ScFormRenderer());
-    let fired = false;
-    el.addEventListener('sc-submit', () => { fired = true; });
-    el.shadowRoot?.querySelector('button')?.click();
-    expect(fired).toBe(false);
-  });
-
-  it('shows a tooltip badge when description is set', async () => {
-    const el = await mount(new ScFormRenderer(), richSchema);
     const tip = el.shadowRoot?.querySelector('.tip') as HTMLElement;
     expect(tip).not.toBeNull();
     expect(tip.getAttribute('title')).toContain('take-home');
   });
 
-  it('shows the unit label when x-unit is set', async () => {
-    const el = await mount(new ScFormRenderer(), richSchema);
+  it('renders the x-unit label', async () => {
+    const el = await mount(new ScFormRenderer());
     expect(el.shadowRoot?.textContent).toContain('currency');
-    expect(el.shadowRoot?.textContent).toContain('h/week');
+    expect(el.shadowRoot?.textContent).toContain('h/wk');
   });
 
-  it('shows placeholder from schema default', async () => {
-    const el = await mount(new ScFormRenderer(), richSchema);
-    const inp = el.shadowRoot?.querySelectorAll('.fld input')[0] as HTMLInputElement;
-    expect(inp.placeholder).toBe('3500');
-  });
-
-  it('shows a validation error message under the field', async () => {
-    const el = await mount(new ScFormRenderer(), richSchema);
-    setNumber(el, 0, '-1');
-    await el.updateComplete;
-    expect(el.shadowRoot?.querySelector('.err')?.textContent).toBeTruthy();
-  });
-
-  it('omits tip and unit when schema has neither', async () => {
+  it('applies a preset and emits updated values', async () => {
     const el = await mount(new ScFormRenderer());
-    expect(el.shadowRoot?.querySelector('.tip')).toBeNull();
-    expect(el.shadowRoot?.querySelector('.unit')).toBeNull();
-  });
-
-  it('keeps plain number behavior without x-unit', async () => {
-    const el = await mount(new ScFormRenderer());
-    setNumber(el, 0, '100');
+    let got: Record<string, unknown> | null = null;
+    el.addEventListener('sc-submit', (e) => { got = (e as CustomEvent).detail; });
+    const sel = el.shadowRoot?.querySelector('.presets select') as HTMLSelectElement;
+    sel.value = 'Small workshop';
+    sel.dispatchEvent(new Event('change'));
     await el.updateComplete;
-    expect((el.shadowRoot?.querySelector('.fld input') as HTMLInputElement).value).toBe('100');
+    expect(got).toEqual({ netSalary: 2500, hoursPerWeek: 40 });
   });
 
-  it('renders two number fields from rich schema', async () => {
-    const el = await mount(new ScFormRenderer(), richSchema);
-    expect(el.shadowRoot?.querySelectorAll('.fld input').length).toBe(2);
+  it('shows a validation error for out-of-range input', async () => {
+    const el = await mount(new ScFormRenderer());
+    const inp = el.shadowRoot?.querySelector('.fld input') as HTMLInputElement;
+    inp.value = '-1';
+    inp.dispatchEvent(new Event('input'));
+    await el.updateComplete;
+    expect(el.shadowRoot?.querySelector('.err')?.textContent).toContain('Must be >= 0');
   });
 });

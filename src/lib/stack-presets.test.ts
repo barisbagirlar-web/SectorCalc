@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest';
 import { PRESETS } from './stack-presets.js';
 
 describe('stack-presets', () => {
-  it('has 3 presets', () => { expect(PRESETS.length).toBe(3); });
+  it('has 5 presets', () => { expect(PRESETS.length).toBe(5); });
   it('general uses loose tolerances', () => {
     const g = PRESETS.find((p) => p.id === 'general')!;
     expect(g.components[0]!.tol).toBe('0.2');
@@ -16,5 +16,15 @@ describe('stack-presets', () => {
     const a = PRESETS.find((p) => p.id === 'aerospace')!;
     expect(a.components[0]!.tol).toBe('0.02');
     expect(a.components[0]!.cpk).toBe('1.67');
+  });
+  it('medical is tighter than aerospace', () => {
+    const m = PRESETS.find((p) => p.id === 'medical')!;
+    expect(m.components[0]!.tol).toBe('0.01');
+    expect(m.components[0]!.cpk).toBe('2.0');
+  });
+  it('heavy fabrication uses loose tolerances', () => {
+    const h = PRESETS.find((p) => p.id === 'heavy')!;
+    expect(h.components[0]!.tol).toBe('0.5');
+    expect(h.label).toBe('Heavy fabrication');
   });
 });

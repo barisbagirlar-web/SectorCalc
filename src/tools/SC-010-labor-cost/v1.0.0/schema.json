@@ -8,11 +8,15 @@
   "category": "cost",
   "type": "object",
   "required": ["country", "netSalary", "payFrequency"],
+  "x-presets": [
+    { "label": "Small workshop", "values": { "netSalary": 2500, "hoursPerWeek": 40 } },
+    { "label": "Mid factory", "values": { "netSalary": 4000, "hoursPerWeek": 45 } }
+  ],
   "properties": {
-    "country": { "type": "string", "enum": ["US", "TR", "DE", "GB", "IN", "FR"], "description": "Country used for default tax and benefit rates." },
-    "netSalary": { "type": "number", "minimum": 0, "default": 3500, "x-unit": "currency", "description": "Monthly net (take-home) salary." },
-    "payFrequency": { "type": "string", "enum": ["hourly", "weekly", "biweekly", "monthly"], "description": "How the net salary figure is paid." },
-    "hoursPerWeek": { "type": "number", "exclusiveMinimum": 0, "maximum": 80, "default": 40, "x-unit": "h/week", "description": "Average worked hours per week." },
+    "country": { "type": "string", "enum": ["US", "TR", "DE", "GB", "IN", "FR"], "default": "US", "description": "Labor tax/social-security country." },
+    "netSalary": { "type": "number", "minimum": 0, "default": 3500, "x-unit": "currency", "description": "Monthly take-home pay." },
+    "payFrequency": { "type": "string", "enum": ["hourly", "weekly", "biweekly", "monthly"], "default": "monthly", "description": "How the net salary is paid." },
+    "hoursPerWeek": { "type": "number", "exclusiveMinimum": 0, "maximum": 80, "default": 40, "x-unit": "h/wk", "description": "Average worked hours/week." },
     "employeeRate": { "type": "number", "minimum": 0, "exclusiveMaximum": 1, "x-unit": "ratio", "description": "Employee social contribution rate (0-1). Leave blank for country default." },
     "employerSSRate": { "type": "number", "minimum": 0, "maximum": 1, "x-unit": "ratio", "description": "Employer social security rate (0-1). Leave blank for country default." },
     "employerUnempRate": { "type": "number", "minimum": 0, "maximum": 1, "x-unit": "ratio", "description": "Employer unemployment insurance rate (0-1)." },

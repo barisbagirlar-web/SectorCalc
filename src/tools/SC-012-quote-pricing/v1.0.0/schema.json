@@ -8,13 +8,17 @@
   "category": "cost",
   "type": "object",
   "required": ["materialCost", "scrapRate", "laborHours", "laborHourlyCost", "machineHours", "machineHourlyCost", "targetMargin", "quantity"],
+  "x-presets": [
+    { "label": "Prototype job", "values": { "materialCost": 1000, "scrapRate": 0.1, "targetMargin": 0.2, "quantity": 10 } },
+    { "label": "Production lot", "values": { "materialCost": 500, "scrapRate": 0.05, "targetMargin": 0.25, "quantity": 500 } }
+  ],
   "properties": {
-    "materialCost": { "type": "number", "minimum": 0, "default": 100, "x-unit": "currency", "description": "Raw material cost per piece before scrap." },
-    "scrapRate": { "type": "number", "minimum": 0, "exclusiveMaximum": 1, "default": 0.05, "x-unit": "ratio", "description": "Expected scrap fraction (0-1)." },
-    "laborHours": { "type": "number", "minimum": 0, "default": 1, "x-unit": "h", "description": "Direct labor hours per piece." },
-    "laborHourlyCost": { "type": "number", "minimum": 0, "default": 35, "x-unit": "currency/h", "description": "Fully burdened labor cost per hour." },
-    "machineHours": { "type": "number", "minimum": 0, "default": 0.5, "x-unit": "h", "description": "Machine hours per piece." },
-    "machineHourlyCost": { "type": "number", "minimum": 0, "default": 50, "x-unit": "currency/h", "description": "Machine burden rate per hour." },
+    "materialCost": { "type": "number", "minimum": 0, "default": 1000, "x-unit": "currency", "description": "Raw material cost for the job." },
+    "scrapRate": { "type": "number", "minimum": 0, "exclusiveMaximum": 1, "default": 0.1, "x-unit": "ratio", "description": "Expected scrap fraction (0.1 = 10%)." },
+    "laborHours": { "type": "number", "minimum": 0, "default": 5, "x-unit": "h", "description": "Direct labor hours per piece." },
+    "laborHourlyCost": { "type": "number", "minimum": 0, "default": 40, "x-unit": "currency/h", "description": "Fully burdened labor cost per hour." },
+    "machineHours": { "type": "number", "minimum": 0, "default": 3, "x-unit": "h", "description": "Machine hours per piece." },
+    "machineHourlyCost": { "type": "number", "minimum": 0, "default": 60, "x-unit": "currency/h", "description": "Machine burden rate per hour." },
     "setupMinutes": { "type": "number", "minimum": 0, "default": 0, "x-unit": "min", "description": "Setup time amortized across the lot." },
     "setupHourlyCost": { "type": "number", "minimum": 0, "default": 0, "x-unit": "currency/h", "description": "Setup labor or machine rate per hour." },
     "overheadRate": { "type": "number", "minimum": 0, "maximum": 5, "default": 0.2, "x-unit": "ratio", "description": "Overhead applied to direct cost (0-5)." },
@@ -23,8 +27,8 @@
     "shippingCost": { "type": "number", "minimum": 0, "default": 0, "x-unit": "currency", "description": "Shipping or logistics cost per piece." },
     "paymentDays": { "type": "number", "minimum": 0, "maximum": 365, "default": 30, "x-unit": "days", "description": "Customer payment terms in days." },
     "monthlyInterestRate": { "type": "number", "minimum": 0, "maximum": 1, "default": 0.01, "x-unit": "ratio", "description": "Monthly financing rate for payment terms (0-1)." },
-    "targetMargin": { "type": "number", "exclusiveMaximum": 1, "default": 0.25, "x-unit": "ratio", "description": "Target gross margin as a fraction of sell price." },
-    "quantity": { "type": "number", "exclusiveMinimum": 0, "default": 100, "x-unit": "pcs", "description": "Lot quantity for setup amortization." },
+    "targetMargin": { "type": "number", "exclusiveMaximum": 1, "default": 0.2, "x-unit": "ratio", "description": "Target profit margin on sell price." },
+    "quantity": { "type": "number", "exclusiveMinimum": 0, "default": 10, "x-unit": "pcs", "description": "Lot quantity for setup amortization." },
     "currency": { "type": "string", "description": "Currency code for display (optional override)." }
   }
 }
