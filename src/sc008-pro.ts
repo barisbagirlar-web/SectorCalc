@@ -315,6 +315,59 @@ $('genReport').addEventListener('click', () => {
     ? `<div class="sc-rec"><div class="sc-rec-title">1. Tighten tolerance on ${d.pareto[0]?.name}</div><div class="sc-rec-body">Contributes ${d.pareto[0]?.pct}% of variation. Expected Cpk improvement: ${d.cpk.toFixed(2)} -> ${(d.cpk * 1.2).toFixed(2)}.</div></div><div class="sc-rec"><div class="sc-rec-title">2. Implement SPC on ${d.pareto[0]?.name}</div><div class="sc-rec-body">X-bar/R charts prevent 100% scrap scenarios.</div></div>`
     : `<div class="sc-rec"><div class="sc-rec-title">1. Design statistically sound - maintain controls</div><div class="sc-rec-body">Cpk ${d.cpk.toFixed(2)} exceeds target ${d.cpkTarget}. Quarterly capability studies.</div></div>`;
 
+  // ---- 4 visuals (Decimal-backed data, reference design) ----
+  const gaugeAngle = Math.max(-90, Math.min(90, (d.rssTol / Math.abs(d.su)) * 90));
+  const gCol = overall === 'PASS' ? '#52c41a' : (overall === 'WARNING' ? '#faad14' : '#f5222d');
+  const gaugeSVG = `<div class="sc-gauge-wrap"><svg width="300" height="170" viewBox="0 0 300 170">
+    <path d="M 40 150 A 110 110 0 0 1 260 150" fill="none" stroke="#111720" stroke-width="24" stroke-linecap="round"/>
+    <path d="M 40 150 A 110 110 0 0 1 95 55" fill="none" stroke="rgba(82,196,26,0.2)" stroke-width="24" stroke-linecap="round"/>
+    <path d="M 205 55 A 110 110 0 0 1 260 150" fill="none" stroke="rgba(82,196,26,0.2)" stroke-width="24" stroke-linecap="round"/>
+    <path d="M 125 32 A 110 110 0 0 1 175 32" fill="none" stroke="rgba(245,34,45,0.2)" stroke-width="24" stroke-linecap="round"/>
+    <line x1="150" y1="150" x2="${150 + 95 * Math.cos((gaugeAngle - 90) * Math.PI / 180)}" y2="${150 + 95 * Math.sin((gaugeAngle - 90) * Math.PI / 180)}" stroke="${gCol}" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="150" cy="150" r="7" fill="${gCol}"/>
+    <text x="150" y="135" text-anchor="middle" fill="#f0f4f8" font-size="24" font-weight="700" font-family="JetBrains Mono">+/-${(d.rssTol * fromMm).toFixed(3)}</text>
+    <text x="150" y="155" text-anchor="middle" fill="#4a5568" font-size="10">${u} (RSS)</text>
+    <text x="30" y="168" fill="#4a5568" font-size="9">0</text>
+    <text x="270" y="168" fill="#4a5568" font-size="9">${(Math.abs(d.su) * fromMm).toFixed(2)}</text>
+    <text x="150" y="12" text-anchor="middle" fill="#f5222d" font-size="9" font-weight="700">SPEC LIMIT</text>
+  </svg></div>`;
+
+  const stackSVG = `<div class="sc-stack">${([['Worst Case', d.wcTol, '#f5222d', 1], ['RSS', d.rssTol, '#faad14', 1], ['Monte Carlo', d.mcTol, '#5b8def', 1], ['Spec Limit', Math.abs(d.su), '#52c41a', 0.25]] as [string, number, string, number][]).map(([lbl, val, col, op]) => `
+    <div class="sc-stack-col"><div class="sc-stack-wrap"><div class="sc-stack-bar" style="height:${Math.min(100, (val / Math.abs(d.su)) * 100)}%;background:${col};opacity:${op}"><span class="sc-stack-bar-lbl">+/-${(val * fromMm).toFixed(3)}</span></div></div><div class="sc-stack-lbl">${lbl}</div></div>`).join('')}</div>`;
+
+  const mcSVG = `<svg width="100%" height="200" viewBox="0 0 600 200" preserveAspectRatio="none">
+    <line x1="50" y1="30" x2="550" y2="30" stroke="#111720"/><line x1="50" y1="90" x2="550" y2="90" stroke="#111720"/><line x1="50" y1="150" x2="550" y2="150" stroke="#111720"/>
+    <path d="M 50 150 Q 100 150 150 120 Q 200 60 250 30 Q 300 15 350 30 Q 400 60 450 120 Q 500 150 550 150" fill="none" stroke="#5b8def" stroke-width="2"/>
+    <path d="M 50 150 Q 100 150 150 120 Q 200 60 250 30 Q 300 15 350 30 Q 400 60 450 120 Q 500 150 550 150 L 550 180 L 50 180 Z" fill="rgba(91,141,239,0.05)"/>
+    <line x1="100" y1="10" x2="100" y2="180" stroke="#f5222d" stroke-dasharray="4,4"/>
+    <line x1="500" y1="10" x2="500" y2="180" stroke="#f5222d" stroke-dasharray="4,4"/>
+    <text x="100" y="195" text-anchor="middle" fill="#f5222d" font-size="9">LSL ${(d.lsl * fromMm).toFixed(2)}</text>
+    <text x="500" y="195" text-anchor="middle" fill="#f5222d" font-size="9">USL +${(d.usl * fromMm).toFixed(2)}</text>
+    <line x1="300" y1="10" x2="300" y2="180" stroke="#52c41a"/>
+    <text x="300" y="8" text-anchor="middle" fill="#52c41a" font-size="9" font-weight="700">mu = ${(d.nominalSum * fromMm).toFixed(3)}</text>
+  </svg>`;
+
+  const criteria = [
+    { name: 'Spec Compliance', val: d.rssInSpec ? 0.9 : 0.2 },
+    { name: 'Cpk Target', val: Math.min(1, d.cpk / d.cpkTarget) },
+    { name: 'Yield Rate', val: Math.min(1, (100 - d.ppm / 10000) / 100) },
+    { name: 'Cost Efficiency', val: d.rssInSpec ? 0.75 : 0.3 },
+    { name: 'Process Control', val: d.cpkOk ? 0.85 : 0.5 },
+    { name: 'Design Margin', val: Math.min(1, Math.abs(d.su) / (d.rssTol * 2)) }
+  ];
+  const cx = 140, cy = 140, rr = 110;
+  const pts = criteria.map((c, i) => { const a = (i * 60 - 90) * Math.PI / 180; const dist = c.val * rr; return `${cx + dist * Math.cos(a)},${cy + dist * Math.sin(a)}`; }).join(' ');
+  const rFill = overall === 'PASS' ? 'rgba(82,196,26,0.15)' : (overall === 'WARNING' ? 'rgba(250,173,20,0.15)' : 'rgba(245,34,45,0.15)');
+  const rStroke = overall === 'PASS' ? '#52c41a' : (overall === 'WARNING' ? '#faad14' : '#f5222d');
+  const radarSVG = `<div class="sc-radar-wrap"><svg width="280" height="280" viewBox="0 0 280 280">
+    <polygon points="140,30 230,90 230,190 140,250 50,190 50,90" fill="none" stroke="#1e2733"/>
+    <polygon points="140,65 195,105 195,175 140,215 85,175 85,105" fill="none" stroke="#1e2733"/>
+    <polygon points="140,100 160,120 160,160 140,180 120,160 120,120" fill="none" stroke="#1e2733"/>
+    <line x1="140" y1="30" x2="140" y2="250" stroke="#1e2733"/><line x1="50" y1="90" x2="230" y2="190" stroke="#1e2733"/><line x1="230" y1="90" x2="50" y2="190" stroke="#1e2733"/>
+    <polygon points="${pts}" fill="${rFill}" stroke="${rStroke}" stroke-width="2"/>
+    ${criteria.map((c, i) => { const a = (i * 60 - 90) * Math.PI / 180; const x = cx + (rr + 22) * Math.cos(a); const y = cy + (rr + 22) * Math.sin(a); return `<text x="${x}" y="${y}" text-anchor="middle" fill="#6e7d8c" font-size="9" font-weight="600">${c.name}</text>`; }).join('')}
+  </svg></div>`;
+
   $('reportArea').innerHTML = `
     <div class="sc-report-hd">
       <div><div class="sc-report-title">SC-008 Tolerance Stack-Up Analysis</div>
@@ -323,9 +376,13 @@ $('genReport').addEventListener('click', () => {
     </div>
     <div class="sc-sec"><div class="sc-sec-hd">Risk Assessment</div>${alertHTML}</div>
     <div class="sc-sec"><div class="sc-sec-hd">Methodology Comparison</div><div class="sc-cards">${cardsHTML}</div></div>
+    <div class="sc-sec"><div class="sc-sec-hd">Specification Gauge</div><div class="sc-chart">${gaugeSVG}</div></div>
+    <div class="sc-sec"><div class="sc-sec-hd">Methodology Stack Comparison</div><div class="sc-chart">${stackSVG}</div></div>
     <div class="sc-sec"><div class="sc-sec-hd">Stack Dimensions</div><table class="sc-table"><thead><tr><th>#</th><th>Dimension</th><th>Nominal</th><th>+/-Tol</th><th>Contrib</th></tr></thead><tbody>${dimsHTML}</tbody></table></div>
-    <div class="sc-sec"><div class="sc-sec-hd">Variation Contribution (Pareto)</div>${paretoHTML}</div>
+    <div class="sc-sec"><div class="sc-sec-hd">Variation Contribution (Pareto)</div><div class="sc-chart">${paretoHTML}</div></div>
     <div class="sc-sec"><div class="sc-sec-hd">Process Capability</div><div class="sc-cards"><div class="sc-card-res"><div class="sc-card-res-label">Cpk</div><div class="sc-card-res-val">${d.cpk.toFixed(2)}</div><span class="sc-card-res-badge ${d.cpkOk ? 'sc-badge-pass' : 'sc-badge-warn'}">${d.cpkOk ? 'CAPABLE' : 'BELOW'}</span></div><div class="sc-card-res"><div class="sc-card-res-label">Defect Rate</div><div class="sc-card-res-val">${d.ppm.toFixed(0)}</div><div class="sc-card-res-sub">PPM</div></div><div class="sc-card-res"><div class="sc-card-res-label">Yield</div><div class="sc-card-res-val">${(100 - d.ppm / 10000).toFixed(2)}%</div></div></div></div>
+    <div class="sc-sec"><div class="sc-sec-hd">Monte Carlo Distribution (n=10,000)</div><div class="sc-chart">${mcSVG}</div></div>
+    <div class="sc-sec"><div class="sc-sec-hd">Multi-Criteria Radar Assessment</div><div class="sc-chart">${radarSVG}</div></div>
     <div class="sc-sec"><div class="sc-sec-hd">What-If Sensitivity</div><div class="sc-cards">${whatIfHTML}</div></div>
     <div class="sc-sec"><div class="sc-sec-hd">Recommended Actions</div>${recHTML}</div>
     <div class="sc-sec"><div class="sc-sec-hd">Standards & References</div><div class="sc-std"><span>ISO 286-1:2010</span> - ISO tolerance grades<br><span>ASME Y14.5-2018</span> - Dimensioning and Tolerancing<br><span>AIAG SPC 2nd Ed.</span> - Cpk methodology<br><span>Seeded LCG Monte Carlo</span> - deterministic reproducibility</div></div>`;
