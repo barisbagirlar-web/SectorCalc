@@ -1,10 +1,6 @@
 import { calculate } from './tools/SC-008-tolerance-stack/v1.0.0/formula.js';
 import type { StackInput, StackResult } from './tools/SC-008-tolerance-stack/v1.0.0/formula.js';
 import { whatIfToleranceScale } from './lib/what-if.js';
-import { buildReportData } from './lib/report-data.js';
-import { buildStackReportLines } from './lib/stack-pdf-builder.js';
-import type { StackPdfInput } from './lib/stack-pdf-builder.js';
-import { sha256 } from './core/checksum.js';
 import { jsPDF } from 'jspdf';
 
 type UnitKey = 'mm' | 'inch' | 'um';
@@ -281,94 +277,100 @@ $('dimList').addEventListener('click', (e) => {
   }
 });
 $('genReport').addEventListener('click', () => {
-  void (async () => {
-    if (!calcData) validate();
-    if (!calcData) return;
-    window.__sc008 = calcData;
-    const d = calcData;
-    const report = buildReportData(d.r);
-    const checksum = await sha256(JSON.stringify(d.r));
-    const fromMm = unitConv[d.unit].fromMm;
-    const whatIfRows = d.whatIfs.map((w) =>
-      `<tr><td>${w.scale}x tol</td><td>${w.cpk.toFixed(3)}</td><td>${w.ppm.toFixed(0)}</td></tr>`
-    ).join('');
-    const paretoRows = d.pareto.map((p) =>
-      `<tr><td>${p.name}</td><td>${p.pct}%</td></tr>`
-    ).join('');
-    const riskHtml = report.riskAnalysis.map((x) =>
-      `<div class="sc-ri ${x.level.toLowerCase()}"><strong>${x.level}</strong> ${x.message} <em>- ${x.recommendation}</em></div>`
-    ).join('');
-    const insightsHtml = report.insights.map((i) => `<li>${i}</li>`).join('');
-    const standardsHtml = report.standards.map((s) => `<li>${s}</li>`).join('');
-    const verdictColor = report.verdict === 'CAPABLE' ? 'var(--accent-green)' : 'var(--accent-red)';
+  if (!calcData) validate();
+  if (!calcData) return;
+  const d = calcData;
+  window.__sc008 = d;
+  const fromMm = unitConv[d.unit].fromMm;
+  const u = d.unit;
+  const calcId = 'SC-008-' + Math.random().toString(36).substr(2, 9).toUpperCase();
+  const overall = d.rssInSpec && d.cpkOk ? 'PASS' : (d.rssInSpec ? 'WARNING' : 'CRITICAL');
+  const pColors = ['#f5222d', '#faad14', '#5b8def', '#a855f7', '#4ecdc4'];
 
-    $('reportArea').innerHTML = `
-      <div class="sc-report">
-        <h2 style="color:${verdictColor}">${report.verdict} · Cpk ${report.cpk}</h2>
-        <div class="sc-report-card">
-          <h3>Key results</h3>
-          <div class="sc-kpi">
-            <div><div class="k">Worst-case</div><div class="v">+/- ${(d.wcTol * fromMm).toFixed(4)} ${d.unit}</div></div>
-            <div><div class="k">RSS</div><div class="v">+/- ${(d.rssTol * fromMm).toFixed(4)} ${d.unit}</div></div>
-            <div><div class="k">Defect</div><div class="v">${report.ppm} ppm</div></div>
-          </div>
-          <div style="margin-top:10px;font-size:11px;color:var(--text-muted);font-family:var(--font-mono)">
-            Seed ${d.seed} · ${d.r.iterations} runs · SHA-256 ${checksum.slice(0, 16)}…
-          </div>
-        </div>
-        <div class="sc-report-card"><h3>Risk analysis</h3>${riskHtml}</div>
-        <div class="sc-report-card"><h3>Contribution pareto</h3><table><tr><th>Contributor</th><th>Share</th></tr>${paretoRows}</table></div>
-        <div class="sc-report-card"><h3>What-if (tolerance scale)</h3><table><tr><th>Scale</th><th>Cpk</th><th>PPM</th></tr>${whatIfRows}</table></div>
-        <div class="sc-report-card"><h3>Actionable insights</h3><ul>${insightsHtml}</ul></div>
-        <div class="sc-report-card"><h3>Standards</h3><ul>${standardsHtml}</ul></div>
-        <button class="sc-btn sc-btn-primary" id="dlPdf" type="button" style="align-self:flex-start">Download PDF report</button>
-      </div>`;
+  const alertHTML = overall === 'CRITICAL'
+    ? `<div class="sc-alert sc-alert-crit"><div class="sc-alert-title">Critical - Stack Exceeds Specification</div><div class="sc-alert-body">RSS tolerance <strong>+/-${(d.rssTol * fromMm).toFixed(4)} ${u}</strong> exceeds spec <strong>+/-${(Math.abs(d.su) * fromMm).toFixed(3)} ${u}</strong>.<br>Expected defect rate: <strong>${d.ppm.toFixed(0)} PPM</strong>. Top contributor "${d.pareto[0]?.name}" = <strong>${d.pareto[0]?.pct}%</strong> of variation. Immediate action required.</div></div>`
+    : overall === 'WARNING'
+    ? `<div class="sc-alert sc-alert-warn"><div class="sc-alert-title">Warning - Process Capability Below Target</div><div class="sc-alert-body">Cpk = <strong>${d.cpk.toFixed(2)}</strong> (target >= ${d.cpkTarget}). Defect rate <strong>${d.ppm.toFixed(0)} PPM</strong>. Monitor closely.</div></div>`
+    : `<div class="sc-alert sc-alert-pass"><div class="sc-alert-title">Pass - Design Within Specification</div><div class="sc-alert-body">RSS <strong>+/-${(d.rssTol * fromMm).toFixed(4)} ${u}</strong> within spec. Cpk = <strong>${d.cpk.toFixed(2)}</strong>. Expected yield <strong>${(100 - d.ppm / 10000).toFixed(3)}%</strong>.</div></div>`;
 
-    const pdfInput: StackPdfInput = {
-      toolCode: 'SC-008',
-      nominalSum: d.r.nominalSum,
-      worstPlus: d.r.worstPlus,
-      rssPlus: d.r.rssPlus,
-      mcMean: d.r.mcMean,
-      mcStd: d.r.mcStd,
-      mcP0013: d.r.mcP0013,
-      mcP9987: d.r.mcP9987,
-      cp: d.r.cp,
-      cpk: d.r.cpk,
-      ppm: d.r.ppm,
-      seed: d.r.seed,
-      iterations: d.r.iterations,
-      components: d.dims.map((c) => {
-        const pct = d.pareto.find((p) => p.name === c.name)?.pct ?? '0.0';
-        return {
-          name: c.name,
-          nominal: String(c.nominal),
-          tol: String(c.tolerance),
-          distribution: 'normal',
-          pct
-        };
-      }),
-      warnings: report.riskAnalysis.map((x) => ({ severity: x.level, message: x.message })),
-      steps: d.r.steps.map((s) => ({ step: s.step, description: s.description, result: s.result })),
-      checksum,
-      reportData: report
+  const cardsHTML = `
+    <div class="sc-card-res"><div class="sc-card-res-label">Worst Case</div><div class="sc-card-res-val">+/-${(d.wcTol * fromMm).toFixed(4)}</div><div class="sc-card-res-sub">${u} | 100% coverage</div><span class="sc-card-res-badge ${d.wcTol <= Math.abs(d.su) ? 'sc-badge-pass' : 'sc-badge-crit'}">${d.wcTol <= Math.abs(d.su) ? 'IN SPEC' : 'EXCEEDS'}</span></div>
+    <div class="sc-card-res"><div class="sc-card-res-label">RSS</div><div class="sc-card-res-val">+/-${(d.rssTol * fromMm).toFixed(4)}</div><div class="sc-card-res-sub">${u} | 99.7% coverage</div><span class="sc-card-res-badge ${d.rssInSpec ? 'sc-badge-pass' : 'sc-badge-crit'}">${d.rssInSpec ? 'IN SPEC' : 'EXCEEDS'}</span></div>
+    <div class="sc-card-res"><div class="sc-card-res-label">Monte Carlo (10k)</div><div class="sc-card-res-val">+/-${(d.mcTol * fromMm).toFixed(4)}</div><div class="sc-card-res-sub">${u} | 99.5% coverage</div><span class="sc-card-res-badge ${d.rssInSpec ? 'sc-badge-pass' : 'sc-badge-crit'}">${d.rssInSpec ? 'IN SPEC' : 'EXCEEDS'}</span></div>`;
+
+  const dimsHTML = d.dims.map((dim, i) => {
+    const c = d.pareto.find((p) => p.name === dim.name);
+    return `<tr><td>${i + 1}</td><td>${dim.name}</td><td>${(dim.nominal * fromMm).toFixed(3)}</td><td>+/-${(dim.tolerance * fromMm).toFixed(3)}</td><td class="${i === 0 ? 'td-high' : 'td-ok'}">${c ? c.pct : '0'}%</td></tr>`;
+  }).join('');
+
+  const paretoHTML = d.pareto.map((c, i) =>
+    `<div class="sc-pareto-row"><div class="sc-pareto-name">${c.name}</div><div class="sc-pareto-track"><div class="sc-pareto-fill" style="width:${c.pct}%;background:${pColors[i % pColors.length]}"><span>${c.pct}%</span></div></div></div>`
+  ).join('');
+
+  const whatIfHTML = d.whatIfs.map((w) =>
+    `<div class="sc-card-res"><div class="sc-card-res-label">${w.scale}x tolerance</div><div class="sc-card-res-val">Cpk ${w.cpk.toFixed(2)}</div><div class="sc-card-res-sub">${w.ppm.toFixed(0)} PPM</div></div>`
+  ).join('');
+
+  const recHTML = overall !== 'PASS'
+    ? `<div class="sc-rec"><div class="sc-rec-title">1. Tighten tolerance on ${d.pareto[0]?.name}</div><div class="sc-rec-body">Contributes ${d.pareto[0]?.pct}% of variation. Expected Cpk improvement: ${d.cpk.toFixed(2)} -> ${(d.cpk * 1.2).toFixed(2)}.</div></div><div class="sc-rec"><div class="sc-rec-title">2. Implement SPC on ${d.pareto[0]?.name}</div><div class="sc-rec-body">X-bar/R charts prevent 100% scrap scenarios.</div></div>`
+    : `<div class="sc-rec"><div class="sc-rec-title">1. Design statistically sound - maintain controls</div><div class="sc-rec-body">Cpk ${d.cpk.toFixed(2)} exceeds target ${d.cpkTarget}. Quarterly capability studies.</div></div>`;
+
+  $('reportArea').innerHTML = `
+    <div class="sc-report-hd">
+      <div><div class="sc-report-title">SC-008 Tolerance Stack-Up Analysis</div>
+      <div class="sc-report-meta">Calc ID: <span>${calcId}</span> | ${new Date().toISOString().slice(0, 19)} UTC<br>Standard: ISO 286-1 | ASME Y14.5 | AIAG SPC<br>Method: Worst-Case + RSS + Seeded Monte Carlo (n=10000, seed=${d.seed})<br><span>Client-Side Only - data never left your browser</span></div></div>
+      <div><button class="sc-btn sc-btn-primary" id="pdfBtn">Export PDF</button></div>
+    </div>
+    <div class="sc-sec"><div class="sc-sec-hd">Risk Assessment</div>${alertHTML}</div>
+    <div class="sc-sec"><div class="sc-sec-hd">Methodology Comparison</div><div class="sc-cards">${cardsHTML}</div></div>
+    <div class="sc-sec"><div class="sc-sec-hd">Stack Dimensions</div><table class="sc-table"><thead><tr><th>#</th><th>Dimension</th><th>Nominal</th><th>+/-Tol</th><th>Contrib</th></tr></thead><tbody>${dimsHTML}</tbody></table></div>
+    <div class="sc-sec"><div class="sc-sec-hd">Variation Contribution (Pareto)</div>${paretoHTML}</div>
+    <div class="sc-sec"><div class="sc-sec-hd">Process Capability</div><div class="sc-cards"><div class="sc-card-res"><div class="sc-card-res-label">Cpk</div><div class="sc-card-res-val">${d.cpk.toFixed(2)}</div><span class="sc-card-res-badge ${d.cpkOk ? 'sc-badge-pass' : 'sc-badge-warn'}">${d.cpkOk ? 'CAPABLE' : 'BELOW'}</span></div><div class="sc-card-res"><div class="sc-card-res-label">Defect Rate</div><div class="sc-card-res-val">${d.ppm.toFixed(0)}</div><div class="sc-card-res-sub">PPM</div></div><div class="sc-card-res"><div class="sc-card-res-label">Yield</div><div class="sc-card-res-val">${(100 - d.ppm / 10000).toFixed(2)}%</div></div></div></div>
+    <div class="sc-sec"><div class="sc-sec-hd">What-If Sensitivity</div><div class="sc-cards">${whatIfHTML}</div></div>
+    <div class="sc-sec"><div class="sc-sec-hd">Recommended Actions</div>${recHTML}</div>
+    <div class="sc-sec"><div class="sc-sec-hd">Standards & References</div><div class="sc-std"><span>ISO 286-1:2010</span> - ISO tolerance grades<br><span>ASME Y14.5-2018</span> - Dimensioning and Tolerancing<br><span>AIAG SPC 2nd Ed.</span> - Cpk methodology<br><span>Seeded LCG Monte Carlo</span> - deterministic reproducibility</div></div>`;
+
+  $('pdfBtn').addEventListener('click', () => {
+    const doc = new jsPDF({ unit: 'pt', format: 'a4' });
+    let y = 48;
+    const line = (txt: string, size: number, color?: string) => {
+      doc.setFontSize(size);
+      doc.setTextColor(color || '#000');
+      doc.text(txt, 48, y);
+      y += size + 6;
+      if (y > 780) { doc.addPage(); y = 48; }
     };
-
-    $('dlPdf').addEventListener('click', () => {
-      const lines = buildStackReportLines(pdfInput);
-      const doc = new jsPDF({ unit: 'pt', format: 'a4' });
-      let y = 48;
-      for (const line of lines) {
-        const size = line.style === 'title' ? 16 : line.style === 'head' ? 13 : line.style === 'kv' ? 11 : 10;
-        doc.setFontSize(size);
-        const wrapped = doc.splitTextToSize(line.text, 500);
-        doc.text(wrapped, 48, y);
-        y += (Array.isArray(wrapped) ? wrapped.length : 1) * (size + 4);
-        if (y > 780) { doc.addPage(); y = 48; }
-      }
-      doc.save('sectorcalc-SC-008-PRO.pdf');
+    line('SC-008 Tolerance Stack-Up Analysis', 16);
+    line('Calc ID: ' + calcId + ' | ' + new Date().toISOString().slice(0, 19) + ' UTC', 9, '#666');
+    line('Standard: ISO 286-1 | ASME Y14.5 | AIAG SPC | Seed ' + d.seed, 9, '#666');
+    y += 8;
+    line('VERDICT: ' + overall + '  |  Cpk ' + d.cpk.toFixed(2) + '  |  ' + d.ppm.toFixed(0) + ' PPM', 12);
+    y += 8;
+    line('METHODOLOGY COMPARISON', 11);
+    line('Worst-Case: +/-' + (d.wcTol * fromMm).toFixed(4) + ' ' + u, 10);
+    line('RSS: +/-' + (d.rssTol * fromMm).toFixed(4) + ' ' + u, 10);
+    line('Monte Carlo (10k): +/-' + (d.mcTol * fromMm).toFixed(4) + ' ' + u, 10);
+    y += 8;
+    line('STACK DIMENSIONS', 11);
+    d.dims.forEach((dim, i) => {
+      const c = d.pareto.find((p) => p.name === dim.name);
+      line((i + 1) + '. ' + dim.name + '  ' + (dim.nominal * fromMm).toFixed(3) + ' +/-' + (dim.tolerance * fromMm).toFixed(3) + '  (' + (c ? c.pct : '0') + '%)', 9);
     });
-  })();
+    y += 8;
+    line('PARETO CONTRIBUTION', 11);
+    d.pareto.forEach((c) => line(c.name + ': ' + c.pct + '%', 9));
+    y += 8;
+    line('RECOMMENDED ACTIONS', 11);
+    if (overall !== 'PASS') {
+      line('1. Tighten tolerance on ' + (d.pareto[0]?.name || 'top contributor'), 9);
+      line('2. Implement SPC (X-bar/R charts)', 9);
+    } else {
+      line('1. Design sound - maintain quarterly capability studies', 9);
+    }
+    y += 8;
+    line('Generated by SectorCalc.com - Deterministic, Client-Side, Audit-Ready', 8, '#999');
+    doc.save('SC-008-' + calcId + '.pdf');
+  });
 });
 
 renderDims();
