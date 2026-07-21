@@ -7,11 +7,14 @@ import type { ResultData } from './components/sc-result-card.js';
 import type { WarningData } from './components/sc-warning-panel.js';
 import type { SensitivityValue } from './components/sc-sensitivity.js';
 import type { PdfInput } from './lib/pdf-builder.js';
+import { buildToolReport } from './lib/tool-report.js';
+import type { ToolReport } from './lib/tool-report.js';
 import './components/sc-form-renderer.js';
 import './components/sc-result-card.js';
 import './components/sc-warning-panel.js';
 import './components/sc-chart.js';
 import './components/sc-sensitivity.js';
+import './components/sc-report-panel.js';
 import './components/sc-pdf-button.js';
 
 type El<T> = HTMLElement & T;
@@ -21,6 +24,7 @@ const resultEl = document.querySelector('sc-result-card') as El<{ result: Result
 const warnEl = document.querySelector('sc-warning-panel') as El<{ warnings: WarningData[] }>;
 const chartEl = document.querySelector('sc-chart') as El<{ breakdown: Array<{ item: string; pct: string }> }>;
 const sensEl = document.querySelector('sc-sensitivity') as El<SensitivityValue>;
+const reportEl = document.querySelector('#report') as El<{ report: ToolReport | null }>;
 const pdfEl = document.querySelector('sc-pdf-button') as El<{ input: PdfInput | null }>;
 
 form.schema = schema as unknown as FormSchema;
@@ -32,6 +36,14 @@ function renderFromInputs(inputs: LaborCostInputs) {
     resultEl.result = r as unknown as ResultData;
     warnEl.warnings = w as unknown as WarningData[];
     chartEl.breakdown = r.breakdown;
+    if (reportEl) {
+      reportEl.report = buildToolReport({
+        metricName: 'Cost multiplier', metricValue: String(r.costMultiplier), gaugeMax: 3, direction: 'low',
+        warn: '1.5', crit: '2.0',
+        insights: ['True cost includes employer taxes, benefits and severance — not just net salary.', 'Compare this multiplier against your budgeted labor cost.'],
+        standards: ['IFRS — labor cost recognition', 'Local labor law — statutory employer contributions']
+      });
+    }
     pdfEl.input = {
       toolCode: 'SC-010',
       trueMonthlyCost: r.trueMonthlyCost,
