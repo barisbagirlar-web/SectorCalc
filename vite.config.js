@@ -31,7 +31,7 @@ export default defineConfig({
     coverage: {
       provider: 'v8',
       all: false, // lock behavior; do not rely on version defaults
-      include: ['src/core/**', 'src/tools/**', 'src/components/**'], // scope to tested code; widen as modules land
+      include: ['src/core/**', 'src/tools/**', 'src/components/**', 'src/lib/**'], // scope to tested code; widen as modules land
       exclude: ['**/*.test.ts', 'node_modules/**', 'dist/**'],
       reporter: ['text', 'html', 'lcov'],
       thresholds: {

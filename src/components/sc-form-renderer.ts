@@ -24,12 +24,12 @@ export interface FormSchema {
 }
 
 export class ScFormRenderer extends LitElement {
-  static override properties = {
+  static properties = {
     schema: { type: Object },
     submitLabel: { type: String }
   };
 
-  static override styles = css`
+  static styles = css`
     :host { display: block; }
     button { height: 48px; min-width: 160px; font: 700 16px var(--sc-sans, system-ui); color: #fff;
              background: var(--sc-rust, #d35400); border: none; border-radius: 8px; cursor: pointer; margin-top: 8px; }
@@ -97,7 +97,7 @@ export class ScFormRenderer extends LitElement {
     this.dispatchEvent(new CustomEvent('sc-submit', { detail: this.parseNumeric(), bubbles: true, composed: true }));
   }
 
-  override render() {
+  render() {
     const req = new Set(this.schema.required ?? []);
     return html`
       ${this.keys().map((k) => {

@@ -6,7 +6,7 @@ import { LitElement, html, css } from 'lit';
  * No decorators: static properties + manual define (zero config, robust).
  */
 export class ScNumberInput extends LitElement {
-  static override properties = {
+  static properties = {
     label: { type: String },
     value: { type: String },
     min: { type: String },
@@ -15,7 +15,7 @@ export class ScNumberInput extends LitElement {
     errorMessage: { type: String }
   };
 
-  static override styles = css`
+  static styles = css`
     :host { display: block; margin-bottom: 12px; }
     label { display: block; font: 600 14px var(--sc-sans, system-ui); color: var(--sc-steel, #2d3436); margin-bottom: 4px; }
     input { width: 100%; height: 48px; font: 18px var(--sc-mono, monospace); padding: 0 12px;
@@ -46,7 +46,7 @@ export class ScNumberInput extends LitElement {
     this.dispatchEvent(new CustomEvent('sc-input', { detail: this.value, bubbles: true, composed: true }));
   }
 
-  override render() {
+  render() {
     return html`
       <label>${this.label}</label>
       <input type="number" .value=${this.value} min=${this.min} max=${this.max} step=${this.step} @input=${this.onInput} />

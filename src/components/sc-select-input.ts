@@ -2,13 +2,13 @@ import { LitElement, html, css } from 'lit';
 
 /** Labeled enum dropdown. Emits 'sc-input' with the selected string value. */
 export class ScSelectInput extends LitElement {
-  static override properties = {
+  static properties = {
     label: { type: String },
     value: { type: String },
     options: { type: Array }
   };
 
-  static override styles = css`
+  static styles = css`
     :host { display: block; margin-bottom: 12px; }
     label { display: block; font: 600 14px var(--sc-sans, system-ui); color: var(--sc-steel, #2d3436); margin-bottom: 4px; }
     select { width: 100%; height: 48px; font: 16px var(--sc-sans, system-ui); padding: 0 12px;
@@ -31,7 +31,7 @@ export class ScSelectInput extends LitElement {
     this.dispatchEvent(new CustomEvent('sc-input', { detail: this.value, bubbles: true, composed: true }));
   }
 
-  override render() {
+  render() {
     return html`
       <label>${this.label}</label>
       <select .value=${this.value} @change=${this.onChange}>

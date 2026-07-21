@@ -14,9 +14,9 @@ export interface ResultData {
 }
 
 export class ScResultCard extends LitElement {
-  static override properties = { result: { type: Object } };
+  static properties = { result: { type: Object } };
 
-  static override styles = css`
+  static styles = css`
     :host { display: block; margin-bottom: 16px; }
     .empty { color: var(--sc-muted, #636e72); font: 14px var(--sc-sans, system-ui); padding: 12px 0; }
     .hero { font: 700 28px var(--sc-mono, monospace); color: var(--sc-steel, #2d3436); margin-bottom: 4px; }
@@ -36,7 +36,7 @@ export class ScResultCard extends LitElement {
     this.result = null;
   }
 
-  override render() {
+  render() {
     if (!this.result) {
       return html`<div class="empty">Run the Numbers to see the true monthly cost.</div>`;
     }

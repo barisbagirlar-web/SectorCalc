@@ -16,9 +16,9 @@ const STYLE: Record<string, { border: string; bg: string; tag: string }> = {
 };
 
 export class ScWarningPanel extends LitElement {
-  static override properties = { warnings: { type: Array } };
+  static properties = { warnings: { type: Array } };
 
-  static override styles = css`
+  static styles = css`
     :host { display: block; }
     .w { border-left: 4px solid; border-radius: 6px; padding: 10px 12px; margin-bottom: 8px; font: 14px var(--sc-sans, system-ui); }
     .tag { font-weight: 700; text-transform: uppercase; font-size: 11px; letter-spacing: 0.5px; }
@@ -28,7 +28,7 @@ export class ScWarningPanel extends LitElement {
   declare warnings: WarningData[];
   constructor() { super(); this.warnings = []; }
 
-  override render() {
+  render() {
     if (this.warnings.length === 0) return html``;
     return html`${this.warnings.map((w) => {
       const s = STYLE[w.severity] ?? STYLE.INFO!;
