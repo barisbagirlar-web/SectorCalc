@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sectorcalc.com/tools/SC-010/v1.0.0/schema.json",
+  "title": "True Labor Cost Calculator",
+  "description": "Real monthly cost of an employee beyond net salary: employer taxes, benefits, severance, overtime, recruitment.",
+  "version": "1.0.0",
+  "toolCode": "SC-010",
+  "category": "cost",
+  "type": "object",
+  "required": ["country", "netSalary", "payFrequency"],
+  "properties": {
+    "country": { "type": "string", "enum": ["US", "TR", "DE", "GB", "IN", "FR"] },
+    "netSalary": { "type": "number", "minimum": 0 },
+    "payFrequency": { "type": "string", "enum": ["hourly", "weekly", "biweekly", "monthly"] },
+    "hoursPerWeek": { "type": "number", "exclusiveMinimum": 0, "maximum": 80 },
+    "employeeRate": { "type": "number", "minimum": 0, "exclusiveMaximum": 1 },
+    "employerSSRate": { "type": "number", "minimum": 0, "maximum": 1 },
+    "employerUnempRate": { "type": "number", "minimum": 0, "maximum": 1 },
+    "healthMonthly": { "type": "number", "minimum": 0 },
+    "mealMonthly": { "type": "number", "minimum": 0 },
+    "transportMonthly": { "type": "number", "minimum": 0 },
+    "annualBonus": { "type": "number", "minimum": 0 },
+    "severanceRate": { "type": "number", "minimum": 0, "maximum": 0.5 },
+    "overtimeHoursMonthly": { "type": "number", "minimum": 0, "maximum": 200 },
+    "overtimeMultiplier": { "type": "number", "minimum": 1, "maximum": 3 },
+    "recruitmentCost": { "type": "number", "minimum": 0 },
+    "tenureYears": { "type": "number", "exclusiveMinimum": 0, "maximum": 40 },
+    "currency": { "type": "string" }
+  }
+}
