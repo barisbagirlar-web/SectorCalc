@@ -1,9 +1,9 @@
-import { PACKAGES, FREE_MONTHLY_CREDITS, CREDIT_VALIDITY } from './lib/pricing-packages.js';
+import { PACKAGES, CREDIT_VALIDITY } from './lib/pricing-packages.js';
 
 function init(): void {
   const freeTier = document.querySelector('#free-tier');
   if (freeTier) {
-    freeTier.textContent = `Free account — ${FREE_MONTHLY_CREDITS} free credits every month. Try the tools, earn your trust.`;
+    freeTier.textContent = 'All calculators are free to try now. Credit packs below are the planned prices - checkout goes live with Paddle (no fake success).';
   }
 
   const grid = document.querySelector('#packages');
@@ -14,7 +14,7 @@ function init(): void {
         <div class="credits">${p.credits} credit${p.credits > 1 ? 's' : ''}</div>
         <div class="price">${p.price}</div>
         <div class="per">${p.perCredit} / credit</div>
-        <button class="load" data-credits="${p.credits}">Load credits</button>
+        <button class="load" data-credits="${p.credits}" type="button">Notify me</button>
       </div>
     `).join('');
   }
@@ -23,7 +23,7 @@ function init(): void {
   document.querySelectorAll('.load').forEach((btn) => {
     btn.addEventListener('click', () => {
       if (status) {
-        status.textContent = `Credit checkout goes live with the payment integration. No subscription — credits valid ${CREDIT_VALIDITY}.`;
+        status.textContent = `Checkout is not live yet. Planned packs stay valid ${CREDIT_VALIDITY} after purchase when Paddle connects.`;
       }
     });
   });

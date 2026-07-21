@@ -1,6 +1,11 @@
 import { calculate } from './tools/SC-008-tolerance-stack/v1.0.0/formula.js';
 import type { StackInput, StackResult } from './tools/SC-008-tolerance-stack/v1.0.0/formula.js';
 import { whatIfToleranceScale } from './lib/what-if.js';
+import { buildReportData } from './lib/report-data.js';
+import { buildStackReportLines } from './lib/stack-pdf-builder.js';
+import type { StackPdfInput } from './lib/stack-pdf-builder.js';
+import { sha256 } from './core/checksum.js';
+import { jsPDF } from 'jspdf';
 
 type UnitKey = 'mm' | 'inch' | 'um';
 type Dim = { name: string; nominal: number; tolerance: number };
@@ -276,12 +281,94 @@ $('dimList').addEventListener('click', (e) => {
   }
 });
 $('genReport').addEventListener('click', () => {
-  if (!calcData) validate();
-  if (!calcData) return;
-  window.__sc008 = calcData;
-  $('reportArea').innerHTML =
-    '<div class="sc-empty"><div class="sc-empty-title">360 Report</div><div class="sc-empty-desc">Report sections render in RM-015B.<br>calcData ready: Cpk ' +
-    calcData.cpk.toFixed(2) + ', ' + calcData.ppm.toFixed(0) + ' PPM.</div></div>';
+  void (async () => {
+    if (!calcData) validate();
+    if (!calcData) return;
+    window.__sc008 = calcData;
+    const d = calcData;
+    const report = buildReportData(d.r);
+    const checksum = await sha256(JSON.stringify(d.r));
+    const fromMm = unitConv[d.unit].fromMm;
+    const whatIfRows = d.whatIfs.map((w) =>
+      `<tr><td>${w.scale}x tol</td><td>${w.cpk.toFixed(3)}</td><td>${w.ppm.toFixed(0)}</td></tr>`
+    ).join('');
+    const paretoRows = d.pareto.map((p) =>
+      `<tr><td>${p.name}</td><td>${p.pct}%</td></tr>`
+    ).join('');
+    const riskHtml = report.riskAnalysis.map((x) =>
+      `<div class="sc-ri ${x.level.toLowerCase()}"><strong>${x.level}</strong> ${x.message} <em>- ${x.recommendation}</em></div>`
+    ).join('');
+    const insightsHtml = report.insights.map((i) => `<li>${i}</li>`).join('');
+    const standardsHtml = report.standards.map((s) => `<li>${s}</li>`).join('');
+    const verdictColor = report.verdict === 'CAPABLE' ? 'var(--accent-green)' : 'var(--accent-red)';
+
+    $('reportArea').innerHTML = `
+      <div class="sc-report">
+        <h2 style="color:${verdictColor}">${report.verdict} · Cpk ${report.cpk}</h2>
+        <div class="sc-report-card">
+          <h3>Key results</h3>
+          <div class="sc-kpi">
+            <div><div class="k">Worst-case</div><div class="v">+/- ${(d.wcTol * fromMm).toFixed(4)} ${d.unit}</div></div>
+            <div><div class="k">RSS</div><div class="v">+/- ${(d.rssTol * fromMm).toFixed(4)} ${d.unit}</div></div>
+            <div><div class="k">Defect</div><div class="v">${report.ppm} ppm</div></div>
+          </div>
+          <div style="margin-top:10px;font-size:11px;color:var(--text-muted);font-family:var(--font-mono)">
+            Seed ${d.seed} · ${d.r.iterations} runs · SHA-256 ${checksum.slice(0, 16)}…
+          </div>
+        </div>
+        <div class="sc-report-card"><h3>Risk analysis</h3>${riskHtml}</div>
+        <div class="sc-report-card"><h3>Contribution pareto</h3><table><tr><th>Contributor</th><th>Share</th></tr>${paretoRows}</table></div>
+        <div class="sc-report-card"><h3>What-if (tolerance scale)</h3><table><tr><th>Scale</th><th>Cpk</th><th>PPM</th></tr>${whatIfRows}</table></div>
+        <div class="sc-report-card"><h3>Actionable insights</h3><ul>${insightsHtml}</ul></div>
+        <div class="sc-report-card"><h3>Standards</h3><ul>${standardsHtml}</ul></div>
+        <button class="sc-btn sc-btn-primary" id="dlPdf" type="button" style="align-self:flex-start">Download PDF report</button>
+      </div>`;
+
+    const pdfInput: StackPdfInput = {
+      toolCode: 'SC-008',
+      nominalSum: d.r.nominalSum,
+      worstPlus: d.r.worstPlus,
+      rssPlus: d.r.rssPlus,
+      mcMean: d.r.mcMean,
+      mcStd: d.r.mcStd,
+      mcP0013: d.r.mcP0013,
+      mcP9987: d.r.mcP9987,
+      cp: d.r.cp,
+      cpk: d.r.cpk,
+      ppm: d.r.ppm,
+      seed: d.r.seed,
+      iterations: d.r.iterations,
+      components: d.dims.map((c) => {
+        const pct = d.pareto.find((p) => p.name === c.name)?.pct ?? '0.0';
+        return {
+          name: c.name,
+          nominal: String(c.nominal),
+          tol: String(c.tolerance),
+          distribution: 'normal',
+          pct
+        };
+      }),
+      warnings: report.riskAnalysis.map((x) => ({ severity: x.level, message: x.message })),
+      steps: d.r.steps.map((s) => ({ step: s.step, description: s.description, result: s.result })),
+      checksum,
+      reportData: report
+    };
+
+    $('dlPdf').addEventListener('click', () => {
+      const lines = buildStackReportLines(pdfInput);
+      const doc = new jsPDF({ unit: 'pt', format: 'a4' });
+      let y = 48;
+      for (const line of lines) {
+        const size = line.style === 'title' ? 16 : line.style === 'head' ? 13 : line.style === 'kv' ? 11 : 10;
+        doc.setFontSize(size);
+        const wrapped = doc.splitTextToSize(line.text, 500);
+        doc.text(wrapped, 48, y);
+        y += (Array.isArray(wrapped) ? wrapped.length : 1) * (size + 4);
+        if (y > 780) { doc.addPage(); y = 48; }
+      }
+      doc.save('sectorcalc-SC-008-PRO.pdf');
+    });
+  })();
 });
 
 renderDims();

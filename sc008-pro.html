@@ -64,7 +64,27 @@
   .sc-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:60vh;text-align:center;color:var(--text-muted)}
   .sc-empty-title{font-size:16px;font-weight:600;color:var(--text-secondary);margin-bottom:8px}
   .sc-empty-desc{font-size:13px;color:var(--text-muted);font-family:var(--font-mono);line-height:1.8}
-  @media(max-width:768px){.sc-layout{grid-template-columns:1fr}.sc-sidebar{position:relative;top:0;height:auto;border-right:none;border-bottom:1px solid var(--border-subtle)}.sc-main-inner{padding:20px 16px}}
+  .sc-report{display:flex;flex-direction:column;gap:16px}
+  .sc-report h2{font-size:20px;font-weight:800;margin:0}
+  .sc-report-card{background:var(--bg-1);border:1px solid var(--border-soft);border-radius:var(--radius-md);padding:18px 20px}
+  .sc-report-card h3{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);margin:0 0 12px}
+  .sc-kpi{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+  .sc-kpi div{background:var(--bg-2);border-radius:var(--radius-sm);padding:12px}
+  .sc-kpi .k{font-size:10px;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.8px}
+  .sc-kpi .v{font-family:var(--font-mono);font-size:18px;font-weight:700;margin-top:4px}
+  .sc-ri{padding:10px 12px;border-radius:var(--radius-sm);margin-bottom:8px;font-size:13px;line-height:1.55}
+  .sc-ri.critical{background:rgba(245,34,45,0.08);border-left:3px solid var(--accent-red)}
+  .sc-ri.warning{background:rgba(250,173,20,0.08);border-left:3px solid var(--accent-amber)}
+  .sc-ri.pass{background:rgba(82,196,26,0.08);border-left:3px solid var(--accent-green)}
+  .sc-ri em{color:var(--text-tertiary);font-style:normal}
+  .sc-report ul{margin:0;padding-left:18px;color:var(--text-secondary);font-size:13px;line-height:1.7}
+  .sc-report table{width:100%;border-collapse:collapse;font-size:12px;font-family:var(--font-mono)}
+  .sc-report th,.sc-report td{text-align:left;padding:8px 6px;border-bottom:1px solid var(--border-subtle)}
+  .sc-report th{color:var(--text-muted);font-size:10px;text-transform:uppercase}
+  .sc-nav{display:flex;gap:12px;align-items:center;font-size:12px}
+  .sc-nav a{color:var(--text-tertiary);text-decoration:none}
+  .sc-nav a:hover{color:var(--accent-blue)}
+  @media(max-width:768px){.sc-layout{grid-template-columns:1fr}.sc-sidebar{position:relative;top:0;height:auto;border-right:none;border-bottom:1px solid var(--border-subtle)}.sc-main-inner{padding:20px 16px}.sc-kpi{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -73,7 +93,10 @@
     <div class="sc-logo">SC</div>
     <div><div class="sc-header-title">SC-008 - Statistical Tolerance Stack-Up</div><div class="sc-header-sub">Deterministic Engine v2.0 | Full-Decimal | Client-Side | SHA-256</div></div>
   </div>
-  <div class="sc-badge-flagship">Flagship</div>
+  <div style="display:flex;align-items:center;gap:14px">
+    <div class="sc-badge-flagship">Flagship</div>
+    <div class="sc-nav"><a href="/index.html">Home</a><a href="/pricing.html">Pricing</a><a href="/calculator4.html">Workshop</a></div>
+  </div>
 </div>
 <div class="sc-layout">
   <div class="sc-sidebar">
