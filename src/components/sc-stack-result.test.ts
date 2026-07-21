@@ -20,4 +20,10 @@ describe('sc-stack-result', () => {
     expect(el.shadowRoot?.querySelector('table')?.textContent).toContain('A');
     expect(el.shadowRoot?.querySelector('details')).not.toBeNull();
   });
+  it('renders risk analysis and actionable insights', async () => {
+    const el = await mount(new ScStackResult());
+    el.result = result as never; await el.updateComplete;
+    expect(el.shadowRoot?.querySelector('.risk')).not.toBeNull();
+    expect(el.shadowRoot?.textContent).toContain('Actionable insights');
+  });
 });

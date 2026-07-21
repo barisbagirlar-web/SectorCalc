@@ -26,4 +26,12 @@ describe('stack-pdf-builder', () => {
     const lines = buildStackReportLines({ ...input, warnings: [] });
     expect(lines.some((l) => l.text === 'Heads up')).toBe(false);
   });
+  it('includes risk analysis and standards when reportData present', () => {
+    const lines = buildStackReportLines({ ...input, reportData: { verdict: 'CAPABLE', cpk: '1.5', ppm: '10', riskAnalysis: [{ level: 'PASS', code: 'CPK_CAPABLE', message: 'Cpk = 1.5', recommendation: 'maintain' }], insights: ['top contributor A'], standards: ['ASME Y14.5 — GD&T'] } });
+    expect(lines.some((l) => l.text === 'Risk analysis')).toBe(true);
+    expect(lines.some((l) => l.text.includes('ASME Y14.5'))).toBe(true);
+  });
+  it('omits risk section when reportData absent', () => {
+    expect(buildStackReportLines(input).some((l) => l.text === 'Risk analysis')).toBe(false);
+  });
 });

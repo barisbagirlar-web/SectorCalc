@@ -4,6 +4,7 @@ import type { Component, StackInput, StackResult } from './tools/SC-008-toleranc
 import { sha256 } from './core/checksum.js';
 import { convert } from './core/unit-converter.js';
 import { histogramBins, paretoData, compareData } from './lib/stack-chart-data.js';
+import { buildReportData } from './lib/report-data.js';
 import type { StackChange } from './components/sc-stack-editor.js';
 import type { WarningData } from './components/sc-warning-panel.js';
 import type { StackPdfInput } from './lib/stack-pdf-builder.js';
@@ -69,7 +70,8 @@ async function recalc(detail: StackChange) {
       })),
       warnings: warnings.map((w) => ({ severity: w.severity, message: w.message })),
       steps: result.steps,
-      checksum
+      checksum,
+      reportData: buildReportData(result),
     };
   } catch (err) {
     warnEl.warnings = [{ code: 'CALC_ERROR', severity: 'CRITICAL', message: (err as Error).message, action: 'Check inputs (USL > LSL, positive tolerances).' }];
