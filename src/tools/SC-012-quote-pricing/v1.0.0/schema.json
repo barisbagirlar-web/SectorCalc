@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sectorcalc.com/tools/SC-012/v1.0.0/schema.json",
+  "title": "Quote Pricing Calculator",
+  "description": "Build a sell price that includes scrap, setup, overhead, payment-terms financing and target margin — the costs quotes usually miss.",
+  "version": "1.0.0",
+  "toolCode": "SC-012",
+  "category": "cost",
+  "type": "object",
+  "required": ["materialCost", "scrapRate", "laborHours", "laborHourlyCost", "machineHours", "machineHourlyCost", "targetMargin", "quantity"],
+  "properties": {
+    "materialCost": { "type": "number", "minimum": 0 },
+    "scrapRate": { "type": "number", "minimum": 0, "exclusiveMaximum": 1 },
+    "laborHours": { "type": "number", "minimum": 0 },
+    "laborHourlyCost": { "type": "number", "minimum": 0 },
+    "machineHours": { "type": "number", "minimum": 0 },
+    "machineHourlyCost": { "type": "number", "minimum": 0 },
+    "setupMinutes": { "type": "number", "minimum": 0 },
+    "setupHourlyCost": { "type": "number", "minimum": 0 },
+    "overheadRate": { "type": "number", "minimum": 0, "maximum": 5 },
+    "energyCost": { "type": "number", "minimum": 0 },
+    "consumablesCost": { "type": "number", "minimum": 0 },
+    "shippingCost": { "type": "number", "minimum": 0 },
+    "paymentDays": { "type": "number", "minimum": 0, "maximum": 365 },
+    "monthlyInterestRate": { "type": "number", "minimum": 0, "maximum": 1 },
+    "targetMargin": { "type": "number", "exclusiveMaximum": 1 },
+    "quantity": { "type": "number", "exclusiveMinimum": 0 },
+    "currency": { "type": "string" }
+  }
+}
