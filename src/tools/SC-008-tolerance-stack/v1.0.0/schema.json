@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sectorcalc.com/tools/SC-008/v1.0.0/schema.json",
+  "title": "Statistical Tolerance Stack-Up",
+  "description": "Worst-case, RSS and seeded Monte Carlo tolerance accumulation with Cp/Cpk, empirical ppm and contribution pareto. Full-Decimal, deterministic.",
+  "version": "1.0.0",
+  "toolCode": "SC-008",
+  "category": "quality",
+  "type": "object",
+  "required": ["components", "usl", "lsl"],
+  "properties": {
+    "components": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["name", "nominal", "tol", "distribution"],
+        "properties": {
+          "name": { "type": "string" },
+          "nominal": { "type": "number" },
+          "tol": { "type": "number", "minimum": 0 },
+          "distribution": { "type": "string", "enum": ["normal", "uniform"] },
+          "cpk": { "type": "number", "exclusiveMinimum": 0 }
+        }
+      }
+    },
+    "usl": { "type": "number" },
+    "lsl": { "type": "number" },
+    "target": { "type": "number" },
+    "seed": { "type": "integer", "minimum": 0 },
+    "iterations": { "type": "integer", "minimum": 1, "default": 5000 }
+  }
+}
