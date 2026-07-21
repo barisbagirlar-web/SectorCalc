@@ -116,7 +116,7 @@ function calc(): void {
   const nominalSum = dims.reduce((s, d) => s + d.nominal, 0);
   const usl = nominalSum + su;
   const lsl = nominalSum + sl;
-  // Absolute USL/LSL from relative spec — Decimal engine (seed/iterations as numbers).
+  // Absolute USL/LSL from relative spec - Decimal engine (seed/iterations as numbers).
   const input: StackInput = {
     components: dims.map((d) => ({
       name: d.name,
