@@ -20,4 +20,12 @@ describe('SC-012 warnings', () => {
   it('always emits a TIP', () => {
     expect(evaluateWarnings(base, calculate(base)).some((w) => w.severity === 'TIP')).toBe(true);
   });
+  it('WARNING on thin margin', () => {
+    const i = { ...base, targetMargin: 0.03 };
+    expect(evaluateWarnings(i, calculate(i)).some((w) => w.code === 'THIN_MARGIN')).toBe(true);
+  });
+  it('INFO when finance charge present', () => {
+    const i = { ...base, paymentDays: 30, monthlyInterestRate: 0.01 };
+    expect(evaluateWarnings(i, calculate(i)).some((w) => w.code === 'FINANCE_INCLUDED')).toBe(true);
+  });
 });
