@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sectorcalc.com/tools/SC-001/v1.0.0/schema.json",
+  "title": "Weld Thickness Calculator",
+  "description": "Required fillet/butt weld leg from design load, checked against the AWS D1.1 minimum leg table. Dimensional engine: load (N), length (mm), strength (MPa).",
+  "version": "1.0.0",
+  "toolCode": "SC-001",
+  "category": "structural",
+  "type": "object",
+  "required": ["designLoadN", "weldLengthMm", "weldStrengthMpa", "safetyFactor", "materialThicknessMm"],
+  "properties": {
+    "designLoadN": { "type": "number", "minimum": 0 },
+    "weldLengthMm": { "type": "number", "exclusiveMinimum": 0 },
+    "weldStrengthMpa": { "type": "number", "exclusiveMinimum": 0 },
+    "safetyFactor": { "type": "number", "exclusiveMinimum": 0 },
+    "materialThicknessMm": { "type": "number", "exclusiveMinimum": 0 },
+    "jointType": { "type": "string", "enum": ["fillet", "butt"], "default": "fillet" }
+  }
+}
