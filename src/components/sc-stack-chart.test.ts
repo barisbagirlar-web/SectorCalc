@@ -18,4 +18,12 @@ describe('sc-stack-chart', () => {
     await el.updateComplete;
     expect(el.shadowRoot?.querySelector('canvas')).not.toBeNull();
   });
+  it('renders gauge kind', async () => {
+    const el = await mount(Object.assign(new ScStackChart(), { kind: 'gauge', title: 'Cpk', data: { labels: ['Cpk'], values: [1.5] } }));
+    expect(el.shadowRoot?.querySelector('canvas')).not.toBeNull();
+  });
+  it('renders trend kind', async () => {
+    const el = await mount(Object.assign(new ScStackChart(), { kind: 'trend', title: 'Cpk trend', data: { labels: ['0.5x', '1x', '1.5x'], values: [1.8, 1.2, 0.8] } }));
+    expect(el.shadowRoot?.querySelector('canvas')).not.toBeNull();
+  });
 });

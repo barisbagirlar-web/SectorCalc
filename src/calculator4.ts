@@ -5,6 +5,7 @@ import { sha256 } from './core/checksum.js';
 import { convert } from './core/unit-converter.js';
 import { histogramBins, paretoData, compareData } from './lib/stack-chart-data.js';
 import { buildReportData } from './lib/report-data.js';
+import { whatIfToleranceScale } from './lib/what-if.js';
 import type { StackChange } from './components/sc-stack-editor.js';
 import type { WarningData } from './components/sc-warning-panel.js';
 import type { StackPdfInput } from './lib/stack-pdf-builder.js';
@@ -21,6 +22,8 @@ const warnEl = document.querySelector('sc-warning-panel') as El<{ warnings: Warn
 const histEl = document.querySelector('#hist') as El<{ data: { labels: string[]; values: number[] } }>;
 const paretoEl = document.querySelector('#pareto') as El<{ data: { labels: string[]; values: number[] } }>;
 const compareEl = document.querySelector('#compare') as El<{ data: { labels: string[]; values: number[] } }>;
+const gaugeEl = document.querySelector('#gauge') as El<{ data: { labels: string[]; values: number[] } }>;
+const trendEl = document.querySelector('#trend') as El<{ data: { labels: string[]; values: number[] } }>;
 const pdfEl = document.querySelector('sc-stack-pdf') as El<{ input: StackPdfInput | null }>;
 
 async function recalc(detail: StackChange) {
@@ -53,6 +56,9 @@ async function recalc(detail: StackChange) {
     paretoEl.data = paretoData(result.pareto);
     const mcSpread = (Number(result.mcP9987) - Number(result.mcP0013)) / 2;
     compareEl.data = compareData(result.worstPlus, result.rssPlus, String(mcSpread));
+    if (gaugeEl) gaugeEl.data = { labels: ['Cpk'], values: [Number(result.cpk)] };
+    const whatIf = whatIfToleranceScale(input);
+    if (trendEl) trendEl.data = { labels: whatIf.map((p) => `${p.scale}x`), values: whatIf.map((p) => Number(p.cpk)) };
     const checksum = await sha256(JSON.stringify(result));
     const byName = new Map(result.pareto.map((p) => [p.name, p.pct]));
     pdfEl.input = {
