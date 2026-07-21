@@ -14,7 +14,8 @@ export default defineConfig({
       input: {
         main: 'index.html',
         calculator: 'calculator.html',
-        calculator2: 'calculator2.html'
+        calculator2: 'calculator2.html',
+        calculator3: 'calculator3.html'
       }
     }
   },
