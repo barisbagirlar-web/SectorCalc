@@ -32,4 +32,17 @@ describe('sc-sensitivity', () => {
     expect(ranges[0]!.min).toBe('0');
     expect(ranges[0]!.max).toBe('20000');
   });
+
+  it('emits on SS rate and overtime sliders', async () => {
+    const el = await mount(new ScSensitivity());
+    let got: { employerSSRate: number; overtimeHoursMonthly: number } | null = null;
+    el.addEventListener('sc-sensitivity', (e) => { got = (e as CustomEvent).detail; });
+    const ranges = el.shadowRoot?.querySelectorAll('input[type=range]') as NodeListOf<HTMLInputElement>;
+    ranges[1]!.value = '0.1';
+    ranges[1]!.dispatchEvent(new Event('input'));
+    expect(got!.employerSSRate).toBe(0.1);
+    ranges[2]!.value = '10';
+    ranges[2]!.dispatchEvent(new Event('input'));
+    expect(got!.overtimeHoursMonthly).toBe(10);
+  });
 });

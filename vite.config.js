@@ -13,7 +13,8 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: 'index.html',
-        calculator: 'calculator.html'
+        calculator: 'calculator.html',
+        calculator2: 'calculator2.html'
       }
     }
   },
