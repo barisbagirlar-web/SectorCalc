@@ -19,4 +19,12 @@ describe('SC-010 warnings', () => {
     const i = { country: 'US', netSalary: 3500, payFrequency: 'monthly' as const };
     expect(evaluateWarnings(i, calculate(i)).some((w) => w.severity === 'TIP')).toBe(true);
   });
+  it('CRITICAL when multiplier > 2 (high employer burden)', () => {
+    const i = { country: 'FR', netSalary: 1000, payFrequency: 'monthly' as const, employerSSRate: 0.9 };
+    expect(evaluateWarnings(i, calculate(i)).some((w) => w.code === 'HIGH_COST_MULTIPLIER')).toBe(true);
+  });
+  it('no UNDERPRICING when hidden <= 40', () => {
+    const i = { country: 'US', netSalary: 3500, payFrequency: 'monthly' as const, employeeRate: 0.01, employerSSRate: 0.01, employerUnempRate: 0 };
+    expect(evaluateWarnings(i, calculate(i)).some((w) => w.code === 'UNDERPRICING_RISK')).toBe(false);
+  });
 });
