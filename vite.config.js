@@ -16,7 +16,8 @@ export default defineConfig({
         calculator: 'calculator.html',
         calculator2: 'calculator2.html',
         calculator3: 'calculator3.html',
-        calculator4: 'calculator4.html'
+        calculator4: 'calculator4.html',
+        pricing: 'pricing.html'
       }
     }
   },
