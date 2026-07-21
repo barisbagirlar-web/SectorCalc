@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sectorcal.local/schemas/money-amount.json",
+  "title": "MoneyAmount",
+  "description": "Monetary amount as a decimal string (never a JSON number). Decimal128 semantics via Decimal.js.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["amount", "currency"],
+  "properties": {
+    "amount": {
+      "type": "string",
+      "pattern": "^-?(?:0|[1-9]\\d*)(?:\\.\\d+)?$",
+      "description": "Decimal string, e.g. \"19.99\". Never a JSON number."
+    },
+    "currency": {
+      "type": "string",
+      "pattern": "^[A-Z]{3}$",
+      "description": "ISO 4217 currency code"
+    }
+  }
+}

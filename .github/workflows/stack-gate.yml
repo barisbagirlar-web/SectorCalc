@@ -1,0 +1,20 @@
+name: Stack Gate
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  assert-stack:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          cache: npm
+      - run: npm ci
+      - run: npm run assert-stack
+      - run: npm test
+      - run: npm run lint
+      - run: npm run build

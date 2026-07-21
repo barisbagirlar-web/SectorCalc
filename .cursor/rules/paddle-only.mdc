@@ -1,0 +1,10 @@
+---
+description: Payments are Paddle MoR only — never Stripe
+globs: src/payments/**/*.{js,mjs}
+alwaysApply: true
+---
+
+# Payments lock
+
+- Use Paddle via `src/payments/paddle`.
+- Never add Stripe SDKs, Checkout, or tax APIs — MoR tax burden stays with Paddle.

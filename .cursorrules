@@ -1,0 +1,160 @@
+# SECTORCAL — Non-Negotiable Stack Decisions
+
+## META LAW (always)
+
+**Follow instructions only. Work outside the instruction is NEVER allowed — FORBIDDEN.**
+No extras, no initiative, no "improvements" beyond the literal user instruction. See `.cursor/rules/instructions-only.mdc`.
+
+These five decisions are FINAL. See also `DECISIONS.md` and `AGENTS.md`.
+Do not propose alternatives. Do not "just suggest" the forbidden stack "for comparison."
+If a request conflicts with this list, refuse the forbidden option and implement with the chosen stack only.
+Run `npm run assert-stack` mentally before adding any dependency.
+
+## The Wall
+
+| # | DECISION (use this)              | FORBIDDEN (never propose)                    |
+|---|----------------------------------|----------------------------------------------|
+| 1 | JSON Schema Draft 2020-12        | Draft 7, Draft 4                             |
+| 2 | Decimal.js (Decimal128 semantics)| JavaScript `Number` for money/calc           |
+| 3 | Paddle (Merchant of Record)      | Stripe (tax burden on us)                    |
+| 4 | Vanilla JS + Lit (Web Components)| React, Vue, Next.js, Angular                 |
+| 5 | JSON (all data)                  | Binary, protobuf, custom binary formats      |
+
+## Agent Rules
+
+1. **Never suggest React / Vue / Next / Angular.** UI is Vanilla JS + Lit Web Components only.
+2. **Never use `Number` for money, prices, totals, tax, or financial math.** Use Decimal.js with Decimal128 semantics.
+3. **Never propose Stripe** for payments or tax. Paddle is the Merchant of Record.
+4. **Schemas are JSON Schema Draft 2020-12 only.** Do not generate Draft 7/4 schemas or `$schema` URIs for older drafts.
+5. **All persisted and exchanged data is JSON.** No protobuf, MessagePack, CBOR, custom binary, or ad-hoc binary protocols.
+6. If the user asks "what if we used React/Stripe/Number/Draft-7/protobuf?" answer: **No — locked by project decision N** and continue with the approved stack.
+7. When scaffolding, generating examples, or reviewing PRs: reject or rewrite anything that violates the table above.
+
+## Quick Reject Phrases
+
+- React/Vue/Next/Angular → "No. Stack is Vanilla JS + Lit."
+- Stripe → "No. Payments are Paddle (MoR)."
+- `0.1 + 0.2` / float money → "No. Use Decimal.js."
+- Draft-7 / Draft-4 schema → "No. Draft 2020-12 only."
+- protobuf / binary payload → "No. JSON only."
+
+---
+
+# sectorcalc.com — Permanent Architecture Law
+
+## A — PURE ENGLISH ONLY
+
+The entire code structure, infrastructure, visible and invisible architecture, components, comments, UI strings, docs-in-repo, configs, and schemas for **sectorcalc.com** MUST always be coded in **pure English**.
+
+Non-English content is **NEVER** allowed and must **NEVER** be used inside any file.
+
+Verification: `node scripts/check-language.mjs --strict`
+
+## B — STEEL STRUCTURE (must not break)
+
+1. Firebase Hosting
+2. JSON infrastructure
+3. Paddle payment system
+4. Million-USD-grade infrastructure
+5. Irreversible setup (no casual rewrites of foundations)
+
+### Paddle research (locked)
+
+- Paddle = Merchant of Record (MoR) — carries global tax liability
+- Fee: 5% + $0.50 flat (tax, fraud, chargebacks included)
+- Automatic tax compliance in 200+ countries
+- Webhook-based integration
+- Optimized for SaaS and digital products
+
+### Firebase Hosting
+
+- Static hosting, CDN, free SSL
+- Free tier: 10GB storage, 10GB/month bandwidth
+- Custom domain, atomic deploys
+- Cloud Functions integration (optional)
+
+### Cursor IDE (workflow)
+
+- AI-assisted code editor (VS Code-based) — for development only
+- Ideal for large codebase management
+- Codebase indexing, AI chat, code generation
+- Git integration
+
+### JSON infrastructure
+
+- Every calculation tool is defined via JSON Schema
+- Reference data lives in JSON files
+- Form schemas are JSON
+- Versioned and immutable
+
+### Combined stack
+
+- Firebase Hosting (static + CDN)
+- JSON-based architecture (no backend required for core calc)
+- Cursor IDE (development workflow)
+- Paddle (payments + MoR + global tax)
+- Deterministic calculation engine (client-side)
+- Immutable version control (Git + JSON Schema validation)
+
+### Million-USD-grade infrastructure targets
+
+- Scalability: Firebase CDN global; Paddle global MoR
+- Reliability: 99.99% uptime target; deterministic engine
+- Security: SOC 2 path; client-side data; Paddle PCI compliance
+- Maintainability: JSON Schema, versioned, testable
+- Extensibility: new tools = new JSON files
+
+### Irreversible setup
+
+- Git repo structure
+- CI/CD pipeline (GitHub Actions + Firebase deploy)
+- JSON Schema validation (pre-commit hooks)
+- Test suite (deterministic verification; Vitest in current pin)
+- Paddle webhook handlers (idempotent)
+- Data store (Firebase Firestore and/or local IndexedDB)
+
+## C — NO AI SMELL (hard ban list)
+
+Forbidden in product marketing / UI / copy:
+
+- "AI-Powered"
+- "Machine Learning"
+- "Generative"
+- Chatbot
+- Stock photography
+- "Neural", "Transformer", "LLM"
+
+Use instead:
+
+- "Built by engineers who still get their hands dirty"
+- "We tested this on 47 shop floors before shipping"
+- "Deterministic Engine: Same inputs always produce identical outputs"
+
+### Human-engineer feel
+
+| Element | Application |
+|---------|-------------|
+| Fonts | JetBrains Mono (formulas), Inter (headings), Caveat (handwritten notes) |
+| Icons | Hand-drawn SVG (imperfect lines) |
+| Photos | Real workshop shots from a phone |
+| Signatures | Real engineer LinkedIn profiles |
+| Micro-copy | "Checks out" (not "done"); "Heads up" (not "warning") |
+
+## D — TRUST IN 5 SECONDS
+
+### Above-the-fold trust stack
+
+- SOC 2 Type II badge (clickable verification)
+- "No data leaves your device" (client-side proof)
+- "4.9/5 on G2 (247 reviews)"
+- Real customer photo + LinkedIn link
+
+### 5-second test
+
+| Question | Answer |
+|----------|--------|
+| What does it do? | "Engineering calculators that catch costly mistakes" |
+| Who is it for? | "Shop floor engineers, estimators, QA managers" |
+| Is it trustworthy? | "SOC 2 certified, deterministic engine, 2,400+ engineers" |
+| How much? | "Free to start, Pro at $99/year" |
+| What should I do? | "Run My First Calculation — Free, No Signup" |

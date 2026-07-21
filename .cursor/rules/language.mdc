@@ -1,0 +1,18 @@
+---
+description: English-only rule for all file content
+globs: **/*
+alwaysApply: true
+---
+ALL content written into ANY file MUST be English: source code, comments,
+UI strings, README, .cursorrules, .mdc rules, YAML comments, JSON keys and
+values, CSS class names, identifiers, and commit messages.
+
+Turkish (or any non-English language) is allowed ONLY in chat explanations
+to the user — NEVER inside a file.
+
+Forbidden inside files: Turkish-specific letters — c-cedilla, g-breve,
+dotted-i and dotless-i, o-umlaut, u-umlaut, s-cedilla (upper and lower case).
+Plain rule: any non-ASCII letter is forbidden. If you think in Turkish,
+translate to English BEFORE writing it into a file.
+
+Verification command (must pass): node scripts/check-language.mjs --strict

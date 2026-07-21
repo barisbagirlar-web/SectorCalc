@@ -1,0 +1,33 @@
+:root {
+  --sc-steel: #2D3436;
+  --sc-rust: #D35400;
+  --sc-chip: #27AE60;
+  --sc-bg: #F5F6FA;
+  --sc-card: #FFFFFF;
+  --sc-text: #2D3436;
+  --sc-muted: #636E72;
+  --sc-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+  --sc-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--sc-sans);
+  background: var(--sc-bg);
+  color: var(--sc-text);
+  line-height: 1.5;
+}
+
+main {
+  max-width: 720px;
+  margin: 4rem auto;
+  padding: 2rem;
+  background: var(--sc-card);
+  border: 1px solid #DFE6E9;
+  border-radius: 12px;
+}
+
+h1 { color: var(--sc-steel); }
+#engine-check { font-family: var(--sc-mono); }

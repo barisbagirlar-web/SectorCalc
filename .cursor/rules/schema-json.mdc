@@ -1,0 +1,11 @@
+---
+description: JSON Schema 2020-12 and JSON-only data interchange
+globs: schemas/**/*.json,src/schema/**/*.{js,mjs},src/data/**/*.{js,mjs}
+alwaysApply: true
+---
+
+# Schema + data lock
+
+- Every schema `$schema` must be `https://json-schema.org/draft/2020-12/schema`.
+- Validate with `src/schema` (Ajv 2020 dialect).
+- Persist and exchange **JSON text only** — no protobuf/MessagePack/CBOR/binary.

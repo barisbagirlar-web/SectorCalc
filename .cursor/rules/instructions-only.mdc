@@ -1,0 +1,20 @@
+---
+description: ONLY follow user instructions — no extra work, no initiative outside the brief
+alwaysApply: true
+---
+
+# Instructions-only mode — ABSOLUTE
+
+## Law
+
+1. **Only do what the current user instruction explicitly asks.** Nothing else.
+2. **Work outside the instruction is FORBIDDEN.** No extras, no "while I'm here", no improvements, no cleanup, no refactors, no bonus files, no premature architecture.
+3. If something seems missing but was **not** asked: **do not do it.** Report it only if the user asks, or ask one short question — never invent the next step.
+4. Do not expand scope: no unsolicited deps, configs, tests, docs, CI, or folder fills.
+5. Do not "fix forward" or "make it solid" beyond the literal instruction.
+6. When the user pastes content "exactly as written", use it **exactly** — do not embellish.
+7. Paddle and any deferred items: wait for the explicit phase/instruction.
+
+## Default
+
+User instruction = entire allowed work surface. Outside that surface = forbidden.

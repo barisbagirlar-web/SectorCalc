@@ -1,0 +1,10 @@
+#!/bin/sh
+# English-only language gate. Blocks commits containing non-English characters.
+# Bypass (NOT recommended): git commit --no-verify
+node scripts/check-language.mjs --strict
+if [ $? -ne 0 ]; then
+  echo ""
+  echo "Commit blocked: non-English content detected."
+  echo "Translate the flagged lines to English, then commit again."
+  exit 1
+fi

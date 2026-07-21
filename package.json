@@ -1,0 +1,48 @@
+{
+  "name": "sectorcalc",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "description": "Deterministic engineering calculators for the shop floor.",
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=10.0.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "typecheck": "tsc --noEmit",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:e2e": "playwright test",
+    "test:deterministic": "vitest run tests/deterministic",
+    "lint": "eslint src/ --ext .js",
+    "format": "prettier --write \"src/**/*.{js,json,css,html}\"",
+    "format:check": "prettier --check \"src/**/*.{js,json,css,html}\"",
+    "schema:validate": "node scripts/validate-schemas.js",
+    "check:lang": "node scripts/check-language.mjs --strict",
+    "check": "npm run format:check && npm run lint && npm run test"
+  },
+  "dependencies": {
+    "lit": "3.1.2",
+    "decimal.js": "10.4.3",
+    "ajv": "8.12.0",
+    "ajv-formats": "2.1.1",
+    "dexie": "3.2.7",
+    "chart.js": "4.4.1",
+    "jspdf": "2.5.1",
+    "html2canvas": "1.4.1"
+  },
+  "devDependencies": {
+    "vite": "5.1.4",
+    "vitest": "1.3.1",
+    "@vitest/coverage-v8": "1.3.1",
+    "@playwright/test": "1.42.1",
+    "eslint": "8.57.0",
+    "prettier": "3.2.5",
+    "typescript": "5.4.5"
+  }
+}
