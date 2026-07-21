@@ -4,18 +4,46 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SectorCalc — Engineering Calculators</title>
-    <meta
-      name="description"
-      content="Deterministic engineering calculators that catch costly mistakes."
-    />
+    <meta name="description" content="Deterministic engineering calculators that catch costly mistakes." />
     <link rel="stylesheet" href="/src/styles/workshop-theme.css" />
+    <style>
+      body { margin: 0; background: var(--sc-bg, #f5f6fa); color: var(--sc-steel, #2d3436); font-family: var(--sc-sans, system-ui); }
+      .wrap { max-width: 880px; margin: 0 auto; padding: 32px 24px; }
+      h1 { font-size: 26px; margin: 0 0 4px; }
+      .lead { color: var(--sc-muted, #636e72); margin: 0 0 24px; }
+      .grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
+      a.tool { display: block; background: #fff; border: 1px solid #dfe6e9; border-radius: 12px; padding: 16px 18px; text-decoration: none; color: inherit; }
+      a.tool:hover { border-color: var(--sc-rust, #d35400); }
+      a.tool .code { font: 700 13px var(--sc-mono, monospace); color: var(--sc-rust, #d35400); }
+      a.tool .name { font: 700 17px var(--sc-sans, system-ui); margin: 2px 0; }
+      a.tool .desc { font: 14px var(--sc-sans, system-ui); color: var(--sc-muted, #636e72); }
+      .badge { margin-top: 24px; font: 12px var(--sc-mono, monospace); color: var(--sc-chip, #27ae60); }
+      @media (min-width: 720px) { .grid { grid-template-columns: 1fr 1fr 1fr; } }
+    </style>
   </head>
   <body>
-    <main id="app">
+    <div class="wrap">
       <h1>SectorCalc</h1>
-      <p>Infrastructure is being set up. No tools yet.</p>
-      <p id="engine-check">Engine check: <span>...</span></p>
-    </main>
+      <p class="lead">Engineering calculators that catch costly mistakes. Same inputs, same result — always.</p>
+      <div class="grid">
+        <a class="tool" href="/calculator.html">
+          <div class="code">SC-010</div>
+          <div class="name">True Labor Cost</div>
+          <div class="desc">What an employee really costs beyond net salary.</div>
+        </a>
+        <a class="tool" href="/calculator2.html">
+          <div class="code">SC-012</div>
+          <div class="name">Quote Pricing</div>
+          <div class="desc">Sell price with scrap, setup, overhead, financing, margin.</div>
+        </a>
+        <a class="tool" href="/calculator3.html">
+          <div class="code">SC-001</div>
+          <div class="name">Weld Thickness</div>
+          <div class="desc">Required weld leg from load, checked vs code minimum.</div>
+        </a>
+      </div>
+      <div class="badge" id="engine-check">Deterministic engine: <span>checking…</span></div>
+    </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
