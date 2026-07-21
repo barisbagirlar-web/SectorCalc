@@ -41,4 +41,5 @@ describe('SC-001 formula', () => {
     expect(D(r.finalLegMm).gt(0)).toBe(true);
     expect(r.jointType).toBe('butt');
   });
+  it('throws on negative designLoadN', () => { expect(() => calculate({ ...base, designLoadN: -1 })).toThrow(); });
 });

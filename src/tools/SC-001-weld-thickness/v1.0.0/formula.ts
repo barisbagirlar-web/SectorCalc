@@ -74,7 +74,8 @@ export function calculate(inputs: WeldInputs): WeldResult {
   // 6. dimensional output: wrap as Quantity and convert mm -> in (exercises engine)
   const legQty = qty(finalLeg, 'mm', 'length');
   const legInQty = qconvert(legQty, 'in');
-  const utilization = finalLeg.gt(0) ? requiredThroat.div(finalLeg.times(factor)) : D(0);
+  // finalLeg > 0 is guaranteed by the table (min leg >= 3), so no zero-guard needed.
+  const utilization = requiredThroat.div(finalLeg.times(factor));
 
   return {
     finalLegMm: mm(finalLeg),
