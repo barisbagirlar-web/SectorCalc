@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sectorcalc.com/tools/SC-014/v1.0.0/schema.json",
+  "title": "OEE Calculator",
+  "description": "Overall Equipment Effectiveness = availability x performance x quality. Rates above 100% are not clamped — they surface as warnings.",
+  "version": "1.0.0",
+  "toolCode": "SC-014",
+  "category": "manufacturing",
+  "type": "object",
+  "required": ["plannedProductionTime", "runTime", "idealCycleTime", "totalCount", "goodCount"],
+  "properties": {
+    "plannedProductionTime": { "type": "number", "exclusiveMinimum": 0 },
+    "runTime": { "type": "number", "minimum": 0 },
+    "idealCycleTime": { "type": "number", "minimum": 0 },
+    "totalCount": { "type": "number", "minimum": 0 },
+    "goodCount": { "type": "number", "minimum": 0 }
+  }
+}
