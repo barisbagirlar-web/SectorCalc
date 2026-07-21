@@ -9,11 +9,11 @@
   "type": "object",
   "required": ["designLoadN", "weldLengthMm", "weldStrengthMpa", "safetyFactor", "materialThicknessMm"],
   "properties": {
-    "designLoadN": { "type": "number", "minimum": 0 },
-    "weldLengthMm": { "type": "number", "exclusiveMinimum": 0 },
-    "weldStrengthMpa": { "type": "number", "exclusiveMinimum": 0 },
-    "safetyFactor": { "type": "number", "exclusiveMinimum": 0 },
-    "materialThicknessMm": { "type": "number", "exclusiveMinimum": 0 },
-    "jointType": { "type": "string", "enum": ["fillet", "butt"], "default": "fillet" }
+    "designLoadN": { "type": "number", "minimum": 0, "default": 10000, "x-unit": "N", "description": "Design load on the weld joint." },
+    "weldLengthMm": { "type": "number", "exclusiveMinimum": 0, "default": 100, "x-unit": "mm", "description": "Effective weld length." },
+    "weldStrengthMpa": { "type": "number", "exclusiveMinimum": 0, "default": 70, "x-unit": "MPa", "description": "Allowable weld metal strength." },
+    "safetyFactor": { "type": "number", "exclusiveMinimum": 0, "default": 2, "x-unit": "x", "description": "Design safety factor applied to the load." },
+    "materialThicknessMm": { "type": "number", "exclusiveMinimum": 0, "default": 6, "x-unit": "mm", "description": "Thinner base-metal thickness (AWS D1.1 table)." },
+    "jointType": { "type": "string", "enum": ["fillet", "butt"], "default": "fillet", "description": "Weld joint type for throat geometry." }
   }
 }
