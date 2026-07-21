@@ -3,33 +3,54 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SectorCalc — Engineering Calculators</title>
-    <meta name="description" content="Deterministic engineering calculators that catch costly mistakes." />
+    <title>SectorCalc — Deterministic Engineering Calculators</title>
+    <meta name="description" content="Tolerance stack-up, labor cost, quote pricing. Full-Decimal, client-side, reproducible. Your data never leaves your browser." />
     <link rel="stylesheet" href="/src/styles/workshop-theme.css" />
     <style>
       body { margin: 0; background: var(--sc-bg, #f5f6fa); color: var(--sc-steel, #2d3436); font-family: var(--sc-sans, system-ui); }
-      .wrap { max-width: 880px; margin: 0 auto; padding: 32px 24px; }
-      h1 { font-size: 26px; margin: 0 0 4px; }
-      .lead { color: var(--sc-muted, #636e72); margin: 0 0 24px; }
+      .wrap { max-width: 980px; margin: 0 auto; padding: 48px 24px; }
+      .hero h1 { font-size: 40px; line-height: 1.1; margin: 0 0 12px; letter-spacing: -0.5px; }
+      .hero p { font-size: 18px; color: var(--sc-muted, #636e72); margin: 0 0 24px; max-width: 640px; }
+      .cta { display: inline-block; background: var(--sc-rust, #d35400); color: #fff; font: 700 16px var(--sc-sans, system-ui); padding: 14px 24px; border-radius: 10px; text-decoration: none; }
+      .trust { display: flex; flex-wrap: wrap; gap: 8px; margin: 28px 0 40px; }
+      .trust span { background: #fff; border: 1px solid #dfe6e9; border-radius: 999px; padding: 6px 12px; font: 600 12px var(--sc-sans, system-ui); color: var(--sc-steel, #2d3436); }
+      h2 { font-size: 20px; margin: 0 0 14px; }
       .grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
-      a.tool { display: block; background: #fff; border: 1px solid #dfe6e9; border-radius: 12px; padding: 16px 18px; text-decoration: none; color: inherit; }
+      a.tool { display: block; background: #fff; border: 1px solid #dfe6e9; border-radius: 12px; padding: 18px; text-decoration: none; color: inherit; }
       a.tool:hover { border-color: var(--sc-rust, #d35400); }
-      a.tool .code { font: 700 13px var(--sc-mono, monospace); color: var(--sc-rust, #d35400); }
-      a.tool .name { font: 700 17px var(--sc-sans, system-ui); margin: 2px 0; }
+      a.tool.featured { border-color: var(--sc-rust, #d35400); border-width: 2px; }
+      a.tool .code { font: 700 12px var(--sc-mono, monospace); color: var(--sc-rust, #d35400); }
+      a.tool .name { font: 700 18px var(--sc-sans, system-ui); margin: 2px 0; }
       a.tool .desc { font: 14px var(--sc-sans, system-ui); color: var(--sc-muted, #636e72); }
-      .badge { margin-top: 24px; font: 12px var(--sc-mono, monospace); color: var(--sc-chip, #27ae60); }
-      @media (min-width: 720px) { .grid { grid-template-columns: 1fr 1fr 1fr; } }
+      a.tool .tag { display: inline-block; margin-top: 8px; font: 700 11px var(--sc-sans, system-ui); color: #27ae60; }
+      footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid #dfe6e9; font: 12px var(--sc-mono, monospace); color: var(--sc-chip, #27ae60); }
+      @media (min-width: 720px) { .grid { grid-template-columns: 1fr 1fr; } .hero h1 { font-size: 52px; } }
     </style>
   </head>
   <body>
     <div class="wrap">
-      <h1>SectorCalc</h1>
-      <p class="lead">Engineering calculators that catch costly mistakes. Same inputs, same result — always.</p>
+      <section class="hero">
+        <h1>Stop losing money on engineering guesses.</h1>
+        <p>Deterministic calculators for the shop floor — statistical tolerance stack-up, true labor cost, quote pricing. Same inputs, same result, every time. Your data never leaves your browser.</p>
+        <a class="cta" href="/calculator4.html">Run a tolerance stack-up</a>
+      </section>
+
+      <div class="trust">
+        <span>Deterministic engine</span>
+        <span>Full-Decimal math — no float rounding</span>
+        <span>100% client-side</span>
+        <span>Reproducible Monte Carlo — SHA-256 stamped</span>
+        <span>JSON Schema Draft 2020-12</span>
+        <span>276 automated tests + CI</span>
+      </div>
+
+      <h2>Tools</h2>
       <div class="grid">
-        <a class="tool" href="/calculator4.html">
+        <a class="tool featured" href="/calculator4.html">
           <div class="code">SC-008</div>
-          <div class="name">Tolerance Stack-Up</div>
-          <div class="desc">Worst-case, RSS & Monte Carlo — will the stack hold spec?</div>
+          <div class="name">Statistical Tolerance Stack-Up</div>
+          <div class="desc">Worst-case, RSS and seeded Monte Carlo with Cp/Cpk, defect ppm and contribution pareto.</div>
+          <div class="tag">FLAGSHIP</div>
         </a>
         <a class="tool" href="/calculator.html">
           <div class="code">SC-010</div>
@@ -47,7 +68,8 @@
           <div class="desc">Required weld leg from load, checked vs code minimum.</div>
         </a>
       </div>
-      <div class="badge" id="engine-check">Deterministic engine: <span>checking…</span></div>
+
+      <footer id="engine-check">Deterministic engine: <span>checking…</span></footer>
     </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
