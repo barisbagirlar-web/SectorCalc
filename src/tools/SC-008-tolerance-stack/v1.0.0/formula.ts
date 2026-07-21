@@ -83,7 +83,7 @@ export function simulateStack(components: Component[], input: StackInput): Decim
   return out;
 }
 
-export function calculate(input: StackInput): StackResult {
+export function calculate(input: StackInput, samples?: Decimal[]): StackResult {
   const steps: Step[] = [];
   let n = 0;
   const components = input.components;
@@ -99,18 +99,18 @@ export function calculate(input: StackInput): StackResult {
   steps.push({ step: ++n, description: 'Worst-case stack', formula: 'sum(tol)', result: num(worst.plus) });
   steps.push({ step: ++n, description: 'RSS stack', formula: 'sqrt(sum(tol^2))', result: num(rss.plus) });
 
-  // 2. Monte Carlo (seeded Decimal)
+  // 2. Monte Carlo (seeded Decimal); optional samples avoids a second simulation in the UI.
   const iterations = input.iterations ?? 5000;
   const seed = input.seed ?? 12345;
-  const samples = simulateStack(components, input);
-  const sorted = samples.slice().sort((a, b) => a.cmp(b));
-  const mean = statsMean(samples);
-  const std = statsStddev(samples);
+  const usedSamples = samples ?? simulateStack(components, input);
+  const sorted = usedSamples.slice().sort((a, b) => a.cmp(b));
+  const mean = statsMean(usedSamples);
+  const std = statsStddev(usedSamples);
   // iterations >= 1 and components.length >= 1 are guarded above; ! is safe.
   const min = sorted[0]!;
   const max = sorted[sorted.length - 1]!;
-  const p0013 = percentile(samples, '0.0013');
-  const p9987 = percentile(samples, '0.9987');
+  const p0013 = percentile(usedSamples, '0.0013');
+  const p9987 = percentile(usedSamples, '0.9987');
   steps.push({ step: ++n, description: `Monte Carlo (${iterations} runs, seed ${seed})`, formula: 'seeded LCG + inverse-CDF', result: `mean ${num(mean)}, std ${num(std)}` });
 
   // 3. capability
@@ -122,8 +122,8 @@ export function calculate(input: StackInput): StackResult {
 
   // 4. empirical defect ppm (no CDF needed)
   let outCount = 0;
-  for (const s of samples) if (s.gt(usl) || s.lt(lsl)) outCount++;
-  const ppm = D(outCount).div(samples.length).times(D('1000000'));
+  for (const s of usedSamples) if (s.gt(usl) || s.lt(lsl)) outCount++;
+  const ppm = D(outCount).div(usedSamples.length).times(D('1000000'));
   steps.push({ step: ++n, description: 'Empirical defect rate', formula: 'out-of-spec / runs * 1e6', result: `${num(ppm)} ppm` });
 
   // 5. contribution pareto (RSS-based)
