@@ -9,9 +9,13 @@ export default defineConfig({
     emptyOutDir: true,
     sourcemap: true,
     target: 'es2020',
-    minify: 'esbuild'
-    // NOTE: multi-page (tools.html, calculator.html) will be added in PHASE 8.
-    // Defining inputs before the first tool arrives breaks the build. Single entry for now: root index.html
+    minify: 'esbuild',
+    rollupOptions: {
+      input: {
+        main: 'index.html',
+        calculator: 'calculator.html'
+      }
+    }
   },
 
   server: {
@@ -27,7 +31,7 @@ export default defineConfig({
     coverage: {
       provider: 'v8',
       all: false, // lock behavior; do not rely on version defaults
-      include: ['src/core/**', 'src/tools/**'], // scope to tested code; widen as modules land
+      include: ['src/core/**', 'src/tools/**', 'src/components/**'], // scope to tested code; widen as modules land
       exclude: ['**/*.test.ts', 'node_modules/**', 'dist/**'],
       reporter: ['text', 'html', 'lcov'],
       thresholds: {

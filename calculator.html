@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SectorCalc — SC-010 True Labor Cost</title>
+    <link rel="stylesheet" href="/src/styles/workshop-theme.css" />
+    <style>
+      body { margin: 0; background: var(--sc-bg, #f5f6fa); color: var(--sc-steel, #2d3436); font-family: var(--sc-sans, system-ui); }
+      .wrap { max-width: 960px; margin: 0 auto; padding: 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+      .card { background: #fff; border: 1px solid #dfe6e9; border-radius: 12px; padding: 20px; }
+      h1 { font-size: 20px; grid-column: 1 / -1; margin: 0 0 4px; }
+      .sub { grid-column: 1 / -1; color: var(--sc-muted, #636e72); margin: 0 0 8px; font-size: 14px; }
+      @media (max-width: 720px) { .wrap { grid-template-columns: 1fr; } }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>SC-010 — True Labor Cost</h1>
+      <p class="sub">What an employee really costs you, beyond the net salary.</p>
+      <div class="card"><sc-form-renderer id="form" submitLabel="Run the Numbers"></sc-form-renderer></div>
+      <div class="card">
+        <sc-result-card id="result"></sc-result-card>
+        <sc-warning-panel id="warnings"></sc-warning-panel>
+      </div>
+    </div>
+    <script type="module" src="/src/calculator.ts"></script>
+  </body>
+</html>
