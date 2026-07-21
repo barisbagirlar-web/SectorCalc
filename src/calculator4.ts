@@ -2,6 +2,7 @@ import { calculate, simulateStack } from './tools/SC-008-tolerance-stack/v1.0.0/
 import { evaluateWarnings } from './tools/SC-008-tolerance-stack/v1.0.0/warnings.js';
 import type { Component, StackInput, StackResult } from './tools/SC-008-tolerance-stack/v1.0.0/formula.js';
 import { sha256 } from './core/checksum.js';
+import { convert } from './core/unit-converter.js';
 import { histogramBins, paretoData, compareData } from './lib/stack-chart-data.js';
 import type { StackChange } from './components/sc-stack-editor.js';
 import type { WarningData } from './components/sc-warning-panel.js';
@@ -22,18 +23,19 @@ const compareEl = document.querySelector('#compare') as El<{ data: { labels: str
 const pdfEl = document.querySelector('sc-stack-pdf') as El<{ input: StackPdfInput | null }>;
 
 async function recalc(detail: StackChange) {
+  const toMM = (v: string, u: string) => convert(v, u, 'mm', 'length').toString();
   const components: Component[] = detail.components.map((c) => ({
     name: c.name,
-    nominal: c.nominal,
-    tol: c.tol,
+    nominal: toMM(c.nominal, c.nominalUnit),
+    tol: toMM(c.tol, c.tolUnit),
     distribution: c.distribution,
     cpk: c.cpk === '' ? undefined : c.cpk
   }));
   const input: StackInput = {
     components,
-    usl: detail.spec.usl,
-    lsl: detail.spec.lsl,
-    target: detail.spec.target === '' ? undefined : detail.spec.target,
+    usl: toMM(detail.spec.usl, detail.spec.uslUnit),
+    lsl: toMM(detail.spec.lsl, detail.spec.lslUnit),
+    target: detail.spec.target === '' ? undefined : toMM(detail.spec.target, detail.spec.targetUnit),
     seed: detail.spec.seed === '' ? undefined : Number(detail.spec.seed),
     iterations: detail.spec.iterations === '' ? undefined : Number(detail.spec.iterations)
   };
