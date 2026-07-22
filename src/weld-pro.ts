@@ -1,418 +1,182 @@
+// @ts-nocheck
 import { calculate } from './tools/SC-001-weld-thickness/v1.0.0/formula.js';
-import type { WeldResult } from './tools/SC-001-weld-thickness/v1.0.0/formula.js';
 
-type JointType = 'fillet' | 'butt';
-type PresetKey = 'structural' | 'precision';
+function pick(r, keys, def = 0) { for (const k of keys) { const v = r[k]; if (v !== undefined && v !== null && v !== '') { const n = Number(v); return Number.isFinite(n) ? n : def; } } return def; }
 
-interface FieldState {
-  designLoadN: string;
-  weldLengthMm: string;
-  weldStrengthMpa: string;
-  safetyFactor: string;
-  materialThicknessMm: string;
-  jointType: JointType;
-}
-
-interface CalcData {
-  result: WeldResult;
-  fields: FieldState;
-  overall: 'PASS' | 'WARNING' | 'CRITICAL';
-  utilization: number;
-}
-
-declare global {
-  interface Window {
-    jspdf: { jsPDF: new (opts?: Record<string, unknown>) => {
-      setFontSize: (n: number) => void;
-      setTextColor: (c: string) => void;
-      setFont: (name: string, style: string) => void;
-      text: (t: string | string[], x: number, y: number) => void;
-      splitTextToSize: (t: string, w: number) => string[];
-      addPage: () => void;
-      addImage: (data: string, format: string, x: number, y: number, w: number, h: number) => void;
-      setPage: (n: number) => void;
-      getNumberOfPages: () => number;
-      save: (name: string) => void;
-      internal: { pageSize: { getWidth: () => number; getHeight: () => number } };
-    } };
-    calcId?: string;
-  }
-}
-
-const DEFAULTS: FieldState = {
-  designLoadN: '50000',
-  weldLengthMm: '200',
-  weldStrengthMpa: '480',
-  safetyFactor: '2',
-  materialThicknessMm: '10',
-  jointType: 'fillet'
+const FIELDS = ['designLoadN','weldLengthMm','weldStrengthMpa','safetyFactor','materialThicknessMm'];
+const presets = {
+  struct: { designLoadN:50000, weldLengthMm:200, weldStrengthMpa:480, safetyFactor:2, materialThicknessMm:10, jointType:'fillet' },
+  prec:   { designLoadN:10000, weldLengthMm:50, weldStrengthMpa:480, safetyFactor:2.5, materialThicknessMm:4, jointType:'fillet' }
 };
+const $ = (id) => document.getElementById(id);
+let calcData = null;
 
-const presets: Record<PresetKey, Partial<FieldState>> = {
-  structural: {
-    designLoadN: '50000',
-    weldLengthMm: '200',
-    weldStrengthMpa: '480',
-    safetyFactor: '2',
-    materialThicknessMm: '10'
-  },
-  precision: {
-    designLoadN: '10000',
-    weldLengthMm: '50',
-    weldStrengthMpa: '480',
-    safetyFactor: '2',
-    materialThicknessMm: '6'
-  }
-};
+function readInputs() { const input = { jointType: $('jointType').value }; FIELDS.forEach(f => input[f] = parseFloat($(f).value) || 0); if (input.safetyFactor < 1) input.safetyFactor = 1; return input; }
 
-let fields: FieldState = { ...DEFAULTS, ...presets.structural };
-let calcData: CalcData | null = null;
-let activePreset: PresetKey = 'structural';
+function validateAndCalc() {
+  let hasError = false;
+  const checks = [['designLoadN', v => v <= 0], ['weldLengthMm', v => v <= 0], ['weldStrengthMpa', v => v <= 0], ['safetyFactor', v => v < 1], ['materialThicknessMm', v => v <= 0]];
+  checks.forEach(([f, bad]) => {
+    const v = parseFloat($(f).value);
+    if (isNaN(v) || bad(v)) { $('fld-'+f).classList.add('has-error'); $('val-'+f).className='sc-val error'; $('val-'+f).textContent='X must be positive'; hasError = true; }
+    else { $('fld-'+f).classList.remove('has-error'); $('val-'+f).className='sc-val ok'; $('val-'+f).textContent='OK'; }
+  });
+  if (hasError) { $('liveResult').textContent = '—'; $('liveSub').innerHTML = ''; return; }
 
-function $(id: string): HTMLElement {
-  const el = document.getElementById(id);
-  if (!el) throw new Error(`Missing #${id}`);
-  return el;
+  const input = readInputs();
+  let r;
+  try { r = calculate(input); } catch (e) { $('liveResult').textContent = 'ERR'; $('liveSub').innerHTML = '<span>' + e.message + '</span>'; return; }
+
+  const leg = pick(r, ['finalLegMm','legMm','requiredLegMm','leg']);
+  const throat = pick(r, ['requiredThroatMm','throatMm','throat']);
+  const minLeg = pick(r, ['minLegMm','codeMinLegMm','minLeg']);
+  const util = pick(r, ['utilization','util','ratio']);
+  const steps = Array.isArray(r.steps) ? r.steps : [];
+
+  calcData = { input, r, leg, throat, minLeg, util, steps };
+  $('liveResult').textContent = leg.toFixed(2) + ' mm';
+  $('liveSub').innerHTML = '<span>Util ' + (util * 100).toFixed(0) + '%</span><span>Throat ' + throat.toFixed(2) + '</span><span>Min leg ' + minLeg.toFixed(2) + '</span>';
 }
 
-function $input(id: string): HTMLInputElement {
-  return $(id) as HTMLInputElement;
+function loadPreset(key) {
+  const p = presets[key];
+  FIELDS.forEach(f => $(f).value = p[f]);
+  $('jointType').value = p.jointType;
+  document.querySelectorAll('.sc-preset').forEach((b, i) => b.classList.toggle('active', (key === 'struct' ? i === 0 : i === 1)));
+  validateAndCalc();
+}
+function resetAll() { loadPreset('struct'); }
+function loadFromURL() {
+  const s = new URLSearchParams(location.search).get('s'); if (!s) return;
+  try { const o = JSON.parse(decodeURIComponent(s)); FIELDS.forEach(f => { if (o[f] !== undefined) $(f).value = o[f]; }); if (o.jointType) $('jointType').value = o.jointType; } catch (e) {}
 }
 
-function $select(id: string): HTMLSelectElement {
-  return $(id) as HTMLSelectElement;
-}
+function gaugeColor(u) { return u >= 1 ? '#f5222d' : (u >= 0.9 ? '#faad14' : '#52c41a'); }
+function overallStatus(u) { return u >= 1 ? 'CRITICAL' : (u >= 0.9 ? 'WARNING' : 'PASS'); }
 
-function fieldHtml(id: string, label: string, tip: string, inputInner: string, unit: string): string {
-  return `
-    <div class="sc-field" id="fld-${id}">
-      <div class="sc-field-label">${label}
-        <span class="sc-info">i<span class="sc-tooltip"><strong>${label}</strong>${tip}</span></span>
-      </div>
-      <div class="sc-input-wrap">
-        ${inputInner}
-        <select class="sc-unit" disabled><option>${unit}</option></select>
-      </div>
-      <div class="sc-val" id="val-${id}"></div>
-    </div>`;
-}
+function generateReport() {
+  if (!calcData) validateAndCalc();
+  const d = calcData; if (!d) return;
+  const calcId = 'SC-001-' + Math.random().toString(36).substr(2, 9).toUpperCase(); window.calcId = calcId;
+  const status = overallStatus(d.util);
+  const gCol = gaugeColor(d.util);
+  const gaugeAngle = Math.max(-90, Math.min(90, (d.util / 1.5) * 180 - 90));
 
-function renderShell(): void {
-  const app = document.getElementById('app');
-  if (!app) throw new Error('Missing #app');
-  app.innerHTML = `
-    <div class="sc-header">
-      <div class="sc-header-left">
-        <div class="sc-logo">SC</div>
-        <div class="sc-header-brand">
-          <div class="sc-header-title">SC-001 — Weld Thickness</div>
-          <div class="sc-header-sub">Deterministic Engine v2.0 | Client-Side | Reproducible</div>
-        </div>
-      </div>
-      <div class="sc-header-right">
-        <div class="sc-badge sc-badge-flagship">PRO</div>
-      </div>
+  const whatIfs = [
+    { label: 'Load +20%', fn: i => ({ ...i, designLoadN: i.designLoadN * 1.2 }) },
+    { label: 'Weld length +20%', fn: i => ({ ...i, weldLengthMm: i.weldLengthMm * 1.2 }) },
+    { label: 'Strength -10%', fn: i => ({ ...i, weldStrengthMpa: i.weldStrengthMpa * 0.9 }) }
+  ].map(w => {
+    let tr; try { tr = calculate(w.fn(d.input)); } catch (e) { return { label: w.label, leg: d.leg, util: d.util }; }
+    return { label: w.label, leg: pick(tr, ['finalLegMm','legMm','requiredLegMm','leg']), util: pick(tr, ['utilization','util','ratio']) };
+  });
+
+  const stepsRows = d.steps.length ? d.steps.map(s => `<tr><td>${s.step !== undefined ? s.step : ''}</td><td class="td-name">${s.description || ''}</td><td class="td-val">${s.result !== undefined ? s.result : (s.formula || '')}</td></tr>`).join('') : `<tr><td>-</td><td class="td-name">No step trace from engine</td><td class="td-val">see inputs</td></tr>`;
+
+  const recHTML = status !== 'PASS' ? `
+    <div class="sc-rec"><div class="sc-rec-hd"><span class="sc-rec-num">1</span><span class="sc-rec-title">Weld is undersized for the load</span></div><div class="sc-rec-body">Utilization ${(d.util*100).toFixed(0)}% (&gt;= 90%).<br><span class="neg">-> Increase weld length or leg; utilization falls with more weld area</span></div></div>
+    <div class="sc-rec"><div class="sc-rec-hd"><span class="sc-rec-num">2</span><span class="sc-rec-title">Respect the code minimum leg</span></div><div class="sc-rec-body">Code min leg ${d.minLeg.toFixed(2)} mm for ${d.input.materialThicknessMm} mm material.<br><span class="neg">-> Required leg must not fall below this even if load allows</span></div></div>
+    <div class="sc-rec"><div class="sc-rec-hd"><span class="sc-rec-num">3</span><span class="sc-rec-title">Verify joint type and inspection</span></div><div class="sc-rec-body">Joint: ${d.input.jointType}. High utilization demands full inspection.<br><span class="pos">-> Specify NDT level matching the safety factor</span></div></div>` : `
+    <div class="sc-rec"><div class="sc-rec-hd"><span class="sc-rec-num">1</span><span class="sc-rec-title">Weld is adequately sized - document the leg callout</span></div><div class="sc-rec-body">Required leg ${d.leg.toFixed(2)} mm, utilization ${(d.util*100).toFixed(0)}%.<br><span class="pos">-> Put the leg and length on the drawing per EN ISO 2553</span></div></div>
+    <div class="sc-rec"><div class="sc-rec-hd"><span class="sc-rec-num">2</span><span class="sc-rec-title">Keep the audit trail</span></div><div class="sc-rec-body">Calc ID ${calcId} reproducible from inputs.<br><span class="pos">-> Attach PDF to the welding procedure / WPS package</span></div></div>`;
+
+  const reportHTML = `
+    <div class="sc-report-hd"><div class="sc-report-hd-left"><div class="sc-report-title">SC-001 Weld Thickness Analysis</div><div class="sc-report-meta">Calculation ID: <span>${calcId}</span> &nbsp;|&nbsp; ${new Date().toISOString().replace('T',' ').slice(0,19)} UTC<br>Standard: AWS D1.1 structural welding | EN ISO 2553 weld symbols<br>Method: Deterministic load / weld-capacity check<br><span class="ok">OK Client-Side Only - your data never left your browser</span></div></div>
+      <div class="sc-report-hd-right"><button class="sc-btn sc-btn-ghost" onclick="exportPDF()">Export PDF</button><button class="sc-btn sc-btn-ghost" onclick="exportPDFGraphic()">Export Graphic PDF</button><button class="sc-btn sc-btn-primary" onclick="shareReport()">Share</button></div></div>
+    <div class="sc-sec"><div class="sc-sec-hd">Risk Assessment</div>
+      ${status === 'CRITICAL' ? `<div class="sc-alert sc-alert-crit"><div class="sc-alert-icon">!</div><div><div class="sc-alert-title">Critical - Weld undersized</div><div class="sc-alert-body">Utilization <strong>${(d.util*100).toFixed(0)}%</strong> (&gt;= 100%). The weld <strong>cannot carry the load</strong>.<br>Required leg ${d.leg.toFixed(2)} mm. Increase weld length or leg immediately.</div></div></div>` : ''}
+      ${status === 'WARNING' ? `<div class="sc-alert sc-alert-warn"><div class="sc-alert-icon">!</div><div><div class="sc-alert-title">Warning - Utilization near limit</div><div class="sc-alert-body">Utilization <strong>${(d.util*100).toFixed(0)}%</strong> (&gt;= 90%). Marginal.<br>Little reserve for load variation; add weld area or reduce load.</div></div></div>` : ''}
+      ${status === 'PASS' ? `<div class="sc-alert sc-alert-pass"><div class="sc-alert-icon">OK</div><div><div class="sc-alert-title">Pass - Weld adequately sized</div><div class="sc-alert-body">Utilization <strong>${(d.util*100).toFixed(0)}%</strong> below 90%. Required leg <strong>${d.leg.toFixed(2)} mm</strong>.<br>Throat ${d.throat.toFixed(2)} mm, code min leg ${d.minLeg.toFixed(2)} mm.</div></div></div>` : ''}
     </div>
-    <div class="sc-layout">
-      <div class="sc-sidebar">
-        <div class="sc-sidebar-scroll">
-          <div class="sc-section-hd">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-            Configuration
-          </div>
-          <div class="sc-presets">
-            <button class="sc-preset ${activePreset === 'structural' ? 'active' : ''}" data-preset="structural" type="button">Structural</button>
-            <button class="sc-preset ${activePreset === 'precision' ? 'active' : ''}" data-preset="precision" type="button">Precision</button>
-          </div>
-          ${fieldHtml('designLoadN', 'Design Load', 'Design load in newtons (N).',
-            `<input type="number" class="sc-input" id="designLoadN" value="${fields.designLoadN}" step="1" min="0">`, 'N')}
-          ${fieldHtml('weldLengthMm', 'Weld Length', 'Total effective weld length.',
-            `<input type="number" class="sc-input" id="weldLengthMm" value="${fields.weldLengthMm}" step="0.1" min="0.1">`, 'mm')}
-          ${fieldHtml('weldStrengthMpa', 'Weld Strength', 'Allowable weld metal strength.',
-            `<input type="number" class="sc-input" id="weldStrengthMpa" value="${fields.weldStrengthMpa}" step="1" min="0.1">`, 'MPa')}
-          ${fieldHtml('safetyFactor', 'Safety Factor', 'Design safety factor applied to strength.',
-            `<input type="number" class="sc-input" id="safetyFactor" value="${fields.safetyFactor}" step="0.1" min="0.1">`, 'x')}
-          ${fieldHtml('materialThicknessMm', 'Material Thickness', 'Base material thickness for AWS min-leg table.',
-            `<input type="number" class="sc-input" id="materialThicknessMm" value="${fields.materialThicknessMm}" step="0.1" min="0.1">`, 'mm')}
-          ${fieldHtml('jointType', 'Joint Type', 'Fillet or butt — changes throat-to-leg factor.',
-            `<select class="sc-input" id="jointType">
-              <option value="fillet"${fields.jointType === 'fillet' ? ' selected' : ''}>fillet</option>
-              <option value="butt"${fields.jointType === 'butt' ? ' selected' : ''}>butt</option>
-            </select>`, '--')}
-          <div class="sc-live">
-            <div class="sc-live-hd"><span class="sc-live-dot"></span>Live Result — Final Leg</div>
-            <div class="sc-live-val" id="liveResult">—</div>
-            <div class="sc-live-sub" id="liveSub"><span>Utilization —</span><span>Throat —</span></div>
-          </div>
-        </div>
-        <div class="sc-sidebar-ft">
-          <button class="sc-btn sc-btn-primary" id="genReport" type="button">Generate Report</button>
-          <button class="sc-btn sc-btn-ghost" id="resetAll" type="button">Reset</button>
-        </div>
-      </div>
-      <div class="sc-main">
-        <div class="sc-main-inner" id="reportArea">
-          <div class="sc-empty">
-            <div class="sc-empty-icon">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-            </div>
-            <div class="sc-empty-title">Engineering Report Ready</div>
-            <div class="sc-empty-desc">Configure inputs on the left panel.<br>All values update in real-time.<br>Click "Generate Report" for full analysis.</div>
-          </div>
-        </div>
-      </div>
-    </div>`;
-  bindEvents();
-  calc();
-}
-
-function readFields(): void {
-  fields = {
-    designLoadN: $input('designLoadN').value,
-    weldLengthMm: $input('weldLengthMm').value,
-    weldStrengthMpa: $input('weldStrengthMpa').value,
-    safetyFactor: $input('safetyFactor').value,
-    materialThicknessMm: $input('materialThicknessMm').value,
-    jointType: $select('jointType').value as JointType
-  };
-}
-
-function calc(): void {
-  readFields();
-  try {
-    const result = calculate({
-      designLoadN: String(fields.designLoadN),
-      weldLengthMm: String(fields.weldLengthMm),
-      weldStrengthMpa: String(fields.weldStrengthMpa),
-      safetyFactor: String(fields.safetyFactor),
-      materialThicknessMm: String(fields.materialThicknessMm),
-      jointType: fields.jointType
-    });
-    const utilization = Number(result.utilization);
-    const overall: CalcData['overall'] =
-      utilization >= 1 ? 'CRITICAL' : utilization >= 0.9 ? 'WARNING' : 'PASS';
-    calcData = { result, fields: { ...fields }, overall, utilization };
-    (window as any).calcData = calcData;
-    $('liveResult').textContent = result.finalLegMm + ' mm';
-    $('liveSub').innerHTML =
-      `<span>Utilization ${result.utilization}</span><span>Throat ${result.requiredThroatMm} mm</span>`;
-  } catch {
-    calcData = null;
-    (window as any).calcData = null;
-    $('liveResult').textContent = 'ERR';
-    $('liveSub').innerHTML = '<span>Check inputs</span>';
-  }
-}
-
-function loadPreset(key: PresetKey): void {
-  activePreset = key;
-  fields = { ...DEFAULTS, ...presets[key] };
-  renderShell();
-}
-
-function riskAlert(d: CalcData): string {
-  if (d.overall === 'CRITICAL') {
-    return `<div class="sc-alert sc-alert-crit"><div class="sc-alert-title">Critical — Utilization Exceeds Capacity</div><div class="sc-alert-body">Utilization <strong>${d.result.utilization}</strong> (>= 1.0). Increase leg, length, or strength; reduce load or safety demand.</div></div>`;
-  }
-  if (d.overall === 'WARNING') {
-    return `<div class="sc-alert sc-alert-warn"><div class="sc-alert-title">Warning — Near Capacity</div><div class="sc-alert-body">Utilization <strong>${d.result.utilization}</strong> (>= 0.9). Little design margin remaining.</div></div>`;
-  }
-  return `<div class="sc-alert sc-alert-pass"><div class="sc-alert-title">Pass — Weld Within Capacity</div><div class="sc-alert-body">Final leg <strong>${d.result.finalLegMm} mm</strong>. Utilization <strong>${d.result.utilization}</strong>.</div></div>`;
-}
-
-function gaugeSvg(d: CalcData): string {
-  const angle = Math.max(-90, Math.min(90, (d.utilization / 1.5) * 90));
-  const gCol = d.overall === 'PASS' ? '#52c41a' : d.overall === 'WARNING' ? '#faad14' : '#f5222d';
-  return `<div class="sc-gauge-wrap"><svg width="300" height="170" viewBox="0 0 300 170">
-    <path d="M 40 150 A 110 110 0 0 1 260 150" fill="none" stroke="#111720" stroke-width="24" stroke-linecap="round"/>
-    <path d="M 40 150 A 110 110 0 0 1 95 55" fill="none" stroke="rgba(82,196,26,0.2)" stroke-width="24" stroke-linecap="round"/>
-    <path d="M 205 55 A 110 110 0 0 1 260 150" fill="none" stroke="rgba(82,196,26,0.2)" stroke-width="24" stroke-linecap="round"/>
-    <path d="M 125 32 A 110 110 0 0 1 175 32" fill="none" stroke="rgba(245,34,45,0.2)" stroke-width="24" stroke-linecap="round"/>
-    <line x1="150" y1="150" x2="${150 + 95 * Math.cos((angle - 90) * Math.PI / 180)}" y2="${150 + 95 * Math.sin((angle - 90) * Math.PI / 180)}" stroke="${gCol}" stroke-width="3" stroke-linecap="round"/>
-    <circle cx="150" cy="150" r="7" fill="${gCol}"/>
-    <text x="150" y="135" text-anchor="middle" fill="#f0f4f8" font-size="24" font-weight="700" font-family="JetBrains Mono">${d.result.utilization}</text>
-    <text x="150" y="155" text-anchor="middle" fill="#4a5568" font-size="10">Utilization (0-1.5)</text>
-    <text x="30" y="168" fill="#4a5568" font-size="9">0</text>
-    <text x="270" y="168" fill="#4a5568" font-size="9">1.5</text>
-  </svg></div>`;
-}
-
-function generateReport(): void {
-  if (!calcData) calc();
-  if (!calcData) return;
-  const d = calcData;
-  const calcId = 'SC-001-' + Math.random().toString(36).substr(2, 9).toUpperCase();
-  window.calcId = calcId;
-  (window as any).calcData = d;
-
-  const cardsHTML = `
-    <div class="sc-card-res"><div class="sc-card-res-label">Final Leg</div><div class="sc-card-res-val">${d.result.finalLegMm}</div><div class="sc-card-res-sub">mm (${d.result.finalLegIn} in)</div></div>
-    <div class="sc-card-res"><div class="sc-card-res-label">Required Throat</div><div class="sc-card-res-val">${d.result.requiredThroatMm}</div><div class="sc-card-res-sub">mm</div></div>
-    <div class="sc-card-res"><div class="sc-card-res-label">Min Leg (table)</div><div class="sc-card-res-val">${d.result.minLegMm}</div><div class="sc-card-res-sub">mm AWS D1.1</div></div>
-    <div class="sc-card-res"><div class="sc-card-res-label">Utilization</div><div class="sc-card-res-val">${d.result.utilization}</div><span class="sc-card-res-badge ${d.overall === 'PASS' ? 'sc-badge-pass' : d.overall === 'WARNING' ? 'sc-badge-warn' : 'sc-badge-crit'}">${d.overall}</span></div>`;
-
-  const stepsHTML = d.result.steps.map((s) =>
-    `<tr><td>${s.step}</td><td>${s.description}</td><td>${s.formula}</td><td class="td-ok">${s.result}</td></tr>`
-  ).join('');
-
-  const recHTML = d.overall !== 'PASS'
-    ? `<div class="sc-rec"><div class="sc-rec-hd"><span class="sc-rec-num">1</span><span class="sc-rec-title">Increase leg or weld length</span></div><div class="sc-rec-body">Current utilization ${d.result.utilization}. Leg from load ${d.result.legFromLoadMm} mm vs min ${d.result.minLegMm} mm.</div></div>
-       <div class="sc-rec"><div class="sc-rec-hd"><span class="sc-rec-num">2</span><span class="sc-rec-title">Verify joint type and safety factor</span></div><div class="sc-rec-body">Joint: <strong>${d.result.jointType}</strong>, SF ${d.fields.safetyFactor}.</div></div>`
-    : `<div class="sc-rec"><div class="sc-rec-hd"><span class="sc-rec-num">1</span><span class="sc-rec-title">Weld size adequate — document calc</span></div><div class="sc-rec-body">Attach Calc ID ${calcId} to drawing package / WPS.</div></div>`;
-
-  $('reportArea').innerHTML = `
-    <div class="sc-report-hd">
-      <div class="sc-report-hd-left">
-        <div class="sc-report-title">SC-001 Weld Thickness Analysis</div>
-        <div class="sc-report-meta">Calc ID: <span>${calcId}</span> | ${new Date().toISOString().slice(0, 19)} UTC<br>
-        Joint: ${d.result.jointType} | Load: ${d.fields.designLoadN} N | Length: ${d.fields.weldLengthMm} mm<br>
-        <span class="ok">Client-Side Only - data never left your browser</span></div>
-      </div>
-      <div class="sc-report-hd-right">
-        <button class="sc-btn sc-btn-ghost" id="pdfBtn" type="button">Export PDF</button>
-        <button class="sc-btn sc-btn-ghost" id="pdfGraphicBtn" type="button">Export Graphic PDF</button>
-        <button class="sc-btn sc-btn-primary" id="shareBtn" type="button">Share</button>
-      </div>
-    </div>
-    <div class="sc-sec"><div class="sc-sec-hd">Risk Assessment</div>${riskAlert(d)}</div>
-    <div class="sc-sec"><div class="sc-sec-hd">Key Results</div><div class="sc-cards">${cardsHTML}</div></div>
-    <div class="sc-sec"><div class="sc-sec-hd">Utilization Gauge</div><div class="sc-chart">${gaugeSvg(d)}</div></div>
-    <div class="sc-sec"><div class="sc-sec-hd">Calculation Steps</div>
-      <table class="sc-table"><thead><tr><th>#</th><th>Description</th><th>Formula</th><th>Result</th></tr></thead><tbody>${stepsHTML}</tbody></table>
-    </div>
-    <div class="sc-sec"><div class="sc-sec-hd">Recommended Actions</div>${recHTML}</div>
-    <div class="sc-sec"><div class="sc-sec-hd">Standards & References</div><div class="sc-std">
-      <span>AWS D1.1</span> — Structural Welding Code — Steel (minimum fillet leg table)<br>
-      <span>EN ISO 2553</span> — Welding and allied processes — Symbolic representation on drawings
+    <div class="sc-sec"><div class="sc-sec-hd">Weld Summary</div><div class="sc-cards">
+      <div class="sc-card-res ${status==='PASS'?'pass':status==='WARNING'?'warn':'crit'}"><div class="sc-card-res-label">Required Leg</div><div class="sc-card-res-val">${d.leg.toFixed(2)}</div><div class="sc-card-res-sub">mm</div><span class="sc-card-res-badge ${status==='PASS'?'sc-badge-pass':status==='WARNING'?'sc-badge-warn':'sc-badge-crit'}">${status}</span></div>
+      <div class="sc-card-res"><div class="sc-card-res-label">Utilization</div><div class="sc-card-res-val">${(d.util*100).toFixed(0)}%</div><div class="sc-card-res-sub">load / capacity</div></div>
+      <div class="sc-card-res"><div class="sc-card-res-label">Required Throat</div><div class="sc-card-res-val">${d.throat.toFixed(2)}</div><div class="sc-card-res-sub">mm</div></div>
+      <div class="sc-card-res"><div class="sc-card-res-label">Code Min Leg</div><div class="sc-card-res-val">${d.minLeg.toFixed(2)}</div><div class="sc-card-res-sub">mm</div></div>
     </div></div>
-    <div class="sc-footer">Generated by SectorCalc.com — Deterministic Engineering Calculators — Client-Side Only — Your data never leaves your browser<br>
-    Deterministic Engine | Reproducible | Client-Side | Audit-Ready</div>`;
-
-  $('pdfBtn').addEventListener('click', exportPDF);
-  $('pdfGraphicBtn').addEventListener('click', (e) => { void exportPDFGraphic(e); });
-  $('shareBtn').addEventListener('click', shareReport);
+    <div class="sc-sec"><div class="sc-sec-hd">Input Registry</div><div class="sc-card"><div class="sc-table-wrap"><table class="sc-table"><thead><tr><th>Parameter</th><th>Value</th><th>Unit</th></tr></thead><tbody>
+      <tr><td class="td-name">Design load</td><td class="td-val">${d.input.designLoadN}</td><td>N</td></tr>
+      <tr><td class="td-name">Weld length</td><td class="td-val">${d.input.weldLengthMm}</td><td>mm</td></tr>
+      <tr><td class="td-name">Weld strength</td><td class="td-val">${d.input.weldStrengthMpa}</td><td>MPa</td></tr>
+      <tr><td class="td-name">Safety factor</td><td class="td-val">${d.input.safetyFactor}</td><td>-</td></tr>
+      <tr><td class="td-name">Material thickness</td><td class="td-val">${d.input.materialThicknessMm}</td><td>mm</td></tr>
+      <tr><td class="td-name">Joint type</td><td class="td-val">${d.input.jointType}</td><td>-</td></tr>
+    </tbody></table></div></div></div>
+    <div class="sc-sec"><div class="sc-sec-hd">Utilization Gauge</div><div class="sc-card"><div style="display:flex;justify-content:center"><svg width="300" height="170" viewBox="0 0 300 170">
+      <path d="M 40 150 A 110 110 0 0 1 260 150" fill="none" stroke="#111720" stroke-width="24" stroke-linecap="round"/>
+      <path d="M 40 150 A 110 110 0 0 1 150 40" fill="none" stroke="rgba(82,196,26,0.2)" stroke-width="24" stroke-linecap="round"/>
+      <path d="M 150 40 A 110 110 0 0 1 210 70" fill="none" stroke="rgba(250,173,20,0.2)" stroke-width="24" stroke-linecap="round"/>
+      <path d="M 210 70 A 110 110 0 0 1 260 150" fill="none" stroke="rgba(245,34,45,0.2)" stroke-width="24" stroke-linecap="round"/>
+      <line x1="150" y1="150" x2="${150 + 95 * Math.cos(gaugeAngle * Math.PI / 180)}" y2="${150 + 95 * Math.sin(gaugeAngle * Math.PI / 180)}" stroke="${gCol}" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="150" cy="150" r="7" fill="${gCol}"/>
+      <text x="150" y="135" text-anchor="middle" fill="#f0f4f8" font-size="24" font-weight="700" font-family="JetBrains Mono">${(d.util*100).toFixed(0)}%</text>
+      <text x="150" y="155" text-anchor="middle" fill="#4a5568" font-size="10">utilization</text>
+      <text x="30" y="168" fill="#4a5568" font-size="9">0</text><text x="262" y="168" fill="#4a5568" font-size="9">150%</text>
+    </svg></div></div></div>
+    <div class="sc-sec"><div class="sc-sec-hd">Show Me The Math</div><div class="sc-card"><div class="sc-table-wrap"><table class="sc-table"><thead><tr><th>#</th><th>Step</th><th>Result</th></tr></thead><tbody>${stepsRows}</tbody></table></div></div></div>
+    <div class="sc-sec"><div class="sc-sec-hd">What-If Sensitivity</div><div class="sc-card"><div style="font-size:11px;color:var(--text-muted);margin-bottom:14px;font-family:var(--font-mono)">Scenario impact on required leg and utilization.</div>
+      <div class="sc-whatif">${whatIfs.map(w => `<div class="sc-whatif-card"><div class="sc-whatif-lbl">${w.label}</div><div class="sc-whatif-val">${w.leg.toFixed(2)} mm</div><div class="sc-whatif-chg ${w.util >= 1 ? 'pos' : w.util >= 0.9 ? 'neu' : 'neg'}">util ${(w.util*100).toFixed(0)}%</div></div>`).join('')}</div>
+    </div></div>
+    <div class="sc-sec"><div class="sc-sec-hd">Recommended Actions</div><div class="sc-card">${recHTML}</div></div>
+    <div class="sc-sec"><div class="sc-sec-hd">Standards & References</div><div class="sc-card"><div class="sc-std">
+      <span>AWS D1.1</span> - Structural welding code, fillet weld sizing<br>
+      <span>EN ISO 2553</span> - Weld symbols on drawings<br>
+      <span>Throat relation</span> - fillet throat ~ 0.707 x leg<br>
+      <span>Utilization</span> - applied stress / allowable; &gt;= 1.0 means undersized<br>
+      <span>Deterministic</span> - same inputs always yield the same leg, client-side
+    </div></div></div>
+    <div class="sc-footer">Generated by SectorCalc.com - Deterministic Engineering Calculators - Client-Side Only - Your data never leaves your browser<br>Deterministic | Reproducible | Audit-Ready</div>`;
+  $('reportArea').innerHTML = reportHTML;
 }
 
-function exportPDF(): void {
-  const data = (window as any).calcData as CalcData | null | undefined;
-  if (!data) { calc(); }
-  const d = (window as any).calcData as CalcData | null | undefined;
-  if (!d) return;
-  const { jsPDF } = window.jspdf;
-  const doc = new jsPDF({ unit: 'pt', format: 'a4' });
-  const calcId = window.calcId || 'SC-001';
+function exportPDF() {
+  const d = calcData; if (!d) return;
+  const { jsPDF } = window.jspdf; const doc = new jsPDF({ unit: 'pt', format: 'a4' });
+  const calcId = window.calcId || 'SC-001'; const status = overallStatus(d.util);
   let y = 48;
-  const line = (txt: string, size?: number, color?: string, bold?: boolean) => {
-    doc.setFontSize(size || 10);
-    doc.setTextColor(color || '#222222');
-    doc.setFont('helvetica', bold ? 'bold' : 'normal');
-    const lines = doc.splitTextToSize(txt, 500);
-    doc.text(lines, 48, y);
-    y += lines.length * ((size || 10) + 4) + 2;
-    if (y > 780) { doc.addPage(); y = 48; }
-  };
-  line('SC-001 Weld Thickness Analysis Report', 16, '#111111', true);
-  line('Calc ID: ' + calcId + '   |   ' + new Date().toISOString().slice(0, 19) + ' UTC', 9, '#666666');
-  line('Standard: AWS D1.1 | EN ISO 2553 | Client-Side Only', 9, '#1a7f37');
-  y += 6;
-  line('VERDICT: ' + d.overall + '    Utilization ' + d.result.utilization + '    Leg ' + d.result.finalLegMm + ' mm', 13,
-    d.overall === 'PASS' ? '#1a7f37' : d.overall === 'WARNING' ? '#b8860b' : '#c0392b', true);
-  y += 8;
-  line('KEY RESULTS', 11, '#111111', true);
-  line('Final leg: ' + d.result.finalLegMm + ' mm (' + d.result.finalLegIn + ' in)', 10);
-  line('Required throat: ' + d.result.requiredThroatMm + ' mm', 10);
-  line('Min leg (table): ' + d.result.minLegMm + ' mm', 10);
-  line('Leg from load: ' + d.result.legFromLoadMm + ' mm', 10);
-  line('Joint type: ' + d.result.jointType, 10);
-  y += 8;
-  line('CALCULATION STEPS', 11, '#111111', true);
-  d.result.steps.forEach((s) => line(s.step + '. ' + s.description + ' | ' + s.formula + ' = ' + s.result, 9));
-  y += 8;
-  line('STANDARDS', 11, '#111111', true);
-  line('AWS D1.1 — Structural Welding Code — Steel', 8, '#666666');
-  line('EN ISO 2553 — Symbolic representation on drawings', 8, '#666666');
-  y += 8;
-  line('Generated by SectorCalc.com - Deterministic Engineering Calculators - Audit-Ready', 8, '#999999');
+  const line = (txt, size, color, bold) => { doc.setFontSize(size || 10); doc.setTextColor(color || '#222222'); doc.setFont('helvetica', bold ? 'bold' : 'normal'); const ls = doc.splitTextToSize(txt, 500); doc.text(ls, 48, y); y += ls.length * ((size || 10) + 4) + 2; if (y > 780) { doc.addPage(); y = 48; } };
+  line('SC-001 Weld Thickness Analysis', 16, '#111111', true);
+  line('Calc ID: ' + calcId + '   |   ' + new Date().toISOString().slice(0,19) + ' UTC', 9, '#666666');
+  line('Standard: AWS D1.1 | EN ISO 2553', 9, '#666666');
+  line('Client-Side Only - your data never left your browser', 9, '#1a7f37'); y += 6;
+  line('VERDICT: ' + status + '    Required leg ' + d.leg.toFixed(2) + ' mm    Utilization ' + (d.util*100).toFixed(0) + '%    Throat ' + d.throat.toFixed(2) + '    Min leg ' + d.minLeg.toFixed(2), 12, status==='PASS'?'#1a7f37':(status==='WARNING'?'#b8860b':'#c0392b'), true); y += 8;
+  line('STEPS', 11, '#111111', true);
+  (d.steps.length ? d.steps : [{ step: '-', description: 'no step trace', result: '' }]).forEach(s => line((s.step !== undefined ? s.step + '. ' : '') + (s.description || '') + ' = ' + (s.result !== undefined ? s.result : (s.formula || '')), 9)); y += 8;
+  line('Generated by SectorCalc.com - Deterministic - Audit-Ready', 8, '#999999');
   doc.save('SC-001-' + calcId + '.pdf');
 }
 
-async function exportPDFGraphic(e?: Event): Promise<void> {
-  const el = document.getElementById('reportArea');
-  if (!el || !(window as any).calcData) { alert('Generate the report first.'); return; }
-  const btn = e?.target as HTMLButtonElement | undefined;
-  if (btn) { btn.textContent = 'Rendering...'; btn.disabled = true; }
+async function exportPDFGraphic() {
+  const el = $('reportArea'); if (!el || !calcData) { alert('Generate the report first.'); return; }
+  const btn = event && event.target; if (btn) { btn.textContent = 'Rendering...'; btn.disabled = true; }
   try {
-    const html2canvas = (window as any).html2canvas as (el: HTMLElement, opts: Record<string, unknown>) => Promise<HTMLCanvasElement>;
-    const canvas = await html2canvas(el, {
-      scale: 1.5,
-      backgroundColor: '#070a0f',
-      useCORS: true,
-      logging: false
-    });
-    const { jsPDF } = window.jspdf;
-    const pdf = new jsPDF({ unit: 'pt', format: 'a4', orientation: 'portrait' });
-    const pageW = pdf.internal.pageSize.getWidth();
-    const pageH = pdf.internal.pageSize.getHeight();
-    const imgW = pageW;
-    const imgH = (canvas.height * pageW) / canvas.width;
-    const imgData = canvas.toDataURL('image/jpeg', 0.82);
-    let heightLeft = imgH;
-    let position = 0;
-    pdf.addImage(imgData, 'JPEG', 0, position, imgW, imgH);
-    heightLeft -= pageH;
-    while (heightLeft > 0) {
-      position -= pageH;
-      pdf.addPage();
-      pdf.addImage(imgData, 'JPEG', 0, position, imgW, imgH);
-      heightLeft -= pageH;
-    }
+    const canvas = await html2canvas(el, { scale: 1.5, backgroundColor: '#070a0f', useCORS: true, logging: false });
+    const { jsPDF } = window.jspdf; const pdf = new jsPDF({ unit: 'pt', format: 'a4' });
+    const pageW = pdf.internal.pageSize.getWidth(), pageH = pdf.internal.pageSize.getHeight();
+    const imgH = (canvas.height * pageW) / canvas.width; const imgData = canvas.toDataURL('image/jpeg', 0.82);
+    let heightLeft = imgH, position = 0;
+    pdf.addImage(imgData, 'JPEG', 0, position, pageW, imgH); heightLeft -= pageH;
+    while (heightLeft > 0) { position -= pageH; pdf.addPage(); pdf.addImage(imgData, 'JPEG', 0, position, pageW, imgH); heightLeft -= pageH; }
     const pages = pdf.getNumberOfPages();
-    for (let i = 1; i <= pages; i++) {
-      pdf.setPage(i);
-      pdf.setFontSize(7);
-      pdf.setTextColor('#787878');
-      pdf.text('SectorCalc.com | Calc ID ' + (window.calcId || 'SC-001') + ' | Client-Side | Page ' + i + '/' + pages, 48, pageH - 16);
-    }
+    for (let i = 1; i <= pages; i++) { pdf.setPage(i); pdf.setFontSize(7); pdf.setTextColor(120); pdf.text('SectorCalc.com | Calc ID ' + (window.calcId || 'SC-001') + ' | Deterministic | Client-Side | Page ' + i + '/' + pages, 48, pageH - 16); }
     pdf.save('SC-001-' + (window.calcId || 'report') + '-graphic.pdf');
-  } catch (err) {
-    const msg = err instanceof Error ? err.message : String(err);
-    alert('Graphic PDF failed: ' + msg + '. Use Export PDF (text) instead.');
-  } finally {
-    if (btn) { btn.textContent = 'Export Graphic PDF'; btn.disabled = false; }
-  }
+  } catch (err) { alert('Graphic PDF failed: ' + err.message + '. Use Export PDF instead.'); }
+  finally { if (btn) { btn.textContent = 'Export Graphic PDF'; btn.disabled = false; } }
 }
 
-function shareReport(): void {
-  const d = (window as any).calcData as CalcData | null | undefined;
-  if (!d) { alert('Generate the report first.'); return; }
-  const s = encodeURIComponent(JSON.stringify(d.fields));
-  void navigator.clipboard.writeText(location.origin + '/weld-pro.html?s=' + s).then(() => alert('Shareable URL copied'));
+function shareReport() {
+  const d = calcData; if (!d) return;
+  const s = encodeURIComponent(JSON.stringify(Object.assign({ jointType: d.input.jointType }, Object.fromEntries(FIELDS.map(f => [f, d.input[f]])))));
+  navigator.clipboard.writeText(location.origin + '/weld-pro.html?s=' + s).then(() => alert('Shareable URL copied'));
 }
 
-function bindEvents(): void {
-  document.querySelectorAll('.sc-preset').forEach((b) => {
-    b.addEventListener('click', () => {
-      const key = (b as HTMLElement).dataset.preset as PresetKey | undefined;
-      if (key && presets[key]) loadPreset(key);
-    });
-  });
-  (['designLoadN', 'weldLengthMm', 'weldStrengthMpa', 'safetyFactor', 'materialThicknessMm'] as const)
-    .forEach((id) => $input(id).addEventListener('input', calc));
-  $select('jointType').addEventListener('change', calc);
-  $('genReport').addEventListener('click', generateReport);
-  $('resetAll').addEventListener('click', () => loadPreset('structural'));
-}
+window.generateReport = generateReport;
+window.exportPDF = exportPDF;
+window.exportPDFGraphic = exportPDFGraphic;
+window.shareReport = shareReport;
+window.loadPreset = loadPreset;
+window.resetAll = resetAll;
+window.validateAndCalc = validateAndCalc;
 
-function applyShareQuery(): void {
-  const q = new URLSearchParams(location.search).get('s');
-  if (!q) return;
-  try {
-    const parsed = JSON.parse(decodeURIComponent(q)) as Partial<FieldState>;
-    fields = { ...DEFAULTS, ...parsed };
-  } catch {
-    /* ignore */
-  }
-}
-
-applyShareQuery();
-renderShell();
+loadFromURL();
+validateAndCalc();

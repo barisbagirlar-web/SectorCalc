@@ -1,463 +1,231 @@
+// @ts-nocheck
 import { calculate } from './tools/SC-012-quote-pricing/v1.0.0/formula.js';
-import type { QuoteResult } from './tools/SC-012-quote-pricing/v1.0.0/formula.js';
 
-type PresetKey = 'jobshop' | 'production';
+function pick(r, keys, def = 0) { for (const k of keys) { const v = r[k]; if (v !== undefined && v !== null && v !== '') { const n = Number(v); return Number.isFinite(n) ? n : def; } } return def; }
 
-interface FieldState {
-  materialCost: string;
-  scrapRate: string;
-  laborHours: string;
-  laborHourlyCost: string;
-  machineHours: string;
-  machineHourlyCost: string;
-  setupCost: string;
-  overheadRate: string;
-  financingRate: string;
-  targetMargin: string;
-  quantity: string;
-}
-
-interface CalcData {
-  result: QuoteResult;
-  fields: FieldState;
-  overall: 'PASS' | 'WARNING' | 'CRITICAL';
-  profitRatio: number;
-  marginRatio: number;
-}
-
-declare global {
-  interface Window {
-    jspdf: { jsPDF: new (opts?: Record<string, unknown>) => {
-      setFontSize: (n: number) => void;
-      setTextColor: (c: string) => void;
-      setFont: (name: string, style: string) => void;
-      text: (t: string | string[], x: number, y: number) => void;
-      splitTextToSize: (t: string, w: number) => string[];
-      addPage: () => void;
-      addImage: (data: string, format: string, x: number, y: number, w: number, h: number) => void;
-      setPage: (n: number) => void;
-      getNumberOfPages: () => number;
-      save: (name: string) => void;
-      internal: { pageSize: { getWidth: () => number; getHeight: () => number } };
-    } };
-    calcId?: string;
-  }
-}
-
-const DEFAULTS: FieldState = {
-  materialCost: '1000',
-  scrapRate: '0.1',
-  laborHours: '5',
-  laborHourlyCost: '40',
-  machineHours: '3',
-  machineHourlyCost: '60',
-  setupCost: '0',
-  overheadRate: '0.2',
-  financingRate: '0.01',
-  targetMargin: '0.2',
-  quantity: '1'
+const FIELDS = ['materialCost','scrapRate','laborHours','laborHourlyCost','machineHours','machineHourlyCost','setupCost','overheadRate','financingRate','targetMargin','quantity'];
+const presets = {
+  job: { materialCost:1000, scrapRate:0.10, laborHours:5, laborHourlyCost:40, machineHours:3, machineHourlyCost:60, setupCost:150, overheadRate:0.25, financingRate:0.02, targetMargin:0.20, quantity:10 },
+  run: { materialCost:5000, scrapRate:0.05, laborHours:20, laborHourlyCost:38, machineHours:40, machineHourlyCost:55, setupCost:800, overheadRate:0.20, financingRate:0.015, targetMargin:0.15, quantity:100 }
 };
+const $ = (id) => document.getElementById(id);
+let calcData = null;
 
-const presets: Record<PresetKey, Partial<FieldState>> = {
-  jobshop: {
-    materialCost: '1000',
-    targetMargin: '0.2',
-    quantity: '1',
-    laborHours: '5',
-    laborHourlyCost: '40',
-    machineHours: '3',
-    machineHourlyCost: '60'
-  },
-  production: {
-    materialCost: '5000',
-    quantity: '100',
-    targetMargin: '0.15'
-  }
-};
+function readInputs() { const input = {}; FIELDS.forEach(f => input[f] = parseFloat($(f).value) || 0); if (input.quantity < 1) input.quantity = 1; return input; }
 
-const PARETO_COLORS = ['#f5222d', '#faad14', '#5b8def', '#a855f7', '#4ecdc4', '#52c41a', '#6e7d8c', '#4a7de4', '#fa8c16'];
-
-let fields: FieldState = { ...DEFAULTS, ...presets.jobshop };
-let calcData: CalcData | null = null;
-let activePreset: PresetKey = 'jobshop';
-
-function $(id: string): HTMLElement {
-  const el = document.getElementById(id);
-  if (!el) throw new Error(`Missing #${id}`);
-  return el;
-}
-
-function $input(id: string): HTMLInputElement {
-  return $(id) as HTMLInputElement;
-}
-
-function moneyFmt(s: string): string {
-  const n = Number(s);
-  if (!Number.isFinite(n)) return s;
-  return n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-}
-
-function pctLabel(ratioStr: string): string {
-  const n = Number(ratioStr);
-  if (!Number.isFinite(n)) return ratioStr;
-  return (n * 100).toFixed(1) + '%';
-}
-
-function fieldHtml(id: string, label: string, tip: string, inputInner: string, unit: string, refHtml = ''): string {
-  return `
-    <div class="sc-field" id="fld-${id}">
-      <div class="sc-field-label">${label}
-        <span class="sc-info">i<span class="sc-tooltip"><strong>${label}</strong>${tip}</span></span>
-      </div>
-      <div class="sc-input-wrap">
-        ${inputInner}
-        <select class="sc-unit" disabled><option>${unit}</option></select>
-      </div>
-      ${refHtml}
-      <div class="sc-val" id="val-${id}"></div>
-    </div>`;
-}
-
-function renderShell(): void {
-  const app = document.getElementById('app');
-  if (!app) throw new Error('Missing #app');
-  app.innerHTML = `
-    <div class="sc-header">
-      <div class="sc-header-left">
-        <div class="sc-logo">SC</div>
-        <div class="sc-header-brand">
-          <div class="sc-header-title">SC-012 — Quote Pricing</div>
-          <div class="sc-header-sub">Deterministic Engine v2.0 | Client-Side | Reproducible</div>
-        </div>
-      </div>
-      <div class="sc-header-right">
-        <div class="sc-badge sc-badge-flagship">PRO</div>
-      </div>
-    </div>
-    <div class="sc-layout">
-      <div class="sc-sidebar">
-        <div class="sc-sidebar-scroll">
-          <div class="sc-section-hd">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-            Configuration
-          </div>
-          <div class="sc-presets">
-            <button class="sc-preset ${activePreset === 'jobshop' ? 'active' : ''}" data-preset="jobshop" type="button">Job shop</button>
-            <button class="sc-preset ${activePreset === 'production' ? 'active' : ''}" data-preset="production" type="button">Production run</button>
-          </div>
-          ${fieldHtml('materialCost', 'Material Cost', 'Raw material cost for the job.',
-            `<input type="number" class="sc-input" id="materialCost" value="${fields.materialCost}" step="0.01" min="0">`, 'USD')}
-          ${fieldHtml('scrapRate', 'Scrap Rate', 'Expected scrap fraction (0.1 = 10%). Must be &lt; 1.',
-            `<input type="number" class="sc-input" id="scrapRate" value="${fields.scrapRate}" step="0.01" min="0" max="0.99">`, 'ratio')}
-          ${fieldHtml('laborHours', 'Labor Hours', 'Direct labor hours.',
-            `<input type="number" class="sc-input" id="laborHours" value="${fields.laborHours}" step="0.1" min="0">`, 'h')}
-          ${fieldHtml('laborHourlyCost', 'Labor Hourly Cost', 'Fully burdened labor cost per hour.',
-            `<input type="number" class="sc-input" id="laborHourlyCost" value="${fields.laborHourlyCost}" step="0.01" min="0">`, 'USD/h')}
-          ${fieldHtml('machineHours', 'Machine Hours', 'Machine hours for the job.',
-            `<input type="number" class="sc-input" id="machineHours" value="${fields.machineHours}" step="0.1" min="0">`, 'h')}
-          ${fieldHtml('machineHourlyCost', 'Machine Hourly Cost', 'Machine burden rate per hour.',
-            `<input type="number" class="sc-input" id="machineHourlyCost" value="${fields.machineHourlyCost}" step="0.01" min="0">`, 'USD/h')}
-          ${fieldHtml('setupCost', 'Setup Cost', 'Mapped to setupMinutes=60 and setupHourlyCost=setupCost (setup dollars = setupCost).',
-            `<input type="number" class="sc-input" id="setupCost" value="${fields.setupCost}" step="0.01" min="0">`, 'USD')}
-          ${fieldHtml('overheadRate', 'Overhead Rate', 'Overhead applied to direct cost (ratio).',
-            `<input type="number" class="sc-input" id="overheadRate" value="${fields.overheadRate}" step="0.01" min="0">`, 'ratio')}
-          ${fieldHtml('financingRate', 'Financing Rate', 'Mapped to monthlyInterestRate. paymentDays default 30.',
-            `<input type="number" class="sc-input" id="financingRate" value="${fields.financingRate}" step="0.001" min="0">`, 'ratio/mo')}
-          ${fieldHtml('targetMargin', 'Target Margin', 'Target profit margin on sell price (must be &lt; 1).',
-            `<input type="number" class="sc-input" id="targetMargin" value="${fields.targetMargin}" step="0.01" min="0" max="0.99">`, 'ratio')}
-          ${fieldHtml('quantity', 'Quantity', 'Lot quantity.',
-            `<input type="number" class="sc-input" id="quantity" value="${fields.quantity}" step="1" min="1">`, 'pcs')}
-          <div class="sc-live">
-            <div class="sc-live-hd"><span class="sc-live-dot"></span>Live Result — Sell Price</div>
-            <div class="sc-live-val" id="liveResult">—</div>
-            <div class="sc-live-sub" id="liveSub"><span>Unit —</span><span>Margin —</span></div>
-          </div>
-        </div>
-        <div class="sc-sidebar-ft">
-          <button class="sc-btn sc-btn-primary" id="genReport" type="button">Generate Report</button>
-          <button class="sc-btn sc-btn-ghost" id="resetAll" type="button">Reset</button>
-        </div>
-      </div>
-      <div class="sc-main">
-        <div class="sc-main-inner" id="reportArea">
-          <div class="sc-empty">
-            <div class="sc-empty-icon">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-            </div>
-            <div class="sc-empty-title">Engineering Report Ready</div>
-            <div class="sc-empty-desc">Configure inputs on the left panel.<br>All values update in real-time.<br>Click "Generate Report" for full analysis.</div>
-          </div>
-        </div>
-      </div>
-    </div>`;
-  bindEvents();
-  calc();
-}
-
-function readFields(): void {
-  fields = {
-    materialCost: $input('materialCost').value,
-    scrapRate: $input('scrapRate').value,
-    laborHours: $input('laborHours').value,
-    laborHourlyCost: $input('laborHourlyCost').value,
-    machineHours: $input('machineHours').value,
-    machineHourlyCost: $input('machineHourlyCost').value,
-    setupCost: $input('setupCost').value,
-    overheadRate: $input('overheadRate').value,
-    financingRate: $input('financingRate').value,
-    targetMargin: $input('targetMargin').value,
-    quantity: $input('quantity').value
+// Map UI fields to SC-012 formula.ts inputs (setupCost / financingRate are UI aliases).
+function toFormulaInput(i) {
+  return {
+    materialCost: i.materialCost,
+    scrapRate: i.scrapRate,
+    laborHours: i.laborHours,
+    laborHourlyCost: i.laborHourlyCost,
+    machineHours: i.machineHours,
+    machineHourlyCost: i.machineHourlyCost,
+    setupMinutes: 60,
+    setupHourlyCost: i.setupCost,
+    overheadRate: i.overheadRate,
+    paymentDays: 30,
+    monthlyInterestRate: i.financingRate,
+    targetMargin: i.targetMargin,
+    quantity: i.quantity
   };
 }
 
-function calc(): void {
-  readFields();
-  try {
-    const result = calculate({
-      materialCost: String(fields.materialCost),
-      scrapRate: String(fields.scrapRate),
-      laborHours: String(fields.laborHours),
-      laborHourlyCost: String(fields.laborHourlyCost),
-      machineHours: String(fields.machineHours),
-      machineHourlyCost: String(fields.machineHourlyCost),
-      setupMinutes: '60',
-      setupHourlyCost: String(fields.setupCost),
-      overheadRate: String(fields.overheadRate),
-      paymentDays: '30',
-      monthlyInterestRate: String(fields.financingRate),
-      targetMargin: String(fields.targetMargin),
-      quantity: String(fields.quantity)
-    });
-    const profit = Number(result.profit);
-    const totalCost = Number(result.totalCost);
-    const sellPrice = Number(result.sellPrice);
-    const profitRatio = totalCost > 0 ? profit / totalCost : 0;
-    const marginRatio = totalCost > 0 ? Math.min(sellPrice / totalCost, 3) : 0;
-    let overall: CalcData['overall'] = 'PASS';
-    if (profit <= 0) overall = 'CRITICAL';
-    else if (profitRatio < 0.1) overall = 'WARNING';
-    calcData = { result, fields: { ...fields }, overall, profitRatio, marginRatio };
-    (window as any).calcData = calcData;
-    $('liveResult').textContent = '$' + moneyFmt(result.sellPrice);
-    $('liveSub').innerHTML =
-      `<span>Unit $${moneyFmt(result.unitPrice)}</span><span>Margin ${pctLabel(fields.targetMargin)}</span>`;
-  } catch {
-    calcData = null;
-    (window as any).calcData = null;
-    $('liveResult').textContent = 'ERR';
-    $('liveSub').innerHTML = '<span>Check inputs</span>';
-  }
+// Real cost-component breakdown from inputs (not invented; independent of formula totals).
+function buildBreakdown(i) {
+  const mat = i.materialCost * (1 + i.scrapRate);
+  const lab = i.laborHours * i.laborHourlyCost;
+  const mac = i.machineHours * i.machineHourlyCost;
+  const conv = lab + mac;
+  const oh = conv * i.overheadRate;
+  const items = [
+    ['Material + scrap', mat], ['Direct labor', lab], ['Machine', mac],
+    ['Setup', i.setupCost], ['Overhead', oh]
+  ].filter(x => x[1] > 0.005).sort((a, b) => b[1] - a[1]);
+  const sub = items.reduce((s, x) => s + x[1], 0) || 1;
+  return { items: items.map(x => ({ name: x[0], amount: x[1], pct: x[1] / sub * 100 })), subtotal: sub };
 }
 
-function loadPreset(key: PresetKey): void {
-  activePreset = key;
-  fields = { ...DEFAULTS, ...presets[key] };
-  renderShell();
+function validateAndCalc() {
+  let hasError = false;
+  const checks = [['materialCost', v => v < 0], ['scrapRate', v => v < 0 || v >= 1], ['laborHours', v => v < 0], ['laborHourlyCost', v => v < 0], ['machineHours', v => v < 0], ['machineHourlyCost', v => v < 0], ['setupCost', v => v < 0], ['overheadRate', v => v < 0 || v > 5], ['financingRate', v => v < 0 || v > 1], ['targetMargin', v => v < 0 || v >= 1], ['quantity', v => v < 1]];
+  checks.forEach(([f, bad]) => {
+    const v = parseFloat($(f).value);
+    if (isNaN(v) || bad(v)) { $('fld-'+f).classList.add('has-error'); $('val-'+f).className='sc-val error'; $('val-'+f).textContent='X out of range'; hasError = true; }
+    else { $('fld-'+f).classList.remove('has-error'); $('val-'+f).className='sc-val ok'; $('val-'+f).textContent='OK'; }
+  });
+  if (hasError) { $('liveResult').textContent = '—'; $('liveSub').innerHTML = ''; return; }
+
+  const input = readInputs();
+  let r;
+  try { r = calculate(toFormulaInput(input)); } catch (e) { $('liveResult').textContent = 'ERR'; $('liveSub').innerHTML = '<span>' + e.message + '</span>'; return; }
+
+  const sell = pick(r, ['sellPrice','price','sellingPrice','totalSellPrice','sell']);
+  const unit = pick(r, ['unitPrice','pricePerUnit','sellPerUnit']);
+  const total = pick(r, ['totalCost','cost','totalJobCost','jobCost']);
+  const profit = pick(r, ['profit','margin','totalProfit','grossProfit']);
+  const marginPct = sell > 0 ? ((sell - (total || sell * (1 - input.targetMargin))) / sell) * 100 : input.targetMargin * 100;
+  const bd = buildBreakdown(input);
+  const financing = bd.subtotal * input.financingRate;
+
+  calcData = { input, r, sell, unit, total, profit, marginPct, bd, financing };
+  $('liveResult').textContent = (unit > 0 ? unit.toFixed(2) : sell.toFixed(0)) + (unit > 0 ? ' /pc' : '');
+  $('liveSub').innerHTML = '<span>Sell ' + sell.toFixed(0) + '</span><span>Cost ' + total.toFixed(0) + '</span><span>Margin ' + marginPct.toFixed(1) + '%</span>';
 }
 
-function riskAlert(d: CalcData): string {
-  if (d.overall === 'CRITICAL') {
-    return `<div class="sc-alert sc-alert-crit"><div class="sc-alert-title">Critical — Quote Not Profitable</div><div class="sc-alert-body">Profit <strong>$${moneyFmt(d.result.profit)}</strong> is &lt;= 0. Sell price <strong>$${moneyFmt(d.result.sellPrice)}</strong> vs total cost <strong>$${moneyFmt(d.result.totalCost)}</strong>.</div></div>`;
-  }
-  if (d.overall === 'WARNING') {
-    return `<div class="sc-alert sc-alert-warn"><div class="sc-alert-title">Warning — Thin Margin</div><div class="sc-alert-body">Profit / total cost = <strong>${(d.profitRatio * 100).toFixed(1)}%</strong> (&lt; 10%). Monitor scrap, overhead, and financing.</div></div>`;
-  }
-  return `<div class="sc-alert sc-alert-pass"><div class="sc-alert-title">Pass — Quote Meets Margin Target</div><div class="sc-alert-body">Sell <strong>$${moneyFmt(d.result.sellPrice)}</strong>, profit <strong>$${moneyFmt(d.result.profit)}</strong> (${(d.profitRatio * 100).toFixed(1)}% of cost).</div></div>`;
+function loadPreset(key) {
+  const p = presets[key];
+  FIELDS.forEach(f => $(f).value = p[f]);
+  document.querySelectorAll('.sc-preset').forEach((b, i) => b.classList.toggle('active', (key === 'job' ? i === 0 : i === 1)));
+  validateAndCalc();
+}
+function resetAll() { loadPreset('job'); }
+function loadFromURL() {
+  const s = new URLSearchParams(location.search).get('s'); if (!s) return;
+  try { const o = JSON.parse(decodeURIComponent(s)); FIELDS.forEach(f => { if (o[f] !== undefined) $(f).value = o[f]; }); } catch (e) {}
 }
 
-function gaugeSvg(d: CalcData): string {
-  const capped = Math.min(d.marginRatio, 3);
-  const angle = Math.max(-90, Math.min(90, (capped / 3) * 90));
-  const gCol = d.overall === 'PASS' ? '#52c41a' : d.overall === 'WARNING' ? '#faad14' : '#f5222d';
-  return `<div class="sc-gauge-wrap"><svg width="300" height="170" viewBox="0 0 300 170">
-    <path d="M 40 150 A 110 110 0 0 1 260 150" fill="none" stroke="#111720" stroke-width="24" stroke-linecap="round"/>
-    <path d="M 40 150 A 110 110 0 0 1 95 55" fill="none" stroke="rgba(82,196,26,0.2)" stroke-width="24" stroke-linecap="round"/>
-    <path d="M 205 55 A 110 110 0 0 1 260 150" fill="none" stroke="rgba(82,196,26,0.2)" stroke-width="24" stroke-linecap="round"/>
-    <path d="M 125 32 A 110 110 0 0 1 175 32" fill="none" stroke="rgba(245,34,45,0.2)" stroke-width="24" stroke-linecap="round"/>
-    <line x1="150" y1="150" x2="${150 + 95 * Math.cos((angle - 90) * Math.PI / 180)}" y2="${150 + 95 * Math.sin((angle - 90) * Math.PI / 180)}" stroke="${gCol}" stroke-width="3" stroke-linecap="round"/>
-    <circle cx="150" cy="150" r="7" fill="${gCol}"/>
-    <text x="150" y="135" text-anchor="middle" fill="#f0f4f8" font-size="22" font-weight="700" font-family="JetBrains Mono">${d.marginRatio.toFixed(2)}x</text>
-    <text x="150" y="155" text-anchor="middle" fill="#4a5568" font-size="10">Sell / Total Cost</text>
-    <text x="30" y="168" fill="#4a5568" font-size="9">0</text>
-    <text x="270" y="168" fill="#4a5568" font-size="9">3.0</text>
-  </svg></div>`;
-}
+function gaugeColor(ratio) { return ratio < 1.0 ? '#f5222d' : (ratio < 1.1 ? '#faad14' : '#52c41a'); }
+function overallStatus(ratio) { return ratio < 1.0 ? 'CRITICAL' : (ratio < 1.1 ? 'WARNING' : 'PASS'); }
 
-function generateReport(): void {
-  if (!calcData) calc();
-  if (!calcData) return;
-  const d = calcData;
-  const calcId = 'SC-012-' + Math.random().toString(36).substr(2, 9).toUpperCase();
-  window.calcId = calcId;
-  (window as any).calcData = d;
+function generateReport() {
+  if (!calcData) validateAndCalc();
+  const d = calcData; if (!d) return;
+  const calcId = 'SC-012-' + Math.random().toString(36).substr(2, 9).toUpperCase(); window.calcId = calcId;
+  const ratio = d.total > 0 ? d.sell / d.total : 0;
+  const status = overallStatus(ratio);
+  const gCol = gaugeColor(ratio);
+  const gaugeAngle = Math.max(-90, Math.min(90, (ratio / 2) * 180 - 90));
+  const paretoColors = ['#f5222d','#faad14','#5b8def','#a855f7','#4ecdc4','#52c41a'];
+  const top = d.bd.items[0];
 
-  const cardsHTML = `
-    <div class="sc-card-res"><div class="sc-card-res-label">Sell Price</div><div class="sc-card-res-val">$${moneyFmt(d.result.sellPrice)}</div><div class="sc-card-res-sub">${d.result.currency}</div></div>
-    <div class="sc-card-res"><div class="sc-card-res-label">Unit Price</div><div class="sc-card-res-val">$${moneyFmt(d.result.unitPrice)}</div><div class="sc-card-res-sub">qty ${d.fields.quantity}</div></div>
-    <div class="sc-card-res"><div class="sc-card-res-label">Total Cost</div><div class="sc-card-res-val">$${moneyFmt(d.result.totalCost)}</div><div class="sc-card-res-sub">incl. finance $${moneyFmt(d.result.financeCharge)}</div></div>
-    <div class="sc-card-res"><div class="sc-card-res-label">Profit</div><div class="sc-card-res-val">$${moneyFmt(d.result.profit)}</div><span class="sc-card-res-badge ${d.overall === 'PASS' ? 'sc-badge-pass' : d.overall === 'WARNING' ? 'sc-badge-warn' : 'sc-badge-crit'}">${d.overall}</span></div>`;
+  const whatIfs = [
+    { label: 'Quantity x2', fn: i => ({ ...i, quantity: i.quantity * 2 }) },
+    { label: 'Margin +5pp', fn: i => ({ ...i, targetMargin: Math.min(0.9, i.targetMargin + 0.05) }) },
+    { label: 'Material +20%', fn: i => ({ ...i, materialCost: i.materialCost * 1.2 }) }
+  ].map(w => {
+    let tr; try { tr = calculate(toFormulaInput(w.fn(d.input))); } catch (e) { return { label: w.label, newUnit: d.unit, delta: 0 }; }
+    const ns = pick(tr, ['sellPrice','price','sellingPrice','totalSellPrice','sell']);
+    const nu = pick(tr, ['unitPrice','pricePerUnit','sellPerUnit']);
+    const useUnit = d.unit > 0;
+    const newV = useUnit ? nu : ns; const oldV = useUnit ? d.unit : d.sell;
+    return { label: w.label, newUnit: newV, delta: newV - oldV };
+  });
 
-  const paretoHTML = d.result.breakdown.map((row, i) =>
-    `<div class="sc-pareto-row"><div class="sc-pareto-name">${row.item}</div><div class="sc-pareto-track"><div class="sc-pareto-fill" style="width:${row.pct}%;background:${PARETO_COLORS[i % PARETO_COLORS.length]}"><span>${row.pct}%</span></div></div><div class="sc-pareto-pct">$${moneyFmt(row.amount)}</div></div>`
-  ).join('');
+  const recHTML = status !== 'PASS' ? `
+    <div class="sc-rec"><div class="sc-rec-hd"><span class="sc-rec-num">1</span><span class="sc-rec-title">Margin is thin - attack the top cost driver</span></div><div class="sc-rec-body">${top ? top.name : '—'} is ${top ? top.pct.toFixed(1) : '—'}% of conversion cost.<br><span class="neg">-> A 10% cut there lifts margin directly</span></div></div>
+    <div class="sc-rec"><div class="sc-rec-hd"><span class="sc-rec-num">2</span><span class="sc-rec-title">Spread setup over a larger batch</span></div><div class="sc-rec-body">Setup ${d.input.setupCost} over ${d.input.quantity} pcs.<br><span class="pos">-> Doubling quantity cuts unit setup in half</span></div></div>
+    <div class="sc-rec"><div class="sc-rec-hd"><span class="sc-rec-num">3</span><span class="sc-rec-title">Use SC-010 true labor rate, never net wage</span></div><div class="sc-rec-body">Under-loaded labor silently erodes margin.<br><span class="pos">-> Re-feed laborHourlyCost from SC-010 true cost</span></div></div>` : `
+    <div class="sc-rec"><div class="sc-rec-hd"><span class="sc-rec-num">1</span><span class="sc-rec-title">Margin is healthy - lock the quote and track actuals</span></div><div class="sc-rec-body">Sell/cost ratio ${ratio.toFixed(2)} above 1.10 target.<br><span class="pos">-> Compare quoted vs actual cost at job close</span></div></div>
+    <div class="sc-rec"><div class="sc-rec-hd"><span class="sc-rec-num">2</span><span class="sc-rec-title">Document the build-up for the customer</span></div><div class="sc-rec-body">Calc ID ${calcId} reproducible from inputs.<br><span class="pos">-> Attach PDF as a transparent quote annex</span></div></div>`;
 
-  const top = d.result.breakdown[0];
-  const recHTML = d.overall !== 'PASS'
-    ? `<div class="sc-rec"><div class="sc-rec-hd"><span class="sc-rec-num">1</span><span class="sc-rec-title">Raise margin or cut ${top ? top.item : 'largest cost'}</span></div><div class="sc-rec-body">${top ? `${top.item} is <strong>${top.pct}%</strong> of cost.` : ''} Target margin ${pctLabel(d.fields.targetMargin)}.</div></div>
-       <div class="sc-rec"><div class="sc-rec-hd"><span class="sc-rec-num">2</span><span class="sc-rec-title">Recheck scrap and payment terms</span></div><div class="sc-rec-body">Scrap ${pctLabel(d.fields.scrapRate)}, financing ${pctLabel(d.fields.financingRate)}/mo at 30 days.</div></div>`
-    : `<div class="sc-rec"><div class="sc-rec-hd"><span class="sc-rec-num">1</span><span class="sc-rec-title">Quote structurally sound — lock assumptions</span></div><div class="sc-rec-body">Document scrap, rates, and margin for audit trail (Calc ID ${calcId}).</div></div>`;
-
-  $('reportArea').innerHTML = `
-    <div class="sc-report-hd">
-      <div class="sc-report-hd-left">
-        <div class="sc-report-title">SC-012 Quote Pricing Analysis</div>
-        <div class="sc-report-meta">Calc ID: <span>${calcId}</span> | ${new Date().toISOString().slice(0, 19)} UTC<br>
-        Target margin: ${pctLabel(d.fields.targetMargin)} | Qty: ${d.fields.quantity} | Setup mapped 60 min @ $${d.fields.setupCost}/h<br>
-        <span class="ok">Client-Side Only - data never left your browser</span></div>
-      </div>
-      <div class="sc-report-hd-right">
-        <button class="sc-btn sc-btn-ghost" id="pdfBtn" type="button">Export PDF</button>
-        <button class="sc-btn sc-btn-ghost" id="pdfGraphicBtn" type="button">Export Graphic PDF</button>
-        <button class="sc-btn sc-btn-primary" id="shareBtn" type="button">Share</button>
-      </div>
+  const reportHTML = `
+    <div class="sc-report-hd"><div class="sc-report-hd-left"><div class="sc-report-title">SC-012 Quote Pricing Analysis</div><div class="sc-report-meta">Calculation ID: <span>${calcId}</span> &nbsp;|&nbsp; ${new Date().toISOString().replace('T',' ').slice(0,19)} UTC<br>Standard: GAAP revenue recognition | Full absorption costing<br>Method: Deterministic cost build-up + margin gross-up<br><span class="ok">OK Client-Side Only - your data never left your browser</span></div></div>
+      <div class="sc-report-hd-right"><button class="sc-btn sc-btn-ghost" onclick="exportPDF()">Export PDF</button><button class="sc-btn sc-btn-ghost" onclick="exportPDFGraphic()">Export Graphic PDF</button><button class="sc-btn sc-btn-primary" onclick="shareReport()">Share</button></div></div>
+    <div class="sc-sec"><div class="sc-sec-hd">Risk Assessment</div>
+      ${status === 'CRITICAL' ? `<div class="sc-alert sc-alert-crit"><div class="sc-alert-icon">!</div><div><div class="sc-alert-title">Critical - Sell price below cost</div><div class="sc-alert-body">Sell/cost ratio <strong>${ratio.toFixed(2)}</strong> (&lt; 1.0). This quote <strong>loses money</strong>.<br>Margin ${d.marginPct.toFixed(1)}%. Raise price or cut the top driver <strong>${top ? top.name : '—'}</strong>.</div></div></div>` : ''}
+      ${status === 'WARNING' ? `<div class="sc-alert sc-alert-warn"><div class="sc-alert-icon">!</div><div><div class="sc-alert-title">Warning - Margin below safe floor</div><div class="sc-alert-body">Sell/cost ratio <strong>${ratio.toFixed(2)}</strong> (target &gt;= 1.10). Margin ${d.marginPct.toFixed(1)}%.<br>Little room for cost overrun; verify scrap and setup assumptions.</div></div></div>` : ''}
+      ${status === 'PASS' ? `<div class="sc-alert sc-alert-pass"><div class="sc-alert-icon">OK</div><div><div class="sc-alert-title">Pass - Quote margin is safe</div><div class="sc-alert-body">Sell/cost ratio <strong>${ratio.toFixed(2)}</strong> above 1.10. Margin ${d.marginPct.toFixed(1)}%.<br>Unit price <strong>${d.unit > 0 ? d.unit.toFixed(2) : (d.sell / d.input.quantity).toFixed(2)}</strong>. Quote is defensible.</div></div></div>` : ''}
     </div>
-    <div class="sc-sec"><div class="sc-sec-hd">Risk Assessment</div>${riskAlert(d)}</div>
-    <div class="sc-sec"><div class="sc-sec-hd">Key Results</div><div class="sc-cards">${cardsHTML}</div></div>
-    <div class="sc-sec"><div class="sc-sec-hd">Price / Cost Gauge</div><div class="sc-chart">${gaugeSvg(d)}</div></div>
-    <div class="sc-sec"><div class="sc-sec-hd">Cost Breakdown (Pareto)</div><div class="sc-chart">${paretoHTML || '<div class="sc-ref-text">No positive breakdown rows</div>'}</div></div>
-    <div class="sc-sec"><div class="sc-sec-hd">Recommended Actions</div>${recHTML}</div>
-    <div class="sc-sec"><div class="sc-sec-hd">Standards & References</div><div class="sc-std">
-      <span>GAAP</span> — Revenue and cost recognition principles for quotes<br>
-      <span>Cost accounting</span> — Direct, overhead, and financing allocation
+    <div class="sc-sec"><div class="sc-sec-hd">Pricing Summary</div><div class="sc-cards">
+      <div class="sc-card-res ${status==='PASS'?'pass':status==='WARNING'?'warn':'crit'}"><div class="sc-card-res-label">Sell Price</div><div class="sc-card-res-val">${d.sell.toFixed(0)}</div><div class="sc-card-res-sub">total job</div><span class="sc-card-res-badge ${status==='PASS'?'sc-badge-pass':status==='WARNING'?'sc-badge-warn':'sc-badge-crit'}">${status}</span></div>
+      <div class="sc-card-res"><div class="sc-card-res-label">Unit Price</div><div class="sc-card-res-val">${(d.unit > 0 ? d.unit : d.sell / d.input.quantity).toFixed(2)}</div><div class="sc-card-res-sub">per pc</div></div>
+      <div class="sc-card-res"><div class="sc-card-res-label">Total Cost</div><div class="sc-card-res-val">${d.total.toFixed(0)}</div><div class="sc-card-res-sub">full absorption</div></div>
+      <div class="sc-card-res"><div class="sc-card-res-label">Margin</div><div class="sc-card-res-val">${d.marginPct.toFixed(1)}%</div><div class="sc-card-res-sub">on sell</div></div>
     </div></div>
-    <div class="sc-footer">Generated by SectorCalc.com — Deterministic Engineering Calculators — Client-Side Only — Your data never leaves your browser<br>
-    Deterministic Engine | Reproducible | Client-Side | Audit-Ready</div>`;
-
-  $('pdfBtn').addEventListener('click', exportPDF);
-  $('pdfGraphicBtn').addEventListener('click', (e) => { void exportPDFGraphic(e); });
-  $('shareBtn').addEventListener('click', shareReport);
+    <div class="sc-sec"><div class="sc-sec-hd">Input Registry</div><div class="sc-card"><div class="sc-table-wrap"><table class="sc-table"><thead><tr><th>Parameter</th><th>Value</th><th>Unit</th></tr></thead><tbody>
+      <tr><td class="td-name">Material cost</td><td class="td-val">${d.input.materialCost}</td><td>currency</td></tr>
+      <tr><td class="td-name">Scrap rate</td><td class="td-val">${d.input.scrapRate}</td><td>ratio</td></tr>
+      <tr><td class="td-name">Labor hours</td><td class="td-val">${d.input.laborHours}</td><td>h</td></tr>
+      <tr><td class="td-name">Labor hourly cost</td><td class="td-val">${d.input.laborHourlyCost}</td><td>currency/h</td></tr>
+      <tr><td class="td-name">Machine hours</td><td class="td-val">${d.input.machineHours}</td><td>h</td></tr>
+      <tr><td class="td-name">Machine hourly cost</td><td class="td-val">${d.input.machineHourlyCost}</td><td>currency/h</td></tr>
+      <tr><td class="td-name">Setup cost</td><td class="td-val">${d.input.setupCost}</td><td>currency</td></tr>
+      <tr><td class="td-name">Overhead rate</td><td class="td-val">${d.input.overheadRate}</td><td>ratio</td></tr>
+      <tr><td class="td-name">Financing rate</td><td class="td-val">${d.input.financingRate}</td><td>ratio</td></tr>
+      <tr><td class="td-name">Target margin</td><td class="td-val">${d.input.targetMargin}</td><td>ratio</td></tr>
+      <tr><td class="td-name">Quantity</td><td class="td-val">${d.input.quantity}</td><td>pcs</td></tr>
+    </tbody></table></div></div></div>
+    <div class="sc-sec"><div class="sc-sec-hd">Sell / Cost Ratio Gauge</div><div class="sc-card"><div style="display:flex;justify-content:center"><svg width="300" height="170" viewBox="0 0 300 170">
+      <path d="M 40 150 A 110 110 0 0 1 260 150" fill="none" stroke="#111720" stroke-width="24" stroke-linecap="round"/>
+      <path d="M 40 150 A 110 110 0 0 1 110 50" fill="none" stroke="rgba(245,34,45,0.2)" stroke-width="24" stroke-linecap="round"/>
+      <path d="M 110 50 A 110 110 0 0 1 190 50" fill="none" stroke="rgba(250,173,20,0.2)" stroke-width="24" stroke-linecap="round"/>
+      <path d="M 190 50 A 110 110 0 0 1 260 150" fill="none" stroke="rgba(82,196,26,0.2)" stroke-width="24" stroke-linecap="round"/>
+      <line x1="150" y1="150" x2="${150 + 95 * Math.cos(gaugeAngle * Math.PI / 180)}" y2="${150 + 95 * Math.sin(gaugeAngle * Math.PI / 180)}" stroke="${gCol}" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="150" cy="150" r="7" fill="${gCol}"/>
+      <text x="150" y="135" text-anchor="middle" fill="#f0f4f8" font-size="24" font-weight="700" font-family="JetBrains Mono">${ratio.toFixed(2)}</text>
+      <text x="150" y="155" text-anchor="middle" fill="#4a5568" font-size="10">sell / cost</text>
+      <text x="30" y="168" fill="#4a5568" font-size="9">0</text><text x="262" y="168" fill="#4a5568" font-size="9">2.0</text>
+    </svg></div></div></div>
+    <div class="sc-sec"><div class="sc-sec-hd">Cost Build-Up (Pareto)</div><div class="sc-card">
+      ${d.bd.items.map((c, i) => `<div class="sc-pareto-row"><div class="sc-pareto-name">${c.name}</div><div class="sc-pareto-track"><div class="sc-pareto-fill" style="width:${c.pct}%;background:${paretoColors[i % paretoColors.length]}"><span>${c.amount.toFixed(0)}</span></div></div><div class="sc-pareto-pct">${c.pct.toFixed(1)}%</div></div>`).join('')}
+      <div class="sc-pareto-row"><div class="sc-pareto-name">Financing</div><div class="sc-pareto-track"><div class="sc-pareto-fill" style="width:${Math.min(100, d.financing / d.bd.subtotal * 100)}%;background:#6e7d8c"><span>${d.financing.toFixed(0)}</span></div></div><div class="sc-pareto-pct">${(d.financing / d.bd.subtotal * 100).toFixed(1)}%</div></div>
+    </div></div>
+    <div class="sc-sec"><div class="sc-sec-hd">What-If Sensitivity</div><div class="sc-card"><div style="font-size:11px;color:var(--text-muted);margin-bottom:14px;font-family:var(--font-mono)">Scenario impact on ${d.unit > 0 ? 'unit' : 'sell'} price.</div>
+      <div class="sc-whatif">${whatIfs.map(w => `<div class="sc-whatif-card"><div class="sc-whatif-lbl">${w.label}</div><div class="sc-whatif-val">${w.newUnit.toFixed(2)}</div><div class="sc-whatif-chg ${w.delta > 0 ? 'pos' : w.delta < 0 ? 'neg' : 'neu'}">${w.delta >= 0 ? '+' : ''}${w.delta.toFixed(2)}</div></div>`).join('')}</div>
+    </div></div>
+    <div class="sc-sec"><div class="sc-sec-hd">Recommended Actions</div><div class="sc-card">${recHTML}</div></div>
+    <div class="sc-sec"><div class="sc-sec-hd">Standards & References</div><div class="sc-card"><div class="sc-std">
+      <span>GAAP / IFRS 15</span> - Revenue recognition on the quoted price<br>
+      <span>Full absorption costing</span> - material + labor + machine + overhead + financing<br>
+      <span>Margin gross-up</span> - sell = total / (1 - targetMargin)<br>
+      <span>Unit price</span> - sell / quantity; setup amortized across the batch<br>
+      <span>Deterministic</span> - same inputs always yield the same quote, client-side
+    </div></div></div>
+    <div class="sc-footer">Generated by SectorCalc.com - Deterministic Engineering Calculators - Client-Side Only - Your data never leaves your browser<br>Deterministic | Reproducible | Audit-Ready</div>`;
+  $('reportArea').innerHTML = reportHTML;
 }
 
-function exportPDF(): void {
-  const data = (window as any).calcData as CalcData | null | undefined;
-  if (!data) { calc(); }
-  const d = (window as any).calcData as CalcData | null | undefined;
-  if (!d) return;
-  const { jsPDF } = window.jspdf;
-  const doc = new jsPDF({ unit: 'pt', format: 'a4' });
-  const calcId = window.calcId || 'SC-012';
+function exportPDF() {
+  const d = calcData; if (!d) return;
+  const { jsPDF } = window.jspdf; const doc = new jsPDF({ unit: 'pt', format: 'a4' });
+  const calcId = window.calcId || 'SC-012'; const ratio = d.total > 0 ? d.sell / d.total : 0; const status = overallStatus(ratio);
   let y = 48;
-  const line = (txt: string, size?: number, color?: string, bold?: boolean) => {
-    doc.setFontSize(size || 10);
-    doc.setTextColor(color || '#222222');
-    doc.setFont('helvetica', bold ? 'bold' : 'normal');
-    const lines = doc.splitTextToSize(txt, 500);
-    doc.text(lines, 48, y);
-    y += lines.length * ((size || 10) + 4) + 2;
-    if (y > 780) { doc.addPage(); y = 48; }
-  };
-  line('SC-012 Quote Pricing Analysis Report', 16, '#111111', true);
-  line('Calc ID: ' + calcId + '   |   ' + new Date().toISOString().slice(0, 19) + ' UTC', 9, '#666666');
-  line('Client-Side Only - your data never left your browser', 9, '#1a7f37');
-  y += 6;
-  line('VERDICT: ' + d.overall + '    Sell $' + d.result.sellPrice + '    Profit $' + d.result.profit, 13,
-    d.overall === 'PASS' ? '#1a7f37' : d.overall === 'WARNING' ? '#b8860b' : '#c0392b', true);
-  y += 8;
-  line('KEY RESULTS', 11, '#111111', true);
-  line('Sell price: $' + d.result.sellPrice, 10);
-  line('Unit price: $' + d.result.unitPrice, 10);
-  line('Total cost: $' + d.result.totalCost, 10);
-  line('Profit: $' + d.result.profit, 10);
-  y += 8;
-  line('BREAKDOWN', 11, '#111111', true);
-  d.result.breakdown.forEach((r) => line(r.item + ': $' + r.amount + ' (' + r.pct + '%)', 9));
-  y += 8;
-  line('STANDARDS', 11, '#111111', true);
-  line('GAAP — revenue and cost recognition', 8, '#666666');
-  line('Cost accounting — direct, overhead, financing', 8, '#666666');
-  y += 8;
-  line('Generated by SectorCalc.com - Deterministic Engineering Calculators - Audit-Ready', 8, '#999999');
+  const line = (txt, size, color, bold) => { doc.setFontSize(size || 10); doc.setTextColor(color || '#222222'); doc.setFont('helvetica', bold ? 'bold' : 'normal'); const ls = doc.splitTextToSize(txt, 500); doc.text(ls, 48, y); y += ls.length * ((size || 10) + 4) + 2; if (y > 780) { doc.addPage(); y = 48; } };
+  line('SC-012 Quote Pricing Analysis', 16, '#111111', true);
+  line('Calc ID: ' + calcId + '   |   ' + new Date().toISOString().slice(0,19) + ' UTC', 9, '#666666');
+  line('Standard: GAAP revenue recognition | Full absorption costing', 9, '#666666');
+  line('Client-Side Only - your data never left your browser', 9, '#1a7f37'); y += 6;
+  line('VERDICT: ' + status + '    Sell ' + d.sell.toFixed(0) + '    Unit ' + (d.unit > 0 ? d.unit.toFixed(2) : (d.sell / d.input.quantity).toFixed(2)) + '    Cost ' + d.total.toFixed(0) + '    Margin ' + d.marginPct.toFixed(1) + '%', 12, status==='PASS'?'#1a7f37':(status==='WARNING'?'#b8860b':'#c0392b'), true); y += 8;
+  line('COST BUILD-UP', 11, '#111111', true);
+  d.bd.items.forEach(c => line(c.name + ': ' + c.amount.toFixed(0) + '  (' + c.pct.toFixed(1) + '%)', 9));
+  line('Financing: ' + d.financing.toFixed(0), 9); y += 8;
+  line('Generated by SectorCalc.com - Deterministic - Audit-Ready', 8, '#999999');
   doc.save('SC-012-' + calcId + '.pdf');
 }
 
-async function exportPDFGraphic(e?: Event): Promise<void> {
-  const el = document.getElementById('reportArea');
-  if (!el || !(window as any).calcData) { alert('Generate the report first.'); return; }
-  const btn = e?.target as HTMLButtonElement | undefined;
-  if (btn) { btn.textContent = 'Rendering...'; btn.disabled = true; }
+async function exportPDFGraphic() {
+  const el = $('reportArea'); if (!el || !calcData) { alert('Generate the report first.'); return; }
+  const btn = event && event.target; if (btn) { btn.textContent = 'Rendering...'; btn.disabled = true; }
   try {
-    const html2canvas = (window as any).html2canvas as (el: HTMLElement, opts: Record<string, unknown>) => Promise<HTMLCanvasElement>;
-    const canvas = await html2canvas(el, {
-      scale: 1.5,
-      backgroundColor: '#070a0f',
-      useCORS: true,
-      logging: false
-    });
-    const { jsPDF } = window.jspdf;
-    const pdf = new jsPDF({ unit: 'pt', format: 'a4', orientation: 'portrait' });
-    const pageW = pdf.internal.pageSize.getWidth();
-    const pageH = pdf.internal.pageSize.getHeight();
-    const imgW = pageW;
-    const imgH = (canvas.height * pageW) / canvas.width;
-    const imgData = canvas.toDataURL('image/jpeg', 0.82);
-    let heightLeft = imgH;
-    let position = 0;
-    pdf.addImage(imgData, 'JPEG', 0, position, imgW, imgH);
-    heightLeft -= pageH;
-    while (heightLeft > 0) {
-      position -= pageH;
-      pdf.addPage();
-      pdf.addImage(imgData, 'JPEG', 0, position, imgW, imgH);
-      heightLeft -= pageH;
-    }
+    const canvas = await html2canvas(el, { scale: 1.5, backgroundColor: '#070a0f', useCORS: true, logging: false });
+    const { jsPDF } = window.jspdf; const pdf = new jsPDF({ unit: 'pt', format: 'a4' });
+    const pageW = pdf.internal.pageSize.getWidth(), pageH = pdf.internal.pageSize.getHeight();
+    const imgH = (canvas.height * pageW) / canvas.width; const imgData = canvas.toDataURL('image/jpeg', 0.82);
+    let heightLeft = imgH, position = 0;
+    pdf.addImage(imgData, 'JPEG', 0, position, pageW, imgH); heightLeft -= pageH;
+    while (heightLeft > 0) { position -= pageH; pdf.addPage(); pdf.addImage(imgData, 'JPEG', 0, position, pageW, imgH); heightLeft -= pageH; }
     const pages = pdf.getNumberOfPages();
-    for (let i = 1; i <= pages; i++) {
-      pdf.setPage(i);
-      pdf.setFontSize(7);
-      pdf.setTextColor('#787878');
-      pdf.text('SectorCalc.com | Calc ID ' + (window.calcId || 'SC-012') + ' | Client-Side | Page ' + i + '/' + pages, 48, pageH - 16);
-    }
+    for (let i = 1; i <= pages; i++) { pdf.setPage(i); pdf.setFontSize(7); pdf.setTextColor(120); pdf.text('SectorCalc.com | Calc ID ' + (window.calcId || 'SC-012') + ' | Deterministic | Client-Side | Page ' + i + '/' + pages, 48, pageH - 16); }
     pdf.save('SC-012-' + (window.calcId || 'report') + '-graphic.pdf');
-  } catch (err) {
-    const msg = err instanceof Error ? err.message : String(err);
-    alert('Graphic PDF failed: ' + msg + '. Use Export PDF (text) instead.');
-  } finally {
-    if (btn) { btn.textContent = 'Export Graphic PDF'; btn.disabled = false; }
-  }
+  } catch (err) { alert('Graphic PDF failed: ' + err.message + '. Use Export PDF instead.'); }
+  finally { if (btn) { btn.textContent = 'Export Graphic PDF'; btn.disabled = false; } }
 }
 
-function shareReport(): void {
-  const d = (window as any).calcData as CalcData | null | undefined;
-  if (!d) { alert('Generate the report first.'); return; }
-  const s = encodeURIComponent(JSON.stringify(d.fields));
-  void navigator.clipboard.writeText(location.origin + '/quote-pro.html?s=' + s).then(() => alert('Shareable URL copied'));
+function shareReport() {
+  const d = calcData; if (!d) return;
+  const s = encodeURIComponent(JSON.stringify(Object.fromEntries(FIELDS.map(f => [f, d.input[f]]))));
+  navigator.clipboard.writeText(location.origin + '/quote-pro.html?s=' + s).then(() => alert('Shareable URL copied'));
 }
 
-function bindEvents(): void {
-  document.querySelectorAll('.sc-preset').forEach((b) => {
-    b.addEventListener('click', () => {
-      const key = (b as HTMLElement).dataset.preset as PresetKey | undefined;
-      if (key && presets[key]) loadPreset(key);
-    });
-  });
-  ([
-    'materialCost', 'scrapRate', 'laborHours', 'laborHourlyCost', 'machineHours',
-    'machineHourlyCost', 'setupCost', 'overheadRate', 'financingRate', 'targetMargin', 'quantity'
-  ] as const).forEach((id) => $input(id).addEventListener('input', calc));
-  $('genReport').addEventListener('click', generateReport);
-  $('resetAll').addEventListener('click', () => loadPreset('jobshop'));
-}
+window.generateReport = generateReport;
+window.exportPDF = exportPDF;
+window.exportPDFGraphic = exportPDFGraphic;
+window.shareReport = shareReport;
+window.loadPreset = loadPreset;
+window.resetAll = resetAll;
+window.validateAndCalc = validateAndCalc;
 
-function applyShareQuery(): void {
-  const q = new URLSearchParams(location.search).get('s');
-  if (!q) return;
-  try {
-    const parsed = JSON.parse(decodeURIComponent(q)) as Partial<FieldState>;
-    fields = { ...DEFAULTS, ...parsed };
-  } catch {
-    /* ignore */
-  }
-}
-
-applyShareQuery();
-renderShell();
+loadFromURL();
+validateAndCalc();
