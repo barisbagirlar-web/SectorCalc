@@ -1,5 +1,8 @@
 /**
  * Deterministic Monte Carlo primitives — FULL DECIMAL (no Number arithmetic).
+ * Distribution sampling for the P2 contract: normal, uniform, truncated-normal
+ * (rejection), triangular. These are the single source of truth for sampling;
+ * the UI composes them, and formula.ts calculate() is the math SSOT on samples.
  *
  * Design decisions (documented):
  *  - PRNG: Decimal Linear Congruential Generator (Numerical Recipes constants).
@@ -74,4 +77,38 @@ export function sampleNormal(rng: () => Decimal, mean: Decimal.Value, std: Decim
 /** Uniform sample in [min, max]. Full Decimal. */
 export function sampleUniform(rng: () => Decimal, min: Decimal.Value, max: Decimal.Value): Decimal {
   return D(min).plus(rng().times(D(max).minus(min)));
+}
+
+/** Truncated normal via rejection sampling. Deterministic (rng is deterministic). */
+export function sampleTruncatedNormal(
+  rng: () => Decimal,
+  mean: Decimal.Value,
+  std: Decimal.Value,
+  lo: Decimal.Value,
+  hi: Decimal.Value
+): Decimal {
+  const m = D(mean);
+  const L = D(lo);
+  const H = D(hi);
+  for (let i = 0; i < 1000; i++) {
+    const x = sampleNormal(rng, m, std);
+    if (x.gte(L) && x.lte(H)) return x;
+  }
+  return sampleNormal(rng, m, std);
+}
+
+/** Triangular on [lo, hi] with mode. Inverse-CDF, full Decimal. */
+export function sampleTriangular(
+  rng: () => Decimal,
+  lo: Decimal.Value,
+  mode: Decimal.Value,
+  hi: Decimal.Value
+): Decimal {
+  const L = D(lo);
+  const M = D(mode);
+  const H = D(hi);
+  const u = rng();
+  const c = M.minus(L).div(H.minus(L));
+  if (u.lt(c)) return L.plus(u.times(H.minus(L)).times(M.minus(L)).sqrt());
+  return H.minus(D(1).minus(u).times(H.minus(L)).times(H.minus(M)).sqrt());
 }

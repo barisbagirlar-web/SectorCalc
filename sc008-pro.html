@@ -8,16 +8,16 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-  :root{--bg-0:#070a0f;--bg-1:#0c1016;--bg-2:#111720;--bg-3:#181f2a;--bg-4:#1e2733;--border-subtle:rgba(255,255,255,0.04);--border-soft:rgba(255,255,255,0.07);--border-mid:rgba(255,255,255,0.10);--border-strong:rgba(255,255,255,0.14);--text-primary:#f0f4f8;--text-secondary:#a8b4c0;--text-tertiary:#6e7d8c;--text-muted:#4a5568;--text-dim:#2d3748;--accent-blue:#5b8def;--accent-blue-glow:rgba(91,141,239,0.15);--accent-cyan:#4ecdc4;--accent-green:#52c41a;--accent-amber:#faad14;--accent-red:#f5222d;--accent-purple:#a855f7;--radius-sm:6px;--radius-md:10px;--radius-lg:14px;--font-sans:'Inter',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;--font-mono:'JetBrains Mono','SF Mono',monospace;--tf:0.12s cubic-bezier(0.4,0,0.2,1);--tb:0.2s cubic-bezier(0.4,0,0.2,1)}
+  :root{--bg-0:#070a0f;--bg-1:#0c1016;--bg-2:#111720;--bg-3:#181f2a;--bg-4:#1e2733;--border-subtle:rgba(255,255,255,0.04);--border-soft:rgba(255,255,255,0.07);--border-mid:rgba(255,255,255,0.10);--text-primary:#f0f4f8;--text-secondary:#a8b4c0;--text-tertiary:#6e7d8c;--text-muted:#4a5568;--text-dim:#2d3748;--accent-blue:#5b8def;--accent-blue-glow:rgba(91,141,239,0.15);--accent-cyan:#4ecdc4;--accent-green:#52c41a;--accent-amber:#faad14;--accent-red:#f5222d;--radius-sm:6px;--radius-md:10px;--radius-lg:14px;--font-sans:'Inter',-apple-system,system-ui,sans-serif;--font-mono:'JetBrains Mono',monospace;--tf:0.12s cubic-bezier(0.4,0,0.2,1)}
   *{box-sizing:border-box;margin:0;padding:0}html{font-size:15px;-webkit-font-smoothing:antialiased}
   body{font-family:var(--font-sans);background:var(--bg-0);color:var(--text-primary);line-height:1.55;min-height:100vh;overflow-x:hidden}
   ::-webkit-scrollbar{width:5px;height:5px}::-webkit-scrollbar-thumb{background:var(--border-mid);border-radius:10px}
   .sc-header{position:fixed;top:0;left:0;right:0;z-index:1000;height:56px;background:rgba(7,10,15,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border-subtle);display:flex;align-items:center;justify-content:space-between;padding:0 24px}
   .sc-header-left{display:flex;align-items:center;gap:14px}
-  .sc-logo{width:32px;height:32px;background:linear-gradient(135deg,var(--accent-blue),var(--accent-cyan));border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:11px;color:#fff;box-shadow:0 0 20px rgba(91,141,239,0.25)}
+  .sc-logo{width:32px;height:32px;background:linear-gradient(135deg,var(--accent-blue),var(--accent-cyan));border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:11px;color:#fff}
   .sc-header-title{font-size:13px;font-weight:700}
   .sc-header-sub{font-size:10px;font-weight:500;color:var(--text-muted);font-family:var(--font-mono)}
-  .sc-badge{font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:1px;padding:4px 10px;border-radius:var(--radius-sm);font-family:var(--font-mono);border:1px solid;background:rgba(250,173,20,0.08);color:var(--accent-amber);border-color:rgba(250,173,20,0.2)}
+  .sc-badge{font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:1px;padding:4px 10px;border-radius:var(--radius-sm);font-family:var(--font-mono);border:1px solid rgba(250,173,20,0.2);background:rgba(250,173,20,0.08);color:var(--accent-amber)}
   .sc-layout{display:grid;grid-template-columns:380px 1fr;min-height:100vh;padding-top:56px}
   .sc-sidebar{background:var(--bg-1);border-right:1px solid var(--border-subtle);display:flex;flex-direction:column;height:calc(100vh - 56px);position:sticky;top:56px;overflow:hidden}
   .sc-sidebar-scroll{flex:1;overflow-y:auto;padding-bottom:80px}
@@ -27,7 +27,6 @@
   .sc-preset.active{background:linear-gradient(135deg,var(--accent-blue),#4a7de4);color:#fff;border-color:transparent}
   .sc-field{padding:14px 20px;border-bottom:1px solid var(--border-subtle)}
   .sc-field.has-error{background:rgba(245,34,45,0.03);border-left:2px solid var(--accent-red)}
-  .sc-field.has-warn{background:rgba(250,173,20,0.03);border-left:2px solid var(--accent-amber)}
   .sc-field-label{display:flex;align-items:center;gap:6px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--text-tertiary);margin-bottom:8px}
   .sc-info{width:14px;height:14px;border-radius:50%;border:1px solid var(--text-dim);color:var(--text-dim);font-size:8px;display:inline-flex;align-items:center;justify-content:center;cursor:help;font-weight:800;position:relative}
   .sc-info:hover{border-color:var(--accent-blue);color:var(--accent-blue)}
@@ -41,13 +40,12 @@
   .sc-unit{background:var(--bg-3);border:1px solid var(--border-soft);border-radius:var(--radius-sm);padding:9px 10px;color:var(--text-secondary);font-family:var(--font-mono);font-size:11px;font-weight:600;min-width:60px}
   .sc-ref{display:flex;align-items:center;gap:8px;margin-top:7px}
   .sc-ref-tag{font-size:9px;font-weight:700;text-transform:uppercase;padding:2px 7px;border-radius:4px;font-family:var(--font-mono);background:rgba(250,173,20,0.08);color:var(--accent-amber)}
-  .sc-ref-tag.ok{background:rgba(82,196,26,0.08);color:var(--accent-green)}
   .sc-ref-text{font-size:10px;color:var(--text-muted);font-family:var(--font-mono)}
   .sc-val{font-size:10px;margin-top:7px;font-family:var(--font-mono);min-height:16px}
-  .sc-val.error{color:var(--accent-red)}.sc-val.warn{color:var(--accent-amber)}.sc-val.ok{color:var(--accent-green)}
-  .sc-dims-hd{display:grid;grid-template-columns:26px 1fr 80px 68px 28px;gap:6px;padding:8px 20px;font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);border-bottom:1px solid var(--border-subtle)}
-  .sc-dim{display:grid;grid-template-columns:26px 1fr 80px 68px 28px;gap:6px;padding:5px 20px;align-items:center;border-bottom:1px solid var(--border-subtle)}
-  .sc-dim input{background:var(--bg-0);border:1px solid var(--border-soft);border-radius:var(--radius-sm);padding:6px 8px;color:var(--text-primary);font-family:var(--font-mono);font-size:12px;outline:none;width:100%}
+  .sc-val.error{color:var(--accent-red)}.sc-val.ok{color:var(--accent-green)}
+  .sc-dims-hd{display:grid;grid-template-columns:24px 1fr 72px 60px 96px 26px;gap:6px;padding:8px 20px;font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);border-bottom:1px solid var(--border-subtle)}
+  .sc-dim{display:grid;grid-template-columns:24px 1fr 72px 60px 96px 26px;gap:6px;padding:5px 20px;align-items:center;border-bottom:1px solid var(--border-subtle)}
+  .sc-dim input,.sc-dim select{background:var(--bg-0);border:1px solid var(--border-soft);border-radius:var(--radius-sm);padding:6px 6px;color:var(--text-primary);font-family:var(--font-mono);font-size:11px;outline:none;width:100%}
   .sc-dim-num{font-family:var(--font-mono);font-size:10px;color:var(--text-muted);text-align:center}
   .sc-dim-del{width:24px;height:24px;background:none;border:none;color:var(--text-dim);cursor:pointer;font-size:16px;border-radius:var(--radius-sm)}
   .sc-dim-del:hover{background:rgba(245,34,45,0.1);color:var(--accent-red)}
@@ -72,18 +70,14 @@
   .sc-report-hd{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:28px;padding-bottom:24px;border-bottom:1px solid var(--border-subtle);gap:20px;flex-wrap:wrap}
   .sc-report-title{font-size:22px;font-weight:800;letter-spacing:-0.4px;margin-bottom:10px}
   .sc-report-meta{font-size:11px;color:var(--text-muted);font-family:var(--font-mono);line-height:2}
-  .sc-report-meta span{color:var(--accent-blue);font-weight:600}
-  .sc-report-meta .ok{color:var(--accent-green)}
-  .sc-report-meta .warn{color:var(--accent-amber)}
+  .sc-report-meta span{color:var(--accent-blue);font-weight:600}.sc-report-meta .ok{color:var(--accent-green)}.sc-report-meta .warn{color:var(--accent-amber)}
   .sc-report-hd-right{display:flex;gap:8px;flex-wrap:wrap}
   .sc-sec{margin-bottom:32px}
   .sc-sec-hd{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:var(--text-muted);margin-bottom:14px;display:flex;align-items:center;gap:10px}
   .sc-sec-hd::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--border-soft),transparent)}
   .sc-card{background:var(--bg-1);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);padding:20px}
   .sc-alert{border-radius:var(--radius-md);padding:16px 18px;margin-bottom:12px;border:1px solid}
-  .sc-alert-crit{background:rgba(245,34,45,0.04);border-color:rgba(245,34,45,0.2)}
-  .sc-alert-warn{background:rgba(250,173,20,0.04);border-color:rgba(250,173,20,0.2)}
-  .sc-alert-pass{background:rgba(82,196,26,0.04);border-color:rgba(82,196,26,0.2)}
+  .sc-alert-crit{background:rgba(245,34,45,0.04);border-color:rgba(245,34,45,0.2)}.sc-alert-warn{background:rgba(250,173,20,0.04);border-color:rgba(250,173,20,0.2)}.sc-alert-pass{background:rgba(82,196,26,0.04);border-color:rgba(82,196,26,0.2)}
   .sc-alert-title{font-size:11px;font-weight:800;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.8px}
   .sc-alert-crit .sc-alert-title{color:var(--accent-red)}.sc-alert-warn .sc-alert-title{color:var(--accent-amber)}.sc-alert-pass .sc-alert-title{color:var(--accent-green)}
   .sc-alert-body{font-size:12px;color:var(--text-tertiary);line-height:1.7;font-family:var(--font-mono)}
@@ -93,9 +87,9 @@
   .sc-card-res::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
   .sc-card-res.pass::before{background:var(--accent-green)}.sc-card-res.warn::before{background:var(--accent-amber)}.sc-card-res.crit::before{background:var(--accent-red)}
   .sc-card-res-label{font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);margin-bottom:10px}
-  .sc-card-res-val{font-family:var(--font-mono);font-size:24px;font-weight:700;margin-bottom:4px}
-  .sc-card-res-sub{font-size:11px;color:var(--text-muted);font-family:var(--font-mono)}
-  .sc-card-res-badge{display:inline-block;margin-top:12px;padding:3px 10px;border-radius:var(--radius-sm);font-size:9px;font-weight:800;text-transform:uppercase}
+  .sc-card-res-val{font-family:var(--font-mono);font-size:22px;font-weight:700;margin-bottom:4px}
+  .sc-card-res-sub{font-size:10px;color:var(--text-muted);font-family:var(--font-mono)}
+  .sc-card-res-badge{display:inline-block;margin-top:10px;padding:3px 10px;border-radius:var(--radius-sm);font-size:9px;font-weight:800;text-transform:uppercase}
   .sc-badge-pass{background:rgba(82,196,26,0.1);color:var(--accent-green)}.sc-badge-warn{background:rgba(250,173,20,0.1);color:var(--accent-amber)}.sc-badge-crit{background:rgba(245,34,45,0.1);color:var(--accent-red)}
   .sc-table{width:100%;border-collapse:collapse;font-size:12px}
   .sc-table th{text-align:left;padding:10px 12px;font-size:9px;font-weight:800;text-transform:uppercase;color:var(--text-muted);border-bottom:1px solid var(--border-soft);background:var(--bg-2)}
@@ -135,7 +129,7 @@
 </head>
 <body>
 <div class="sc-header">
-  <div class="sc-header-left"><div class="sc-logo">SC</div><div><div class="sc-header-title">SC-008 — Tolerance Stack-Up</div><div class="sc-header-sub">Engineering preview · 1D linear stack-up · Client-side · Not for production approval</div></div></div>
+  <div class="sc-header-left"><div class="sc-logo">SC</div><div><div class="sc-header-title">SC-008 — Tolerance Stack-Up</div><div class="sc-header-sub">Engineering preview · 1D linear stack-up · per-component distribution · client-side · not for production approval</div></div></div>
   <div class="sc-badge">Preview</div>
 </div>
 <div class="sc-layout">
@@ -147,19 +141,26 @@
       <button class="sc-preset" data-preset="loose">Loose (Cpk 1.0)</button>
       <button class="sc-preset" data-preset="vtight">Very tight (Cpk 2.0)</button>
     </div>
-    <div class="sc-field" id="fld-specUpper"><div class="sc-field-label">Spec deviation +<span class="sc-info">i<span class="sc-tooltip"><strong>Upper deviation from nominal stack</strong>Added to the nominal sum to form the absolute USL. This is a drawing tolerance, not a measured process limit.</span></span></div><div class="sc-input-wrap"><input type="number" class="sc-input" id="specUpper" value="0.150" step="0.001"><select class="sc-unit" id="unitSpec"><option value="mm">mm</option><option value="inch">in</option><option value="um">um</option></select></div><div class="sc-ref"><span class="sc-ref-tag">Ref</span><span class="sc-ref-text">+/-0.100 mm typical (ISO 286)</span></div><div class="sc-val" id="val-specUpper"></div></div>
+    <div class="sc-field" id="fld-specUpper"><div class="sc-field-label">Spec deviation +<span class="sc-info">i<span class="sc-tooltip"><strong>Upper deviation from nominal stack</strong>Added to the nominal sum to form the absolute USL. A drawing tolerance, not a measured process limit.</span></span></div><div class="sc-input-wrap"><input type="number" class="sc-input" id="specUpper" value="0.150" step="0.001"><select class="sc-unit" id="unitSpec"><option value="mm">mm</option><option value="inch">in</option><option value="um">um</option></select></div><div class="sc-ref"><span class="sc-ref-tag">Ref</span><span class="sc-ref-text">+/-0.100 mm typical (ISO 286)</span></div><div class="sc-val" id="val-specUpper"></div></div>
     <div class="sc-field" id="fld-specLower"><div class="sc-field-label">Spec deviation -<span class="sc-info">i<span class="sc-tooltip"><strong>Lower deviation from nominal stack</strong>Subtracted from the nominal sum to form the absolute LSL.</span></span></div><div class="sc-input-wrap"><input type="number" class="sc-input" id="specLower" value="-0.150" step="0.001"><select class="sc-unit" id="unitSpec2"><option value="mm">mm</option><option value="inch">in</option><option value="um">um</option></select></div><div class="sc-val" id="val-specLower"></div></div>
-    <div class="sc-field" id="fld-cpkTarget"><div class="sc-field-label">Predicted Cpk target<span class="sc-info">i<span class="sc-tooltip"><strong>Target for predicted design capability</strong>Note: this is predicted from tolerances assuming a normal, centered process — NOT observed Cpk from measured data.</span></span></div><div class="sc-input-wrap"><input type="number" class="sc-input" id="cpkTarget" value="1.33" step="0.01" min="0.5" max="3.0"><select class="sc-unit" disabled><option>--</option></select></div><div class="sc-val" id="val-cpkTarget"></div></div>
-    <div class="sc-field"><div class="sc-field-label">MC seed<span class="sc-info">i<span class="sc-tooltip"><strong>Deterministic seed</strong>Same seed + same inputs = identical Monte Carlo samples. Reproducible by design.</span></span></div><div class="sc-input-wrap"><input type="number" class="sc-input" id="mcSeed" value="12345" step="1" min="1"><select class="sc-unit" disabled><option>--</option></select></div></div>
-    <div class="sc-section-hd" style="border-top:1px solid var(--border-subtle);margin-top:4px">Stack Dimensions</div>
-    <div class="sc-dims-hd"><span>#</span><span>Name</span><span>Nominal</span><span>+/-Tol</span><span></span></div>
+    <div class="sc-field" id="fld-cpkTarget"><div class="sc-field-label">Predicted Cpk target<span class="sc-info">i<span class="sc-tooltip"><strong>Predicted design capability target</strong>Predicted from tolerances, NOT observed from measured data.</span></span></div><div class="sc-input-wrap"><input type="number" class="sc-input" id="cpkTarget" value="1.33" step="0.01" min="0.5" max="3.0"><select class="sc-unit" disabled><option>--</option></select></div><div class="sc-val" id="val-cpkTarget"></div></div>
+    <div class="sc-field"><div class="sc-field-label">MC seed<span class="sc-info">i<span class="sc-tooltip"><strong>Deterministic seed</strong>Same seed + inputs + distributions = identical samples.</span></span></div><div class="sc-input-wrap"><input type="number" class="sc-input" id="mcSeed" value="12345" step="1" min="1"><select class="sc-unit" disabled><option>--</option></select></div></div>
+    <div class="sc-section-hd" style="border-top:1px solid var(--border-subtle);margin-top:4px">Stack Dimensions (distribution per part)</div>
+    <div class="sc-dims-hd"><span>#</span><span>Name</span><span>Nominal</span><span>+/-Tol</span><span>Distrib.</span><span></span></div>
     <div id="dimList"></div>
     <div class="sc-dim-add"><button class="sc-btn sc-btn-ghost" style="width:100%;justify-content:center" id="addDim">+ Add Dimension</button></div>
     <div class="sc-live"><div class="sc-live-hd"><span class="sc-live-dot"></span>Predicted RSS</div><div class="sc-live-val" id="liveResult">—</div><div class="sc-live-sub" id="liveSub"></div></div>
   </div>
-  <div class="sc-sidebar-ft"><button class="sc-btn sc-btn-primary" id="genReport">Generate Report</button><button class="sc-btn sc-btn-ghost" id="resetAll">Reset</button></div></div>
+  <div class="sc-sidebar-ft" style="flex-wrap:wrap">
+  <button class="sc-btn sc-btn-primary" id="genReport">Generate Report</button>
+  <button class="sc-btn sc-btn-ghost" id="resetAll">Reset</button>
+  <button class="sc-btn sc-btn-ghost" id="saveBtn">Save</button>
+  <button class="sc-btn sc-btn-ghost" id="loadBtn">Load</button>
+  <button class="sc-btn sc-btn-ghost" id="csvBtn">Import CSV</button>
+  <input type="file" id="csvFile" accept=".csv" style="display:none">
+</div></div>
   <div class="sc-main"><div class="sc-main-inner" id="reportArea">
-    <div class="sc-empty"><div class="sc-empty-title">Predicted Analysis Ready</div><div class="sc-empty-desc">Configure the stack on the left. Values update live from the deterministic Decimal engine.<br>This is a predicted, drawing-based estimate — verify with measured process data before any production release.</div><div class="sc-preview-tag">Engineering preview — not for production approval</div></div>
+    <div class="sc-empty"><div class="sc-empty-title">Predicted Analysis Ready</div><div class="sc-empty-desc">Configure the stack and choose a distribution per dimension. Values update live from the deterministic Decimal engine. Predicted, drawing-based — verify with measured process data before any release.</div><div class="sc-preview-tag">Engineering preview — not for production approval</div></div>
   </div></div>
 </div>
 <script type="module" src="/src/sc008-pro.ts"></script>
