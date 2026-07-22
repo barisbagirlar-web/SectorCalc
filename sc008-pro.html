@@ -279,6 +279,7 @@
   }
 </style>
 <base target="_blank">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
 
@@ -752,6 +753,7 @@ function generateReport() {
 
   const now = new Date();
   const calcId = 'SC-008-' + Math.random().toString(36).substr(2, 9).toUpperCase();
+  window.calcId = calcId;
   const u = unitConversions[d.unit].fromMm;
   const uLabel = d.unit;
 
@@ -777,7 +779,7 @@ function generateReport() {
         </div>
       </div>
       <div class="sc-report-hd-right">
-        <button class="sc-btn sc-btn-ghost" onclick="alert('PDF export with digital signature')">Export PDF</button>
+        <button class="sc-btn sc-btn-ghost" onclick="exportPDF()">Export PDF</button>
         <button class="sc-btn sc-btn-primary" onclick="alert('Shareable URL copied')">Share</button>
       </div>
     </div>
@@ -1155,6 +1157,87 @@ function generateReport() {
   `;
 
   document.getElementById('reportArea').innerHTML = reportHTML;
+}
+
+function exportPDF() {
+  const d = window.calcData;
+  if (!d) { validateAndCalc(); }
+  const data = window.calcData;
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF({ unit: 'pt', format: 'a4' });
+  const u = unitConversions[data.unit].fromMm;
+  const uLabel = data.unit;
+  const calcId = window.calcId || 'SC-008';
+  let y = 48;
+  const line = (txt, size, color, bold) => {
+    doc.setFontSize(size || 10);
+    doc.setTextColor(color || '#222222');
+    doc.setFont('helvetica', bold ? 'bold' : 'normal');
+    const lines = doc.splitTextToSize(txt, 500);
+    doc.text(lines, 48, y);
+    y += lines.length * ((size || 10) + 4) + 2;
+    if (y > 780) { doc.addPage(); y = 48; }
+  };
+  const overall = !data.rssInSpec ? 'CRITICAL' : (!data.cpkOk ? 'WARNING' : 'PASS');
+
+  line('SC-008 Tolerance Stack-Up Analysis Report', 16, '#111111', true);
+  line('Calc ID: ' + calcId + '   |   ' + new Date().toISOString().slice(0,19) + ' UTC', 9, '#666666');
+  line('Standard: ISO 286-1:2010 | ASME Y14.5-2018 | AIAG SPC 2nd Ed.', 9, '#666666');
+  line('Method: Worst-Case + RSS + Deterministic Seeded Monte Carlo (n=10,000, seed=' + data.mcSeed + ')', 9, '#666666');
+  line('Client-Side Only - your data never left your browser', 9, '#1a7f37');
+  y += 6;
+  line('VERDICT: ' + overall + '    Cpk ' + data.cpk.toFixed(2) + '    ' + data.defectPPM.toFixed(0) + ' PPM', 13, overall==='PASS'?'#1a7f37':(overall==='WARNING'?'#b8860b':'#c0392b'), true);
+  y += 8;
+
+  line('METHODOLOGY COMPARISON', 11, '#111111', true);
+  line('Worst-Case:  +/-' + (data.wcTol*u).toFixed(4) + ' ' + uLabel + (data.wcInSpec ? '  (IN SPEC)' : '  (EXCEEDS SPEC)'), 10);
+  line('RSS:  +/-' + (data.rssTol*u).toFixed(4) + ' ' + uLabel + (data.rssInSpec ? '  (IN SPEC)' : '  (EXCEEDS SPEC)'), 10);
+  line('Monte Carlo (10k):  +/-' + (data.mcTol*u).toFixed(4) + ' ' + uLabel, 10);
+  y += 8;
+
+  line('STACK DIMENSIONS', 11, '#111111', true);
+  data.dimensions.forEach((dim, i) => {
+    const c = data.contributions.find(x => x.name === dim.name);
+    line((i+1) + '. ' + dim.name + '   ' + (dim.nominal*u).toFixed(3) + ' +/-' + (dim.tolerance*u).toFixed(3) + ' ' + uLabel + '   (' + (c ? c.contrib.toFixed(1) : '0') + '% contribution)', 9);
+  });
+  y += 8;
+
+  line('VARIATION CONTRIBUTION (PARETO)', 11, '#111111', true);
+  data.contributions.forEach(c => line(c.name + ': ' + c.contrib.toFixed(1) + '%', 9));
+  y += 8;
+
+  line('PROCESS CAPABILITY', 11, '#111111', true);
+  line('Cpk (overall): ' + data.cpk.toFixed(2) + '   (target >= ' + data.cpkTarget + ')', 10);
+  line('Defect rate: ' + data.defectPPM.toFixed(0) + ' PPM (' + (data.defectPPM/10000).toFixed(3) + '%)', 10);
+  line('Expected yield: ' + (100 - data.defectPPM/10000).toFixed(2) + '%', 10);
+  y += 8;
+
+  line('WHAT-IF SENSITIVITY (tighten top 3 by 10%)', 11, '#111111', true);
+  data.whatIfs.forEach(w => line(w.name + ': Cpk ' + w.currentCpk.toFixed(2) + ' -> ' + w.newCpk.toFixed(2) + ', est. cost +$' + w.costImpact.toFixed(2) + '/part', 9));
+  y += 8;
+
+  line('RECOMMENDED ACTIONS', 11, '#111111', true);
+  if (overall !== 'PASS') {
+    line('1. Tighten tolerance on ' + data.contributions[0].name + ' (' + data.contributions[0].contrib.toFixed(1) + '% of total variation)', 9);
+    line('2. Implement SPC (X-bar/R charts) on ' + data.contributions[0].name, 9);
+    line('3. Document this analysis in PPAP/FAI package (Calc ID ' + calcId + ')', 9);
+  } else {
+    line('1. Design is statistically sound - maintain quarterly capability studies', 9);
+    line('2. Document this analysis in PPAP/FAI package (Calc ID ' + calcId + ')', 9);
+  }
+  y += 8;
+
+  line('STANDARDS & REFERENCES', 11, '#111111', true);
+  line('ISO 286-1:2010 - Geometrical product specifications, ISO tolerance grades', 8, '#666666');
+  line('ASME Y14.5-2018 - Dimensioning and Tolerancing', 8, '#666666');
+  line('AIAG PPAP 4th Ed. - Production Part Approval Process', 8, '#666666');
+  line('AIAG SPC 2nd Ed. - Statistical Process Control, Cpk methodology', 8, '#666666');
+  line('Monte Carlo - Seeded LCG (a=1664525, c=1013904223, m=2^32), deterministic', 8, '#666666');
+  line('Cpk = min[(USL-mu)/3sigma, (mu-LSL)/3sigma] per AIAG SPC Manual', 8, '#666666');
+  y += 8;
+  line('Generated by SectorCalc.com - Deterministic Engineering Calculators - Audit-Ready', 8, '#999999');
+
+  doc.save('SC-008-' + calcId + '.pdf');
 }
 
 init();
