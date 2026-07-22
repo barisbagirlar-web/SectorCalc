@@ -4,12 +4,186 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>SC-010 — True Labor Cost | SectorCalc</title>
-<link rel="stylesheet" href="/src/styles/pro-theme.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+  :root{--bg-0:#070a0f;--bg-1:#0c1016;--bg-2:#111720;--bg-3:#181f2a;--bg-4:#1e2733;--border-subtle:rgba(255,255,255,0.04);--border-soft:rgba(255,255,255,0.07);--border-mid:rgba(255,255,255,0.10);--border-strong:rgba(255,255,255,0.14);--text-primary:#f0f4f8;--text-secondary:#a8b4c0;--text-tertiary:#6e7d8c;--text-muted:#4a5568;--text-dim:#2d3748;--accent-blue:#5b8def;--accent-blue-glow:rgba(91,141,239,0.15);--accent-cyan:#4ecdc4;--accent-cyan-glow:rgba(78,205,196,0.12);--accent-green:#52c41a;--accent-green-glow:rgba(82,196,26,0.12);--accent-amber:#faad14;--accent-amber-glow:rgba(250,173,20,0.12);--accent-red:#f5222d;--accent-red-glow:rgba(245,34,45,0.12);--accent-purple:#a855f7;--radius-sm:6px;--radius-md:10px;--radius-lg:14px;--radius-xl:20px;--shadow-sm:0 1px 2px rgba(0,0,0,0.3);--shadow-md:0 4px 12px rgba(0,0,0,0.4);--shadow-lg:0 8px 24px rgba(0,0,0,0.5);--font-sans:'Inter',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;--font-mono:'JetBrains Mono','SF Mono',monospace;--transition-fast:0.12s cubic-bezier(0.4,0,0.2,1);--transition-base:0.2s cubic-bezier(0.4,0,0.2,1)}
+  *{box-sizing:border-box;margin:0;padding:0}*::before,*::after{box-sizing:border-box}
+  html{font-size:15px;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility}
+  body{font-family:var(--font-sans);background:var(--bg-0);color:var(--text-primary);line-height:1.55;min-height:100vh;overflow-x:hidden}
+  ::-webkit-scrollbar{width:5px;height:5px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--border-mid);border-radius:10px}::-webkit-scrollbar-thumb:hover{background:var(--border-strong)}
+  .sc-header{position:fixed;top:0;left:0;right:0;z-index:1000;height:56px;background:rgba(7,10,15,0.85);backdrop-filter:blur(20px) saturate(1.5);-webkit-backdrop-filter:blur(20px) saturate(1.5);border-bottom:1px solid var(--border-subtle);display:flex;align-items:center;justify-content:space-between;padding:0 24px}
+  .sc-header-left{display:flex;align-items:center;gap:14px}
+  .sc-logo{width:32px;height:32px;background:linear-gradient(135deg,var(--accent-blue),var(--accent-cyan));border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:11px;color:#fff;letter-spacing:0.5px;box-shadow:0 0 20px rgba(91,141,239,0.25),inset 0 1px 0 rgba(255,255,255,0.15);flex-shrink:0}
+  .sc-header-brand{display:flex;flex-direction:column;gap:1px}
+  .sc-header-title{font-size:13px;font-weight:700;letter-spacing:0.15px}
+  .sc-header-sub{font-size:10px;font-weight:500;color:var(--text-muted);font-family:var(--font-mono);letter-spacing:0.3px}
+  .sc-header-right{display:flex;align-items:center;gap:16px}
+  .sc-badge{font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:1px;padding:4px 10px;border-radius:var(--radius-sm);font-family:var(--font-mono);border:1px solid}
+  .sc-badge-cost{background:linear-gradient(135deg,rgba(78,205,196,0.08),rgba(91,141,239,0.05));color:var(--accent-cyan);border-color:rgba(78,205,196,0.2)}
+  .sc-layout{display:grid;grid-template-columns:380px 1fr;min-height:100vh;padding-top:56px}
+  .sc-sidebar{background:var(--bg-1);border-right:1px solid var(--border-subtle);display:flex;flex-direction:column;height:calc(100vh - 56px);position:sticky;top:56px;overflow:hidden}
+  .sc-sidebar-scroll{flex:1;overflow-y:auto;padding-bottom:80px}
+  .sc-section-hd{padding:14px 20px 10px;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:var(--text-muted);display:flex;align-items:center;gap:8px}
+  .sc-section-hd svg{width:14px;height:14px;opacity:0.5}
+  .sc-presets{display:flex;gap:6px;padding:0 20px 14px;flex-wrap:wrap}
+  .sc-preset{padding:6px 12px;border-radius:var(--radius-sm);font-size:11px;font-weight:600;cursor:pointer;border:1px solid var(--border-soft);background:var(--bg-2);color:var(--text-tertiary);transition:var(--transition-fast);font-family:var(--font-sans);white-space:nowrap}
+  .sc-preset:hover{border-color:var(--border-mid);color:var(--text-secondary);background:var(--bg-3)}
+  .sc-preset.active{background:linear-gradient(135deg,var(--accent-blue),#4a7de4);color:#fff;border-color:transparent;box-shadow:0 2px 12px rgba(91,141,239,0.25)}
+  .sc-field{padding:14px 20px;border-bottom:1px solid var(--border-subtle);position:relative;transition:var(--transition-fast)}
+  .sc-field:focus-within{background:rgba(91,141,239,0.02)}
+  .sc-field.has-error{background:rgba(245,34,45,0.03);border-left:2px solid var(--accent-red);padding-left:18px}
+  .sc-field.has-warn{background:rgba(250,173,20,0.03);border-left:2px solid var(--accent-amber);padding-left:18px}
+  .sc-field-label{display:flex;align-items:center;gap:6px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--text-tertiary);margin-bottom:8px}
+  .sc-info{width:14px;height:14px;border-radius:50%;border:1px solid var(--text-dim);color:var(--text-dim);font-size:8px;display:inline-flex;align-items:center;justify-content:center;cursor:help;font-weight:800;transition:var(--transition-fast);position:relative;flex-shrink:0}
+  .sc-info:hover{border-color:var(--accent-blue);color:var(--accent-blue)}
+  .sc-tooltip{position:absolute;bottom:calc(100% + 10px);left:50%;transform:translateX(-50%);background:var(--bg-3);border:1px solid var(--border-mid);border-radius:var(--radius-md);padding:14px 16px;width:280px;font-size:11px;color:var(--text-secondary);line-height:1.65;z-index:200;box-shadow:var(--shadow-lg);opacity:0;visibility:hidden;transition:all 0.2s ease;pointer-events:none;font-family:var(--font-sans);text-transform:none;letter-spacing:0;font-weight:400}
+  .sc-tooltip::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:7px solid transparent;border-top-color:var(--border-mid)}
+  .sc-info:hover .sc-tooltip{opacity:1;visibility:visible}
+  .sc-tooltip strong{color:var(--text-primary);display:block;margin-bottom:5px;font-size:12px;font-weight:700}
+  .sc-input-wrap{display:flex;gap:8px;align-items:stretch}
+  .sc-input{flex:1;background:var(--bg-0);border:1px solid var(--border-soft);border-radius:var(--radius-sm);padding:9px 12px;color:var(--text-primary);font-family:var(--font-mono);font-size:13px;font-weight:500;outline:none;transition:var(--transition-fast);min-width:0}
+  .sc-input:focus{border-color:var(--accent-blue);box-shadow:0 0 0 3px var(--accent-blue-glow),inset 0 1px 2px rgba(0,0,0,0.2)}
+  .sc-input.error{border-color:var(--accent-red);box-shadow:0 0 0 3px var(--accent-red-glow)}
+  .sc-unit{background:var(--bg-3);border:1px solid var(--border-soft);border-radius:var(--radius-sm);padding:9px 10px;color:var(--text-secondary);font-family:var(--font-mono);font-size:11px;font-weight:600;outline:none;min-width:70px;flex-shrink:0;opacity:0.7;cursor:default}
+  .sc-val{font-size:10px;margin-top:7px;font-family:var(--font-mono);display:flex;align-items:center;gap:6px;min-height:16px}
+  .sc-val.error{color:var(--accent-red)}.sc-val.warn{color:var(--accent-amber)}.sc-val.ok{color:var(--accent-green)}
+  .sc-live{margin:14px 20px;background:linear-gradient(135deg,rgba(78,205,196,0.06),rgba(91,141,239,0.04));border:1px solid rgba(78,205,196,0.12);border-radius:var(--radius-md);padding:16px 18px;position:relative;overflow:hidden}
+  .sc-live::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:linear-gradient(180deg,var(--accent-cyan),var(--accent-blue))}
+  .sc-live-hd{font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:1.2px;color:var(--accent-cyan);margin-bottom:6px;display:flex;align-items:center;gap:8px}
+  .sc-live-dot{width:5px;height:5px;background:var(--accent-cyan);border-radius:50%;box-shadow:0 0 8px var(--accent-cyan);animation:pulse-dot 2.5s ease-in-out infinite}
+  @keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.4;transform:scale(0.8)}}
+  .sc-live-val{font-family:var(--font-mono);font-size:26px;font-weight:700;color:var(--text-primary);letter-spacing:-0.5px}
+  .sc-live-sub{font-size:11px;color:var(--text-tertiary);margin-top:5px;font-family:var(--font-mono);display:flex;gap:12px;flex-wrap:wrap}
+  .sc-sidebar-ft{position:sticky;bottom:0;background:var(--bg-1);border-top:1px solid var(--border-subtle);padding:14px 20px;display:flex;gap:8px;backdrop-filter:blur(10px)}
+  .sc-btn{padding:10px 18px;border-radius:var(--radius-sm);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.4px;cursor:pointer;border:none;transition:var(--transition-fast);font-family:var(--font-sans);display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+  .sc-btn-primary{background:linear-gradient(135deg,var(--accent-blue),#4a7de4);color:#fff;box-shadow:0 2px 12px rgba(91,141,239,0.2),inset 0 1px 0 rgba(255,255,255,0.1);flex:1;justify-content:center}
+  .sc-btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(91,141,239,0.3)}
+  .sc-btn-ghost{background:var(--bg-3);color:var(--text-tertiary);border:1px solid var(--border-soft);padding:10px 14px}
+  .sc-btn-ghost:hover{background:var(--bg-4);color:var(--text-secondary);border-color:var(--border-mid)}
+  .sc-main{background:var(--bg-0);min-height:calc(100vh - 56px);overflow-y:auto}
+  .sc-main-inner{max-width:900px;margin:0 auto;padding:32px 32px 60px}
+  .sc-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:60vh;text-align:center;color:var(--text-muted)}
+  .sc-empty-icon{width:64px;height:64px;border-radius:var(--radius-lg);background:var(--bg-2);border:1px solid var(--border-soft);display:flex;align-items:center;justify-content:center;margin-bottom:20px;color:var(--text-dim)}
+  .sc-empty-title{font-size:16px;font-weight:600;color:var(--text-secondary);margin-bottom:8px}
+  .sc-empty-desc{font-size:13px;color:var(--text-muted);font-family:var(--font-mono);line-height:1.8;max-width:360px}
+  .sc-report-hd{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:28px;padding-bottom:24px;border-bottom:1px solid var(--border-subtle);gap:20px}
+  .sc-report-hd-left{flex:1;min-width:0}
+  .sc-report-title{font-size:22px;font-weight:800;letter-spacing:-0.4px;margin-bottom:10px;line-height:1.2}
+  .sc-report-meta{font-size:11px;color:var(--text-muted);font-family:var(--font-mono);line-height:2}
+  .sc-report-meta span{color:var(--accent-blue);font-weight:600}
+  .sc-report-meta .ok{color:var(--accent-green)}
+  .sc-report-hd-right{display:flex;gap:8px;flex-shrink:0;flex-wrap:wrap}
+  .sc-sec{margin-bottom:32px}
+  .sc-sec-hd{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:var(--text-muted);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+  .sc-sec-hd::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--border-soft),transparent);margin-left:4px}
+  .sc-card{background:var(--bg-1);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);padding:20px}
+  .sc-alert{border-radius:var(--radius-md);padding:16px 18px;margin-bottom:12px;display:flex;gap:14px;align-items:flex-start;border:1px solid}
+  .sc-alert-crit{background:linear-gradient(135deg,rgba(245,34,45,0.04),rgba(245,34,45,0.01));border-color:rgba(245,34,45,0.2)}
+  .sc-alert-warn{background:linear-gradient(135deg,rgba(250,173,20,0.04),rgba(250,173,20,0.01));border-color:rgba(250,173,20,0.2)}
+  .sc-alert-pass{background:linear-gradient(135deg,rgba(82,196,26,0.04),rgba(82,196,26,0.01));border-color:rgba(82,196,26,0.2)}
+  .sc-alert-icon{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0}
+  .sc-alert-crit .sc-alert-icon{background:rgba(245,34,45,0.12)}.sc-alert-warn .sc-alert-icon{background:rgba(250,173,20,0.12)}.sc-alert-pass .sc-alert-icon{background:rgba(82,196,26,0.12)}
+  .sc-alert-title{font-size:11px;font-weight:800;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.8px}
+  .sc-alert-crit .sc-alert-title{color:var(--accent-red)}.sc-alert-warn .sc-alert-title{color:var(--accent-amber)}.sc-alert-pass .sc-alert-title{color:var(--accent-green)}
+  .sc-alert-body{font-size:12px;color:var(--text-tertiary);line-height:1.7;font-family:var(--font-mono)}
+  .sc-alert-body strong{color:var(--text-primary);font-weight:600}
+  .sc-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}
+  .sc-card-res{background:var(--bg-1);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);padding:20px;text-align:center;position:relative;overflow:hidden}
+  .sc-card-res::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
+  .sc-card-res.pass::before{background:linear-gradient(90deg,var(--accent-green),#73d13d)}.sc-card-res.warn::before{background:linear-gradient(90deg,var(--accent-amber),#ffc53d)}.sc-card-res.crit::before{background:linear-gradient(90deg,var(--accent-red),#ff4d4f)}
+  .sc-card-res-label{font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);margin-bottom:10px}
+  .sc-card-res-val{font-family:var(--font-mono);font-size:24px;font-weight:700;color:var(--text-primary);letter-spacing:-0.5px;margin-bottom:4px}
+  .sc-card-res-sub{font-size:11px;color:var(--text-muted);font-family:var(--font-mono)}
+  .sc-card-res-badge{display:inline-block;margin-top:12px;padding:3px 10px;border-radius:var(--radius-sm);font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:0.8px}
+  .sc-badge-pass{background:rgba(82,196,26,0.1);color:var(--accent-green);border:1px solid rgba(82,196,26,0.15)}.sc-badge-warn{background:rgba(250,173,20,0.1);color:var(--accent-amber);border:1px solid rgba(250,173,20,0.15)}.sc-badge-crit{background:rgba(245,34,45,0.1);color:var(--accent-red);border:1px solid rgba(245,34,45,0.15)}
+  .sc-table-wrap{overflow-x:auto}
+  .sc-table{width:100%;border-collapse:separate;border-spacing:0;font-size:12px}
+  .sc-table th{text-align:left;padding:10px 12px;font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:0.8px;color:var(--text-muted);border-bottom:1px solid var(--border-soft);background:var(--bg-2);white-space:nowrap}
+  .sc-table td{padding:10px 12px;border-bottom:1px solid var(--border-subtle);font-family:var(--font-mono);white-space:nowrap}
+  .sc-table tr:last-child td{border-bottom:none}
+  .sc-table .td-name{font-family:var(--font-sans);color:var(--text-secondary);font-weight:500}
+  .sc-table .td-val{color:var(--text-primary);font-weight:600}
+  .sc-table .td-high{color:var(--accent-red);font-weight:700}.sc-table .td-ok{color:var(--accent-green)}
+  .sc-chart{background:var(--bg-1);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);padding:20px;margin-bottom:16px}
+  .sc-pareto-row{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+  .sc-pareto-name{width:140px;font-size:11px;color:var(--text-secondary);text-align:right;flex-shrink:0;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .sc-pareto-track{flex:1;height:24px;background:var(--bg-2);border-radius:var(--radius-sm);overflow:hidden}
+  .sc-pareto-fill{height:100%;border-radius:var(--radius-sm);display:flex;align-items:center;padding-left:10px;min-width:40px}
+  .sc-pareto-fill span{font-size:10px;font-weight:700;color:#fff;font-family:var(--font-mono);text-shadow:0 1px 2px rgba(0,0,0,0.4)}
+  .sc-pareto-pct{width:55px;font-size:11px;color:var(--text-muted);font-family:var(--font-mono);text-align:right;font-weight:600;flex-shrink:0}
+  .sc-whatif{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+  .sc-whatif-card{background:var(--bg-2);border:1px solid var(--border-subtle);border-radius:var(--radius-md);padding:16px;text-align:center}
+  .sc-whatif-lbl{font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:0.8px;color:var(--text-muted);margin-bottom:8px}
+  .sc-whatif-val{font-family:var(--font-mono);font-size:20px;font-weight:700;color:var(--text-primary)}
+  .sc-whatif-chg{font-size:11px;margin-top:5px;font-family:var(--font-mono);font-weight:600}
+  .sc-whatif-chg.pos{color:var(--accent-red)}.sc-whatif-chg.neg{color:var(--accent-green)}.sc-whatif-chg.neu{color:var(--text-muted)}
+  .sc-rec{background:var(--bg-2);border:1px solid var(--border-subtle);border-radius:var(--radius-md);padding:16px 18px;margin-bottom:10px}
+  .sc-rec-hd{display:flex;align-items:flex-start;gap:10px;margin-bottom:8px}
+  .sc-rec-num{width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,var(--accent-blue),#4a7de4);color:#fff;font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:var(--font-mono)}
+  .sc-rec-title{font-size:13px;font-weight:600;color:var(--text-primary);padding-top:2px}
+  .sc-rec-body{font-size:12px;color:var(--text-tertiary);line-height:1.7;padding-left:32px;font-family:var(--font-mono)}
+  .sc-rec-body .pos{color:var(--accent-green)}.sc-rec-body .neg{color:var(--accent-amber)}
+  .sc-std{font-size:11px;color:var(--text-muted);font-family:var(--font-mono);line-height:2.2}
+  .sc-std span{color:var(--accent-blue);font-weight:600}
+  .sc-footer{text-align:center;padding:24px;color:var(--text-dim);font-size:10px;font-family:var(--font-mono);border-top:1px solid var(--border-subtle);margin-top:20px;letter-spacing:0.3px}
+  @media(max-width:1024px){.sc-layout{grid-template-columns:340px 1fr}.sc-main-inner{padding:24px}.sc-cards{grid-template-columns:repeat(2,1fr)}.sc-whatif{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:768px){.sc-layout{grid-template-columns:1fr}.sc-sidebar{position:relative;top:0;height:auto;border-right:none;border-bottom:1px solid var(--border-subtle)}.sc-main-inner{padding:20px 16px 40px;max-width:100%}.sc-header{padding:0 16px}.sc-header-sub{display:none}.sc-cards{grid-template-columns:1fr 1fr}.sc-whatif{grid-template-columns:1fr}.sc-report-hd{flex-direction:column;gap:16px}.sc-report-hd-right{width:100%}.sc-report-hd-right .sc-btn{flex:1;justify-content:center}}
+  @media(max-width:480px){.sc-presets{gap:4px}.sc-preset{padding:5px 10px;font-size:10px}.sc-field{padding:12px 16px}.sc-live{margin:12px 16px}.sc-sidebar-ft{padding:12px 16px}.sc-cards{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
-<div id="app"></div>
+<div class="sc-header">
+  <div class="sc-header-left">
+    <div class="sc-logo">SC</div>
+    <div class="sc-header-brand">
+      <div class="sc-header-title">SC-010 — True Labor Cost</div>
+      <div class="sc-header-sub">Deterministic Engine v2.0 | Full-Decimal | Client-Side | Reproducible</div>
+    </div>
+  </div>
+  <div class="sc-header-right"><div class="sc-badge sc-badge-cost">Cost</div></div>
+</div>
+<div class="sc-layout">
+  <div class="sc-sidebar">
+    <div class="sc-sidebar-scroll">
+      <div class="sc-section-hd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>Configuration</div>
+      <div class="sc-presets">
+        <button class="sc-preset active" onclick="loadPreset('small')">Small workshop</button>
+        <button class="sc-preset" onclick="loadPreset('mid')">Mid factory</button>
+      </div>
+      <div class="sc-field" id="fld-netSalary"><div class="sc-field-label">Net salary<span class="sc-info">i<span class="sc-tooltip"><strong>Monthly take-home pay</strong>The amount the employee receives after their own taxes. This is the starting point — true cost is always higher.</span></span></div><div class="sc-input-wrap"><input type="number" class="sc-input" id="netSalary" value="2500" step="50" oninput="validateAndCalc()"><select class="sc-unit" disabled><option>currency</option></select></div><div class="sc-val" id="val-netSalary"></div></div>
+      <div class="sc-field"><div class="sc-field-label">Pay frequency<span class="sc-info">i<span class="sc-tooltip"><strong>How net salary is paid</strong>Monthly is default; weekly/hourly are normalized internally to a monthly figure.</span></span></div><div class="sc-input-wrap"><select class="sc-input" id="payFrequency" onchange="validateAndCalc()"><option value="monthly">monthly</option><option value="weekly">weekly</option><option value="biweekly">biweekly</option><option value="hourly">hourly</option></select></div></div>
+      <div class="sc-field" id="fld-hoursPerWeek"><div class="sc-field-label">Hours / week<span class="sc-info">i<span class="sc-tooltip"><strong>Average worked hours/week</strong>Standard 40. Overtime raises the effective hourly cost and total burden.</span></span></div><div class="sc-input-wrap"><input type="number" class="sc-input" id="hoursPerWeek" value="40" step="1" oninput="validateAndCalc()"><select class="sc-unit" disabled><option>h/wk</option></select></div><div class="sc-val" id="val-hoursPerWeek"></div></div>
+      <div class="sc-field" id="fld-employerSSRate"><div class="sc-field-label">Employer SS rate<span class="sc-info">i<span class="sc-tooltip"><strong>Employer social-security contribution</strong>Statutory rate on gross (e.g. 0.0765 US FICA employer share). Varies by country.</span></span></div><div class="sc-input-wrap"><input type="number" class="sc-input" id="employerSSRate" value="0.0765" step="0.001" oninput="validateAndCalc()"><select class="sc-unit" disabled><option>ratio</option></select></div><div class="sc-val" id="val-employerSSRate"></div></div>
+      <div class="sc-field" id="fld-employerUnempRate"><div class="sc-field-label">Employer unemp. rate<span class="sc-info">i<span class="sc-tooltip"><strong>Unemployment insurance (employer)</strong>State/federal unemployment tax on gross, capped in most regimes.</span></span></div><div class="sc-input-wrap"><input type="number" class="sc-input" id="employerUnempRate" value="0.06" step="0.001" oninput="validateAndCalc()"><select class="sc-unit" disabled><option>ratio</option></select></div><div class="sc-val" id="val-employerUnempRate"></div></div>
+      <div class="sc-field" id="fld-employeeRate"><div class="sc-field-label">Employee tax rate<span class="sc-info">i<span class="sc-tooltip"><strong>Employee-side tax rate</strong>Used to gross-up net salary: gross = net / (1 - employeeRate).</span></span></div><div class="sc-input-wrap"><input type="number" class="sc-input" id="employeeRate" value="0.23" step="0.001" oninput="validateAndCalc()"><select class="sc-unit" disabled><option>ratio</option></select></div><div class="sc-val" id="val-employeeRate"></div></div>
+      <div class="sc-field"><div class="sc-field-label">Health / month<span class="sc-info">i<span class="sc-tooltip"><strong>Employer health benefit</strong>Monthly premium the employer pays per employee.</span></span></div><div class="sc-input-wrap"><input type="number" class="sc-input" id="healthMonthly" value="0" step="10" oninput="validateAndCalc()"><select class="sc-unit" disabled><option>currency</option></select></div></div>
+      <div class="sc-field"><div class="sc-field-label">Meal / month<span class="sc-info">i<span class="sc-tooltip"><strong>Meal allowance</strong>Monthly meal benefit borne by the employer.</span></span></div><div class="sc-input-wrap"><input type="number" class="sc-input" id="mealMonthly" value="0" step="10" oninput="validateAndCalc()"><select class="sc-unit" disabled><option>currency</option></select></div></div>
+      <div class="sc-field"><div class="sc-field-label">Transport / month<span class="sc-info">i<span class="sc-tooltip"><strong>Transport allowance</strong>Monthly commuting benefit borne by the employer.</span></span></div><div class="sc-input-wrap"><input type="number" class="sc-input" id="transportMonthly" value="0" step="10" oninput="validateAndCalc()"><select class="sc-unit" disabled><option>currency</option></select></div></div>
+      <div class="sc-field"><div class="sc-field-label">Annual bonus<span class="sc-info">i<span class="sc-tooltip"><strong>Yearly bonus</strong>Spread over 12 months into the monthly true cost.</span></span></div><div class="sc-input-wrap"><input type="number" class="sc-input" id="annualBonus" value="0" step="100" oninput="validateAndCalc()"><select class="sc-unit" disabled><option>currency</option></select></div></div>
+      <div class="sc-field"><div class="sc-field-label">Severance rate<span class="sc-info">i<span class="sc-tooltip"><strong>Severance accrual</strong>Expected severance as a ratio of gross, accrued monthly.</span></span></div><div class="sc-input-wrap"><input type="number" class="sc-input" id="severanceRate" value="0" step="0.001" oninput="validateAndCalc()"><select class="sc-unit" disabled><option>ratio</option></select></div></div>
+      <div class="sc-live">
+        <div class="sc-live-hd"><span class="sc-live-dot"></span>Live Result — True Cost</div>
+        <div class="sc-live-val" id="liveResult">—</div>
+        <div class="sc-live-sub" id="liveSub"></div>
+      </div>
+    </div>
+    <div class="sc-sidebar-ft">
+      <button class="sc-btn sc-btn-primary" onclick="generateReport()">Generate Report</button>
+      <button class="sc-btn sc-btn-ghost" onclick="resetAll()">Reset</button>
+    </div>
+  </div>
+  <div class="sc-main">
+    <div class="sc-main-inner" id="reportArea">
+      <div class="sc-empty">
+        <div class="sc-empty-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+        <div class="sc-empty-title">Engineering Report Ready</div>
+        <div class="sc-empty-desc">Configure inputs on the left panel.<br>All values update in real-time.<br>Click "Generate Report" for 360deg analysis.</div>
+      </div>
+    </div>
+  </div>
+</div>
 <script type="module" src="/src/labor-pro.ts"></script>
 </body>
 </html>
