@@ -782,7 +782,7 @@ function generateReport() {
       <div class="sc-report-hd-right">
         <button class="sc-btn sc-btn-ghost" onclick="exportPDF()">Export PDF</button>
         <button class="sc-btn sc-btn-ghost" onclick="exportPDFGraphic()">Export Graphic PDF</button>
-        <button class="sc-btn sc-btn-primary" onclick="alert('Shareable URL copied')">Share</button>
+        <button class="sc-btn sc-btn-primary" onclick="shareReport()">Share</button>
       </div>
     </div>
 
@@ -1249,7 +1249,7 @@ async function exportPDFGraphic() {
   if (btn) { btn.textContent = 'Rendering...'; btn.disabled = true; }
   try {
     const canvas = await html2canvas(el, {
-      scale: 2,
+      scale: 1.5,
       backgroundColor: '#070a0f',
       useCORS: true,
       logging: false
@@ -1260,15 +1260,15 @@ async function exportPDFGraphic() {
     const pageH = pdf.internal.pageSize.getHeight();
     const imgW = pageW;
     const imgH = (canvas.height * pageW) / canvas.width;
-    const imgData = canvas.toDataURL('image/png');
+    const imgData = canvas.toDataURL('image/jpeg', 0.82);
     let heightLeft = imgH;
     let position = 0;
-    pdf.addImage(imgData, 'PNG', 0, position, imgW, imgH);
+    pdf.addImage(imgData, 'JPEG', 0, position, imgW, imgH);
     heightLeft -= pageH;
     while (heightLeft > 0) {
       position -= pageH;
       pdf.addPage();
-      pdf.addImage(imgData, 'PNG', 0, position, imgW, imgH);
+      pdf.addImage(imgData, 'JPEG', 0, position, imgW, imgH);
       heightLeft -= pageH;
     }
     // footer stamp on every page
@@ -1285,6 +1285,13 @@ async function exportPDFGraphic() {
   } finally {
     if (btn) { btn.textContent = 'Export Graphic PDF'; btn.disabled = false; }
   }
+}
+
+function shareReport() {
+  const d = window.calcData;
+  if (!d) { alert('Generate the report first.'); return; }
+  const s = encodeURIComponent(JSON.stringify({ su: d.specUpper, sl: d.specLower, cpk: d.cpkTarget, seed: d.mcSeed, dims: d.dimensions, unit: d.unit }));
+  navigator.clipboard.writeText(location.origin + '/sc008-pro.html?s=' + s).then(() => alert('Shareable URL copied'));
 }
 
 init();
