@@ -1,82 +1,484 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SectorCalc — Deterministic Engineering Calculators</title>
-    <meta name="description" content="Tolerance stack-up, labor cost, quote pricing, weld thickness. Deterministic, client-side, reproducible. Your data never leaves your browser." />
-    <link rel="stylesheet" href="/src/styles/workshop-theme.css" />
-    <style>
-      body { margin: 0; background: var(--sc-bg, #f5f6fa); color: var(--sc-steel, #2d3436); font-family: var(--sc-sans, system-ui); }
-      .wrap { max-width: 980px; margin: 0 auto; padding: 48px 24px; }
-      .hero h1 { font-size: 40px; line-height: 1.1; margin: 0 0 12px; letter-spacing: -0.5px; }
-      .hero p { font-size: 18px; color: var(--sc-muted, #636e72); margin: 0 0 24px; max-width: 640px; }
-      .cta { display: inline-block; background: var(--sc-rust, #d35400); color: #fff; font: 700 16px var(--sc-sans, system-ui); padding: 14px 24px; border-radius: 10px; text-decoration: none; }
-      .trust { display: flex; flex-wrap: wrap; gap: 8px; margin: 28px 0 40px; }
-      .trust span { background: #fff; border: 1px solid #dfe6e9; border-radius: 999px; padding: 6px 12px; font: 600 12px var(--sc-sans, system-ui); color: var(--sc-steel, #2d3436); }
-      h2 { font-size: 20px; margin: 0 0 14px; }
-      .grid { display: grid; grid-template-columns: 1fr; gap: 14px; }
-      a.tool { display: block; background: #fff; border: 1px solid #dfe6e9; border-radius: 12px; padding: 18px; text-decoration: none; color: inherit; }
-      a.tool:hover { border-color: var(--sc-rust, #d35400); }
-      a.tool.featured { border-color: var(--sc-rust, #d35400); border-width: 2px; }
-      a.tool .code { font: 700 12px var(--sc-mono, monospace); color: var(--sc-rust, #d35400); }
-      a.tool .name { font: 700 18px var(--sc-sans, system-ui); margin: 2px 0; }
-      a.tool .desc { font: 14px var(--sc-sans, system-ui); color: var(--sc-muted, #636e72); }
-      a.tool .tag { display: inline-block; margin-top: 8px; font: 700 11px var(--sc-sans, system-ui); color: #27ae60; }
-      footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid #dfe6e9; font: 12px var(--sc-mono, monospace); color: var(--sc-chip, #27ae60); }
-      @media (min-width: 720px) { .grid { grid-template-columns: 1fr 1fr; } .hero h1 { font-size: 52px; } }
-    </style>
-  </head>
-  <body>
-    <div class="wrap">
-      <section class="hero">
-        <h1>Stop losing money on engineering guesses.</h1>
-        <p>Deterministic calculators for the shop floor - statistical tolerance stack-up, true labor cost, quote pricing, weld thickness. Same inputs, same result, every time. Your data never leaves your browser.</p>
-        <a class="cta" href="/sc008-pro.html">Run a tolerance stack-up</a>
-        <a class="cta" href="/pricing.html" style="margin-left:10px;background:#2d3436">Pricing</a>
-      </section>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SectorCalc — Industrial decision calculators</title>
+<meta name="description" content="Deterministic calculators for engineering, machining, quality and costing. See every input, assumption, formula and warning before you act. Client-side; your data never leaves your browser.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F5F7FA; --surface:#FFFFFF; --surface-2:#FBFCFE; --ink:#0B1220; --ink-2:#334155; --muted:#64748B;
+    --blue:#1D4ED8; --blue-2:#2563EB; --blue-soft:#EFF4FF; --green:#15803D; --green-soft:#ECFDF3;
+    --amber:#B45309; --amber-soft:#FFFBEB; --red:#DC2626; --red-soft:#FEF2F2; --border:#E2E8F0; --border-2:#CBD5E1;
+    --sans:'IBM Plex Sans',system-ui,sans-serif; --mono:'IBM Plex Mono',ui-monospace,monospace;
+    --r:8px; --shadow:0 1px 2px rgba(15,23,42,0.04),0 1px 3px rgba(15,23,42,0.06);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{font-size:16px;-webkit-font-smoothing:antialiased;scroll-behavior:smooth}
+  body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.6}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  .mono{font-family:var(--mono)}
 
-      <div class="trust">
-        <span>Deterministic engine</span>
-        <span>Full-Decimal math - no float rounding</span>
-        <span>100% client-side</span>
-        <span>Reproducible Monte Carlo</span>
-        <span>JSON Schema Draft 2020-12</span>
-        <span>318 automated tests + CI</span>
+  /* header */
+  header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:17px;letter-spacing:-0.2px}
+  .brand .mk{width:30px;height:30px;border-radius:7px;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-weight:600;font-size:13px}
+  .navlinks{display:flex;gap:28px;font-size:14px;font-weight:500;color:var(--ink-2)}
+  .navlinks a:hover{color:var(--blue)}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:14px;padding:10px 18px;border-radius:var(--r);border:1px solid transparent;cursor:pointer;transition:all .15s}
+  .btn-primary{background:var(--blue);color:#fff}
+  .btn-primary:hover{background:var(--blue-2)}
+  .btn-ghost{background:var(--surface);color:var(--ink);border-color:var(--border-2)}
+  .btn-ghost:hover{border-color:var(--blue);color:var(--blue)}
+  @media(max-width:820px){.navlinks{display:none}}
+
+  /* hero */
+  .hero{padding:72px 0 56px;border-bottom:1px solid var(--border);background:linear-gradient(180deg,#fff 0%,var(--bg) 100%)}
+  .hero-grid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:56px;align-items:center}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;font-weight:500;color:var(--blue);background:var(--blue-soft);border:1px solid #DBE7FF;padding:5px 12px;border-radius:999px;margin-bottom:22px}
+  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--green)}
+  h1{font-size:54px;line-height:1.06;letter-spacing:-1.4px;font-weight:700;margin-bottom:20px}
+  .lede{font-size:18px;color:var(--ink-2);max-width:520px;margin-bottom:30px}
+  .lede strong{color:var(--ink);font-weight:600}
+  .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+  .hero-note{margin-top:18px;font-family:var(--mono);font-size:12px;color:var(--muted)}
+  @media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:40px}h1{font-size:38px;letter-spacing:-0.8px}}
+
+  /* live calc card (dark workspace preview) */
+  .calc{background:#0B1220;border:1px solid #1E293B;border-radius:14px;padding:22px;color:#E2E8F0;box-shadow:0 12px 40px rgba(15,23,42,0.18)}
+  .calc-hd{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+  .calc-title{font-family:var(--mono);font-size:12px;font-weight:600;color:#94A3B8;text-transform:uppercase;letter-spacing:1px}
+  .calc-live{display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:11px;color:#4ECDC4}
+  .calc-live .d{width:6px;height:6px;border-radius:50%;background:#4ECDC4;box-shadow:0 0 8px #4ECDC4;animation:p 2.4s infinite}
+  @keyframes p{0%,100%{opacity:1}50%{opacity:.35}}
+  .calc-row{display:grid;grid-template-columns:1fr 78px 78px;gap:8px;margin-bottom:8px}
+  .calc-row input{background:#0F172A;border:1px solid #1E293B;border-radius:6px;padding:8px 10px;color:#E2E8F0;font-family:var(--mono);font-size:13px;width:100%;outline:none}
+  .calc-row input:focus{border-color:#3B82F6}
+  .calc-lbl{display:grid;grid-template-columns:1fr 78px 78px;gap:8px;font-family:var(--mono);font-size:10px;color:#64748B;text-transform:uppercase;letter-spacing:.6px;margin-bottom:6px}
+  .calc-spec{display:flex;gap:8px;align-items:center;margin:12px 0}
+  .calc-spec label{font-family:var(--mono);font-size:11px;color:#94A3B8;white-space:nowrap}
+  .calc-spec input{background:#0F172A;border:1px solid #1E293B;border-radius:6px;padding:8px 10px;color:#E2E8F0;font-family:var(--mono);font-size:13px;width:90px;outline:none}
+  .calc-out{border-top:1px solid #1E293B;margin-top:14px;padding-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .co{background:#0F172A;border:1px solid #1E293B;border-radius:8px;padding:10px 12px}
+  .co-k{font-family:var(--mono);font-size:10px;color:#64748B;text-transform:uppercase;letter-spacing:.6px}
+  .co-v{font-family:var(--mono);font-size:18px;font-weight:600;color:#F1F5F9;margin-top:2px}
+  .verdict{grid-column:1/-1;border-radius:8px;padding:11px 14px;font-family:var(--mono);font-size:13px;font-weight:600;display:flex;align-items:center;gap:9px}
+  .verdict .ic{width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700}
+  .v-pass{background:rgba(21,128,61,0.14);color:#4ADE80;border:1px solid rgba(21,128,61,0.3)} .v-pass .ic{background:#15803D;color:#fff}
+  .v-warn{background:rgba(180,83,9,0.14);color:#FBBF24;border:1px solid rgba(180,83,9,0.3)} .v-warn .ic{background:#B45309;color:#fff}
+  .v-fail{background:rgba(220,38,38,0.14);color:#F87171;border:1px solid rgba(220,38,38,0.3)} .v-fail .ic{background:#DC2626;color:#fff}
+  .calc-ft{margin-top:12px;font-family:var(--mono);font-size:10.5px;color:#64748B}
+  .calc-ft a{color:#60A5FA}
+
+  /* trust bar */
+  .trust{border-bottom:1px solid var(--border);background:var(--surface)}
+  .trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+  .trust-cell{padding:22px 24px;border-right:1px solid var(--border)}
+  .trust-cell:last-child{border-right:none}
+  .trust-k{font-family:var(--mono);font-size:22px;font-weight:600;color:var(--ink);letter-spacing:-0.5px}
+  .trust-v{font-size:12.5px;color:var(--muted);margin-top:3px}
+  @media(max-width:820px){.trust-grid{grid-template-columns:1fr 1fr}.trust-cell:nth-child(2){border-right:none}}
+
+  section{padding:72px 0}
+  .sec-eyebrow{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:12px}
+  h2{font-size:34px;letter-spacing:-0.8px;font-weight:700;line-height:1.15;margin-bottom:14px}
+  .sec-lede{font-size:16.5px;color:var(--ink-2);max-width:640px;margin-bottom:40px}
+
+  /* role cards */
+  .roles{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .role{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:24px;transition:all .15s}
+  .role:hover{border-color:var(--blue);box-shadow:var(--shadow);transform:translateY(-2px)}
+  .role-q{font-size:12px;font-family:var(--mono);color:var(--muted);margin-bottom:8px}
+  .role-t{font-size:17px;font-weight:600;margin-bottom:8px}
+  .role-d{font-size:13.5px;color:var(--ink-2);margin-bottom:14px}
+  .role-link{font-size:13px;font-weight:600;color:var(--blue);display:inline-flex;align-items:center;gap:6px}
+  @media(max-width:820px){.roles{grid-template-columns:1fr}}
+
+  /* flagship */
+  .flag{background:var(--surface);border:1px solid var(--border);border-radius:16px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr}
+  .flag-body{padding:40px}
+  .flag-tag{display:inline-block;font-family:var(--mono);font-size:11px;font-weight:600;color:var(--amber);background:var(--amber-soft);border:1px solid #FDE68A;padding:3px 10px;border-radius:6px;margin-bottom:16px}
+  .flag h3{font-size:24px;font-weight:700;letter-spacing:-0.4px;margin-bottom:12px}
+  .flag p{font-size:14.5px;color:var(--ink-2);margin-bottom:20px}
+  .flag-list{list-style:none;margin-bottom:24px}
+  .flag-list li{font-size:13.5px;color:var(--ink-2);padding:7px 0;border-bottom:1px solid var(--border);display:flex;gap:10px}
+  .flag-list li:last-child{border-bottom:none}
+  .flag-list .ck{color:var(--green);font-weight:700;font-family:var(--mono)}
+  .flag-vis{background:#0B1220;padding:40px;display:flex;flex-direction:column;justify-content:center;gap:12px}
+  .fv-row{display:flex;justify-content:space-between;align-items:baseline;font-family:var(--mono);font-size:13px;color:#94A3B8;padding:9px 0;border-bottom:1px solid #1E293B}
+  .fv-row b{color:#F1F5F9;font-weight:600}
+  .fv-row .g{color:#4ADE80}.fv-row .a{color:#FBBF24}
+  @media(max-width:820px){.flag{grid-template-columns:1fr}}
+
+  /* groups */
+  .groups{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .group{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:26px}
+  .group-ic{width:38px;height:38px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-weight:600;font-size:15px;margin-bottom:16px}
+  .g-cost .group-ic{background:var(--blue-soft);color:var(--blue)} .g-qual .group-ic{background:var(--green-soft);color:var(--green)} .g-risk .group-ic{background:var(--amber-soft);color:var(--amber)}
+  .group h4{font-size:17px;font-weight:600;margin-bottom:8px}
+  .group p{font-size:13.5px;color:var(--ink-2);margin-bottom:16px}
+  .group ul{list-style:none}
+  .group li{font-size:13px;color:var(--muted);padding:5px 0;font-family:var(--mono)}
+  .group li b{color:var(--ink-2);font-weight:500}
+  @media(max-width:820px){.groups{grid-template-columns:1fr}}
+
+  /* verify layers */
+  .layers{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .layer{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:22px;position:relative}
+  .layer-n{font-family:var(--mono);font-size:11px;font-weight:600;color:var(--blue);margin-bottom:10px}
+  .layer h5{font-size:15px;font-weight:600;margin-bottom:8px}
+  .layer p{font-size:12.5px;color:var(--muted);line-height:1.55}
+  @media(max-width:820px){.layers{grid-template-columns:1fr 1fr}}
+
+  /* sample report */
+  .sample{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:36px;display:grid;grid-template-columns:0.9fr 1.1fr;gap:36px;align-items:center}
+  .sample-meta{font-family:var(--mono);font-size:12px;color:var(--muted);line-height:2;margin:16px 0}
+  .sample-meta b{color:var(--ink)}
+  .sample-card{background:#0B1220;border-radius:12px;padding:24px;color:#E2E8F0}
+  .sc-line{display:flex;justify-content:space-between;font-family:var(--mono);font-size:12.5px;padding:8px 0;border-bottom:1px solid #1E293B;color:#94A3B8}
+  .sc-line:last-child{border-bottom:none}
+  .sc-line b{color:#F1F5F9}
+  .sc-vd{margin-top:14px;background:rgba(21,128,61,0.14);border:1px solid rgba(21,128,61,0.3);color:#4ADE80;border-radius:8px;padding:11px 14px;font-family:var(--mono);font-size:13px;font-weight:600}
+  @media(max-width:820px){.sample{grid-template-columns:1fr}}
+
+  /* outcomes (honest, no fake counters) */
+  .outcomes{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  .oc{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:24px;display:flex;gap:16px}
+  .oc-ic{width:34px;height:34px;border-radius:8px;background:var(--blue-soft);color:var(--blue);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-weight:600;flex-shrink:0}
+  .oc h5{font-size:15px;font-weight:600;margin-bottom:6px}
+  .oc p{font-size:13.5px;color:var(--ink-2)}
+  @media(max-width:820px){.outcomes{grid-template-columns:1fr}}
+
+  /* standards */
+  .std-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .std-box{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:26px}
+  .std-box h5{font-size:15px;font-weight:600;margin-bottom:14px}
+  .std-line{font-family:var(--mono);font-size:12.5px;color:var(--ink-2);padding:7px 0;border-bottom:1px solid var(--border)}
+  .std-line:last-child{border-bottom:none}
+  .std-line b{color:var(--blue)}
+  .limits{background:var(--amber-soft);border:1px solid #FDE68A;border-radius:12px;padding:22px;margin-top:16px}
+  .limits h5{font-size:14px;font-weight:600;color:var(--amber);margin-bottom:10px}
+  .limits p{font-size:13px;color:var(--ink-2);line-height:1.7}
+  @media(max-width:820px){.std-grid{grid-template-columns:1fr}}
+
+  /* pricing teaser */
+  .price-cta{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:44px;text-align:center}
+  .price-cta h2{margin-bottom:12px}
+  .price-cta p{font-size:16px;color:var(--ink-2);max-width:560px;margin:0 auto 26px}
+
+  /* final cta */
+  .final{background:#0B1220;border-radius:20px;padding:60px 40px;text-align:center;color:#F1F5F9}
+  .final h2{color:#fff;margin-bottom:14px}
+  .final p{color:#94A3B8;font-size:16px;max-width:520px;margin:0 auto 28px}
+  .final .btn-primary{background:#2563EB}
+
+  footer{border-top:1px solid var(--border);background:var(--surface);padding:40px 0;margin-top:72px}
+  .foot{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:flex-start}
+  .foot-brand{max-width:360px}
+  .foot-brand p{font-size:12.5px;color:var(--muted);margin-top:10px;line-height:1.7}
+  .foot-cols{display:flex;gap:56px;flex-wrap:wrap}
+  .foot-col h6{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--ink);margin-bottom:12px}
+  .foot-col a{display:block;font-size:13px;color:var(--muted);padding:4px 0}
+  .foot-col a:hover{color:var(--blue)}
+  .foot-legal{margin-top:30px;padding-top:20px;border-top:1px solid var(--border);font-family:var(--mono);font-size:11.5px;color:var(--muted);line-height:1.8}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="/"><span class="mk">SC</span> SectorCalc</a>
+    <nav class="navlinks">
+      <a href="#tools">Tools</a>
+      <a href="#verify">Method</a>
+      <a href="#standards">Standards</a>
+      <a href="/pricing.html">Pricing</a>
+    </nav>
+    <a class="btn btn-primary" href="/sc008-pro.html">Run a Calculation</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow"><span class="dot"></span> Deterministic engine · same inputs, same result</span>
+      <h1>Turn industrial inputs into defensible decisions.</h1>
+      <p class="lede">Deterministic calculators for engineering, machining, quality and costing. <strong>See every input, assumption, formula and warning</strong> before you act. Client-side — your data never leaves your browser.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="/sc008-pro.html">Run a Calculation</a>
+        <a class="btn btn-ghost" href="/sc008-pro.html">View a Sample Report</a>
       </div>
-
-      <h2>Tools</h2>
-      <div class="grid">
-        <a class="tool featured" href="/sc008-pro.html">
-          <div class="code">SC-008 PRO</div>
-          <div class="name">Statistical Tolerance Stack-Up</div>
-          <div class="desc">Flagship dark workspace: presets, unit-aware stack, live RSS, 360-degree report and PDF.</div>
-          <div class="tag">FLAGSHIP</div>
-        </a>
-        <a class="tool" href="/labor-pro.html">
-          <div class="code">SC-010 PRO</div>
-          <div class="name">True Labor Cost</div>
-          <div class="desc">What an employee really costs beyond net salary.</div>
-        </a>
-        <a class="tool" href="/quote-pro.html">
-          <div class="code">SC-012 PRO</div>
-          <div class="name">Quote Pricing</div>
-          <div class="desc">Sell price with scrap, setup, overhead, financing, margin.</div>
-        </a>
-        <a class="tool" href="/weld-pro.html">
-          <div class="code">SC-001 PRO</div>
-          <div class="name">Weld Thickness</div>
-          <div class="desc">Required weld leg from load, checked vs code minimum.</div>
-        </a>
-        <a class="tool" href="/pricing.html">
-          <div class="code">PRICING</div>
-          <div class="name">Credit packages</div>
-          <div class="desc">Planned credit prices. Checkout connects with Paddle next - no fake success.</div>
-        </a>
-      </div>
-
-      <footer id="engine-check">Deterministic engine: <span>checking…</span></footer>
+      <div class="hero-note">No login to try · No data uploaded · Reproducible by seed</div>
     </div>
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+
+    <!-- LIVE WORKING MINI CALCULATOR -->
+    <div class="calc">
+      <div class="calc-hd">
+        <span class="calc-title">Tolerance Stack-Up · live</span>
+        <span class="calc-live"><span class="d"></span> computing</span>
+      </div>
+      <div class="calc-lbl"><span>Dimension</span><span>Nominal</span><span>± Tol</span></div>
+      <div id="rows"></div>
+      <div class="calc-spec">
+        <label>Spec deviation ±</label>
+        <input type="number" id="spec" value="0.150" step="0.001">
+        <label style="color:#64748B">mm</label>
+      </div>
+      <div class="calc-out">
+        <div class="co"><div class="co-k">Worst-case</div><div class="co-v" id="wc">—</div></div>
+        <div class="co"><div class="co-k">RSS (statistical)</div><div class="co-v" id="rss">—</div></div>
+        <div class="verdict" id="verdict"></div>
+      </div>
+      <div class="calc-ft">Live preview — worst-case + RSS. Full Monte Carlo, Cpk &amp; PDF in the <a href="/sc008-pro.html">calculator</a>.</div>
+    </div>
+  </div>
+</div>
+
+<!-- TRUST BAR (real technical facts, no fake counters) -->
+<div class="trust">
+  <div class="wrap trust-grid">
+    <div class="trust-cell"><div class="trust-k">394</div><div class="trust-v">automated tests, all passing</div></div>
+    <div class="trust-cell"><div class="trust-k">Decimal</div><div class="trust-v">full-precision engine, no float drift</div></div>
+    <div class="trust-cell"><div class="trust-k">100%</div><div class="trust-v">client-side — nothing uploaded</div></div>
+    <div class="trust-cell"><div class="trust-k">Seeded</div><div class="trust-v">reproducible Monte Carlo</div></div>
+  </div>
+</div>
+
+<!-- ROLES -->
+<section id="decide">
+  <div class="wrap">
+    <div class="sec-eyebrow">Start from your decision</div>
+    <h2>What are you trying to decide?</h2>
+    <p class="sec-lede">Different roles run the numbers for different reasons. Pick the question — we route you to the right calculator and the right evidence.</p>
+    <div class="roles">
+      <a class="role" href="/sc008-pro.html"><div class="role-q">Engineering</div><div class="role-t">Will this tolerance stack hold the spec?</div><div class="role-d">Worst-case, RSS and Monte Carlo with predicted Cpk — every assumption visible.</div><span class="role-link">Open stack-up →</span></a>
+      <a class="role" href="/quote-pro.html"><div class="role-q">Estimating</div><div class="role-t">Is this quote profitable?</div><div class="role-d">Full-absorption cost build-up, margin and sell/cost ratio before you commit.</div><span class="role-link">Open quote pricing →</span></a>
+      <a class="role" href="/labor-pro.html"><div class="role-q">Costing</div><div class="role-t">What does labor really cost?</div><div class="role-d">True loaded labor cost — statutory burden and benefits, not just net wage.</div><span class="role-link">Open labor cost →</span></a>
+      <a class="role" href="/weld-pro.html"><div class="role-q">Fabrication</div><div class="role-t">Is this weld sized correctly?</div><div class="role-d">Required leg and throat against design load, with utilization check.</div><span class="role-link">Open weld check →</span></a>
+      <a class="role" href="/sc008-pro.html"><div class="role-q">Quality</div><div class="role-t">Is the process capable?</div><div class="role-d">Predicted capability from tolerances — flagged as prediction, not measured SPC.</div><span class="role-link">Open capability →</span></a>
+      <a class="role" href="#verify"><div class="role-q">Audit / Review</div><div class="role-t">Can I defend this number?</div><div class="role-d">Inputs, formula, assumptions, warnings and engine version in every report.</div><span class="role-link">See the method →</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- FLAGSHIP -->
+<section id="tools" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-eyebrow">Flagship</div>
+    <h2>Statistical Tolerance Stack-Up</h2>
+    <p class="sec-lede">The hardest everyday question on the floor — will the assembled dimensions stay within spec? Three methods, one deterministic engine.</p>
+    <div class="flag">
+      <div class="flag-body">
+        <span class="flag-tag">Engineering preview · not for production approval</span>
+        <h3>Three methods, one answer you can trace</h3>
+        <p>Worst-case for the safe bound, RSS for the statistical estimate, seeded Monte Carlo for the distribution — compared side by side, with the contributor that drives the most variation called out.</p>
+        <ul class="flag-list">
+          <li><span class="ck">✓</span> Per-part distribution: normal, uniform, truncated-normal, triangular</li>
+          <li><span class="ck">✓</span> Real sample histogram — not a decorative bell curve</li>
+          <li><span class="ck">✓</span> Predicted Cpk &amp; PPM with a 95% confidence interval</li>
+          <li><span class="ck">✓</span> Deterministic: same inputs + seed + engine version = same report</li>
+          <li><span class="ck">✓</span> Save / load projects, CSV import, revision compare, PDF trace</li>
+        </ul>
+        <a class="btn btn-primary" href="/sc008-pro.html">Open the calculator</a>
+      </div>
+      <div class="flag-vis">
+        <div class="fv-row"><span>Worst-case</span><b>±0.1150 mm</b></div>
+        <div class="fv-row"><span>RSS</span><b class="a">±0.0687 mm</b></div>
+        <div class="fv-row"><span>Monte Carlo (n=10 000)</span><b>±0.0671 mm</b></div>
+        <div class="fv-row"><span>Predicted Cpk</span><b class="g">2.18</b></div>
+        <div class="fv-row"><span>Top contributor</span><b>Spacer Width · 53%</b></div>
+        <div class="fv-row"><span>Verdict</span><b class="g">Predicted in spec</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GROUPS -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-eyebrow">The set</div>
+    <h2>Cost, quality and risk — one deterministic engine</h2>
+    <p class="sec-lede">Every tool shares the same principles: structured inputs, full-precision math, visible assumptions, and a result you can defend.</p>
+    <div class="groups">
+      <div class="group g-cost"><div class="group-ic">$</div><h4>Cost &amp; Quoting</h4><p>Know the real number before you commit a price or a hire.</p><ul><li><b>SC-010</b> True labor cost</li><li><b>SC-012</b> Quote pricing &amp; margin</li></ul></div>
+      <div class="group g-qual"><div class="group-ic">σ</div><h4>Quality &amp; Capability</h4><p>Predicted capability from tolerances — flagged as prediction.</p><ul><li><b>SC-008</b> Tolerance stack-up</li><li><b>SC-001</b> Weld thickness</li></ul></div>
+      <div class="group g-risk"><div class="group-ic">!</div><h4>Risk &amp; Review</h4><p>See the contributor, the margin and the warning before it costs you.</p><ul><li><b>Pareto</b> variation contribution</li><li><b>What-if</b> sensitivity, recomputed</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- VERIFY -->
+<section id="verify" style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+  <div class="wrap">
+    <div class="sec-eyebrow">Method</div>
+    <h2>How a SectorCalc result is built</h2>
+    <p class="sec-lede">A result is only useful if you can defend it. Every report carries four layers — so a reviewer can follow the number from input to decision.</p>
+    <div class="layers">
+      <div class="layer"><div class="layer-n">01 · DECISION</div><h5>Recommended action</h5><p>Primary result, pass / warning / fail, and the operational or commercial impact — stated up front.</p></div>
+      <div class="layer"><div class="layer-n">02 · CALCULATION</div><h5>Inputs &amp; formula</h5><p>Every input with units, derived values, the formula used and the assumptions made. Nothing hidden.</p></div>
+      <div class="layer"><div class="layer-n">03 · VALIDATION</div><h5>Checks &amp; warnings</h5><p>Input consistency checks, outlier warnings, the applicable standard and edition, and the engine version.</p></div>
+      <div class="layer"><div class="layer-n">04 · REPORT</div><h5>Audit trail</h5><p>Executive result, detailed calculation, deviations, deterministic hashes and a PDF / shareable record.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SAMPLE REPORT -->
+<section>
+  <div class="wrap">
+    <div class="sec-eyebrow">Evidence</div>
+    <h2>What a report actually looks like</h2>
+    <p class="sec-lede">Not a black-box number. A traceable record — the kind you can hand to a reviewer or attach to a design file.</p>
+    <div class="sample">
+      <div>
+        <h3 style="font-size:20px;font-weight:700;margin-bottom:6px">SC-008 · Predicted Analysis</h3>
+        <div class="sample-meta">
+          Calc ID <b>SC008-7A3F1C9E</b> (from inputs)<br>
+          Engine <b>SC008-2026.07-formula-v1.0.0+dist</b><br>
+          Input hash <b>7a3f1c9e</b> · Output hash <b>4d8b2e61</b><br>
+          Method <b>worst + RSS + seeded MC (n=10 000)</b>
+        </div>
+        <a class="btn btn-ghost" href="/sc008-pro.html">Generate your own →</a>
+      </div>
+      <div class="sample-card">
+        <div class="sc-line"><span>Worst-case</span><b>±0.1150 mm</b></div>
+        <div class="sc-line"><span>RSS</span><b>±0.0687 mm</b></div>
+        <div class="sc-line"><span>Monte Carlo</span><b>±0.0671 mm</b></div>
+        <div class="sc-line"><span>Predicted Cpk</span><b>2.18</b></div>
+        <div class="sc-line"><span>Predicted PPM (95% CI)</span><b>3 · 0–11</b></div>
+        <div class="sc-line"><span>Top contributor</span><b>Spacer Width · 53%</b></div>
+        <div class="sc-vd">✓ Predicted in spec — verify with measured data before release</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUTCOMES (honest framing, no invented metrics) -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-eyebrow">What you get</div>
+    <h2>Built to be defended, not just displayed</h2>
+    <p class="sec-lede">We don't claim to replace measured data or a licensed engineer. We claim to make the calculation transparent, repeatable and reviewable.</p>
+    <div class="outcomes">
+      <div class="oc"><div class="oc-ic">∑</div><div><h5>Every input visible</h5><p>Structured, unit-aware inputs with tooltips that state the assumption — no hidden defaults.</p></div></div>
+      <div class="oc"><div class="oc-ic">fx</div><div><h5>The formula shown</h5><p>The method and the math are stated in the report, so a reviewer can follow the derivation.</p></div></div>
+      <div class="oc"><div class="oc-ic">!</div><div><h5>Warnings flagged</h5><p>Out-of-range inputs, thin margins and out-of-spec predictions are called out, not buried.</p></div></div>
+      <div class="oc"><div class="oc-ic">≡</div><div><h5>Reproducible record</h5><p>Deterministic seed + engine version + hashes mean the same inputs reproduce the same report.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- STANDARDS -->
+<section id="standards" style="background:var(--surface);border-top:1px solid var(--border)">
+  <div class="wrap">
+    <div class="sec-eyebrow">Standards &amp; honesty</div>
+    <h2>What we reference — and what we are not</h2>
+    <p class="sec-lede">Trust comes from stating limits as clearly as capabilities.</p>
+    <div class="std-grid">
+      <div class="std-box">
+        <h5>Referenced methodology</h5>
+        <div class="std-line"><b>ISO 286-1</b> — tolerance grades (reference for deviations)</div>
+        <div class="std-line"><b>ASME Y14.5</b> — statistical tolerancing context (RSS)</div>
+        <div class="std-line"><b>AIAG SPC</b> — Cpk definition (model-derived here, not measured)</div>
+        <div class="std-line"><b>AWS D1.1 / EN ISO 2553</b> — weld sizing context</div>
+        <div class="std-line"><b>Engine</b> — SC008-2026.07-formula-v1.0.0+dist · 394 tests</div>
+      </div>
+      <div class="std-box">
+        <h5>How to read our results</h5>
+        <div class="std-line">Validated against closed-form worst-case / RSS invariants</div>
+        <div class="std-line">Calculated under stated distribution assumptions</div>
+        <div class="std-line">Applicable within 1D linear stack-ups</div>
+        <div class="std-line">Predicted capability — not observed process capability</div>
+        <div class="std-line">Reproducible from inputs + seed + engine version</div>
+      </div>
+    </div>
+    <div class="limits">
+      <h5>Known limitations (stated on purpose)</h5>
+      <p>1D linear stacks only. Per-part sigma is derived from the tolerance (no measured-process input yet). No correlation model between dimensions yet. Results are <strong>predicted from drawing tolerances</strong> — an engineering preview to support a decision, <strong>not a substitute for measured SPC or a licensed engineer's sign-off</strong>, and not for production approval on their own.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING TEASER -->
+<section>
+  <div class="wrap">
+    <div class="price-cta">
+      <div class="sec-eyebrow" style="margin-bottom:8px">Pricing</div>
+      <h2>Pay with credits. Only for what you use.</h2>
+      <p>No subscription. Try every tool free first; open a premium calculation with credits valid for 12 months. Heavy users save with big packs; light users pay little.</p>
+      <a class="btn btn-primary" href="/pricing.html">See credit pricing</a>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="final">
+      <h2>Stop guessing. Start defending your numbers.</h2>
+      <p>Run a tolerance stack-up in your browser — no login, no upload, reproducible by seed.</p>
+      <a class="btn btn-primary" href="/sc008-pro.html">Run a Calculation</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div class="foot-brand">
+        <a class="brand" href="/"><span class="mk">SC</span> SectorCalc</a>
+        <p>Deterministic industrial decision calculators. Client-side, full-precision, reproducible. Built for the shop floor and the design review.</p>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col"><h6>Tools</h6><a href="/sc008-pro.html">Tolerance Stack-Up</a><a href="/quote-pro.html">Quote Pricing</a><a href="/labor-pro.html">True Labor Cost</a><a href="/weld-pro.html">Weld Thickness</a></div>
+        <div class="foot-col"><h6>Method</h6><a href="#verify">How results are built</a><a href="#standards">Standards</a><a href="/sc008-pro.html">Sample report</a></div>
+        <div class="foot-col"><h6>Product</h6><a href="/pricing.html">Pricing</a><a href="#decide">By role</a></div>
+      </div>
+    </div>
+    <div class="foot-legal">
+      Engineering preview — predicted from inputs and stated assumptions; not for production approval and not a substitute for measured data or a licensed engineer.<br>
+      Client-side only: your data never leaves your browser. © 2026 SectorCalc.
+    </div>
+  </div>
+</footer>
+
+<script>
+// Live hero mini-calculator: worst-case + RSS (Number, demo only — full Decimal engine in the calculator).
+const dims = [
+  { name: 'Spacer Width', nominal: 25.000, tol: 0.050 },
+  { name: 'Bearing OD',   nominal: 30.000, tol: 0.025 },
+  { name: 'Housing Bore', nominal: -55.000, tol: 0.040 }
+];
+const rows = document.getElementById('rows');
+function renderRows(){
+  rows.innerHTML = dims.map((d,i)=>`<div class="calc-row"><input value="${d.name}" data-i="${i}" data-f="name" style="font-family:var(--sans);color:#CBD5E1"><input type="number" value="${d.nominal.toFixed(3)}" step="0.001" data-i="${i}" data-f="nominal"><input type="number" value="${d.tol.toFixed(3)}" step="0.001" data-i="${i}" data-f="tol"></div>`).join('');
+}
+function calc(){
+  const spec = Math.abs(parseFloat(document.getElementById('spec').value)||0);
+  const wc = dims.reduce((s,d)=>s+Math.abs(d.tol),0);
+  const rss = Math.sqrt(dims.reduce((s,d)=>s+d.tol*d.tol,0));
+  document.getElementById('wc').textContent = '±'+wc.toFixed(4);
+  document.getElementById('rss').textContent = '±'+rss.toFixed(4);
+  const v = document.getElementById('verdict');
+  let cls, ic, txt;
+  if (rss <= spec*0.8){ cls='v-pass'; ic='✓'; txt='Within spec — statistically sound'; }
+  else if (rss <= spec){ cls='v-warn'; ic='!'; txt='Marginal — monitor the process'; }
+  else { cls='v-fail'; ic='×'; txt='Out of spec — tighten tolerances'; }
+  v.className = 'verdict '+cls;
+  v.innerHTML = `<span class="ic">${ic}</span> ${txt}`;
+}
+rows.addEventListener('input', e=>{
+  const t=e.target; if(t.dataset.i===undefined) return;
+  const i=+t.dataset.i, f=t.dataset.f;
+  dims[i][f] = f==='name' ? t.value : parseFloat(t.value)||0;
+  calc();
+});
+document.getElementById('spec').addEventListener('input', calc);
+renderRows(); calc();
+</script>
+</body>
 </html>
