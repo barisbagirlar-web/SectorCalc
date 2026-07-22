@@ -48,31 +48,33 @@
   .hero-note{margin-top:18px;font-family:var(--mono);font-size:12px;color:var(--muted)}
   @media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:40px}h1{font-size:38px;letter-spacing:-0.8px}}
 
-  /* live calc card (dark workspace preview) */
-  .calc{background:#0B1220;border:1px solid #1E293B;border-radius:14px;padding:22px;color:#E2E8F0;box-shadow:0 12px 40px rgba(15,23,42,0.18)}
-  .calc-hd{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
-  .calc-title{font-family:var(--mono);font-size:12px;font-weight:600;color:#94A3B8;text-transform:uppercase;letter-spacing:1px}
-  .calc-live{display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:11px;color:#4ECDC4}
-  .calc-live .d{width:6px;height:6px;border-radius:50%;background:#4ECDC4;box-shadow:0 0 8px #4ECDC4;animation:p 2.4s infinite}
+  /* live engineering stack-up diagram (open theme) */
+  .calc{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px;box-shadow:var(--shadow)}
+  .calc-hd{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+  .calc-title{font-family:var(--mono);font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+  .calc-live{display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:11px;color:var(--green)}
+  .calc-live .d{width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green);animation:p 2.4s infinite}
   @keyframes p{0%,100%{opacity:1}50%{opacity:.35}}
-  .calc-row{display:grid;grid-template-columns:1fr 78px 78px;gap:8px;margin-bottom:8px}
-  .calc-row input{background:#0F172A;border:1px solid #1E293B;border-radius:6px;padding:8px 10px;color:#E2E8F0;font-family:var(--mono);font-size:13px;width:100%;outline:none}
-  .calc-row input:focus{border-color:#3B82F6}
-  .calc-lbl{display:grid;grid-template-columns:1fr 78px 78px;gap:8px;font-family:var(--mono);font-size:10px;color:#64748B;text-transform:uppercase;letter-spacing:.6px;margin-bottom:6px}
-  .calc-spec{display:flex;gap:8px;align-items:center;margin:12px 0}
-  .calc-spec label{font-family:var(--mono);font-size:11px;color:#94A3B8;white-space:nowrap}
-  .calc-spec input{background:#0F172A;border:1px solid #1E293B;border-radius:6px;padding:8px 10px;color:#E2E8F0;font-family:var(--mono);font-size:13px;width:90px;outline:none}
-  .calc-out{border-top:1px solid #1E293B;margin-top:14px;padding-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
-  .co{background:#0F172A;border:1px solid #1E293B;border-radius:8px;padding:10px 12px}
-  .co-k{font-family:var(--mono);font-size:10px;color:#64748B;text-transform:uppercase;letter-spacing:.6px}
-  .co-v{font-family:var(--mono);font-size:18px;font-weight:600;color:#F1F5F9;margin-top:2px}
-  .verdict{grid-column:1/-1;border-radius:8px;padding:11px 14px;font-family:var(--mono);font-size:13px;font-weight:600;display:flex;align-items:center;gap:9px}
-  .verdict .ic{width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700}
-  .v-pass{background:rgba(21,128,61,0.14);color:#4ADE80;border:1px solid rgba(21,128,61,0.3)} .v-pass .ic{background:#15803D;color:#fff}
-  .v-warn{background:rgba(180,83,9,0.14);color:#FBBF24;border:1px solid rgba(180,83,9,0.3)} .v-warn .ic{background:#B45309;color:#fff}
-  .v-fail{background:rgba(220,38,38,0.14);color:#F87171;border:1px solid rgba(220,38,38,0.3)} .v-fail .ic{background:#DC2626;color:#fff}
-  .calc-ft{margin-top:12px;font-family:var(--mono);font-size:10.5px;color:#64748B}
-  .calc-ft a{color:#60A5FA}
+  .calc-body{display:grid;grid-template-columns:150px 1fr;gap:16px}
+  .calc-inputs .ci{margin-bottom:8px}
+  .calc-inputs label{display:block;font-family:var(--mono);font-size:9.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:3px}
+  .calc-inputs input{width:100%;background:var(--surface-2);border:1px solid var(--border);border-radius:6px;padding:7px 9px;font-family:var(--mono);font-size:12.5px;color:var(--ink);outline:none}
+  .calc-inputs input:focus{border-color:var(--blue)}
+  .calc-spec{display:flex;gap:6px;align-items:center;margin-top:10px;padding-top:10px;border-top:1px solid var(--border)}
+  .calc-spec input{width:70px;background:var(--surface-2);border:1px solid var(--border);border-radius:6px;padding:7px 9px;font-family:var(--mono);font-size:12.5px;color:var(--ink);outline:none}
+  .calc-spec span{font-family:var(--mono);font-size:10px;color:var(--muted)}
+  .stack-svg{width:100%;height:auto;background:var(--surface-2);border:1px solid var(--border);border-radius:8px}
+  .calc-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
+  .cm{background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:9px 11px}
+  .cm-k{font-family:var(--mono);font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+  .cm-v{font-family:var(--mono);font-size:16px;font-weight:600;color:var(--ink);margin-top:1px}
+  .calc-verdict{margin-top:10px;border-radius:8px;padding:10px 13px;font-family:var(--mono);font-size:12.5px;font-weight:600;display:flex;align-items:center;gap:9px}
+  .cv-pass{background:var(--green-soft);color:var(--green);border:1px solid #BBF7D0}
+  .cv-warn{background:var(--amber-soft);color:var(--amber);border:1px solid #FDE68A}
+  .cv-fail{background:var(--red-soft);color:var(--red);border:1px solid #FECACA}
+  .calc-ft{margin-top:11px;font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+  .calc-ft a{color:var(--blue)}
+  @media(max-width:560px){.calc-body{grid-template-columns:1fr}}
 
   /* trust bar */
   .trust{border-bottom:1px solid var(--border);background:var(--surface)}
@@ -216,25 +218,32 @@
       <div class="hero-note">No login to try · No data uploaded · Reproducible by seed</div>
     </div>
 
-    <!-- LIVE WORKING MINI CALCULATOR -->
+    <!-- LIVE ENGINEERING STACK-UP DIAGRAM -->
     <div class="calc">
       <div class="calc-hd">
         <span class="calc-title">Tolerance Stack-Up · live</span>
         <span class="calc-live"><span class="d"></span> computing</span>
       </div>
-      <div class="calc-lbl"><span>Dimension</span><span>Nominal</span><span>± Tol</span></div>
-      <div id="rows"></div>
-      <div class="calc-spec">
-        <label>Spec deviation ±</label>
-        <input type="number" id="spec" value="0.150" step="0.001">
-        <label style="color:#64748B">mm</label>
+      <div class="calc-body">
+        <div class="calc-inputs">
+          <div class="ci"><label>Spacer ±tol</label><input type="number" id="t0" value="0.050" step="0.001"></div>
+          <div class="ci"><label>Bearing ±tol</label><input type="number" id="t1" value="0.025" step="0.001"></div>
+          <div class="ci"><label>Housing ±tol</label><input type="number" id="t2" value="0.040" step="0.001"></div>
+          <div class="calc-spec">
+            <span>Spec ±</span>
+            <input type="number" id="spec" value="0.150" step="0.001">
+            <span>mm</span>
+          </div>
+        </div>
+        <svg class="stack-svg" id="stackSvg" viewBox="0 0 540 300" role="img" aria-label="Tolerance stack-up diagram"></svg>
       </div>
-      <div class="calc-out">
-        <div class="co"><div class="co-k">Worst-case</div><div class="co-v" id="wc">—</div></div>
-        <div class="co"><div class="co-k">RSS (statistical)</div><div class="co-v" id="rss">—</div></div>
-        <div class="verdict" id="verdict"></div>
+      <div class="calc-metrics">
+        <div class="cm"><div class="cm-k">Worst-case</div><div class="cm-v" id="wc">—</div></div>
+        <div class="cm"><div class="cm-k">RSS</div><div class="cm-v" id="rss">—</div></div>
+        <div class="cm"><div class="cm-k">Monte Carlo</div><div class="cm-v" id="mc">—</div></div>
       </div>
-      <div class="calc-ft">Live preview — worst-case + RSS. Full Monte Carlo, Cpk &amp; PDF in the <a href="/sc008-pro.html">calculator</a>.</div>
+      <div class="calc-verdict" id="verdict"></div>
+      <div class="calc-ft">Live preview — full Monte Carlo, Cpk &amp; PDF in the <a href="/sc008-pro.html">calculator</a>.</div>
     </div>
   </div>
 </div>
@@ -447,38 +456,83 @@
 </footer>
 
 <script>
-// Live hero mini-calculator: worst-case + RSS (Number, demo only — full Decimal engine in the calculator).
+// Live tolerance stack-up diagram (Number, demo). Real Decimal engine lives in the calculator.
 const dims = [
-  { name: 'Spacer Width', nominal: 25.000, tol: 0.050 },
-  { name: 'Bearing OD',   nominal: 30.000, tol: 0.025 },
-  { name: 'Housing Bore', nominal: -55.000, tol: 0.040 }
+  { name:'Spacer',  nominal: 25, tol: 0.050, color:'#2563EB' },
+  { name:'Bearing', nominal: 30, tol: 0.025, color:'#0891B2' },
+  { name:'Housing', nominal:-55, tol: 0.040, color:'#7C3AED' }
 ];
-const rows = document.getElementById('rows');
-function renderRows(){
-  rows.innerHTML = dims.map((d,i)=>`<div class="calc-row"><input value="${d.name}" data-i="${i}" data-f="name" style="font-family:var(--sans);color:#CBD5E1"><input type="number" value="${d.nominal.toFixed(3)}" step="0.001" data-i="${i}" data-f="nominal"><input type="number" value="${d.tol.toFixed(3)}" step="0.001" data-i="${i}" data-f="tol"></div>`).join('');
-}
-function calc(){
-  const spec = Math.abs(parseFloat(document.getElementById('spec').value)||0);
-  const wc = dims.reduce((s,d)=>s+Math.abs(d.tol),0);
+const $ = (id) => document.getElementById(id);
+function draw(){
+  const spec = Math.abs(parseFloat($('spec').value)||0);
+  dims[0].tol = Math.abs(parseFloat($('t0').value)||0);
+  dims[1].tol = Math.abs(parseFloat($('t1').value)||0);
+  dims[2].tol = Math.abs(parseFloat($('t2').value)||0);
+  const nomSum = dims.reduce((s,d)=>s+d.nominal,0);
+  const worst = dims.reduce((s,d)=>s+d.tol,0);
   const rss = Math.sqrt(dims.reduce((s,d)=>s+d.tol*d.tol,0));
-  document.getElementById('wc').textContent = '±'+wc.toFixed(4);
-  document.getElementById('rss').textContent = '±'+rss.toFixed(4);
-  const v = document.getElementById('verdict');
-  let cls, ic, txt;
-  if (rss <= spec*0.8){ cls='v-pass'; ic='✓'; txt='Within spec — statistically sound'; }
-  else if (rss <= spec){ cls='v-warn'; ic='!'; txt='Marginal — monitor the process'; }
-  else { cls='v-fail'; ic='×'; txt='Out of spec — tighten tolerances'; }
-  v.className = 'verdict '+cls;
-  v.innerHTML = `<span class="ic">${ic}</span> ${txt}`;
+  // simple Monte Carlo (uniform per part) for the preview number
+  let seed = 12345; const lcg = () => { seed=(seed*1664525+1013904223)%4294967296; return seed/4294967296-0.5; };
+  const samp=[]; for(let i=0;i<4000;i++){ let s=0; for(const d of dims) s+=d.nominal+lcg()*2*d.tol; samp.push(s); }
+  samp.sort((a,b)=>a-b); const mc=(samp[Math.floor(4000*0.9985)]-samp[Math.floor(4000*0.0015)])/2;
+
+  $('wc').textContent='±'+worst.toFixed(4);
+  $('rss').textContent='±'+rss.toFixed(4);
+  $('mc').textContent='±'+mc.toFixed(4);
+  const v=$('verdict'); let cls,ic,txt;
+  if(rss<=spec*0.8){cls='cv-pass';ic='✓';txt='Within spec — statistically sound';}
+  else if(rss<=spec){cls='cv-warn';ic='!';txt='Marginal — monitor the process';}
+  else{cls='cv-fail';ic='×';txt='Out of spec — tighten tolerances';}
+  v.className='calc-verdict '+cls; v.innerHTML=`<span>${ic}</span> ${txt}`;
+
+  // ---- engineering drawing ----
+  const W=540,H=300, padL=70, padR=24, padT=24, padB=40;
+  const cx = nomSum; // center of stack on the mm axis
+  const span = Math.max(spec, worst)*1.25 + 0.02;
+  const x0 = cx - span, x1 = cx + span;
+  const X = (mm) => padL + (mm - x0)/(x1 - x0)*(W-padL-padR);
+  const gridStep = span>0.4?0.1:span>0.15?0.05:0.02;
+  let g='';
+  // engineering paper grid
+  for(let mm=Math.ceil(x0/gridStep)*gridStep; mm<=x1; mm+=gridStep){
+    const gx=X(mm); g+=`<line x1="${gx}" y1="${padT}" x2="${gx}" y2="${H-padB}" stroke="#EEF2F7" stroke-width="1"/>`;
+    g+=`<text x="${gx}" y="${H-padB+15}" text-anchor="middle" font-family="IBM Plex Mono" font-size="8.5" fill="#94A3B8">${mm.toFixed(2)}</text>`;
+  }
+  g+=`<text x="${(padL+W-padR)/2}" y="${H-6}" text-anchor="middle" font-family="IBM Plex Mono" font-size="9" fill="#64748B">assembled dimension (mm)</text>`;
+  // spec zone (green band) + USL/LSL
+  const uslX=X(cx+spec), lslX=X(cx-spec);
+  g+=`<rect x="${lslX}" y="${padT}" width="${uslX-lslX}" height="${H-padB-padT}" fill="rgba(21,128,61,0.06)"/>`;
+  g+=`<line x1="${uslX}" y1="${padT}" x2="${uslX}" y2="${H-padB}" stroke="#15803D" stroke-width="1.4" stroke-dasharray="5,4"/>`;
+  g+=`<line x1="${lslX}" y1="${padT}" x2="${lslX}" y2="${H-padB}" stroke="#15803D" stroke-width="1.4" stroke-dasharray="5,4"/>`;
+  g+=`<text x="${uslX}" y="${padT-7}" text-anchor="middle" font-family="IBM Plex Mono" font-size="8.5" fill="#15803D">USL</text>`;
+  g+=`<text x="${lslX}" y="${padT-7}" text-anchor="middle" font-family="IBM Plex Mono" font-size="8.5" fill="#15803D">LSL</text>`;
+  // nominal center line
+  g+=`<line x1="${X(cx)}" y1="${padT}" x2="${X(cx)}" y2="${H-padB}" stroke="#94A3B8" stroke-width="1" stroke-dasharray="2,3"/>`;
+  // dimension rows (tolerance bands)
+  const rowY0=padT+18, rowH=(H-padB-padT-70)/dims.length;
+  dims.forEach((d,i)=>{
+    const y=rowY0+i*rowH;
+    const lo=X(d.nominal-d.tol), hi=X(d.nominal+d.tol), mid=X(d.nominal);
+    g+=`<text x="${padL-8}" y="${y+9}" text-anchor="end" font-family="IBM Plex Mono" font-size="9" fill="#64748B">${d.name}</text>`;
+    g+=`<line x1="${lo}" y1="${y+5}" x2="${hi}" y2="${y+5}" stroke="${d.color}" stroke-width="1" opacity="0.5"/>`;
+    g+=`<rect x="${lo}" y="${y}" width="${Math.max(hi-lo,2)}" height="10" rx="2" fill="${d.color}" opacity="0.18"/>`;
+    g+=`<line x1="${mid}" y1="${y-2}" x2="${mid}" y2="${y+12}" stroke="${d.color}" stroke-width="1.6"/>`;
+    g+=`<text x="${hi+4}" y="${y+9}" font-family="IBM Plex Mono" font-size="8" fill="${d.color}">±${d.tol.toFixed(3)}</text>`;
+  });
+  // result brackets at bottom
+  const by=H-padB-26;
+  const wLo=X(cx-worst), wHi=X(cx+worst), rLo=X(cx-rss), rHi=X(cx+rss);
+  g+=`<line x1="${wLo}" y1="${by}" x2="${wHi}" y2="${by}" stroke="#DC2626" stroke-width="2"/>`;
+  g+=`<line x1="${wLo}" y1="${by-5}" x2="${wLo}" y2="${by+5}" stroke="#DC2626" stroke-width="2"/><line x1="${wHi}" y1="${by-5}" x2="${wHi}" y2="${by+5}" stroke="#DC2626" stroke-width="2"/>`;
+  g+=`<text x="${(wLo+wHi)/2}" y="${by-7}" text-anchor="middle" font-family="IBM Plex Mono" font-size="8.5" fill="#DC2626">worst ±${worst.toFixed(3)}</text>`;
+  const by2=by+15;
+  g+=`<line x1="${rLo}" y1="${by2}" x2="${rHi}" y2="${by2}" stroke="#1D4ED8" stroke-width="2.4"/>`;
+  g+=`<line x1="${rLo}" y1="${by2-5}" x2="${rLo}" y2="${by2+5}" stroke="#1D4ED8" stroke-width="2.4"/><line x1="${rHi}" y1="${by2-5}" x2="${rHi}" y2="${by2+5}" stroke="#1D4ED8" stroke-width="2.4"/>`;
+  g+=`<text x="${(rLo+rHi)/2}" y="${by2-7}" text-anchor="middle" font-family="IBM Plex Mono" font-size="8.5" fill="#1D4ED8">RSS ±${rss.toFixed(3)}</text>`;
+  $('stackSvg').innerHTML = g;
 }
-rows.addEventListener('input', e=>{
-  const t=e.target; if(t.dataset.i===undefined) return;
-  const i=+t.dataset.i, f=t.dataset.f;
-  dims[i][f] = f==='name' ? t.value : parseFloat(t.value)||0;
-  calc();
-});
-document.getElementById('spec').addEventListener('input', calc);
-renderRows(); calc();
+['t0','t1','t2','spec'].forEach(id=>$(id).addEventListener('input',draw));
+draw();
 </script>
 </body>
 </html>

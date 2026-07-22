@@ -7,6 +7,7 @@ import { parseCSV, saveProject, loadProject, listProjects, makeShareURL, parseSh
 // Sampling lives here (composed from monte-carlo.ts primitives); the MATH lives in
 // formula.ts calculate(). calculate() receives the samples, so UI/PDF/share all agree.
 const ENGINE_VERSION = 'SC008-2026.07-formula-v1.0.0+dist';
+const TH = { track:'#F1F5F9', grid:'#E2E8F0', axis:'#94A3B8', text:'#64748B', ink:'#0B1220', blue:'#1D4ED8', green:'#15803D', amber:'#B45309', red:'#DC2626', greenFill:'rgba(21,128,61,0.12)', amberFill:'rgba(180,83,9,0.12)', redFill:'rgba(220,38,38,0.12)', blueFill:'rgba(29,78,216,0.10)' };
 const MC_RUNS = 10000;
 const unitConv = { mm:{toMm:1,fromMm:1}, inch:{toMm:25.4,fromMm:1/25.4}, um:{toMm:0.001,fromMm:1000} };
 const presets = {
@@ -153,12 +154,12 @@ function generateReport(){
   const d=calcData; if(!d)return;
   const u=d.fromMm, uL=currentUnit;
   const overall=!d.rssInSpec?'CRITICAL':(d.cpk<d.b.cpkTarget?'WARNING':'PASS');
-  const gCol=overall==='PASS'?'#52c41a':(overall==='WARNING'?'#faad14':'#f5222d');
+  const gCol=overall==='PASS'?TH.green:(overall==='WARNING'?TH.amber:TH.red);
   const gaugeAngle=Math.max(-90,Math.min(90,(d.rssTol/d.specHalf)*90));
-  const pColors=['#f5222d','#faad14','#5b8def','#a855f7','#4ecdc4'];
+  const pColors=[TH.red,TH.amber,TH.blue,'#7C3AED',TH.blue];
   const top=d.result.pareto[0]; const axes=radarAxes(d);
   const maxC=Math.max(...d.hist.map(h=>h.c),1);
-  const histBars=d.hist.map((h,i)=>{ const bw=500/d.hist.length; const bh=(h.c/maxC)*140; return `<rect x="${50+i*bw}" y="${150-bh}" width="${bw-1}" height="${bh}" fill="#5b8def" opacity="0.85"/>`; }).join('');
+  const histBars=d.hist.map((h,i)=>{ const bw=500/d.hist.length; const bh=(h.c/maxC)*140; return `<rect x="${50+i*bw}" y="${150-bh}" width="${bw-1}" height="${bh}" fill="${TH.blue}" opacity="0.8"/>`; }).join('');
   const distUsed=[...new Set(d.b.dims.map(x=>x.dist))].join(', ');
   const whatIfs=d.result.pareto.slice(0,3).map(p=>{
     const tighterComps=d.b.dims.map(c=>c.name===p.name?{...c,tolerance:c.tolerance*0.9}:c);
@@ -200,27 +201,27 @@ function generateReport(){
       ${d.b.dims.map((dim,i)=>{ const c=d.result.pareto.find(p=>p.name===dim.name); return `<tr><td>${i+1}</td><td class="td-name">${dim.name}</td><td>${(dim.nominal*u).toFixed(3)}</td><td>+/-${(dim.tolerance*u).toFixed(3)}</td><td>${dim.dist}</td><td class="${i===0?'td-high':'td-ok'}">${c?c.pct:'0'}%</td></tr>`; }).join('')}
     </tbody></table></div></div>
     <div class="sc-sec"><div class="sc-sec-hd">Specification Gauge</div><div class="sc-chart"><div style="display:flex;justify-content:center"><svg width="300" height="170" viewBox="0 0 300 170">
-      <path d="M 40 150 A 110 110 0 0 1 260 150" fill="none" stroke="#111720" stroke-width="24" stroke-linecap="round"/>
-      <path d="M 40 150 A 110 110 0 0 1 95 55" fill="none" stroke="rgba(82,196,26,0.2)" stroke-width="24" stroke-linecap="round"/>
-      <path d="M 205 55 A 110 110 0 0 1 260 150" fill="none" stroke="rgba(82,196,26,0.2)" stroke-width="24" stroke-linecap="round"/>
-      <path d="M 125 32 A 110 110 0 0 1 175 32" fill="none" stroke="rgba(245,34,45,0.2)" stroke-width="24" stroke-linecap="round"/>
+      <path d="M 40 150 A 110 110 0 0 1 260 150" fill="none" stroke="${TH.track}" stroke-width="24" stroke-linecap="round"/>
+      <path d="M 40 150 A 110 110 0 0 1 95 55" fill="none" stroke="${TH.greenFill}" stroke-width="24" stroke-linecap="round"/>
+      <path d="M 205 55 A 110 110 0 0 1 260 150" fill="none" stroke="${TH.greenFill}" stroke-width="24" stroke-linecap="round"/>
+      <path d="M 125 32 A 110 110 0 0 1 175 32" fill="none" stroke="${TH.redFill}" stroke-width="24" stroke-linecap="round"/>
       <line x1="150" y1="150" x2="${150+95*Math.cos((gaugeAngle-90)*Math.PI/180)}" y2="${150+95*Math.sin((gaugeAngle-90)*Math.PI/180)}" stroke="${gCol}" stroke-width="3" stroke-linecap="round"/>
       <circle cx="150" cy="150" r="7" fill="${gCol}"/>
-      <text x="150" y="135" text-anchor="middle" fill="#f0f4f8" font-size="22" font-weight="700" font-family="JetBrains Mono">+/-${(d.rssTol*u).toFixed(3)}</text>
-      <text x="150" y="155" text-anchor="middle" fill="#4a5568" font-size="10">${uL} (RSS)</text>
-      <text x="30" y="168" fill="#4a5568" font-size="9">0</text><text x="262" y="168" fill="#4a5568" font-size="9">${(d.specHalf*u).toFixed(2)}</text>
+      <text x="150" y="135" text-anchor="middle" fill="${TH.ink}" font-size="22" font-weight="700" font-family="IBM Plex Mono">+/-${(d.rssTol*u).toFixed(3)}</text>
+      <text x="150" y="155" text-anchor="middle" fill="${TH.text}" font-size="10">${uL} (RSS)</text>
+      <text x="30" y="168" fill="${TH.text}" font-size="9">0</text><text x="262" y="168" fill="${TH.text}" font-size="9">${(d.specHalf*u).toFixed(2)}</text>
     </svg></div></div></div>
     <div class="sc-sec"><div class="sc-sec-hd">Monte Carlo Distribution (real samples, n=${MC_RUNS})</div><div class="sc-chart"><svg width="100%" height="200" viewBox="0 0 600 200" preserveAspectRatio="none">
-      ${histBars}<line x1="50" y1="150" x2="550" y2="150" stroke="#1e2733"/>
-      <text x="50" y="195" fill="#4a5568" font-size="9">min ${(Math.min(...d.samplesNum)*u).toFixed(3)}</text>
-      <text x="550" y="195" text-anchor="end" fill="#4a5568" font-size="9">max ${(Math.max(...d.samplesNum)*u).toFixed(3)}</text>
-      <text x="300" y="195" text-anchor="middle" fill="#6e7d8c" font-size="9">actual sample histogram under chosen distributions (not a fitted curve)</text>
+      ${histBars}<line x1="50" y1="150" x2="550" y2="150" stroke="${TH.grid}"/>
+      <text x="50" y="195" fill="${TH.text}" font-size="9">min ${(Math.min(...d.samplesNum)*u).toFixed(3)}</text>
+      <text x="550" y="195" text-anchor="end" fill="${TH.text}" font-size="9">max ${(Math.max(...d.samplesNum)*u).toFixed(3)}</text>
+      <text x="300" y="195" text-anchor="middle" fill="${TH.axis}" font-size="9">actual sample histogram under chosen distributions (not a fitted curve)</text>
     </svg></div></div>
     <div class="sc-sec"><div class="sc-sec-hd">Predicted Variation Contribution (Pareto)</div><div class="sc-card">
       ${d.result.pareto.map((c,i)=>`<div class="sc-pareto-row"><div class="sc-pareto-name">${c.name}</div><div class="sc-pareto-track"><div class="sc-pareto-fill" style="width:${c.pct}%;background:${pColors[i%pColors.length]}"><span>${c.pct}%</span></div></div><div class="sc-pareto-pct">${c.pct}%</div></div>`).join('')}
     </div></div>
     <div class="sc-sec"><div class="sc-sec-hd">Method Stack Comparison</div><div class="sc-chart"><div class="sc-stack">
-      ${[['Worst',d.wcTol,'#f5222d',1],['RSS',d.rssTol,'#faad14',1],['Monte Carlo',d.mcSpread,'#5b8def',1],['Spec dev',d.specHalf,'#52c41a',0.25]].map(([l,v,c,o])=>`<div class="sc-stack-col"><div class="sc-stack-wrap"><div class="sc-stack-bar" style="height:${Math.min(100,(v/d.specHalf)*100)}%;background:${c};opacity:${o}"><span class="sc-stack-bar-lbl">+/-${(v*u).toFixed(3)}</span></div></div><div class="sc-stack-lbl">${l}</div></div>`).join('')}
+      ${[['Worst',d.wcTol,TH.red,1],['RSS',d.rssTol,TH.amber,1],['Monte Carlo',d.mcSpread,TH.blue,1],['Spec dev',d.specHalf,TH.green,0.25]].map(([l,v,c,o])=>`<div class="sc-stack-col"><div class="sc-stack-wrap"><div class="sc-stack-bar" style="height:${Math.min(100,(v/d.specHalf)*100)}%;background:${c};opacity:${o}"><span class="sc-stack-bar-lbl">+/-${(v*u).toFixed(3)}</span></div></div><div class="sc-stack-lbl">${l}</div></div>`).join('')}
     </div></div></div>
     <div class="sc-sec"><div class="sc-sec-hd">Predicted Design Capability</div><div class="sc-cards">
       <div class="sc-card-res ${d.cpk>=d.b.cpkTarget?'pass':'warn'}"><div class="sc-card-res-label">Predicted Cpk</div><div class="sc-card-res-val">${d.cpk.toFixed(2)}</div><div class="sc-card-res-sub">target &gt;= ${d.b.cpkTarget}</div><span class="sc-card-res-badge ${d.cpk>=d.b.cpkTarget?'sc-badge-pass':'sc-badge-warn'}">${d.cpk>=d.b.cpkTarget?'PRED. CAPABLE':'PRED. BELOW'}</span></div>
@@ -228,10 +229,10 @@ function generateReport(){
       <div class="sc-card-res"><div class="sc-card-res-label">Predicted Yield</div><div class="sc-card-res-val">${(100-d.ppm/10000).toFixed(2)}%</div><div class="sc-card-res-sub">model estimate</div></div>
     </div></div>
     <div class="sc-sec"><div class="sc-sec-hd">Computed Assessment Radar</div><div class="sc-chart"><div style="display:flex;justify-content:center"><svg width="300" height="300" viewBox="0 0 300 300">
-      ${[1,0.66,0.33].map(f=>{ const pts=axes.map((_,i)=>{ const a=(i*72-90)*Math.PI/180; return `${150+f*110*Math.cos(a)},${150+f*110*Math.sin(a)}`; }).join(' '); return `<polygon points="${pts}" fill="none" stroke="#1e2733"/>`; }).join('')}
-      ${axes.map((_,i)=>{ const a=(i*72-90)*Math.PI/180; return `<line x1="150" y1="150" x2="${150+110*Math.cos(a)}" y2="${150+110*Math.sin(a)}" stroke="#1e2733"/>`; }).join('')}
-      <polygon points="${axes.map((c,i)=>{ const a=(i*72-90)*Math.PI/180; const r=c.val*110; return `${150+r*Math.cos(a)},${150+r*Math.sin(a)}`; }).join(' ')}" fill="${overall==='PASS'?'rgba(82,196,26,0.15)':overall==='WARNING'?'rgba(250,173,20,0.15)':'rgba(245,34,45,0.15)'}" stroke="${gCol}" stroke-width="2"/>
-      ${axes.map((c,i)=>{ const a=(i*72-90)*Math.PI/180; const x=150+132*Math.cos(a), y=150+132*Math.sin(a); return `<text x="${x}" y="${y}" text-anchor="middle" fill="#6e7d8c" font-size="9" font-weight="600">${c.name}<title>${c.name}: ${c.note} = ${(c.val*100).toFixed(0)}%</title></text>`; }).join('')}
+      ${[1,0.66,0.33].map(f=>{ const pts=axes.map((_,i)=>{ const a=(i*72-90)*Math.PI/180; return `${150+f*110*Math.cos(a)},${150+f*110*Math.sin(a)}`; }).join(' '); return `<polygon points="${pts}" fill="none" stroke="${TH.grid}"/>`; }).join('')}
+      ${axes.map((_,i)=>{ const a=(i*72-90)*Math.PI/180; return `<line x1="150" y1="150" x2="${150+110*Math.cos(a)}" y2="${150+110*Math.sin(a)}" stroke="${TH.grid}"/>`; }).join('')}
+      <polygon points="${axes.map((c,i)=>{ const a=(i*72-90)*Math.PI/180; const r=c.val*110; return `${150+r*Math.cos(a)},${150+r*Math.sin(a)}`; }).join(' ')}" fill="${overall==='PASS'?TH.greenFill:overall==='WARNING'?TH.amberFill:TH.redFill}" stroke="${gCol}" stroke-width="2"/>
+      ${axes.map((c,i)=>{ const a=(i*72-90)*Math.PI/180; const x=150+132*Math.cos(a), y=150+132*Math.sin(a); return `<text x="${x}" y="${y}" text-anchor="middle" fill="${TH.text}" font-size="9" font-weight="600">${c.name}<title>${c.name}: ${c.note} = ${(c.val*100).toFixed(0)}%</title></text>`; }).join('')}
     </svg></div><div style="font-size:10px;color:var(--text-muted);font-family:var(--font-mono);text-align:center;margin-top:8px">Every axis computed from the result (hover for formula) — none subjective.</div></div></div>
     <div class="sc-sec"><div class="sc-sec-hd">What-If (predicted Cpk after 10% tightening, recomputed)</div><div class="sc-card"><div style="font-size:11px;color:var(--text-muted);margin-bottom:14px;font-family:var(--font-mono)">Cost impact NOT estimated — needs your process cost model.</div>
       <div class="sc-whatif">${whatIfs.map(w=>{ const dc=w.cpk-d.cpk; return `<div class="sc-whatif-card"><div class="sc-whatif-lbl">${w.name}</div><div class="sc-whatif-val">Cpk ${w.cpk.toFixed(2)}</div><div class="sc-whatif-chg ${dc>0?'pos':dc<0?'neg':'neu'}">${dc>=0?'+':''}${dc.toFixed(2)} | ${w.ppm.toFixed(0)} PPM</div></div>`; }).join('')}</div>
@@ -268,7 +269,7 @@ function exportPDF(graphic){
   const d=calcData; if(!d)return;
   const u=d.fromMm, uL=currentUnit; const distUsed=[...new Set(d.b.dims.map(x=>x.dist))].join(', ');
   if(graphic){
-    html2canvas($('reportArea'),{scale:1.5,backgroundColor:'#070a0f',useCORS:true,logging:false}).then(canvas=>{
+    html2canvas($('reportArea'),{scale:1.5,backgroundColor:'#FFFFFF',useCORS:true,logging:false}).then(canvas=>{
       const {jsPDF}=window.jspdf; const pdf=new jsPDF({unit:'pt',format:'a4'});
       const pW=pdf.internal.pageSize.getWidth(), pH=pdf.internal.pageSize.getHeight();
       const iH=(canvas.height*pW)/canvas.width; const img=canvas.toDataURL('image/jpeg',0.82);
