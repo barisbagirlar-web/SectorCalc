@@ -4,7 +4,12 @@
 
 This file mirrors `/llms.txt` for discovery paths that expect `llm.txt`. Prefer https://www.sectorcalc.com/llms.txt as the canonical index.
 
-Site-wide light/dark theme uses `/sc-theme.css` + `/sc-theme.js` (`data-theme` on `<html>`, localStorage key `sectorcalc-theme`). Theme control is draggable; double-click resets position. Brand wordmarks: `/sectorcalc-logo.png` (light) and `/sectorcalc-logo-dark.png` (dark).
+## Architecture (current)
+
+- Theme: `/sc-theme.css` + `/sc-theme.js` (`data-theme`, localStorage `sectorcalc-theme`). `#themeToggle` is click-to-toggle, drag-to-move, double-click to reset (`sectorcalc-theme-pos`).
+- Brand wordmarks: `/sectorcalc-logo.png` (light) and `/sectorcalc-logo-dark.png` (dark).
+- Report contrast: tokenized report surfaces; SVG/canvas/html2canvas ink from `theme-palette` at render time (no hardcoded light-theme fills). Open reports refresh on theme change.
+- Homepage Live Cell hero: `/sc-hero-cell.js`, `/sc-hero-engine.js` (Three.js preview). Production math is Decimal.js in the tools.
 
 ## Primary tools
 
@@ -15,7 +20,7 @@ Site-wide light/dark theme uses `/sc-theme.css` + `/sc-theme.js` (`data-theme` o
 
 ## Site
 
-- [Home](https://www.sectorcalc.com/): Live Cell hero - Three.js turning cell with probe telemetry, spacer-tolerance control deck (worst-case, RSS, Monte Carlo, Cpk), seeded reproducible Monte Carlo preview. Method and standards sections, module map. Primary CTA "Run SC-008 Free" opens SC-008. Full Decimal math lives in the tools. Shared light/dark theme with the rest of the site.
+- [Home](https://www.sectorcalc.com/): Live Cell hero - Three.js turning cell with probe telemetry, spacer-tolerance control deck (worst-case, RSS, Monte Carlo, Cpk), seeded reproducible Monte Carlo preview. Method and standards sections, module map. Primary CTA "Run SC-008 Free" opens SC-008. Shared light/dark theme with the rest of the site.
 - [Pricing](https://www.sectorcalc.com/pricing.html): Planned credit packs (PACKAGES source of truth). Calculators are free until Paddle checkout launches; buttons are notify-only.
 
 ## Notes for models
@@ -26,7 +31,7 @@ Site-wide light/dark theme uses `/sc-theme.css` + `/sc-theme.js` (`data-theme` o
 - Do not invent customer testimonials or claim PCI checkout is live.
 - Homepage hero canvas is a client-side Three.js visualization plus a seeded Number preview deck; production tool engines use Decimal.js.
 - Theme preference and toggle position are client-side only (localStorage); they are not accounts or server profiles.
-- Report and result surfaces must keep readable contrast in light and dark themes. Pro tools read chart ink from CSS tokens via `theme-palette` at render time; do not invent fixed light-theme SVG fills.
+- Report and result surfaces must keep readable contrast in light and dark themes. New tools must follow the same token + theme-palette pattern.
 - Engineering preview: outputs are predicted from stated assumptions; not for production approval and not a substitute for measured data or a licensed engineer.
 
 ## Optional
