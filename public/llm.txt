@@ -9,7 +9,7 @@ This file mirrors `/llms.txt` for discovery paths that expect `llm.txt`. Prefer 
 - Theme: `/sc-theme.css` + `/sc-theme.js` (`data-theme`, localStorage `sectorcalc-theme`). `#themeToggle` is click-to-toggle, drag-to-move, double-click to reset (`sectorcalc-theme-pos`).
 - Brand wordmarks: `/sectorcalc-logo.png` (light) and `/sectorcalc-logo-dark.png` (dark).
 - Report contrast: tokenized report surfaces; SVG/canvas/html2canvas ink from `theme-palette` at render time (no hardcoded light-theme fills). Open reports refresh on theme change.
-- Homepage Live Cell hero: `/sc-hero-cell.js`, `/sc-hero-engine.js` (Three.js preview). Production math is Decimal.js in the tools.
+- Homepage Live Cell hero: `/sc-hero-cell.js` with local `/vendor/three/` (no unpkg CDN). Production math is Decimal.js in the tools.
 
 ## Primary tools
 

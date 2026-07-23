@@ -167,5 +167,15 @@ if (existsSync(dist)) {
       process.exit(1);
     }
   }
+  for (const asset of [
+    'vendor/three/three.module.js',
+    'vendor/three/RoomEnvironment.js',
+    'sc-hero-cell.js'
+  ]) {
+    if (!existsSync(join(dist, asset))) {
+      console.error('[FAIL] dist missing hero asset: ' + asset);
+      process.exit(1);
+    }
+  }
   console.log('[PASS] dist contains all audited pages + discovery files');
 }

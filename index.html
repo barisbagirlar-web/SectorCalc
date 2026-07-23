@@ -1539,7 +1539,16 @@ select:focus-visible{
   background:radial-gradient(120% 90% at 50% 32%,var(--sc-hero-cell-a) 0%,var(--sc-hero-cell-b) 78%);
   box-shadow:0 30px 80px rgba(26,26,26,.18),inset 0 1px 0 rgba(255,255,255,.9)}
 [data-theme="dark"] .sc-hero .cell{box-shadow:0 30px 80px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.06)}
-.sc-hero #stage{display:block;width:100%;height:430px;cursor:grab}
+.sc-hero #stage{display:block;width:100%;height:100%;cursor:grab}
+.sc-hero .stage-wrap{position:relative;width:100%;height:430px}
+.stage-wrap{position:relative;width:100%;height:100%}
+.stage-wrap canvas{position:absolute;inset:0;width:100%;height:100%;opacity:0;transition:opacity .45s ease}
+.stage-wrap canvas.is-ready{opacity:1}
+.stage-poster{position:absolute;inset:0;width:100%;height:100%;transition:opacity .5s ease .1s}
+.stage-wrap:has(canvas.is-ready) .stage-poster{opacity:0;pointer-events:none}
+@media (prefers-reduced-motion: reduce){
+  .stage-wrap canvas,.stage-poster{transition:none}
+}
 .sc-hero .hud{position:absolute;top:0;left:0;right:0;height:430px;pointer-events:none;font-family:var(--sc-hero-mono)}
 .sc-hero .hud .corner{position:absolute;width:22px;height:22px;border:2px solid rgba(0,85,164,.5)}
 [data-theme="dark"] .sc-hero .hud .corner{border-color:rgba(79,166,214,.55)}
@@ -1589,15 +1598,17 @@ select:focus-visible{
 @media(max-width:1020px){
   .sc-hero .hero-grid{grid-template-columns:1fr;padding:28px 20px}
   .sc-hero .deck-top{grid-template-columns:1fr}
-  .sc-hero #stage{height:340px}
+  .sc-hero .stage-wrap,.sc-hero #stage{height:340px}
   .sc-hero .hud,.sc-hero .scanline{height:340px}
   .sc-hero .sc-hero-trust{grid-template-columns:1fr}
 }
 </style>
 <script type="importmap">
-{"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js",
-"three/addons/":"https://unpkg.com/three@0.160.0/examples/jsm/"}}
+{"imports":{"three":"./vendor/three/three.module.js",
+"three/addons/environments/RoomEnvironment.js":"./vendor/three/RoomEnvironment.js"}}
 </script>
+<link rel="modulepreload" href="./vendor/three/three.module.js">
+<link rel="modulepreload" href="./vendor/three/RoomEnvironment.js">
 <link rel="stylesheet" href="./sc-theme.css?v=8">
 <script src="./sc-theme.js?v=8" defer></script>
 </head>
@@ -1652,7 +1663,31 @@ select:focus-visible{
       </div>
 
       <div class="cell">
-        <canvas id="stage" aria-label="Live 3D turning cell"></canvas>
+        <div class="stage-wrap">
+          <svg class="stage-poster" viewBox="0 0 640 400" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <linearGradient id="sp-bg" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#F2F5F8"/><stop offset="1" stop-color="#DDE4EA"/>
+              </linearGradient>
+              <linearGradient id="sp-steel" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#C6CCD3"/><stop offset=".5" stop-color="#9BA2AB"/><stop offset="1" stop-color="#7D848D"/>
+              </linearGradient>
+            </defs>
+            <rect width="640" height="400" fill="url(#sp-bg)"/>
+            <g stroke="#C9D2DA" stroke-width="1">
+              <path d="M0 340h640M0 300h640M0 260h640" opacity=".6"/>
+            </g>
+            <rect x="88" y="152" width="96" height="96" rx="8" fill="#2E3338"/>
+            <path d="M176 192 h60 v-14 h44 v14 h56 v-22 h40 v22 h64 v-8 h56 v8 h68 v16 h-388 z" fill="url(#sp-steel)"/>
+            <ellipse cx="424" cy="200" rx="16" ry="34" fill="#8A9098"/>
+            <rect x="416" y="92" width="8" height="78" rx="3" fill="#4A5058"/>
+            <circle cx="420" cy="176" r="7" fill="#E8536B"/>
+            <rect x="408" y="86" width="24" height="10" rx="3" fill="#0055A4"/>
+            <rect x="448" y="120" width="120" height="26" rx="6" fill="#fff" stroke="#E3E7EC"/>
+            <text x="458" y="138" font-family="ui-monospace,monospace" font-size="13" fill="#0055A4">D41.600 <tspan fill="#E87722">-0.006</tspan></text>
+          </svg>
+          <canvas id="stage" aria-label="Live 3D turning cell"></canvas>
+        </div>
         <div class="scanline" aria-hidden="true"></div>
         <div class="hud" aria-hidden="true">
           <div class="corner c1"></div><div class="corner c2"></div><div class="corner c3"></div><div class="corner c4"></div>

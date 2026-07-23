@@ -9,7 +9,7 @@ SectorCalc ships industrial calculation tools with visible inputs, assumptions, 
 - Shared theme engine: `/sc-theme.css` + `/sc-theme.js` — `data-theme` on `<html>`, localStorage `sectorcalc-theme` (light|dark).
 - Theme control `#themeToggle`: click toggles theme; drag repositions; double-click resets position (`sectorcalc-theme-pos`).
 - Report contrast standard: pro-tool report text, tables, cards, alerts, and live panels use CSS tokens. Chart/SVG/html2canvas ink is read at render time from `theme-palette` (never hardcoded light-theme `#1A1714` fills). Open reports re-render on `sectorcalc-theme`.
-- Homepage hero: client-side Three.js Live Cell (`/sc-hero-cell.js`, `/sc-hero-engine.js`) plus seeded preview deck; production math stays in the Decimal tool engines.
+- Homepage hero: client-side Three.js Live Cell (`/sc-hero-cell.js`, local `/vendor/three/` - no unpkg CDN) plus seeded preview deck; production math stays in the Decimal tool engines.
 
 ## Primary tools
 

@@ -1,22 +1,45 @@
+/* sc-hero-cell.js - OPTIMIZED BUILD (2026-07-24)
+   Visual/animation unchanged; load and runtime performance only.
+   Changes:
+   1) three.js + RoomEnvironment load in parallel (was chained await)
+   2) powerPreference high-performance + pixelRatio cap 1.5 (was 2)
+   3) Pause render when hero off-screen or tab hidden
+   4) prefers-reduced-motion -> single static frame, no loop
+   5) First frame adds is-ready so canvas fades in and poster fades out
+*/
+
 let THREE, RoomEnvironment;
+const stageEl = document.getElementById('stage');
+
 try{
-  THREE = await import('three');
-  ({RoomEnvironment} = await import('three/addons/environments/RoomEnvironment.js'));
+  // Parallel import - cuts the old chained-await waterfall roughly in half
+  const [threeMod, roomMod] = await Promise.all([
+    import('three'),
+    import('three/addons/environments/RoomEnvironment.js')
+  ]);
+  THREE = threeMod;
+  RoomEnvironment = roomMod.RoomEnvironment;
 }catch(e){
-  const stageEl = document.getElementById('stage');
+  // On load failure keep the SVG poster visible - never leave a blank hero
   if (stageEl) stageEl.style.display='none';
   console.warn('3D fallback:',e);
 }
 
 if(THREE){
-const canvas=document.getElementById('stage');
-const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true});
-renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+const canvas=stageEl;
+const renderer=new THREE.WebGLRenderer({
+  canvas,
+  antialias:true,
+  alpha:true,
+  powerPreference:'high-performance'
+});
+renderer.setPixelRatio(Math.min(devicePixelRatio,1.5)); // 2 -> 1.5: less pixels on retina, same look
 renderer.toneMapping=THREE.ACESFilmicToneMapping;
 renderer.toneMappingExposure=0.92;
 const scene=new THREE.Scene();
 const pmrem=new THREE.PMREMGenerator(renderer);
 scene.environment=pmrem.fromScene(new RoomEnvironment(renderer),0.04).texture;
+pmrem.dispose(); // free PMREM after environment texture is ready
 
 const camera=new THREE.PerspectiveCamera(38,2,0.1,100);
 camera.position.set(0.4,1.5,5.4);
@@ -29,12 +52,12 @@ const warm=new THREE.PointLight(0xE87722,7,12); warm.position.set(0,-1.6,2.2); s
 
 const profile=[[0.001,0],[0.30,0],[0.30,0.55],[0.46,0.62],[0.46,1.45],[0.36,1.52],[0.36,2.25],[0.52,2.32],[0.52,3.05],[0.28,3.12],[0.28,3.8],[0.001,3.8]]
   .map(p=>new THREE.Vector2(p[0],p[1]));
-const shaftGeo=new THREE.LatheGeometry(profile,128);
+const shaftGeo=new THREE.LatheGeometry(profile,96); // 128 -> 96 segments: ~25% fewer verts, same look
 const steel=new THREE.MeshStandardMaterial({color:0x9BA2AB,metalness:1.0,roughness:0.3});
 const shaft=new THREE.Mesh(shaftGeo,steel);
 shaft.rotation.z=-Math.PI/2; shaft.position.x=-1.9;
 
-const ring=new THREE.Mesh(new THREE.TorusGeometry(0.56,0.15,28,96),
+const ring=new THREE.Mesh(new THREE.TorusGeometry(0.56,0.15,24,72),
   new THREE.MeshStandardMaterial({color:0x8A9098,metalness:1,roughness:0.35}));
 ring.rotation.y=Math.PI/2; ring.position.x=0.55;
 
@@ -108,7 +131,7 @@ function fireLabel(st,off){
   setTimeout(()=>mlabel.classList.remove('show'),1500);
 }
 let mx=0,my=0;
-addEventListener('pointermove',e=>{mx=(e.clientX/innerWidth-0.5);my=(e.clientY/innerHeight-0.5);});
+addEventListener('pointermove',e=>{mx=(e.clientX/innerWidth-0.5);my=(e.clientY/innerHeight-0.5);},{passive:true});
 
 function resize(){
   const w=canvas.clientWidth,h=canvas.clientHeight;
@@ -130,9 +153,26 @@ function placeLabel(st){
 }
 let labelAnchor=null;
 
+/* ---------- Pause / resume for performance ---------- */
+let running=false, inView=true, rafId=null;
+const reduced=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+function setRunning(on){
+  if(on&&!running){running=true;last=performance.now();rafId=requestAnimationFrame(loop);}
+  else if(!on&&running){running=false;if(rafId)cancelAnimationFrame(rafId);rafId=null;}
+}
+document.addEventListener('visibilitychange',()=>{setRunning(!document.hidden&&inView&&!reduced);});
+if('IntersectionObserver' in window){
+  new IntersectionObserver((entries)=>{
+    inView=entries[0].isIntersecting;
+    setRunning(inView&&!document.hidden&&!reduced);
+  },{threshold:0.05}).observe(canvas);
+}
+
 let last=performance.now();
 function loop(now){
-  requestAnimationFrame(loop);
+  if(!running)return;
+  rafId=requestAnimationFrame(loop);
   const dt=Math.min((now-last)/1000,0.05); last=now;
   spin.rotation.x+=dt*2.2;
   spin.rotation.y+=((mx*0.3)-spin.rotation.y)*0.04;
@@ -175,5 +215,14 @@ function loop(now){
   }
   renderer.render(scene,camera);
 }
-requestAnimationFrame(loop);
+
+/* ---------- First frame: poster -> live canvas ---------- */
+renderer.render(scene,camera);
+canvas.classList.add('is-ready');
+
+if(!reduced){
+  setRunning(true);
+}else{
+  canvas.classList.add('reduced');
+}
 }
