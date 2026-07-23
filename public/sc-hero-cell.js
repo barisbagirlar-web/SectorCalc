@@ -1,44 +1,37 @@
 /* sc-hero-cell.js - Live Cell hero (Three.js)
-   Load: parallel three + RoomEnvironment via document import map.
-   Runtime: pause off-screen / hidden tab; reduced-motion = static frame.
-   Fail-soft: any WebGL/init error keeps the SVG poster visible.
+   Proven continuous RAF loop (same as original working build).
+   Safe WebGL init (no high-performance preference). Fail-soft on error.
 */
 
 let THREE, RoomEnvironment;
 const stageEl = document.getElementById('stage');
 
-function heroFallback(err){
+function heroFallback(err) {
   if (stageEl) stageEl.style.display = 'none';
   console.warn('3D fallback:', err);
 }
 
-try{
+try {
   const [threeMod, roomMod] = await Promise.all([
     import('three'),
     import('three/addons/environments/RoomEnvironment.js')
   ]);
   THREE = threeMod;
   RoomEnvironment = roomMod.RoomEnvironment;
-}catch(e){
+} catch (e) {
   heroFallback(e);
 }
 
-if(THREE && stageEl){
-try{
+if (THREE && stageEl) {
+try {
 const canvas = stageEl;
-/* Default powerPreference - "high-performance" fails WebGL on some GPUs */
-const renderer = new THREE.WebGLRenderer({
-  canvas,
-  antialias: true,
-  alpha: true
-});
-renderer.setPixelRatio(Math.min(devicePixelRatio, 1.5));
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
 renderer.toneMappingExposure = 0.92;
 const scene = new THREE.Scene();
 const pmrem = new THREE.PMREMGenerator(renderer);
 scene.environment = pmrem.fromScene(new RoomEnvironment(renderer), 0.04).texture;
-pmrem.dispose();
 
 const camera = new THREE.PerspectiveCamera(38, 2, 0.1, 100);
 camera.position.set(0.4, 1.5, 5.4);
@@ -51,12 +44,12 @@ const warm = new THREE.PointLight(0xE87722, 7, 12); warm.position.set(0, -1.6, 2
 
 const profile = [[0.001,0],[0.30,0],[0.30,0.55],[0.46,0.62],[0.46,1.45],[0.36,1.52],[0.36,2.25],[0.52,2.32],[0.52,3.05],[0.28,3.12],[0.28,3.8],[0.001,3.8]]
   .map(p => new THREE.Vector2(p[0], p[1]));
-const shaftGeo = new THREE.LatheGeometry(profile, 96);
+const shaftGeo = new THREE.LatheGeometry(profile, 128);
 const steel = new THREE.MeshStandardMaterial({ color: 0x9BA2AB, metalness: 1.0, roughness: 0.3 });
 const shaft = new THREE.Mesh(shaftGeo, steel);
 shaft.rotation.z = -Math.PI / 2; shaft.position.x = -1.9;
 
-const ring = new THREE.Mesh(new THREE.TorusGeometry(0.56, 0.15, 24, 72),
+const ring = new THREE.Mesh(new THREE.TorusGeometry(0.56, 0.15, 28, 96),
   new THREE.MeshStandardMaterial({ color: 0x8A9098, metalness: 1, roughness: 0.35 }));
 ring.rotation.y = Math.PI / 2; ring.position.x = 0.55;
 
@@ -134,11 +127,10 @@ function fireLabel(st, off) {
   setTimeout(() => mlabel.classList.remove('show'), 1500);
 }
 let mx = 0, my = 0;
-addEventListener('pointermove', e => { mx = (e.clientX / innerWidth - 0.5); my = (e.clientY / innerHeight - 0.5); }, { passive: true });
+addEventListener('pointermove', e => { mx = (e.clientX / innerWidth - 0.5); my = (e.clientY / innerHeight - 0.5); });
 
 function resize() {
-  const w = canvas.clientWidth || canvas.parentElement?.clientWidth || 640;
-  const h = canvas.clientHeight || canvas.parentElement?.clientHeight || 430;
+  const w = canvas.clientWidth, h = canvas.clientHeight;
   if (w < 2 || h < 2) return;
   renderer.setSize(w, h, false);
   camera.aspect = w / h; camera.updateProjectionMatrix();
@@ -158,27 +150,11 @@ function placeLabel(st) {
 }
 let labelAnchor = null;
 
-/* Animate whenever the tab is visible.
-   Do NOT use IntersectionObserver to pause - it was stopping the loop
-   on first callback for this hero (frozen first frame, telemetry stuck). */
-let running = false, rafId = null;
-const reduced = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
-const spinRate = reduced ? 0.35 : 2.2;
-
-function setRunning(on) {
-  if (on && !running) { running = true; last = performance.now(); rafId = requestAnimationFrame(loop); }
-  else if (!on && running) { running = false; if (rafId) cancelAnimationFrame(rafId); rafId = null; }
-}
-document.addEventListener('visibilitychange', () => {
-  setRunning(!document.hidden);
-});
-
 let last = performance.now();
 function loop(now) {
-  if (!running) return;
-  rafId = requestAnimationFrame(loop);
+  requestAnimationFrame(loop);
   const dt = Math.min((now - last) / 1000, 0.05); last = now;
-  spin.rotation.x += dt * spinRate;
+  spin.rotation.x += dt * 2.2;
   spin.rotation.y += ((mx * 0.3) - spin.rotation.y) * 0.04;
   scene.rotation.x += ((my * 0.12) - scene.rotation.x) * 0.04;
   dust.rotation.y += dt * 0.02;
@@ -226,13 +202,11 @@ function loop(now) {
   renderer.render(scene, camera);
 }
 
-/* First frame: poster -> live canvas (only after a successful render) */
 resize();
 renderer.render(scene, camera);
 canvas.classList.add('is-ready');
-if (reduced) canvas.classList.add('reduced');
-setRunning(!document.hidden);
-}catch(e){
+requestAnimationFrame(loop);
+} catch (e) {
   heroFallback(e);
 }
 }
