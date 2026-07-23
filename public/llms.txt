@@ -6,10 +6,14 @@ SectorCalc ships industrial calculation tools with visible inputs, assumptions, 
 
 ## Architecture (current)
 
-- Shared theme engine: `/sc-theme.css` + `/sc-theme.js` — `data-theme` on `<html>`, localStorage `sectorcalc-theme` (light|dark).
+- Shared theme engine: `/sc-theme.css` + `/sc-theme.js` - `data-theme` on `<html>`, localStorage `sectorcalc-theme` (light|dark).
 - Theme control `#themeToggle`: click toggles theme; drag repositions; double-click resets position (`sectorcalc-theme-pos`).
 - Report contrast standard: pro-tool report text, tables, cards, alerts, and live panels use CSS tokens. Chart/SVG/html2canvas ink is read at render time from `theme-palette` (never hardcoded light-theme `#1A1714` fills). Open reports re-render on `sectorcalc-theme`.
-- Homepage hero: client-side Three.js Live Cell (`/sc-hero-cell.js`, local `/vendor/three/` - no unpkg CDN) plus seeded preview deck; production math stays in the Decimal tool engines.
+- Homepage Live Cell hero (`/sc-hero-cell.js`):
+  - Three.js is self-hosted at `/vendor/three/` (no unpkg CDN); `modulepreload` + parallel import of `three.module.js` and `RoomEnvironment.js`.
+  - SVG poster in `.stage-wrap` shows immediately; canvas fades in on first frame (`#stage.is-ready`).
+  - Render loop pauses when the hero is off-screen or the tab is hidden; `prefers-reduced-motion` keeps a single static frame.
+  - Firebase Hosting long-caches `/vendor/**` (immutable); HTML stays no-cache.
 
 ## Primary tools
 
@@ -29,6 +33,7 @@ SectorCalc ships industrial calculation tools with visible inputs, assumptions, 
 - Do not invent cloud upload, accounts, live card checkout, or server-side calculation for the core engines.
 - Do not describe the product as AI-powered, ML, generative, or chatbot-based.
 - Do not invent customer testimonials or claim PCI checkout is live.
+- Homepage hero loads Three.js from `/vendor/three/` only - do not invent an unpkg or other CDN dependency for the live site.
 - Homepage hero canvas is a client-side Three.js visualization plus a seeded Number preview deck; production tool engines use Decimal.js.
 - Theme preference and toggle position are client-side only (localStorage); they are not accounts or server profiles.
 - Report and result surfaces must keep readable contrast in light and dark themes. New tools must follow the same token + theme-palette pattern.

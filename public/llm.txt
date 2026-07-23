@@ -9,7 +9,10 @@ This file mirrors `/llms.txt` for discovery paths that expect `llm.txt`. Prefer 
 - Theme: `/sc-theme.css` + `/sc-theme.js` (`data-theme`, localStorage `sectorcalc-theme`). `#themeToggle` is click-to-toggle, drag-to-move, double-click to reset (`sectorcalc-theme-pos`).
 - Brand wordmarks: `/sectorcalc-logo.png` (light) and `/sectorcalc-logo-dark.png` (dark).
 - Report contrast: tokenized report surfaces; SVG/canvas/html2canvas ink from `theme-palette` at render time (no hardcoded light-theme fills). Open reports refresh on theme change.
-- Homepage Live Cell hero: `/sc-hero-cell.js` with local `/vendor/three/` (no unpkg CDN). Production math is Decimal.js in the tools.
+- Homepage Live Cell hero (`/sc-hero-cell.js`):
+  - Self-hosted Three.js at `/vendor/three/` (no unpkg); modulepreload + parallel imports.
+  - SVG poster in `.stage-wrap` until `#stage.is-ready`; render pauses off-screen / hidden tab.
+  - Firebase long-caches `/vendor/**`; HTML is no-cache.
 
 ## Primary tools
 
@@ -29,6 +32,7 @@ This file mirrors `/llms.txt` for discovery paths that expect `llm.txt`. Prefer 
 - Do not invent cloud upload, accounts, live card checkout, or server-side calculation for the core engines.
 - Do not describe the product as AI-powered, ML, generative, or chatbot-based.
 - Do not invent customer testimonials or claim PCI checkout is live.
+- Homepage hero loads Three.js from `/vendor/three/` only - do not invent an unpkg or other CDN dependency for the live site.
 - Homepage hero canvas is a client-side Three.js visualization plus a seeded Number preview deck; production tool engines use Decimal.js.
 - Theme preference and toggle position are client-side only (localStorage); they are not accounts or server profiles.
 - Report and result surfaces must keep readable contrast in light and dark themes. New tools must follow the same token + theme-palette pattern.
