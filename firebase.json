@@ -29,6 +29,10 @@
         "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
       },
       {
+        "source": "**/*.@(js|css|woff2|png|svg)",
+        "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400" }]
+      },
+      {
         "source": "/sc-hero-cell.js",
         "headers": [{ "key": "Cache-Control", "value": "public, max-age=300" }]
       },
@@ -43,10 +47,6 @@
       {
         "source": "/sc-theme.css",
         "headers": [{ "key": "Cache-Control", "value": "public, max-age=300" }]
-      },
-      {
-        "source": "**/*.@(js|css|woff2|png|svg)",
-        "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400" }]
       },
       {
         "source": "**/*.html",
