@@ -30,7 +30,7 @@
   .sc-presets{display:flex;gap:6px;padding:0 20px 14px;flex-wrap:wrap}
   .sc-preset{padding:6px 12px;border-radius:var(--radius-sm);font-size:11px;font-weight:600;cursor:pointer;border:1px solid var(--border-soft);background:var(--bg-2);color:var(--text-tertiary);transition:var(--transition-fast);font-family:var(--font-sans);white-space:nowrap}
   .sc-preset:hover{border-color:var(--border-mid);color:var(--text-secondary);background:var(--bg-3)}
-  .sc-preset.active{background:var(--accent-amber);color:#fff;border-color:var(--accent-amber);box-shadow:0 1px 2px rgba(26,23,20,0.04)}
+  .sc-preset.active{background:var(--accent-blue);color:#fff;border-color:var(--accent-blue);box-shadow:0 1px 2px rgba(0,85,164,0.12)}
   .sc-field{padding:14px 20px;border-bottom:1px solid var(--border-subtle);position:relative;transition:var(--transition-fast)}
   .sc-field:focus-within{background:rgba(0,85,164,0.04)}
   .sc-field.has-error{background:rgba(200,16,46,0.03);border-left:2px solid var(--accent-red);padding-left:18px}
@@ -58,8 +58,8 @@
   .sc-live-sub{font-size:11px;color:var(--text-tertiary);margin-top:5px;font-family:var(--font-mono);display:flex;gap:12px;flex-wrap:wrap}
   .sc-sidebar-ft{position:sticky;bottom:0;background:var(--bg-1);border-top:1px solid var(--border-subtle);padding:14px 20px;display:flex;gap:8px;backdrop-filter:blur(10px)}
   .sc-btn{padding:10px 18px;border-radius:0;font-size:12.5px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;cursor:pointer;border:1px solid var(--border-mid);transition:var(--transition-fast);font-family:var(--font-mono);display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
-  .sc-btn-primary{background:var(--accent-amber);border:1px solid var(--accent-amber);color:#fff;box-shadow:0 1px 2px rgba(26,23,20,0.04);flex:1;justify-content:center}
-  .sc-btn-primary:hover{transform:translateY(1px);background:#A3471F;border-color:#A3471F;box-shadow:0 2px 6px rgba(26,23,20,0.08)}
+  .sc-btn-primary{background:var(--accent-blue);border:1px solid var(--accent-blue);color:#fff;box-shadow:0 1px 2px rgba(0,85,164,0.12);flex:1;justify-content:center}
+  .sc-btn-primary:hover{transform:translateY(1px);background:#003D66;border-color:#003D66;box-shadow:0 2px 6px rgba(0,85,164,0.16)}
   .sc-btn-ghost{background:var(--bg-3);color:var(--text-tertiary);border:1px solid var(--border-soft);padding:10px 14px}
   .sc-btn-ghost:hover{background:var(--bg-4);color:var(--text-secondary);border-color:var(--border-mid)}
   .sc-main{background:var(--bg-0);min-height:calc(100vh - 56px);overflow-y:auto}
@@ -136,7 +136,7 @@
 <body>
 <div class="sc-header">
   <div class="sc-header-left"><a href="/" class="sc-logo" title="SectorCalc home" aria-label="SectorCalc home">SC</a><div class="sc-header-brand"><div class="sc-header-title">SC-001 — Weld Thickness</div><div class="sc-header-sub">Engineering preview · Client-side · Deterministic Decimal engine · Not for production approval</div></div></div>
-  <div class="sc-header-right"><a href="/" class="sc-btn sc-btn-ghost" style="margin-right:10px;text-decoration:none">All tools</a><div class="sc-badge sc-badge-cost">Weld</div></div>
+  <div class="sc-header-right"><a href="/" class="sc-btn sc-btn-ghost" style="margin-right:10px;text-decoration:none">All tools</a><a href="/pricing.html" class="sc-btn sc-btn-ghost" style="margin-right:10px;text-decoration:none">Pricing</a><div class="sc-badge sc-badge-cost">Weld</div></div>
 </div>
 <div class="sc-layout">
   <div class="sc-sidebar"><div class="sc-sidebar-scroll">

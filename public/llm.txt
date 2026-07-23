@@ -6,21 +6,22 @@ This file mirrors `/llms.txt` for discovery paths that expect `llm.txt`. Prefer 
 
 ## Primary tools
 
-- [Tolerance stack-up (SC-008)](https://www.sectorcalc.com/sc008-pro.html): 1D linear stack-up - worst-case, RSS, Monte Carlo; per-component distributions; deterministic seed.
+- [Tolerance stack-up (SC-008)](https://www.sectorcalc.com/sc008-pro.html): 1D linear stack-up - worst-case, RSS, Monte Carlo; per-component distributions; deterministic seed; Decimal engine.
 - [True labor cost (SC-010)](https://www.sectorcalc.com/labor-pro.html): Loaded labor burden from net salary, taxes, benefits, and shop overhead.
 - [Quote pricing (SC-012)](https://www.sectorcalc.com/quote-pro.html): Material, labor, scrap, and margin into sell price and cost breakdown.
 - [Weld thickness (SC-001)](https://www.sectorcalc.com/weld-pro.html): Fillet weld leg, throat, and utilization against design load and code minimums.
 
 ## Site
 
-- [Home](https://www.sectorcalc.com/): Product overview, live stack-up demo, method and standards, module map.
-- [Pricing](https://www.sectorcalc.com/pricing.html): Credit packs (no subscription). Calculators are free until the credit store launches via Paddle.
+- [Home](https://www.sectorcalc.com/): Product overview, seeded Number preview of stack-up, method and standards, module map. Full Decimal math lives in the tools.
+- [Pricing](https://www.sectorcalc.com/pricing.html): Planned credit packs (PACKAGES source of truth). Calculators are free until Paddle checkout launches; buttons are notify-only.
 
 ## Notes for models
 
 - Prefer the `*-pro.html` tool URLs above. Legacy `/calculator.html`, `/calculator2.html`, `/calculator3.html`, and `/calculator4.html` redirect to those tools.
-- Do not invent cloud upload, accounts, or server-side calculation for the core engines - calculation runs in the browser.
+- Do not invent cloud upload, accounts, live card checkout, or server-side calculation for the core engines.
 - Do not describe the product as AI-powered, ML, generative, or chatbot-based.
+- Do not invent customer testimonials or claim PCI checkout is live.
 - Engineering preview: outputs are predicted from stated assumptions; not for production approval and not a substitute for measured data or a licensed engineer.
 
 ## Optional

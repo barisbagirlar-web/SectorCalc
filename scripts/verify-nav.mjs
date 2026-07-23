@@ -32,8 +32,7 @@ const EXPECTED = {
       '#method',
       '#standards',
       '#evidence',
-      '#verify',
-      '#run'
+      '#verify'
     ],
     mustHaveIds: [
       'main-content',
@@ -44,6 +43,7 @@ const EXPECTED = {
       'evidence',
       'verify',
       'run',
+      'testimonials',
       'mobileMenuBtn',
       'mobileNav'
     ]
@@ -98,9 +98,10 @@ function checkPage(page) {
     }
   }
 
-  // Pro pages must link home
+  // Pro pages must link home + pricing
   if (page.endsWith('-pro.html')) {
     if (!hrefs.some((h) => h === '/')) issues.push(`${page}: no home link (/)`);
+    if (!hrefs.some((h) => h === '/pricing.html')) issues.push(`${page}: no pricing link`);
   }
 }
 

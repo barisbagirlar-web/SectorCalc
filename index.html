@@ -927,9 +927,11 @@ h1,h2,h3,h4{
   font-family: var(--f-mono);
   font-size: 12px;
   color: var(--sheet-text-2);
-  cursor: pointer;
+  cursor: default;
   outline:none;
   min-height: 44px;
+  display: inline-flex;
+  align-items: center;
 }
 .demo-input-group .ref-value{
   font-family: var(--f-mono);
@@ -1558,7 +1560,7 @@ select:focus-visible{
   <!-- ================= SPEC STRIP ================= -->
   <div class="spec-strip" role="region" aria-label="Key specifications">
     <div><div class="spec-num">394</div><div class="spec-label">Automated tests passing</div></div>
-    <div><div class="spec-num">Decimal</div><div class="spec-label">Full-precision, no float drift</div></div>
+    <div><div class="spec-num">Decimal</div><div class="spec-label">Full-precision in tools (Decimal.js)</div></div>
     <div><div class="spec-num">100%</div><div class="spec-label">Client-side, nothing uploaded</div></div>
     <div><div class="spec-num">Seeded</div><div class="spec-label">Reproducible Monte Carlo</div></div>
   </div>
@@ -1701,46 +1703,46 @@ select:focus-visible{
     </div>
   </section>
 
-  <!-- ================= TESTIMONIALS / SOCIAL PROOF ================= -->
+  <!-- ================= TRUST / METHOD PROOF ================= -->
   <section class="section testimonials-section" id="testimonials" aria-labelledby="testimonials-heading">
     <div class="container">
       <div class="section-head">
-        <h2 id="testimonials-heading"><span class="section-kicker">Trusted</span><br>by engineers on the floor</h2>
-        <p class="lede">Real results from real shops. Every testimonial carries a measurable outcome you can verify.</p>
+        <h2 id="testimonials-heading"><span class="section-kicker">Trusted</span><br>by how the work is built</h2>
+        <p class="lede">No anonymous quotes. Trust comes from method, client-side execution, and results you can reproduce.</p>
       </div>
       <div class="testimonials-grid" data-reveal>
         <div class="testimonial-card">
-          <p class="testimonial-quote">"We cut quoting cost by 15%. What used to take 45 minutes in Excel is now a 3-minute report. The customer saw it, trusted it, signed it."</p>
+          <p class="testimonial-quote">Same inputs, seed, and engine version produce the same report. Reviewers can re-run the number instead of trusting a black box.</p>
           <div class="testimonial-author">
-            <div class="testimonial-avatar" aria-hidden="true">MK</div>
+            <div class="testimonial-avatar" aria-hidden="true">01</div>
             <div>
-              <div class="testimonial-name">Mehmet Kaya</div>
-              <div class="testimonial-role">Shop Floor Lead, Istanbul</div>
+              <div class="testimonial-name">Deterministic engine</div>
+              <div class="testimonial-role">Reproducible by seed</div>
             </div>
           </div>
-          <div class="testimonial-metric">15% cost reduction on quotes</div>
+          <div class="testimonial-metric">Identical outputs for identical inputs</div>
         </div>
         <div class="testimonial-card">
-          <p class="testimonial-quote">"We cut our tolerance review cycle from 3 days to 20 minutes. The deterministic engine means our QA team can reproduce any result with the same seed. Audit passed first time."</p>
+          <p class="testimonial-quote">Calculations run in your browser. Inputs stay on device — no account required to try the tools.</p>
           <div class="testimonial-author">
-            <div class="testimonial-avatar" aria-hidden="true">SR</div>
+            <div class="testimonial-avatar" aria-hidden="true">02</div>
             <div>
-              <div class="testimonial-name">Dr. Sarah Reynolds</div>
-              <div class="testimonial-role">Quality Director, Stuttgart</div>
+              <div class="testimonial-name">Client-side only</div>
+              <div class="testimonial-role">Zero upload for core calc</div>
             </div>
           </div>
-          <div class="testimonial-metric">3 days &rarr; 20 min review cycle</div>
+          <div class="testimonial-metric">Data never leaves your browser</div>
         </div>
         <div class="testimonial-card">
-          <p class="testimonial-quote">"Client-side computation is non-negotiable for us. Defense contracts require zero data egress. SectorCalc is the only tool that gives us full traceability without touching a server."</p>
+          <p class="testimonial-quote">Production tools use Decimal.js with Decimal128 semantics. The homepage demo is a seeded preview; open SC-008 for the full engine.</p>
           <div class="testimonial-author">
-            <div class="testimonial-avatar" aria-hidden="true">JC</div>
+            <div class="testimonial-avatar" aria-hidden="true">03</div>
             <div>
-              <div class="testimonial-name">James Chen</div>
-              <div class="testimonial-role">Principal Engineer, Aerospace</div>
+              <div class="testimonial-name">Full-precision tools</div>
+              <div class="testimonial-role">SC-008 / SC-010 / SC-012 / SC-001</div>
             </div>
           </div>
-          <div class="testimonial-metric">Zero data upload = compliance ready</div>
+          <div class="testimonial-metric">394 automated tests in CI</div>
         </div>
       </div>
     </div>
@@ -1774,9 +1776,9 @@ select:focus-visible{
           <div class="comparison-desc">
             <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;">
               <li style="font-size:14px;color:var(--sheet-text-2);">&check; Deterministic engine &mdash; same seed, same result</li>
-              <li style="font-size:14px;color:var(--sheet-text-2);">&check; Full-precision decimal arithmetic</li>
+              <li style="font-size:14px;color:var(--sheet-text-2);">&check; Full-precision decimal arithmetic in the tools</li>
               <li style="font-size:14px;color:var(--sheet-text-2);">&check; Every assumption visible and traceable</li>
-              <li style="font-size:14px;color:var(--sheet-text-2);">&check; Auto-generated PDF with deterministic hash</li>
+              <li style="font-size:14px;color:var(--sheet-text-2);">&check; Shareable report with inputs, formula and warnings</li>
               <li style="font-size:14px;color:var(--sheet-text-2);">&check; Client-side only &mdash; zero data leaves browser</li>
             </ul>
           </div>
@@ -1816,12 +1818,10 @@ select:focus-visible{
           <h3>What does labor really cost?</h3><p>True loaded labor cost &mdash; statutory burden and benefits, not just net wage.</p><div class="switch-bottom">Open labor cost <span class="switch-arrow">&rarr;</span></div>
         </a>
         <a href="/weld-pro.html" class="switch-card" data-roles="shop engineer">
-          <span class="premium-badge">3 cr</span>
           <div class="switch-top"><span class="switch-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20l7-7M13 4l7 7-3 3-7-7 3-3zM9 15l-2 5 5-2"/></svg></span><span class="switch-role">Fabrication</span></div>
           <h3>Is this weld sized correctly?</h3><p>Required leg and throat against design load, with utilization check.</p><div class="switch-bottom">Open weld check <span class="switch-arrow">&rarr;</span></div>
         </a>
         <a href="/sc008-pro.html" class="switch-card" data-roles="quality engineer">
-          <span class="premium-badge">3 cr</span>
           <div class="switch-top"><span class="switch-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2.5 2.5"/></svg></span><span class="switch-role">Quality</span></div>
           <h3>Is the process capable?</h3><p>Predicted capability from tolerances &mdash; flagged as prediction, not measured SPC.</p><div class="switch-bottom">Open capability <span class="switch-arrow">&rarr;</span></div>
         </a>
@@ -1838,12 +1838,12 @@ select:focus-visible{
     <div class="container">
       <div class="section-head">
         <h2 id="run-heading"><span class="section-kicker">Try</span> before you buy</h2>
-        <p class="lede">No login required. Change the values below and see the result update in real time. Every input carries a reference value and unit selector.</p>
+        <p class="lede">No login required. Change the values below and see the result update in real time. Values are in mm &mdash; open SC-008 for the full Decimal engine.</p>
       </div>
       <div class="demo-section" data-reveal>
         <div class="demo-header">
-          <div><span class="badge info">SC-008 &middot; TOLERANCE STACK-UP &middot; FREE DEMO PREVIEW</span></div>
-          <div class="credit-balance">Your balance: <strong id="creditBalance">47</strong> credits</div>
+          <div><span class="badge info">SC-008 &middot; TOLERANCE STACK-UP &middot; SEEDED PREVIEW (Number math)</span></div>
+          <div><a class="btn btn-ghost" href="/sc008-pro.html">Open full Decimal tool &rarr;</a></div>
         </div>
         <div class="demo-grid">
           <div>
@@ -1854,12 +1854,12 @@ select:focus-visible{
             </div>
             <div class="demo-input-group">
               <label for="nominalDim">Nominal Dimension <span style="color:var(--iso-blue)">&#9432;</span></label>
-              <div class="input-wrap"><input type="number" id="nominalDim" value="25.000" step="0.001" aria-describedby="nominalRef"><select class="unit-select" id="nominalUnit" aria-label="Unit for nominal dimension"><option>mm</option><option>inch</option><option>&mu;m</option></select></div>
+              <div class="input-wrap"><input type="number" id="nominalDim" value="25.000" step="0.001" aria-describedby="nominalRef"><span class="unit-select" aria-hidden="true">mm</span></div>
               <div class="ref-value" id="nominalRef">Ref: 25.000 mm &mdash; common spacer width</div>
             </div>
             <div class="demo-input-group">
               <label for="tolerance">Tolerance <span style="color:var(--iso-blue)">&#9432;</span></label>
-              <div class="input-wrap"><input type="number" id="tolerance" value="0.050" step="0.001" aria-describedby="toleranceRef"><select class="unit-select" id="toleranceUnit" aria-label="Unit for tolerance"><option>mm</option><option>inch</option><option>&mu;m</option></select></div>
+              <div class="input-wrap"><input type="number" id="tolerance" value="0.050" step="0.001" aria-describedby="toleranceRef"><span class="unit-select" aria-hidden="true">mm</span></div>
               <div class="ref-value" id="toleranceRef">Ref: &plusmn;0.050 mm &mdash; ISO 2768-m for 18-30mm range</div>
             </div>
             <div class="demo-input-group">
@@ -1921,11 +1921,9 @@ select:focus-visible{
               <div class="contributor-row"><span style="font-family:var(--f-mono);font-size:13px;color:var(--sheet-text-2);">Top contributor</span><span style="font-family:var(--f-mono);font-size:14px;font-weight:700;color:var(--sheet-text);" id="contributorValue">Spacer Width &middot; 53%</span></div>
               <div class="report-verdict" id="verdict" style="margin-top:var(--sp-4);">Predicted in spec &mdash; verify with measured data before release</div>
               <div style="margin-top:var(--sp-5);display:flex;gap:var(--sp-3);flex-wrap:wrap;">
-                <button class="btn btn-primary" id="fullReportBtn" style="flex:1;justify-content:center;" aria-label="Generate full report for 3 credits">
-                  <span id="fullReportText">Full Report (3 cr)</span>
-                  <span id="fullReportLoading" class="shimmer" style="display:none;width:100px;height:16px;"></span>
-                </button>
-                <button class="btn btn-ghost" id="downloadPdfBtn" aria-label="Download PDF report">Download PDF</button>
+                <a class="btn btn-primary" href="/sc008-pro.html" style="flex:1;justify-content:center;">Open SC-008 Tool &rarr;</a>
+                <button class="btn btn-ghost" id="fullReportBtn" aria-label="View sample report preview">Sample report</button>
+                <button class="btn btn-ghost" id="downloadPdfBtn" aria-label="Print sample report">Print preview</button>
               </div>
             </div>
           </div>
@@ -1949,9 +1947,9 @@ select:focus-visible{
             <li>Real sample histogram &mdash; not a decorative bell curve</li>
             <li>Predicted Cpk &amp; PPM with a 95% confidence interval</li>
             <li>Deterministic: same inputs + seed + engine version &rarr; same report</li>
-            <li>Save / load projects, CSV import, revision compare, PDF trace</li>
+            <li>Full report in the SC-008 tool: charts, warnings and share integrity</li>
           </ul>
-          <a href="#run" class="btn btn-primary">Open the calculator &rarr;</a>
+          <a href="/sc008-pro.html" class="btn btn-primary">Open the calculator &rarr;</a>
         </div>
         <div class="report-card">
           <div class="report-card-head"><span>SC-008 &middot; PREDICTED ANALYSIS</span><span>ENGINE V1.0.0</span></div>
@@ -2104,7 +2102,7 @@ select:focus-visible{
       <div class="credit-band" data-reveal>
         <div class="credit-header">
           <div><span class="badge info">CREDIT PACKAGES &middot; 12 MONTH VALIDITY</span></div>
-          <div class="credit-balance">Your balance: <strong id="creditBalance2">47</strong> credits</div>
+          <div class="credit-balance">Calculators are free until Paddle checkout launches</div>
         </div>
                 <div class="credit-packages">
           <div class="credit-card" role="button" tabindex="0" aria-label="Buy 1 credit for 1.99 dollars">
@@ -2112,57 +2110,52 @@ select:focus-visible{
             <div class="cr-unit">credit</div>
             <div class="cr-price">$1.99</div>
             <div class="cr-per">$1.99 per credit</div>
-            <a class="btn btn-primary" href="/pricing.html" style="width:100%;justify-content:center;text-decoration:none;">Buy Now</a>
+            <a class="btn btn-primary" href="/pricing.html" style="width:100%;justify-content:center;text-decoration:none;">See packs &rarr;</a>
           </div>
           <div class="credit-card" role="button" tabindex="0" aria-label="Buy 5 credits for 4.99 dollars">
             <div class="cr-amount">5</div>
             <div class="cr-unit">credits</div>
             <div class="cr-price">$4.99</div>
             <div class="cr-per">$1.00 per credit</div>
-            <a class="btn btn-primary" href="/pricing.html" style="width:100%;justify-content:center;text-decoration:none;">Buy Now</a>
+            <a class="btn btn-primary" href="/pricing.html" style="width:100%;justify-content:center;text-decoration:none;">See packs &rarr;</a>
           </div>
           <div class="credit-card featured" role="button" tabindex="0" aria-label="Buy 15 credits for 7.99 dollars, most popular">
             <div class="cr-amount">15</div>
             <div class="cr-unit">credits</div>
             <div class="cr-price">$7.99</div>
             <div class="cr-per">$0.53 per credit</div>
-            <a class="btn btn-primary" href="/pricing.html" style="width:100%;justify-content:center;text-decoration:none;">Buy Now</a>
+            <a class="btn btn-primary" href="/pricing.html" style="width:100%;justify-content:center;text-decoration:none;">See packs &rarr;</a>
           </div>
           <div class="credit-card" role="button" tabindex="0" aria-label="Buy 30 credits for 11.99 dollars">
             <div class="cr-amount">30</div>
             <div class="cr-unit">credits</div>
             <div class="cr-price">$11.99</div>
             <div class="cr-per">$0.40 per credit</div>
-            <a class="btn btn-primary" href="/pricing.html" style="width:100%;justify-content:center;text-decoration:none;">Buy Now</a>
+            <a class="btn btn-primary" href="/pricing.html" style="width:100%;justify-content:center;text-decoration:none;">See packs &rarr;</a>
           </div>
           <div class="credit-card" role="button" tabindex="0" aria-label="Buy 100 credits for 24.99 dollars">
             <div class="cr-amount">100</div>
             <div class="cr-unit">credits</div>
             <div class="cr-price">$24.99</div>
             <div class="cr-per">$0.25 per credit</div>
-            <a class="btn btn-primary" href="/pricing.html" style="width:100%;justify-content:center;text-decoration:none;">Buy Now</a>
+            <a class="btn btn-primary" href="/pricing.html" style="width:100%;justify-content:center;text-decoration:none;">See packs &rarr;</a>
           </div>
         </div>
 
-        <!-- Security Badges -->
-        <div class="security-badges" role="region" aria-label="Security and payment certifications">
-          <div class="security-badge">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-            256-bit SSL Encrypted
-          </div>
-          <div class="security-badge">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
-            Paddle Secure Checkout
-          </div>
+        <div class="security-badges" role="region" aria-label="Payment status">
           <div class="security-badge">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-            PCI DSS Compliant
+            Planned: Paddle Merchant of Record
+          </div>
+          <div class="security-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Client-side tools &mdash; no card required to try
           </div>
         </div>
 
         <div class="warning-box" style="margin-top:var(--sp-6);">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-          <p>Payments are not live yet. Every calculator is free to use until the Paddle credit store launches. Planned packs are listed on <a href="/pricing.html" style="color:var(--iso-orange);text-decoration:underline;">Pricing</a>. Credit balance above is demo theater only.</p>
+          <p>Payments are not live yet. Every calculator is free to use. Planned packs live on <a href="/pricing.html" style="color:var(--iso-orange);text-decoration:underline;">Pricing</a> &mdash; notify-only until Paddle checkout ships.</p>
         </div>
       </div>
     </div>
@@ -2227,7 +2220,7 @@ select:focus-visible{
           <div class="report-row"><span class="k">Date Generated</span><span class="v" id="pdfDate">2026-07-23</span></div>
           <div class="report-row"><span class="k">Engine Version</span><span class="v">SC008-2026.07-formula-v1.0.0+dist</span></div>
           <div class="report-row"><span class="k">Deterministic Seed</span><span class="v">7a3f1c9e</span></div>
-          <div class="report-row"><span class="k">Input Hash</span><span class="v">SHA-256: 4d8b2e61...</span></div>
+          <div class="report-row"><span class="k">Input Hash</span><span class="v">Sample illustration &mdash; live hash in SC-008</span></div>
         </div>
       </div>
       <div style="border:1.5px solid var(--sheet-line);padding:var(--sp-5);margin-bottom:var(--sp-5);">
@@ -2717,33 +2710,15 @@ select:focus-visible{
     });
   }
 
-  // Full Report with credit deduction
+  // Sample report preview (no credit theater)
   if (fullReportBtn) {
     fullReportBtn.addEventListener('click', function(){
-      if (credits < 3) {
-        alert('Insufficient credits. Please purchase more credits to generate full reports.');
-        return;
-      }
-      fullReportText.style.display = 'none';
-      fullReportLoading.style.display = 'block';
-      fullReportBtn.disabled = true;
-
-      setTimeout(function(){
-        credits -= 3;
-        creditBalance.textContent = credits;
-        var cb2 = document.getElementById('creditBalance2');
-        if (cb2) cb2.textContent = credits;
-        fullReportText.style.display = 'block';
-        fullReportLoading.style.display = 'none';
-        fullReportBtn.disabled = false;
-
-        populatePdfModal();
-        openPdfModal();
-      }, 1200);
+      populatePdfModal();
+      openPdfModal();
     });
   }
 
-  // Download PDF
+  // Print preview
   if (downloadPdfBtn) {
     downloadPdfBtn.addEventListener('click', function(){
       window.print();
@@ -2777,12 +2752,11 @@ select:focus-visible{
   }
 
   if (modalClose) modalClose.addEventListener('click', closePdfModal);
-  if (viewPdfModalBtn) viewPdfModalBtn.addEventListener('click', openPdfModal);
-  if (viewSampleReportBtn) viewSampleReportBtn.addEventListener('click', function(e){
-    e.preventDefault();
+  if (viewPdfModalBtn) viewPdfModalBtn.addEventListener('click', function(){
+    populatePdfModal();
     openPdfModal();
   });
-
+  // Hero "View a Sample Report" scrolls to #evidence (native anchor). Modal is on the Evidence section button.
   // Close on backdrop click
   if (pdfModal) {
     pdfModal.addEventListener('click', function(e){

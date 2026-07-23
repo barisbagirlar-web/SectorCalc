@@ -115,7 +115,7 @@
   .sc-sidebar-ft { position: sticky; bottom: 0; background: var(--bg-1); border-top: 1px solid var(--border-subtle); padding: 14px 20px; display: flex; gap: 8px; backdrop-filter: blur(10px); }
 
   .sc-btn { padding: 10px 18px; border-radius: var(--radius-sm); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.4px; cursor: pointer; border: none; transition: var(--transition-fast); font-family: var(--font-sans); display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
-  .sc-btn-primary { background: var(--accent-amber); color: #fff; box-shadow: 0 1px 2px rgba(26,23,20,0.04); flex: 1; justify-content: center; }
+  .sc-btn-primary { background: var(--accent-blue); border: 1px solid var(--accent-blue); color: #fff; box-shadow: 0 1px 2px rgba(0,85,164,0.12); }
   .sc-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 2px 6px rgba(26,23,20,0.08); }
   .sc-btn-primary:active { transform: translateY(0); }
   .sc-btn-ghost { background: var(--bg-3); color: var(--text-tertiary); border: 1px solid var(--border-soft); padding: 10px 14px; }
