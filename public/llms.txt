@@ -26,6 +26,7 @@ Site-wide light/dark theme is driven by `data-theme` on `<html>`, persisted as `
 - Do not invent customer testimonials or claim PCI checkout is live.
 - Homepage hero canvas is a client-side Three.js visualization plus a seeded Number preview deck; production tool engines use Decimal.js.
 - Theme preference and toggle position are client-side only (localStorage); they are not accounts or server profiles.
+- Report and result surfaces must keep readable contrast in light and dark themes. Pro tools read chart ink from CSS tokens via `theme-palette` at render time; do not invent fixed light-theme SVG fills.
 - Engineering preview: outputs are predicted from stated assumptions; not for production approval and not a substitute for measured data or a licensed engineer.
 
 ## Optional

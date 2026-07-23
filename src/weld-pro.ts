@@ -1,5 +1,6 @@
 // @ts-nocheck
 import { calculate } from './tools/SC-001-weld-thickness/v1.0.0/formula.js';
+import { readThemePalette, exportSurfaceBg, onThemeChange } from './lib/theme-palette.js';
 
 function pick(r, keys, def = 0) { for (const k of keys) { const v = r[k]; if (v !== undefined && v !== null && v !== '') { const n = Number(v); return Number.isFinite(n) ? n : def; } } return def; }
 
@@ -72,6 +73,7 @@ function generateReport(opts = {}) {
   if (!calcData) validateAndCalc();
   const d = calcData; if (!d) return;
     const calcId = (opts.sync && window.calcId) ? window.calcId : ('SC-001-' + Math.random().toString(36).substr(2, 9).toUpperCase()); window.calcId = calcId;
+  const P = readThemePalette();
   const status = overallStatus(d.util);
   const gCol = gaugeColor(d.util);
   const gaugeAngle = Math.max(-90, Math.min(90, (d.util / 1.5) * 180 - 90));
@@ -117,15 +119,15 @@ function generateReport(opts = {}) {
       <tr><td class="td-name">Joint type</td><td class="td-val">${d.input.jointType}</td><td>-</td></tr>
     </tbody></table></div></div></div>
     <div class="sc-sec"><div class="sc-sec-hd">Utilization Gauge</div><div class="sc-card"><div style="display:flex;justify-content:center"><svg width="300" height="170" viewBox="0 0 300 170">
-      <path d="M 40 150 A 110 110 0 0 1 260 150" fill="none" stroke="#D5CFC5" stroke-width="24" stroke-linecap="round"/>
+      <path d="M 40 150 A 110 110 0 0 1 260 150" fill="none" stroke="${P.track}" stroke-width="24" stroke-linecap="round"/>
       <path d="M 40 150 A 110 110 0 0 1 150 40" fill="none" stroke="rgba(35,127,82,0.25)" stroke-width="24" stroke-linecap="round"/>
       <path d="M 150 40 A 110 110 0 0 1 210 70" fill="none" stroke="rgba(208,93,41,0.25)" stroke-width="24" stroke-linecap="round"/>
       <path d="M 210 70 A 110 110 0 0 1 260 150" fill="none" stroke="rgba(155,36,35,0.25)" stroke-width="24" stroke-linecap="round"/>
       <line x1="150" y1="150" x2="${150 + 95 * Math.cos(gaugeAngle * Math.PI / 180)}" y2="${150 + 95 * Math.sin(gaugeAngle * Math.PI / 180)}" stroke="${gCol}" stroke-width="3" stroke-linecap="round"/>
       <circle cx="150" cy="150" r="7" fill="${gCol}"/>
-      <text x="150" y="135" text-anchor="middle" fill="#1A1714" font-size="24" font-weight="700" font-family="IBM Plex Mono">${(d.util*100).toFixed(0)}%</text>
-      <text x="150" y="155" text-anchor="middle" fill="#8A847A" font-size="10">utilization</text>
-      <text x="30" y="168" fill="#8A847A" font-size="9">0</text><text x="262" y="168" fill="#8A847A" font-size="9">150%</text>
+      <text x="150" y="135" text-anchor="middle" fill="${P.ink}" font-size="24" font-weight="700" font-family="IBM Plex Mono">${(d.util*100).toFixed(0)}%</text>
+      <text x="150" y="155" text-anchor="middle" fill="${P.muted}" font-size="10">utilization</text>
+      <text x="30" y="168" fill="${P.muted}" font-size="9">0</text><text x="262" y="168" fill="${P.muted}" font-size="9">150%</text>
     </svg></div></div></div>
     <div class="sc-sec"><div class="sc-sec-hd">Show Me The Math</div><div class="sc-card"><div class="sc-table-wrap"><table class="sc-table"><thead><tr><th>#</th><th>Step</th><th>Result</th></tr></thead><tbody>${stepsRows}</tbody></table></div></div></div>
     <div class="sc-sec"><div class="sc-sec-hd">What-If Sensitivity</div><div class="sc-card"><div style="font-size:11px;color:var(--text-muted);margin-bottom:14px;font-family:var(--font-mono)">Scenario impact on required leg and utilization.</div>
@@ -164,7 +166,7 @@ async function exportPDFGraphic() {
   const el = $('reportArea'); if (!el || !calcData) { alert('Generate the report first.'); return; }
   const btn = event && event.target; if (btn) { btn.textContent = 'Rendering...'; btn.disabled = true; }
   try {
-    const canvas = await html2canvas(el, { scale: 1.5, backgroundColor: '#FFFFFF', useCORS: true, logging: false });
+    const canvas = await html2canvas(el, { scale: 1.5, backgroundColor: exportSurfaceBg(), useCORS: true, logging: false });
     const { jsPDF } = window.jspdf; const pdf = new jsPDF({ unit: 'pt', format: 'a4' });
     const pageW = pdf.internal.pageSize.getWidth(), pageH = pdf.internal.pageSize.getHeight();
     const imgH = (canvas.height * pageW) / canvas.width; const imgData = canvas.toDataURL('image/jpeg', 0.82);
@@ -185,6 +187,7 @@ function shareReport() {
 }
 
 window.generateReport = generateReport;
+onThemeChange(syncReportIfOpen);
 window.exportPDF = exportPDF;
 window.exportPDFGraphic = exportPDFGraphic;
 window.shareReport = shareReport;

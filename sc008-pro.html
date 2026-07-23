@@ -56,7 +56,7 @@
   .sc-live-hd{font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:1.2px;color:var(--accent-cyan);margin-bottom:6px;display:flex;align-items:center;gap:8px}
   .sc-live-dot{width:5px;height:5px;background:var(--accent-cyan);border-radius:50%;box-shadow:0 0 8px var(--accent-cyan);animation:pulse 2.5s infinite}
   @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
-  .sc-live-val{font-family:var(--font-mono);font-size:26px;font-weight:700}
+  .sc-live-val{font-family:var(--font-mono);font-size:26px;font-weight:700;color:var(--text-primary)}
   .sc-live-sub{font-size:11px;color:var(--text-tertiary);margin-top:5px;font-family:var(--font-mono);display:flex;gap:12px;flex-wrap:wrap}
   .sc-sidebar-ft{position:sticky;bottom:0;background:var(--bg-1);border-top:1px solid var(--border-subtle);padding:14px 20px;display:flex;gap:8px}
   .sc-btn{padding:10px 18px;border-radius:0;font-size:12.5px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;cursor:pointer;border:1px solid var(--border-mid);transition:var(--tf);font-family:var(--font-mono);display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
@@ -88,13 +88,13 @@
   .sc-card-res::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
   .sc-card-res.pass::before{background:var(--accent-green)}.sc-card-res.warn::before{background:var(--accent-amber)}.sc-card-res.crit::before{background:var(--accent-red)}
   .sc-card-res-label{font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);margin-bottom:10px}
-  .sc-card-res-val{font-family:var(--font-mono);font-size:22px;font-weight:700;margin-bottom:4px}
+  .sc-card-res-val{font-family:var(--font-mono);font-size:22px;font-weight:700;margin-bottom:4px;color:var(--text-primary)}
   .sc-card-res-sub{font-size:10px;color:var(--text-muted);font-family:var(--font-mono)}
   .sc-card-res-badge{display:inline-block;margin-top:10px;padding:3px 10px;border-radius:var(--radius-sm);font-size:9px;font-weight:800;text-transform:uppercase}
   .sc-badge-pass{background:rgba(0,122,51,0.1);color:var(--accent-green)}.sc-badge-warn{background:rgba(232,119,34,0.1);color:var(--accent-amber)}.sc-badge-crit{background:rgba(200,16,46,0.1);color:var(--accent-red)}
   .sc-table{width:100%;border-collapse:collapse;font-size:12px}
   .sc-table th{text-align:left;padding:10px 12px;font-size:9px;font-weight:800;text-transform:uppercase;color:var(--text-muted);border-bottom:1px solid var(--border-soft);background:var(--bg-2)}
-  .sc-table td{padding:10px 12px;border-bottom:1px solid var(--border-subtle);font-family:var(--font-mono)}
+  .sc-table td{padding:10px 12px;border-bottom:1px solid var(--border-subtle);font-family:var(--font-mono);color:var(--text-primary)}
   .sc-table .td-name{font-family:var(--font-sans);color:var(--text-secondary)}
   .sc-table .td-high{color:var(--accent-red);font-weight:700}.sc-table .td-ok{color:var(--accent-green)}
   .sc-chart{background:var(--bg-1);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);padding:20px;margin-bottom:16px}
@@ -113,7 +113,7 @@
   .sc-whatif{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
   .sc-whatif-card{background:var(--bg-2);border:1px solid var(--border-subtle);border-radius:var(--radius-md);padding:16px;text-align:center}
   .sc-whatif-lbl{font-size:9px;font-weight:800;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px}
-  .sc-whatif-val{font-family:var(--font-mono);font-size:20px;font-weight:700}
+  .sc-whatif-val{font-family:var(--font-mono);font-size:20px;font-weight:700;color:var(--text-primary)}
   .sc-whatif-chg{font-size:11px;margin-top:5px;font-family:var(--font-mono);font-weight:600}
   .sc-whatif-chg.pos{color:var(--accent-green)}.sc-whatif-chg.neg{color:var(--accent-red)}.sc-whatif-chg.neu{color:var(--text-muted)}
   .sc-rec{background:var(--bg-2);border:1px solid var(--border-subtle);border-radius:var(--radius-md);padding:16px 18px;margin-bottom:10px}
@@ -127,8 +127,8 @@
   .sc-footer{text-align:center;padding:24px;color:var(--text-dim);font-size:10px;font-family:var(--font-mono);border-top:1px solid var(--border-subtle);margin-top:20px}
   @media(max-width:768px){.sc-layout{grid-template-columns:1fr}.sc-sidebar{position:relative;top:0;height:auto;border-right:none;border-bottom:1px solid var(--border-subtle)}.sc-cards,.sc-whatif{grid-template-columns:1fr}.sc-header-sub{display:none}}
 </style>
-<link rel="stylesheet" href="./sc-theme.css?v=7">
-<script src="./sc-theme.js?v=7" defer></script>
+<link rel="stylesheet" href="./sc-theme.css?v=8">
+<script src="./sc-theme.js?v=8" defer></script>
 </head>
 <body>
 <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme" aria-pressed="false" title="Dark mode - drag to move, double-click to reset">

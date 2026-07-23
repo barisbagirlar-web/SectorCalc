@@ -1,5 +1,6 @@
 // @ts-nocheck
 import { calculate } from './tools/SC-010-labor-cost/v1.0.0/formula.js';
+import { readThemePalette, exportSurfaceBg, onThemeChange } from './lib/theme-palette.js';
 
 // Robust field reader: tries several likely result keys so the page never hard-breaks
 // if formula.ts names a field differently. Falls back to def (no ERR, no crash).
@@ -105,10 +106,11 @@ function generateReport(opts = {}) {
   const now = new Date();
   const calcId = (opts.sync && window.calcId) ? window.calcId : ('SC-010-' + Math.random().toString(36).substr(2, 9).toUpperCase());
   window.calcId = calcId;
+  const P = readThemePalette();
   const status = overallStatus(d.mult);
   const gCol = gaugeColor(d.mult);
   const gaugeAngle = Math.max(-90, Math.min(90, (d.mult / 3) * 180 - 90));
-  const paretoColors = ['#9B2423','#D05D29','#005387','#005387','#005387','#237F52','#005387','#005387'];
+  const paretoColors = [P.red,P.amber,P.blue,P.blue,P.blue,P.green,P.blue,P.blue];
   const top = d.breakdown[0];
 
   const whatIfs = [
@@ -171,15 +173,15 @@ function generateReport(opts = {}) {
       <tr><td class="td-name">Severance rate</td><td class="td-val">${d.input.severanceRate}</td><td>ratio</td></tr>
     </tbody></table></div></div></div>
     <div class="sc-sec"><div class="sc-sec-hd">Cost Multiplier Gauge</div><div class="sc-chart"><div style="display:flex;justify-content:center"><svg width="300" height="170" viewBox="0 0 300 170">
-      <path d="M 40 150 A 110 110 0 0 1 260 150" fill="none" stroke="#D5CFC5" stroke-width="24" stroke-linecap="round"/>
+      <path d="M 40 150 A 110 110 0 0 1 260 150" fill="none" stroke="${P.track}" stroke-width="24" stroke-linecap="round"/>
       <path d="M 40 150 A 110 110 0 0 1 110 50" fill="none" stroke="rgba(35,127,82,0.25)" stroke-width="24" stroke-linecap="round"/>
       <path d="M 110 50 A 110 110 0 0 1 190 50" fill="none" stroke="rgba(208,93,41,0.25)" stroke-width="24" stroke-linecap="round"/>
       <path d="M 190 50 A 110 110 0 0 1 260 150" fill="none" stroke="rgba(155,36,35,0.25)" stroke-width="24" stroke-linecap="round"/>
       <line x1="150" y1="150" x2="${150 + 95 * Math.cos(gaugeAngle * Math.PI / 180)}" y2="${150 + 95 * Math.sin(gaugeAngle * Math.PI / 180)}" stroke="${gCol}" stroke-width="3" stroke-linecap="round"/>
       <circle cx="150" cy="150" r="7" fill="${gCol}"/>
-      <text x="150" y="135" text-anchor="middle" fill="#1A1714" font-size="24" font-weight="700" font-family="IBM Plex Mono">${d.mult.toFixed(2)}x</text>
-      <text x="150" y="155" text-anchor="middle" fill="#8A847A" font-size="10">true / net</text>
-      <text x="30" y="168" fill="#8A847A" font-size="9">1.0</text><text x="262" y="168" fill="#8A847A" font-size="9">3.0</text>
+      <text x="150" y="135" text-anchor="middle" fill="${P.ink}" font-size="24" font-weight="700" font-family="IBM Plex Mono">${d.mult.toFixed(2)}x</text>
+      <text x="150" y="155" text-anchor="middle" fill="${P.muted}" font-size="10">true / net</text>
+      <text x="30" y="168" fill="${P.muted}" font-size="9">1.0</text><text x="262" y="168" fill="${P.muted}" font-size="9">3.0</text>
     </svg></div></div></div>
     <div class="sc-sec"><div class="sc-sec-hd">Cost Breakdown (Pareto)</div><div class="sc-card">
       ${d.breakdown.map((c, i) => `<div class="sc-pareto-row"><div class="sc-pareto-name">${c.name}</div><div class="sc-pareto-track"><div class="sc-pareto-fill" style="width:${c.pct}%;background:${paretoColors[i % paretoColors.length]}"><span>${c.amount.toFixed(0)}</span></div></div><div class="sc-pareto-pct">${c.pct.toFixed(1)}%</div></div>`).join('')}
@@ -230,7 +232,7 @@ async function exportPDFGraphic() {
   const el = $('reportArea'); if (!el || !calcData) { alert('Generate the report first.'); return; }
   const btn = event && event.target; if (btn) { btn.textContent = 'Rendering...'; btn.disabled = true; }
   try {
-    const canvas = await html2canvas(el, { scale: 1.5, backgroundColor: '#FFFFFF', useCORS: true, logging: false });
+    const canvas = await html2canvas(el, { scale: 1.5, backgroundColor: exportSurfaceBg(), useCORS: true, logging: false });
     const { jsPDF } = window.jspdf;
     const pdf = new jsPDF({ unit: 'pt', format: 'a4' });
     const pageW = pdf.internal.pageSize.getWidth(), pageH = pdf.internal.pageSize.getHeight();
@@ -255,6 +257,7 @@ function shareReport() {
 try { loadFromURL(); validateAndCalc(); } catch (e) { console.error(e); }
 
 window.generateReport = generateReport;
+onThemeChange(syncReportIfOpen);
 window.exportPDF = exportPDF;
 window.exportPDFGraphic = exportPDFGraphic;
 window.shareReport = shareReport;

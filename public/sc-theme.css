@@ -1,4 +1,4 @@
-/* SectorCalc shared theme — light/dark engine companion CSS (v7)
+/* SectorCalc shared theme — light/dark engine companion CSS (v8)
    Never put star-slash inside comments (breaks the next rule). */
 
 html{
@@ -281,4 +281,98 @@ html:not([data-theme="dark"]) .logo-dark{display:none !important}
 /* Smooth theme transitions for surfaces/text (not transforms) */
 body,.sheet,.sc-header,header,footer,.pack,.how,.why div,.sc-sidebar,.sc-card,.sc-card-res{
   transition:background-color .2s ease, color .2s ease, border-color .2s ease;
+}
+
+/* ---- Pro report contrast standard (all *-pro tools + future tools) ----
+   Text/labels on report surfaces must use tokens, never hardcoded light ink.
+   SVG/canvas fills come from src/lib/theme-palette.ts at render time. */
+.sc-main,
+.sc-main-inner,
+#reportArea{
+  color:var(--text-primary);
+}
+.sc-report-title,
+.sc-card-res-val,
+.sc-live-val,
+.sc-whatif-val,
+.sc-rec-title,
+.sc-table .td-val{
+  color:var(--text-primary);
+}
+.sc-table td{
+  color:var(--text-primary);
+}
+.sc-table .td-name,
+.sc-card-res-sub,
+.sc-live-sub,
+.sc-pareto-name,
+.sc-pareto-pct,
+.sc-whatif-lbl,
+.sc-report-meta,
+.sc-sec-hd,
+.sc-std,
+.sc-footer,
+.sc-empty,
+.sc-empty-desc{
+  color:var(--text-muted);
+}
+.sc-card,
+.sc-card-res,
+.sc-chart,
+.sc-whatif-card,
+.sc-rec,
+.sc-empty-icon{
+  background:var(--bg-1);
+  color:var(--text-primary);
+  border-color:var(--border-subtle);
+}
+.sc-whatif-card,
+.sc-rec,
+.sc-pareto-track{
+  background:var(--bg-2);
+}
+.sc-live{
+  background:linear-gradient(135deg,var(--accent-blue-glow),var(--accent-amber-glow,rgba(232,119,34,0.04)));
+  border-color:color-mix(in srgb,var(--accent-blue) 22%,transparent);
+  color:var(--text-primary);
+}
+.sc-live-hd{color:var(--text-secondary)}
+html[data-theme="dark"] .sc-alert-crit{
+  background:linear-gradient(135deg,rgba(200,16,46,0.16),rgba(200,16,46,0.06));
+  border-color:rgba(200,16,46,0.35);
+}
+html[data-theme="dark"] .sc-alert-warn{
+  background:linear-gradient(135deg,rgba(232,119,34,0.16),rgba(232,119,34,0.06));
+  border-color:rgba(232,119,34,0.35);
+}
+html[data-theme="dark"] .sc-alert-pass{
+  background:linear-gradient(135deg,rgba(0,122,51,0.16),rgba(0,122,51,0.06));
+  border-color:rgba(0,122,51,0.35);
+}
+html[data-theme="dark"] .sc-badge-pass{
+  background:rgba(0,122,51,0.2);
+  border-color:rgba(0,122,51,0.35);
+}
+html[data-theme="dark"] .sc-badge-warn{
+  background:rgba(232,119,34,0.2);
+  border-color:rgba(232,119,34,0.35);
+}
+html[data-theme="dark"] .sc-badge-crit{
+  background:rgba(200,16,46,0.2);
+  border-color:rgba(200,16,46,0.35);
+}
+.sc-stack-bar-lbl,
+.sc-stack-lbl{
+  color:var(--text-primary);
+}
+.sc-stack-lbl{color:var(--text-muted)}
+.sc-input,
+select.sc-input,
+textarea.sc-input{
+  background:var(--bg-0);
+  color:var(--text-primary);
+  border-color:var(--border-soft);
+}
+.sc-input::placeholder{
+  color:var(--text-muted);
 }

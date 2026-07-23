@@ -1,5 +1,6 @@
 // @ts-nocheck
 import { calculate } from './tools/SC-012-quote-pricing/v1.0.0/formula.js';
+import { readThemePalette, exportSurfaceBg, onThemeChange } from './lib/theme-palette.js';
 
 function pick(r, keys, def = 0) { for (const k of keys) { const v = r[k]; if (v !== undefined && v !== null && v !== '') { const n = Number(v); return Number.isFinite(n) ? n : def; } } return def; }
 
@@ -107,11 +108,12 @@ function generateReport(opts = {}) {
   if (!calcData) validateAndCalc();
   const d = calcData; if (!d) return;
   const calcId = (opts.sync && window.calcId) ? window.calcId : ('SC-012-' + Math.random().toString(36).substr(2, 9).toUpperCase()); window.calcId = calcId;
+  const P = readThemePalette();
   const ratio = d.total > 0 ? d.sell / d.total : 0;
   const status = overallStatus(ratio);
   const gCol = gaugeColor(ratio);
   const gaugeAngle = Math.max(-90, Math.min(90, (ratio / 2) * 180 - 90));
-  const paretoColors = ['#9B2423','#D05D29','#005387','#005387','#005387','#237F52'];
+  const paretoColors = [P.red,P.amber,P.blue,P.blue,P.blue,P.green];
   const top = d.bd.items[0];
 
   const whatIfs = [
@@ -162,15 +164,15 @@ function generateReport(opts = {}) {
       <tr><td class="td-name">Quantity</td><td class="td-val">${d.input.quantity}</td><td>pcs</td></tr>
     </tbody></table></div></div></div>
     <div class="sc-sec"><div class="sc-sec-hd">Sell / Cost Ratio Gauge</div><div class="sc-card"><div style="display:flex;justify-content:center"><svg width="300" height="170" viewBox="0 0 300 170">
-      <path d="M 40 150 A 110 110 0 0 1 260 150" fill="none" stroke="#D5CFC5" stroke-width="24" stroke-linecap="round"/>
+      <path d="M 40 150 A 110 110 0 0 1 260 150" fill="none" stroke="${P.track}" stroke-width="24" stroke-linecap="round"/>
       <path d="M 40 150 A 110 110 0 0 1 110 50" fill="none" stroke="rgba(155,36,35,0.25)" stroke-width="24" stroke-linecap="round"/>
       <path d="M 110 50 A 110 110 0 0 1 190 50" fill="none" stroke="rgba(208,93,41,0.25)" stroke-width="24" stroke-linecap="round"/>
       <path d="M 190 50 A 110 110 0 0 1 260 150" fill="none" stroke="rgba(35,127,82,0.25)" stroke-width="24" stroke-linecap="round"/>
       <line x1="150" y1="150" x2="${150 + 95 * Math.cos(gaugeAngle * Math.PI / 180)}" y2="${150 + 95 * Math.sin(gaugeAngle * Math.PI / 180)}" stroke="${gCol}" stroke-width="3" stroke-linecap="round"/>
       <circle cx="150" cy="150" r="7" fill="${gCol}"/>
-      <text x="150" y="135" text-anchor="middle" fill="#1A1714" font-size="24" font-weight="700" font-family="IBM Plex Mono">${ratio.toFixed(2)}</text>
-      <text x="150" y="155" text-anchor="middle" fill="#8A847A" font-size="10">sell / cost</text>
-      <text x="30" y="168" fill="#8A847A" font-size="9">0</text><text x="262" y="168" fill="#8A847A" font-size="9">2.0</text>
+      <text x="150" y="135" text-anchor="middle" fill="${P.ink}" font-size="24" font-weight="700" font-family="IBM Plex Mono">${ratio.toFixed(2)}</text>
+      <text x="150" y="155" text-anchor="middle" fill="${P.muted}" font-size="10">sell / cost</text>
+      <text x="30" y="168" fill="${P.muted}" font-size="9">0</text><text x="262" y="168" fill="${P.muted}" font-size="9">2.0</text>
     </svg></div></div></div>
     <div class="sc-sec"><div class="sc-sec-hd">Cost Build-Up (Pareto)</div><div class="sc-card">
       ${d.bd.items.map((c, i) => `<div class="sc-pareto-row"><div class="sc-pareto-name">${c.name}</div><div class="sc-pareto-track"><div class="sc-pareto-fill" style="width:${c.pct}%;background:${paretoColors[i % paretoColors.length]}"><span>${c.amount.toFixed(0)}</span></div></div><div class="sc-pareto-pct">${c.pct.toFixed(1)}%</div></div>`).join('')}
@@ -213,7 +215,7 @@ async function exportPDFGraphic() {
   const el = $('reportArea'); if (!el || !calcData) { alert('Generate the report first.'); return; }
   const btn = event && event.target; if (btn) { btn.textContent = 'Rendering...'; btn.disabled = true; }
   try {
-    const canvas = await html2canvas(el, { scale: 1.5, backgroundColor: '#FFFFFF', useCORS: true, logging: false });
+    const canvas = await html2canvas(el, { scale: 1.5, backgroundColor: exportSurfaceBg(), useCORS: true, logging: false });
     const { jsPDF } = window.jspdf; const pdf = new jsPDF({ unit: 'pt', format: 'a4' });
     const pageW = pdf.internal.pageSize.getWidth(), pageH = pdf.internal.pageSize.getHeight();
     const imgH = (canvas.height * pageW) / canvas.width; const imgData = canvas.toDataURL('image/jpeg', 0.82);
@@ -234,6 +236,7 @@ function shareReport() {
 }
 
 window.generateReport = generateReport;
+onThemeChange(syncReportIfOpen);
 window.exportPDF = exportPDF;
 window.exportPDFGraphic = exportPDFGraphic;
 window.shareReport = shareReport;
