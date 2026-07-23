@@ -1545,6 +1545,8 @@ select:focus-visible{
 .stage-wrap canvas{position:absolute;inset:0;width:100%;height:100%;opacity:0;transition:opacity .45s ease}
 .stage-wrap canvas.is-ready{opacity:1}
 .stage-poster{position:absolute;inset:0;width:100%;height:100%;transition:opacity .5s ease .1s}
+[data-theme="dark"] .stage-poster #sp-bg stop:nth-child(1){stop-color:#243038}
+[data-theme="dark"] .stage-poster #sp-bg stop:nth-child(2){stop-color:#1A2228}
 .stage-wrap:has(canvas.is-ready) .stage-poster{opacity:0;pointer-events:none}
 @media (prefers-reduced-motion: reduce){
   .stage-wrap canvas,.stage-poster{transition:none}
@@ -1607,8 +1609,8 @@ select:focus-visible{
 {"imports":{"three":"/vendor/three/three.module.js",
 "three/addons/environments/RoomEnvironment.js":"/vendor/three/RoomEnvironment.js"}}
 </script>
-<link rel="modulepreload" href="/vendor/three/three.module.js">
-<link rel="modulepreload" href="/vendor/three/RoomEnvironment.js">
+<link rel="modulepreload" href="/vendor/three/three.module.js" crossorigin>
+<link rel="modulepreload" href="/vendor/three/RoomEnvironment.js" crossorigin>
 <link rel="stylesheet" href="./sc-theme.css?v=8">
 <script src="./sc-theme.js?v=8" defer></script>
 </head>
@@ -2992,8 +2994,8 @@ select:focus-visible{
 })();
 </script>
 
-<script type="module" src="/sc-hero-cell.js?v=9"></script>
-<script src="/sc-hero-engine.js?v=9"></script>
+<script type="module" src="/sc-hero-cell.js?v=10"></script>
+<script src="/sc-hero-engine.js?v=10"></script>
 
 
 </body>
