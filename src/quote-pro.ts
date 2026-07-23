@@ -9,6 +9,19 @@ const presets = {
   run: { materialCost:5000, scrapRate:0.05, laborHours:20, laborHourlyCost:38, machineHours:40, machineHourlyCost:55, setupCost:800, overheadRate:0.20, financingRate:0.015, targetMargin:0.15, quantity:100 }
 };
 const $ = (id) => document.getElementById(id);
+let _reportSyncing = false;
+function reportIsOpen(){ return !!($('reportArea') && $('reportArea').querySelector('.sc-report-hd')); }
+function syncReportIfOpen(){
+  if (_reportSyncing || !reportIsOpen() || !calcData) return;
+  _reportSyncing = true;
+  try { generateReport({ sync: true }); } finally { _reportSyncing = false; }
+}
+function setFieldState(f, ok, msg) {
+  const fld = $('fld-' + f); const val = $('val-' + f);
+  if (fld) fld.classList.toggle('has-error', !ok);
+  if (val) { val.className = 'sc-val ' + (ok ? 'ok' : 'error'); val.textContent = msg; }
+}
+
 let calcData = null;
 
 function readInputs() { const input = {}; FIELDS.forEach(f => input[f] = parseFloat($(f).value) || 0); if (input.quantity < 1) input.quantity = 1; return input; }
@@ -52,8 +65,8 @@ function validateAndCalc() {
   const checks = [['materialCost', v => v < 0], ['scrapRate', v => v < 0 || v >= 1], ['laborHours', v => v < 0], ['laborHourlyCost', v => v < 0], ['machineHours', v => v < 0], ['machineHourlyCost', v => v < 0], ['setupCost', v => v < 0], ['overheadRate', v => v < 0 || v > 5], ['financingRate', v => v < 0 || v > 1], ['targetMargin', v => v < 0 || v >= 1], ['quantity', v => v < 1]];
   checks.forEach(([f, bad]) => {
     const v = parseFloat($(f).value);
-    if (isNaN(v) || bad(v)) { $('fld-'+f).classList.add('has-error'); $('val-'+f).className='sc-val error'; $('val-'+f).textContent='X out of range'; hasError = true; }
-    else { $('fld-'+f).classList.remove('has-error'); $('val-'+f).className='sc-val ok'; $('val-'+f).textContent='OK'; }
+    if (isNaN(v) || bad(v)) { setFieldState(f, false, 'X out of range'); hasError = true; }
+    else { setFieldState(f, true, 'OK'); }
   });
   if (hasError) { $('liveResult').textContent = '—'; $('liveSub').innerHTML = ''; return; }
 
@@ -72,12 +85,13 @@ function validateAndCalc() {
   calcData = { input, r, sell, unit, total, profit, marginPct, bd, financing };
   $('liveResult').textContent = (unit > 0 ? unit.toFixed(2) : sell.toFixed(0)) + (unit > 0 ? ' /pc' : '');
   $('liveSub').innerHTML = '<span>Sell ' + sell.toFixed(0) + '</span><span>Cost ' + total.toFixed(0) + '</span><span>Margin ' + marginPct.toFixed(1) + '%</span>';
+  syncReportIfOpen();
 }
 
 function loadPreset(key) {
   const p = presets[key];
   FIELDS.forEach(f => $(f).value = p[f]);
-  document.querySelectorAll('.sc-preset').forEach((b, i) => b.classList.toggle('active', (key === 'job' ? i === 0 : i === 1)));
+  document.querySelectorAll('.sc-preset').forEach(b => b.classList.toggle('active', b.dataset.preset === key));
   validateAndCalc();
 }
 function resetAll() { loadPreset('job'); }
@@ -86,18 +100,18 @@ function loadFromURL() {
   try { const o = JSON.parse(decodeURIComponent(s)); FIELDS.forEach(f => { if (o[f] !== undefined) $(f).value = o[f]; }); } catch (e) {}
 }
 
-function gaugeColor(ratio) { return ratio < 1.0 ? '#f5222d' : (ratio < 1.1 ? '#faad14' : '#52c41a'); }
+function gaugeColor(ratio) { return ratio < 1.0 ? '#9B2423' : (ratio < 1.1 ? '#D05D29' : '#237F52'); }
 function overallStatus(ratio) { return ratio < 1.0 ? 'CRITICAL' : (ratio < 1.1 ? 'WARNING' : 'PASS'); }
 
-function generateReport() {
+function generateReport(opts = {}) {
   if (!calcData) validateAndCalc();
   const d = calcData; if (!d) return;
-  const calcId = 'SC-012-' + Math.random().toString(36).substr(2, 9).toUpperCase(); window.calcId = calcId;
+  const calcId = (opts.sync && window.calcId) ? window.calcId : ('SC-012-' + Math.random().toString(36).substr(2, 9).toUpperCase()); window.calcId = calcId;
   const ratio = d.total > 0 ? d.sell / d.total : 0;
   const status = overallStatus(ratio);
   const gCol = gaugeColor(ratio);
   const gaugeAngle = Math.max(-90, Math.min(90, (ratio / 2) * 180 - 90));
-  const paretoColors = ['#f5222d','#faad14','#5b8def','#a855f7','#4ecdc4','#52c41a'];
+  const paretoColors = ['#9B2423','#D05D29','#005387','#005387','#005387','#237F52'];
   const top = d.bd.items[0];
 
   const whatIfs = [
@@ -148,15 +162,15 @@ function generateReport() {
       <tr><td class="td-name">Quantity</td><td class="td-val">${d.input.quantity}</td><td>pcs</td></tr>
     </tbody></table></div></div></div>
     <div class="sc-sec"><div class="sc-sec-hd">Sell / Cost Ratio Gauge</div><div class="sc-card"><div style="display:flex;justify-content:center"><svg width="300" height="170" viewBox="0 0 300 170">
-      <path d="M 40 150 A 110 110 0 0 1 260 150" fill="none" stroke="#111720" stroke-width="24" stroke-linecap="round"/>
-      <path d="M 40 150 A 110 110 0 0 1 110 50" fill="none" stroke="rgba(245,34,45,0.2)" stroke-width="24" stroke-linecap="round"/>
-      <path d="M 110 50 A 110 110 0 0 1 190 50" fill="none" stroke="rgba(250,173,20,0.2)" stroke-width="24" stroke-linecap="round"/>
-      <path d="M 190 50 A 110 110 0 0 1 260 150" fill="none" stroke="rgba(82,196,26,0.2)" stroke-width="24" stroke-linecap="round"/>
+      <path d="M 40 150 A 110 110 0 0 1 260 150" fill="none" stroke="#D5CFC5" stroke-width="24" stroke-linecap="round"/>
+      <path d="M 40 150 A 110 110 0 0 1 110 50" fill="none" stroke="rgba(155,36,35,0.25)" stroke-width="24" stroke-linecap="round"/>
+      <path d="M 110 50 A 110 110 0 0 1 190 50" fill="none" stroke="rgba(208,93,41,0.25)" stroke-width="24" stroke-linecap="round"/>
+      <path d="M 190 50 A 110 110 0 0 1 260 150" fill="none" stroke="rgba(35,127,82,0.25)" stroke-width="24" stroke-linecap="round"/>
       <line x1="150" y1="150" x2="${150 + 95 * Math.cos(gaugeAngle * Math.PI / 180)}" y2="${150 + 95 * Math.sin(gaugeAngle * Math.PI / 180)}" stroke="${gCol}" stroke-width="3" stroke-linecap="round"/>
       <circle cx="150" cy="150" r="7" fill="${gCol}"/>
-      <text x="150" y="135" text-anchor="middle" fill="#f0f4f8" font-size="24" font-weight="700" font-family="JetBrains Mono">${ratio.toFixed(2)}</text>
-      <text x="150" y="155" text-anchor="middle" fill="#4a5568" font-size="10">sell / cost</text>
-      <text x="30" y="168" fill="#4a5568" font-size="9">0</text><text x="262" y="168" fill="#4a5568" font-size="9">2.0</text>
+      <text x="150" y="135" text-anchor="middle" fill="#1A1714" font-size="24" font-weight="700" font-family="IBM Plex Mono">${ratio.toFixed(2)}</text>
+      <text x="150" y="155" text-anchor="middle" fill="#8A847A" font-size="10">sell / cost</text>
+      <text x="30" y="168" fill="#8A847A" font-size="9">0</text><text x="262" y="168" fill="#8A847A" font-size="9">2.0</text>
     </svg></div></div></div>
     <div class="sc-sec"><div class="sc-sec-hd">Cost Build-Up (Pareto)</div><div class="sc-card">
       ${d.bd.items.map((c, i) => `<div class="sc-pareto-row"><div class="sc-pareto-name">${c.name}</div><div class="sc-pareto-track"><div class="sc-pareto-fill" style="width:${c.pct}%;background:${paretoColors[i % paretoColors.length]}"><span>${c.amount.toFixed(0)}</span></div></div><div class="sc-pareto-pct">${c.pct.toFixed(1)}%</div></div>`).join('')}
@@ -199,7 +213,7 @@ async function exportPDFGraphic() {
   const el = $('reportArea'); if (!el || !calcData) { alert('Generate the report first.'); return; }
   const btn = event && event.target; if (btn) { btn.textContent = 'Rendering...'; btn.disabled = true; }
   try {
-    const canvas = await html2canvas(el, { scale: 1.5, backgroundColor: '#070a0f', useCORS: true, logging: false });
+    const canvas = await html2canvas(el, { scale: 1.5, backgroundColor: '#FFFFFF', useCORS: true, logging: false });
     const { jsPDF } = window.jspdf; const pdf = new jsPDF({ unit: 'pt', format: 'a4' });
     const pageW = pdf.internal.pageSize.getWidth(), pageH = pdf.internal.pageSize.getHeight();
     const imgH = (canvas.height * pageW) / canvas.width; const imgData = canvas.toDataURL('image/jpeg', 0.82);

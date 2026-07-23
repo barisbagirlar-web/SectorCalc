@@ -9,6 +9,19 @@ const presets = {
   prec:   { designLoadN:10000, weldLengthMm:50, weldStrengthMpa:480, safetyFactor:2.5, materialThicknessMm:4, jointType:'fillet' }
 };
 const $ = (id) => document.getElementById(id);
+let _reportSyncing = false;
+function reportIsOpen(){ return !!($('reportArea') && $('reportArea').querySelector('.sc-report-hd')); }
+function syncReportIfOpen(){
+  if (_reportSyncing || !reportIsOpen() || !calcData) return;
+  _reportSyncing = true;
+  try { generateReport({ sync: true }); } finally { _reportSyncing = false; }
+}
+function setFieldState(f, ok, msg) {
+  const fld = $('fld-' + f); const val = $('val-' + f);
+  if (fld) fld.classList.toggle('has-error', !ok);
+  if (val) { val.className = 'sc-val ' + (ok ? 'ok' : 'error'); val.textContent = msg; }
+}
+
 let calcData = null;
 
 function readInputs() { const input = { jointType: $('jointType').value }; FIELDS.forEach(f => input[f] = parseFloat($(f).value) || 0); if (input.safetyFactor < 1) input.safetyFactor = 1; return input; }
@@ -18,8 +31,8 @@ function validateAndCalc() {
   const checks = [['designLoadN', v => v <= 0], ['weldLengthMm', v => v <= 0], ['weldStrengthMpa', v => v <= 0], ['safetyFactor', v => v < 1], ['materialThicknessMm', v => v <= 0]];
   checks.forEach(([f, bad]) => {
     const v = parseFloat($(f).value);
-    if (isNaN(v) || bad(v)) { $('fld-'+f).classList.add('has-error'); $('val-'+f).className='sc-val error'; $('val-'+f).textContent='X must be positive'; hasError = true; }
-    else { $('fld-'+f).classList.remove('has-error'); $('val-'+f).className='sc-val ok'; $('val-'+f).textContent='OK'; }
+    if (isNaN(v) || bad(v)) { setFieldState(f, false, 'X must be positive'); hasError = true; }
+    else { setFieldState(f, true, 'OK'); }
   });
   if (hasError) { $('liveResult').textContent = '—'; $('liveSub').innerHTML = ''; return; }
 
@@ -36,13 +49,14 @@ function validateAndCalc() {
   calcData = { input, r, leg, throat, minLeg, util, steps };
   $('liveResult').textContent = leg.toFixed(2) + ' mm';
   $('liveSub').innerHTML = '<span>Util ' + (util * 100).toFixed(0) + '%</span><span>Throat ' + throat.toFixed(2) + '</span><span>Min leg ' + minLeg.toFixed(2) + '</span>';
+  syncReportIfOpen();
 }
 
 function loadPreset(key) {
   const p = presets[key];
   FIELDS.forEach(f => $(f).value = p[f]);
   $('jointType').value = p.jointType;
-  document.querySelectorAll('.sc-preset').forEach((b, i) => b.classList.toggle('active', (key === 'struct' ? i === 0 : i === 1)));
+  document.querySelectorAll('.sc-preset').forEach(b => b.classList.toggle('active', b.dataset.preset === key));
   validateAndCalc();
 }
 function resetAll() { loadPreset('struct'); }
@@ -51,13 +65,13 @@ function loadFromURL() {
   try { const o = JSON.parse(decodeURIComponent(s)); FIELDS.forEach(f => { if (o[f] !== undefined) $(f).value = o[f]; }); if (o.jointType) $('jointType').value = o.jointType; } catch (e) {}
 }
 
-function gaugeColor(u) { return u >= 1 ? '#f5222d' : (u >= 0.9 ? '#faad14' : '#52c41a'); }
+function gaugeColor(u) { return u >= 1 ? '#9B2423' : (u >= 0.9 ? '#D05D29' : '#237F52'); }
 function overallStatus(u) { return u >= 1 ? 'CRITICAL' : (u >= 0.9 ? 'WARNING' : 'PASS'); }
 
-function generateReport() {
+function generateReport(opts = {}) {
   if (!calcData) validateAndCalc();
   const d = calcData; if (!d) return;
-  const calcId = 'SC-001-' + Math.random().toString(36).substr(2, 9).toUpperCase(); window.calcId = calcId;
+    const calcId = (opts.sync && window.calcId) ? window.calcId : ('SC-001-' + Math.random().toString(36).substr(2, 9).toUpperCase()); window.calcId = calcId;
   const status = overallStatus(d.util);
   const gCol = gaugeColor(d.util);
   const gaugeAngle = Math.max(-90, Math.min(90, (d.util / 1.5) * 180 - 90));
@@ -103,15 +117,15 @@ function generateReport() {
       <tr><td class="td-name">Joint type</td><td class="td-val">${d.input.jointType}</td><td>-</td></tr>
     </tbody></table></div></div></div>
     <div class="sc-sec"><div class="sc-sec-hd">Utilization Gauge</div><div class="sc-card"><div style="display:flex;justify-content:center"><svg width="300" height="170" viewBox="0 0 300 170">
-      <path d="M 40 150 A 110 110 0 0 1 260 150" fill="none" stroke="#111720" stroke-width="24" stroke-linecap="round"/>
-      <path d="M 40 150 A 110 110 0 0 1 150 40" fill="none" stroke="rgba(82,196,26,0.2)" stroke-width="24" stroke-linecap="round"/>
-      <path d="M 150 40 A 110 110 0 0 1 210 70" fill="none" stroke="rgba(250,173,20,0.2)" stroke-width="24" stroke-linecap="round"/>
-      <path d="M 210 70 A 110 110 0 0 1 260 150" fill="none" stroke="rgba(245,34,45,0.2)" stroke-width="24" stroke-linecap="round"/>
+      <path d="M 40 150 A 110 110 0 0 1 260 150" fill="none" stroke="#D5CFC5" stroke-width="24" stroke-linecap="round"/>
+      <path d="M 40 150 A 110 110 0 0 1 150 40" fill="none" stroke="rgba(35,127,82,0.25)" stroke-width="24" stroke-linecap="round"/>
+      <path d="M 150 40 A 110 110 0 0 1 210 70" fill="none" stroke="rgba(208,93,41,0.25)" stroke-width="24" stroke-linecap="round"/>
+      <path d="M 210 70 A 110 110 0 0 1 260 150" fill="none" stroke="rgba(155,36,35,0.25)" stroke-width="24" stroke-linecap="round"/>
       <line x1="150" y1="150" x2="${150 + 95 * Math.cos(gaugeAngle * Math.PI / 180)}" y2="${150 + 95 * Math.sin(gaugeAngle * Math.PI / 180)}" stroke="${gCol}" stroke-width="3" stroke-linecap="round"/>
       <circle cx="150" cy="150" r="7" fill="${gCol}"/>
-      <text x="150" y="135" text-anchor="middle" fill="#f0f4f8" font-size="24" font-weight="700" font-family="JetBrains Mono">${(d.util*100).toFixed(0)}%</text>
-      <text x="150" y="155" text-anchor="middle" fill="#4a5568" font-size="10">utilization</text>
-      <text x="30" y="168" fill="#4a5568" font-size="9">0</text><text x="262" y="168" fill="#4a5568" font-size="9">150%</text>
+      <text x="150" y="135" text-anchor="middle" fill="#1A1714" font-size="24" font-weight="700" font-family="IBM Plex Mono">${(d.util*100).toFixed(0)}%</text>
+      <text x="150" y="155" text-anchor="middle" fill="#8A847A" font-size="10">utilization</text>
+      <text x="30" y="168" fill="#8A847A" font-size="9">0</text><text x="262" y="168" fill="#8A847A" font-size="9">150%</text>
     </svg></div></div></div>
     <div class="sc-sec"><div class="sc-sec-hd">Show Me The Math</div><div class="sc-card"><div class="sc-table-wrap"><table class="sc-table"><thead><tr><th>#</th><th>Step</th><th>Result</th></tr></thead><tbody>${stepsRows}</tbody></table></div></div></div>
     <div class="sc-sec"><div class="sc-sec-hd">What-If Sensitivity</div><div class="sc-card"><div style="font-size:11px;color:var(--text-muted);margin-bottom:14px;font-family:var(--font-mono)">Scenario impact on required leg and utilization.</div>
@@ -150,7 +164,7 @@ async function exportPDFGraphic() {
   const el = $('reportArea'); if (!el || !calcData) { alert('Generate the report first.'); return; }
   const btn = event && event.target; if (btn) { btn.textContent = 'Rendering...'; btn.disabled = true; }
   try {
-    const canvas = await html2canvas(el, { scale: 1.5, backgroundColor: '#070a0f', useCORS: true, logging: false });
+    const canvas = await html2canvas(el, { scale: 1.5, backgroundColor: '#FFFFFF', useCORS: true, logging: false });
     const { jsPDF } = window.jspdf; const pdf = new jsPDF({ unit: 'pt', format: 'a4' });
     const pageW = pdf.internal.pageSize.getWidth(), pageH = pdf.internal.pageSize.getHeight();
     const imgH = (canvas.height * pageW) / canvas.width; const imgData = canvas.toDataURL('image/jpeg', 0.82);
