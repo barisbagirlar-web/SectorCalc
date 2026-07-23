@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>(function(){try{var k='sectorcalc-theme';var t=localStorage.getItem(k);if(t!=='dark'&&t!=='light')t=(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';document.documentElement.setAttribute('data-theme',t);document.documentElement.style.colorScheme=t;var raw=localStorage.getItem('sectorcalc-theme-pos');if(raw){var p=JSON.parse(raw);if(p&&typeof p.leftPct==='number'&&typeof p.topPct==='number'){var s=document.createElement('style');s.id='sc-theme-pos-boot';var w=Math.max(0,(window.innerWidth||0)-48);var h=Math.max(0,(window.innerHeight||0)-48);var L=Math.min(w,Math.max(0,(p.leftPct/100)*w));var T=Math.min(h,Math.max(0,(p.topPct/100)*h));s.textContent='#themeToggle{left:'+L+'px!important;top:'+T+'px!important;right:auto!important;bottom:auto!important}';document.documentElement.appendChild(s);document.documentElement.setAttribute('data-sc-pos-boot','1');}}}catch(e){}})();</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>SC-010 — True Labor Cost | SectorCalc</title>
+<title>SC-010 - True Labor Cost | SectorCalc</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <style>
@@ -13,11 +14,11 @@
   html{font-size:15px;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility}
   body{font-family:var(--font-sans);background:var(--bg-0);color:var(--text-primary);line-height:1.55;min-height:100vh;overflow-x:hidden}
   ::-webkit-scrollbar{width:5px;height:5px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--border-mid);border-radius:10px}::-webkit-scrollbar-thumb:hover{background:var(--border-strong)}
-  .sc-header{position:fixed;top:0;left:0;right:0;z-index:1000;height:56px;background:#fff;backdrop-filter:none;border-bottom:1px solid var(--border-soft);display:flex;align-items:center;justify-content:space-between;padding:0 24px}
+  .sc-header{position:fixed;top:0;left:0;right:0;z-index:1000;height:56px;background:var(--bg-1);color:var(--text-primary);backdrop-filter:none;border-bottom:1px solid var(--border-soft);display:flex;align-items:center;justify-content:space-between;padding:0 24px}
   .sc-header-left{display:flex;align-items:center;gap:14px}
-  a.sc-logo{text-decoration:none;display:inline-flex;align-items:center;gap:10px;color:var(--text-primary)}.sc-logo{background:transparent;border:none;border-radius:0;flex-shrink:0;padding:0}.sc-logo img{width:34px;height:34px;object-fit:contain;display:block;flex-shrink:0}.sc-logo-word{font-family:var(--font-display);font-weight:900;font-size:18px;letter-spacing:0.02em;text-transform:uppercase;color:var(--text-primary);white-space:nowrap;line-height:1}
+  a.sc-logo{text-decoration:none;display:inline-flex;align-items:center;gap:10px;color:var(--text-primary)}.sc-logo{background:transparent;border:none;border-radius:0;flex-shrink:0;padding:0;height:42px}.sc-logo img{width:auto;height:42px;object-fit:contain;display:block;flex-shrink:0}.sc-logo-word{display:none}
   .sc-header-brand{display:flex;flex-direction:column;gap:1px}
-  .sc-header-title{font-family:var(--font-display);font-size:15px;font-weight:800;letter-spacing:0.01em;text-transform:uppercase}
+  .sc-header-title{font-family:var(--font-display);font-size:15px;font-weight:800;letter-spacing:0.01em;text-transform:uppercase;color:var(--text-primary)}
   .sc-header-sub{font-size:10px;font-weight:500;color:var(--text-muted);font-family:var(--font-mono);letter-spacing:0.3px}
   .sc-header-right{display:flex;align-items:center;gap:16px}
   .sc-badge{font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:1px;padding:4px 10px;border-radius:var(--radius-sm);font-family:var(--font-mono);border:1px solid}
@@ -132,13 +133,20 @@
   @media(max-width:768px){.sc-layout{grid-template-columns:1fr}.sc-sidebar{position:relative;top:0;height:auto;border-right:none;border-bottom:1px solid var(--border-subtle)}.sc-main-inner{padding:20px 16px 40px;max-width:100%}.sc-header{padding:0 16px}.sc-header-sub{display:none}.sc-cards{grid-template-columns:1fr 1fr}.sc-whatif{grid-template-columns:1fr}.sc-report-hd{flex-direction:column;gap:16px}.sc-report-hd-right{width:100%}.sc-report-hd-right .sc-btn{flex:1;justify-content:center}}
   @media(max-width:480px){.sc-presets{gap:4px}.sc-preset{padding:5px 10px;font-size:10px}.sc-field{padding:12px 16px}.sc-live{margin:12px 16px}.sc-sidebar-ft{padding:12px 16px}.sc-cards{grid-template-columns:1fr}}
 </style>
+<link rel="stylesheet" href="./sc-theme.css?v=7">
+<script src="./sc-theme.js?v=7" defer></script>
 </head>
 <body>
+<button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme" aria-pressed="false" title="Dark mode - drag to move, double-click to reset">
+  <svg data-theme-icon="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  <svg data-theme-icon="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+</button>
+
 <div class="sc-header">
   <div class="sc-header-left">
-    <a href="/" class="sc-logo" title="SectorCalc home" aria-label="SectorCalc home"><img src="/sectorcalc_logo.png" alt="" width="34" height="34"><span class="sc-logo-word">SectorCalc</span></a>
+    <a href="/" class="sc-logo" title="SectorCalc home" aria-label="SectorCalc home"><img class="logo-light" src="/sectorcalc-logo.png" alt="SectorCalc" width="160" height="42"><img class="logo-dark" src="/sectorcalc-logo-dark.png?v=2" alt="" width="160" height="42" aria-hidden="true"></a>
     <div class="sc-header-brand">
-      <div class="sc-header-title">SC-010 — True Labor Cost</div>
+      <div class="sc-header-title">SC-010 - True Labor Cost</div>
       <div class="sc-header-sub">Engineering preview · Client-side · Deterministic Decimal engine · Not for production approval</div>
     </div>
   </div>
@@ -152,7 +160,7 @@
         <button class="sc-preset active" data-preset="small" onclick="loadPreset('small')">Small workshop</button>
         <button class="sc-preset" data-preset="mid" onclick="loadPreset('mid')">Mid factory</button>
       </div>
-      <div class="sc-field" id="fld-netSalary"><div class="sc-field-label">Net salary<span class="sc-info">i<span class="sc-tooltip"><strong>Monthly take-home pay</strong>The amount the employee receives after their own taxes. This is the starting point — true cost is always higher.</span></span></div><div class="sc-input-wrap"><input type="number" class="sc-input" id="netSalary" value="2500" step="50" oninput="validateAndCalc()"><select class="sc-unit" disabled><option>currency</option></select></div><div class="sc-val" id="val-netSalary"></div></div>
+      <div class="sc-field" id="fld-netSalary"><div class="sc-field-label">Net salary<span class="sc-info">i<span class="sc-tooltip"><strong>Monthly take-home pay</strong>The amount the employee receives after their own taxes. This is the starting point - true cost is always higher.</span></span></div><div class="sc-input-wrap"><input type="number" class="sc-input" id="netSalary" value="2500" step="50" oninput="validateAndCalc()"><select class="sc-unit" disabled><option>currency</option></select></div><div class="sc-val" id="val-netSalary"></div></div>
       <div class="sc-field"><div class="sc-field-label">Pay frequency<span class="sc-info">i<span class="sc-tooltip"><strong>How net salary is paid</strong>Monthly is default; weekly/hourly are normalized internally to a monthly figure.</span></span></div><div class="sc-input-wrap"><select class="sc-input" id="payFrequency" onchange="validateAndCalc()"><option value="monthly">monthly</option><option value="weekly">weekly</option><option value="biweekly">biweekly</option><option value="hourly">hourly</option></select></div></div>
       <div class="sc-field" id="fld-hoursPerWeek"><div class="sc-field-label">Hours / week<span class="sc-info">i<span class="sc-tooltip"><strong>Average worked hours/week</strong>Standard 40. Overtime raises the effective hourly cost and total burden.</span></span></div><div class="sc-input-wrap"><input type="number" class="sc-input" id="hoursPerWeek" value="40" step="1" oninput="validateAndCalc()"><select class="sc-unit" disabled><option>h/wk</option></select></div><div class="sc-val" id="val-hoursPerWeek"></div></div>
       <div class="sc-field" id="fld-employerSSRate"><div class="sc-field-label">Employer SS rate<span class="sc-info">i<span class="sc-tooltip"><strong>Employer social-security contribution</strong>Statutory rate on gross (e.g. 0.0765 US FICA employer share). Varies by country.</span></span></div><div class="sc-input-wrap"><input type="number" class="sc-input" id="employerSSRate" value="0.0765" step="0.001" oninput="validateAndCalc()"><select class="sc-unit" disabled><option>ratio</option></select></div><div class="sc-val" id="val-employerSSRate"></div></div>
@@ -164,8 +172,8 @@
       <div class="sc-field"><div class="sc-field-label">Annual bonus<span class="sc-info">i<span class="sc-tooltip"><strong>Yearly bonus</strong>Spread over 12 months into the monthly true cost.</span></span></div><div class="sc-input-wrap"><input type="number" class="sc-input" id="annualBonus" value="0" step="100" oninput="validateAndCalc()"><select class="sc-unit" disabled><option>currency</option></select></div></div>
       <div class="sc-field" id="fld-severanceRate"><div class="sc-field-label">Severance rate<span class="sc-info">i<span class="sc-tooltip"><strong>Severance accrual</strong>Expected severance as a ratio of gross, accrued monthly.</span></span></div><div class="sc-input-wrap"><input type="number" class="sc-input" id="severanceRate" value="0" step="0.001" oninput="validateAndCalc()"><select class="sc-unit" disabled><option>ratio</option></select></div><div class="sc-val" id="val-severanceRate"></div></div>
       <div class="sc-live">
-        <div class="sc-live-hd"><span class="sc-live-dot"></span>Live Result — True Cost</div>
-        <div class="sc-live-val" id="liveResult">—</div>
+        <div class="sc-live-hd"><span class="sc-live-dot"></span>Live Result - True Cost</div>
+        <div class="sc-live-val" id="liveResult">-</div>
         <div class="sc-live-sub" id="liveSub"></div>
       </div>
     </div>

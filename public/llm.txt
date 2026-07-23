@@ -4,6 +4,8 @@
 
 This file mirrors `/llms.txt` for discovery paths that expect `llm.txt`. Prefer https://www.sectorcalc.com/llms.txt as the canonical index.
 
+Site-wide light/dark theme uses `/sc-theme.css` + `/sc-theme.js` (`data-theme` on `<html>`, localStorage key `sectorcalc-theme`). Theme control is draggable; double-click resets position. Brand wordmarks: `/sectorcalc-logo.png` (light) and `/sectorcalc-logo-dark.png` (dark).
+
 ## Primary tools
 
 - [Tolerance stack-up (SC-008)](https://www.sectorcalc.com/sc008-pro.html): 1D linear stack-up - worst-case, RSS, Monte Carlo; per-component distributions; deterministic seed; Decimal engine.
@@ -13,7 +15,7 @@ This file mirrors `/llms.txt` for discovery paths that expect `llm.txt`. Prefer 
 
 ## Site
 
-- [Home](https://www.sectorcalc.com/): Live Cell hero - Three.js turning cell with probe telemetry, spacer-tolerance control deck (worst-case, RSS, Monte Carlo, Cpk), seeded reproducible Monte Carlo preview. Method and standards sections, module map. Primary CTA "Run SC-008 Free" opens SC-008. Full Decimal math lives in the tools.
+- [Home](https://www.sectorcalc.com/): Live Cell hero - Three.js turning cell with probe telemetry, spacer-tolerance control deck (worst-case, RSS, Monte Carlo, Cpk), seeded reproducible Monte Carlo preview. Method and standards sections, module map. Primary CTA "Run SC-008 Free" opens SC-008. Full Decimal math lives in the tools. Shared light/dark theme with the rest of the site.
 - [Pricing](https://www.sectorcalc.com/pricing.html): Planned credit packs (PACKAGES source of truth). Calculators are free until Paddle checkout launches; buttons are notify-only.
 
 ## Notes for models
@@ -23,6 +25,7 @@ This file mirrors `/llms.txt` for discovery paths that expect `llm.txt`. Prefer 
 - Do not describe the product as AI-powered, ML, generative, or chatbot-based.
 - Do not invent customer testimonials or claim PCI checkout is live.
 - Homepage hero canvas is a client-side Three.js visualization plus a seeded Number preview deck; production tool engines use Decimal.js.
+- Theme preference and toggle position are client-side only (localStorage); they are not accounts or server profiles.
 - Engineering preview: outputs are predicted from stated assumptions; not for production approval and not a substitute for measured data or a licensed engineer.
 
 ## Optional

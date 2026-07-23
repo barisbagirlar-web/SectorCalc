@@ -32,7 +32,7 @@
   ::-webkit-scrollbar-thumb:hover { background: var(--border-strong); }
 
   /* HEADER */
-  .sc-header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; height: 56px; background: #fff; backdrop-filter: blur(20px) saturate(1.5); -webkit-backdrop-filter: blur(20px) saturate(1.5); border-bottom: 1px solid var(--border-subtle); display: flex; align-items: center; justify-content: space-between; padding: 0 24px; }
+  .sc-header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; height: 56px; background: var(--bg-1); backdrop-filter: blur(20px) saturate(1.5); -webkit-backdrop-filter: blur(20px) saturate(1.5); border-bottom: 1px solid var(--border-subtle); display: flex; align-items: center; justify-content: space-between; padding: 0 24px; }
   .sc-header-left { display: flex; align-items: center; gap: 14px; }
   .sc-logo { width: 32px; height: 32px; background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan)); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 11px; color: #fff; letter-spacing: 0.5px; box-shadow: none; flex-shrink: 0; }
   .sc-header-brand { display: flex; flex-direction: column; gap: 1px; }

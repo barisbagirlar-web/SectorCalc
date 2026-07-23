@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>(function(){try{var k='sectorcalc-theme';var t=localStorage.getItem(k);if(t!=='dark'&&t!=='light')t=(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';document.documentElement.setAttribute('data-theme',t);document.documentElement.style.colorScheme=t;var raw=localStorage.getItem('sectorcalc-theme-pos');if(raw){var p=JSON.parse(raw);if(p&&typeof p.leftPct==='number'&&typeof p.topPct==='number'){var s=document.createElement('style');s.id='sc-theme-pos-boot';var w=Math.max(0,(window.innerWidth||0)-48);var h=Math.max(0,(window.innerHeight||0)-48);var L=Math.min(w,Math.max(0,(p.leftPct/100)*w));var T=Math.min(h,Math.max(0,(p.topPct/100)*h));s.textContent='#themeToggle{left:'+L+'px!important;top:'+T+'px!important;right:auto!important;bottom:auto!important}';document.documentElement.appendChild(s);document.documentElement.setAttribute('data-sc-pos-boot','1');}}}catch(e){}})();</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>SC-008 — Tolerance Stack-Up (Predicted) | SectorCalc</title>
+<title>SC-008 - Tolerance Stack-Up (Predicted) | SectorCalc</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <style>
@@ -12,10 +13,10 @@
   *{box-sizing:border-box;margin:0;padding:0}html{font-size:15px;-webkit-font-smoothing:antialiased}
   body{font-family:var(--font-sans);background:var(--bg-0);color:var(--text-primary);line-height:1.55;min-height:100vh;overflow-x:hidden}
   ::-webkit-scrollbar{width:5px;height:5px}::-webkit-scrollbar-thumb{background:var(--border-mid);border-radius:10px}
-  .sc-header{position:fixed;top:0;left:0;right:0;z-index:1000;height:56px;background:#fff;backdrop-filter:none;border-bottom:1px solid var(--border-soft);display:flex;align-items:center;justify-content:space-between;padding:0 24px}
+  .sc-header{position:fixed;top:0;left:0;right:0;z-index:1000;height:56px;background:var(--bg-1);color:var(--text-primary);backdrop-filter:none;border-bottom:1px solid var(--border-soft);display:flex;align-items:center;justify-content:space-between;padding:0 24px}
   .sc-header-left{display:flex;align-items:center;gap:14px}
-  a.sc-logo{text-decoration:none;display:inline-flex;align-items:center;gap:10px;color:var(--text-primary)}.sc-logo{background:transparent;border:none;border-radius:0;flex-shrink:0;padding:0}.sc-logo img{width:34px;height:34px;object-fit:contain;display:block;flex-shrink:0}.sc-logo-word{font-family:var(--font-display);font-weight:900;font-size:18px;letter-spacing:0.02em;text-transform:uppercase;color:var(--text-primary);white-space:nowrap;line-height:1}
-  .sc-header-title{font-family:var(--font-display);font-size:15px;font-weight:800;letter-spacing:0.01em;text-transform:uppercase}
+  a.sc-logo{text-decoration:none;display:inline-flex;align-items:center;gap:10px;color:var(--text-primary)}.sc-logo{background:transparent;border:none;border-radius:0;flex-shrink:0;padding:0;height:42px}.sc-logo img{width:auto;height:42px;object-fit:contain;display:block;flex-shrink:0}.sc-logo-word{display:none}
+  .sc-header-title{font-family:var(--font-display);font-size:15px;font-weight:800;letter-spacing:0.01em;text-transform:uppercase;color:var(--text-primary)}
   .sc-header-sub{font-size:10px;font-weight:500;color:var(--text-muted);font-family:var(--font-mono)}
   .sc-badge{font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:1px;padding:4px 10px;border-radius:var(--radius-sm);font-family:var(--font-mono);border:1px solid rgba(232,119,34,0.2);background:rgba(232,119,34,0.08);color:var(--accent-amber)}
   .sc-layout{display:grid;grid-template-columns:380px 1fr;min-height:100vh;padding-top:56px}
@@ -126,10 +127,17 @@
   .sc-footer{text-align:center;padding:24px;color:var(--text-dim);font-size:10px;font-family:var(--font-mono);border-top:1px solid var(--border-subtle);margin-top:20px}
   @media(max-width:768px){.sc-layout{grid-template-columns:1fr}.sc-sidebar{position:relative;top:0;height:auto;border-right:none;border-bottom:1px solid var(--border-subtle)}.sc-cards,.sc-whatif{grid-template-columns:1fr}.sc-header-sub{display:none}}
 </style>
+<link rel="stylesheet" href="./sc-theme.css?v=7">
+<script src="./sc-theme.js?v=7" defer></script>
 </head>
 <body>
+<button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme" aria-pressed="false" title="Dark mode - drag to move, double-click to reset">
+  <svg data-theme-icon="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  <svg data-theme-icon="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+</button>
+
 <div class="sc-header">
-  <div class="sc-header-left"><a href="/" class="sc-logo" title="SectorCalc home" aria-label="SectorCalc home"><img src="/sectorcalc_logo.png" alt="" width="34" height="34"><span class="sc-logo-word">SectorCalc</span></a><div><div class="sc-header-title">SC-008 — Tolerance Stack-Up</div><div class="sc-header-sub">Engineering preview · 1D linear stack-up · per-component distribution · client-side · not for production approval</div></div></div>
+  <div class="sc-header-left"><a href="/" class="sc-logo" title="SectorCalc home" aria-label="SectorCalc home"><img class="logo-light" src="/sectorcalc-logo.png" alt="SectorCalc" width="160" height="42"><img class="logo-dark" src="/sectorcalc-logo-dark.png?v=2" alt="" width="160" height="42" aria-hidden="true"></a><div><div class="sc-header-title">SC-008 - Tolerance Stack-Up</div><div class="sc-header-sub">Engineering preview · 1D linear stack-up · per-component distribution · client-side · not for production approval</div></div></div>
   <div style="display:flex;align-items:center;gap:10px"><a href="/" class="sc-btn sc-btn-ghost" style="text-decoration:none">All tools</a><a href="/pricing.html" class="sc-btn sc-btn-ghost" style="margin-right:10px;text-decoration:none">Pricing</a><div class="sc-badge">Preview</div></div>
 </div>
 <div class="sc-layout">
@@ -149,7 +157,7 @@
     <div class="sc-dims-hd"><span>#</span><span>Name</span><span>Nominal</span><span>+/-Tol</span><span>Distrib.</span><span></span></div>
     <div id="dimList"></div>
     <div class="sc-dim-add"><button class="sc-btn sc-btn-ghost" style="width:100%;justify-content:center" id="addDim">+ Add Dimension</button></div>
-    <div class="sc-live"><div class="sc-live-hd"><span class="sc-live-dot"></span>Predicted RSS</div><div class="sc-live-val" id="liveResult">—</div><div class="sc-live-sub" id="liveSub"></div></div>
+    <div class="sc-live"><div class="sc-live-hd"><span class="sc-live-dot"></span>Predicted RSS</div><div class="sc-live-val" id="liveResult">-</div><div class="sc-live-sub" id="liveSub"></div></div>
   </div>
   <div class="sc-sidebar-ft" style="flex-wrap:wrap">
   <button class="sc-btn sc-btn-primary" id="genReport">Generate Report</button>
@@ -160,7 +168,7 @@
   <input type="file" id="csvFile" accept=".csv" style="display:none">
 </div></div>
   <div class="sc-main"><div class="sc-main-inner" id="reportArea">
-    <div class="sc-empty"><div class="sc-empty-title">Predicted Analysis Ready</div><div class="sc-empty-desc">Configure the stack and choose a distribution per dimension. Values update live from the deterministic Decimal engine. Predicted, drawing-based — verify with measured process data before any release.</div><div class="sc-preview-tag">Engineering preview — not for production approval</div></div>
+    <div class="sc-empty"><div class="sc-empty-title">Predicted Analysis Ready</div><div class="sc-empty-desc">Configure the stack and choose a distribution per dimension. Values update live from the deterministic Decimal engine. Predicted, drawing-based - verify with measured process data before any release.</div><div class="sc-preview-tag">Engineering preview - not for production approval</div></div>
   </div></div>
 </div>
 <script type="module" src="/src/sc008-pro.ts"></script>

@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>(function(){try{var k='sectorcalc-theme';var t=localStorage.getItem(k);if(t!=='dark'&&t!=='light')t=(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';document.documentElement.setAttribute('data-theme',t);document.documentElement.style.colorScheme=t;}catch(e){}})();</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SectorCalc — Deterministic Industrial Decision Calculators</title>
+<title>SectorCalc - Deterministic Industrial Decision Calculators</title>
 <meta name="description" content="Deterministic calculators for engineering, machining, quality and costing. Client-side, full-precision, reproducible.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
-   SECTORCALC v5.0 — EXHAUSTIVE UPDATE
+   SECTORCALC v5.0 - EXHAUSTIVE UPDATE
    All critical gaps fixed + Phase 0/1 complete
    ============================================================ */
 
@@ -58,9 +59,16 @@
   --sheet-line:    #3A4046;
   --sheet-line-strong:#555C64;
   --sheet-line-hair:#2E343A;
-  --sheet-text:    #E8EAEC;
-  --sheet-text-2:  #9AA2AA;
-  --sheet-text-3:  #616970;
+  --sheet-text:    #FFFFFF;
+  --sheet-text-2:  #E8EAEC;
+  --sheet-text-3:  #A8B0B8;
+  --iso-blue:      #4FA6D6;
+  --iso-blue-dim:  #3A8FBE;
+  --iso-blue-light:#1A2A38;
+  --iso-orange-light:#2A2118;
+  --iso-green-light:#1A2A20;
+  --iso-red-light: #2A1818;
+  --iso-yellow-light:#2A2618;
   --iso-blue-glow: rgba(79,166,214,0.16);
   --iso-orange-glow: rgba(255,106,43,0.18);
   --iso-green-glow: rgba(124,196,107,0.14);
@@ -124,7 +132,7 @@ h1,h2,h3,h4{
 .theme-toggle{
   position: fixed;
   top: 20px; right: 20px;
-  z-index: 9999;
+  z-index: 10060;
   width: 48px; height: 48px;
   border: 1.5px solid var(--sheet-line-strong);
   background: var(--sheet-paper);
@@ -136,12 +144,11 @@ h1,h2,h3,h4{
 }
 .theme-toggle:hover{ 
   border-color: var(--iso-blue); 
-  transform: scale(1.08);
   box-shadow: 0 4px 20px var(--iso-blue-glow);
 }
 .theme-toggle svg{ width: 22px; height: 22px; color: var(--sheet-text-2); }
 @media(max-width:900px){
-  .theme-toggle{ top: auto; bottom: 20px; right: 20px; }
+  .theme-toggle:not([data-sc-pos="1"]){ top: auto; bottom: 20px; right: 20px; }
 }
 
 .sheet{
@@ -236,34 +243,26 @@ h1,h2,h3,h4{
 
 .brand{ display:flex; align-items:center; gap: var(--sp-3); text-decoration:none; }
 .brand-mark{
-  width: 38px; height: 38px;
+  width: auto; height: 48px;
   border: none;
   display:flex; align-items:center; justify-content:center;
   flex-shrink:0;
   position: relative;
   background: transparent;
   padding: 0;
-  overflow: hidden;
+  overflow: visible;
 }
 .brand-mark::after{ display: none; }
 .brand-mark img{
-  width: 100%;
+  width: auto;
   height: 100%;
   object-fit: contain;
   display: block;
 }
 .brand-mark--footer{
-  width: 48px;
-  height: 48px;
+  height: 56px;
 }
-.brand-word{ 
-  font-family: var(--f-display); 
-  font-weight: 900; 
-  font-size: 22px; 
-  letter-spacing: 0.02em; 
-  text-transform: uppercase; 
-  color: var(--sheet-text);
-}
+.brand-word{ display: none; }
 
 .main-nav{ display:flex; align-items:center; gap: var(--sp-7); }
 .main-nav ul{ list-style:none; display:flex; gap: var(--sp-6); margin:0; padding:0; }
@@ -1486,78 +1485,107 @@ select:focus-visible{
 }
 
 /* ============================================================
-   SC-HERO — live cell hero (scoped; from ACIK-TEMA)
+   SC-HERO - live cell hero (scoped; from ACIK-TEMA)
    ============================================================ */
 .sc-hero{
-  --sc-hero-bg:#F5F5F0;--sc-hero-bg2:#EDEFEA;--sc-hero-panel:#FFFFFF;--sc-hero-line:#D8D8D0;--sc-hero-line2:#B9B9B0;
-  --sc-hero-blue:#0055A4;--sc-hero-blue-deep:#0055A4;--sc-hero-orange:#E87722;--sc-hero-green:#007A33;--sc-hero-red:#C8102E;
-  --sc-hero-ink:#1A1A1A;--sc-hero-ink2:#3D4450;--sc-hero-steel:#8C8C8C;
+  --sc-hero-bg:var(--sheet-white);--sc-hero-bg2:var(--sheet-grid);--sc-hero-panel:var(--sheet-paper);
+  --sc-hero-line:var(--sheet-line-hair);--sc-hero-line2:var(--sheet-line);
+  --sc-hero-blue:var(--iso-blue);--sc-hero-blue-deep:#0055A4;--sc-hero-orange:var(--iso-orange);
+  --sc-hero-green:var(--iso-green);--sc-hero-red:var(--iso-red);
+  --sc-hero-ink:var(--sheet-text);--sc-hero-ink2:var(--sheet-text-2);--sc-hero-steel:var(--sheet-text-3);
   --sc-hero-mono:var(--f-mono);--sc-hero-disp:var(--f-display);--sc-hero-body:var(--f-body);
+  --sc-hero-surface:rgba(255,255,255,.85);--sc-hero-surface-solid:#fff;
+  --sc-hero-deck:rgba(248,248,244,.94);--sc-hero-cell-a:#F2F5F8;--sc-hero-cell-b:#DDE4EA;
+  --sc-hero-badge-bg:#E6F4EB;--sc-hero-mlabel-bg:rgba(255,255,255,.95);
+  --sc-hero-needle:#1A1A1A;
   position:relative;min-height:calc(100vh - 88px);display:flex;flex-direction:column;overflow:hidden;
+}
+[data-theme="dark"] .sc-hero{
+  --sc-hero-blue-deep:#0055A4;
+  --sc-hero-ink:#FFFFFF;
+  --sc-hero-ink2:#FFFFFF;
+  --sc-hero-steel:#A8B0B8;
+  --sc-hero-surface:rgba(27,31,35,.92);
+  --sc-hero-surface-solid:var(--sheet-paper);
+  --sc-hero-deck:rgba(20,23,26,.96);
+  --sc-hero-cell-a:#243038;
+  --sc-hero-cell-b:#1A2228;
+  --sc-hero-badge-bg:rgba(0,122,51,.22);
+  --sc-hero-mlabel-bg:rgba(27,31,35,.95);
+  --sc-hero-needle:#E8EAEC;
 }
 .sc-hero::before{content:"";position:absolute;inset:0;
   background-image:linear-gradient(rgba(0,85,164,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(0,85,164,.06) 1px,transparent 1px);
   background-size:44px 44px;pointer-events:none;z-index:0}
+[data-theme="dark"] .sc-hero::before{
+  background-image:linear-gradient(rgba(79,166,214,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(79,166,214,.08) 1px,transparent 1px);
+}
 .sc-hero .hero-grid{position:relative;z-index:3;flex:1;display:grid;grid-template-columns:42% 58%;max-width:1440px;margin:0 auto;width:100%;padding:36px 40px;gap:40px;align-items:center}
-.sc-hero .sc-hero-badge{display:inline-flex;align-items:center;gap:8px;font-family:var(--sc-hero-mono);font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--sc-hero-green);background:#E6F4EB;border:1px solid var(--sc-hero-green);padding:6px 14px;border-radius:100px;text-transform:uppercase}
+.sc-hero .sc-hero-badge{display:inline-flex;align-items:center;gap:8px;font-family:var(--sc-hero-mono);font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--sc-hero-green);background:var(--sc-hero-badge-bg);border:1px solid var(--sc-hero-green);padding:6px 14px;border-radius:100px;text-transform:uppercase}
 .sc-hero .sc-hero-badge .dot{width:8px;height:8px;border-radius:50%;background:var(--sc-hero-green);animation:sc-hero-pulse 1.6s infinite}
 @keyframes sc-hero-pulse{0%,100%{opacity:1}50%{opacity:.25}}
 .sc-hero .sc-hero-title{font-family:var(--sc-hero-disp);font-size:clamp(38px,4.2vw,58px);line-height:1.07;letter-spacing:-.01em;margin:22px 0 16px;color:var(--sc-hero-ink);font-weight:800;text-transform:none}
 .sc-hero .sc-hero-title em{font-style:normal;color:var(--sc-hero-blue)}
 .sc-hero .sc-hero-lead{font-size:17px;color:var(--sc-hero-ink2);max-width:480px;margin-bottom:26px;font-family:var(--sc-hero-body)}
-.sc-hero .sc-hero-lead strong{color:var(--sc-hero-ink)}
+.sc-hero .sc-hero-lead strong{color:var(--sc-hero-ink);font-weight:700}
 .sc-hero .sc-hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:26px}
 .sc-hero .sc-hero-btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:15px;padding:13px 24px;border-radius:4px;border:1px solid transparent;cursor:pointer;text-decoration:none;transition:all .15s;font-family:var(--sc-hero-body)}
 .sc-hero .sc-hero-btn-b{background:var(--sc-hero-blue-deep);color:#fff !important}.sc-hero .sc-hero-btn-b:hover{background:#003E78;color:#fff !important}
 .sc-hero .sc-hero-btn-o{border-color:var(--sc-hero-line2);color:var(--sc-hero-ink);background:transparent}.sc-hero .sc-hero-btn-o:hover{border-color:var(--sc-hero-blue);color:var(--sc-hero-blue)}
 .sc-hero .sc-hero-trust{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.sc-hero .sc-hero-trust div{border:1px solid var(--sc-hero-line);background:rgba(255,255,255,.85);padding:11px 13px;border-radius:4px}
+.sc-hero .sc-hero-trust div{border:1px solid var(--sc-hero-line);background:var(--sc-hero-surface);padding:11px 13px;border-radius:4px}
 .sc-hero .sc-hero-trust b{display:block;font-size:12.5px;color:var(--sc-hero-ink)}.sc-hero .sc-hero-trust span{font-size:11.5px;color:var(--sc-hero-ink2)}
 .sc-hero .cell{position:relative;border:1px solid var(--sc-hero-line2);border-radius:10px;overflow:hidden;
-  background:radial-gradient(120% 90% at 50% 32%,#F2F5F8 0%,#DDE4EA 78%);
+  background:radial-gradient(120% 90% at 50% 32%,var(--sc-hero-cell-a) 0%,var(--sc-hero-cell-b) 78%);
   box-shadow:0 30px 80px rgba(26,26,26,.18),inset 0 1px 0 rgba(255,255,255,.9)}
+[data-theme="dark"] .sc-hero .cell{box-shadow:0 30px 80px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.06)}
 .sc-hero #stage{display:block;width:100%;height:430px;cursor:grab}
 .sc-hero .hud{position:absolute;top:0;left:0;right:0;height:430px;pointer-events:none;font-family:var(--sc-hero-mono)}
 .sc-hero .hud .corner{position:absolute;width:22px;height:22px;border:2px solid rgba(0,85,164,.5)}
+[data-theme="dark"] .sc-hero .hud .corner{border-color:rgba(79,166,214,.55)}
 .sc-hero .hud .c1{top:12px;left:12px;border-right:none;border-bottom:none}
 .sc-hero .hud .c2{top:12px;right:12px;border-left:none;border-bottom:none}
 .sc-hero .hud .c3{bottom:12px;left:12px;border-right:none;border-top:none}
 .sc-hero .hud .c4{bottom:12px;right:12px;border-left:none;border-top:none}
 .sc-hero .hud .telemetry{position:absolute;top:16px;left:44px;font-size:10.5px;line-height:1.9;color:var(--sc-hero-blue);letter-spacing:.06em;text-shadow:0 0 6px rgba(255,255,255,.9)}
+[data-theme="dark"] .sc-hero .hud .telemetry{text-shadow:0 0 8px rgba(0,0,0,.65)}
 .sc-hero .hud .telemetry b{color:var(--sc-hero-ink)}
 .sc-hero .hud .gcode{position:absolute;bottom:14px;left:44px;font-size:10.5px;color:var(--sc-hero-green);letter-spacing:.05em;text-shadow:0 0 6px rgba(255,255,255,.9)}
+[data-theme="dark"] .sc-hero .hud .gcode{text-shadow:0 0 8px rgba(0,0,0,.65);color:#7CC46B}
 .sc-hero .hud .celltag{position:absolute;top:16px;right:44px;font-size:10.5px;color:var(--sc-hero-ink2);text-align:right;line-height:1.9}
 .sc-hero .hud .celltag b{color:var(--sc-hero-orange)}
 .sc-hero .scanline{position:absolute;top:0;left:0;right:0;height:430px;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(26,26,26,.022) 0 1px,transparent 1px 3px)}
+[data-theme="dark"] .sc-hero .scanline{background:repeating-linear-gradient(0deg,rgba(255,255,255,.03) 0 1px,transparent 1px 3px)}
 .sc-hero .mlabel{position:absolute;font-family:var(--sc-hero-mono);font-size:11px;font-weight:700;color:var(--sc-hero-ink);
-  background:rgba(255,255,255,.95);border:1px solid var(--sc-hero-orange);padding:4px 9px;border-radius:3px;
+  background:var(--sc-hero-mlabel-bg);border:1px solid var(--sc-hero-orange);padding:4px 9px;border-radius:3px;
   transform:translate(-50%,-130%);opacity:0;transition:opacity .25s;pointer-events:none;white-space:nowrap;
   box-shadow:0 4px 14px rgba(232,119,34,.3)}
 .sc-hero .mlabel::after{content:"";position:absolute;top:100%;left:50%;width:1px;height:14px;background:var(--sc-hero-orange)}
 .sc-hero .mlabel.show{opacity:1}
 .sc-hero .mlabel .mu{color:var(--sc-hero-orange)}
-.sc-hero .deck{border-top:1px solid var(--sc-hero-line);background:rgba(248,248,244,.94);padding:16px 22px 14px}
+.sc-hero .deck{border-top:1px solid var(--sc-hero-line);background:var(--sc-hero-deck);padding:16px 22px 14px}
 .sc-hero .deck-top{display:grid;grid-template-columns:1fr 190px;gap:22px;align-items:start}
 .sc-hero .e-ctrl label{display:flex;justify-content:space-between;font-size:12.5px;font-weight:600;color:var(--sc-hero-ink);margin-bottom:4px;font-family:var(--sc-hero-mono)}
 .sc-hero .e-ctrl label output{color:var(--sc-hero-blue);font-weight:700}
 .sc-hero .e-ctrl input[type=range]{width:100%;accent-color:var(--sc-hero-blue);height:24px;cursor:grab;background:transparent}
 .sc-hero .e-ctrl .hint{font-size:10px;color:var(--sc-hero-steel);font-family:var(--sc-hero-mono)}
-.sc-hero .histo-wrap{position:relative;border:1px solid var(--sc-hero-line);border-radius:4px;background:rgba(255,255,255,.75);margin-top:8px}
+.sc-hero .histo-wrap{position:relative;border:1px solid var(--sc-hero-line);border-radius:4px;background:var(--sc-hero-surface);margin-top:8px}
 .sc-hero #histo{display:block;width:100%;height:104px}
 .sc-hero .histo-cap{display:flex;justify-content:space-between;font-family:var(--sc-hero-mono);font-size:9.5px;color:var(--sc-hero-steel);padding-top:4px}
 .sc-hero .sc-hero-gauge-wrap{position:relative;text-align:center;padding-bottom:34px}
-.sc-hero #gauge{width:170px;height:102px;display:block;margin:0 auto}
+.sc-hero #gauge{width:170px;height:102px;display:block;margin:0 auto;color:var(--sc-hero-needle)}
 .sc-hero .gauge-val{position:absolute;bottom:0;left:0;right:0}
 .sc-hero .gauge-val b{font-family:var(--sc-hero-mono);font-size:21px;color:var(--sc-hero-ink)}
 .sc-hero .gauge-val span{display:block;font-family:var(--sc-hero-mono);font-size:8.5px;letter-spacing:.16em;color:var(--sc-hero-steel);text-transform:uppercase}
 .sc-hero .vals{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
-.sc-hero .val{border:1px solid var(--sc-hero-line);border-radius:4px;padding:8px 6px;text-align:center;background:#fff}
+.sc-hero .val{border:1px solid var(--sc-hero-line);border-radius:4px;padding:8px 6px;text-align:center;background:var(--sc-hero-surface-solid)}
 .sc-hero .val .l{font-family:var(--sc-hero-mono);font-size:8.5px;letter-spacing:.12em;color:var(--sc-hero-steel);text-transform:uppercase}
 .sc-hero .val .v{font-family:var(--sc-hero-mono);font-size:15.5px;font-weight:700;margin-top:2px;color:var(--sc-hero-ink)}
 .sc-hero .val.rss .v{color:var(--sc-hero-blue)}.sc-hero .val.mc .v{color:var(--sc-hero-orange)}
 .sc-hero .deck-foot{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-top:10px;font-family:var(--sc-hero-mono);font-size:10px;color:var(--sc-hero-ink2)}
 .sc-hero .deck-foot b{color:var(--sc-hero-blue)}
 .sc-hero .deck-foot .ok{color:var(--sc-hero-green)}
+[data-theme="dark"] .sc-hero .deck-foot .ok{color:#7CC46B}
 @media(max-width:1020px){
   .sc-hero .hero-grid{grid-template-columns:1fr;padding:28px 20px}
   .sc-hero .deck-top{grid-template-columns:1fr}
@@ -1570,14 +1598,16 @@ select:focus-visible{
 {"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js",
 "three/addons/":"https://unpkg.com/three@0.160.0/examples/jsm/"}}
 </script>
+<link rel="stylesheet" href="./sc-theme.css?v=7">
+<script src="./sc-theme.js?v=7" defer></script>
 </head>
 <body>
 
 <a href="#main-content" class="skip-link">Skip to main content</a>
 
-<button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-  <svg id="moonIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-  <svg id="sunIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+<button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme" aria-pressed="false" title="Dark mode">
+  <svg data-theme-icon="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  <svg data-theme-icon="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
 </button>
 
 <div class="sheet">
@@ -1586,7 +1616,7 @@ select:focus-visible{
   <div class="zone-edge bottom" style="left:8%;">A</div><div class="zone-edge bottom" style="left:28%;">B</div><div class="zone-edge bottom" style="left:48%;">C</div><div class="zone-edge bottom" style="left:68%;">D</div><div class="zone-edge bottom" style="left:92%;">E</div>
 
   <header class="site-header" role="banner">
-    <a href="/" class="brand" aria-label="SectorCalc Home"><span class="brand-mark" aria-hidden="true"><img src="/sectorcalc_logo.png" alt="" width="38" height="38"></span><span class="brand-word">SectorCalc</span></a>
+    <a href="/" class="brand" aria-label="SectorCalc Home"><span class="brand-mark"><img class="logo-light" src="/sectorcalc-logo.png" alt="SectorCalc" width="183" height="48"><img class="logo-dark" src="/sectorcalc-logo-dark.png?v=2" alt="" width="183" height="48" aria-hidden="true"></span></a>
     <nav class="main-nav" role="navigation" aria-label="Main navigation">
       <ul><li><a href="#decide">Tools</a></li><li><a href="#method">Method</a></li><li><a href="#standards">Standards</a></li><li><a href="/pricing.html">Pricing</a></li></ul>
       <a href="/sc008-pro.html" class="btn btn-primary">Run a Calculation</a>
@@ -1609,7 +1639,7 @@ select:focus-visible{
       <div>
         <span class="sc-hero-badge"><span class="dot" aria-hidden="true"></span> Live Cell · Deterministic Engine</span>
         <h1 class="sc-hero-title">The Machine Is Running. <em>The Math Is Yours.</em></h1>
-        <p class="sc-hero-lead">A live turning cell measuring a real part — and under it, the actual SC-008 engine computing your tolerance stack-up. <strong>Drag the slider. Same seed, same result, every time.</strong></p>
+        <p class="sc-hero-lead">A live turning cell measuring a real part - and under it, the actual SC-008 engine computing your tolerance stack-up. <strong>Drag the slider. Same seed, same result, every time.</strong></p>
         <div class="sc-hero-ctas">
           <a href="/sc008-pro.html" class="sc-hero-btn sc-hero-btn-b">Run SC-008 Free →</a>
           <a href="#decide" class="sc-hero-btn sc-hero-btn-o">Browse Calculators</a>
@@ -1652,8 +1682,8 @@ select:focus-visible{
                 <path d="M60 30 A 86 86 0 0 1 100 22" fill="none" stroke="#E87722" stroke-width="12" opacity=".8"/>
                 <path d="M104 22 A 86 86 0 0 1 186 108" fill="none" stroke="#007A33" stroke-width="12" opacity=".8"/>
                 <g id="needle" transform="rotate(0 100 108)">
-                  <line x1="100" y1="100" x2="100" y2="36" stroke="#1A1A1A" stroke-width="3.5" stroke-linecap="round"/>
-                  <circle cx="100" cy="108" r="4.5" fill="#1A1A1A"/>
+                  <line x1="100" y1="100" x2="100" y2="36" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+                  <circle cx="100" cy="108" r="4.5" fill="currentColor"/>
                 </g>
               </svg>
               <div class="gauge-val"><b id="cpkVal">1.50</b><span>Cpk</span></div>
@@ -1848,7 +1878,7 @@ select:focus-visible{
           <div class="testimonial-metric">Identical outputs for identical inputs</div>
         </div>
         <div class="testimonial-card">
-          <p class="testimonial-quote">Calculations run in your browser. Inputs stay on device — no account required to try the tools.</p>
+          <p class="testimonial-quote">Calculations run in your browser. Inputs stay on device - no account required to try the tools.</p>
           <div class="testimonial-author">
             <div class="testimonial-avatar" aria-hidden="true">02</div>
             <div>
@@ -1958,7 +1988,7 @@ select:focus-visible{
     </div>
   </section>
 
-  <!-- ================= INTERACTIVE DEMO — Real Working Calculator ================= -->
+  <!-- ================= INTERACTIVE DEMO - Real Working Calculator ================= -->
   <section class="section" id="run" aria-labelledby="run-heading">
     <div class="container">
       <div class="section-head">
@@ -2298,7 +2328,7 @@ select:focus-visible{
   <footer class="title-block" role="contentinfo">
     <div class="tb-links">
       <div class="tb-brand">
-        <a href="/" class="brand" style="margin-bottom:var(--sp-4);display:inline-flex;"><span class="brand-mark brand-mark--footer" aria-hidden="true"><img src="/sectorcalc_logo.png" alt="" width="48" height="48"></span><span class="brand-word">SectorCalc</span></a>
+        <a href="/" class="brand" style="margin-bottom:var(--sp-4);display:inline-flex;"><span class="brand-mark brand-mark--footer"><img class="logo-light" src="/sectorcalc-logo.png" alt="SectorCalc" width="214" height="56"><img class="logo-dark" src="/sectorcalc-logo-dark.png?v=2" alt="" width="214" height="56" aria-hidden="true"></span></a>
         <p>Deterministic industrial decision calculators. Client-side, full-precision, reproducible. Built for the shop floor and the design review.</p>
       </div>
       <div>
@@ -2378,39 +2408,10 @@ select:focus-visible{
   'use strict';
 
   // ============================================================
-  // THEME TOGGLE + prefers-color-scheme detection
+  // THEME - redraw demo histogram when theme flips
   // ============================================================
-  var toggle = document.getElementById('themeToggle');
-  var moon = document.getElementById('moonIcon');
-  var sun = document.getElementById('sunIcon');
-  var isDark = false;
-
-  // Detect system preference
-  var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-  if (prefersDark) {
-    isDark = true;
-    document.documentElement.setAttribute('data-theme', 'dark');
-    moon.style.display = 'none';
-    sun.style.display = 'block';
-  }
-
-  // Listen for system changes
-  if (window.matchMedia) {
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
-      isDark = e.matches;
-      document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
-      moon.style.display = isDark ? 'none' : 'block';
-      sun.style.display = isDark ? 'block' : 'none';
-      redrawHistogramSafe();
-    });
-  }
-
-  toggle.addEventListener('click', function(){
-    isDark = !isDark;
-    document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
-    moon.style.display = isDark ? 'none' : 'block';
-    sun.style.display = isDark ? 'block' : 'none';
-    redrawHistogramSafe();
+  window.addEventListener('sectorcalc-theme', function(){
+    if (typeof redrawHistogramSafe === 'function') redrawHistogramSafe();
   });
 
   // ============================================================
@@ -2457,7 +2458,7 @@ select:focus-visible{
   // Hero gauge arcs are synced to live results by updateHeroGauge() (engine below).
 
   // ============================================================
-  // ROLE TABS — WORKING FILTER
+  // ROLE TABS - WORKING FILTER
   // ============================================================
   var tabs = document.querySelectorAll('.role-tab');
   var cards = document.querySelectorAll('.switch-card');
@@ -2706,7 +2707,7 @@ select:focus-visible{
     }
     var rss = Math.sqrt(rssSum); /* classic RSS: root-sum-square of tolerances */
 
-    /* Seeded Monte Carlo — same inputs + seed + engine => identical result */
+    /* Seeded Monte Carlo - same inputs + seed + engine => identical result */
     var rng = mulberry32(MC_SEED);
     var samples = new Float64Array(MC_N);
     var mean = 0, M2 = 0;
@@ -2903,7 +2904,7 @@ select:focus-visible{
   });
 
   // ============================================================
-  // GAUGE INTERACTIVITY — Click to toggle values
+  // GAUGE INTERACTIVITY - Click to toggle values
   // ============================================================
   var gaugeArcs = document.querySelectorAll('.gauge-arc');
   var readoutCells = document.querySelectorAll('.gauge-readout > div');
@@ -2940,7 +2941,7 @@ select:focus-visible{
   });
 
   // ============================================================
-  // RESIZE — keep histogram crisp
+  // RESIZE - keep histogram crisp
   // ============================================================
   var resizeTimer;
   window.addEventListener('resize', function(){

@@ -83,7 +83,9 @@ function checkPage(page) {
     if (target === '/' || target === '') target = 'index.html';
     if (target.startsWith('/')) target = target.slice(1);
     if (!target) continue;
-    if (!existsSync(join(ROOT, target))) issues.push(`${page}: dead link ${href} -> ${target}`);
+    const atRoot = existsSync(join(ROOT, target));
+    const atPublic = existsSync(join(ROOT, 'public', target));
+    if (!atRoot && !atPublic) issues.push(`${page}: dead link ${href} -> ${target}`);
   }
 
   const req = EXPECTED[page];
@@ -102,6 +104,14 @@ function checkPage(page) {
   if (page.endsWith('-pro.html')) {
     if (!hrefs.some((h) => h === '/')) issues.push(`${page}: no home link (/)`);
     if (!hrefs.some((h) => h === '/pricing.html')) issues.push(`${page}: no pricing link`);
+  }
+
+  // Site pages (not legacy calculator redirects) must ship the shared theme engine
+  if (!page.startsWith('calculator')) {
+    if (!html.includes('id="themeToggle"')) issues.push(`${page}: missing #themeToggle`);
+    if (!html.includes('sc-theme.css')) issues.push(`${page}: missing sc-theme.css`);
+    if (!html.includes('sc-theme.js')) issues.push(`${page}: missing sc-theme.js`);
+    if (!html.includes('sectorcalc-theme')) issues.push(`${page}: missing theme boot key`);
   }
 }
 
@@ -150,6 +160,12 @@ if (existsSync(dist)) {
   if (missingDiscovery.length) {
     console.error('[FAIL] dist missing discovery files: ' + missingDiscovery.join(', '));
     process.exit(1);
+  }
+  for (const asset of ['sc-theme.css', 'sc-theme.js']) {
+    if (!existsSync(join(dist, asset))) {
+      console.error('[FAIL] dist missing theme asset: ' + asset);
+      process.exit(1);
+    }
   }
   console.log('[PASS] dist contains all audited pages + discovery files');
 }
