@@ -21,7 +21,8 @@ const STRICT = process.argv.includes('--strict');
 // Directories never scanned.
 const IGNORE_DIRS = new Set([
   'node_modules', 'dist', 'build', '.git', '.firebase',
-  'coverage', 'playwright-report', 'test-results', '.cache'
+  'coverage', 'playwright-report', 'test-results', '.cache',
+  'kimi-hero'
 ]);
 
 // Files never scanned (generated, binary, or self).

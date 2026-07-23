@@ -237,18 +237,24 @@ h1,h2,h3,h4{
 .brand{ display:flex; align-items:center; gap: var(--sp-3); text-decoration:none; }
 .brand-mark{
   width: 38px; height: 38px;
-  border: 2px solid var(--sheet-line-strong);
+  border: none;
   display:flex; align-items:center; justify-content:center;
-  font-family: var(--f-mono); font-weight: 700; font-size: 13px;
-  color: var(--iso-orange); flex-shrink:0;
+  flex-shrink:0;
   position: relative;
-  background: var(--sheet-paper);
+  background: transparent;
+  padding: 0;
+  overflow: hidden;
 }
-.brand-mark::after{
-  content:"";
-  position:absolute;
-  inset: 4px;
-  border: 1px solid var(--sheet-line);
+.brand-mark::after{ display: none; }
+.brand-mark img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.brand-mark--footer{
+  width: 48px;
+  height: 48px;
 }
 .brand-word{ 
   font-family: var(--f-display); 
@@ -270,6 +276,16 @@ h1,h2,h3,h4{
   font-weight: 500;
 }
 .main-nav a:hover{ color: var(--iso-blue); border-color: var(--iso-blue); }
+.main-nav a.btn-primary,
+.main-nav a.btn-primary:hover{
+  color: #FFFFFF;
+  border-bottom-color: transparent;
+  padding-bottom: 0;
+}
+.mobile-nav-overlay a.btn-primary,
+.mobile-nav-overlay a.btn-primary:hover{
+  color: #FFFFFF;
+}
 
 .mobile-menu-btn{
   display: none;
@@ -341,13 +357,13 @@ h1,h2,h3,h4{
 .btn-primary{
   background: var(--iso-blue);
   border-color: var(--iso-blue);
-  color: #FFFFFF;
+  color: #FFFFFF !important;
   font-weight: 700;
 }
 .btn-primary:hover{ 
   background: var(--iso-blue-dim); 
   border-color: var(--iso-blue-dim);
-  color: #FFFFFF;
+  color: #FFFFFF !important;
   box-shadow: 0 4px 16px var(--iso-blue-glow);
 }
 .btn-ghost{ background: transparent; }
@@ -1468,7 +1484,92 @@ select:focus-visible{
   .gauge-readout .v{ font-size: 14px; }
   .gauge-readout .k{ font-size: 9px; }
 }
+
+/* ============================================================
+   SC-HERO — live cell hero (scoped; from ACIK-TEMA)
+   ============================================================ */
+.sc-hero{
+  --sc-hero-bg:#F5F5F0;--sc-hero-bg2:#EDEFEA;--sc-hero-panel:#FFFFFF;--sc-hero-line:#D8D8D0;--sc-hero-line2:#B9B9B0;
+  --sc-hero-blue:#0055A4;--sc-hero-blue-deep:#0055A4;--sc-hero-orange:#E87722;--sc-hero-green:#007A33;--sc-hero-red:#C8102E;
+  --sc-hero-ink:#1A1A1A;--sc-hero-ink2:#3D4450;--sc-hero-steel:#8C8C8C;
+  --sc-hero-mono:var(--f-mono);--sc-hero-disp:var(--f-display);--sc-hero-body:var(--f-body);
+  position:relative;min-height:calc(100vh - 88px);display:flex;flex-direction:column;overflow:hidden;
+}
+.sc-hero::before{content:"";position:absolute;inset:0;
+  background-image:linear-gradient(rgba(0,85,164,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(0,85,164,.06) 1px,transparent 1px);
+  background-size:44px 44px;pointer-events:none;z-index:0}
+.sc-hero .hero-grid{position:relative;z-index:3;flex:1;display:grid;grid-template-columns:42% 58%;max-width:1440px;margin:0 auto;width:100%;padding:36px 40px;gap:40px;align-items:center}
+.sc-hero .sc-hero-badge{display:inline-flex;align-items:center;gap:8px;font-family:var(--sc-hero-mono);font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--sc-hero-green);background:#E6F4EB;border:1px solid var(--sc-hero-green);padding:6px 14px;border-radius:100px;text-transform:uppercase}
+.sc-hero .sc-hero-badge .dot{width:8px;height:8px;border-radius:50%;background:var(--sc-hero-green);animation:sc-hero-pulse 1.6s infinite}
+@keyframes sc-hero-pulse{0%,100%{opacity:1}50%{opacity:.25}}
+.sc-hero .sc-hero-title{font-family:var(--sc-hero-disp);font-size:clamp(38px,4.2vw,58px);line-height:1.07;letter-spacing:-.01em;margin:22px 0 16px;color:var(--sc-hero-ink);font-weight:800;text-transform:none}
+.sc-hero .sc-hero-title em{font-style:normal;color:var(--sc-hero-blue)}
+.sc-hero .sc-hero-lead{font-size:17px;color:var(--sc-hero-ink2);max-width:480px;margin-bottom:26px;font-family:var(--sc-hero-body)}
+.sc-hero .sc-hero-lead strong{color:var(--sc-hero-ink)}
+.sc-hero .sc-hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:26px}
+.sc-hero .sc-hero-btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:15px;padding:13px 24px;border-radius:4px;border:1px solid transparent;cursor:pointer;text-decoration:none;transition:all .15s;font-family:var(--sc-hero-body)}
+.sc-hero .sc-hero-btn-b{background:var(--sc-hero-blue-deep);color:#fff !important}.sc-hero .sc-hero-btn-b:hover{background:#003E78;color:#fff !important}
+.sc-hero .sc-hero-btn-o{border-color:var(--sc-hero-line2);color:var(--sc-hero-ink);background:transparent}.sc-hero .sc-hero-btn-o:hover{border-color:var(--sc-hero-blue);color:var(--sc-hero-blue)}
+.sc-hero .sc-hero-trust{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.sc-hero .sc-hero-trust div{border:1px solid var(--sc-hero-line);background:rgba(255,255,255,.85);padding:11px 13px;border-radius:4px}
+.sc-hero .sc-hero-trust b{display:block;font-size:12.5px;color:var(--sc-hero-ink)}.sc-hero .sc-hero-trust span{font-size:11.5px;color:var(--sc-hero-ink2)}
+.sc-hero .cell{position:relative;border:1px solid var(--sc-hero-line2);border-radius:10px;overflow:hidden;
+  background:radial-gradient(120% 90% at 50% 32%,#F2F5F8 0%,#DDE4EA 78%);
+  box-shadow:0 30px 80px rgba(26,26,26,.18),inset 0 1px 0 rgba(255,255,255,.9)}
+.sc-hero #stage{display:block;width:100%;height:430px;cursor:grab}
+.sc-hero .hud{position:absolute;top:0;left:0;right:0;height:430px;pointer-events:none;font-family:var(--sc-hero-mono)}
+.sc-hero .hud .corner{position:absolute;width:22px;height:22px;border:2px solid rgba(0,85,164,.5)}
+.sc-hero .hud .c1{top:12px;left:12px;border-right:none;border-bottom:none}
+.sc-hero .hud .c2{top:12px;right:12px;border-left:none;border-bottom:none}
+.sc-hero .hud .c3{bottom:12px;left:12px;border-right:none;border-top:none}
+.sc-hero .hud .c4{bottom:12px;right:12px;border-left:none;border-top:none}
+.sc-hero .hud .telemetry{position:absolute;top:16px;left:44px;font-size:10.5px;line-height:1.9;color:var(--sc-hero-blue);letter-spacing:.06em;text-shadow:0 0 6px rgba(255,255,255,.9)}
+.sc-hero .hud .telemetry b{color:var(--sc-hero-ink)}
+.sc-hero .hud .gcode{position:absolute;bottom:14px;left:44px;font-size:10.5px;color:var(--sc-hero-green);letter-spacing:.05em;text-shadow:0 0 6px rgba(255,255,255,.9)}
+.sc-hero .hud .celltag{position:absolute;top:16px;right:44px;font-size:10.5px;color:var(--sc-hero-ink2);text-align:right;line-height:1.9}
+.sc-hero .hud .celltag b{color:var(--sc-hero-orange)}
+.sc-hero .scanline{position:absolute;top:0;left:0;right:0;height:430px;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(26,26,26,.022) 0 1px,transparent 1px 3px)}
+.sc-hero .mlabel{position:absolute;font-family:var(--sc-hero-mono);font-size:11px;font-weight:700;color:var(--sc-hero-ink);
+  background:rgba(255,255,255,.95);border:1px solid var(--sc-hero-orange);padding:4px 9px;border-radius:3px;
+  transform:translate(-50%,-130%);opacity:0;transition:opacity .25s;pointer-events:none;white-space:nowrap;
+  box-shadow:0 4px 14px rgba(232,119,34,.3)}
+.sc-hero .mlabel::after{content:"";position:absolute;top:100%;left:50%;width:1px;height:14px;background:var(--sc-hero-orange)}
+.sc-hero .mlabel.show{opacity:1}
+.sc-hero .mlabel .mu{color:var(--sc-hero-orange)}
+.sc-hero .deck{border-top:1px solid var(--sc-hero-line);background:rgba(248,248,244,.94);padding:16px 22px 14px}
+.sc-hero .deck-top{display:grid;grid-template-columns:1fr 190px;gap:22px;align-items:start}
+.sc-hero .e-ctrl label{display:flex;justify-content:space-between;font-size:12.5px;font-weight:600;color:var(--sc-hero-ink);margin-bottom:4px;font-family:var(--sc-hero-mono)}
+.sc-hero .e-ctrl label output{color:var(--sc-hero-blue);font-weight:700}
+.sc-hero .e-ctrl input[type=range]{width:100%;accent-color:var(--sc-hero-blue);height:24px;cursor:grab;background:transparent}
+.sc-hero .e-ctrl .hint{font-size:10px;color:var(--sc-hero-steel);font-family:var(--sc-hero-mono)}
+.sc-hero .histo-wrap{position:relative;border:1px solid var(--sc-hero-line);border-radius:4px;background:rgba(255,255,255,.75);margin-top:8px}
+.sc-hero #histo{display:block;width:100%;height:104px}
+.sc-hero .histo-cap{display:flex;justify-content:space-between;font-family:var(--sc-hero-mono);font-size:9.5px;color:var(--sc-hero-steel);padding-top:4px}
+.sc-hero .sc-hero-gauge-wrap{position:relative;text-align:center;padding-bottom:34px}
+.sc-hero #gauge{width:170px;height:102px;display:block;margin:0 auto}
+.sc-hero .gauge-val{position:absolute;bottom:0;left:0;right:0}
+.sc-hero .gauge-val b{font-family:var(--sc-hero-mono);font-size:21px;color:var(--sc-hero-ink)}
+.sc-hero .gauge-val span{display:block;font-family:var(--sc-hero-mono);font-size:8.5px;letter-spacing:.16em;color:var(--sc-hero-steel);text-transform:uppercase}
+.sc-hero .vals{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
+.sc-hero .val{border:1px solid var(--sc-hero-line);border-radius:4px;padding:8px 6px;text-align:center;background:#fff}
+.sc-hero .val .l{font-family:var(--sc-hero-mono);font-size:8.5px;letter-spacing:.12em;color:var(--sc-hero-steel);text-transform:uppercase}
+.sc-hero .val .v{font-family:var(--sc-hero-mono);font-size:15.5px;font-weight:700;margin-top:2px;color:var(--sc-hero-ink)}
+.sc-hero .val.rss .v{color:var(--sc-hero-blue)}.sc-hero .val.mc .v{color:var(--sc-hero-orange)}
+.sc-hero .deck-foot{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-top:10px;font-family:var(--sc-hero-mono);font-size:10px;color:var(--sc-hero-ink2)}
+.sc-hero .deck-foot b{color:var(--sc-hero-blue)}
+.sc-hero .deck-foot .ok{color:var(--sc-hero-green)}
+@media(max-width:1020px){
+  .sc-hero .hero-grid{grid-template-columns:1fr;padding:28px 20px}
+  .sc-hero .deck-top{grid-template-columns:1fr}
+  .sc-hero #stage{height:340px}
+  .sc-hero .hud,.sc-hero .scanline{height:340px}
+  .sc-hero .sc-hero-trust{grid-template-columns:1fr}
+}
 </style>
+<script type="importmap">
+{"imports":{"three":"https://unpkg.com/three@0.160.0/build/three.module.js",
+"three/addons/":"https://unpkg.com/three@0.160.0/examples/jsm/"}}
+</script>
 </head>
 <body>
 
@@ -1485,7 +1586,7 @@ select:focus-visible{
   <div class="zone-edge bottom" style="left:8%;">A</div><div class="zone-edge bottom" style="left:28%;">B</div><div class="zone-edge bottom" style="left:48%;">C</div><div class="zone-edge bottom" style="left:68%;">D</div><div class="zone-edge bottom" style="left:92%;">E</div>
 
   <header class="site-header" role="banner">
-    <a href="/" class="brand" aria-label="SectorCalc Home"><span class="brand-mark" aria-hidden="true">SC</span><span class="brand-word">SectorCalc</span></a>
+    <a href="/" class="brand" aria-label="SectorCalc Home"><span class="brand-mark" aria-hidden="true"><img src="/sectorcalc_logo.png" alt="" width="38" height="38"></span><span class="brand-word">SectorCalc</span></a>
     <nav class="main-nav" role="navigation" aria-label="Main navigation">
       <ul><li><a href="#decide">Tools</a></li><li><a href="#method">Method</a></li><li><a href="#standards">Standards</a></li><li><a href="/pricing.html">Pricing</a></li></ul>
       <a href="/sc008-pro.html" class="btn btn-primary">Run a Calculation</a>
@@ -1503,46 +1604,70 @@ select:focus-visible{
     <a href="/sc008-pro.html" class="btn btn-primary">Run a Calculation</a>
   </div>
 
-  <section class="hero" id="main-content" aria-label="Hero section">
-    <div class="blueprint-grid" aria-hidden="true"></div>
-    <div class="container hero-inner">
+  <section class="sc-hero" id="main-content" aria-label="Hero section">
+    <div class="hero-grid">
       <div>
-        <span class="eyebrow"><span class="dot" aria-hidden="true"></span>Deterministic engine &mdash; same inputs, same result</span>
-        <h1>Turn industrial<br>inputs into<br><em>defensible</em> decisions.</h1>
-        <p class="sub">Calculators for engineering, machining, quality and cost. <b>Every input, assumption, formula and warning</b> is shown before you act &mdash; computed client-side, so your data never leaves the browser.</p>
-        <div class="hero-ctas">
-          <a href="/sc008-pro.html" class="btn btn-primary" aria-label="Run a calculation">Run a Calculation &rarr;</a>
-          <a href="#evidence" class="btn btn-ghost" id="viewSampleReportBtn" aria-label="View sample report">View a Sample Report</a>
+        <span class="sc-hero-badge"><span class="dot" aria-hidden="true"></span> Live Cell · Deterministic Engine</span>
+        <h1 class="sc-hero-title">The Machine Is Running. <em>The Math Is Yours.</em></h1>
+        <p class="sc-hero-lead">A live turning cell measuring a real part — and under it, the actual SC-008 engine computing your tolerance stack-up. <strong>Drag the slider. Same seed, same result, every time.</strong></p>
+        <div class="sc-hero-ctas">
+          <a href="/sc008-pro.html" class="sc-hero-btn sc-hero-btn-b">Run SC-008 Free →</a>
+          <a href="#decide" class="sc-hero-btn sc-hero-btn-o">Browse Calculators</a>
         </div>
-        <div class="hero-flags">
-          <span>No login to try</span><span>No data uploaded</span><span>Reproducible by seed</span>
+        <div class="sc-hero-trust">
+          <div><b>ISO 3864 UI</b><span>Shop-floor readable</span></div>
+          <div><b>100% Client-Side</b><span>Data never leaves browser</span></div>
+          <div><b>Audit-Ready PDF</b><span>Hash + version stamped</span></div>
         </div>
       </div>
 
-      <div class="panel gauge-panel" data-label="TOLERANCE STACK-UP &middot; SC-008 &middot; LIVE" role="region" aria-label="Live gauge display">
-        <div class="gauge-wrap">
-          <svg viewBox="0 0 180 110" width="280" height="170" data-reveal role="img" aria-label="Tolerance stack-up gauge showing WC, RSS and Monte Carlo results">
-            <path d="M20,95 A70,70 0 0,1 160,95" fill="none" stroke="var(--sheet-grid)" stroke-width="12"/>
-            <path class="gauge-arc" id="arcWC" d="M20,95 A70,70 0 0,1 160,95" fill="none" stroke="var(--sheet-text-3)" stroke-width="12" stroke-dasharray="220" stroke-dashoffset="0" tabindex="0" aria-label="Worst case gauge: 65 percent" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"/>
-            <path d="M34,95 A56,56 0 0,1 146,95" fill="none" stroke="var(--sheet-grid)" stroke-width="12"/>
-            <path class="gauge-arc" id="arcRSS" d="M34,95 A56,56 0 0,1 146,95" fill="none" stroke="var(--iso-blue)" stroke-width="12" stroke-dasharray="176" stroke-dashoffset="0" tabindex="0" aria-label="RSS gauge: 42 percent" role="progressbar" aria-valuenow="42" aria-valuemin="0" aria-valuemax="100"/>
-            <path d="M48,95 A42,42 0 0,1 132,95" fill="none" stroke="var(--sheet-grid)" stroke-width="12"/>
-            <path class="gauge-arc" id="arcMC" d="M48,95 A42,42 0 0,1 132,95" fill="none" stroke="var(--iso-orange)" stroke-width="12" stroke-dasharray="132" stroke-dashoffset="0" tabindex="0" aria-label="Monte Carlo gauge: 40 percent" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"/>
-            <text x="90" y="82" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="var(--sheet-text-3)" font-weight="600" id="heroCpk">CPK 2.18</text>
-          </svg>
+      <div class="cell">
+        <canvas id="stage" aria-label="Live 3D turning cell"></canvas>
+        <div class="scanline" aria-hidden="true"></div>
+        <div class="hud" aria-hidden="true">
+          <div class="corner c1"></div><div class="corner c2"></div><div class="corner c3"></div><div class="corner c4"></div>
+          <div class="telemetry">
+            SPINDLE <b id="tRpm">1420</b> RPM · FEED <b>0.20</b> mm/rev<br>
+            X <b id="tX">+0.000</b> · Z <b id="tZ">+0.000</b> · PROBE <b id="tProbe">READY</b>
+          </div>
+          <div class="celltag">CELL <b>SC-008</b> · TURNING + INSPECT<br>MODE <b id="tMode">AUTO-MEASURE</b></div>
+          <div class="gcode" id="gcode">G01 X40.000 Z-12.000 F0.20</div>
+          <div class="mlabel" id="mlabel">D40.000 <span class="mu">+0.012</span></div>
         </div>
-        <div class="gauge-readout">
-          <div tabindex="0" role="button" aria-label="Worst case: plus minus 0.1150 millimeters. Click to see details">
-            <span class="gauge-tooltip">Worst-case stack</span>
-            <div class="k">Worst-case</div><div class="v wc" id="heroWC">&plusmn;0.1150</div>
+
+        <div class="deck">
+          <div class="deck-top">
+            <div>
+              <div class="e-ctrl">
+                <label>SPACER TOLERANCE <output id="oTol">±0.050 mm</output></label>
+                <input type="range" id="inTol" min="10" max="100" value="50" step="5" aria-label="Spacer tolerance">
+                <div class="hint">ISO 2768-m · sigma = Tol/3 · NORMAL · 10,000 ITER</div>
+              </div>
+              <div class="histo-wrap"><canvas id="histo" aria-label="Monte Carlo histogram"></canvas></div>
+              <div class="histo-cap"><span>−0.15</span><span>MONTE CARLO · SEED 7A3F1C9E</span><span>+0.15 mm</span></div>
+            </div>
+            <div class="sc-hero-gauge-wrap">
+              <svg id="gauge" viewBox="0 0 200 118" role="img" aria-label="Cpk gauge">
+                <path d="M14 108 A 86 86 0 0 1 57 32" fill="none" stroke="#C8102E" stroke-width="12" opacity=".8"/>
+                <path d="M60 30 A 86 86 0 0 1 100 22" fill="none" stroke="#E87722" stroke-width="12" opacity=".8"/>
+                <path d="M104 22 A 86 86 0 0 1 186 108" fill="none" stroke="#007A33" stroke-width="12" opacity=".8"/>
+                <g id="needle" transform="rotate(0 100 108)">
+                  <line x1="100" y1="100" x2="100" y2="36" stroke="#1A1A1A" stroke-width="3.5" stroke-linecap="round"/>
+                  <circle cx="100" cy="108" r="4.5" fill="#1A1A1A"/>
+                </g>
+              </svg>
+              <div class="gauge-val"><b id="cpkVal">1.50</b><span>Cpk</span></div>
+            </div>
           </div>
-          <div tabindex="0" role="button" aria-label="RSS: plus minus 0.0687 millimeters. Click to see details">
-            <span class="gauge-tooltip">Root Sum Square</span>
-            <div class="k">RSS</div><div class="v rss" id="heroRSS">&plusmn;0.0687</div>
+          <div class="vals">
+            <div class="val"><div class="l">Worst-Case</div><div class="v" id="vWC">±0.1250</div></div>
+            <div class="val rss"><div class="l">RSS</div><div class="v" id="vRSS">±0.0665</div></div>
+            <div class="val mc"><div class="l">Monte Carlo</div><div class="v" id="vMC">±0.0660</div></div>
           </div>
-          <div tabindex="0" role="button" aria-label="Monte Carlo: plus minus 0.0671 millimeters. Click to see details">
-            <span class="gauge-tooltip">10,000 simulations</span>
-            <div class="k">Monte Carlo</div><div class="v mc" id="heroMC">&plusmn;0.0671</div>
+          <div class="deck-foot">
+            <span>SEED <b>0x7A3F1C9E</b></span><span>ITER <b>10,000</b></span>
+            <span>ENGINE <b>v2.0.0</b></span><span>TIME <b id="calcTime">0.4 ms</b></span>
+            <span class="ok">✓ REPRODUCIBLE</span>
           </div>
         </div>
       </div>
@@ -2173,7 +2298,7 @@ select:focus-visible{
   <footer class="title-block" role="contentinfo">
     <div class="tb-links">
       <div class="tb-brand">
-        <a href="/" class="brand" style="margin-bottom:var(--sp-4);display:inline-flex;"><span class="brand-mark">SC</span><span class="brand-word">SectorCalc</span></a>
+        <a href="/" class="brand" style="margin-bottom:var(--sp-4);display:inline-flex;"><span class="brand-mark brand-mark--footer" aria-hidden="true"><img src="/sectorcalc_logo.png" alt="" width="48" height="48"></span><span class="brand-word">SectorCalc</span></a>
         <p>Deterministic industrial decision calculators. Client-side, full-precision, reproducible. Built for the shop floor and the design review.</p>
       </div>
       <div>
@@ -2182,7 +2307,7 @@ select:focus-visible{
       </div>
       <div>
         <h5>Method</h5>
-        <ul><li><a href="#method">How results are built</a></li><li><a href="#standards">Standards</a></li><li><a href="#verify">Sample report</a></li></ul>
+        <ul><li><a href="#method">How results are built</a></li><li><a href="#standards">Standards</a></li><li><a href="#evidence">Evidence</a></li><li><a href="#verify">Sample report</a></li></ul>
       </div>
       <div>
         <h5>Product</h5>
@@ -2830,5 +2955,10 @@ select:focus-visible{
 
 })();
 </script>
+
+<script type="module" src="/sc-hero-cell.js"></script>
+<script src="/sc-hero-engine.js"></script>
+
+
 </body>
 </html>

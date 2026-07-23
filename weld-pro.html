@@ -15,7 +15,7 @@
   ::-webkit-scrollbar{width:5px;height:5px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--border-mid);border-radius:10px}::-webkit-scrollbar-thumb:hover{background:var(--border-strong)}
   .sc-header{position:fixed;top:0;left:0;right:0;z-index:1000;height:56px;background:#fff;backdrop-filter:none;border-bottom:1px solid var(--border-soft);display:flex;align-items:center;justify-content:space-between;padding:0 24px}
   .sc-header-left{display:flex;align-items:center;gap:14px}
-  a.sc-logo{text-decoration:none;} .sc-logo{width:34px;height:34px;background:var(--bg-0);border:1.5px solid var(--border-mid);border-radius:0;display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-weight:600;font-size:12px;color:var(--accent-amber);letter-spacing:0;box-shadow:none;flex-shrink:0}
+  a.sc-logo{text-decoration:none;display:inline-flex;align-items:center;gap:10px;color:var(--text-primary)}.sc-logo{background:transparent;border:none;border-radius:0;flex-shrink:0;padding:0}.sc-logo img{width:34px;height:34px;object-fit:contain;display:block;flex-shrink:0}.sc-logo-word{font-family:var(--font-display);font-weight:900;font-size:18px;letter-spacing:0.02em;text-transform:uppercase;color:var(--text-primary);white-space:nowrap;line-height:1}
   .sc-header-brand{display:flex;flex-direction:column;gap:1px}
   .sc-header-title{font-family:var(--font-display);font-size:15px;font-weight:800;letter-spacing:0.01em;text-transform:uppercase}
   .sc-header-sub{font-size:10px;font-weight:500;color:var(--text-muted);font-family:var(--font-mono);letter-spacing:0.3px}
@@ -135,7 +135,7 @@
 </head>
 <body>
 <div class="sc-header">
-  <div class="sc-header-left"><a href="/" class="sc-logo" title="SectorCalc home" aria-label="SectorCalc home">SC</a><div class="sc-header-brand"><div class="sc-header-title">SC-001 — Weld Thickness</div><div class="sc-header-sub">Engineering preview · Client-side · Deterministic Decimal engine · Not for production approval</div></div></div>
+  <div class="sc-header-left"><a href="/" class="sc-logo" title="SectorCalc home" aria-label="SectorCalc home"><img src="/sectorcalc_logo.png" alt="" width="34" height="34"><span class="sc-logo-word">SectorCalc</span></a><div class="sc-header-brand"><div class="sc-header-title">SC-001 — Weld Thickness</div><div class="sc-header-sub">Engineering preview · Client-side · Deterministic Decimal engine · Not for production approval</div></div></div>
   <div class="sc-header-right"><a href="/" class="sc-btn sc-btn-ghost" style="margin-right:10px;text-decoration:none">All tools</a><a href="/pricing.html" class="sc-btn sc-btn-ghost" style="margin-right:10px;text-decoration:none">Pricing</a><div class="sc-badge sc-badge-cost">Weld</div></div>
 </div>
 <div class="sc-layout">

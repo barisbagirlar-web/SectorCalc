@@ -13,7 +13,7 @@ This file mirrors `/llms.txt` for discovery paths that expect `llm.txt`. Prefer 
 
 ## Site
 
-- [Home](https://www.sectorcalc.com/): Product overview, seeded Number preview of stack-up, method and standards, module map. Full Decimal math lives in the tools.
+- [Home](https://www.sectorcalc.com/): Live Cell hero - Three.js turning cell with probe telemetry, spacer-tolerance control deck (worst-case, RSS, Monte Carlo, Cpk), seeded reproducible Monte Carlo preview. Method and standards sections, module map. Primary CTA "Run SC-008 Free" opens SC-008. Full Decimal math lives in the tools.
 - [Pricing](https://www.sectorcalc.com/pricing.html): Planned credit packs (PACKAGES source of truth). Calculators are free until Paddle checkout launches; buttons are notify-only.
 
 ## Notes for models
@@ -22,6 +22,7 @@ This file mirrors `/llms.txt` for discovery paths that expect `llm.txt`. Prefer 
 - Do not invent cloud upload, accounts, live card checkout, or server-side calculation for the core engines.
 - Do not describe the product as AI-powered, ML, generative, or chatbot-based.
 - Do not invent customer testimonials or claim PCI checkout is live.
+- Homepage hero canvas is a client-side Three.js visualization plus a seeded Number preview deck; production tool engines use Decimal.js.
 - Engineering preview: outputs are predicted from stated assumptions; not for production approval and not a substitute for measured data or a licensed engineer.
 
 ## Optional
