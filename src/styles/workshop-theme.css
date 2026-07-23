@@ -1,14 +1,17 @@
 :root {
-  --sc-steel: #1A1714;
-  --sc-rust: #D05D29;
-  --sc-chip: #237F52;
-  --sc-bg: #F5F2ED;
+  --iso-blue: #0055A4;
+  --iso-orange: #E87722;
+  --iso-green: #007A33;
+  --sc-steel: #1A1A1A;
+  --sc-rust: #E87722;
+  --sc-chip: #007A33;
+  --sc-bg: #F5F5F0;
   --sc-card: #FFFFFF;
-  --sc-text: #1A1714;
-  --sc-muted: #8A847A;
-  --sc-mono: 'IBM Plex Mono', ui-monospace, monospace;
-  --sc-sans: 'IBM Plex Sans', system-ui, sans-serif;
-  --sc-display: 'Big Shoulders Display', sans-serif;
+  --sc-text: #1A1A1A;
+  --sc-muted: #7A7A7A;
+  --sc-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --sc-sans: 'Inter', system-ui, sans-serif;
+  --sc-display: 'Barlow Condensed', sans-serif;
 }
 
 * { box-sizing: border-box; }
@@ -26,7 +29,7 @@ main {
   margin: 4rem auto;
   padding: 2rem;
   background: var(--sc-card);
-  border: 1px solid #C9C3B8;
+  border: 1px solid #C5C5BE;
   border-radius: 0;
 }
 

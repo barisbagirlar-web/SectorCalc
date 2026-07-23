@@ -76,14 +76,15 @@ test('pricing page renders packages from source of truth', async ({ page }) => {
 test('homepage mobile nav hamburger opens links', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('/');
-  const toggle = page.locator('#nav-toggle');
+  const toggle = page.locator('#mobileMenuBtn');
   await expect(toggle).toBeVisible();
-  await expect(page.locator('#primary-nav')).toBeHidden();
+  await expect(page.locator('#mobileNav')).toHaveAttribute('aria-hidden', 'true');
   await toggle.click();
-  await expect(page.locator('#site-nav')).toHaveClass(/is-open/);
-  await expect(page.locator('#primary-nav a[href="#tools"]')).toBeVisible();
-  await expect(page.locator('#primary-nav a[href="/pricing.html"]')).toBeVisible();
-  await page.locator('#primary-nav a[href="/pricing.html"]').click();
+  await expect(page.locator('#mobileNav')).toHaveClass(/active/);
+  await expect(page.locator('#mobileNav')).toHaveAttribute('aria-hidden', 'false');
+  await expect(page.locator('#mobileNav a[href="#decide"]')).toBeVisible();
+  await expect(page.locator('#mobileNav a[href="/pricing.html"]')).toBeVisible();
+  await page.locator('#mobileNav a[href="/pricing.html"]').click();
   await expect(page).toHaveURL(/pricing/);
 });
 

@@ -28,11 +28,24 @@ const EXPECTED = {
       '/labor-pro.html',
       '/weld-pro.html',
       '/pricing.html',
-      '#tools',
-      '#verify',
+      '#decide',
+      '#method',
       '#standards',
       '#evidence',
-      '#decide'
+      '#verify',
+      '#run'
+    ],
+    mustHaveIds: [
+      'main-content',
+      'decide',
+      'method',
+      'standards',
+      'pricing',
+      'evidence',
+      'verify',
+      'run',
+      'mobileMenuBtn',
+      'mobileNav'
     ]
   },
   'pricing.html': {
@@ -75,10 +88,13 @@ function checkPage(page) {
 
   const req = EXPECTED[page];
   if (req) {
-    for (const need of req.mustInclude) {
+    for (const need of req.mustInclude || []) {
       if (!hrefs.includes(need) && !html.includes(`href="${need}"`) && !html.includes(`href='${need}'`)) {
         issues.push(`${page}: missing required link ${need}`);
       }
+    }
+    for (const id of req.mustHaveIds || []) {
+      if (!ids.has(id)) issues.push(`${page}: missing required id #${id}`);
     }
   }
 
@@ -104,8 +120,11 @@ for (const [role, href] of roleMap) {
   if (!re.test(index)) issues.push(`index.html: role "${role}" not wired to ${href}`);
 }
 
-if (!index.includes('id="nav-toggle"') || !index.includes('id="primary-nav"')) {
+if (!index.includes('id="mobileMenuBtn"') || !index.includes('id="mobileNav"')) {
   issues.push('index.html: mobile nav hamburger missing');
+}
+if (!index.includes('id="main-content"')) {
+  issues.push('index.html: skip-link target #main-content missing');
 }
 
 const discovery = ['robots.txt', 'sitemap.xml', 'llms.txt', 'llm.txt'];
