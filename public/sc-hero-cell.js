@@ -158,31 +158,27 @@ function placeLabel(st) {
 }
 let labelAnchor = null;
 
-let running = false, inView = true, rafId = null, ready = false;
+/* Animate whenever the tab is visible.
+   Do NOT use IntersectionObserver to pause - it was stopping the loop
+   on first callback for this hero (frozen first frame, telemetry stuck). */
+let running = false, rafId = null;
 const reduced = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+const spinRate = reduced ? 0.35 : 2.2;
 
 function setRunning(on) {
   if (on && !running) { running = true; last = performance.now(); rafId = requestAnimationFrame(loop); }
   else if (!on && running) { running = false; if (rafId) cancelAnimationFrame(rafId); rafId = null; }
 }
 document.addEventListener('visibilitychange', () => {
-  if (!ready || reduced) return;
-  setRunning(!document.hidden && inView);
+  setRunning(!document.hidden);
 });
-if ('IntersectionObserver' in window) {
-  new IntersectionObserver((entries) => {
-    inView = entries[0].isIntersecting;
-    if (!ready || reduced) return;
-    setRunning(inView && !document.hidden);
-  }, { threshold: 0.01, rootMargin: '40px' }).observe(canvas.parentElement || canvas);
-}
 
 let last = performance.now();
 function loop(now) {
   if (!running) return;
   rafId = requestAnimationFrame(loop);
   const dt = Math.min((now - last) / 1000, 0.05); last = now;
-  spin.rotation.x += dt * 2.2;
+  spin.rotation.x += dt * spinRate;
   spin.rotation.y += ((mx * 0.3) - spin.rotation.y) * 0.04;
   scene.rotation.x += ((my * 0.12) - scene.rotation.x) * 0.04;
   dust.rotation.y += dt * 0.02;
@@ -234,13 +230,8 @@ function loop(now) {
 resize();
 renderer.render(scene, camera);
 canvas.classList.add('is-ready');
-ready = true;
-
-if (!reduced) {
-  setRunning(true);
-} else {
-  canvas.classList.add('reduced');
-}
+if (reduced) canvas.classList.add('reduced');
+setRunning(!document.hidden);
 }catch(e){
   heroFallback(e);
 }
