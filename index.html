@@ -1610,6 +1610,11 @@ select:focus-visible{
   .sc-hero .stage-wrap,.sc-hero #stage{height:340px}
   .sc-hero .hud,.sc-hero .scanline{height:340px}
   .sc-hero .sc-hero-trust{grid-template-columns:1fr}
+  /* Narrow HUD: hide right stack so telemetry does not collide */
+  .sc-hero .hud .celltag{display:none}
+  .sc-hero .hud .telemetry{left:14px;right:14px;top:14px;font-size:10px;line-height:1.55}
+  .sc-hero .hud .gcode{left:14px;right:14px;bottom:12px;font-size:10px}
+  .sc-hero .hud::before{inset:8px}
 }
 </style>
 <script type="importmap">
@@ -1828,6 +1833,7 @@ select:focus-visible{
   <a href="/sc008-pro.html" class="btn-primary">Run a Calculation</a>
 </div>
 <!--SC-SITE-NAV-END-->
+
 
 
 
