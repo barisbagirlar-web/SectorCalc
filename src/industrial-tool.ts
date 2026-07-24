@@ -290,7 +290,8 @@ function drawNoData(ctx:CanvasRenderingContext2D,canvas:HTMLCanvasElement,text:s
   const css=getComputedStyle(document.documentElement);
   ctx.fillStyle=css.getPropertyValue('--mut').trim()||'#5d6b7a';
   ctx.font='13px Inter,sans-serif';
-  ctx.fillText(text,18,32);
+  const x=Math.min(18,Math.max(0,canvas.width-1));
+  ctx.fillText(text,x,32);
 }
 
 function drawLine(ctx:CanvasRenderingContext2D,canvas:HTMLCanvasElement,points:Array<{x:number;y:number}>,title:string):void{
@@ -355,10 +356,12 @@ function loadPreset(slot:number):void{
     const state=JSON.parse(raw) as Record<string,string>;
     tool.fields.forEach((f)=>{
       const el=$(f.id) as HTMLInputElement|HTMLSelectElement;
-      if(state[f.id]!==undefined)el.value=state[f.id];
+      const value=state[f.id];
+      if(value!==undefined)el.value=value;
       if(f.kind==='number'){
         const u=document.getElementById('u_'+f.id) as HTMLSelectElement|null;
-        if(u&&state['u_'+f.id]){u.value=state['u_'+f.id];u.dataset.previous=u.value;}
+        const unitValue=state['u_'+f.id];
+        if(u&&unitValue!==undefined){u.value=unitValue;u.dataset.previous=u.value;}
       }
     });
     calculateAndRender();
