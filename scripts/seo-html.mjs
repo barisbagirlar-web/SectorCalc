@@ -26,6 +26,15 @@ function decodeEntities(value) {
     .replace(/&ndash;|&#8211;/g, '–');
 }
 
+function escapeHtml(value) {
+  return value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
 function stripTags(value) {
   return decodeEntities(value.replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim());
 }
@@ -56,6 +65,18 @@ function removeSeoTags(html) {
 
 function pageName(title) {
   return title.replace(/\s*(?:—|\||-)\s*SectorCalc(?:\s+Pro)?\s*$/i, '').trim();
+}
+
+function ensureServerH1(html, file, title) {
+  if (/<h1\b/i.test(html)) return html;
+  const heading = escapeHtml(pageName(title));
+  if (file === 'sc008-pro.html' && /<div class="sc-tool-strip">\s*<b>[\s\S]*?<\/b>/i.test(html)) {
+    return html.replace(
+      /(<div class="sc-tool-strip">)\s*<b>[\s\S]*?<\/b>/i,
+      `$1<h1 style="margin:0;font-family:var(--font-mono,'JetBrains Mono',monospace);font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--text-primary,#1A1A1A)">${heading}</h1>`
+    );
+  }
+  return html.replace(/<body([^>]*)>/i, `<body$1>\n<h1 style="margin:16px 24px;font-size:24px">${heading}</h1>`);
 }
 
 function graphFor(page, canonical, title, description) {
@@ -150,12 +171,12 @@ function metadataBlock(page, canonical, title, description) {
   return [
     `<link rel="canonical" href="${canonical}">`,
     '<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">',
-    `<meta property="og:type" content="website">`,
-    `<meta property="og:site_name" content="SectorCalc">`,
+    '<meta property="og:type" content="website">',
+    '<meta property="og:site_name" content="SectorCalc">',
     `<meta property="og:title" content="${escapedTitle}">`,
     `<meta property="og:description" content="${escapedDescription}">`,
     `<meta property="og:url" content="${canonical}">`,
-    `<meta name="twitter:card" content="summary_large_image">`,
+    '<meta name="twitter:card" content="summary_large_image">',
     `<meta name="twitter:title" content="${escapedTitle}">`,
     `<meta name="twitter:description" content="${escapedDescription}">`,
     `<script id="sectorcalc-entity-schema" type="application/ld+json">${schema}</script>`
@@ -175,6 +196,7 @@ export function seoHtmlPlugin() {
         const title = getTitle(html, file);
         const description = getDescription(html, file);
         let output = ensureDescription(html, description);
+        output = ensureServerH1(output, file, title);
         output = removeSeoTags(output);
         return output.replace('</head>', `${metadataBlock(page, canonical, title, description)}\n</head>`);
       }
