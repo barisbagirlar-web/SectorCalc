@@ -11,7 +11,7 @@ const LEGACY_PATHS = [
   '/tr/about',
   `/__sectorcalc_missing_${Date.now()}`
 ];
-const VALID_SCOPES = new Set(['all', 'host', 'discovery', 'tools', 'legacy']);
+const VALID_SCOPES = new Set(['all', 'host', 'www', 'home', 'discovery', 'tools', 'legacy']);
 const rawScope = process.argv.find((arg) => arg.startsWith('--scope='))?.split('=')[1] ?? 'all';
 if (!VALID_SCOPES.has(rawScope)) {
   console.error(`[FAIL] unknown live SEO scope: ${rawScope}`);
@@ -43,15 +43,19 @@ function canonicalFrom(html) {
 }
 
 function includeScope(scope) {
-  return rawScope === 'all' || rawScope === scope;
+  if (rawScope === 'all') return true;
+  if (rawScope === 'host') return scope === 'www' || scope === 'home';
+  return rawScope === scope;
 }
 
-async function checkHost(issues) {
+async function checkWww(issues) {
   const legacyHost = await fetchAbsoluteFresh(`${LEGACY_WWW_ORIGIN}/`);
   const legacyLocation = legacyHost.headers.get('location') ?? '';
   if (![301, 308].includes(legacyHost.status)) issues.push(`www host must permanently redirect, got ${legacyHost.status}`);
   if (!legacyLocation.startsWith(`${SITE_ORIGIN}/`)) issues.push(`www host redirects outside canonical apex: ${legacyLocation || 'missing Location'}`);
+}
 
+async function checkHome(issues) {
   const home = await fetchFresh('/');
   const homeBody = await home.text();
   if (home.status !== 200) issues.push(`home status ${home.status}`);
@@ -117,7 +121,8 @@ async function checkLegacy(issues) {
 
 async function runOnce() {
   const issues = [];
-  if (includeScope('host')) await checkHost(issues);
+  if (includeScope('www')) await checkWww(issues);
+  if (includeScope('home')) await checkHome(issues);
   if (includeScope('discovery')) await checkDiscovery(issues);
   if (includeScope('tools')) await checkTools(issues);
   if (includeScope('legacy')) await checkLegacy(issues);
