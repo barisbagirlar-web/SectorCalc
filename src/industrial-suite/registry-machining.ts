@@ -1,7 +1,6 @@
 import { D, Decimal, CalcError } from '../core/engine.js';
-import { ToolDefinition, CanonicalInput, numberValue as n, selectValue as s, output as o, warning as w, decimalPi as PI, sinDeg, cosDeg, expD } from './engine.js';
+import { ToolDefinition, CanonicalInput, numberValue as n, selectValue as s, output as o, warning as w, decimalPi as PI, cosDeg, expD } from './engine.js';
 
-const ratio = (x: Decimal, y: Decimal.Value): Decimal => x.div(y);
 const positive = (x: Decimal, name: string): Decimal => { if (x.lte(0)) throw new CalcError('E_NON_POSITIVE', `${name} must be > 0`); return x; };
 const nonNegative = (x: Decimal, name: string): Decimal => { if (x.lt(0)) throw new CalcError('E_NEGATIVE', `${name} must be >= 0`); return x; };
 
@@ -150,7 +149,7 @@ const SC025: ToolDefinition = {
     } else {
       v=PI().times(D1).times(n1).div(60000); const Te=designP.times(1000).div(v); const theta=wrap.times(PI()).div(180); const tr=expD(mu.times(theta));
       if(tr.lte(1.05)) warns.push(w('error','Insufficient traction ratio','Friction × wrap produces almost no tight/slack tension ratio.'));
-      slack=Te.div(tr.minus(1)); tight=slack.times(tr); cent=mass.div(1000).times(1000).times(v.pow(2)); // kg/m × v² -> N
+      slack=Te.div(tr.minus(1)); tight=slack.times(tr); cent=mass.div(1000).times(1000).times(v.pow(2));
       tight=tight.plus(cent); if(wrap.lt(120)) warns.push(w('warning','Low small-pulley wrap','Wrap below 120° materially reduces traction and belt life.'));
     }
     if(v.gt(40)&&type==='belt') warns.push(w('warning','High belt speed',`${v.toFixed(1)} m/s requires belt-specific centrifugal and balance verification.`));
