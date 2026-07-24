@@ -22,13 +22,15 @@ jobs:
         run: npm ci --no-audit --no-fund
       - name: English-only language gate
         run: node scripts/check-language.mjs --strict
-      - name: Unit + golden tests
+      - name: Unit + golden + industrial regression tests
         run: npm test
-      - name: Typecheck
+      - name: Strict TypeScript
         run: npm run typecheck
-      - name: Production build (injects nav + guides, verifies form fields)
+      - name: Production build
         run: npm run build
-      - name: Post-build audits
+      - name: Navigation and form-field audits
         run: |
           node scripts/verify-nav.mjs
           node scripts/verify-form-fields.mjs
+      - name: Unified Decimal production architecture guard
+        run: node scripts/verify-unified-engine.mjs

@@ -2,7 +2,7 @@ name: Deploy
 
 on:
   push:
-    branches: [main, ship/mobile-nav-discovery]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -33,7 +33,13 @@ jobs:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
       - name: Install locked dependencies
         run: npm ci --no-audit --no-fund
-      - name: Build production bundle
+      - name: English-only language gate
+        run: node scripts/check-language.mjs --strict
+      - name: Unit + golden + industrial regression tests
+        run: npm test
+      - name: Strict TypeScript
+        run: npm run typecheck
+      - name: Build + navigation + form + unified-engine guards
         run: npm run build
       - name: Deploy Firebase Hosting (sectorcalc-prod)
         run: npx --yes firebase-tools@14 deploy --only hosting --project sectorcalc-prod --token "$FIREBASE_TOKEN"
