@@ -73,6 +73,16 @@ test('SC-021 bearing-pro: live + audit', async ({ page }) => {
   await expect(page.locator('#aEngine')).toContainText('BL-ENGINE');
 });
 
+test('tools catalog: omni search + live links', async ({ page }) => {
+  await page.goto('/tools.html');
+  await expect(page.locator('#q')).toBeVisible();
+  await expect(page.locator('#stLive')).not.toHaveText('0');
+  await page.locator('#q').fill('bearing');
+  await expect(page.locator('#catalog')).toContainText(/Bearing Life/i);
+  await expect(page.locator('a[href="/bearing-pro.html"]').first()).toBeVisible();
+  await expect(page.locator('a[href="/machining-pro.html"]').first()).toBeVisible();
+});
+
 test('legacy calculator redirects still land on pro tools', async ({ page }) => {
   await page.goto('/calculator.html');
   await expect(page).toHaveURL(/labor-pro/);

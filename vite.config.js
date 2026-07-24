@@ -24,7 +24,8 @@ export default defineConfig({
         'weld-pro': 'weld-pro.html',
         'machining-pro': 'machining-pro.html',
         'bearing-pro': 'bearing-pro.html',
-        pro: 'pro.html'
+        pro: 'pro.html',
+        tools: 'tools.html'
       }
     }
   },

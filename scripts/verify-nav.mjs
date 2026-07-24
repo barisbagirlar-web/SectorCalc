@@ -17,6 +17,7 @@ const PAGES = [
   'machining-pro.html',
   'bearing-pro.html',
   'pro.html',
+  'tools.html',
   'calculator.html',
   'calculator2.html',
   'calculator3.html',
@@ -32,6 +33,7 @@ const EXPECTED = {
       '/weld-pro.html',
       '/machining-pro.html',
       '/bearing-pro.html',
+      '/tools.html',
       '/pricing.html',
       '#decide',
       '#method',
@@ -54,7 +56,13 @@ const EXPECTED = {
     ]
   },
   'pricing.html': {
-    mustInclude: ['/', '/sc008-pro.html', '/quote-pro.html', '/labor-pro.html', '/weld-pro.html', '/machining-pro.html', '/bearing-pro.html']
+    mustInclude: ['/', '/sc008-pro.html', '/quote-pro.html', '/labor-pro.html', '/weld-pro.html', '/machining-pro.html', '/bearing-pro.html', '/tools.html']
+  },
+  'pro.html': {
+    mustInclude: ['/', '/pricing.html', '/tools.html', '/machining-pro.html', '/bearing-pro.html']
+  },
+  'tools.html': {
+    mustInclude: ['/', '/pricing.html', '/machining-pro.html', '/bearing-pro.html', '/sc008-pro.html']
   }
 };
 
@@ -79,6 +87,7 @@ function checkPage(page) {
 
   for (const href of hrefs) {
     if (href.startsWith('http') || href.startsWith('mailto:') || href.startsWith('javascript:')) continue;
+    if (href.includes('${')) continue; // JS template literals in inline scripts
     if (href.startsWith('#')) {
       const id = href.slice(1);
       if (id && !ids.has(id)) issues.push(`${page}: dead anchor ${href}`);

@@ -723,7 +723,6 @@ function exportJSON(){
   const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='SC020_audit_report.json';a.click();
 }
 
-/* theme engine — site convention: data-theme on <html>, localStorage 'sectorcalc-theme' */
 
 g('calcBtn').addEventListener('click',calculate);
 document.querySelectorAll('input,select').forEach(el=>el.addEventListener('change',calculate));
