@@ -1,7 +1,20 @@
+# SectorCalc search/retrieval crawler policy
+# Public production content is crawlable. Training-crawler policy is not changed here.
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
 User-agent: *
 Allow: /
 
 Sitemap: https://www.sectorcalc.com/sitemap.xml
-# AI discovery index
+
+# Supplemental AI discovery indexes
 # https://www.sectorcalc.com/llms.txt
 # https://www.sectorcalc.com/llm.txt
