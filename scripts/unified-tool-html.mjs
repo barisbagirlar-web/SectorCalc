@@ -65,6 +65,7 @@ ${canonical}
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./sc-site-nav.css?v=1">
+<link rel="stylesheet" href="./sc-form-fields.css?v=4">
 <script src="./sc-site-nav.js?v=1" defer></script>
 ${guideAssets}
 </head>
