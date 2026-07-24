@@ -84,7 +84,10 @@ Every live calculator ships an English demo toolbar: **Load Demo Data**, **Reset
 - Every public HTML page: unique `<title>`, meta description, single `<h1>`, canonical, OG/Twitter (`/assets/images/og-{slug}-1200x630.jpg`), Schema Mesh (Organization, Person/IIT E-E-A-T, WebSite, SoftwareApplication, HowTo, BreadcrumbList; pricing Product offers as PreOrder). Existing guide `FAQPage` kept. **No AggregateRating/Review.**
 - `WebSite.potentialAction` SearchAction → `/tools.html?q={search_term_string}` is wired (omni search hydrates from `?q=` and syncs the URL).
 - Custom `/404.html` (noindex) + Firebase rewrite catch-all removed (real HTTP 404).
-- CVW probe `/assets/js/cvw-monitor.js` (GA4 send off until real Measurement ID). Build gate: `scripts/verify-seo.mjs`.
+- CVW probe `/assets/js/cvw-monitor.js` + `/assets/js/sc-ga4-id.js` (set `window.__SC_GA4_ID__` to a real GA4 Measurement ID to enable send). Build gate: `scripts/verify-seo.mjs`.
+- Security head block on every page: CSP + Permissions-Policy + Dublin Core (also mirrored in Firebase Hosting headers).
+- Visible breadcrumb nav on tools/pricing/pro/*-pro (homepage excluded). Dataset JSON-LD on every *-pro page.
+- AI crawler split: `/ai-robots.txt` (search allow / training disallow).
 
 ## Optional
 
