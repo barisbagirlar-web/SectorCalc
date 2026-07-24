@@ -13,7 +13,7 @@ const PARTIAL = readFileSync(join(ROOT, 'content/partials/site-header.html'), 'u
 const FORM_FIELDS_VERSION = 5;
 const STUDY_VERSION = 2;
 const NAV_ASSETS = `
-<link rel="stylesheet" href="./sc-site-nav.css?v=2">
+<link rel="stylesheet" href="./sc-site-nav.css?v=3">
 <script src="./sc-site-nav.js?v=2" defer></script>
 `.trim();
 

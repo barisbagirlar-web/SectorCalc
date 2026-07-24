@@ -718,6 +718,80 @@ def upsert_security(text: str) -> str:
     return re.sub(r"(<head[^>]*>)", r"\1\n" + block, text, count=1, flags=re.I)
 
 
+def breadcrumb_html(page: str) -> str | None:
+    """Visible breadcrumb nav after site header. Homepage returns None."""
+    if page == "index.html":
+        return None
+
+    def crumb(parts: list[tuple[str, str | None]]) -> str:
+        items = []
+        for i, (name, href) in enumerate(parts, start=1):
+            safe_name = html.escape(name)
+            if href and i < len(parts):
+                items.append(
+                    f'<li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">'
+                    f'<a itemprop="item" href="{html.escape(href, quote=True)}"><span itemprop="name">{safe_name}</span></a>'
+                    f'<meta itemprop="position" content="{i}">'
+                    f"</li>"
+                )
+            else:
+                items.append(
+                    f'<li aria-current="page" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">'
+                    f'<span itemprop="name">{safe_name}</span>'
+                    f'<meta itemprop="position" content="{i}">'
+                    f"</li>"
+                )
+        return (
+            '<!--SC-SEO-BREADCRUMB-START-->\n'
+            '<nav aria-label="Breadcrumb" class="sc-breadcrumb">\n'
+            '  <ol itemscope itemtype="https://schema.org/BreadcrumbList">\n'
+            + "\n".join(f"    {x}" for x in items)
+            + "\n  </ol>\n</nav>\n"
+            "<!--SC-SEO-BREADCRUMB-END-->"
+        )
+
+    if page == "tools.html":
+        return crumb([("Home", f"{HOST}/"), ("All Calculators", None)])
+    if page == "pricing.html":
+        return crumb([("Home", f"{HOST}/"), ("Pricing", None)])
+    if page == "pro.html":
+        return crumb([("Home", f"{HOST}/"), ("Pro Tools", None)])
+
+    slug = page.replace(".html", "")
+    if page.endswith("-pro.html") and slug in TOOL_META:
+        meta = TOOL_META[slug]
+        return crumb(
+            [
+                ("Home", f"{HOST}/"),
+                ("All Calculators", f"{HOST}/tools.html"),
+                (meta["category"], f"{HOST}/tools.html#{meta['anchor']}"),
+                (meta["name"], None),
+            ]
+        )
+    return None
+
+
+def upsert_breadcrumb(text: str, page: str) -> str:
+    start, end = "<!--SC-SEO-BREADCRUMB-START-->", "<!--SC-SEO-BREADCRUMB-END-->"
+    block = breadcrumb_html(page)
+    if start in text and end in text:
+        if block is None:
+            return re.sub(re.escape(start) + r".*?" + re.escape(end) + r"\n?", "", text, count=1, flags=re.S)
+        return re.sub(
+            re.escape(start) + r".*?" + re.escape(end),
+            block.strip(),
+            text,
+            count=1,
+            flags=re.S,
+        )
+    if block is None:
+        return text
+    if "<!--SC-SITE-NAV-END-->" in text:
+        return text.replace("<!--SC-SITE-NAV-END-->", "<!--SC-SITE-NAV-END-->\n" + block, 1)
+    # Fallback: after <body>
+    return re.sub(r"(<body[^>]*>)", r"\1\n" + block, text, count=1, flags=re.I)
+
+
 def upsert_host_redirect(text: str) -> str:
     start, end = "<!--SC-SEO-HOST-->", "<!--SC-SEO-HOST-END-->"
     if start in text and end in text:
@@ -749,6 +823,7 @@ def process(page: str) -> None:
     text = upsert_host_redirect(text)
     text = upsert_security(text)
     text = upsert_block(text, "<!--SC-SEO-META-START-->", "<!--SC-SEO-META-END-->", page_meta_block(page, title, desc))
+    text = upsert_breadcrumb(text, page)
 
     schemas = [schema_global()]
     slug = page.replace(".html", "")

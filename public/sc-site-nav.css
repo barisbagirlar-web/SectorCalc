@@ -122,3 +122,50 @@ html[data-theme="dark"] body.has-site-header .sc-tool-strip b{ color:#e6ecf3; }
 
 /* Hide legacy topbars when site header is present */
 body.has-site-header .topbar{ display:none !important; }
+
+/* Visible breadcrumb (SEO + UX) — after site header */
+.sc-breadcrumb{
+  padding:0.65rem 1.5rem;
+  font-size:0.8125rem;
+  background:var(--sheet-bg, var(--sc-nav-paper, #F5F5F0));
+  border-bottom:1px solid var(--sheet-line, var(--sc-nav-line, #C5C5BE));
+  font-family:var(--f-body, 'Inter', system-ui, sans-serif);
+}
+html[data-theme="dark"] .sc-breadcrumb{
+  background:var(--sc-nav-paper, #161d27);
+  border-bottom-color:var(--sc-nav-line, #2a3646);
+}
+.sc-breadcrumb ol{
+  display:flex;
+  list-style:none;
+  margin:0 auto;
+  padding:0;
+  gap:0.35rem;
+  max-width:1200px;
+  flex-wrap:wrap;
+  align-items:center;
+}
+.sc-breadcrumb li{
+  display:flex;
+  align-items:center;
+  gap:0.35rem;
+  color:var(--sheet-text-2, var(--sc-nav-mut, #4A4A4A));
+}
+.sc-breadcrumb li:not(:last-child)::after{
+  content:"/";
+  color:var(--sheet-text-3, #999994);
+  margin-left:0.35rem;
+}
+.sc-breadcrumb a{
+  color:var(--iso-blue, var(--sc-nav-blue, #0055A4));
+  text-decoration:none;
+}
+.sc-breadcrumb a:hover{ text-decoration:underline; }
+.sc-breadcrumb [aria-current="page"]{
+  color:var(--sheet-text-2, var(--sc-nav-mut, #4A4A4A));
+  font-weight:600;
+}
+@media (max-width:640px){
+  .sc-breadcrumb{ padding:0.5rem 1rem; font-size:0.75rem; }
+}
+
