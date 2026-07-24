@@ -632,9 +632,12 @@ def upsert_block(text: str, start: str, end: str, block: str) -> str:
 
 
 def upsert_cvw(text: str) -> str:
-    tag = '<script src="/assets/js/cvw-monitor.js" defer></script>'
     marker = "<!--SC-SEO-CVW-->"
-    block = f"{marker}\n{tag}"
+    block = (
+        f"{marker}\n"
+        '<script src="/assets/js/sc-ga4-id.js"></script>\n'
+        '<script src="/assets/js/cvw-monitor.js" defer></script>'
+    )
     if marker in text:
         return re.sub(
             re.escape(marker) + r".*?(?=\n</body>|\n<!--|\Z)",
@@ -643,7 +646,13 @@ def upsert_cvw(text: str) -> str:
             count=1,
             flags=re.S,
         )
-    if tag in text:
+    if 'src="/assets/js/cvw-monitor.js"' in text and "sc-ga4-id.js" not in text:
+        return text.replace(
+            '<script src="/assets/js/cvw-monitor.js" defer></script>',
+            block.replace(marker + "\n", ""),
+            1,
+        )
+    if 'src="/assets/js/cvw-monitor.js"' in text:
         return text
     return re.sub(r"</body>", block + "\n</body>", text, count=1, flags=re.I)
 
