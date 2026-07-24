@@ -6,7 +6,7 @@ SectorCalc ships industrial calculation tools with visible inputs, assumptions, 
 
 ## Architecture (current)
 
-- Shared theme engine: `/sc-theme.css` + `/sc-theme.js` - `data-theme` on `<html>`, localStorage `sectorcalc-theme` (light|dark). Theme CSS also `@import`s the locked form-field sheet so every themed page inherits readable number inputs.
+- Shared theme engine: `/sc-theme.css` + `/sc-theme.js` - `data-theme` on `<html>`, localStorage `sectorcalc-theme` (light|dark). Form fields are linked as a separate `/sc-form-fields.css` stylesheet on each page (theme must not `@import` it — that duplicated a render-blocking request).
 - Theme control `#themeToggle`: click toggles theme; drag repositions; double-click resets position (`sectorcalc-theme-pos`).
 - Shared site header on every public page: `/sc-site-nav.css` + `/sc-site-nav.js` + injected `content/partials/site-header.html` (Tools opens `/tools.html`).
 - Favicon / app icon set on every public page (cache-busted query `?v=`): multi-size `/favicon.ico`, crisp `/favicon.svg` (4-tile mark), `/favicon-32.png`, `/icon-192.png`, `/apple-touch-icon.png`, plus `/site.webmanifest`. Build gate: `scripts/verify-nav.mjs` requires the icon links and dist icon assets.
@@ -23,7 +23,7 @@ SectorCalc ships industrial calculation tools with visible inputs, assumptions, 
   - Render loop pauses when the hero is off-screen or the tab is hidden; `prefers-reduced-motion` keeps a static poster (no WebGL boot).
   - Firebase Hosting long-caches `/vendor/**` (immutable) and versioned theme/nav CSS/JS; HTML stays no-cache.
 - Accessibility baseline (homepage): WCAG AA muted text token `--sheet-text-3: #595959`, orange ink via `--iso-orange-dim` for labels, single `<main id="main-content">` landmark, sequential headings (no h2→h4/h5 skips).
-- Performance baseline (homepage): non-blocking Google Fonts + nav/form-field CSS (`media="print" onload`), no duplicate `sc-form-fields.css` import from theme, responsive logo `srcset` (214w/428w).
+- Performance baseline (homepage): non-blocking Google Fonts + theme/nav/form-field CSS (`media="print" onload`), no duplicate `sc-form-fields.css` import from theme, responsive logo `srcset` (214w/428w), deferred minified Three.js.
 
 ## Primary tools
 
