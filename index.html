@@ -179,38 +179,7 @@ h1,h2,h3,h4{
   transition: background 0.3s ease;
 }
 
-.zone-edge{
-  position: absolute;
-  font-family: var(--f-mono);
-  font-size: 10px;
-  letter-spacing: 0.08em;
-  color: var(--sheet-text-3);
-  pointer-events: none;
-  user-select: none;
-}
-.zone-edge.top{ top: -20px; }
-.zone-edge.bottom{ bottom: -20px; }
-.zone-edge.left{ left: -24px; writing-mode: vertical-rl; transform: rotate(180deg); }
-.zone-edge.right{ right: -24px; writing-mode: vertical-rl; transform: rotate(180deg); }
-@media(max-width:720px){ .zone-edge{ display:none; } }
-
-.reg-mark{
-  position: absolute;
-  width: 16px; height: 16px;
-  pointer-events: none;
-}
-.reg-mark::before, .reg-mark::after{
-  content:"";
-  position:absolute;
-  background: var(--sheet-line-strong);
-}
-.reg-mark::before{ width:100%; height:1.5px; top:50%; left:0; }
-.reg-mark::after{ width:1.5px; height:100%; left:50%; top:0; }
-.reg-mark.tl{ top:-8px; left:-8px; }
-.reg-mark.tr{ top:-8px; right:-8px; }
-.reg-mark.bl{ bottom:-8px; left:-8px; }
-.reg-mark.br{ bottom:-8px; right:-8px; }
-@media(max-width:720px){ .reg-mark{ display:none; } }
+/* zone-edge / reg-mark crop rulers removed — they read as broken debug lines */
 
 .blueprint-grid{
   position:absolute; inset:0;
@@ -1567,35 +1536,33 @@ select:focus-visible{
 [data-theme="dark"] .stage-poster #sp-bg stop:nth-child(2){stop-color:#1A2228}
 .stage-wrap:has(canvas.is-ready) .stage-poster{opacity:0;pointer-events:none}
 /* Poster motion while WebGL boots / if WebGL unavailable */
-.stage-poster .sp-probe{transform-origin:420px 90px;animation:sc-poster-probe 2.8s ease-in-out infinite}
-.stage-poster .sp-readout{animation:sc-poster-readout 2.8s ease-in-out infinite}
-.stage-poster .sp-spin{transform-box:fill-box;transform-origin:center;animation:sc-poster-spin 6s linear infinite}
+.stage-poster .sp-probe{transform-origin:420px 90px;animation:sc-poster-probe 2.2s ease-in-out infinite}
+.stage-poster .sp-readout{animation:sc-poster-readout 2.2s ease-in-out infinite}
+.stage-poster .sp-spin{transform-box:fill-box;transform-origin:center;animation:sc-poster-spin 3.2s ease-in-out infinite}
 @keyframes sc-poster-probe{
-  0%,100%{transform:translateY(0)}
-  35%{transform:translateY(18px)}
-  55%{transform:translateY(18px)}
-  75%{transform:translateY(0)}
+  0%,100%{transform:translate(0,0)}
+  30%{transform:translate(28px,22px)}
+  50%{transform:translate(28px,22px)}
+  70%{transform:translate(56px,0)}
 }
 @keyframes sc-poster-readout{
-  0%,30%,100%{opacity:.35}
-  40%,60%{opacity:1}
+  0%,25%,100%{opacity:.2;transform:translateY(0)}
+  35%,55%{opacity:1;transform:translateY(-4px)}
 }
 @keyframes sc-poster-spin{
-  from{transform:translateX(0)}
-  50%{transform:translateX(6px)}
-  to{transform:translateX(0)}
+  0%,100%{transform:translateX(0)}
+  50%{transform:translateX(14px)}
 }
 @media (prefers-reduced-motion: reduce){
   .stage-wrap canvas,.stage-poster{transition:none}
   .stage-poster .sp-probe,.stage-poster .sp-readout,.stage-poster .sp-spin{animation:none}
 }
 .sc-hero .hud{position:absolute;top:0;left:0;right:0;height:430px;pointer-events:none;font-family:var(--sc-hero-mono)}
-.sc-hero .hud .corner{position:absolute;width:22px;height:22px;border:2px solid rgba(0,85,164,.5)}
-[data-theme="dark"] .sc-hero .hud .corner{border-color:rgba(79,166,214,.55)}
-.sc-hero .hud .c1{top:12px;left:12px;border-right:none;border-bottom:none}
-.sc-hero .hud .c2{top:12px;right:12px;border-left:none;border-bottom:none}
-.sc-hero .hud .c3{bottom:12px;left:12px;border-right:none;border-top:none}
-.sc-hero .hud .c4{bottom:12px;right:12px;border-left:none;border-top:none}
+.sc-hero .hud::before{
+  content:"";position:absolute;inset:10px;border:1.5px solid rgba(0,85,164,.4);border-radius:4px;pointer-events:none;
+}
+[data-theme="dark"] .sc-hero .hud::before{border-color:rgba(79,166,214,.45)}
+.sc-hero .hud .corner{display:none}
 .sc-hero .hud .telemetry{position:absolute;top:16px;left:44px;font-size:10.5px;line-height:1.9;color:var(--sc-hero-blue);letter-spacing:.06em;text-shadow:0 0 6px rgba(255,255,255,.9)}
 [data-theme="dark"] .sc-hero .hud .telemetry{text-shadow:0 0 8px rgba(0,0,0,.65)}
 .sc-hero .hud .telemetry b{color:var(--sc-hero-ink)}
@@ -1637,6 +1604,8 @@ select:focus-visible{
 [data-theme="dark"] .sc-hero .deck-foot .ok{color:#7CC46B}
 @media(max-width:1020px){
   .sc-hero .hero-grid{grid-template-columns:1fr;padding:28px 20px}
+  /* Live cell first on phone/tablet — demo was below the fold and looked "missing" */
+  .sc-hero .hero-grid > .cell{order:-1}
   .sc-hero .deck-top{grid-template-columns:1fr}
   .sc-hero .stage-wrap,.sc-hero #stage{height:340px}
   .sc-hero .hud,.sc-hero .scanline{height:340px}
@@ -1647,9 +1616,9 @@ select:focus-visible{
 {"imports":{"three":"/vendor/three/three.module.min.js",
 "three/addons/environments/RoomEnvironment.js":"/vendor/three/RoomEnvironment.js"}}
 </script>
-<link rel="stylesheet" href="./sc-theme.css?v=11">
-<script src="./sc-theme.js?v=11" defer></script>
-<link rel="stylesheet" href="./sc-site-nav.css?v=3">
+<link rel="stylesheet" href="./sc-theme.css?v=12">
+<script src="./sc-theme.js?v=12" defer></script>
+<link rel="stylesheet" href="./sc-site-nav.css?v=4">
 <script src="./sc-site-nav.js?v=2" defer></script>
 <link rel="stylesheet" href="./sc-form-fields.css?v=5">
 <!--SC-SEO-META-START-->
@@ -1894,13 +1863,11 @@ select:focus-visible{
 
 
 
+
+
 <a href="#main-content" class="skip-link">Skip to main content</a>
 
 <div class="sheet">
-  <div class="reg-mark tl"></div><div class="reg-mark tr"></div><div class="reg-mark bl"></div><div class="reg-mark br"></div>
-  <div class="zone-edge top" style="left:8%;">1</div><div class="zone-edge top" style="left:28%;">2</div><div class="zone-edge top" style="left:48%;">3</div><div class="zone-edge top" style="left:68%;">4</div><div class="zone-edge top" style="left:92%;">5</div>
-  <div class="zone-edge bottom" style="left:8%;">A</div><div class="zone-edge bottom" style="left:28%;">B</div><div class="zone-edge bottom" style="left:48%;">C</div><div class="zone-edge bottom" style="left:68%;">D</div><div class="zone-edge bottom" style="left:92%;">E</div>
-
   <main id="main-content">
   <section class="sc-hero" aria-label="Hero section">
     <div class="hero-grid">
@@ -3248,8 +3215,8 @@ select:focus-visible{
 })();
 </script>
 
-<script type="module" src="/sc-hero-cell.js?v=14"></script>
-<script src="/sc-hero-engine.js?v=14"></script>
+<script type="module" src="/sc-hero-cell.js?v=15"></script>
+<script src="/sc-hero-engine.js?v=15"></script>
 
 
 <!--SC-SEO-CVW-->

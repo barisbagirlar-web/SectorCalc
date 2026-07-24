@@ -12,8 +12,8 @@ const PARTIAL = readFileSync(join(ROOT, 'content/partials/site-header.html'), 'u
 
 const FORM_FIELDS_VERSION = 5;
 const STUDY_VERSION = 2;
-const THEME_VERSION = 11;
-const NAV_VERSION = 3;
+const THEME_VERSION = 12;
+const NAV_VERSION = 4;
 const NAV_ASSETS = `
 <link rel="stylesheet" href="./sc-site-nav.css?v=${NAV_VERSION}">
 <script src="./sc-site-nav.js?v=2" defer></script>
