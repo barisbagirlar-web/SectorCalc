@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { SITE_ORIGIN, TOOL_PAGES, canonicalUrls } from './seo-registry.mjs';
+import { LEGACY_WWW_ORIGIN, SITE_ORIGIN, TOOL_PAGES, canonicalUrls } from './seo-registry.mjs';
 
 const REQUIRED_AGENTS = ['Googlebot', 'Bingbot', 'OAI-SearchBot'];
 const LEGACY_PATHS = [
@@ -14,10 +14,9 @@ const LEGACY_PATHS = [
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-async function fetchFresh(path, init = {}) {
-  const separator = path.includes('?') ? '&' : '?';
-  const url = `${SITE_ORIGIN}${path}${separator}seo_guard=${Date.now()}`;
-  return fetch(url, {
+async function fetchAbsoluteFresh(url, init = {}) {
+  const separator = url.includes('?') ? '&' : '?';
+  return fetch(`${url}${separator}seo_guard=${Date.now()}`, {
     redirect: 'manual',
     cache: 'no-store',
     headers: {
@@ -29,59 +28,75 @@ async function fetchFresh(path, init = {}) {
   });
 }
 
+async function fetchFresh(path, init = {}) {
+  return fetchAbsoluteFresh(`${SITE_ORIGIN}${path}`, init);
+}
+
 function canonicalFrom(html) {
   return html.match(/<link\b[^>]*rel=["']canonical["'][^>]*href=["']([^"']+)["'][^>]*>/i)?.[1] ?? null;
 }
 
 async function runOnce() {
   const issues = [];
+
+  const legacyHost = await fetchAbsoluteFresh(`${LEGACY_WWW_ORIGIN}/`);
+  const legacyLocation = legacyHost.headers.get('location') ?? '';
+  if (![301, 308].includes(legacyHost.status)) issues.push(`www host must permanently redirect, got ${legacyHost.status}`);
+  if (!legacyLocation.startsWith(`${SITE_ORIGIN}/`)) issues.push(`www host redirects outside canonical apex: ${legacyLocation || 'missing Location'}`);
+
   const home = await fetchFresh('/');
   const homeBody = await home.text();
   if (home.status !== 200) issues.push(`home status ${home.status}`);
   if (!homeBody.includes('Turn industrial inputs into defensible decisions.')) issues.push('home body does not match current production architecture');
-  if (canonicalFrom(homeBody) !== `${SITE_ORIGIN}/`) issues.push('home canonical mismatch');
+  if (canonicalFrom(homeBody) !== `${SITE_ORIGIN}/`) issues.push(`home canonical mismatch: ${canonicalFrom(homeBody) ?? 'missing'}`);
 
   const robotsRes = await fetchFresh('/robots.txt');
   const robots = await robotsRes.text();
   if (robotsRes.status !== 200) issues.push(`robots status ${robotsRes.status}`);
   for (const agent of REQUIRED_AGENTS) if (!robots.includes(`User-agent: ${agent}`)) issues.push(`robots missing ${agent}`);
   if (!robots.includes(`Sitemap: ${SITE_ORIGIN}/sitemap.xml`)) issues.push('robots sitemap declaration mismatch');
+  if (robots.includes(LEGACY_WWW_ORIGIN)) issues.push('robots still exposes www discovery URLs');
 
   const sitemapRes = await fetchFresh('/sitemap.xml');
   const sitemap = await sitemapRes.text();
   if (sitemapRes.status !== 200) issues.push(`sitemap status ${sitemapRes.status}`);
   if (sitemap.includes('<priority>') || sitemap.includes('<changefreq>')) issues.push('sitemap contains ignored priority/changefreq signals');
+  if (sitemap.includes(LEGACY_WWW_ORIGIN)) issues.push('sitemap still contains www canonical URLs');
   const locs = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
   const expected = canonicalUrls();
   if (locs.length !== expected.length) issues.push(`sitemap URL count ${locs.length} != ${expected.length}`);
+  if (new Set(locs).size !== locs.length) issues.push('sitemap contains duplicate URLs');
   for (const url of expected) if (!locs.includes(url)) issues.push(`sitemap missing ${url}`);
 
   const llmsRes = await fetchFresh('/llms.txt');
   const llms = await llmsRes.text();
   if (llmsRes.status !== 200) issues.push(`llms status ${llmsRes.status}`);
+  if (llms.includes(LEGACY_WWW_ORIGIN)) issues.push('llms still contains www canonical URLs');
   for (const page of TOOL_PAGES) {
     const url = `${SITE_ORIGIN}${page.path}`;
     if (!llms.includes(url)) issues.push(`llms missing ${url}`);
   }
 
-  for (const page of TOOL_PAGES.slice(0, 5)) {
+  const llmRes = await fetchFresh('/llm.txt');
+  const llm = await llmRes.text();
+  if (llmRes.status !== 200) issues.push(`llm status ${llmRes.status}`);
+  if (llm !== llms) issues.push('llm.txt diverges from llms.txt');
+
+  for (const page of TOOL_PAGES) {
     const response = await fetchFresh(page.path);
     const html = await response.text();
     if (response.status !== 200) issues.push(`${page.path} status ${response.status}`);
     if (canonicalFrom(html) !== `${SITE_ORIGIN}${page.path}`) issues.push(`${page.path} canonical mismatch`);
     if (!html.includes('SoftwareApplication') || !html.includes('WebApplication')) issues.push(`${page.path} missing application schema`);
     if (!/id=["']sc-guide["']/i.test(html)) issues.push(`${page.path} missing visible guide`);
+    if (!/<h1\b/i.test(html)) issues.push(`${page.path} missing raw HTML H1`);
   }
 
   for (const path of LEGACY_PATHS) {
     const response = await fetchFresh(path);
     const body = await response.text();
-    if (response.status !== 404 && response.status !== 410) {
-      issues.push(`${path} must be 404/410, got ${response.status}`);
-    }
-    if (response.status === 200 && body.includes('Turn industrial inputs into defensible decisions.')) {
-      issues.push(`${path} is a homepage soft-404`);
-    }
+    if (response.status !== 404 && response.status !== 410) issues.push(`${path} must be 404/410, got ${response.status}`);
+    if (response.status === 200 && body.includes('Turn industrial inputs into defensible decisions.')) issues.push(`${path} is a homepage soft-404`);
   }
 
   return issues;
@@ -92,7 +107,7 @@ for (let attempt = 1; attempt <= 6; attempt += 1) {
   try {
     lastIssues = await runOnce();
     if (lastIssues.length === 0) {
-      console.log('[PASS] Live SEO guard: production crawl, sitemap, robots, canonicals, schemas and retired-route status are clean');
+      console.log(`[PASS] Live SEO guard: apex host, ${TOOL_PAGES.length} tools, sitemap, robots, AI discovery, schemas and retired-route status are clean`);
       process.exit(0);
     }
   } catch (error) {

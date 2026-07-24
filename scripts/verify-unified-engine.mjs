@@ -3,7 +3,7 @@ import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 
 const ROOT = process.cwd();
-const DIST = join(ROOT, 'dist');
+const DIST = join(ROOT,'dist');
 const SHARED = Object.freeze({
   'weld-pro.html':'SC-001','labor-pro.html':'SC-010','quote-pro.html':'SC-012',
   'machining-pro.html':'SC-020','bearing-pro.html':'SC-021','tap-thread-pro.html':'SC-022','cycle-cost-pro.html':'SC-023','bearing-freq-pro.html':'SC-024','belt-chain-pro.html':'SC-025','shaft-pro.html':'SC-026','fits-pro.html':'SC-027','surface-finish-pro.html':'SC-028','heat-input-pro.html':'SC-029','bend-pro.html':'SC-030','sling-pro.html':'SC-031','shackle-eyebolt-pro.html':'SC-032','pressure-vessel-pro.html':'SC-033','pipe-wall-pro.html':'SC-034','bolt-pro.html':'SC-035','bolted-joint-pro.html':'SC-036','oee-pro.html':'SC-037','machine-rate-pro.html':'SC-038','punching-pro.html':'SC-039','hydraulic-pro.html':'SC-040'
@@ -51,7 +51,7 @@ const plannedCount=(tools.match(/live\s*:\s*false/g)||[]).length;
 if(liveCount!==25) fail(`tools.html expected 25 live entries, found ${liveCount}`); else pass('tools.html = 25 live calculators');
 if(plannedCount!==0) fail(`tools.html still contains ${plannedCount} planned entries`); else pass('tools.html = 0 planned calculators');
 
-const canonicalUrls=ALL_TOOL_FILES.map(file=>`https://www.sectorcalc.com/${file}`);
+const canonicalUrls=ALL_TOOL_FILES.map(file=>`https://sectorcalc.com/${file}`);
 for(const file of ['public/sitemap.xml','public/llms.txt','public/llm.txt']){
   if(!existsSync(join(ROOT,file))){fail(`${file} missing`);continue;}
   const body=text(file);

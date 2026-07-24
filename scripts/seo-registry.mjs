@@ -1,6 +1,7 @@
 import { UNIFIED_TOOL_CODES } from './unified-tool-html.mjs';
 
-export const SITE_ORIGIN = 'https://www.sectorcalc.com';
+export const SITE_ORIGIN = 'https://sectorcalc.com';
+export const LEGACY_WWW_ORIGIN = 'https://www.sectorcalc.com';
 export const ORGANIZATION_ID = `${SITE_ORIGIN}/#organization`;
 export const WEBSITE_ID = `${SITE_ORIGIN}/#website`;
 
