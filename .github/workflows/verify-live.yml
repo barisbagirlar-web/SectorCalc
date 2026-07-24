@@ -11,7 +11,7 @@ permissions:
 jobs:
   verify-live:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
       - name: Mark verification pending
         env:
@@ -23,55 +23,62 @@ jobs:
             -f description='Checking deployed production contract'
       - name: Verify deployed production
         shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
           base='https://www.sectorcalc.com'
           cache_bust="verify=${GITHUB_SHA}"
-          fetch_live() {
-            local path="$1" out="$2" ok=0
-            for attempt in $(seq 1 24); do
+
+          post_status() {
+            local context="$1" state="$2" description="$3"
+            gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}" \
+              -f state="$state" -f context="$context" -f description="$description" >/dev/null
+          }
+
+          fetch_until() {
+            local path="$1" out="$2" pattern="$3" context="$4"
+            for attempt in $(seq 1 30); do
               if curl --fail --silent --show-error --location \
                 --connect-timeout 10 --max-time 30 \
                 -H 'Cache-Control: no-cache' \
-                "${base}${path}?${cache_bust}" -o "$out"; then ok=1; break; fi
+                "${base}${path}?${cache_bust}&attempt=${attempt}" -o "$out" \
+                && grep -Fq "$pattern" "$out"; then
+                post_status "$context" success "Live contract verified: ${path}"
+                return 0
+              fi
               sleep 5
             done
-            if [ "$ok" -ne 1 ]; then echo "::error::Live fetch failed for ${path}"; exit 1; fi
+            post_status "$context" failure "Live contract mismatch: ${path}"
+            echo "::error::Live content did not converge for ${path}; expected: ${pattern}"
+            return 1
           }
 
-          fetch_live '/tools.html' /tmp/tools.html
-          grep -q 'id="stLive">25<' /tmp/tools.html
-          grep -q '25</div><div class="l">Live calculators' /tmp/tools.html
+          fetch_until '/tools.html' /tmp/tools.html 'id="stLive">25<' 'SectorCalc Live Tools'
+          grep -Fq '25</div><div class="l">Live calculators' /tmp/tools.html
 
-          fetch_live '/bearing-pro.html' /tmp/bearing.html
-          grep -q 'data-tool-code="SC-021"' /tmp/bearing.html
-          grep -q 'A1 · Engine Identity &amp; Integrity' /tmp/bearing.html
-          grep -q 'auditWarnings' /tmp/bearing.html
+          fetch_until '/bearing-pro.html' /tmp/bearing.html 'data-tool-code="SC-021"' 'SectorCalc Live Decimal Pages'
+          grep -Fq 'A1 · Engine Identity &amp; Integrity' /tmp/bearing.html
+          grep -Fq 'auditWarnings' /tmp/bearing.html
 
-          fetch_live '/quote-pro.html' /tmp/quote.html
-          grep -q 'data-tool-code="SC-012"' /tmp/quote.html
-          grep -q 'auditFormulas' /tmp/quote.html
+          fetch_until '/quote-pro.html' /tmp/quote.html 'data-tool-code="SC-012"' 'SectorCalc Live Quote'
+          grep -Fq 'auditFormulas' /tmp/quote.html
 
-          fetch_live '/heat-input-pro.html' /tmp/heat.html
-          grep -q 'data-tool-code="SC-029"' /tmp/heat.html
-          grep -q 'auditAssumptions' /tmp/heat.html
+          fetch_until '/heat-input-pro.html' /tmp/heat.html 'data-tool-code="SC-029"' 'SectorCalc Live Weld Heat'
+          grep -Fq 'auditAssumptions' /tmp/heat.html
 
-          fetch_live '/sc008-pro.html' /tmp/sc008.html
-          grep -q 'SC-008' /tmp/sc008.html
+          fetch_until '/sc008-pro.html' /tmp/sc008.html 'SC-008' 'SectorCalc Live SC008'
 
-          fetch_live '/sitemap.xml' /tmp/sitemap.xml
-          grep -q 'https://www.sectorcalc.com/hydraulic-pro.html' /tmp/sitemap.xml
-          grep -q 'https://www.sectorcalc.com/bearing-freq-pro.html' /tmp/sitemap.xml
-          grep -q '2026-07-24' /tmp/sitemap.xml
+          fetch_until '/sitemap.xml' /tmp/sitemap.xml 'https://www.sectorcalc.com/hydraulic-pro.html' 'SectorCalc Live Sitemap'
+          grep -Fq 'https://www.sectorcalc.com/bearing-freq-pro.html' /tmp/sitemap.xml
+          grep -Fq '2026-07-24' /tmp/sitemap.xml
 
-          fetch_live '/llms.txt' /tmp/llms.txt
-          grep -q '24 calculators use the schema-driven Decimal.js industrial runtime' /tmp/llms.txt
-          grep -q 'All tools — 25 live, 0 planned' /tmp/llms.txt
-          grep -q 'A1-A5 Audit/Review' /tmp/llms.txt
+          fetch_until '/llms.txt' /tmp/llms.txt '24 calculators use the schema-driven Decimal.js industrial runtime' 'SectorCalc Live LLMS'
+          grep -Fq 'All tools — 25 live, 0 planned' /tmp/llms.txt
+          grep -Fq 'A1-A5 Audit/Review' /tmp/llms.txt
 
-          fetch_live '/llm.txt' /tmp/llm.txt
-          grep -q 'SC-040 Hydraulic Cylinder Sizing' /tmp/llm.txt
-          grep -q 'deterministic input hash' /tmp/llm.txt
+          fetch_until '/llm.txt' /tmp/llm.txt 'SC-040 Hydraulic Cylinder Sizing' 'SectorCalc Live LLM'
+          grep -Fq 'deterministic input hash' /tmp/llm.txt
 
           echo 'LIVE_PRODUCTION_VERIFY=PASS'
       - name: Mark verification success
