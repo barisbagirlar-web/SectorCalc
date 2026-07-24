@@ -4,6 +4,10 @@ on:
   push:
   pull_request:
 
+permissions:
+  contents: read
+  pull-requests: write
+
 jobs:
   language-gate:
     runs-on: ubuntu-latest
@@ -24,7 +28,25 @@ jobs:
           node-version-file: '.nvmrc'
           cache: npm
       - run: npm ci
-      - run: npm run typecheck
+      - name: Typecheck with PR diagnostics
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set +e
+          npm run typecheck > typecheck.log 2>&1
+          status=$?
+          cat typecheck.log
+          if [ "$status" -ne 0 ] && [ "${{ github.event_name }}" = "pull_request" ]; then
+            {
+              echo '### Typecheck diagnostics'
+              echo '```text'
+              head -n 80 typecheck.log
+              echo '```'
+            } > typecheck-comment.md
+            gh pr comment "${{ github.event.pull_request.number }}" --body-file typecheck-comment.md
+          fi
+          exit "$status"
       - run: npm test
       - run: npm run build
       - run: node scripts/verify-nav.mjs
