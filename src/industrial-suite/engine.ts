@@ -154,8 +154,23 @@ export function cosDeg(v: Decimal): Decimal { return D(String(Math.cos(v.toNumbe
 export function tanDeg(v: Decimal): Decimal { return D(String(Math.tan(v.toNumber() * Math.PI / 180))); }
 export function expD(v: Decimal): Decimal { return D(String(Math.exp(v.toNumber()))); }
 
-export function output(id: string, label: string, value: Decimal | string, unit: string, precision = 3, note = '', primary = false, risk?: Decimal): OutputValue {
-  return { id, label, value, unit, precision, note, primary, risk };
+export function output(
+  id: string,
+  label: string,
+  value: Decimal | string,
+  unit: string,
+  precision = 3,
+  noteOrPrimary: string | boolean = '',
+  primaryOrRisk: boolean | Decimal = false,
+  risk?: Decimal
+): OutputValue {
+  if (typeof noteOrPrimary === 'boolean') {
+    const compactRisk = primaryOrRisk instanceof Decimal ? primaryOrRisk : risk;
+    return { id, label, value, unit, precision, note: '', primary: noteOrPrimary, risk: compactRisk };
+  }
+  const primary = typeof primaryOrRisk === 'boolean' ? primaryOrRisk : false;
+  const normalizedRisk = primaryOrRisk instanceof Decimal ? primaryOrRisk : risk;
+  return { id, label, value, unit, precision, note: noteOrPrimary, primary, risk: normalizedRisk };
 }
 
 export function warning(severity: Severity, title: string, detail: string): WarningItem {
