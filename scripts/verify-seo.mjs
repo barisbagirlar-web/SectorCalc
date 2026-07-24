@@ -48,6 +48,12 @@ for (const page of pages) {
 if (sm.includes('https://www.sectorcalc.com/') && !sm.includes('https://sectorcalc.com/')) {
   fail('sitemap still uses www without apex canonical host');
 }
+// HTML sitemap must not list discovery/binary endpoints (indexation noise)
+for (const junk of ['llm.txt', 'llms.txt', 'site.webmanifest', 'robots.txt', 'ai-robots.txt']) {
+  if (sm.includes(`<loc>${HOST}/${junk}</loc>`)) {
+    fail(`sitemap must not list non-HTML URL: ${junk}`);
+  }
+}
 if (/hreflang="(de|ja|zh)"/.test(sm)) {
   fail('sitemap claims hreflang locales without localized pages');
 }
