@@ -1,8 +1,10 @@
 import { defineConfig } from 'vite';
+import { unifiedToolHtmlPlugin } from './scripts/unified-tool-html.mjs';
 
 export default defineConfig({
   root: '.',
   base: './', // Firebase Hosting subdirectory compatibility
+  plugins: [unifiedToolHtmlPlugin()],
 
   build: {
     outDir: 'dist',
@@ -51,18 +53,18 @@ export default defineConfig({
 
   server: {
     port: 5173,
-    strictPort: true, // do not silently switch ports if 5173 is taken
+    strictPort: true,
     open: false
   },
 
   test: {
-    environment: 'node', // core tests use no DOM; crypto.subtle is global in Node 20
+    environment: 'node',
     globals: true,
     include: ['src/**/*.test.ts', 'tests/**/*.test.ts'],
     coverage: {
       provider: 'v8',
-      all: false, // lock behavior; do not rely on version defaults
-      include: ['src/core/**', 'src/tools/**', 'src/components/**', 'src/lib/**'], // scope to tested code; widen as modules land
+      all: false,
+      include: ['src/core/**', 'src/tools/**', 'src/components/**', 'src/lib/**'],
       exclude: ['**/*.test.ts', 'node_modules/**', 'dist/**'],
       reporter: ['text', 'html', 'lcov'],
       thresholds: {
