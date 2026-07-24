@@ -120,7 +120,8 @@ function checkPage(page) {
     if (!html.includes('sc-tool-guide.css')) issues.push(`${page}: missing sc-tool-guide.css`);
     if (!html.includes('sc-tool-guide.js')) issues.push(`${page}: missing sc-tool-guide.js`);
     if (!html.includes('id="sc-guide"')) issues.push(`${page}: missing #sc-guide SEO section`);
-    // Engagement mounts under CALCULATE / Generate Report via sc-tool-guide.js (data-sc-engage-slot=form)    if (!/<link[^>]+sc-form-fields\.css/i.test(html)) issues.push(`${page}: missing sc-form-fields.css`);
+    if (!/<link[^>]+sc-form-fields\.css/i.test(html)) issues.push(`${page}: missing sc-form-fields.css`);
+    // Engagement mounts under CALCULATE / Generate Report via sc-tool-guide.js (data-sc-engage-slot=form)
   }
 
   // Site pages (not legacy calculator redirects) must ship the shared theme engine

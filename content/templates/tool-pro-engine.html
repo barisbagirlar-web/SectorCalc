@@ -37,6 +37,7 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--i
 .uwrap input{flex:1 1 auto;min-width:5.75rem;padding:8px 10px;font-family:var(--mono);font-variant-numeric:tabular-nums}
 .uwrap select.units{flex:0 0 auto;min-width:3.75rem;max-width:5.5rem;padding:8px 6px;font-size:11px;font-weight:600;background:var(--thead)}
 .ref{font-size:10px;color:#8593a5;margin-top:2px;font-style:italic}
+.btn{display:inline-block;background:var(--accent);color:#fff;border:none;padding:12px 26px;font-size:14px;font-weight:700;border-radius:7px;cursor:pointer;width:100%;margin-top:8px}
 </style>
 <link rel="stylesheet" href="./sc-theme.css?v=8">
 <script src="./sc-theme.js?v=8" defer></script>
@@ -68,6 +69,7 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--i
             </div>
           </div>
         </div>
+        <button class="btn" id="calcBtn" type="button">CALCULATE &amp; AUDIT</button>
       </div>
     </div>
     <div class="panel">
@@ -82,6 +84,7 @@ body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--i
   const out = document.getElementById('liveResult');
   const sync = () => { out.textContent = 'Value: ' + (input.value || '—'); };
   input.addEventListener('input', sync);
+  document.getElementById('calcBtn').addEventListener('click', sync);
   sync();
 </script>
 </body>

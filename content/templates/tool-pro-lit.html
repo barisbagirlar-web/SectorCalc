@@ -32,6 +32,9 @@
   .sc-live{margin:14px 20px;padding:16px 18px;border:1px solid rgba(0,85,164,0.14);border-radius:var(--radius-sm);background:rgba(0,85,164,0.04)}
   .sc-live-hd{font-size:9px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:var(--accent-blue);margin-bottom:6px}
   .sc-live-val{font-family:var(--font-mono);font-size:26px;font-weight:700}
+  .sc-sidebar-ft{padding:14px 20px;border-top:1px solid var(--border-soft);display:flex;gap:8px;flex-wrap:wrap}
+  .sc-btn{padding:10px 18px;border-radius:var(--radius-sm);font-size:12px;font-weight:700;cursor:pointer;border:none;font-family:var(--font-sans)}
+  .sc-btn-primary{background:var(--accent-blue);color:#fff;flex:1;justify-content:center;display:inline-flex;align-items:center}
 </style>
 <link rel="stylesheet" href="./sc-theme.css?v=8">
 <script src="./sc-theme.js?v=8" defer></script>
@@ -58,6 +61,9 @@
       <div class="sc-live-hd">Live result</div>
       <div class="sc-live-val" id="liveResult">—</div>
     </div>
+    <div class="sc-sidebar-ft">
+      <button class="sc-btn sc-btn-primary" type="button" id="genReport">Generate Report</button>
+    </div>
   </aside>
   <main class="sc-main">
     <h1>{{TITLE}}</h1>
@@ -71,6 +77,7 @@
   const out = document.getElementById('liveResult');
   const sync = () => { out.textContent = input.value || '—'; };
   input.addEventListener('input', sync);
+  document.getElementById('genReport')?.addEventListener('click', sync);
   sync();
 </script>
 </body>

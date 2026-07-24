@@ -39,6 +39,7 @@ Every SectorCalc calculator (`*-pro.html`) MUST use the shared form layout so nu
 - Number + unit side-by-side without `.sc-input-wrap` / `.uwrap`
 - Shipping a new `*-pro.html` without `sc-form-fields.css`
 - Three narrow columns of numeric+unit fields without enough width (use max 2 cols)
+- Engagement bar only in the SEO guide — it must mount under `#calcBtn` or `.sc-sidebar-ft`
 
 ## New tools
 

@@ -19,5 +19,7 @@ npm run build
 - `public/sc-form-fields.css` — readability rules (also pulled into `sc-theme.css`)
 - `scripts/verify-form-fields.mjs` — build gate
 - `.cursor/rules/calc-form-fields.mdc` — agent rule
+- `public/sc-tool-guide.js` — mounts engagement under `#calcBtn` or `.sc-sidebar-ft`
 
 Digits in inputs must never clip. Never set `min-width:0` on value inputs beside units.
+Engine templates must keep `id="calcBtn"`; Lit templates must keep `.sc-sidebar-ft` so the engagement bar can mount under the form action.

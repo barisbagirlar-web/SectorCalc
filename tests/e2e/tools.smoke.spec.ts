@@ -184,6 +184,34 @@ test('tools.html search narrows live as query grows', async ({ page }) => {
   await expect(page.locator('#catalog .catsec')).toHaveCount(1);
 });
 
+test('engagement mounts under form action on every live tool', async ({ page }) => {
+  const tools = [
+    { url: '/machining-pro.html', mode: 'calcBtn' },
+    { url: '/bearing-pro.html', mode: 'calcBtn' },
+    { url: '/sc008-pro.html', mode: 'sidebar' },
+    { url: '/labor-pro.html', mode: 'sidebar' },
+    { url: '/quote-pro.html', mode: 'sidebar' },
+    { url: '/weld-pro.html', mode: 'sidebar' }
+  ];
+  for (const t of tools) {
+    await page.goto(t.url);
+    const formEngage = page.locator('[data-sc-engage-slot="form"] .sc-engage');
+    await expect(formEngage).toBeVisible({ timeout: 5000 });
+    await expect(formEngage).toContainText(/find this calculator helpful/i);
+    const placed = await page.evaluate((mode) => {
+      const host = document.querySelector('[data-sc-engage-slot="form"]');
+      if (!host) return false;
+      if (mode === 'calcBtn') {
+        const btn = document.getElementById('calcBtn');
+        return !!(btn && btn.nextElementSibling === host);
+      }
+      const ft = document.querySelector('.sc-sidebar-ft');
+      return !!(ft && ft.contains(host));
+    }, t.mode);
+    expect(placed, `${t.url} engagement placement`).toBeTruthy();
+  }
+});
+
 test('discovery files are served as text/xml', async ({ request }) => {
   const robots = await request.get('/robots.txt');
   expect(robots.ok()).toBeTruthy();
@@ -203,9 +231,12 @@ test('discovery files are served as text/xml', async ({ request }) => {
   expect(llmsText).toContain('sc-form-fields.css');
   expect(llmsText).toContain('section cards');
   expect(llmsText).toContain('typeahead');
+  expect(llmsText).toContain('data-sc-engage-slot');
+  expect(llmsText).toContain('CALCULATE & AUDIT');
   const llm = await request.get('/llm.txt');
   expect(llm.ok()).toBeTruthy();
   const llmText = await llm.text();
   expect(llmText).toContain('SC-010');
   expect(llmText).toContain('sc-form-fields.css');
+  expect(llmText).toContain('Generate Report');
 });
