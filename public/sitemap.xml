@@ -1,195 +1,271 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<!-- SectorCalc main sitemap — .html URLs match Firebase cleanUrls:false -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://www.sectorcalc.com/</loc>
     <lastmod>2026-07-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sectorcalc.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sectorcalc.com/"/>
+    <image:image>
+      <image:loc>https://www.sectorcalc.com/assets/images/sectorcalc-og-1200x630.jpg</image:loc>
+      <image:title>SectorCalc — Deterministic Industrial Decision Calculators</image:title>
+      <image:caption>Client-side deterministic engineering calculators with ISO-standard audit trails</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.sectorcalc.com/sectorcalc-logo.png</image:loc>
+      <image:title>SectorCalc wordmark</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://www.sectorcalc.com/tools.html</loc>
     <lastmod>2026-07-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sectorcalc.com/tools.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sectorcalc.com/tools.html"/>
   </url>
   <url>
     <loc>https://www.sectorcalc.com/pro.html</loc>
     <lastmod>2026-07-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sectorcalc.com/pro.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sectorcalc.com/pro.html"/>
   </url>
   <url>
-    <loc>https://www.sectorcalc.com/sc008-pro.html</loc>
+    <loc>https://www.sectorcalc.com/pricing.html</loc>
     <lastmod>2026-07-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.sectorcalc.com/machining-pro.html</loc>
-    <lastmod>2026-07-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.sectorcalc.com/bearing-pro.html</loc>
-    <lastmod>2026-07-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.sectorcalc.com/tap-thread-pro.html</loc>
-    <lastmod>2026-07-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.sectorcalc.com/cycle-cost-pro.html</loc>
-    <lastmod>2026-07-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sectorcalc.com/pricing.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sectorcalc.com/pricing.html"/>
   </url>
   <url>
     <loc>https://www.sectorcalc.com/bearing-freq-pro.html</loc>
     <lastmod>2026-07-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sectorcalc.com/bearing-freq-pro.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sectorcalc.com/bearing-freq-pro.html"/>
+  </url>
+  <url>
+    <loc>https://www.sectorcalc.com/bearing-pro.html</loc>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sectorcalc.com/bearing-pro.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sectorcalc.com/bearing-pro.html"/>
   </url>
   <url>
     <loc>https://www.sectorcalc.com/belt-chain-pro.html</loc>
     <lastmod>2026-07-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.sectorcalc.com/shaft-pro.html</loc>
-    <lastmod>2026-07-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.sectorcalc.com/fits-pro.html</loc>
-    <lastmod>2026-07-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.sectorcalc.com/surface-finish-pro.html</loc>
-    <lastmod>2026-07-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.sectorcalc.com/heat-input-pro.html</loc>
-    <lastmod>2026-07-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sectorcalc.com/belt-chain-pro.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sectorcalc.com/belt-chain-pro.html"/>
   </url>
   <url>
     <loc>https://www.sectorcalc.com/bend-pro.html</loc>
     <lastmod>2026-07-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.sectorcalc.com/sling-pro.html</loc>
-    <lastmod>2026-07-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.sectorcalc.com/shackle-eyebolt-pro.html</loc>
-    <lastmod>2026-07-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.sectorcalc.com/pressure-vessel-pro.html</loc>
-    <lastmod>2026-07-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.sectorcalc.com/pipe-wall-pro.html</loc>
-    <lastmod>2026-07-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sectorcalc.com/bend-pro.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sectorcalc.com/bend-pro.html"/>
   </url>
   <url>
     <loc>https://www.sectorcalc.com/bolt-pro.html</loc>
     <lastmod>2026-07-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sectorcalc.com/bolt-pro.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sectorcalc.com/bolt-pro.html"/>
   </url>
   <url>
     <loc>https://www.sectorcalc.com/bolted-joint-pro.html</loc>
     <lastmod>2026-07-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sectorcalc.com/bolted-joint-pro.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sectorcalc.com/bolted-joint-pro.html"/>
   </url>
   <url>
-    <loc>https://www.sectorcalc.com/oee-pro.html</loc>
+    <loc>https://www.sectorcalc.com/cycle-cost-pro.html</loc>
     <lastmod>2026-07-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sectorcalc.com/cycle-cost-pro.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sectorcalc.com/cycle-cost-pro.html"/>
   </url>
   <url>
-    <loc>https://www.sectorcalc.com/machine-rate-pro.html</loc>
+    <loc>https://www.sectorcalc.com/fits-pro.html</loc>
     <lastmod>2026-07-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sectorcalc.com/fits-pro.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sectorcalc.com/fits-pro.html"/>
   </url>
   <url>
-    <loc>https://www.sectorcalc.com/punching-pro.html</loc>
+    <loc>https://www.sectorcalc.com/heat-input-pro.html</loc>
     <lastmod>2026-07-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sectorcalc.com/heat-input-pro.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sectorcalc.com/heat-input-pro.html"/>
   </url>
   <url>
     <loc>https://www.sectorcalc.com/hydraulic-pro.html</loc>
     <lastmod>2026-07-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sectorcalc.com/hydraulic-pro.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sectorcalc.com/hydraulic-pro.html"/>
   </url>
   <url>
     <loc>https://www.sectorcalc.com/labor-pro.html</loc>
     <lastmod>2026-07-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sectorcalc.com/labor-pro.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sectorcalc.com/labor-pro.html"/>
+  </url>
+  <url>
+    <loc>https://www.sectorcalc.com/machine-rate-pro.html</loc>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sectorcalc.com/machine-rate-pro.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sectorcalc.com/machine-rate-pro.html"/>
+  </url>
+  <url>
+    <loc>https://www.sectorcalc.com/machining-pro.html</loc>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sectorcalc.com/machining-pro.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sectorcalc.com/machining-pro.html"/>
+  </url>
+  <url>
+    <loc>https://www.sectorcalc.com/oee-pro.html</loc>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sectorcalc.com/oee-pro.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sectorcalc.com/oee-pro.html"/>
+  </url>
+  <url>
+    <loc>https://www.sectorcalc.com/pipe-wall-pro.html</loc>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sectorcalc.com/pipe-wall-pro.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sectorcalc.com/pipe-wall-pro.html"/>
+  </url>
+  <url>
+    <loc>https://www.sectorcalc.com/pressure-vessel-pro.html</loc>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sectorcalc.com/pressure-vessel-pro.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sectorcalc.com/pressure-vessel-pro.html"/>
+  </url>
+  <url>
+    <loc>https://www.sectorcalc.com/punching-pro.html</loc>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sectorcalc.com/punching-pro.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sectorcalc.com/punching-pro.html"/>
   </url>
   <url>
     <loc>https://www.sectorcalc.com/quote-pro.html</loc>
     <lastmod>2026-07-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sectorcalc.com/quote-pro.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sectorcalc.com/quote-pro.html"/>
+  </url>
+  <url>
+    <loc>https://www.sectorcalc.com/sc008-pro.html</loc>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sectorcalc.com/sc008-pro.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sectorcalc.com/sc008-pro.html"/>
+  </url>
+  <url>
+    <loc>https://www.sectorcalc.com/shackle-eyebolt-pro.html</loc>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sectorcalc.com/shackle-eyebolt-pro.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sectorcalc.com/shackle-eyebolt-pro.html"/>
+  </url>
+  <url>
+    <loc>https://www.sectorcalc.com/shaft-pro.html</loc>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sectorcalc.com/shaft-pro.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sectorcalc.com/shaft-pro.html"/>
+  </url>
+  <url>
+    <loc>https://www.sectorcalc.com/sling-pro.html</loc>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sectorcalc.com/sling-pro.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sectorcalc.com/sling-pro.html"/>
+  </url>
+  <url>
+    <loc>https://www.sectorcalc.com/surface-finish-pro.html</loc>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sectorcalc.com/surface-finish-pro.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sectorcalc.com/surface-finish-pro.html"/>
+  </url>
+  <url>
+    <loc>https://www.sectorcalc.com/tap-thread-pro.html</loc>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sectorcalc.com/tap-thread-pro.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sectorcalc.com/tap-thread-pro.html"/>
   </url>
   <url>
     <loc>https://www.sectorcalc.com/weld-pro.html</loc>
     <lastmod>2026-07-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.sectorcalc.com/pricing.html</loc>
-    <lastmod>2026-07-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.sectorcalc.com/llms.txt</loc>
-    <lastmod>2026-07-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sectorcalc.com/weld-pro.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sectorcalc.com/weld-pro.html"/>
   </url>
   <url>
     <loc>https://www.sectorcalc.com/llm.txt</loc>
     <lastmod>2026-07-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sectorcalc.com/llm.txt"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sectorcalc.com/llm.txt"/>
+  </url>
+  <url>
+    <loc>https://www.sectorcalc.com/llms.txt</loc>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sectorcalc.com/llms.txt"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sectorcalc.com/llms.txt"/>
   </url>
   <url>
     <loc>https://www.sectorcalc.com/site.webmanifest</loc>
     <lastmod>2026-07-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.2</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.sectorcalc.com/site.webmanifest"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.sectorcalc.com/site.webmanifest"/>
   </url>
 </urlset>
