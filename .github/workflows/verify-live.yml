@@ -1,4 +1,4 @@
-name: Verify Live Production
+name: Execute Verified Production Release
 
 on:
   push:
@@ -9,92 +9,120 @@ permissions:
   statuses: write
 
 jobs:
-  verify-live:
+  release-main:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 60
     steps:
-      - name: Mark verification pending
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}" \
-            -f state=pending \
-            -f context='SectorCalc Live Production Verify' \
-            -f description='Checking deployed production contract'
-      - name: Verify deployed production
+      - name: Checkout verified main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Resolve release SHA and mark pending
+        id: release
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
+          release_sha="$(git rev-parse HEAD)"
+          echo "sha=${release_sha}" >> "$GITHUB_OUTPUT"
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${release_sha}" \
+            -f state=pending \
+            -f context='SectorCalc Production Deploy' \
+            -f description='Verified main build, guards and Firebase deployment in progress'
+      - name: Verify Firebase credential present
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+        run: |
+          if [ -z "${FIREBASE_TOKEN:-}" ]; then
+            echo '::error::FIREBASE_TOKEN secret is not configured.'
+            exit 1
+          fi
+      - name: Install locked dependencies
+        run: npm ci --no-audit --no-fund
+      - name: English-only language gate
+        run: node scripts/check-language.mjs --strict
+      - name: Unit + golden + industrial regression tests
+        run: npm test
+      - name: Strict TypeScript
+        run: npm run typecheck
+      - name: Build + navigation + form + unified-engine guards
+        run: npm run build
+      - name: Deploy Firebase Hosting (sectorcalc-prod)
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+        run: npx --yes firebase-tools@14 deploy --only hosting --project sectorcalc-prod --token "$FIREBASE_TOKEN"
+      - name: Verify live production contract
+        shell: bash
+        run: |
           set -euo pipefail
           base='https://www.sectorcalc.com'
-          cache_bust="verify=${GITHUB_SHA}"
-
-          post_status() {
-            local context="$1" state="$2" description="$3"
-            gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}" \
-              -f state="$state" -f context="$context" -f description="$description" >/dev/null
-          }
+          release_sha='${{ steps.release.outputs.sha }}'
 
           fetch_until() {
-            local path="$1" out="$2" pattern="$3" context="$4"
+            local path="$1" out="$2" pattern="$3"
             for attempt in $(seq 1 30); do
               if curl --fail --silent --show-error --location \
                 --connect-timeout 10 --max-time 30 \
                 -H 'Cache-Control: no-cache' \
-                "${base}${path}?${cache_bust}&attempt=${attempt}" -o "$out" \
+                "${base}${path}?release=${release_sha}&attempt=${attempt}" -o "$out" \
                 && grep -Fq "$pattern" "$out"; then
-                post_status "$context" success "Live contract verified: ${path}"
                 return 0
               fi
               sleep 5
             done
-            post_status "$context" failure "Live contract mismatch: ${path}"
             echo "::error::Live content did not converge for ${path}; expected: ${pattern}"
             return 1
           }
 
-          fetch_until '/tools.html' /tmp/tools.html 'id="stLive">25<' 'SectorCalc Live Tools'
+          fetch_until '/tools.html' /tmp/tools.html 'id="stLive">25<'
           grep -Fq '25</div><div class="l">Live calculators' /tmp/tools.html
 
-          fetch_until '/bearing-pro.html' /tmp/bearing.html 'data-tool-code="SC-021"' 'SectorCalc Live Decimal Pages'
+          fetch_until '/bearing-pro.html' /tmp/bearing.html 'data-tool-code="SC-021"'
           grep -Fq 'A1 · Engine Identity &amp; Integrity' /tmp/bearing.html
           grep -Fq 'auditWarnings' /tmp/bearing.html
 
-          fetch_until '/quote-pro.html' /tmp/quote.html 'data-tool-code="SC-012"' 'SectorCalc Live Quote'
+          fetch_until '/quote-pro.html' /tmp/quote.html 'data-tool-code="SC-012"'
           grep -Fq 'auditFormulas' /tmp/quote.html
 
-          fetch_until '/heat-input-pro.html' /tmp/heat.html 'data-tool-code="SC-029"' 'SectorCalc Live Weld Heat'
+          fetch_until '/heat-input-pro.html' /tmp/heat.html 'data-tool-code="SC-029"'
           grep -Fq 'auditAssumptions' /tmp/heat.html
 
-          fetch_until '/sc008-pro.html' /tmp/sc008.html 'SC-008' 'SectorCalc Live SC008'
+          fetch_until '/sc008-pro.html' /tmp/sc008.html 'SC-008'
 
-          fetch_until '/sitemap.xml' /tmp/sitemap.xml 'https://www.sectorcalc.com/hydraulic-pro.html' 'SectorCalc Live Sitemap'
+          fetch_until '/sitemap.xml' /tmp/sitemap.xml 'https://www.sectorcalc.com/hydraulic-pro.html'
           grep -Fq 'https://www.sectorcalc.com/bearing-freq-pro.html' /tmp/sitemap.xml
           grep -Fq '2026-07-24' /tmp/sitemap.xml
 
-          fetch_until '/llms.txt' /tmp/llms.txt '24 calculators use the schema-driven Decimal.js industrial runtime' 'SectorCalc Live LLMS'
+          fetch_until '/llms.txt' /tmp/llms.txt '24 calculators use the schema-driven Decimal.js industrial runtime'
           grep -Fq 'All tools — 25 live, 0 planned' /tmp/llms.txt
           grep -Fq 'A1-A5 Audit/Review' /tmp/llms.txt
 
-          fetch_until '/llm.txt' /tmp/llm.txt 'SC-040 Hydraulic Cylinder Sizing' 'SectorCalc Live LLM'
+          fetch_until '/llm.txt' /tmp/llm.txt 'SC-040 Hydraulic Cylinder Sizing'
           grep -Fq 'deterministic input hash' /tmp/llm.txt
 
           echo 'LIVE_PRODUCTION_VERIFY=PASS'
-      - name: Mark verification success
+      - name: Mark main production deploy success
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}" \
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${{ steps.release.outputs.sha }}" \
             -f state=success \
-            -f context='SectorCalc Live Production Verify' \
-            -f description='Live 25-tool, audit and discovery contract verified'
-      - name: Mark verification failure
+            -f context='SectorCalc Production Deploy' \
+            -f description='Firebase deploy and live 25-tool verification passed'
+      - name: Mark main production deploy failure
         if: failure()
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}" \
-            -f state=failure \
-            -f context='SectorCalc Live Production Verify' \
-            -f description='Live production contract verification failed'
+          release_sha='${{ steps.release.outputs.sha }}'
+          if [ -n "$release_sha" ]; then
+            gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${release_sha}" \
+              -f state=failure \
+              -f context='SectorCalc Production Deploy' \
+              -f description='Production build, deploy or live verification failed'
+          fi
