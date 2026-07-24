@@ -82,6 +82,7 @@ Every live calculator ships an English demo toolbar: **Load Demo Data**, **Reset
 - Canonical host: `https://www.sectorcalc.com` (`.html` URLs; Firebase `cleanUrls: false`). Apex `sectorcalc.com` client-redirects to `www` via `SC-SEO-HOST` boot script; set Firebase Console primary domain redirect when available.
 - Discovery: `/robots.txt` (Googlebot Allow:/), `/sitemap.xml` (hreflang en + x-default only), `/sitemap-images.xml` (real assets + per-page OG JPEGs), `/sitemap-videos.xml` (empty until real videos), `/llm.txt`, `/llms.txt`.
 - Every public HTML page: unique `<title>`, meta description, single `<h1>`, canonical, OG/Twitter (`/assets/images/og-{slug}-1200x630.jpg`), Schema Mesh (Organization, Person/IIT E-E-A-T, WebSite, SoftwareApplication, HowTo, BreadcrumbList; pricing Product offers as PreOrder). Existing guide `FAQPage` kept. **No AggregateRating/Review.**
+- Visible E-E-A-T on every `*-pro.html`: Academic Oversight & Expert Review band for **Prof. Dr. Neela Nataraj** (Department of Mathematics · IIT Bombay) with Person microdata + JSON-LD `reviewedBy` → `#person-neela-nataraj`. Asset: `/sc-eeat.css`.
 - `WebSite.potentialAction` SearchAction → `/tools.html?q={search_term_string}` is wired (omni search hydrates from `?q=` and syncs the URL).
 - Custom `/404.html` (noindex) + Firebase rewrite catch-all removed (real HTTP 404).
 - CVW probe `/assets/js/cvw-monitor.js` + `/assets/js/sc-ga4-id.js` (set `window.__SC_GA4_ID__` to a real GA4 Measurement ID to enable send). Build gate: `scripts/verify-seo.mjs`.

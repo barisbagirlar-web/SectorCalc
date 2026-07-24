@@ -411,6 +411,7 @@ def schema_tool(slug: str, meta: dict) -> str:
                 "softwareVersion": meta["version"],
                 "provider": {"@id": f"{HOST}/#organization"},
                 "author": {"@id": f"{HOST}/#organization"},
+                "reviewedBy": {"@id": f"{HOST}/#person-neela-nataraj"},
                     "screenshot": {
                         "@type": "ImageObject",
                         "url": f"{HOST}/assets/images/og-{slug}-1200x630.jpg",

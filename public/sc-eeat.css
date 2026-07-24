@@ -1,0 +1,105 @@
+/* SectorCalc — visible E-E-A-T academic oversight band */
+.sc-eeat {
+  --eeat-ink: var(--sheet-text, #1A1A1A);
+  --eeat-mut: var(--sheet-text-3, #595959);
+  --eeat-line: var(--sheet-line, #C5C5BE);
+  --eeat-panel: var(--sheet-paper, #fff);
+  --eeat-blue: var(--iso-blue, #0055A4);
+  --eeat-bg: var(--sheet-white, #F5F5F0);
+  max-width: min(1180px, 100%);
+  margin: 0 auto;
+  padding: 28px 24px 40px;
+  font-family: Inter, system-ui, sans-serif;
+}
+.sc-eeat-shell {
+  width: 100%;
+  border-top: 1px solid var(--eeat-line);
+  background: var(--eeat-bg);
+}
+html[data-theme="dark"] .sc-eeat {
+  --eeat-ink: #E8EAEC;
+  --eeat-mut: #A8B0B8;
+  --eeat-line: #3A424A;
+  --eeat-panel: #1B1F23;
+  --eeat-blue: #4FA6D6;
+  --eeat-bg: #14171A;
+}
+html[data-theme="dark"] .sc-eeat-shell {
+  border-top-color: var(--eeat-line);
+  background: var(--eeat-bg);
+}
+.sc-eeat-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 20px 24px;
+  align-items: start;
+  background: var(--eeat-panel);
+  border: 1px solid var(--eeat-line);
+  border-radius: 4px;
+  padding: 22px 24px;
+}
+@media (max-width: 640px) {
+  .sc-eeat-card { grid-template-columns: 1fr; }
+}
+.sc-eeat-mark {
+  width: 56px;
+  height: 56px;
+  border: 1.5px solid var(--eeat-blue);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Barlow Condensed", Inter, sans-serif;
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: 0.04em;
+  color: var(--eeat-blue);
+  background: transparent;
+  flex-shrink: 0;
+}
+.sc-eeat-kicker {
+  display: block;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--iso-orange-dim, #A3471F);
+  margin-bottom: 8px;
+}
+html[data-theme="dark"] .sc-eeat-kicker { color: var(--iso-orange, #E87722); }
+.sc-eeat h2 {
+  margin: 0 0 10px;
+  font-family: "Barlow Condensed", Inter, sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: var(--eeat-ink);
+  line-height: 1.15;
+}
+.sc-eeat-name {
+  margin: 0 0 4px;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--eeat-ink);
+}
+.sc-eeat-role {
+  margin: 0 0 10px;
+  font-size: 14px;
+  color: var(--eeat-mut);
+  line-height: 1.45;
+}
+.sc-eeat-role a {
+  color: var(--eeat-blue);
+  text-decoration: none;
+  font-weight: 600;
+}
+.sc-eeat-role a:hover { text-decoration: underline; }
+.sc-eeat-note {
+  margin: 0;
+  font-size: 13px;
+  color: var(--eeat-mut);
+  line-height: 1.55;
+  max-width: 62ch;
+}

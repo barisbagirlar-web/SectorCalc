@@ -143,6 +143,7 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
 <link rel="stylesheet" href="./sc-theme.css?v=8">
 <script src="./sc-theme.js?v=8" defer></script>
 <link rel="stylesheet" href="./sc-tool-guide.css?v=3">
+<link rel="stylesheet" href="./sc-eeat.css?v=1">
 <link rel="stylesheet" href="./sc-study.css?v=2">
 <script src="./sc-tool-guide.js?v=3" defer></script>
 <script src="./sc-study.js?v=2" defer></script>
@@ -337,6 +338,9 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
       "author": {
         "@id": "https://www.sectorcalc.com/#organization"
       },
+      "reviewedBy": {
+        "@id": "https://www.sectorcalc.com/#person-neela-nataraj"
+      },
       "screenshot": {
         "@type": "ImageObject",
         "url": "https://www.sectorcalc.com/assets/images/og-bearing-pro-1200x630.jpg",
@@ -525,6 +529,8 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
   <a href="/sc008-pro.html" class="btn-primary">Run a Calculation</a>
 </div>
 <!--SC-SITE-NAV-END-->
+
+
 <!--SC-SEO-BREADCRUMB-START-->
 <nav aria-label="Breadcrumb" class="sc-breadcrumb">
   <ol itemscope itemtype="https://schema.org/BreadcrumbList">
@@ -776,7 +782,35 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
   </div>
 
   <button id="themeToggle" class="btn3" title="Toggle light/dark (saved locally)">◐ Theme</button>
-  <!--SC-GUIDE-START-->
+  <!--SC-EEAT-START-->
+<section class="sc-eeat-shell" aria-label="Academic oversight and expert review">
+  <div class="sc-eeat">
+    <aside class="sc-eeat-card" itemscope itemtype="https://schema.org/Person" itemid="https://www.sectorcalc.com/#person-neela-nataraj">
+      <div class="sc-eeat-mark" aria-hidden="true">IITB</div>
+      <div>
+        <span class="sc-eeat-kicker">Academic Oversight &amp; Expert Review</span>
+        <h2>Methodology review</h2>
+        <p class="sc-eeat-name" itemprop="name">Prof. Dr. Neela Nataraj</p>
+        <p class="sc-eeat-role">
+          <span itemprop="jobTitle">Professor of Mathematics</span>
+          · Department of Mathematics ·
+          <span itemprop="worksFor" itemscope itemtype="https://schema.org/CollegeOrUniversity" itemid="https://www.sectorcalc.com/#educational-organization-iitb">
+            <a href="https://www.iitb.ac.in" itemprop="name" rel="noopener noreferrer">Indian Institute of Technology Bombay (IIT Bombay)</a>
+            <link itemprop="url" href="https://www.iitb.ac.in">
+          </span>
+        </p>
+        <p class="sc-eeat-note">
+          Provides academic oversight and methodology review for statistical computing components used in SectorCalc deterministic engines.
+          Calculator outputs remain engineering previews — not a substitute for measured data or a licensed engineer's sign-off.
+        </p>
+        <meta itemprop="honorificPrefix" content="Prof. Dr.">
+      </div>
+    </aside>
+  </div>
+</section>
+<!--SC-EEAT-END-->
+
+<!--SC-GUIDE-START-->
 <div class="sc-guide-shell">
 <section class="sc-guide" id="sc-guide" data-tool-id="SC-021" data-tool-name="Bearing Life L10 Calculator — ISO 281 (SC-021)" data-tool-url="https://www.sectorcalc.com/bearing-pro.html" itemscope itemtype="https://schema.org/FAQPage">
 

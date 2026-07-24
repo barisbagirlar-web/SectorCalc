@@ -72,6 +72,10 @@ for (const page of pages) {
     if (!t.includes(`sc-schema-tool-${slug}`)) fail(`${page} missing tool schema`);
     if (!t.includes(`sc-schema-dataset-${slug}`)) fail(`${page} missing Dataset schema`);
     if (!t.includes('sc-breadcrumb') && page !== 'index.html') fail(`${page} missing breadcrumb nav`);
+    if (!t.includes('Prof. Dr. Neela Nataraj')) fail(`${page} missing visible E-E-A-T academic oversight`);
+    if (!t.includes('sc-eeat.css')) fail(`${page} missing sc-eeat.css`);
+    if (!t.includes('Academic Oversight')) fail(`${page} missing Academic Oversight label`);
+    if (!/"reviewedBy"/.test(t)) fail(`${page} missing reviewedBy entity link`);
   }
   if (['tools.html', 'pricing.html', 'pro.html'].includes(page) && !t.includes('sc-breadcrumb')) {
     fail(`${page} missing breadcrumb nav`);
