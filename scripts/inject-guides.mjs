@@ -7,6 +7,8 @@ import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 
 const ROOT = process.cwd();
+const CANONICAL_ORIGIN = 'https://sectorcalc.com';
+const LEGACY_ORIGIN = 'https://www.sectorcalc.com';
 
 const MAP = [
   { page: 'sc008-pro.html', guide: 'content/guides/sc008.html', mode: 'before-body' },
@@ -57,8 +59,8 @@ function ensureAssets(html) {
 }
 
 function enrichFragment(row, fragment) {
-  if (row.page !== 'bearing-pro.html' || fragment.includes('id="variable-load-spectrum"')) return fragment;
-  let out = fragment;
+  let out = fragment.replaceAll(LEGACY_ORIGIN, CANONICAL_ORIGIN);
+  if (row.page !== 'bearing-pro.html' || out.includes('id="variable-load-spectrum"')) return out;
   out = out.replace(
     '<li><a href="#faqs">Frequently asked questions</a></li>',
     '<li><a href="#variable-load-spectrum">Variable load and speed</a></li>\n    <li><a href="#faqs">Frequently asked questions</a></li>'
@@ -81,9 +83,7 @@ function inject(html, block, mode) {
     const re = /<footer\b[\s\S]*?<\/footer>/i;
     if (re.test(html)) return html.replace(re, `${block}\n$&`);
   }
-  if (html.includes('<script type="module"')) {
-    return html.replace(/<script type="module"/, `${block}\n<script type="module"`);
-  }
+  if (html.includes('<script type="module"')) return html.replace(/<script type="module"/, `${block}\n<script type="module"`);
   return html.replace(/<\/body>/i, `${block}\n</body>`);
 }
 
