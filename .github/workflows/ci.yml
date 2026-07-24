@@ -12,7 +12,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version-file: '.nvmrc'
-      # Dependency-free: no npm install needed.
       - name: English-only language gate
         run: node scripts/check-language.mjs --strict
 
@@ -25,8 +24,8 @@ jobs:
           node-version-file: '.nvmrc'
           cache: npm
       - run: npm ci
-      - run: npm test
       - run: npm run typecheck
+      - run: npm test
       - run: npm run build
       - run: node scripts/verify-nav.mjs
 
