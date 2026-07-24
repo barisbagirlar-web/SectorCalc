@@ -53,6 +53,6 @@
         "headers": [{ "key": "Cache-Control", "value": "public, max-age=3600" }]
       }
     ],
-    "rewrites": [{ "source": "**", "destination": "/index.html" }]
+    "rewrites": []
   }
 }
