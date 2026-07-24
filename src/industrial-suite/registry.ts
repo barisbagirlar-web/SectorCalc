@@ -8,6 +8,7 @@ import { SC021_BEARING } from './registry-bearing.js';
 import { SC029_WELD_HEAT } from './registry-weld-heat.js';
 
 const overrideDefaults: Readonly<Record<string, Readonly<Record<string, number>>>> = {
+  'SC-021': { nuOp: 15 },
   'SC-025': { allowT: 5000 },
   'SC-028': { ra: 0.0016 },
   'SC-031': { legWll: 20 },
