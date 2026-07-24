@@ -6,7 +6,7 @@ import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 
 const ROOT = process.cwd();
-const HOST = 'https://www.sectorcalc.com';
+const HOST = 'https://sectorcalc.com';
 const errors = [];
 const warn = [];
 
@@ -33,8 +33,8 @@ for (const f of [
 }
 
 const robots = readFileSync(join(ROOT, 'public/robots.txt'), 'utf8');
-if (!/Sitemap:\s*https:\/\/www\.sectorcalc\.com\/sitemap\.xml/.test(robots)) {
-  fail('robots.txt missing www sitemap declaration');
+if (!/Sitemap:\s*https:\/\/sectorcalc\.com\/sitemap\.xml/.test(robots)) {
+  fail('robots.txt missing apex sitemap declaration');
 }
 if (/User-agent:\s*Googlebot[\s\S]*?Disallow:\s*\/\s*$/m.test(robots.split('User-agent: GPTBot')[0])) {
   fail('Googlebot appears disallowed');
@@ -45,8 +45,8 @@ for (const page of pages) {
   const loc = page === 'index.html' ? `${HOST}/` : `${HOST}/${page}`;
   if (!sm.includes(`<loc>${loc}</loc>`)) fail(`sitemap missing ${loc}`);
 }
-if (sm.includes('https://sectorcalc.com/') && !sm.includes('https://www.sectorcalc.com/')) {
-  fail('sitemap uses apex without www');
+if (sm.includes('https://www.sectorcalc.com/') && !sm.includes('https://sectorcalc.com/')) {
+  fail('sitemap still uses www without apex canonical host');
 }
 if (/hreflang="(de|ja|zh)"/.test(sm)) {
   fail('sitemap claims hreflang locales without localized pages');
@@ -59,13 +59,16 @@ for (const page of pages) {
   const t = readFileSync(join(ROOT, page), 'utf8');
   if (/noindex/i.test(t) && page !== '404.html') fail(`${page} has noindex`);
   if (!t.includes('rel="canonical"')) fail(`${page} missing canonical`);
-  if (!t.includes('www.sectorcalc.com')) fail(`${page} canonical host not www`);
+  if (!t.includes('https://sectorcalc.com')) fail(`${page} canonical host not apex sectorcalc.com`);
+  if (/location\.hostname===['"]sectorcalc\.com['"].*www\.sectorcalc\.com/.test(t)) {
+    fail(`${page} still redirects apex→www (conflicts with Firebase www→apex)`);
+  }
   if (!/name=["']description["']/.test(t)) fail(`${page} missing meta description`);
   if (!t.includes('og:image')) fail(`${page} missing og:image`);
   if (!t.includes('sc-schema-global')) fail(`${page} missing global schema`);
   if (/AggregateRating|"@type":\s*"Review"/.test(t)) fail(`${page} has Review/AggregateRating spam risk`);
   if (!t.includes('cvw-monitor.js')) fail(`${page} missing cvw-monitor`);
-  if (!t.includes('SC-SEO-HOST')) fail(`${page} missing apex→www host redirect`);
+  if (!t.includes('SC-SEO-HOST')) fail(`${page} missing SC-SEO-HOST marker`);
   if (!/<h1[\s>]/i.test(t)) fail(`${page} missing h1`);
   if (page.endsWith('-pro.html')) {
     const slug = page.replace('.html', '');

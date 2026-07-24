@@ -5,7 +5,7 @@ Rules:
 - Do not replace existing title/description/favicon/theme boot scripts.
 - Do not add AggregateRating / Review.
 - CSP meta allows cdnjs, Google Fonts, and GA4 endpoints used by live tools.
-- Canonical host: https://www.sectorcalc.com
+- Canonical host: https://sectorcalc.com (Firebase primary; www 301s to apex)
 - Idempotent via SC-SEO-* markers.
 """
 from __future__ import annotations
@@ -16,7 +16,7 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-HOST = "https://www.sectorcalc.com"
+HOST = "https://sectorcalc.com"
 OG_DEFAULT = f"{HOST}/assets/images/og-default-1200x630.jpg"
 OG_HOME = f"{HOST}/assets/images/sectorcalc-og-1200x630.jpg"
 
@@ -760,7 +760,7 @@ def upsert_cvw(text: str) -> str:
 
 
 HOST_REDIRECT = """<!--SC-SEO-HOST-->
-<script>(function(){try{if(location.hostname==='sectorcalc.com'){location.replace('https://www.sectorcalc.com'+location.pathname+location.search+location.hash);}}catch(e){}})();</script>
+<!-- Canonical host is https://sectorcalc.com — Firebase Hosting 301s www → apex. No client reverse-redirect. -->
 <!--SC-SEO-HOST-END-->"""
 
 

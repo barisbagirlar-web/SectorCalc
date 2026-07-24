@@ -29,19 +29,19 @@ SectorCalc ships industrial calculation tools with visible inputs, assumptions, 
 
 Every live calculator ships an English demo toolbar: **Load Demo Data**, **Reset**, and **Demo scenario active** (when the demo fixture is loaded).
 
-- [Tolerance stack-up (SC-008)](https://www.sectorcalc.com/sc008-pro.html): 1D linear stack-up - worst-case, RSS, Monte Carlo; per-component distributions; deterministic seed; Decimal engine.
-- [CNC Feeds & Speeds + Tool Life (SC-020)](https://www.sectorcalc.com/machining-pro.html): Extended Taylor tool life with coolant and interruption correction; radial chip-thinning and HEM engagement-angle compensation; Kienzle cutting force; spindle power and torque verification; tool deflection; theoretical surface finish; Gilbert minimum-cost speed with savings percent; ISO 513 material database (14 materials); per-field universal units with reference values; full Audit/Review trail with integrity hash; FS-ENGINE v2.1.0.
-- [Bearing Life L10 — ISO 281 (SC-021)](https://www.sectorcalc.com/bearing-pro.html): Basic and modified rating life per ISO 281:2007 — digitized aISO equations (viscosity ratio κ, contamination eC, fatigue load limit Cu), ASTM D341 viscosity-temperature model, X/Y equivalent-load interpolation, static safety s0, life-margin verdict; BL-ENGINE v1.0.0.
-- [True labor cost (SC-010)](https://www.sectorcalc.com/labor-pro.html): Loaded labor burden from net salary, taxes, benefits, and shop overhead.
-- [Quote pricing (SC-012)](https://www.sectorcalc.com/quote-pro.html): Material, labor, scrap, and margin into sell price and cost breakdown.
-- [Weld thickness (SC-001)](https://www.sectorcalc.com/weld-pro.html): Fillet weld leg, throat, and utilization against design load and code minimums.
+- [Tolerance stack-up (SC-008)](https://sectorcalc.com/sc008-pro.html): 1D linear stack-up - worst-case, RSS, Monte Carlo; per-component distributions; deterministic seed; Decimal engine.
+- [CNC Feeds & Speeds + Tool Life (SC-020)](https://sectorcalc.com/machining-pro.html): Extended Taylor tool life with coolant and interruption correction; radial chip-thinning and HEM engagement-angle compensation; Kienzle cutting force; spindle power and torque verification; tool deflection; theoretical surface finish; Gilbert minimum-cost speed with savings percent; ISO 513 material database (14 materials); per-field universal units with reference values; full Audit/Review trail with integrity hash; FS-ENGINE v2.1.0.
+- [Bearing Life L10 — ISO 281 (SC-021)](https://sectorcalc.com/bearing-pro.html): Basic and modified rating life per ISO 281:2007 — digitized aISO equations (viscosity ratio κ, contamination eC, fatigue load limit Cu), ASTM D341 viscosity-temperature model, X/Y equivalent-load interpolation, static safety s0, life-margin verdict; BL-ENGINE v1.0.0.
+- [True labor cost (SC-010)](https://sectorcalc.com/labor-pro.html): Loaded labor burden from net salary, taxes, benefits, and shop overhead.
+- [Quote pricing (SC-012)](https://sectorcalc.com/quote-pro.html): Material, labor, scrap, and margin into sell price and cost breakdown.
+- [Weld thickness (SC-001)](https://sectorcalc.com/weld-pro.html): Fillet weld leg, throat, and utilization against design load and code minimums.
 
 ## Site
 
-- [Home](https://www.sectorcalc.com/): Live Cell hero - Three.js turning cell with probe telemetry, spacer-tolerance control deck (worst-case, RSS, Monte Carlo, Cpk), seeded reproducible Monte Carlo preview. Method and standards sections, module map. Primary CTA "Run SC-008 Free" opens SC-008. Shared light/dark theme with the rest of the site.
-- [All tools catalog](https://www.sectorcalc.com/tools.html): Omni-search catalog with live typeahead under the search box; matches and category tiles narrow as you type (task, sector, standard — machining, rotating equipment, tolerances, welding, lifting, pressure, fasteners, costing). Covers live and planned calculators.
-- [Pro tools hub](https://www.sectorcalc.com/pro.html): Short card index for live Pro calculators (SC-020, SC-021) with a link into the full catalog.
-- [Pricing](https://www.sectorcalc.com/pricing.html): Planned credit packs (PACKAGES source of truth). Calculators are free until Paddle checkout launches; buttons are notify-only.
+- [Home](https://sectorcalc.com/): Live Cell hero - Three.js turning cell with probe telemetry, spacer-tolerance control deck (worst-case, RSS, Monte Carlo, Cpk), seeded reproducible Monte Carlo preview. Method and standards sections, module map. Primary CTA "Run SC-008 Free" opens SC-008. Shared light/dark theme with the rest of the site.
+- [All tools catalog](https://sectorcalc.com/tools.html): Omni-search catalog with live typeahead under the search box; matches and category tiles narrow as you type (task, sector, standard — machining, rotating equipment, tolerances, welding, lifting, pressure, fasteners, costing). Covers live and planned calculators.
+- [Pro tools hub](https://sectorcalc.com/pro.html): Short card index for live Pro calculators (SC-020, SC-021) with a link into the full catalog.
+- [Pricing](https://sectorcalc.com/pricing.html): Planned credit packs (PACKAGES source of truth). Calculators are free until Paddle checkout launches; buttons are notify-only.
 
 ## Notes for models
 
@@ -60,7 +60,7 @@ Every live calculator ships an English demo toolbar: **Load Demo Data**, **Reset
 
 ## SEO / discovery (v2026.07.24+ audited)
 
-- Canonical host: `https://www.sectorcalc.com` (`.html` URLs; Firebase `cleanUrls: false`). Apex `sectorcalc.com` client-redirects to `www` via `SC-SEO-HOST` boot script; set Firebase Console primary domain redirect when available.
+- Canonical host: `https://sectorcalc.com` (`.html` URLs; Firebase `cleanUrls: false`). Firebase Hosting primary domain is apex; `www.sectorcalc.com` 301-redirects to apex.
 - Discovery: `/robots.txt` (Googlebot Allow:/), `/sitemap.xml` (hreflang en + x-default only), `/sitemap-images.xml` (real assets + per-page OG JPEGs), `/sitemap-videos.xml` (empty until real videos), `/llm.txt`, `/llms.txt`.
 - Every public HTML page: unique `<title>`, meta description, single `<h1>`, canonical, OG/Twitter (`/assets/images/og-{slug}-1200x630.jpg`), Schema Mesh (Organization, Person/IIT E-E-A-T, WebSite, SoftwareApplication, HowTo, BreadcrumbList; pricing Product offers as PreOrder). Existing guide `FAQPage` kept. **No AggregateRating/Review.**
 - Visible E-E-A-T on every `*-pro.html`: Academic Oversight & Expert Review band for **Prof. Dr. Neela Nataraj** (Department of Mathematics · IIT Bombay) with Person microdata + JSON-LD `reviewedBy` → `#person-neela-nataraj`. Asset: `/sc-eeat.css`.
@@ -73,12 +73,12 @@ Every live calculator ships an English demo toolbar: **Load Demo Data**, **Reset
 
 ## Optional
 
-- [Full sitemap](https://www.sectorcalc.com/sitemap.xml): Canonical URL list (hreflang en + x-default).
-- [Image sitemap](https://www.sectorcalc.com/sitemap-images.xml): Real hosted images + OG covers.
-- [Video sitemap](https://www.sectorcalc.com/sitemap-videos.xml): Placeholder until videos exist.
-- [robots.txt](https://www.sectorcalc.com/robots.txt): Crawl rules + AI crawler directives.
-- [llms.txt](https://www.sectorcalc.com/llms.txt): Canonical AI discovery index.
-- [llm.txt](https://www.sectorcalc.com/llm.txt): This file — mirror of llms.txt for alternate discovery paths.
-- [site.webmanifest](https://www.sectorcalc.com/site.webmanifest): PWA name + 192/512 icon entries for the 4-tile brand mark.
-- [Favicon SVG](https://www.sectorcalc.com/favicon.svg): Canonical crisp brand mark for browsers that prefer SVG icons.
-- [OG default](https://www.sectorcalc.com/assets/images/sectorcalc-og-1200x630.jpg): 1200×630 social share image.
+- [Full sitemap](https://sectorcalc.com/sitemap.xml): Canonical URL list (hreflang en + x-default).
+- [Image sitemap](https://sectorcalc.com/sitemap-images.xml): Real hosted images + OG covers.
+- [Video sitemap](https://sectorcalc.com/sitemap-videos.xml): Placeholder until videos exist.
+- [robots.txt](https://sectorcalc.com/robots.txt): Crawl rules + AI crawler directives.
+- [llms.txt](https://sectorcalc.com/llms.txt): Canonical AI discovery index.
+- [llm.txt](https://sectorcalc.com/llm.txt): This file — mirror of llms.txt for alternate discovery paths.
+- [site.webmanifest](https://sectorcalc.com/site.webmanifest): PWA name + 192/512 icon entries for the 4-tile brand mark.
+- [Favicon SVG](https://sectorcalc.com/favicon.svg): Canonical crisp brand mark for browsers that prefer SVG icons.
+- [OG default](https://sectorcalc.com/assets/images/sectorcalc-og-1200x630.jpg): 1200×630 social share image.

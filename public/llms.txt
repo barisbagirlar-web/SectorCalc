@@ -29,38 +29,38 @@ SectorCalc ships industrial calculation tools with visible inputs, assumptions, 
 
 Every live calculator ships an English demo toolbar: **Load Demo Data**, **Reset**, and **Demo scenario active** (when the demo fixture is loaded).
 
-- [Tolerance stack-up (SC-008)](https://www.sectorcalc.com/sc008-pro.html): 1D linear stack-up - worst-case, RSS, Monte Carlo; per-component distributions; deterministic seed; Decimal engine.
-- [CNC Feeds & Speeds + Tool Life (SC-020)](https://www.sectorcalc.com/machining-pro.html): Extended Taylor tool life with coolant and interruption correction; radial chip-thinning and HEM engagement-angle compensation; Kienzle cutting force; spindle power and torque verification; tool deflection; theoretical surface finish; Gilbert minimum-cost speed with savings percent; ISO 513 material database (14 materials); per-field universal units with reference values; full Audit/Review trail with integrity hash; FS-ENGINE v2.1.0.
-- [Bearing Life L10 — ISO 281 (SC-021)](https://www.sectorcalc.com/bearing-pro.html): Basic and modified rating life per ISO 281:2007 — digitized aISO equations (viscosity ratio κ, contamination eC, fatigue load limit Cu), ASTM D341 viscosity-temperature model, X/Y equivalent-load interpolation, static safety s0, life-margin verdict; BL-ENGINE v1.0.0.
-- [Shaft Design — Torsion + Bending (SC-026)](https://www.sectorcalc.com/shaft-pro.html): ASME allowable-stress and DE-Goodman fatigue diameters with Marin surface/size/reliability factors (kb iterated), torque from power/speed, midspan bending, preferred standard size selection, static yield and deflection verification; SD-ENGINE v1.0.0.
-- [Bolt Torque & Preload — VDI 2230 (SC-035)](https://www.sectorcalc.com/bolt-pro.html): VDI 2230 Part 1 assembly calculation — torsion-corrected permissible preload FMzul, full tightening-torque equation (0.16P + 0.58μG·d2 + μK·DKm/2), preload scatter band by tightening factor αA, implied nut factor K, metric coarse thread database; BT-ENGINE v1.0.0.
-- [Punching Force & Die Clearance (SC-039)](https://www.sectorcalc.com/punching-pro.html): Shear-strength cutting force F = L·t·τs, stripping load, press tonnage with safety factor, per-side die clearance by material group and thickness band, punch slenderness/minimum-feature checks, material shear database; PF-ENGINE v1.0.0.
-- [Hydraulic Cylinder Sizing (SC-040)](https://www.sectorcalc.com/hydraulic-pro.html): Required bore from force/pressure with efficiency, ISO 3320 standard bore selection, push/pull forces at working and relief pressure, flow demand, Euler rod-buckling verification with mounting end-condition factors; HC-ENGINE v1.0.0.
-- [Tap & Thread Milling (SC-022)](https://www.sectorcalc.com/tap-thread-pro.html): Tapping torque T = 0.010·K·D³ from material K-factor, cutting speed/rpm/feed chain, metric + UNC/UNF tap drill sizes, thread-mill radial feed correction F_table = F_tool·(D−d)/D; TM-ENGINE v1.0.0.
-- [Cycle Time & Cost per Part (SC-023)](https://www.sectorcalc.com/cycle-cost-pro.html): Multi-operation cycle build-up, setup amortization over batch, tool-change and tool-cost allocation, machine+labor rate application, batch-size sensitivity; CT-ENGINE v1.0.0.
-- [Bearing Frequencies (SC-024)](https://www.sectorcalc.com/bearing-freq-pro.html): BPFO/BPFI/BSF/FTF from bearing database or custom geometry, order tracking, BPFO+BPFI=Nb identity check, sideband prediction, stem-spectrum chart; BF-ENGINE v1.0.0.
-- [Belt & Chain Drive Sizing (SC-025)](https://www.sectorcalc.com/belt-chain-pro.html): V-belt datum-length iteration, wrap/length correction factors, catalog-anchor ratings with honesty labeling, belt count and shaft load; roller-chain link rounding and exact center distance; BD-ENGINE v1.0.0.
-- [Fits & Clearances — ISO 286 (SC-027)](https://www.sectorcalc.com/fits-pro.html): Hole-basis limits from ISO 286 fundamental deviations + IT grades, clearance/transition/interference classification, band visualization, preferred-fit guidance; FT-ENGINE v1.0.0.
-- [Surface Finish Converter (SC-028)](https://www.sectorcalc.com/surface-finish-pro.html): Ra↔Rz conversion with process-band checks, ISO 1302 N-grade mapping, µin conversion, machining-process capability bands; SF-ENGINE v1.0.0.
-- [Weld Heat Input & Cooling Rate (SC-029)](https://www.sectorcalc.com/heat-input-pro.html): Arc energy to heat input with process efficiency, EN 1011-2 Annex D t8/5 with 3D/2D transition thickness, CE/CET carbon equivalents, Method B preheat, t8/5 band verdict; HI-ENGINE v1.0.0.
-- [Sheet Metal Bend & K-Factor (SC-030)](https://www.sectorcalc.com/bend-pro.html): Material-aware K-factor, bend allowance/deduction, flat pattern, inside-radius validity, minimum flange from V-die, air-bending tonnage t/m; SM-ENGINE v1.0.0.
-- [Sling Capacity & Angle (SC-031)](https://www.sectorcalc.com/sling-pro.html): T = W/(n_eff·sinθ) with EN 818 3/4-leg derating, hitch factors, G80 chain + round-sling WLL databases, 30° angle floor, next-size-up; SL-ENGINE v1.0.0.
-- [Shackle & Eye Bolt Check (SC-032)](https://www.sectorcalc.com/shackle-eyebolt-pro.html): WLL databases with direction derating (axial/45°/transverse blocking), thread-engagement minimums, shoulder-seat check, next-size-up; SE-ENGINE v1.0.0.
-- [Pressure Vessel Shell — ASME VIII (SC-033)](https://www.sectorcalc.com/pressure-vessel-pro.html): UG-27 shell + UG-32 heads (ellipsoidal/torispherical/hemispherical) on corroded basis, joint efficiency, corrosion allowance, plate selection, MAWP, UG-99 hydro test; PV-ENGINE v1.0.0.
-- [Pipe Wall Thickness — ASME B31.3 (SC-034)](https://www.sectorcalc.com/pipe-wall-pro.html): B31.3 design equation with E/Y/W factors, corrosion allowance, 12.5% undertolerance screening, NPS schedule database, MAWP of selected schedule; PW-ENGINE v1.0.0.
-- [Bolted Joint Verification — VDI 2230 (SC-036)](https://www.sectorcalc.com/bolted-joint-pro.html): Deformation-cone compliance, load factor with load-plane correction, torsion-yield assembly preload, scatter αA, embedment F_Z, yield/residual-clamp/slip/fatigue checks; BJ-ENGINE v1.0.0.
-- [OEE Calculator (SC-037)](https://www.sectorcalc.com/oee-pro.html): A×P×Q decomposition, time-equivalent loss waterfall, TEEP, world-class 85% benchmark, recovery potential, >100% data-consistency blocking; OEE-ENGINE v1.0.0.
-- [Machine Hour Rate (SC-038)](https://www.sectorcalc.com/machine-rate-pro.html): Linear depreciation to residual, imputed interest on average capital, space, duty-factored energy, maintenance, tooling, labor sharing, overhead, cost per part, utilization sensitivity; MH-ENGINE v1.0.0.
-- [True labor cost (SC-010)](https://www.sectorcalc.com/labor-pro.html): Loaded labor burden from net salary, taxes, benefits, and shop overhead.
-- [Quote pricing (SC-012)](https://www.sectorcalc.com/quote-pro.html): Material, labor, scrap, and margin into sell price and cost breakdown.
-- [Weld thickness (SC-001)](https://www.sectorcalc.com/weld-pro.html): Fillet weld leg, throat, and utilization against design load and code minimums.
+- [Tolerance stack-up (SC-008)](https://sectorcalc.com/sc008-pro.html): 1D linear stack-up - worst-case, RSS, Monte Carlo; per-component distributions; deterministic seed; Decimal engine.
+- [CNC Feeds & Speeds + Tool Life (SC-020)](https://sectorcalc.com/machining-pro.html): Extended Taylor tool life with coolant and interruption correction; radial chip-thinning and HEM engagement-angle compensation; Kienzle cutting force; spindle power and torque verification; tool deflection; theoretical surface finish; Gilbert minimum-cost speed with savings percent; ISO 513 material database (14 materials); per-field universal units with reference values; full Audit/Review trail with integrity hash; FS-ENGINE v2.1.0.
+- [Bearing Life L10 — ISO 281 (SC-021)](https://sectorcalc.com/bearing-pro.html): Basic and modified rating life per ISO 281:2007 — digitized aISO equations (viscosity ratio κ, contamination eC, fatigue load limit Cu), ASTM D341 viscosity-temperature model, X/Y equivalent-load interpolation, static safety s0, life-margin verdict; BL-ENGINE v1.0.0.
+- [Shaft Design — Torsion + Bending (SC-026)](https://sectorcalc.com/shaft-pro.html): ASME allowable-stress and DE-Goodman fatigue diameters with Marin surface/size/reliability factors (kb iterated), torque from power/speed, midspan bending, preferred standard size selection, static yield and deflection verification; SD-ENGINE v1.0.0.
+- [Bolt Torque & Preload — VDI 2230 (SC-035)](https://sectorcalc.com/bolt-pro.html): VDI 2230 Part 1 assembly calculation — torsion-corrected permissible preload FMzul, full tightening-torque equation (0.16P + 0.58μG·d2 + μK·DKm/2), preload scatter band by tightening factor αA, implied nut factor K, metric coarse thread database; BT-ENGINE v1.0.0.
+- [Punching Force & Die Clearance (SC-039)](https://sectorcalc.com/punching-pro.html): Shear-strength cutting force F = L·t·τs, stripping load, press tonnage with safety factor, per-side die clearance by material group and thickness band, punch slenderness/minimum-feature checks, material shear database; PF-ENGINE v1.0.0.
+- [Hydraulic Cylinder Sizing (SC-040)](https://sectorcalc.com/hydraulic-pro.html): Required bore from force/pressure with efficiency, ISO 3320 standard bore selection, push/pull forces at working and relief pressure, flow demand, Euler rod-buckling verification with mounting end-condition factors; HC-ENGINE v1.0.0.
+- [Tap & Thread Milling (SC-022)](https://sectorcalc.com/tap-thread-pro.html): Tapping torque T = 0.010·K·D³ from material K-factor, cutting speed/rpm/feed chain, metric + UNC/UNF tap drill sizes, thread-mill radial feed correction F_table = F_tool·(D−d)/D; TM-ENGINE v1.0.0.
+- [Cycle Time & Cost per Part (SC-023)](https://sectorcalc.com/cycle-cost-pro.html): Multi-operation cycle build-up, setup amortization over batch, tool-change and tool-cost allocation, machine+labor rate application, batch-size sensitivity; CT-ENGINE v1.0.0.
+- [Bearing Frequencies (SC-024)](https://sectorcalc.com/bearing-freq-pro.html): BPFO/BPFI/BSF/FTF from bearing database or custom geometry, order tracking, BPFO+BPFI=Nb identity check, sideband prediction, stem-spectrum chart; BF-ENGINE v1.0.0.
+- [Belt & Chain Drive Sizing (SC-025)](https://sectorcalc.com/belt-chain-pro.html): V-belt datum-length iteration, wrap/length correction factors, catalog-anchor ratings with honesty labeling, belt count and shaft load; roller-chain link rounding and exact center distance; BD-ENGINE v1.0.0.
+- [Fits & Clearances — ISO 286 (SC-027)](https://sectorcalc.com/fits-pro.html): Hole-basis limits from ISO 286 fundamental deviations + IT grades, clearance/transition/interference classification, band visualization, preferred-fit guidance; FT-ENGINE v1.0.0.
+- [Surface Finish Converter (SC-028)](https://sectorcalc.com/surface-finish-pro.html): Ra↔Rz conversion with process-band checks, ISO 1302 N-grade mapping, µin conversion, machining-process capability bands; SF-ENGINE v1.0.0.
+- [Weld Heat Input & Cooling Rate (SC-029)](https://sectorcalc.com/heat-input-pro.html): Arc energy to heat input with process efficiency, EN 1011-2 Annex D t8/5 with 3D/2D transition thickness, CE/CET carbon equivalents, Method B preheat, t8/5 band verdict; HI-ENGINE v1.0.0.
+- [Sheet Metal Bend & K-Factor (SC-030)](https://sectorcalc.com/bend-pro.html): Material-aware K-factor, bend allowance/deduction, flat pattern, inside-radius validity, minimum flange from V-die, air-bending tonnage t/m; SM-ENGINE v1.0.0.
+- [Sling Capacity & Angle (SC-031)](https://sectorcalc.com/sling-pro.html): T = W/(n_eff·sinθ) with EN 818 3/4-leg derating, hitch factors, G80 chain + round-sling WLL databases, 30° angle floor, next-size-up; SL-ENGINE v1.0.0.
+- [Shackle & Eye Bolt Check (SC-032)](https://sectorcalc.com/shackle-eyebolt-pro.html): WLL databases with direction derating (axial/45°/transverse blocking), thread-engagement minimums, shoulder-seat check, next-size-up; SE-ENGINE v1.0.0.
+- [Pressure Vessel Shell — ASME VIII (SC-033)](https://sectorcalc.com/pressure-vessel-pro.html): UG-27 shell + UG-32 heads (ellipsoidal/torispherical/hemispherical) on corroded basis, joint efficiency, corrosion allowance, plate selection, MAWP, UG-99 hydro test; PV-ENGINE v1.0.0.
+- [Pipe Wall Thickness — ASME B31.3 (SC-034)](https://sectorcalc.com/pipe-wall-pro.html): B31.3 design equation with E/Y/W factors, corrosion allowance, 12.5% undertolerance screening, NPS schedule database, MAWP of selected schedule; PW-ENGINE v1.0.0.
+- [Bolted Joint Verification — VDI 2230 (SC-036)](https://sectorcalc.com/bolted-joint-pro.html): Deformation-cone compliance, load factor with load-plane correction, torsion-yield assembly preload, scatter αA, embedment F_Z, yield/residual-clamp/slip/fatigue checks; BJ-ENGINE v1.0.0.
+- [OEE Calculator (SC-037)](https://sectorcalc.com/oee-pro.html): A×P×Q decomposition, time-equivalent loss waterfall, TEEP, world-class 85% benchmark, recovery potential, >100% data-consistency blocking; OEE-ENGINE v1.0.0.
+- [Machine Hour Rate (SC-038)](https://sectorcalc.com/machine-rate-pro.html): Linear depreciation to residual, imputed interest on average capital, space, duty-factored energy, maintenance, tooling, labor sharing, overhead, cost per part, utilization sensitivity; MH-ENGINE v1.0.0.
+- [True labor cost (SC-010)](https://sectorcalc.com/labor-pro.html): Loaded labor burden from net salary, taxes, benefits, and shop overhead.
+- [Quote pricing (SC-012)](https://sectorcalc.com/quote-pro.html): Material, labor, scrap, and margin into sell price and cost breakdown.
+- [Weld thickness (SC-001)](https://sectorcalc.com/weld-pro.html): Fillet weld leg, throat, and utilization against design load and code minimums.
 
 ## Site
 
-- [Home](https://www.sectorcalc.com/): Live Cell hero - Three.js turning cell with probe telemetry, spacer-tolerance control deck (worst-case, RSS, Monte Carlo, Cpk), seeded reproducible Monte Carlo preview. Method and standards sections, module map. Primary CTA "Run SC-008 Free" opens SC-008. Shared light/dark theme with the rest of the site.
-- [All tools catalog](https://www.sectorcalc.com/tools.html): Omni-search catalog with live typeahead under the search box; matches and category tiles narrow as you type (task, sector, standard — machining, rotating equipment, tolerances, welding, lifting, pressure, fasteners, costing). Covers live and planned calculators.
-- [Pro tools hub](https://www.sectorcalc.com/pro.html): Card index for all 21 live Pro calculators (SC-020/021/022/023/024/025/026/027/028/029/030/031/032/033/034/035/036/037/038/039/040) with a link into the full catalog. The tools catalog has no Planned entries remaining — every listed tool is live.
-- [Pricing](https://www.sectorcalc.com/pricing.html): Planned credit packs (PACKAGES source of truth). Calculators are free until Paddle checkout launches; buttons are notify-only.
+- [Home](https://sectorcalc.com/): Live Cell hero - Three.js turning cell with probe telemetry, spacer-tolerance control deck (worst-case, RSS, Monte Carlo, Cpk), seeded reproducible Monte Carlo preview. Method and standards sections, module map. Primary CTA "Run SC-008 Free" opens SC-008. Shared light/dark theme with the rest of the site.
+- [All tools catalog](https://sectorcalc.com/tools.html): Omni-search catalog with live typeahead under the search box; matches and category tiles narrow as you type (task, sector, standard — machining, rotating equipment, tolerances, welding, lifting, pressure, fasteners, costing). Covers live and planned calculators.
+- [Pro tools hub](https://sectorcalc.com/pro.html): Card index for all 21 live Pro calculators (SC-020/021/022/023/024/025/026/027/028/029/030/031/032/033/034/035/036/037/038/039/040) with a link into the full catalog. The tools catalog has no Planned entries remaining — every listed tool is live.
+- [Pricing](https://sectorcalc.com/pricing.html): Planned credit packs (PACKAGES source of truth). Calculators are free until Paddle checkout launches; buttons are notify-only.
 
 ## Notes for models
 
@@ -79,7 +79,7 @@ Every live calculator ships an English demo toolbar: **Load Demo Data**, **Reset
 
 ## SEO / discovery (v2026.07.24+ audited)
 
-- Canonical host: `https://www.sectorcalc.com` (`.html` URLs; Firebase `cleanUrls: false`). Apex `sectorcalc.com` client-redirects to `www` via `SC-SEO-HOST` boot script; set Firebase Console primary domain redirect when available.
+- Canonical host: `https://sectorcalc.com` (`.html` URLs; Firebase `cleanUrls: false`). Firebase Hosting primary domain is apex; `www.sectorcalc.com` 301-redirects to apex.
 - Discovery: `/robots.txt` (Googlebot Allow:/), `/sitemap.xml` (hreflang en + x-default only), `/sitemap-images.xml` (real assets + per-page OG JPEGs), `/sitemap-videos.xml` (empty until real videos), `/llm.txt`, `/llms.txt`.
 - Every public HTML page: unique `<title>`, meta description, single `<h1>`, canonical, OG/Twitter (`/assets/images/og-{slug}-1200x630.jpg`), Schema Mesh (Organization, Person/IIT E-E-A-T, WebSite, SoftwareApplication, HowTo, BreadcrumbList; pricing Product offers as PreOrder). Existing guide `FAQPage` kept. **No AggregateRating/Review.**
 - Visible E-E-A-T on every `*-pro.html`: Academic Oversight & Expert Review band for **Prof. Dr. Neela Nataraj** (Department of Mathematics · IIT Bombay) with Person microdata + JSON-LD `reviewedBy` → `#person-neela-nataraj`. Asset: `/sc-eeat.css`.
@@ -92,12 +92,12 @@ Every live calculator ships an English demo toolbar: **Load Demo Data**, **Reset
 
 ## Optional
 
-- [Full sitemap](https://www.sectorcalc.com/sitemap.xml): Canonical URL list (hreflang en + x-default).
-- [Image sitemap](https://www.sectorcalc.com/sitemap-images.xml): Real hosted images + OG covers.
-- [Video sitemap](https://www.sectorcalc.com/sitemap-videos.xml): Placeholder until videos exist.
-- [robots.txt](https://www.sectorcalc.com/robots.txt): Crawl rules + AI crawler directives.
-- [llms.txt](https://www.sectorcalc.com/llms.txt): This index (canonical AI discovery file).
-- [llm.txt](https://www.sectorcalc.com/llm.txt): Mirror of llms.txt for alternate discovery paths.
-- [site.webmanifest](https://www.sectorcalc.com/site.webmanifest): PWA name + 192/512 icon entries for the 4-tile brand mark.
-- [Favicon SVG](https://www.sectorcalc.com/favicon.svg): Canonical crisp brand mark for browsers that prefer SVG icons.
-- [OG default](https://www.sectorcalc.com/assets/images/sectorcalc-og-1200x630.jpg): 1200×630 social share image.
+- [Full sitemap](https://sectorcalc.com/sitemap.xml): Canonical URL list (hreflang en + x-default).
+- [Image sitemap](https://sectorcalc.com/sitemap-images.xml): Real hosted images + OG covers.
+- [Video sitemap](https://sectorcalc.com/sitemap-videos.xml): Placeholder until videos exist.
+- [robots.txt](https://sectorcalc.com/robots.txt): Crawl rules + AI crawler directives.
+- [llms.txt](https://sectorcalc.com/llms.txt): This index (canonical AI discovery file).
+- [llm.txt](https://sectorcalc.com/llm.txt): Mirror of llms.txt for alternate discovery paths.
+- [site.webmanifest](https://sectorcalc.com/site.webmanifest): PWA name + 192/512 icon entries for the 4-tile brand mark.
+- [Favicon SVG](https://sectorcalc.com/favicon.svg): Canonical crisp brand mark for browsers that prefer SVG icons.
+- [OG default](https://sectorcalc.com/assets/images/sectorcalc-og-1200x630.jpg): 1200×630 social share image.

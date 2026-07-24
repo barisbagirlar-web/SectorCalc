@@ -1,5 +1,5 @@
 # SectorCalc — robots.txt (production)
-# Canonical host: https://www.sectorcalc.com
+# Canonical host: https://sectorcalc.com (Firebase primary; www redirects here)
 # Google indexing: Allow all public HTML tools. No noindex headers on indexable pages.
 
 User-agent: *
@@ -74,9 +74,9 @@ User-agent: SemrushBot
 Allow: /
 Crawl-delay: 2
 
-Sitemap: https://www.sectorcalc.com/sitemap.xml
-Sitemap: https://www.sectorcalc.com/sitemap-images.xml
-Sitemap: https://www.sectorcalc.com/sitemap-videos.xml
+Sitemap: https://sectorcalc.com/sitemap.xml
+Sitemap: https://sectorcalc.com/sitemap-images.xml
+Sitemap: https://sectorcalc.com/sitemap-videos.xml
 
 # AI crawler policy mirror (search vs training split)
-# See also: https://www.sectorcalc.com/ai-robots.txt
+# See also: https://sectorcalc.com/ai-robots.txt
