@@ -6,11 +6,13 @@ SectorCalc ships industrial calculation tools with visible inputs, assumptions, 
 
 ## Architecture (current)
 
-- Shared theme engine: `/sc-theme.css` + `/sc-theme.js` - `data-theme` on `<html>`, localStorage `sectorcalc-theme` (light|dark).
+- Shared theme engine: `/sc-theme.css` + `/sc-theme.js` - `data-theme` on `<html>`, localStorage `sectorcalc-theme` (light|dark). Theme CSS also `@import`s the locked form-field sheet so every themed page inherits readable number inputs.
 - Theme control `#themeToggle`: click toggles theme; drag repositions; double-click resets position (`sectorcalc-theme-pos`).
+- Shared site header on every public page: `/sc-site-nav.css` + `/sc-site-nav.js` + injected `content/partials/site-header.html` (Tools opens `/tools.html`).
+- Locked calculator form fields: `/sc-form-fields.css` is mandatory on every `*-pro.html`. Value+unit rows use `.uwrap` (engine panels) or `.sc-input-wrap` (Lit sidebars). Number spinners are hidden; digits must never clip beside unit selectors. Build gate: `scripts/verify-form-fields.mjs`. Scaffold new tools with `npm run new:tool` from `content/templates/`.
 - Report contrast standard: pro-tool report text, tables, cards, alerts, and live panels use CSS tokens. Chart/SVG/html2canvas ink is read at render time from `theme-palette` (never hardcoded light-theme fills). Open reports re-render on `sectorcalc-theme`.
 - Calculator standard (all pro tools, set by SC-020): deterministic SI engine core with engine version + build date; every input has selectable universal units (mm/in, m/min SFM, kW/HP, N·m ft·lb, currency symbol) plus a reference-standard hint value; material/standards database drives dynamic reference bands; three-tier validation (blocking / warning / note); verdict banner (RELEASED TO PRODUCTION / RUN WITH CAUTION / DO NOT RUN); sensitivity charts; integrated Audit/Review module showing inputs (as entered + SI), formulas, assumptions, warnings, engine version, and an integrity hash in every report; printable report + JSON export.
-- Under every live calculator: a tool-specific SEO guide (`#sc-guide`) with table of contents, professional how-to, highlighted formulas, worked examples / reference tables, FAQPage schema, and related-tool links. Engagement bar (like/dislike, suggestion, notify, share, cite) is client-side only — no embed control; site responses send `X-Frame-Options: DENY`.
+- Under every live calculator: a tool-specific SEO guide (`#sc-guide`) rendered as a balanced page layout — sticky "On this page" TOC beside section cards (not a long single-column wall), compact engagement strip (like/dislike, suggestion, notify, share, cite), FAQ grid, highlighted formulas, reference tables, FAQPage schema, and related-tool links. Assets: `/sc-tool-guide.css` + `/sc-tool-guide.js`. No embed control; site responses send `X-Frame-Options: DENY`. Mobile uses chip-style TOC and contains horizontal overflow.
 - FS-ENGINE: deterministic calculation core used by machining tools. All math in SI units; per-field display units convert at entry with exact factors (1 in = 25.4 mm, 1 SFM = 0.3048 m/min, 1 HP = 0.7457 kW, 1 ft·lb = 1.3558 N·m). Currency selector is a symbol only - no FX conversion.
 - Homepage Live Cell hero (`/sc-hero-cell.js`):
   - Three.js is self-hosted at `/vendor/three/` (no unpkg CDN); `modulepreload` + parallel import of `three.module.js` and `RoomEnvironment.js`.
@@ -30,7 +32,7 @@ SectorCalc ships industrial calculation tools with visible inputs, assumptions, 
 ## Site
 
 - [Home](https://www.sectorcalc.com/): Live Cell hero - Three.js turning cell with probe telemetry, spacer-tolerance control deck (worst-case, RSS, Monte Carlo, Cpk), seeded reproducible Monte Carlo preview. Method and standards sections, module map. Primary CTA "Run SC-008 Free" opens SC-008. Shared light/dark theme with the rest of the site.
-- [All tools catalog](https://www.sectorcalc.com/tools.html): Omni-search catalog across live and planned calculators by task, sector or standard (machining, rotating equipment, tolerances, welding, lifting, pressure, fasteners, costing).
+- [All tools catalog](https://www.sectorcalc.com/tools.html): Omni-search catalog with live typeahead under the search box; matches and category tiles narrow as you type (task, sector, standard — machining, rotating equipment, tolerances, welding, lifting, pressure, fasteners, costing). Covers live and planned calculators.
 - [Pro tools hub](https://www.sectorcalc.com/pro.html): Short card index for live Pro calculators (SC-020, SC-021) with a link into the full catalog.
 - [Pricing](https://www.sectorcalc.com/pricing.html): Planned credit packs (PACKAGES source of truth). Calculators are free until Paddle checkout launches; buttons are notify-only.
 
@@ -44,6 +46,7 @@ SectorCalc ships industrial calculation tools with visible inputs, assumptions, 
 - Homepage hero canvas is a client-side Three.js visualization plus a seeded Number preview deck; production tool engines use Decimal.js or the FS-ENGINE SI core.
 - Theme preference and toggle position are client-side only (localStorage); they are not accounts or server profiles.
 - Report and result surfaces must keep readable contrast in light and dark themes. New tools must follow the same token + theme-palette pattern.
+- New calculators must ship with `/sc-form-fields.css`, `/sc-tool-guide.css` + guide content, and the shared site header. Never set `min-width:0` on value inputs beside unit selectors.
 - SC-020 constants (ISO 513 kc1/mc, Taylor C/n, coolant and interruption factors) are reference-grade mid-band values; the tool itself instructs calibration against tooling-supplier datasheets for contract work. Do not present its outputs as measured data.
 - SC-021 constants (digitized aISO coefficients, Table 13 eC mid-values, empirical ν100 correlation) follow ISO 281:2007 reference values; C, C0 and Cu must come from the bearing manufacturer's catalog. aISO is capped at 50 and valid for 0.1 ≤ κ ≤ 4. Do not present its outputs as measured data.
 - Engineering preview: outputs are predicted from stated assumptions; not for production approval and not a substitute for measured data or a licensed engineer.
@@ -52,4 +55,5 @@ SectorCalc ships industrial calculation tools with visible inputs, assumptions, 
 
 - [Full sitemap](https://www.sectorcalc.com/sitemap.xml): Canonical URL list for crawlers.
 - [robots.txt](https://www.sectorcalc.com/robots.txt): Crawl rules.
-- [llm.txt](https://www.sectorcalc.com/llm.txt): Mirror of this index for alternate discovery paths.
+- [llms.txt](https://www.sectorcalc.com/llms.txt): Canonical AI discovery index.
+- [llm.txt](https://www.sectorcalc.com/llm.txt): This file — mirror of llms.txt for alternate discovery paths.
