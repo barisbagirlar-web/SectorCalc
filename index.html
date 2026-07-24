@@ -1539,6 +1539,9 @@ select:focus-visible{
 .stage-poster .sp-probe{transform-origin:420px 90px;animation:sc-poster-probe 2.2s ease-in-out infinite}
 .stage-poster .sp-readout{animation:sc-poster-readout 2.2s ease-in-out infinite}
 .stage-poster .sp-spin{transform-box:fill-box;transform-origin:center;animation:sc-poster-spin 3.2s ease-in-out infinite}
+.stage-poster.is-js-anim .sp-probe,
+.stage-poster.is-js-anim .sp-readout,
+.stage-poster.is-js-anim .sp-spin{animation:none !important}
 @keyframes sc-poster-probe{
   0%,100%{transform:translate(0,0)}
   30%{transform:translate(28px,22px)}
@@ -1555,7 +1558,10 @@ select:focus-visible{
 }
 @media (prefers-reduced-motion: reduce){
   .stage-wrap canvas,.stage-poster{transition:none}
-  .stage-poster .sp-probe,.stage-poster .sp-readout,.stage-poster .sp-spin{animation:none}
+  /* Keep discrete motion via JS (.is-js-anim); only kill continuous CSS loops */
+  .stage-poster:not(.is-js-anim) .sp-probe,
+  .stage-poster:not(.is-js-anim) .sp-readout,
+  .stage-poster:not(.is-js-anim) .sp-spin{animation:none}
 }
 .sc-hero .hud{position:absolute;top:0;left:0;right:0;height:430px;pointer-events:none;font-family:var(--sc-hero-mono)}
 .sc-hero .hud::before{
@@ -1871,6 +1877,7 @@ select:focus-visible{
 
 
 
+
 <a href="#main-content" class="skip-link">Skip to main content</a>
 
 <div class="sheet">
@@ -1916,10 +1923,13 @@ select:focus-visible{
               <rect x="416" y="92" width="8" height="78" rx="3" fill="#4A5058"/>
               <circle cx="420" cy="176" r="7" fill="#E8536B"/>
               <rect x="408" y="86" width="24" height="10" rx="3" fill="#0055A4"/>
+              <!-- SMIL backup if JS/CSS blocked -->
+              <animateTransform attributeName="transform" type="translate" values="0 0;36 18;36 18;72 8;110 22;148 10;0 0" keyTimes="0;0.15;0.3;0.45;0.6;0.75;1" dur="7s" repeatCount="indefinite"/>
             </g>
             <g class="sp-readout">
               <rect x="448" y="120" width="120" height="26" rx="6" fill="#fff" stroke="#E3E7EC"/>
               <text x="458" y="138" font-family="ui-monospace,monospace" font-size="13" fill="#0055A4">D41.600 <tspan fill="#E87722">-0.006</tspan></text>
+              <animate attributeName="opacity" values="0.35;1;1;0.35" keyTimes="0;0.2;0.55;1" dur="7s" repeatCount="indefinite"/>
             </g>
           </svg>
           <canvas id="stage" aria-label="Live 3D turning cell"></canvas>
@@ -3221,8 +3231,33 @@ select:focus-visible{
 })();
 </script>
 
-<script type="module" src="/sc-hero-cell.js?v=15"></script>
-<script src="/sc-hero-engine.js?v=15"></script>
+<script type="module" src="/sc-hero-cell.js?v=16"></script>
+<script src="/sc-hero-engine.js?v=16"></script>
+<script>
+/* Emergency HUD if module script never boots (old browsers / blocked modules) */
+(function () {
+  setTimeout(function () {
+    if (window.__SC_HERO_LIVE__) return;
+    var probe = document.getElementById('tProbe');
+    var rpm = document.getElementById('tRpm');
+    var gcode = document.getElementById('gcode');
+    var poster = document.querySelector('.stage-poster');
+    var probeG = poster && poster.querySelector('.sp-probe');
+    if (!probe) return;
+    window.__SC_HERO_LIVE__ = true;
+    var lines = ['G01 X40.000 Z-12.000 F0.20','G02 X36.800 Z-24.500 R3.0','G01 Z-48.000 F0.18','M00 (MEASURE)'];
+    var stops = [0,36,72,110,148];
+    var i = 0;
+    setInterval(function () {
+      if (rpm) rpm.textContent = String(1415 + Math.round(Math.random() * 10));
+      if (gcode) gcode.textContent = lines[i % lines.length];
+      if (probe) probe.textContent = ['MOVE','PROBE','READ','RETRACT'][i % 4];
+      if (probeG) probeG.setAttribute('transform', 'translate(' + stops[i % stops.length] + ' ' + (8 + (i % 3) * 6) + ')');
+      i++;
+    }, 1000);
+  }, 2000);
+})();
+</script>
 
 
 <!--SC-SEO-CVW-->

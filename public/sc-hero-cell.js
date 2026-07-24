@@ -1,27 +1,36 @@
-/* sc-hero-cell.js - Live Cell hero (Three.js)
-   Lazy-loads Three only when the hero approaches the viewport.
-   Pauses RAF when off-screen / tab hidden / prefers-reduced-motion.
-   Safe WebGL init. Fail-soft on error.
+/* sc-hero-cell.js - Live Cell hero (Three.js + SVG fallback)
+   Always shows motion: JS/SVG poster animator starts immediately.
+   Three.js upgrades when WebGL is available. Fail-soft forever.
 */
 
 const stageEl = document.getElementById('stage');
 const heroRoot = document.querySelector('.sc-hero') || stageEl;
+const posterEl = document.querySelector('.stage-poster');
+let posterAnimStop = null;
+let hudFallbackStarted = false;
+let threeReady = false;
 
-function heroFallback(err) {
-  if (stageEl) {
-    stageEl.classList.remove('is-ready');
-    stageEl.style.opacity = '0';
+window.__SC_HERO_LIVE__ = false;
+
+function reducedMotion() {
+  try {
+    return !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  } catch (e) {
+    return false;
   }
-  console.warn('3D fallback:', err);
-  startHudFallback();
 }
 
 function startHudFallback() {
+  if (hudFallbackStarted) return;
+  hudFallbackStarted = true;
+  window.__SC_HERO_LIVE__ = true;
+
   const gcodeEl = document.getElementById('gcode');
   const tRpmEl = document.getElementById('tRpm');
   const tProbe = document.getElementById('tProbe');
   const tX = document.getElementById('tX');
   const tZ = document.getElementById('tZ');
+  const tMode = document.getElementById('tMode');
   const glines = [
     'G01 X40.000 Z-12.000 F0.20',
     'G02 X36.800 Z-24.500 R3.0',
@@ -31,34 +40,109 @@ function startHudFallback() {
     'M00 (MEASURE D41.6)',
     'G04 X0.8 (DWELL)'
   ];
-  let gi = 0;
-  let px = -1.55;
-  const stations = [-1.55, -0.95, -0.05, 0.62, 1.45];
-  let si = 0;
+  const stations = [
+    { x: -1.55, label: 'D24.000' },
+    { x: -0.95, label: 'D36.800' },
+    { x: -0.05, label: 'D28.800' },
+    { x: 0.62, label: 'D41.600' },
+    { x: 1.45, label: 'D22.400' }
+  ];
   const modes = ['MOVE', 'PROBE', 'READ', 'RETRACT'];
+  let gi = 0;
+  let si = 0;
   let mi = 0;
+
   setInterval(() => {
+    if (threeReady) return;
     if (gcodeEl) gcodeEl.textContent = glines[gi++ % glines.length];
   }, 1400);
   setInterval(() => {
+    if (threeReady) return;
     if (tRpmEl) tRpmEl.textContent = String(1415 + Math.round(Math.random() * 10));
   }, 700);
   setInterval(() => {
+    if (threeReady) return;
     si = (si + 1) % stations.length;
-    px = stations[si];
     mi = (mi + 1) % modes.length;
+    const st = stations[si];
     if (tProbe) tProbe.textContent = modes[mi];
-    if (tX) tX.textContent = (px >= 0 ? '+' : '') + px.toFixed(3);
-    if (tZ) tZ.textContent = '-' + Math.abs(px).toFixed(3);
+    if (tMode) tMode.textContent = 'AUTO-MEASURE';
+    if (tX) tX.textContent = (st.x >= 0 ? '+' : '') + st.x.toFixed(3);
+    if (tZ) tZ.textContent = '-' + Math.abs(st.x).toFixed(3);
   }, 900);
+}
+
+/** JS-driven SVG probe tour — works even when CSS animations are disabled. */
+function startPosterAnimator() {
+  if (!posterEl || posterAnimStop) return;
+  const probe = posterEl.querySelector('.sp-probe');
+  const readout = posterEl.querySelector('.sp-readout');
+  const spin = posterEl.querySelector('.sp-spin');
+  const readoutText = readout && readout.querySelector('text');
+  if (!probe) return;
+
+  // Disable CSS animations so JS owns transforms (avoids fighting reduced-motion CSS).
+  posterEl.classList.add('is-js-anim');
+
+  const stops = [
+    { x: 0, y: 0, nom: 'D41.600', off: -0.006 },
+    { x: 36, y: 18, nom: 'D36.800', off: 0.009 },
+    { x: 72, y: 8, nom: 'D28.800', off: -0.012 },
+    { x: 110, y: 22, nom: 'D24.000', off: 0.004 },
+    { x: 148, y: 10, nom: 'D22.400', off: -0.008 }
+  ];
+  let i = 0;
+  let spinX = 0;
+  let dir = 1;
+  const stepMs = reducedMotion() ? 1800 : 1100;
+
+  function paint() {
+    if (threeReady) return;
+    const s = stops[i % stops.length];
+    probe.setAttribute('transform', 'translate(' + s.x + ' ' + s.y + ')');
+    if (readout) {
+      readout.setAttribute('transform', 'translate(' + s.x + ' ' + (s.y - 8) + ')');
+      readout.setAttribute('opacity', '1');
+    }
+    if (readoutText) {
+      const sign = s.off >= 0 ? '+' : '';
+      readoutText.innerHTML =
+        s.nom + ' <tspan fill="#E87722">' + sign + s.off.toFixed(3) + '</tspan>';
+    }
+    if (spin && !reducedMotion()) {
+      spinX += 3 * dir;
+      if (spinX > 14 || spinX < 0) dir *= -1;
+      spin.setAttribute('transform', 'translate(' + spinX + ' 0)');
+    }
+    i += 1;
+  }
+
+  paint();
+  const timer = setInterval(paint, stepMs);
+  posterAnimStop = function stop() {
+    clearInterval(timer);
+    posterAnimStop = null;
+  };
+}
+
+function stopPosterAnimator() {
+  if (typeof posterAnimStop === 'function') posterAnimStop();
+  if (posterEl) posterEl.classList.remove('is-js-anim');
+}
+
+function heroFallback(err) {
+  if (stageEl) {
+    stageEl.classList.remove('is-ready');
+    stageEl.style.opacity = '0';
+  }
+  console.warn('3D fallback:', err);
+  startHudFallback();
+  startPosterAnimator();
 }
 
 function waitUntilVisible(el) {
   return new Promise((resolve) => {
-    if (!el) return resolve();
-    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      return resolve('reduced');
-    }
+    if (!el) return resolve('visible');
     const rect = el.getBoundingClientRect();
     if (rect.bottom > 0 && rect.top < (window.innerHeight || 800) + 200) {
       return resolve('visible');
@@ -76,20 +160,40 @@ function waitUntilVisible(el) {
   });
 }
 
-async function boot() {
-  if (!stageEl) return;
-  const state = await waitUntilVisible(heroRoot);
-  if (state === 'reduced') return;
-
-  let THREE;
-  let RoomEnvironment;
+async function loadThree() {
   try {
     const [threeMod, roomMod] = await Promise.all([
       import('three'),
       import('three/addons/environments/RoomEnvironment.js')
     ]);
-    THREE = threeMod;
-    RoomEnvironment = roomMod.RoomEnvironment;
+    return { THREE: threeMod, RoomEnvironment: roomMod.RoomEnvironment };
+  } catch (e1) {
+    const [threeMod, roomMod] = await Promise.all([
+      import('/vendor/three/three.module.min.js'),
+      import('/vendor/three/RoomEnvironment.js')
+    ]);
+    return { THREE: threeMod, RoomEnvironment: roomMod.RoomEnvironment };
+  }
+}
+
+async function boot() {
+  if (!stageEl) return;
+
+  // Motion immediately — never leave a frozen poster.
+  startHudFallback();
+  startPosterAnimator();
+
+  await waitUntilVisible(heroRoot);
+
+  // Still try WebGL upgrade (skip only if user prefers reduced motion for 3D).
+  if (reducedMotion()) return;
+
+  let THREE;
+  let RoomEnvironment;
+  try {
+    const mods = await loadThree();
+    THREE = mods.THREE;
+    RoomEnvironment = mods.RoomEnvironment;
   } catch (e) {
     heroFallback(e);
     return;
@@ -101,7 +205,7 @@ async function boot() {
       canvas,
       antialias: true,
       alpha: true,
-      powerPreference: 'high-performance',
+      powerPreference: 'default',
       failIfMajorPerformanceCaveat: false
     });
     const gl = renderer.getContext();
@@ -405,10 +509,12 @@ async function boot() {
 
     resize();
     renderer.render(scene, camera);
+    threeReady = true;
+    window.__SC_HERO_LIVE__ = true;
+    stopPosterAnimator();
     canvas.classList.add('is-ready');
     raf = requestAnimationFrame(loop);
 
-    // Keep timers only while page lives; no teardown needed for static marketing page.
     void gcodeTimer;
     void rpmTimer;
   } catch (e) {
