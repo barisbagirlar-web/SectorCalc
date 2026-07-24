@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: read
+  statuses: write
 
 concurrency:
   group: sectorcalc-production-deploy
@@ -49,3 +50,21 @@ jobs:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
       - name: Post-deploy hard-refresh SEO guard
         run: npm run seo:live
+      - name: Attest successful production SEO deploy
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}" \
+            -f state=success \
+            -f context='SectorCalc Production SEO' \
+            -f description='Firebase deploy and hard-refresh SEO guard passed'
+      - name: Attest failed production SEO deploy
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}" \
+            -f state=failure \
+            -f context='SectorCalc Production SEO' \
+            -f description='Firebase deploy or hard-refresh SEO guard failed'
