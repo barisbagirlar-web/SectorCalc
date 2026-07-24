@@ -7,15 +7,9 @@ import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 
 const ROOT = process.cwd();
-const PAGES = [
+const BASE_PAGES = [
   'index.html',
   'pricing.html',
-  'sc008-pro.html',
-  'labor-pro.html',
-  'quote-pro.html',
-  'weld-pro.html',
-  'machining-pro.html',
-  'bearing-pro.html',
   'pro.html',
   'tools.html',
   'calculator.html',
@@ -23,6 +17,10 @@ const PAGES = [
   'calculator3.html',
   'calculator4.html'
 ];
+const PRO_PAGES = readdirSync(ROOT)
+  .filter((f) => f.endsWith('-pro.html'))
+  .sort();
+const PAGES = [...BASE_PAGES, ...PRO_PAGES];
 
 const EXPECTED = {
   'index.html': {
@@ -115,7 +113,7 @@ function checkPage(page) {
     }
   }
 
-  // Pro pages must link home + pricing
+  // Pro pages must link home + pricing + shared form-field layout
   if (page.endsWith('-pro.html')) {
     if (!hrefs.some((h) => h === '/')) issues.push(`${page}: no home link (/)`);
     if (!hrefs.some((h) => h === '/pricing.html')) issues.push(`${page}: no pricing link`);
@@ -123,6 +121,7 @@ function checkPage(page) {
     if (!html.includes('sc-tool-guide.js')) issues.push(`${page}: missing sc-tool-guide.js`);
     if (!html.includes('data-sc-engage')) issues.push(`${page}: missing SEO guide engagement mount`);
     if (!html.includes('id="sc-guide"')) issues.push(`${page}: missing #sc-guide SEO section`);
+    if (!/<link[^>]+sc-form-fields\.css/i.test(html)) issues.push(`${page}: missing sc-form-fields.css`);
   }
 
   // Site pages (not legacy calculator redirects) must ship the shared theme engine
@@ -134,6 +133,7 @@ function checkPage(page) {
     if (!html.includes('sc-site-nav.css')) issues.push(`${page}: missing sc-site-nav.css`);
     if (!html.includes('sc-site-nav.js')) issues.push(`${page}: missing sc-site-nav.js`);
     if (!html.includes('id="siteHeader"')) issues.push(`${page}: missing shared #siteHeader`);
+    if (!/<link[^>]+sc-form-fields\.css/i.test(html)) issues.push(`${page}: missing sc-form-fields.css`);
   }
 }
 
@@ -185,9 +185,9 @@ if (existsSync(dist)) {
     console.error('[FAIL] dist missing discovery files: ' + missingDiscovery.join(', '));
     process.exit(1);
   }
-  for (const asset of ['sc-theme.css', 'sc-theme.js']) {
+  for (const asset of ['sc-theme.css', 'sc-theme.js', 'sc-form-fields.css']) {
     if (!existsSync(join(dist, asset))) {
-      console.error('[FAIL] dist missing theme asset: ' + asset);
+      console.error('[FAIL] dist missing theme/form asset: ' + asset);
       process.exit(1);
     }
   }

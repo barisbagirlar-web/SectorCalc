@@ -1,21 +1,25 @@
 #!/usr/bin/env node
 /**
  * Inject the shared SectorCalc site header into every public HTML page.
+ * Also forces canonical calculator form-field CSS on every *-pro.html page,
+ * including tools added later that are not yet in the explicit PAGES list.
  */
-import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 
 const ROOT = process.cwd();
 const PARTIAL = readFileSync(join(ROOT, 'content/partials/site-header.html'), 'utf8').trim();
 
+const FORM_FIELDS_VERSION = 3;
 const NAV_ASSETS = `
 <link rel="stylesheet" href="./sc-site-nav.css?v=1">
 <script src="./sc-site-nav.js?v=1" defer></script>
 `.trim();
 
 const FORM_FIELDS_ASSET =
-  '<link rel="stylesheet" href="./sc-form-fields.css?v=2">';
+  `<link rel="stylesheet" href="./sc-form-fields.css?v=${FORM_FIELDS_VERSION}">`;
 
+/** Explicit page configs (nav strip + tool badge). New tools auto-register below. */
 const PAGES = [
   { page: 'index.html', strip: 'home', badge: null },
   { page: 'tools.html', strip: 'topbar', badge: null },
@@ -49,6 +53,23 @@ const PAGES = [
   }
 ];
 
+function detectStrip(html) {
+  if (html.includes('class="sc-layout"') || html.includes("class='sc-layout'")) return 'lit';
+  if (html.includes('class="topbar"')) return 'topbar';
+  return 'topbar';
+}
+
+function autoRegisterProPages() {
+  const known = new Set(PAGES.map((p) => p.page));
+  const found = readdirSync(ROOT).filter((f) => f.endsWith('-pro.html'));
+  for (const page of found) {
+    if (known.has(page)) continue;
+    const html = readFileSync(join(ROOT, page), 'utf8');
+    PAGES.push({ page, strip: detectStrip(html), badge: null });
+    console.warn(`[WARN] Auto-registered ${page} — add an explicit PAGES entry in inject-site-nav.mjs`);
+  }
+}
+
 function ensureAssets(html) {
   let out = html;
   if (!out.includes('sc-site-nav.css')) {
@@ -58,7 +79,10 @@ function ensureAssets(html) {
   if (!out.includes('sc-form-fields.css')) {
     out = out.replace('</head>', `${FORM_FIELDS_ASSET}\n</head>`);
   } else {
-    out = out.replace(/sc-form-fields\.css\?v=\d+/g, 'sc-form-fields.css?v=2');
+    out = out.replace(
+      /sc-form-fields\.css\?v=\d+/g,
+      `sc-form-fields.css?v=${FORM_FIELDS_VERSION}`
+    );
   }
   return out;
 }
@@ -101,6 +125,8 @@ function insertNav(html, block) {
   // Always mount at the top of <body> (never after late theme toggles).
   return html.replace(/<body([^>]*)>/i, `<body$1>\n${block}\n`);
 }
+
+autoRegisterProPages();
 
 let ok = 0;
 for (const row of PAGES) {

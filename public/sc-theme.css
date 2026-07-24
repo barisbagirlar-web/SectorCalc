@@ -1,5 +1,6 @@
 /* SectorCalc shared theme — light/dark engine companion CSS (v8)
    Never put star-slash inside comments (breaks the next rule). */
+@import url('./sc-form-fields.css');
 
 html{
   color-scheme:light;

@@ -1,6 +1,15 @@
 /**
- * SectorCalc — form field readability (all calculators)
- * Ensures number inputs never clip digits beside unit selectors.
+ * SectorCalc — CANONICAL calculator form-field layout (all tools, present + future)
+ *
+ * Source of truth for readable number inputs beside unit selectors.
+ * Imported by public/sc-theme.css and injected on every page by inject-site-nav.mjs.
+ * Enforced by scripts/verify-form-fields.mjs (fails npm run build on violations).
+ * Scaffold new tools with: npm run new:tool -- --id SC-0XX --slug x --title "X" --kind lit
+ *
+ * Markup contract:
+ *   Engine panels → .uwrap > input + select.units
+ *   Lit sidebars  → .sc-input-wrap > input.sc-input + select.sc-unit
+ * Never use min-width:0 on value inputs in those wraps.
  */
 .field input[type="number"],
 .uwrap input[type="number"],
