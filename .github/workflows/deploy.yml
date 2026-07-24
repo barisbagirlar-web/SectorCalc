@@ -25,6 +25,7 @@ jobs:
           node-version: 22
           cache: npm
       - name: Verify Firebase credential present
+        id: firebase_credential
         run: |
           if [ -z "${FIREBASE_TOKEN:-}" ]; then
             echo "::error::FIREBASE_TOKEN secret is not configured. Add it in repo Settings > Secrets, then re-run."
@@ -41,14 +42,27 @@ jobs:
       - name: Strict TypeScript
         run: npm run typecheck
       - name: Production build
+        id: production_build
         run: npm run build
       - name: Enterprise SEO deterministic guard
+        id: deterministic_seo
         run: npm run seo:guard
       - name: Deploy Firebase Hosting (sectorcalc-prod)
+        id: firebase_deploy
         run: npx --yes firebase-tools@14 deploy --only hosting --project sectorcalc-prod --token "$FIREBASE_TOKEN"
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+      - name: Attest Firebase deploy
+        if: steps.firebase_deploy.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}" \
+            -f state=success \
+            -f context='SectorCalc Firebase Deploy' \
+            -f description='Firebase Hosting production deploy completed'
       - name: Post-deploy hard-refresh SEO guard
+        id: live_seo
         run: npm run seo:live
       - name: Attest successful production SEO deploy
         if: success()
@@ -64,7 +78,8 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
+          description="credential=${{ steps.firebase_credential.outcome }} build=${{ steps.production_build.outcome }} seo=${{ steps.deterministic_seo.outcome }} deploy=${{ steps.firebase_deploy.outcome }} live=${{ steps.live_seo.outcome }}"
           gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}" \
             -f state=failure \
             -f context='SectorCalc Production SEO' \
-            -f description='Firebase deploy or hard-refresh SEO guard failed'
+            -f description="$description"
