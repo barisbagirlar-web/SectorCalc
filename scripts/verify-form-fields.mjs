@@ -93,12 +93,13 @@ const proPages = listProPages();
 if (!proPages.length) issues.push('no *-pro.html calculator pages at repo root');
 for (const page of proPages) checkProPage(page);
 
-// Shared theme must pull form fields so theme-only pages still get the layout
+// Form fields are linked explicitly on pages — theme must NOT @import them
+// (duplicate render-blocking CSS was a Lighthouse regression).
 const themePath = join(ROOT, 'public', 'sc-theme.css');
 if (existsSync(themePath)) {
   const theme = readFileSync(themePath, 'utf8');
-  if (!theme.includes(FORM_CSS_NAME)) {
-    issues.push(`public/sc-theme.css: must @import ${FORM_CSS_NAME}`);
+  if (/@import\s+url\(['"]?\.\/sc-form-fields\.css['"]?\)/i.test(theme)) {
+    issues.push(`public/sc-theme.css: must not @import ${FORM_CSS_NAME} (link it from HTML only)`);
   }
 }
 

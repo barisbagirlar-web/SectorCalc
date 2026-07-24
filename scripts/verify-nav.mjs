@@ -223,7 +223,7 @@ if (existsSync(dist)) {
     }
   }
   for (const asset of [
-    'vendor/three/three.module.js',
+    'vendor/three/three.module.min.js',
     'vendor/three/RoomEnvironment.js',
     'sc-hero-cell.js'
   ]) {

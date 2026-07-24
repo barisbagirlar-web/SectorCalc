@@ -22,11 +22,11 @@
       },
       {
         "source": "**/*.@(js|css|woff2|png|svg|webmanifest)",
-        "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400" }]
+        "headers": [{ "key": "Cache-Control", "value": "public, max-age=604800" }]
       },
       {
         "source": "/favicon.ico",
-        "headers": [{ "key": "Cache-Control", "value": "public, max-age=3600" }]
+        "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400" }]
       },
       {
         "source": "/assets/**",
@@ -37,20 +37,8 @@
         "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
       },
       {
-        "source": "/sc-hero-cell.js",
-        "headers": [{ "key": "Cache-Control", "value": "public, max-age=300" }]
-      },
-      {
-        "source": "/sc-hero-engine.js",
-        "headers": [{ "key": "Cache-Control", "value": "public, max-age=300" }]
-      },
-      {
-        "source": "/sc-theme.js",
-        "headers": [{ "key": "Cache-Control", "value": "public, max-age=300" }]
-      },
-      {
-        "source": "/sc-theme.css",
-        "headers": [{ "key": "Cache-Control", "value": "public, max-age=300" }]
+        "source": "/sectorcalc-logo*.png",
+        "headers": [{ "key": "Cache-Control", "value": "public, max-age=2592000" }]
       },
       {
         "source": "**/*.html",

@@ -18,10 +18,12 @@ SectorCalc ships industrial calculation tools with visible inputs, assumptions, 
 - Under every live calculator: a tool-specific SEO guide (`#sc-guide`) rendered as a balanced page layout — sticky "On this page" TOC beside section cards (not a long single-column wall), FAQ grid, highlighted formulas, reference tables, FAQPage schema, and related-tool links. Assets: `/sc-tool-guide.css` + `/sc-tool-guide.js`. Mobile uses chip-style TOC and contains horizontal overflow.
 - FS-ENGINE: deterministic calculation core used by machining tools. All math in SI units; per-field display units convert at entry with exact factors (1 in = 25.4 mm, 1 SFM = 0.3048 m/min, 1 HP = 0.7457 kW, 1 ft·lb = 1.3558 N·m). Currency selector is a symbol only - no FX conversion.
 - Homepage Live Cell hero (`/sc-hero-cell.js`):
-  - Three.js is self-hosted at `/vendor/three/` (no unpkg CDN); `modulepreload` + parallel import of `three.module.js` and `RoomEnvironment.js`.
+  - Three.js is self-hosted at `/vendor/three/` (minified ESM `three.module.min.js`, no unpkg CDN); loaded only when the hero approaches the viewport (no early `modulepreload`).
   - SVG poster in `.stage-wrap` shows immediately; canvas fades in on first frame (`#stage.is-ready`).
-  - Render loop pauses when the hero is off-screen or the tab is hidden; `prefers-reduced-motion` keeps a single static frame.
-  - Firebase Hosting long-caches `/vendor/**` (immutable); HTML stays no-cache.
+  - Render loop pauses when the hero is off-screen or the tab is hidden; `prefers-reduced-motion` keeps a static poster (no WebGL boot).
+  - Firebase Hosting long-caches `/vendor/**` (immutable) and versioned theme/nav CSS/JS; HTML stays no-cache.
+- Accessibility baseline (homepage): WCAG AA muted text token `--sheet-text-3: #595959`, orange ink via `--iso-orange-dim` for labels, single `<main id="main-content">` landmark, sequential headings (no h2→h4/h5 skips).
+- Performance baseline (homepage): non-blocking Google Fonts + nav/form-field CSS (`media="print" onload`), no duplicate `sc-form-fields.css` import from theme, responsive logo `srcset` (214w/428w).
 
 ## Primary tools
 
@@ -47,7 +49,7 @@ Every live calculator ships an English study toolbar: **Load Sample Study** (com
 - Do not invent cloud upload, accounts, live card checkout, or server-side calculation for the core engines.
 - Do not describe the product as AI-powered, ML, generative, or chatbot-based.
 - Do not invent customer testimonials or claim PCI checkout is live.
-- Homepage hero loads Three.js from `/vendor/three/` only - do not invent an unpkg or other CDN dependency for the live site.
+- Homepage hero lazy-loads minified Three.js from `/vendor/three/three.module.min.js` only when the Live Cell is near the viewport - do not invent an unpkg CDN or early modulepreload requirement.
 - Homepage hero canvas is a client-side Three.js visualization plus a seeded Number preview deck; production tool engines use Decimal.js or the FS-ENGINE SI core.
 - Theme preference and toggle position are client-side only (localStorage); they are not accounts or server profiles.
 - Report and result surfaces must keep readable contrast in light and dark themes. New tools must follow the same token + theme-palette pattern.

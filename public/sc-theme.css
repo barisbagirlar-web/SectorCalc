@@ -1,6 +1,6 @@
 /* SectorCalc shared theme — light/dark engine companion CSS (v8)
    Never put star-slash inside comments (breaks the next rule). */
-@import url('./sc-form-fields.css');
+/* form-fields CSS is linked explicitly on pages — do not @import (avoids duplicate render-blocking download) */
 
 html{
   color-scheme:light;
@@ -21,7 +21,7 @@ html:not([data-theme="dark"]){
   --sheet-line-hair:#D8D8D0;
   --sheet-text:#1A1A1A;
   --sheet-text-2:#4A4A4A;
-  --sheet-text-3:#7A7A7A;
+  --sheet-text-3:#595959; /* WCAG AA muted on white / sheet */
   --iso-blue:#0055A4;
   --iso-blue-dim:#003D66;
   --iso-blue-light:#E6F0F7;

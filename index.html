@@ -14,7 +14,9 @@
 <meta name="description" content="Deterministic calculators for engineering, machining, quality and costing. Client-side, full-precision, reproducible.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet"></noscript>
 <style>
 /* ============================================================
    SECTORCALC v5.0 - EXHAUSTIVE UPDATE
@@ -47,7 +49,7 @@
   --sheet-line-hair:#D8D8D0;
   --sheet-text:    #1A1A1A;
   --sheet-text-2:  #4A4A4A;
-  --sheet-text-3:  #7A7A7A;
+  --sheet-text-3:  #595959; /* WCAG AA muted on white / sheet */
   --f-display: 'Barlow Condensed', sans-serif;
   --f-body:    'Inter', sans-serif;
   --f-mono:    'JetBrains Mono', monospace;
@@ -237,7 +239,7 @@ h1,h2,h3,h4{
   max-width: 640px; 
 }
 .section-head .lede{ max-width: 400px; color: var(--sheet-text-2); font-size: 15.5px; line-height: 1.65; }
-.section-kicker{ color: var(--iso-orange); font-weight: 700; }
+.section-kicker{ color: var(--iso-orange-dim); font-weight: 700; }
 
 .site-header{
   display:flex; align-items:center; justify-content: space-between;
@@ -1194,7 +1196,7 @@ h1,h2,h3,h4{
   border: 1.5px solid var(--sheet-line-strong);
   background: var(--sheet-paper);
   display:flex; align-items:center; justify-content:center;
-  font-family: var(--f-mono); font-size: 13px; color: var(--iso-orange);
+  font-family: var(--f-mono); font-size: 13px; color: var(--iso-orange-dim);
   margin-bottom: var(--sp-4);
   font-weight: 700;
 }
@@ -1312,10 +1314,7 @@ h1,h2,h3,h4{
 }
 .warning-box svg{
   width: 20px; height: 20px;
-  color: var(--iso-orange);
-  flex-shrink: 0;
-  margin-top: 2px;
-}
+  color: var(--iso-orange-dim);
 .warning-box p{
   font-family: var(--f-mono);
   font-size: 12.5px;
@@ -1347,7 +1346,7 @@ h1,h2,h3,h4{
   border-bottom: 1.5px solid var(--sheet-line);
 }
 @media(max-width:780px){ .tb-links{ grid-template-columns: 1fr 1fr; } }
-.tb-links h5{
+.tb-links h3,.tb-links h5{
   font-family: var(--f-mono); font-size: 11px; letter-spacing:0.08em; text-transform:uppercase;
   color: var(--sheet-text-3); margin: 0 0 var(--sp-3);
   font-weight: 600;
@@ -1436,7 +1435,7 @@ select:focus-visible{
 .measure-step{ display:flex; gap:var(--sp-4); padding:var(--sp-5); border-bottom:1.5px solid var(--sheet-line); align-items:flex-start; transition: background 0.2s; flex:1; }
 .measure-step:last-child{ border-bottom:none; }
 .measure-step:hover{ background: var(--sheet-white); }
-.measure-step .ms-num{ font-family:var(--f-mono); font-weight:700; color:var(--iso-orange); font-size:13px; border:1.5px solid var(--sheet-line-strong); width:40px; height:40px; display:flex; align-items:center; justify-content:center; flex-shrink:0; background:var(--sheet-paper); }
+.measure-step .ms-num{ font-family:var(--f-mono); font-weight:700; color:var(--iso-orange-dim); font-size:13px; border:1.5px solid var(--sheet-line-strong); width:40px; height:40px; display:flex; align-items:center; justify-content:center; flex-shrink:0; background:var(--sheet-paper); }
 .measure-step h4{ font-family:var(--f-body); text-transform:none; font-size:15.5px; font-weight:700; margin-bottom:4px; }
 .measure-step p{ font-size:13.5px; color:var(--sheet-text-2); line-height:1.55; margin:0; }
 
@@ -1612,21 +1611,21 @@ select:focus-visible{
 }
 </style>
 <script type="importmap">
-{"imports":{"three":"/vendor/three/three.module.js",
+{"imports":{"three":"/vendor/three/three.module.min.js",
 "three/addons/environments/RoomEnvironment.js":"/vendor/three/RoomEnvironment.js"}}
 </script>
-<link rel="modulepreload" href="/vendor/three/three.module.js" crossorigin>
-<link rel="modulepreload" href="/vendor/three/RoomEnvironment.js" crossorigin>
-<link rel="stylesheet" href="./sc-theme.css?v=8">
-<script src="./sc-theme.js?v=8" defer></script>
-<link rel="stylesheet" href="./sc-site-nav.css?v=1">
-<script src="./sc-site-nav.js?v=1" defer></script>
-<link rel="stylesheet" href="./sc-form-fields.css?v=4">
+<link rel="stylesheet" href="./sc-theme.css?v=9">
+<script src="./sc-theme.js?v=9" defer></script>
+<link rel="stylesheet" href="./sc-site-nav.css?v=2" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="./sc-site-nav.css?v=2"></noscript>
+<script src="./sc-site-nav.js?v=2" defer></script>
+<link rel="stylesheet" href="./sc-form-fields.css?v=5" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="./sc-form-fields.css?v=5"></noscript>
 </head>
 <body>
 <!--SC-SITE-NAV-START-->
 <header class="site-header" id="siteHeader" role="banner">
-  <a href="/" class="brand" aria-label="SectorCalc Home"><span class="brand-mark"><img class="logo-light" src="/sectorcalc-logo.png" alt="SectorCalc" width="183" height="48"><img class="logo-dark" src="/sectorcalc-logo-dark.png?v=2" alt="" width="183" height="48" aria-hidden="true"></span></a>
+  <a href="/" class="brand" aria-label="SectorCalc Home"><span class="brand-mark"><img class="logo-light" src="/sectorcalc-logo-214.w.png" srcset="/sectorcalc-logo-214.w.png 214w, /sectorcalc-logo-428.w.png 428w" sizes="183px" width="183" height="48" alt="SectorCalc" decoding="async"><img class="logo-dark" src="/sectorcalc-logo-dark-214.w.png" srcset="/sectorcalc-logo-dark-214.w.png 214w, /sectorcalc-logo-dark-428.w.png 428w" sizes="183px" width="183" height="48" alt="" aria-hidden="true" decoding="async"></span></a>
   <nav class="main-nav" role="navigation" aria-label="Main navigation">
     <ul>
       <li><a href="/tools.html" data-nav="tools">Tools</a></li>
@@ -1663,6 +1662,8 @@ select:focus-visible{
 
 
 
+
+
 <a href="#main-content" class="skip-link">Skip to main content</a>
 
 <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme" aria-pressed="false" title="Dark mode">
@@ -1676,7 +1677,8 @@ select:focus-visible{
   <div class="zone-edge top" style="left:8%;">1</div><div class="zone-edge top" style="left:28%;">2</div><div class="zone-edge top" style="left:48%;">3</div><div class="zone-edge top" style="left:68%;">4</div><div class="zone-edge top" style="left:92%;">5</div>
   <div class="zone-edge bottom" style="left:8%;">A</div><div class="zone-edge bottom" style="left:28%;">B</div><div class="zone-edge bottom" style="left:48%;">C</div><div class="zone-edge bottom" style="left:68%;">D</div><div class="zone-edge bottom" style="left:92%;">E</div>
 
-  <section class="sc-hero" id="main-content" aria-label="Hero section">
+  <main id="main-content">
+  <section class="sc-hero" aria-label="Hero section">
     <div class="hero-grid">
       <div>
         <span class="sc-hero-badge"><span class="dot" aria-hidden="true"></span> Live Cell · Deterministic Engine</span>
@@ -1905,19 +1907,19 @@ select:focus-visible{
         <div class="measure-steps" role="list" aria-label="Tolerance measurement process, step by step">
           <div class="measure-step" role="listitem">
             <div class="ms-num">01</div>
-            <div><h4>Mount &amp; zero</h4><p>Workpiece clamped in the vice, probe zeroed on the datum face. Fixture repeatability &le; 2 &mu;m.</p></div>
+            <div><h3>Mount &amp; zero</h3><p>Workpiece clamped in the vice, probe zeroed on the datum face. Fixture repeatability &le; 2 &mu;m.</p></div>
           </div>
           <div class="measure-step" role="listitem">
             <div class="ms-num">02</div>
-            <div><h4>Probe the points</h4><p>Touch-off at points A, B and C along the measured edge. Three readings per point, averaged.</p></div>
+            <div><h3>Probe the points</h3><p>Touch-off at points A, B and C along the measured edge. Three readings per point, averaged.</p></div>
           </div>
           <div class="measure-step" role="listitem">
             <div class="ms-num">03</div>
-            <div><h4>Read the deviation</h4><p>Deviation from nominal 25.000 mm is read directly &mdash; checked against &plusmn;0.050 mm (ISO 2768-m).</p></div>
+            <div><h3>Read the deviation</h3><p>Deviation from nominal 25.000 mm is read directly &mdash; checked against &plusmn;0.050 mm (ISO 2768-m).</p></div>
           </div>
           <div class="measure-step" role="listitem">
             <div class="ms-num">04</div>
-            <div><h4>Feed the stack</h4><p>The measured tolerance becomes an input to SC-008 &mdash; the same number you see in the report below.</p></div>
+            <div><h3>Feed the stack</h3><p>The measured tolerance becomes an input to SC-008 &mdash; the same number you see in the report below.</p></div>
           </div>
         </div>
       </div>
@@ -2109,7 +2111,7 @@ select:focus-visible{
             </div>
           </div>
           <div class="demo-result" id="demoResult" aria-live="polite" aria-atomic="false">
-            <h4>LIVE RESULT &mdash; UPDATES AS YOU TYPE</h4>
+            <h3>LIVE RESULT &mdash; UPDATES AS YOU TYPE</h3>
 
             <!-- Loading skeleton (hidden by default) -->
             <div id="resultSkeleton" style="display:none;">
@@ -2235,22 +2237,22 @@ select:focus-visible{
       <div class="method-rail" data-reveal>
         <div class="method-step">
           <div class="method-num">01</div>
-          <h4>Recommended action</h4>
+          <h3>Recommended action</h3>
           <p>Primary result, pass / warning / fail, and the operational or commercial impact &mdash; stated up front.</p>
         </div>
         <div class="method-step">
           <div class="method-num">02</div>
-          <h4>Inputs &amp; formula</h4>
+          <h3>Inputs &amp; formula</h3>
           <p>Every input with units, derived values, the formula used and the assumptions made. Nothing hidden.</p>
         </div>
         <div class="method-step">
           <div class="method-num">03</div>
-          <h4>Checks &amp; warnings</h4>
+          <h3>Checks &amp; warnings</h3>
           <p>Input consistency checks, outlier warnings, applicable standard and edition, and engine version.</p>
         </div>
         <div class="method-step">
           <div class="method-num">04</div>
-          <h4>Audit trail</h4>
+          <h3>Audit trail</h3>
           <p>Executive result, detailed calculation, deviations, deterministic hashes and a shareable PDF record.</p>
         </div>
       </div>
@@ -2292,7 +2294,7 @@ select:focus-visible{
       </div>
       <div class="standards-grid" data-reveal>
         <div class="standards-col">
-          <h4>Referenced methodology</h4>
+          <h3>Referenced methodology</h3>
           <ul>
             <li><b>ISO 286-1</b>Tolerance grades &mdash; reference for deviations</li>
             <li><b>ASME Y14.5</b>Statistical tolerancing context (RSS)</li>
@@ -2301,7 +2303,7 @@ select:focus-visible{
           </ul>
         </div>
         <div class="standards-col">
-          <h4>How to read our results</h4>
+          <h3>How to read our results</h3>
           <ul>
             <li>Validated against closed-form worst-case / RSS invariants</li>
             <li>Calculated under stated distribution assumptions</li>
@@ -2310,7 +2312,7 @@ select:focus-visible{
           </ul>
         </div>
         <div class="standards-col limits">
-          <h4>Known limitations &mdash; stated on purpose</h4>
+          <h3>Known limitations &mdash; stated on purpose</h3>
           <ul>
             <li>1D linear stacks only; no correlation model between dimensions yet.</li>
             <li>Per-part sigma is derived from tolerance, not a measured-process input.</li>
@@ -2384,7 +2386,7 @@ select:focus-visible{
 
         <div class="warning-box" style="margin-top:var(--sp-6);">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-          <p>Payments are not live yet. Every calculator is free to use. Planned packs live on <a href="/pricing.html" style="color:var(--iso-orange);text-decoration:underline;">Pricing</a> &mdash; notify-only until Paddle checkout ships.</p>
+          <p>Payments are not live yet. Every calculator is free to use. Planned packs live on <a href="/pricing.html" style="color:var(--iso-orange-dim);text-decoration:underline;">Pricing</a> &mdash; notify-only until Paddle checkout ships.</p>
         </div>
       </div>
     </div>
@@ -2399,22 +2401,23 @@ select:focus-visible{
   </div>
 
   <!-- ================= TITLE BLOCK / FOOTER ================= -->
-  <footer class="title-block" role="contentinfo">
+  </main>
+<footer class="title-block" role="contentinfo">
     <div class="tb-links">
       <div class="tb-brand">
-        <a href="/" class="brand" style="margin-bottom:var(--sp-4);display:inline-flex;"><span class="brand-mark brand-mark--footer"><img class="logo-light" src="/sectorcalc-logo.png" alt="SectorCalc" width="214" height="56"><img class="logo-dark" src="/sectorcalc-logo-dark.png?v=2" alt="" width="214" height="56" aria-hidden="true"></span></a>
+        <a href="/" class="brand" style="margin-bottom:var(--sp-4);display:inline-flex;"><span class="brand-mark brand-mark--footer"><img class="logo-light" src="/sectorcalc-logo-214.w.png" srcset="/sectorcalc-logo-214.w.png 214w, /sectorcalc-logo-428.w.png 428w" sizes="214px" width="214" height="56" alt="SectorCalc" decoding="async"><img class="logo-dark" src="/sectorcalc-logo-dark-214.w.png" srcset="/sectorcalc-logo-dark-214.w.png 214w, /sectorcalc-logo-dark-428.w.png 428w" sizes="214px" width="214" height="56" alt="" aria-hidden="true" decoding="async"></span></a>
         <p>Deterministic industrial decision calculators. Client-side, full-precision, reproducible. Built for the shop floor and the design review.</p>
       </div>
       <div>
-        <h5>Tools</h5>
+        <h3>Tools</h3>
         <ul><li><a href="/tools.html">All Tools</a></li><li><a href="/sc008-pro.html">Tolerance Stack-Up</a></li><li><a href="/machining-pro.html">Feeds &amp; Speeds</a></li><li><a href="/bearing-pro.html">Bearing Life L10</a></li><li><a href="/quote-pro.html">Quote Pricing</a></li><li><a href="/labor-pro.html">True Labor Cost</a></li><li><a href="/weld-pro.html">Weld Thickness</a></li><li><a href="/pro.html">Pro tools hub</a></li></ul>
       </div>
       <div>
-        <h5>Method</h5>
+        <h3>Method</h3>
         <ul><li><a href="#method">How results are built</a></li><li><a href="#standards">Standards</a></li><li><a href="#evidence">Evidence</a></li><li><a href="#verify">Sample report</a></li></ul>
       </div>
       <div>
-        <h5>Product</h5>
+        <h3>Product</h3>
         <ul><li><a href="/pricing.html">Pricing</a></li><li><a href="#decide">By role</a></li></ul>
       </div>
     </div>
@@ -2453,13 +2456,13 @@ select:focus-visible{
         </div>
       </div>
       <div style="border:1.5px solid var(--sheet-line);padding:var(--sp-5);margin-bottom:var(--sp-5);">
-        <h4 style="font-family:var(--f-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--sheet-text-3);margin-bottom:var(--sp-4);font-weight:600;">INPUT PARAMETERS</h4>
+        <h3 style="font-family:var(--f-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--sheet-text-3);margin-bottom:var(--sp-4);font-weight:600;">INPUT PARAMETERS</h3>
         <div class="report-row"><span class="k">Stack Parts</span><span class="v" id="pdfInputs" style="text-align:right;max-width:72%;line-height:1.6;">Spacer Width &plusmn;0.050 (normal)</span></div>
         <div class="report-row"><span class="k">Method</span><span class="v">WC + RSS + seeded MC (n=10,000)</span></div>
         <div class="report-row"><span class="k">Standard Reference</span><span class="v">ISO 2768-m</span></div>
       </div>
       <div style="border:1.5px solid var(--sheet-line);padding:var(--sp-5);margin-bottom:var(--sp-5);">
-        <h4 style="font-family:var(--f-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--sheet-text-3);margin-bottom:var(--sp-4);font-weight:600;">CALCULATION RESULTS</h4>
+        <h3 style="font-family:var(--f-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--sheet-text-3);margin-bottom:var(--sp-4);font-weight:600;">CALCULATION RESULTS</h3>
         <div class="report-row"><span class="k">Worst-case Stack</span><span class="v" id="pdfWC">&plusmn;0.1150 mm</span></div>
         <div class="report-row"><span class="k">RSS Stack</span><span class="v" style="color:var(--iso-blue)" id="pdfRSS">&plusmn;0.0687 mm</span></div>
         <div class="report-row"><span class="k">Monte Carlo (n=10,000)</span><span class="v" style="color:var(--iso-orange)" id="pdfMC">&plusmn;0.0671 mm</span></div>
@@ -3015,8 +3018,8 @@ select:focus-visible{
 })();
 </script>
 
-<script type="module" src="/sc-hero-cell.js?v=12"></script>
-<script src="/sc-hero-engine.js?v=12"></script>
+<script type="module" src="/sc-hero-cell.js?v=13"></script>
+<script src="/sc-hero-engine.js?v=13"></script>
 
 
 </body>
