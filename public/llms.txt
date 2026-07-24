@@ -2,13 +2,14 @@
 
 > Deterministic engineering calculators for shop-floor engineers, estimators, and QA. Client-side only - your data never leaves the browser. Same inputs always produce identical outputs.
 
-SectorCalc ships industrial calculation tools with visible inputs, assumptions, formulas, and warnings. Production tools use Decimal.js (Decimal128 semantics) or the FS-ENGINE deterministic SI core. UI is Vanilla JS + Lit Web Components on Firebase Hosting with an ISO sheet visual system (Barlow Condensed, Inter, JetBrains Mono; primary CTA ISO blue #0055A4; accent orange #E87722). Brand wordmarks: `/sectorcalc-logo.png` (light) and `/sectorcalc-logo-dark.png` (dark). Payments (when live) use Paddle as Merchant of Record - not Stripe.
+SectorCalc ships industrial calculation tools with visible inputs, assumptions, formulas, and warnings. Production tools use Decimal.js (Decimal128 semantics) or the FS-ENGINE deterministic SI core. UI is Vanilla JS + Lit Web Components on Firebase Hosting with an ISO sheet visual system (Barlow Condensed, Inter, JetBrains Mono; primary CTA ISO blue #0055A4; accent orange #E87722). Brand mark (4-tile app icon): `/favicon.svg`, `/favicon.ico`, `/icon-192.png`, `/icon-512.png`, `/apple-touch-icon.png`, source `/sectorcalc-mark.png`; PWA manifest `/site.webmanifest`. Brand wordmarks: `/sectorcalc-logo.png` (light) and `/sectorcalc-logo-dark.png` (dark). Payments (when live) use Paddle as Merchant of Record - not Stripe.
 
 ## Architecture (current)
 
 - Shared theme engine: `/sc-theme.css` + `/sc-theme.js` - `data-theme` on `<html>`, localStorage `sectorcalc-theme` (light|dark). Theme CSS also `@import`s the locked form-field sheet so every themed page inherits readable number inputs.
 - Theme control `#themeToggle`: click toggles theme; drag repositions; double-click resets position (`sectorcalc-theme-pos`).
 - Shared site header on every public page: `/sc-site-nav.css` + `/sc-site-nav.js` + injected `content/partials/site-header.html` (Tools opens `/tools.html`).
+- Favicon / app icon set on every public page (cache-busted query `?v=`): multi-size `/favicon.ico`, crisp `/favicon.svg` (4-tile mark), `/favicon-32.png`, `/icon-192.png`, `/apple-touch-icon.png`, plus `/site.webmanifest`. Build gate: `scripts/verify-nav.mjs` requires the icon links and dist icon assets.
 - Locked calculator form fields: `/sc-form-fields.css` is mandatory on every `*-pro.html`. Value+unit rows use `.uwrap` (engine panels) or `.sc-input-wrap` (Lit sidebars). Number spinners are hidden; digits must never clip beside unit selectors. Build gate: `scripts/verify-form-fields.mjs`. Scaffold new tools with `npm run new:tool` from `content/templates/`.
 - Report contrast standard: pro-tool report text, tables, cards, alerts, and live panels use CSS tokens. Chart/SVG/html2canvas ink is read at render time from `theme-palette` (never hardcoded light-theme fills). Open reports re-render on `sectorcalc-theme`.
 - Calculator standard (all pro tools, set by SC-020): deterministic SI engine core with engine version + build date; every input has selectable universal units (mm/in, m/min SFM, kW/HP, N·m ft·lb, currency symbol) plus a reference-standard hint value; material/standards database drives dynamic reference bands; three-tier validation (blocking / warning / note); verdict banner (RELEASED TO PRODUCTION / RUN WITH CAUTION / DO NOT RUN); sensitivity charts; integrated Audit/Review module showing inputs (as entered + SI), formulas, assumptions, warnings, engine version, and an integrity hash in every report; printable report + JSON export.
@@ -73,7 +74,9 @@ SectorCalc ships industrial calculation tools with visible inputs, assumptions, 
 
 ## Optional
 
-- [Full sitemap](https://www.sectorcalc.com/sitemap.xml): Canonical URL list for crawlers.
+- [Full sitemap](https://www.sectorcalc.com/sitemap.xml): Canonical URL list for crawlers (lastmod tracks brand/icon and page updates).
 - [robots.txt](https://www.sectorcalc.com/robots.txt): Crawl rules.
 - [llms.txt](https://www.sectorcalc.com/llms.txt): This index (canonical AI discovery file).
 - [llm.txt](https://www.sectorcalc.com/llm.txt): Mirror of llms.txt for alternate discovery paths.
+- [site.webmanifest](https://www.sectorcalc.com/site.webmanifest): PWA name + 192/512 icon entries for the 4-tile brand mark.
+- [Favicon SVG](https://www.sectorcalc.com/favicon.svg): Canonical crisp brand mark for browsers that prefer SVG icons.

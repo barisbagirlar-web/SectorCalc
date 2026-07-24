@@ -134,6 +134,19 @@ function checkPage(page) {
     if (!html.includes('sc-site-nav.js')) issues.push(`${page}: missing sc-site-nav.js`);
     if (!html.includes('id="siteHeader"')) issues.push(`${page}: missing shared #siteHeader`);
     if (!/<link[^>]+sc-form-fields\.css/i.test(html)) issues.push(`${page}: missing sc-form-fields.css`);
+    // 4-tile brand favicon set (cache-busted)
+    if (!/<link[^>]+rel=["']icon["'][^>]+favicon\.ico/i.test(html)) {
+      issues.push(`${page}: missing favicon.ico link`);
+    }
+    if (!/<link[^>]+rel=["']icon["'][^>]+favicon\.svg/i.test(html)) {
+      issues.push(`${page}: missing favicon.svg link`);
+    }
+    if (!/<link[^>]+rel=["']apple-touch-icon["']/i.test(html)) {
+      issues.push(`${page}: missing apple-touch-icon link`);
+    }
+    if (!/<link[^>]+rel=["']manifest["'][^>]+site\.webmanifest/i.test(html)) {
+      issues.push(`${page}: missing site.webmanifest link`);
+    }
   }
 }
 
@@ -162,8 +175,20 @@ if (!index.includes('id="main-content"')) {
   issues.push('index.html: skip-link target #main-content missing');
 }
 
-const discovery = ['robots.txt', 'sitemap.xml', 'llms.txt', 'llm.txt'];
+const discovery = ['robots.txt', 'sitemap.xml', 'llms.txt', 'llm.txt', 'site.webmanifest'];
 for (const f of discovery) {
+  if (!existsSync(join(ROOT, 'public', f))) issues.push(`public/${f}: FILE MISSING`);
+}
+const brandIcons = [
+  'favicon.ico',
+  'favicon.svg',
+  'favicon-32.png',
+  'icon-192.png',
+  'icon-512.png',
+  'apple-touch-icon.png',
+  'sectorcalc-mark.png'
+];
+for (const f of brandIcons) {
   if (!existsSync(join(ROOT, 'public', f))) issues.push(`public/${f}: FILE MISSING`);
 }
 
@@ -198,6 +223,12 @@ if (existsSync(dist)) {
   ]) {
     if (!existsSync(join(dist, asset))) {
       console.error('[FAIL] dist missing hero asset: ' + asset);
+      process.exit(1);
+    }
+  }
+  for (const asset of brandIcons) {
+    if (!existsSync(join(dist, asset))) {
+      console.error('[FAIL] dist missing brand icon: ' + asset);
       process.exit(1);
     }
   }

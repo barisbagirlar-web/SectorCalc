@@ -3,6 +3,12 @@
 <head>
 <script>(function(){try{var k='sectorcalc-theme';var t=localStorage.getItem(k);if(t!=='dark'&&t!=='light')t=(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';document.documentElement.setAttribute('data-theme',t);document.documentElement.style.colorScheme=t;var raw=localStorage.getItem('sectorcalc-theme-pos');if(raw){var p=JSON.parse(raw);if(p&&typeof p.leftPct==='number'&&typeof p.topPct==='number'){var s=document.createElement('style');s.id='sc-theme-pos-boot';var w=Math.max(0,(window.innerWidth||0)-48);var h=Math.max(0,(window.innerHeight||0)-48);var L=Math.min(w,Math.max(0,(p.leftPct/100)*w));var T=Math.min(h,Math.max(0,(p.topPct/100)*h));s.textContent='#themeToggle{left:'+L+'px!important;top:'+T+'px!important;right:auto!important;bottom:auto!important}';document.documentElement.appendChild(s);document.documentElement.setAttribute('data-sc-pos-boot','1');}}}catch(e){}})();</script>
 <meta charset="UTF-8">
+<link rel="icon" href="./favicon.ico?v=20260724c" sizes="any">
+<link rel="icon" type="image/svg+xml" href="./favicon.svg?v=20260724c">
+<link rel="icon" type="image/png" sizes="32x32" href="./favicon-32.png?v=20260724c">
+<link rel="icon" type="image/png" sizes="192x192" href="./icon-192.png?v=20260724c">
+<link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png?v=20260724c">
+<link rel="manifest" href="./site.webmanifest?v=20260724c">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>SC-010 - True Labor Cost | SectorCalc</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
@@ -168,6 +174,7 @@
 </div>
 <!--SC-SITE-NAV-END-->
 <div class="sc-tool-strip"><b>SC-010 · True Labor Cost</b><span>Engineering preview · Decimal engine · Not for production approval</span></div>
+
 
 
 

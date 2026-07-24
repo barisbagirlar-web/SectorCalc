@@ -21,8 +21,12 @@
         ]
       },
       {
-        "source": "**/*.@(js|css|woff2|png|svg)",
+        "source": "**/*.@(js|css|woff2|png|svg|webmanifest)",
         "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400" }]
+      },
+      {
+        "source": "/favicon.ico",
+        "headers": [{ "key": "Cache-Control", "value": "public, max-age=3600" }]
       },
       {
         "source": "/assets/**",
