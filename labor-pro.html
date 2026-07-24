@@ -44,8 +44,8 @@
   .sc-info:hover .sc-tooltip{opacity:1;visibility:visible}
   .sc-tooltip strong{color:var(--text-primary);display:block;margin-bottom:5px;font-size:12px;font-weight:700}
   .sc-input-wrap{display:flex;gap:8px;align-items:stretch}
-  .sc-input{flex:1;background:var(--bg-0);border:1px solid var(--border-soft);border-radius:var(--radius-sm);padding:9px 12px;color:var(--text-primary);font-family:var(--font-mono);font-size:13px;font-weight:500;outline:none;transition:var(--transition-fast);min-width:0}
-  .sc-input:focus{border-color:var(--accent-blue);box-shadow:0 0 0 3px var(--accent-blue-glow),inset 0 1px 2px rgba(0,0,0,0.2)}
+  .sc-input{flex:1 1 auto;background:var(--bg-0);border:1px solid var(--border-soft);border-radius:var(--radius-sm);padding:9px 12px;color:var(--text-primary);font-family:var(--font-mono);font-size:13px;font-weight:500;outline:none;transition:var(--transition-fast);min-width:5.75rem;width:auto;font-variant-numeric:tabular-nums;overflow-x:auto;box-sizing:border-box}
+  .sc-input[type=number]{-moz-appearance:textfield;appearance:textfield}.sc-input[type=number]::-webkit-outer-spin-button,.sc-input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}.sc-input:focus{border-color:var(--accent-blue);box-shadow:0 0 0 3px var(--accent-blue-glow),inset 0 1px 2px rgba(0,0,0,0.2)}
   .sc-input.error{border-color:var(--accent-red);box-shadow:0 0 0 3px var(--accent-red-glow)}
   .sc-unit{background:var(--bg-3);border:1px solid var(--border-soft);border-radius:var(--radius-sm);padding:9px 10px;color:var(--text-secondary);font-family:var(--font-mono);font-size:11px;font-weight:600;outline:none;min-width:70px;flex-shrink:0;opacity:0.7;cursor:default}
   .sc-val{font-size:10px;margin-top:7px;font-family:var(--font-mono);display:flex;align-items:center;gap:6px;min-height:16px}
@@ -139,6 +139,7 @@
 <script src="./sc-tool-guide.js?v=1" defer></script>
 <link rel="stylesheet" href="./sc-site-nav.css?v=1">
 <script src="./sc-site-nav.js?v=1" defer></script>
+<link rel="stylesheet" href="./sc-form-fields.css?v=2">
 </head>
 <body data-tool-badge="SC-010 · True Labor Cost">
 <!--SC-SITE-NAV-START-->
@@ -167,6 +168,10 @@
 </div>
 <!--SC-SITE-NAV-END-->
 <div class="sc-tool-strip"><b>SC-010 · True Labor Cost</b><span>Engineering preview · Decimal engine · Not for production approval</span></div>
+
+
+
+
 
 
 <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme" aria-pressed="false" title="Dark mode - drag to move, double-click to reset">

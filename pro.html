@@ -40,9 +40,11 @@ h1,.logo,.panel-h,.btn,.verdict .big{font-family:'Barlow Condensed','Inter',sans
 .field label{display:block;font-size:11px;color:var(--mut);margin-bottom:3px}
 .field input,.field select{width:100%;padding:8px 10px;border:1px solid var(--line);border-radius:6px;font-size:14px;font-family:inherit;background:var(--panel2);transition:border-color .15s}
 .field input:focus,.field select:focus{outline:none;border-color:var(--blue);background:#fff}
-.uwrap{display:flex;gap:5px}
-.uwrap input{flex:1;min-width:0}
-.uwrap select.units{width:78px;flex:none;padding:8px 3px;font-size:11px;font-weight:600;color:var(--steel);background:var(--thead)}
+.uwrap{display:flex;gap:6px;align-items:stretch;width:100%;min-width:0}
+.uwrap input{flex:1 1 auto;min-width:5.75rem;width:auto;padding:8px 10px;font-family:var(--mono);font-variant-numeric:tabular-nums;overflow-x:auto;box-sizing:border-box}
+.uwrap input[type=number]{-moz-appearance:textfield;appearance:textfield}
+.uwrap input[type=number]::-webkit-outer-spin-button,.uwrap input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.uwrap select.units{flex:0 0 auto;width:auto;min-width:3.75rem;max-width:5.5rem;padding:8px 6px;font-size:11px;font-weight:600;color:var(--steel);background:var(--thead);box-sizing:border-box}
 .ref{font-size:10px;color:#8593a5;margin-top:2px;font-style:italic;line-height:1.35}
 .hint{font-size:10.5px;color:var(--mut);margin-top:2px}
 .btn{display:inline-block;background:var(--accent);color:#fff;border:none;padding:12px 26px;font-size:14px;font-weight:700;border-radius:7px;cursor:pointer;width:100%;letter-spacing:.5px;transition:background .15s}
@@ -124,6 +126,7 @@ html[data-theme="dark"] .toolcard h2{color:var(--ink)}
 <script src="./sc-theme.js?v=8" defer></script>
 <link rel="stylesheet" href="./sc-site-nav.css?v=1">
 <script src="./sc-site-nav.js?v=1" defer></script>
+<link rel="stylesheet" href="./sc-form-fields.css?v=2">
 </head>
 <body>
 <!--SC-SITE-NAV-START-->
@@ -151,6 +154,10 @@ html[data-theme="dark"] .toolcard h2{color:var(--ink)}
   <a href="/sc008-pro.html" class="btn-primary">Run a Calculation</a>
 </div>
 <!--SC-SITE-NAV-END-->
+
+
+
+
 
 
 <div class="wrap">

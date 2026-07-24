@@ -8,10 +8,13 @@ import { join } from 'node:path';
 const ROOT = process.cwd();
 const PARTIAL = readFileSync(join(ROOT, 'content/partials/site-header.html'), 'utf8').trim();
 
-const ASSETS = `
+const NAV_ASSETS = `
 <link rel="stylesheet" href="./sc-site-nav.css?v=1">
 <script src="./sc-site-nav.js?v=1" defer></script>
 `.trim();
+
+const FORM_FIELDS_ASSET =
+  '<link rel="stylesheet" href="./sc-form-fields.css?v=2">';
 
 const PAGES = [
   { page: 'index.html', strip: 'home', badge: null },
@@ -47,8 +50,17 @@ const PAGES = [
 ];
 
 function ensureAssets(html) {
-  if (html.includes('sc-site-nav.css')) return html;
-  return html.replace('</head>', `${ASSETS}\n</head>`);
+  let out = html;
+  if (!out.includes('sc-site-nav.css')) {
+    out = out.replace('</head>', `${NAV_ASSETS}\n</head>`);
+  }
+  // Always ensure form-field readability CSS (independent of nav)
+  if (!out.includes('sc-form-fields.css')) {
+    out = out.replace('</head>', `${FORM_FIELDS_ASSET}\n</head>`);
+  } else {
+    out = out.replace(/sc-form-fields\.css\?v=\d+/g, 'sc-form-fields.css?v=2');
+  }
+  return out;
 }
 
 function stripOldNav(html, mode) {

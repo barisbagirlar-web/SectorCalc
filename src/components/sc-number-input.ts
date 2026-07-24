@@ -19,7 +19,9 @@ export class ScNumberInput extends LitElement {
     :host { display: block; margin-bottom: 12px; }
     label { display: block; font: 600 14px var(--sc-sans, system-ui); color: var(--sc-steel, #2d3436); margin-bottom: 4px; }
     input { width: 100%; height: 48px; font: 18px var(--sc-mono, monospace); padding: 0 12px;
-            border: 1px solid #dfe6e9; border-radius: 8px; box-sizing: border-box; color: var(--sc-steel, #2d3436); }
+            border: 1px solid #dfe6e9; border-radius: 8px; box-sizing: border-box; color: var(--sc-steel, #2d3436);
+            font-variant-numeric: tabular-nums; -moz-appearance: textfield; appearance: textfield; overflow-x: auto; }
+    input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
     input:focus { outline: 2px solid var(--sc-rust, #d35400); border-color: var(--sc-rust, #d35400); }
     .err { color: #e74c3c; font: 13px var(--sc-sans, system-ui); margin-top: 4px; min-height: 16px; }
   `;
