@@ -21,7 +21,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version-file: '.nvmrc'
+          node-version: 22
           cache: npm
       - name: Verify Firebase credential present
         run: |
@@ -36,6 +36,6 @@ jobs:
       - name: Build production bundle
         run: npm run build
       - name: Deploy Firebase Hosting (sectorcalc-prod)
-        run: npx --yes firebase-tools@13 deploy --only hosting --project sectorcalc-prod --token "$FIREBASE_TOKEN"
+        run: npx --yes firebase-tools@14 deploy --only hosting --project sectorcalc-prod --token "$FIREBASE_TOKEN"
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
