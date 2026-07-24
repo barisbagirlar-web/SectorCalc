@@ -150,9 +150,26 @@ test('tools.html search finds CNC feeds even after category click', async ({ pag
   await expect(page.locator('#stLive')).toHaveText('6');
   await page.locator('.tile[data-cat="costing"]').click();
   await page.locator('#q').fill('cnc');
+  await expect(page.locator('#suggest')).toBeVisible();
+  await expect(page.locator('#suggest')).toContainText(/CNC Feeds & Speeds/i);
   await expect(page.locator('#catalog')).toContainText(/CNC Feeds & Speeds/i);
   await expect(page.locator('a[href="/machining-pro.html"]').first()).toBeVisible();
   await expect(page.locator('#nores')).toBeHidden();
+  // Typing narrows: "cnc" should not list unrelated costing tools
+  await expect(page.locator('#catalog')).not.toContainText(/True Labor Cost/i);
+});
+
+test('tools.html search narrows live as query grows', async ({ page }) => {
+  await page.goto('/tools.html');
+  await page.locator('#q').fill('b');
+  await expect(page.locator('#suggest')).toBeVisible();
+  const broad = await page.locator('#suggest .sg-item').count();
+  expect(broad).toBeGreaterThan(1);
+  await page.locator('#q').fill('bearing');
+  await expect(page.locator('#suggest')).toContainText(/Bearing Life L10/i);
+  const narrow = await page.locator('#suggest .sg-item').count();
+  expect(narrow).toBeLessThanOrEqual(broad);
+  await expect(page.locator('#catalog .catsec')).toHaveCount(1);
 });
 
 test('discovery files are served as text/xml', async ({ request }) => {

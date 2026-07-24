@@ -118,11 +118,23 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
 .hero h1{font-size:clamp(30px,4.5vw,46px);color:var(--navy)}
 html[data-theme="dark"] .hero h1{color:var(--ink)}
 .hero .sub{color:var(--mut);font-size:15px;max-width:640px;margin:8px auto 0}
-.omni{max-width:760px;margin:28px auto 0;position:relative}
+.omni{max-width:760px;margin:28px auto 0;position:relative;z-index:20}
 .omni input{width:100%;padding:20px 58px 20px 62px;font-size:18px;border-radius:60px;border:2px solid var(--line);background:var(--panel);color:var(--ink);box-shadow:0 10px 40px rgba(15,39,68,.12);outline:none;transition:border-color .15s,box-shadow .15s;font-family:inherit}
 .omni input:focus{border-color:var(--blue);box-shadow:0 10px 44px rgba(0,85,164,.22)}
-.omni .glass{position:absolute;left:24px;top:50%;transform:translateY(-50%);font-size:21px;color:var(--mut);pointer-events:none}
-.omni kbd{position:absolute;right:22px;top:50%;transform:translateY(-50%);font-family:var(--mono);font-size:12px;color:var(--mut);border:1px solid var(--line);border-radius:6px;padding:3px 9px;background:var(--panel2);pointer-events:none}
+.omni .glass{position:absolute;left:24px;top:50%;transform:translateY(-50%);font-size:21px;color:var(--mut);pointer-events:none;z-index:1}
+.omni kbd{position:absolute;right:22px;top:50%;transform:translateY(-50%);font-family:var(--mono);font-size:12px;color:var(--mut);border:1px solid var(--line);border-radius:6px;padding:3px 9px;background:var(--panel2);pointer-events:none;z-index:1}
+.omni-suggest{position:absolute;left:0;right:0;top:calc(100% + 8px);background:var(--panel);border:1px solid var(--line);border-radius:16px;box-shadow:0 16px 40px rgba(15,39,68,.18);overflow:hidden;text-align:left;max-height:min(420px,55vh);overflow-y:auto}
+.omni-suggest[hidden]{display:none!important}
+.omni-suggest .sg-hd{padding:10px 16px 6px;font-size:10px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;color:var(--mut)}
+.omni-suggest .sg-item{display:flex;align-items:center;gap:12px;width:100%;padding:12px 16px;border:0;border-top:1px solid var(--line);background:transparent;color:var(--ink);font:inherit;text-align:left;cursor:pointer;text-decoration:none}
+.omni-suggest .sg-item:hover,.omni-suggest .sg-item.on{background:rgba(0,85,164,.08)}
+.omni-suggest .sg-code{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--blue);min-width:3.5rem}
+.omni-suggest .sg-name{flex:1;font-size:14px;font-weight:600;line-height:1.3}
+.omni-suggest .sg-meta{font-size:10px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;white-space:nowrap}
+.omni-suggest .sg-meta.live{color:var(--ok)}
+.omni-suggest .sg-meta.planned{color:var(--mut)}
+.omni-suggest .sg-empty{padding:16px;color:var(--mut);font-size:13px;border-top:1px solid var(--line)}
+.omni-suggest .sg-foot{padding:8px 16px 12px;font-size:11px;color:var(--mut);border-top:1px solid var(--line)}
 .stats{display:flex;justify-content:center;margin:24px auto 0;max-width:760px;border:1px solid var(--line);border-radius:12px;background:var(--panel);overflow:hidden}
 .stats div{flex:1;padding:13px 8px;text-align:center;border-right:1px solid var(--line)}
 .stats div:last-child{border-right:none}
@@ -201,14 +213,16 @@ html[data-theme="dark"] .tlist a{color:#7fb3e8}
 
 
 
+
 <div class="wrap">
   <div class="hero">
     <h1>What do you need to calculate today?</h1>
     <p class="sub">Industrial-grade engineering calculators with visible formulas, reference values and a full audit trail in every report. Search by task, sector, machine or standard — or pick a category below.</p>
-    <div class="omni">
-      <span class="glass">⌕</span>
-      <input id="q" type="text" placeholder="Try “bearing life”, “tool life”, “weld”, “ISO 286”, “quote”…" autocomplete="off">
+    <div class="omni" role="search">
+      <span class="glass" aria-hidden="true">⌕</span>
+      <input id="q" type="search" placeholder="Try “cnc”, “bearing life”, “tool life”, “weld”, “ISO 286”…" autocomplete="off" aria-autocomplete="list" aria-controls="suggest" aria-expanded="false">
       <kbd>/</kbd>
+      <div class="omni-suggest" id="suggest" role="listbox" hidden aria-label="Matching calculators"></div>
     </div>
     <div class="stats">
       <div><div class="n" id="stLive">0</div><div class="l">Live tools</div></div>
@@ -292,29 +306,55 @@ const TOOLS=[
 
 /* ---------------- state & render ---------------- */
 const g=id=>document.getElementById(id);
-let curCat='all', curQ='';
+let curCat='all', curQ='', suggestIdx=-1, suggestHits=[];
 
 function norm(s){return String(s||'').toLowerCase().replace(/[–—−]/g,'-').replace(/\s+/g,' ').trim();}
 function tokens(q){return norm(q).split(/[^a-z0-9+./-]+/).filter(Boolean);}
-function haystack(t){
-  const cat=CATS.find(c=>c.id===t.c);
-  return norm([t.name,t.code,t.kw,t.c,cat&&cat.name,cat&&cat.full,cat&&cat.purpose].filter(Boolean).join(' '));
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function catOf(t){return CATS.find(c=>c.id===t.c);}
+/** Score a tool for query tokens. -1 = no match. Do NOT use category purpose (it pollutes, e.g. "CNC" in every machining blurb). */
+function scoreTool(t,toks){
+  if(!toks.length)return 0;
+  const cat=catOf(t);
+  const name=norm(t.name), code=norm(t.code), kw=norm(t.kw||'');
+  const catLabel=norm([cat&&cat.name,cat&&cat.full,t.c].filter(Boolean).join(' '));
+  let score=0;
+  for(const tok of toks){
+    if(name.includes(tok)) score+=100;
+    else if(code.includes(tok)) score+=80;
+    else if(kw.split(' ').some(w=>w.startsWith(tok)||w.includes(tok))) score+=50;
+    else if(catLabel.includes(tok)) score+=15;
+    else return -1;
+  }
+  if(t.live) score+=8;
+  // Prefer earlier name hits
+  if(toks[0]&&name.startsWith(toks[0])) score+=20;
+  return score;
 }
-function matchTool(t,q){
+function matchTool(t,q){return scoreTool(t,tokens(q))>=0;}
+function rankedTools(q){
   const toks=tokens(q);
-  if(!toks.length)return true;
-  const h=haystack(t);
-  return toks.every(tok=>h.includes(tok));
+  if(!toks.length)return [];
+  return TOOLS
+    .map(t=>({t,s:scoreTool(t,toks)}))
+    .filter(x=>x.s>=0)
+    .sort((a,b)=>b.s-a.s||a.t.name.localeCompare(b.t.name))
+    .map(x=>x.t);
 }
 function catTools(id,q){
-  return TOOLS.filter(t=>t.c===id&&matchTool(t,q));
+  const toks=tokens(q);
+  return TOOLS
+    .filter(t=>t.c===id&&scoreTool(t,toks)>=0)
+    .sort((a,b)=>scoreTool(b,toks)-scoreTool(a,toks));
 }
 function renderTiles(){
   const tiles=g('tiles'); if(!tiles)return;
+  const searching=!!curQ.trim();
   tiles.innerHTML=CATS.map(c=>{
     const n=catTools(c.id,curQ).length;
+    if(searching&&n===0)return'';
     const blurb=(c.purpose.split(/[—–-]/)[1]||c.purpose).trim();
-    return `<div class="tile ${curCat===c.id?'on':''}" data-cat="${c.id}" role="button" tabindex="0">
+    return `<div class="tile ${!searching&&curCat===c.id?'on':''}" data-cat="${c.id}" role="button" tabindex="0">
       <svg viewBox="0 0 42 42">${IC[c.id]}</svg>
       <div class="tn">${c.name}</div>
       <div class="tc">${n} calculator${n!==1?'s':''}</div>
@@ -343,10 +383,56 @@ function renderCatalog(){
   nores.classList.toggle('hidden',shown>0);
   if(!shown){const nq=g('nq'); if(nq)nq.textContent=curQ;}
 }
-function renderAll(){renderTiles();renderCatalog();}
+function setSuggestOpen(open){
+  const box=g('suggest'), qEl=g('q');
+  if(!box||!qEl)return;
+  box.hidden=!open;
+  qEl.setAttribute('aria-expanded', open?'true':'false');
+  if(!open) suggestIdx=-1;
+}
+function renderSuggest(){
+  const box=g('suggest'); if(!box)return;
+  const q=curQ.trim();
+  if(!q){suggestHits=[]; setSuggestOpen(false); box.innerHTML=''; return;}
+  suggestHits=rankedTools(q);
+  const top=suggestHits.slice(0,8);
+  if(!top.length){
+    box.innerHTML=`<div class="sg-hd">Matches</div><div class="sg-empty">No calculator matches “${esc(q)}”</div>`;
+    setSuggestOpen(true);
+    suggestIdx=-1;
+    return;
+  }
+  const total=suggestHits.length;
+  box.innerHTML=`<div class="sg-hd">${total} match${total!==1?'es':''}</div>`+
+    top.map((t,i)=>{
+      const meta=t.live?'<span class="sg-meta live">Live</span>':'<span class="sg-meta planned">Planned</span>';
+      const tag=t.live?'a':'button';
+      const href=t.live?` href="${t.url}"`:' type="button"';
+      return `<${tag} class="sg-item${i===suggestIdx?' on':''}" role="option" data-i="${i}"${href} id="sg-${i}">
+        <span class="sg-code">${esc(t.code)}</span>
+        <span class="sg-name">${esc(t.name)}</span>
+        ${meta}
+      </${tag}>`;
+    }).join('')+
+    (total>top.length?`<div class="sg-foot">Showing top ${top.length} of ${total} — catalog below lists all matches</div>`:
+      `<div class="sg-foot">Catalog below updates as you type</div>`);
+  setSuggestOpen(true);
+}
+function activateSuggest(i){
+  const t=suggestHits[i]; if(!t)return;
+  if(t.live&&t.url){location.href=t.url;return;}
+  setSuggestOpen(false);
+  const sec=g('cat-'+t.c);
+  if(sec)sec.scrollIntoView({behavior:'smooth',block:'start'});
+}
+function renderAll(){renderTiles();renderCatalog();renderSuggest();}
 function pickCat(id){
   curCat=(curCat===id)?'all':id;
+  // Category pick clears search so the tile filter is visible again
+  const qEl=g('q');
+  if(qEl&&curQ.trim()){qEl.value=''; curQ='';}
   renderAll();
+  setSuggestOpen(false);
   if(curCat!=='all'){const el=g('cat-'+id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});}
 }
 window.pickCat=pickCat;
@@ -358,6 +444,7 @@ window.pickCat=pickCat;
 
   const qEl=g('q');
   const tiles=g('tiles');
+  const box=g('suggest');
   if(tiles){
     tiles.addEventListener('click',e=>{
       const tile=e.target.closest('[data-cat]'); if(!tile)return;
@@ -369,28 +456,56 @@ window.pickCat=pickCat;
       e.preventDefault(); pickCat(tile.getAttribute('data-cat'));
     });
   }
+  if(box){
+    box.addEventListener('mousedown',e=>{
+      const item=e.target.closest('[data-i]'); if(!item)return;
+      e.preventDefault();
+      activateSuggest(Number(item.getAttribute('data-i')));
+    });
+  }
   if(qEl){
     const apply=()=>{
       curQ=qEl.value;
-      // Typing clears category lock so "cnc" is never trapped inside Weld/Costing/etc.
+      // Typing clears category lock so queries search the full catalog.
       if(curQ.trim()) curCat='all';
+      suggestIdx=-1;
       renderAll();
     };
     qEl.addEventListener('input',apply);
     qEl.addEventListener('change',apply);
-    qEl.addEventListener('keyup',apply);
+    qEl.addEventListener('focus',()=>{ if(curQ.trim()) renderSuggest(); });
+    qEl.addEventListener('keydown',e=>{
+      const open=box&&!box.hidden;
+      const max=Math.min(8,suggestHits.length)-1;
+      if(e.key==='ArrowDown'&&open&&max>=0){
+        e.preventDefault();
+        suggestIdx=suggestIdx<max?suggestIdx+1:0;
+        renderSuggest();
+      }else if(e.key==='ArrowUp'&&open&&max>=0){
+        e.preventDefault();
+        suggestIdx=suggestIdx>0?suggestIdx-1:max;
+        renderSuggest();
+      }else if(e.key==='Enter'&&open&&suggestIdx>=0){
+        e.preventDefault();
+        activateSuggest(suggestIdx);
+      }else if(e.key==='Escape'){
+        if(open){e.preventDefault(); setSuggestOpen(false); return;}
+        qEl.value=''; curQ=''; curCat='all'; renderAll(); qEl.blur();
+      }
+    });
     document.addEventListener('keydown',e=>{
       if(e.key==='/'&&document.activeElement!==qEl&&!e.metaKey&&!e.ctrlKey&&!e.altKey){
         const tag=(document.activeElement&&document.activeElement.tagName)||'';
         if(tag==='INPUT'||tag==='TEXTAREA'||tag==='SELECT')return;
         e.preventDefault(); qEl.focus();
       }
-      if(e.key==='Escape'&&document.activeElement===qEl){
-        qEl.value=''; curQ=''; curCat='all'; renderAll(); qEl.blur();
-      }
+    });
+    document.addEventListener('click',e=>{
+      if(!e.target.closest('.omni')) setSuggestOpen(false);
     });
   }
   renderAll();
+  setSuggestOpen(false);
 })();
 
 </script>
