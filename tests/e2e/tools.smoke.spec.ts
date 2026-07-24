@@ -111,10 +111,19 @@ test('homepage mobile nav hamburger opens links', async ({ page }) => {
   await toggle.click();
   await expect(page.locator('#mobileNav')).toHaveClass(/active/);
   await expect(page.locator('#mobileNav')).toHaveAttribute('aria-hidden', 'false');
+  await expect(page.locator('#mobileNav a[href="/tools.html"]')).toBeVisible();
   await expect(page.locator('#mobileNav a[href="#decide"]')).toBeVisible();
   await expect(page.locator('#mobileNav a[href="/pricing.html"]')).toBeVisible();
-  await page.locator('#mobileNav a[href="/pricing.html"]').click();
-  await expect(page).toHaveURL(/pricing/);
+  await page.locator('#mobileNav a[href="/tools.html"]').click();
+  await expect(page).toHaveURL(/tools\.html/);
+});
+
+test('homepage desktop Tools nav opens catalog', async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 800 });
+  await page.goto('/');
+  await page.locator('.main-nav a[href="/tools.html"]').click();
+  await expect(page).toHaveURL(/tools\.html/);
+  await expect(page.locator('#q')).toBeVisible();
 });
 
 test('discovery files are served as text/xml', async ({ request }) => {
