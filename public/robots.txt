@@ -1,10 +1,90 @@
+# SectorCalc — robots.txt (production)
+# Canonical host: https://www.sectorcalc.com
+
 User-agent: *
 Allow: /
+Allow: /sitemap.xml
+Allow: /sitemap-images.xml
+Allow: /sitemap-videos.xml
+Allow: /llm.txt
+Allow: /llms.txt
+Allow: /site.webmanifest
+
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /draft/
+Disallow: /staging/
+Disallow: /admin/
+Disallow: /api/
+Disallow: /internal/
+Disallow: /assets/cache/
+Disallow: /*?seed=
+Disallow: /*?ref=
+Disallow: /*?utm_
+Disallow: /*?fbclid=
+Disallow: /*?gclid=
+
+User-agent: Googlebot
+Allow: /
+Allow: /*.js$
+Allow: /*.css$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.svg$
+Allow: /*.pdf$
+
+User-agent: Googlebot-Image
+Allow: /assets/images/
+Allow: /sectorcalc-logo
+Allow: /icon-
+Allow: /favicon
+
+User-agent: Bingbot
+Allow: /
+
+# AI search crawlers (allow discovery; training bots blocked below)
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+# Training-oriented crawlers
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: FacebookBot
+Disallow: /
+
+User-agent: ia_archiver
+Allow: /
+
+User-agent: AhrefsBot
+Allow: /
+Crawl-delay: 2
+
+User-agent: SemrushBot
+Allow: /
+Crawl-delay: 2
 
 Sitemap: https://www.sectorcalc.com/sitemap.xml
-# AI discovery index
-# https://www.sectorcalc.com/llms.txt
-# https://www.sectorcalc.com/llm.txt
-# Brand / PWA
-# https://www.sectorcalc.com/site.webmanifest
-# https://www.sectorcalc.com/favicon.svg
+Sitemap: https://www.sectorcalc.com/sitemap-images.xml
+Sitemap: https://www.sectorcalc.com/sitemap-videos.xml
