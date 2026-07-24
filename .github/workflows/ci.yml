@@ -47,9 +47,27 @@ jobs:
             gh pr comment "${{ github.event.pull_request.number }}" --body-file test-comment.md || true
           fi
           exit "$status"
-      - run: npm run typecheck
-      - run: npm run build
+      - name: Strict TypeScript
+        shell: bash
+        run: |
+          set -o pipefail
+          npm run typecheck 2>&1 | tee typecheck.log
+      - name: Production build + guards
+        shell: bash
+        run: |
+          set -o pipefail
+          npm run build 2>&1 | tee build.log
       - run: node scripts/verify-nav.mjs
+      - name: Upload check diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: check-diagnostics-${{ github.run_attempt }}
+          path: |
+            test.log
+            typecheck.log
+            build.log
+          if-no-files-found: ignore
 
   e2e:
     runs-on: ubuntu-latest
@@ -62,4 +80,15 @@ jobs:
       - run: npm ci
       - name: Install Playwright Chromium
         run: npx playwright install chromium
-      - run: npm run test:e2e
+      - name: Browser E2E
+        shell: bash
+        run: |
+          set -o pipefail
+          npm run test:e2e 2>&1 | tee e2e.log
+      - name: Upload E2E diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: e2e-diagnostics-${{ github.run_attempt }}
+          path: e2e.log
+          if-no-files-found: ignore
