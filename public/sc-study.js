@@ -1,13 +1,19 @@
 /**
- * SectorCalc study toolbar — English "Load Sample Study" + "Start Blank Study".
+ * SectorCalc demo toolbar — English "Load Demo Data" + "Reset" + "Demo scenario active".
+ * Same control pattern as degerlet (Load Demo Data / Reset / Demo scenario active).
  * Mounts on every *-pro calculator. Tools may override via window.SCStudy.register().
- * Default adapter: snapshot page-load form values as the golden sample; blank clears inputs.
+ * Default adapter: snapshot page-load form values as golden demo; Reset clears inputs.
  */
 (function () {
-  const STYLE_ID = 'sc-study-style';
   const handlers = Object.create(null);
   let sampleSnapshot = null;
-  let mode = 'sample'; // 'sample' | 'blank'
+  let mode = 'demo'; // 'demo' | 'blank'
+  let editWired = false;
+
+  const ICON_PLAY =
+    '<svg class="sc-study-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 5.14v13.72L19 12 8 5.14z" fill="currentColor"/></svg>';
+  const ICON_RESET =
+    '<svg class="sc-study-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 4v6h6"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>';
 
   function el(html) {
     const t = document.createElement('template');
@@ -85,8 +91,6 @@
         if (node.options.length) node.selectedIndex = 0;
       } else if (node.type === 'checkbox' || node.type === 'radio') {
         node.checked = false;
-      } else if (node.type === 'number' || node.type === 'text' || node.type === 'tel' || node.type === 'email' || node.type === 'search' || node.type === 'url' || node.type === 'date' || !node.type) {
-        node.value = '';
       } else {
         node.value = '';
       }
@@ -122,22 +126,42 @@
     if (btn) btn.click();
   }
 
-  function setStatus(text, kind) {
-    const status = document.querySelector('[data-sc-study-status]');
-    if (!status) return;
-    status.textContent = text;
-    status.dataset.kind = kind || '';
-  }
-
   function setMode(next) {
     mode = next;
     document.querySelectorAll('[data-sc-study]').forEach((btn) => {
-      btn.classList.toggle('is-active', btn.getAttribute('data-sc-study') === next);
+      const key = btn.getAttribute('data-sc-study');
+      btn.classList.toggle('is-active', key === next || (next === 'demo' && key === 'sample'));
     });
-    const banner = document.querySelector('[data-sc-study-banner]');
-    if (banner) {
-      banner.hidden = next !== 'sample';
+    const badge = document.querySelector('[data-sc-study-banner]');
+    if (badge) {
+      badge.hidden = next !== 'demo';
     }
+  }
+
+  function markEdited() {
+    if (mode === 'demo') setMode('blank');
+  }
+
+  function wireEditClear() {
+    if (editWired) return;
+    editWired = true;
+    const root = formRoot();
+    root.addEventListener(
+      'input',
+      (e) => {
+        if (e.target && e.target.closest && e.target.closest('.sc-study-bar')) return;
+        markEdited();
+      },
+      true
+    );
+    root.addEventListener(
+      'change',
+      (e) => {
+        if (e.target && e.target.closest && e.target.closest('.sc-study-bar')) return;
+        markEdited();
+      },
+      true
+    );
   }
 
   function defaultLoadSample() {
@@ -156,8 +180,7 @@
     const custom = handlers[id] || handlers['*'];
     if (custom && typeof custom.loadSample === 'function') custom.loadSample();
     else defaultLoadSample();
-    setMode('sample');
-    setStatus('Sample study loaded — full working model.', 'sample');
+    setMode('demo');
     if (custom && typeof custom.afterApply === 'function') custom.afterApply('sample');
   }
 
@@ -167,7 +190,6 @@
     if (custom && typeof custom.startBlank === 'function') custom.startBlank();
     else defaultStartBlank();
     setMode('blank');
-    setStatus('Blank study — enter your values.', 'blank');
     if (custom && typeof custom.afterApply === 'function') custom.afterApply('blank');
   }
 
@@ -175,7 +197,7 @@
     let host = document.querySelector('[data-sc-study-slot]');
     if (host) return host;
 
-    host = el('<div class="sc-study-bar" data-sc-study-slot aria-label="Study controls"></div>');
+    host = el('<div class="sc-study-bar" data-sc-study-slot aria-label="Demo controls"></div>');
 
     const strip = document.querySelector('.sc-tool-strip');
     if (strip) {
@@ -205,12 +227,13 @@
     host.dataset.ready = '1';
     host.innerHTML = `
       <div class="sc-study-bar__actions">
-        <button type="button" class="sc-study-btn sc-study-btn--ghost" data-sc-study="blank">Start Blank Study</button>
-        <button type="button" class="sc-study-btn sc-study-btn--primary is-active" data-sc-study="sample">Load Sample Study</button>
-      </div>
-      <div class="sc-study-bar__meta">
-        <p class="sc-study-banner" data-sc-study-banner>Sample study active — inputs show a complete working model. Switch to blank to enter your own data.</p>
-        <p class="sc-study-status" data-sc-study-status>Sample study loaded — full working model.</p>
+        <button type="button" class="sc-study-btn sc-study-btn--primary is-active" data-sc-study="sample" aria-label="Load Demo Data">
+          ${ICON_PLAY}<span>Load Demo Data</span>
+        </button>
+        <button type="button" class="sc-study-btn sc-study-btn--ghost" data-sc-study="blank" aria-label="Reset">
+          ${ICON_RESET}<span>Reset</span>
+        </button>
+        <span class="sc-study-badge" data-sc-study-banner>Demo scenario active</span>
       </div>
     `;
     host.querySelector('[data-sc-study="sample"]').addEventListener('click', loadSample);
@@ -222,11 +245,11 @@
     if (!/-pro\.html(?:$|\?)/.test(location.pathname) && !document.querySelector('.sc-tool-strip, #calcBtn, .sc-sidebar')) {
       return;
     }
-    // Capture golden sample from authored HTML defaults before user edits.
+    // Capture golden demo from authored HTML defaults before user edits.
     sampleSnapshot = snapshotValues(formRoot());
     render();
-    setMode('sample');
-    setStatus('Sample study loaded — full working model.', 'sample');
+    wireEditClear();
+    setMode('demo');
   }
 
   window.SCStudy = {
@@ -236,6 +259,8 @@
     },
     loadSample,
     startBlank,
+    loadDemo: loadSample,
+    reset: startBlank,
     snapshot: () => sampleSnapshot,
     resnapshot() {
       sampleSnapshot = snapshotValues(formRoot());

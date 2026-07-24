@@ -1,25 +1,17 @@
-/* SectorCalc study toolbar — Load Sample Study / Start Blank Study */
+/* SectorCalc demo toolbar — Load Demo Data / Reset / Demo scenario active
+   Mirrors degerlet control row (Load Demo Data / Reset / Demo scenario active). */
 
 .sc-study-bar{
   display:flex;
   flex-wrap:wrap;
-  align-items:flex-start;
-  justify-content:space-between;
-  gap:12px 16px;
+  align-items:center;
+  justify-content:flex-start;
+  gap:8px 10px;
   margin:0 0 14px;
-  padding:12px 14px;
-  border:1px solid var(--sheet-line, #C5C5BE);
-  background:
-    linear-gradient(180deg, rgba(0,85,164,0.06), rgba(0,85,164,0.02)),
-    var(--sheet-paper, #fff);
+  padding:0;
+  border:0;
+  background:transparent;
   font-family:var(--f-body, 'Inter', system-ui, sans-serif);
-}
-
-html[data-theme="dark"] .sc-study-bar{
-  border-color:var(--sheet-line, #3A4046);
-  background:
-    linear-gradient(180deg, rgba(79,166,214,0.12), rgba(79,166,214,0.04)),
-    var(--sheet-paper, #1B1F23);
 }
 
 body.has-site-header .sc-tool-strip .sc-study-bar{
@@ -34,27 +26,27 @@ body.has-site-header .sc-tool-strip .sc-study-bar{
 .sc-study-bar__actions{
   display:flex;
   flex-wrap:wrap;
+  align-items:center;
   gap:8px;
-  justify-content:flex-end;
-}
-
-.sc-study-bar__meta{
-  flex:1 1 220px;
-  min-width:0;
-}
-
-body.has-site-header .sc-tool-strip .sc-study-bar__meta{
-  display:none;
 }
 
 .sc-study-btn{
   appearance:none;
-  border-radius:2px;
-  font:600 12px/1.2 var(--f-body, 'Inter', system-ui, sans-serif);
-  letter-spacing:0.02em;
-  padding:9px 12px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  border-radius:8px;
+  font:700 12px/1.2 var(--f-body, 'Inter', system-ui, sans-serif);
+  letter-spacing:0.01em;
+  padding:8px 14px;
   cursor:pointer;
   transition:background .12s ease, border-color .12s ease, color .12s ease;
+}
+
+.sc-study-ico{
+  flex:0 0 auto;
+  display:block;
 }
 
 .sc-study-btn--primary{
@@ -64,66 +56,69 @@ body.has-site-header .sc-tool-strip .sc-study-bar__meta{
 }
 
 .sc-study-btn--primary:hover{
-  background:var(--iso-blue-dim, #003D66);
-  border-color:var(--iso-blue-dim, #003D66);
+  background:var(--iso-blue-dim, #00407D);
+  border-color:var(--iso-blue-dim, #00407D);
 }
 
 .sc-study-btn--ghost{
-  border:1px solid #B54236;
+  border:1px solid #E2E8F0;
   background:#fff;
-  color:#B54236;
+  color:#334155;
+}
+
+.sc-study-btn--ghost:hover{
+  background:#F8FAFC;
+  border-color:#CBD5E1;
 }
 
 html[data-theme="dark"] .sc-study-btn--ghost{
   background:transparent;
-  color:#f0a39a;
-  border-color:#c45b4f;
+  color:#E2E8F0;
+  border-color:#475569;
 }
 
-.sc-study-btn--ghost:hover{
-  background:rgba(181,66,54,0.08);
+html[data-theme="dark"] .sc-study-btn--ghost:hover{
+  background:rgba(148,163,184,0.12);
 }
 
 .sc-study-btn.is-active{
-  box-shadow:inset 0 0 0 1px rgba(0,0,0,0.12);
+  box-shadow:inset 0 0 0 1px rgba(0,0,0,0.08);
 }
 
-.sc-study-banner,
-.sc-study-status{
-  margin:0;
-  font-size:12px;
-  line-height:1.45;
-  color:var(--sheet-text-2, #4A4A4A);
+/* Amber pill — matches degerlet "Demo scenario active" */
+.sc-study-badge{
+  display:inline-flex;
+  align-items:center;
+  font:800 10px/1.2 var(--f-body, 'Inter', system-ui, sans-serif);
+  letter-spacing:0.04em;
+  text-transform:uppercase;
+  padding:5px 8px;
+  border-radius:6px;
+  background:#FEF3C7;
+  color:#92400E;
+  border:1px solid #FDE68A;
+  white-space:nowrap;
 }
 
-html[data-theme="dark"] .sc-study-banner,
-html[data-theme="dark"] .sc-study-status{
-  color:var(--sheet-text-2, #E8EAEC);
+.sc-study-badge[hidden]{
+  display:none !important;
 }
 
-.sc-study-banner{
-  margin-bottom:4px;
-  color:var(--iso-blue-dim, #003D66);
-  font-weight:600;
-}
-
-html[data-theme="dark"] .sc-study-banner{
-  color:var(--iso-blue, #4FA6D6);
-}
-
-.sc-study-status[data-kind="blank"]{
-  color:#B54236;
+html[data-theme="dark"] .sc-study-badge{
+  background:rgba(245,158,11,0.18);
+  color:#FCD34D;
+  border-color:rgba(251,191,36,0.35);
 }
 
 @media (max-width:720px){
-  .sc-study-bar{
-    padding:10px 12px;
-  }
   .sc-study-bar__actions{
     width:100%;
   }
   .sc-study-btn{
     flex:1 1 auto;
-    text-align:center;
+  }
+  .sc-study-badge{
+    flex:1 1 100%;
+    justify-content:center;
   }
 }

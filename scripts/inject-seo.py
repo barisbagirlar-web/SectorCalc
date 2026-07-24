@@ -416,7 +416,7 @@ def schema_tool(slug: str, meta: dict) -> str:
                         "@type": "HowToStep",
                         "position": 1,
                         "name": "Open the tool",
-                        "text": f"Go to {url} and optionally Load Sample Study to inspect a complete working model.",
+                        "text": f"Go to {url} and optionally Load Demo Data to inspect a complete working model.",
                         "url": url,
                     },
                     {
