@@ -11,6 +11,12 @@ const LEGACY_PATHS = [
   '/tr/about',
   `/__sectorcalc_missing_${Date.now()}`
 ];
+const VALID_SCOPES = new Set(['all', 'host', 'discovery', 'tools', 'legacy']);
+const rawScope = process.argv.find((arg) => arg.startsWith('--scope='))?.split('=')[1] ?? 'all';
+if (!VALID_SCOPES.has(rawScope)) {
+  console.error(`[FAIL] unknown live SEO scope: ${rawScope}`);
+  process.exit(2);
+}
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -36,9 +42,11 @@ function canonicalFrom(html) {
   return html.match(/<link\b[^>]*rel=["']canonical["'][^>]*href=["']([^"']+)["'][^>]*>/i)?.[1] ?? null;
 }
 
-async function runOnce() {
-  const issues = [];
+function includeScope(scope) {
+  return rawScope === 'all' || rawScope === scope;
+}
 
+async function checkHost(issues) {
   const legacyHost = await fetchAbsoluteFresh(`${LEGACY_WWW_ORIGIN}/`);
   const legacyLocation = legacyHost.headers.get('location') ?? '';
   if (![301, 308].includes(legacyHost.status)) issues.push(`www host must permanently redirect, got ${legacyHost.status}`);
@@ -48,8 +56,11 @@ async function runOnce() {
   const homeBody = await home.text();
   if (home.status !== 200) issues.push(`home status ${home.status}`);
   if (!homeBody.includes('Turn industrial inputs into defensible decisions.')) issues.push('home body does not match current production architecture');
-  if (canonicalFrom(homeBody) !== `${SITE_ORIGIN}/`) issues.push(`home canonical mismatch: ${canonicalFrom(homeBody) ?? 'missing'}`);
+  const homeCanonical = canonicalFrom(homeBody);
+  if (homeCanonical !== `${SITE_ORIGIN}/`) issues.push(`home canonical mismatch: ${homeCanonical ?? 'missing'}`);
+}
 
+async function checkDiscovery(issues) {
   const robotsRes = await fetchFresh('/robots.txt');
   const robots = await robotsRes.text();
   if (robotsRes.status !== 200) issues.push(`robots status ${robotsRes.status}`);
@@ -81,7 +92,9 @@ async function runOnce() {
   const llm = await llmRes.text();
   if (llmRes.status !== 200) issues.push(`llm status ${llmRes.status}`);
   if (llm !== llms) issues.push('llm.txt diverges from llms.txt');
+}
 
+async function checkTools(issues) {
   for (const page of TOOL_PAGES) {
     const response = await fetchFresh(page.path);
     const html = await response.text();
@@ -91,14 +104,23 @@ async function runOnce() {
     if (!/id=["']sc-guide["']/i.test(html)) issues.push(`${page.path} missing visible guide`);
     if (!/<h1\b/i.test(html)) issues.push(`${page.path} missing raw HTML H1`);
   }
+}
 
+async function checkLegacy(issues) {
   for (const path of LEGACY_PATHS) {
     const response = await fetchFresh(path);
     const body = await response.text();
     if (response.status !== 404 && response.status !== 410) issues.push(`${path} must be 404/410, got ${response.status}`);
     if (response.status === 200 && body.includes('Turn industrial inputs into defensible decisions.')) issues.push(`${path} is a homepage soft-404`);
   }
+}
 
+async function runOnce() {
+  const issues = [];
+  if (includeScope('host')) await checkHost(issues);
+  if (includeScope('discovery')) await checkDiscovery(issues);
+  if (includeScope('tools')) await checkTools(issues);
+  if (includeScope('legacy')) await checkLegacy(issues);
   return issues;
 }
 
@@ -107,17 +129,17 @@ for (let attempt = 1; attempt <= 6; attempt += 1) {
   try {
     lastIssues = await runOnce();
     if (lastIssues.length === 0) {
-      console.log(`[PASS] Live SEO guard: apex host, ${TOOL_PAGES.length} tools, sitemap, robots, AI discovery, schemas and retired-route status are clean`);
+      console.log(`[PASS] Live SEO guard scope=${rawScope}`);
       process.exit(0);
     }
   } catch (error) {
     lastIssues = [error instanceof Error ? error.message : String(error)];
   }
-  console.error(`[WARN] live SEO guard attempt ${attempt}/6 failed`);
+  console.error(`[WARN] live SEO guard scope=${rawScope} attempt ${attempt}/6 failed`);
   for (const issue of lastIssues) console.error(` - ${issue}`);
   if (attempt < 6) await sleep(10000);
 }
 
-console.error('[FAIL] Live SEO guard after deployment');
+console.error(`[FAIL] Live SEO guard scope=${rawScope}`);
 for (const issue of lastIssues) console.error(` - ${issue}`);
 process.exit(1);

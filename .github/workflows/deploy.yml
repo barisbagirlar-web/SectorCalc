@@ -61,9 +61,60 @@ jobs:
             -f state=success \
             -f context='SectorCalc Firebase Deploy' \
             -f description='Firebase Hosting production deploy completed'
-      - name: Post-deploy hard-refresh SEO guard
-        id: live_seo
-        run: npm run seo:live
+
+      - name: Live host/canonical hard-refresh guard
+        id: live_host
+        continue-on-error: true
+        run: node scripts/seo-live-guard.mjs --scope=host
+      - name: Live discovery hard-refresh guard
+        id: live_discovery
+        continue-on-error: true
+        run: node scripts/seo-live-guard.mjs --scope=discovery
+      - name: Live 25-tool hard-refresh guard
+        id: live_tools
+        continue-on-error: true
+        run: node scripts/seo-live-guard.mjs --scope=tools
+      - name: Live legacy-route hard-404 guard
+        id: live_legacy
+        continue-on-error: true
+        run: node scripts/seo-live-guard.mjs --scope=legacy
+
+      - name: Attest live SEO scopes
+        if: always() && steps.firebase_deploy.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          HOST_OUTCOME: ${{ steps.live_host.outcome }}
+          DISCOVERY_OUTCOME: ${{ steps.live_discovery.outcome }}
+          TOOLS_OUTCOME: ${{ steps.live_tools.outcome }}
+          LEGACY_OUTCOME: ${{ steps.live_legacy.outcome }}
+        run: |
+          post_status() {
+            context="$1"
+            outcome="$2"
+            if [ "$outcome" = "success" ]; then state=success; else state=failure; fi
+            gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}" \
+              -f state="$state" \
+              -f context="$context" \
+              -f description="hard-refresh live guard: $outcome"
+          }
+          post_status 'SectorCalc Live Host' "$HOST_OUTCOME"
+          post_status 'SectorCalc Live Discovery' "$DISCOVERY_OUTCOME"
+          post_status 'SectorCalc Live Tools' "$TOOLS_OUTCOME"
+          post_status 'SectorCalc Live Legacy' "$LEGACY_OUTCOME"
+
+      - name: Final production SEO gate
+        id: final_seo
+        env:
+          HOST_OUTCOME: ${{ steps.live_host.outcome }}
+          DISCOVERY_OUTCOME: ${{ steps.live_discovery.outcome }}
+          TOOLS_OUTCOME: ${{ steps.live_tools.outcome }}
+          LEGACY_OUTCOME: ${{ steps.live_legacy.outcome }}
+        run: |
+          if [ "$HOST_OUTCOME" != success ] || [ "$DISCOVERY_OUTCOME" != success ] || [ "$TOOLS_OUTCOME" != success ] || [ "$LEGACY_OUTCOME" != success ]; then
+            echo "::error::Production SEO scope failure: host=$HOST_OUTCOME discovery=$DISCOVERY_OUTCOME tools=$TOOLS_OUTCOME legacy=$LEGACY_OUTCOME"
+            exit 1
+          fi
+
       - name: Attest successful production SEO deploy
         if: success()
         env:
@@ -72,13 +123,13 @@ jobs:
           gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}" \
             -f state=success \
             -f context='SectorCalc Production SEO' \
-            -f description='Firebase deploy and hard-refresh SEO guard passed'
+            -f description='Firebase deploy and all hard-refresh SEO scopes passed'
       - name: Attest failed production SEO deploy
         if: failure()
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          description="credential=${{ steps.firebase_credential.outcome }} build=${{ steps.production_build.outcome }} seo=${{ steps.deterministic_seo.outcome }} deploy=${{ steps.firebase_deploy.outcome }} live=${{ steps.live_seo.outcome }}"
+          description="credential=${{ steps.firebase_credential.outcome }} build=${{ steps.production_build.outcome }} seo=${{ steps.deterministic_seo.outcome }} deploy=${{ steps.firebase_deploy.outcome }} host=${{ steps.live_host.outcome }} discovery=${{ steps.live_discovery.outcome }} tools=${{ steps.live_tools.outcome }} legacy=${{ steps.live_legacy.outcome }}"
           gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}" \
             -f state=failure \
             -f context='SectorCalc Production SEO' \
