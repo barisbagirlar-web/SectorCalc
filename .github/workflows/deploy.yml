@@ -39,9 +39,13 @@ jobs:
         run: npm test
       - name: Strict TypeScript
         run: npm run typecheck
-      - name: Build + navigation + form + unified-engine guards
+      - name: Production build
         run: npm run build
+      - name: Enterprise SEO deterministic guard
+        run: npm run seo:guard
       - name: Deploy Firebase Hosting (sectorcalc-prod)
         run: npx --yes firebase-tools@14 deploy --only hosting --project sectorcalc-prod --token "$FIREBASE_TOKEN"
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+      - name: Post-deploy hard-refresh SEO guard
+        run: npm run seo:live
