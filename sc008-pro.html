@@ -131,12 +131,43 @@
 <script src="./sc-theme.js?v=8" defer></script>
 <link rel="stylesheet" href="./sc-tool-guide.css?v=1">
 <script src="./sc-tool-guide.js?v=1" defer></script>
+<link rel="stylesheet" href="./sc-site-nav.css?v=1">
+<script src="./sc-site-nav.js?v=1" defer></script>
 </head>
-<body>
+<body data-tool-badge="SC-008 · Tolerance Stack-Up">
+<!--SC-SITE-NAV-START-->
+<header class="site-header" id="siteHeader" role="banner">
+  <a href="/" class="brand" aria-label="SectorCalc Home"><span class="brand-mark"><img class="logo-light" src="/sectorcalc-logo.png" alt="SectorCalc" width="183" height="48"><img class="logo-dark" src="/sectorcalc-logo-dark.png?v=2" alt="" width="183" height="48" aria-hidden="true"></span></a>
+  <nav class="main-nav" role="navigation" aria-label="Main navigation">
+    <ul>
+      <li><a href="/tools.html" data-nav="tools">Tools</a></li>
+      <li><a href="/#method" data-nav="method" data-nav-home="#method">Method</a></li>
+      <li><a href="/#standards" data-nav="standards" data-nav-home="#standards">Standards</a></li>
+      <li><a href="/pricing.html" data-nav="pricing">Pricing</a></li>
+    </ul>
+    <span class="sc-nav-tool" aria-hidden="true"></span>
+    <a href="/sc008-pro.html" class="btn btn-primary">Run a Calculation</a>
+  </nav>
+  <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+<div class="mobile-nav-overlay" id="mobileNav" role="dialog" aria-label="Mobile menu" aria-hidden="true">
+  <a href="/tools.html" data-nav="tools">All Tools</a>
+  <a href="/#method" data-nav-home="#method">Method</a>
+  <a href="/#standards" data-nav-home="#standards">Standards</a>
+  <a href="/pricing.html" data-nav="pricing">Pricing</a>
+  <a href="/sc008-pro.html" class="btn-primary">Run a Calculation</a>
+</div>
+<!--SC-SITE-NAV-END-->
+<div class="sc-tool-strip"><b>SC-008 · Tolerance Stack-Up</b><span>Engineering preview · Decimal engine · Not for production approval</span></div>
+
+
 <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme" aria-pressed="false" title="Dark mode - drag to move, double-click to reset">
   <svg data-theme-icon="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
   <svg data-theme-icon="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
 </button>
+
 
 <div class="sc-header">
   <div class="sc-header-left"><a href="/" class="sc-logo" title="SectorCalc home" aria-label="SectorCalc home"><img class="logo-light" src="/sectorcalc-logo.png" alt="SectorCalc" width="160" height="42"><img class="logo-dark" src="/sectorcalc-logo-dark.png?v=2" alt="" width="160" height="42" aria-hidden="true"></a><div><div class="sc-header-title">SC-008 - Tolerance Stack-Up</div><div class="sc-header-sub">Engineering preview · 1D linear stack-up · per-component distribution · client-side · not for production approval</div></div></div>

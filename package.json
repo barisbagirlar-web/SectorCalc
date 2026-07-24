@@ -11,8 +11,9 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "node scripts/inject-guides.mjs && tsc --noEmit && vite build",
+    "build": "node scripts/inject-guides.mjs && node scripts/inject-site-nav.mjs && tsc --noEmit && vite build",
     "inject:guides": "node scripts/inject-guides.mjs",
+    "inject:nav": "node scripts/inject-site-nav.mjs",
     "typecheck": "tsc --noEmit",
     "preview": "vite preview",
     "test": "vitest run",

@@ -1613,8 +1613,37 @@ select:focus-visible{
 <link rel="modulepreload" href="/vendor/three/RoomEnvironment.js" crossorigin>
 <link rel="stylesheet" href="./sc-theme.css?v=8">
 <script src="./sc-theme.js?v=8" defer></script>
+<link rel="stylesheet" href="./sc-site-nav.css?v=1">
+<script src="./sc-site-nav.js?v=1" defer></script>
 </head>
 <body>
+<!--SC-SITE-NAV-START-->
+<header class="site-header" id="siteHeader" role="banner">
+  <a href="/" class="brand" aria-label="SectorCalc Home"><span class="brand-mark"><img class="logo-light" src="/sectorcalc-logo.png" alt="SectorCalc" width="183" height="48"><img class="logo-dark" src="/sectorcalc-logo-dark.png?v=2" alt="" width="183" height="48" aria-hidden="true"></span></a>
+  <nav class="main-nav" role="navigation" aria-label="Main navigation">
+    <ul>
+      <li><a href="/tools.html" data-nav="tools">Tools</a></li>
+      <li><a href="/#method" data-nav="method" data-nav-home="#method">Method</a></li>
+      <li><a href="/#standards" data-nav="standards" data-nav-home="#standards">Standards</a></li>
+      <li><a href="/pricing.html" data-nav="pricing">Pricing</a></li>
+    </ul>
+    <span class="sc-nav-tool" aria-hidden="true"></span>
+    <a href="/sc008-pro.html" class="btn btn-primary">Run a Calculation</a>
+  </nav>
+  <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+<div class="mobile-nav-overlay" id="mobileNav" role="dialog" aria-label="Mobile menu" aria-hidden="true">
+  <a href="/tools.html" data-nav="tools">All Tools</a>
+  <a href="/#method" data-nav-home="#method">Method</a>
+  <a href="/#standards" data-nav-home="#standards">Standards</a>
+  <a href="/pricing.html" data-nav="pricing">Pricing</a>
+  <a href="/sc008-pro.html" class="btn-primary">Run a Calculation</a>
+</div>
+<!--SC-SITE-NAV-END-->
+
+
 
 <a href="#main-content" class="skip-link">Skip to main content</a>
 
@@ -1623,30 +1652,11 @@ select:focus-visible{
   <svg data-theme-icon="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
 </button>
 
+
 <div class="sheet">
   <div class="reg-mark tl"></div><div class="reg-mark tr"></div><div class="reg-mark bl"></div><div class="reg-mark br"></div>
   <div class="zone-edge top" style="left:8%;">1</div><div class="zone-edge top" style="left:28%;">2</div><div class="zone-edge top" style="left:48%;">3</div><div class="zone-edge top" style="left:68%;">4</div><div class="zone-edge top" style="left:92%;">5</div>
   <div class="zone-edge bottom" style="left:8%;">A</div><div class="zone-edge bottom" style="left:28%;">B</div><div class="zone-edge bottom" style="left:48%;">C</div><div class="zone-edge bottom" style="left:68%;">D</div><div class="zone-edge bottom" style="left:92%;">E</div>
-
-  <header class="site-header" role="banner">
-    <a href="/" class="brand" aria-label="SectorCalc Home"><span class="brand-mark"><img class="logo-light" src="/sectorcalc-logo.png" alt="SectorCalc" width="183" height="48"><img class="logo-dark" src="/sectorcalc-logo-dark.png?v=2" alt="" width="183" height="48" aria-hidden="true"></span></a>
-    <nav class="main-nav" role="navigation" aria-label="Main navigation">
-      <ul><li><a href="/tools.html">Tools</a></li><li><a href="#method">Method</a></li><li><a href="#standards">Standards</a></li><li><a href="/pricing.html">Pricing</a></li></ul>
-      <a href="/sc008-pro.html" class="btn btn-primary">Run a Calculation</a>
-    </nav>
-    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
-      <span></span><span></span><span></span>
-    </button>
-  </header>
-
-  <div class="mobile-nav-overlay" id="mobileNav" role="dialog" aria-label="Mobile menu" aria-hidden="true">
-    <a href="/tools.html">All Tools</a>
-    <a href="#decide">By Role</a>
-    <a href="#method">Method</a>
-    <a href="#standards">Standards</a>
-    <a href="/pricing.html">Pricing</a>
-    <a href="/sc008-pro.html" class="btn btn-primary">Run a Calculation</a>
-  </div>
 
   <section class="sc-hero" id="main-content" aria-label="Hero section">
     <div class="hero-grid">
@@ -2461,27 +2471,11 @@ select:focus-visible{
   });
 
   // ============================================================
-  // MOBILE MENU
+  // MOBILE MENU — handled by /sc-site-nav.js (shared site header)
   // ============================================================
   var mobileBtn = document.getElementById('mobileMenuBtn');
   var mobileNav = document.getElementById('mobileNav');
-  if (mobileBtn && mobileNav) {
-    mobileBtn.addEventListener('click', function(){
-      var expanded = mobileBtn.getAttribute('aria-expanded') === 'true';
-      mobileBtn.setAttribute('aria-expanded', !expanded);
-      mobileNav.setAttribute('aria-hidden', expanded);
-      mobileNav.classList.toggle('active');
-      document.body.style.overflow = expanded ? '' : 'hidden';
-    });
-    mobileNav.querySelectorAll('a').forEach(function(link){
-      link.addEventListener('click', function(){
-        mobileBtn.setAttribute('aria-expanded', 'false');
-        mobileNav.setAttribute('aria-hidden', 'true');
-        mobileNav.classList.remove('active');
-        document.body.style.overflow = '';
-      });
-    });
-  }
+  /* duplicate listeners removed — sc-site-nav.js owns the hamburger */
 
   // ============================================================
   // SCROLL REVEAL

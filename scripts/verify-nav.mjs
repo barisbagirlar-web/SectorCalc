@@ -131,6 +131,9 @@ function checkPage(page) {
     if (!html.includes('sc-theme.css')) issues.push(`${page}: missing sc-theme.css`);
     if (!html.includes('sc-theme.js')) issues.push(`${page}: missing sc-theme.js`);
     if (!html.includes('sectorcalc-theme')) issues.push(`${page}: missing theme boot key`);
+    if (!html.includes('sc-site-nav.css')) issues.push(`${page}: missing sc-site-nav.css`);
+    if (!html.includes('sc-site-nav.js')) issues.push(`${page}: missing sc-site-nav.js`);
+    if (!html.includes('id="siteHeader"')) issues.push(`${page}: missing shared #siteHeader`);
   }
 }
 

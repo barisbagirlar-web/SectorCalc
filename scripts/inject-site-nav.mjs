@@ -1,0 +1,111 @@
+#!/usr/bin/env node
+/**
+ * Inject the shared SectorCalc site header into every public HTML page.
+ */
+import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { join } from 'node:path';
+
+const ROOT = process.cwd();
+const PARTIAL = readFileSync(join(ROOT, 'content/partials/site-header.html'), 'utf8').trim();
+
+const ASSETS = `
+<link rel="stylesheet" href="./sc-site-nav.css?v=1">
+<script src="./sc-site-nav.js?v=1" defer></script>
+`.trim();
+
+const PAGES = [
+  { page: 'index.html', strip: 'home', badge: null },
+  { page: 'tools.html', strip: 'topbar', badge: null },
+  { page: 'pro.html', strip: 'topbar', badge: null },
+  { page: 'pricing.html', strip: 'pricing', badge: null },
+  { page: 'machining-pro.html', strip: 'topbar', badge: 'SC-020 · Feeds & Speeds' },
+  { page: 'bearing-pro.html', strip: 'topbar', badge: 'SC-021 · Bearing Life L10' },
+  {
+    page: 'sc008-pro.html',
+    strip: 'lit',
+    badge: 'SC-008 · Tolerance Stack-Up',
+    toolStrip: '<div class="sc-tool-strip"><b>SC-008 · Tolerance Stack-Up</b><span>Engineering preview · Decimal engine · Not for production approval</span></div>'
+  },
+  {
+    page: 'labor-pro.html',
+    strip: 'lit',
+    badge: 'SC-010 · True Labor Cost',
+    toolStrip: '<div class="sc-tool-strip"><b>SC-010 · True Labor Cost</b><span>Engineering preview · Decimal engine · Not for production approval</span></div>'
+  },
+  {
+    page: 'quote-pro.html',
+    strip: 'lit',
+    badge: 'SC-012 · Quote Pricing',
+    toolStrip: '<div class="sc-tool-strip"><b>SC-012 · Quote Pricing</b><span>Engineering preview · Decimal engine · Not for production approval</span></div>'
+  },
+  {
+    page: 'weld-pro.html',
+    strip: 'lit',
+    badge: 'SC-001 · Weld Thickness',
+    toolStrip: '<div class="sc-tool-strip"><b>SC-001 · Weld Thickness</b><span>Engineering preview · Decimal engine · Not for production approval</span></div>'
+  }
+];
+
+function ensureAssets(html) {
+  if (html.includes('sc-site-nav.css')) return html;
+  return html.replace('</head>', `${ASSETS}\n</head>`);
+}
+
+function stripOldNav(html, mode) {
+  html = html.replace(/<!--SC-SITE-NAV-START-->[\s\S]*?<!--SC-SITE-NAV-END-->\n?/g, '');
+  html = html.replace(/<div class="sc-tool-strip">[\s\S]*?<\/div>\n?/g, '');
+
+  if (mode === 'home') {
+    html = html.replace(/<header class="site-header"[\s\S]*?<\/header>\s*/i, '');
+    html = html.replace(/<div class="mobile-nav-overlay" id="mobileNav"[\s\S]*?<\/div>\s*/i, '');
+  }
+  if (mode === 'topbar') {
+    // Topbar contains nested .badge divs — close at the topbar that precedes .wrap
+    html = html.replace(/<div class="topbar">[\s\S]*?<\/div>\s*(?=<div class="wrap")/i, '');
+  }
+  if (mode === 'pricing') {
+    html = html.replace(/<header>[\s\S]*?<\/header>\s*/i, '');
+  }
+  if (mode === 'lit') {
+    // keep .sc-header in DOM but CSS hides it; remove duplicate if we already converted
+  }
+  return html;
+}
+
+function setBodyBadge(html, badge) {
+  if (!badge) {
+    return html.replace(/<body([^>]*)>/i, (m, attrs) => {
+      const cleaned = attrs.replace(/\s*data-tool-badge="[^"]*"/, '');
+      return `<body${cleaned}>`;
+    });
+  }
+  if (/<body[^>]*data-tool-badge=/.test(html)) {
+    return html.replace(/data-tool-badge="[^"]*"/, `data-tool-badge="${badge}"`);
+  }
+  return html.replace(/<body([^>]*)>/i, `<body$1 data-tool-badge="${badge}">`);
+}
+
+function insertNav(html, block) {
+  // Always mount at the top of <body> (never after late theme toggles).
+  return html.replace(/<body([^>]*)>/i, `<body$1>\n${block}\n`);
+}
+
+let ok = 0;
+for (const row of PAGES) {
+  const path = join(ROOT, row.page);
+  if (!existsSync(path)) {
+    console.error('[FAIL] missing', row.page);
+    process.exit(1);
+  }
+  let html = readFileSync(path, 'utf8');
+  html = ensureAssets(html);
+  html = stripOldNav(html, row.strip);
+  html = setBodyBadge(html, row.badge);
+  let block = PARTIAL;
+  if (row.toolStrip) block = `${PARTIAL}\n${row.toolStrip}`;
+  html = insertNav(html, block);
+  writeFileSync(path, html);
+  ok++;
+  console.log(`[OK] ${row.page}`);
+}
+console.log(`[PASS] Site header injected on ${ok} pages`);
