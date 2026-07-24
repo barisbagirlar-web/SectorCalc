@@ -31,6 +31,19 @@ function capture(html, pattern, fallback) {
   return html.match(pattern)?.[0] ?? fallback;
 }
 
+function titleText(html, code) {
+  const raw = html.match(/<title\b[^>]*>([\s\S]*?)<\/title>/i)?.[1]?.trim();
+  if (!raw) return `${code} Industrial Calculator`;
+  return raw.replace(/\s*(?:—|\||-)\s*SectorCalc(?:\s+Pro)?\s*$/i, '').trim();
+}
+
+function descriptionText(html, code) {
+  return (
+    html.match(/<meta\b[^>]*\bname=["']description["'][^>]*\bcontent=["']([^"']*)["'][^>]*>/i)?.[1]?.trim() ??
+    `${code} deterministic industrial engineering calculator with universal units, visible formulas, assumptions, warnings and an A1-A5 audit trail.`
+  );
+}
+
 function guideBlock(html) {
   return html.match(/<!--SC-GUIDE-START-->[\s\S]*?<!--SC-GUIDE-END-->/i)?.[0] ?? '';
 }
@@ -47,6 +60,8 @@ function buildHtml(file, code, original) {
     /<link\b[^>]*\brel=["']canonical["'][^>]*>/i,
     `<link rel="canonical" href="https://www.sectorcalc.com/${file}">`
   );
+  const pageTitle = titleText(original, code);
+  const pageSummary = descriptionText(original, code);
   const guide = guideBlock(original);
   const guideAssets = guide
     ? '<link rel="stylesheet" href="./sc-tool-guide.css?v=3"><script src="./sc-tool-guide.js?v=3" defer></script>'
@@ -78,7 +93,7 @@ ${guideAssets}
 <div class="mobile-nav-overlay" id="mobileNav" role="dialog" aria-label="Mobile menu" aria-hidden="true"><a href="/tools.html">All Tools</a><a href="/#method">Method</a><a href="/#standards">Standards</a><a href="/pricing.html">Pricing</a></div>
 <div class="toolstrip"><b><span id="toolCode">${code}</span> · SectorCalc Pro</b><span class="engine" id="engineBadge">Loading deterministic engine…</span></div>
 <main class="wrap">
-  <section class="head"><div><h1 id="toolTitle">${code} Industrial Calculator</h1><p id="toolSummary">Loading engineering model…</p><div class="decision"><b>Decision:</b> <span id="decisionText"></span></div></div><div class="units-global"><button id="metricBtn" class="active">All Metric</button><button id="imperialBtn">All Imperial</button></div></section>
+  <section class="head"><div><h1 id="toolTitle">${pageTitle}</h1><p id="toolSummary">${pageSummary}</p><div class="decision"><b>Decision:</b> <span id="decisionText">Run the stated engineering model, review its assumptions and warnings, then make the release decision against the governing standard and verified source data.</span></div></div><div class="units-global"><button id="metricBtn" class="active">All Metric</button><button id="imperialBtn">All Imperial</button></div></section>
   <section class="layout">
     <aside class="panel input-panel"><div class="panel-h">1 · Engineering Inputs <span>Universal units</span></div><div class="panel-b"><div id="fields"></div><div class="actions"><button class="btn primary" id="calcBtn">CALCULATE &amp; AUDIT</button><button class="btn light" id="save1">Save S1</button><button class="btn light" id="load1">Load S1</button><button class="btn light" id="save2">Save S2</button><button class="btn light" id="load2">Load S2</button></div></div></aside>
     <section><div id="verdict" class="verdict pass"></div><div id="warnings"></div><div id="kpis" class="kpis"></div>
