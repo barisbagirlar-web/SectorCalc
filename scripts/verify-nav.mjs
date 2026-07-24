@@ -181,7 +181,18 @@ if (!index.includes('id="main-content"')) {
   issues.push('index.html: skip-link target #main-content missing');
 }
 
-const discovery = ['robots.txt', 'sitemap.xml', 'llms.txt', 'llm.txt', 'site.webmanifest'];
+const discovery = [
+  'robots.txt',
+  'sitemap.xml',
+  'sitemap-images.xml',
+  'sitemap-videos.xml',
+  'llms.txt',
+  'llm.txt',
+  'site.webmanifest',
+  '404.html',
+  'assets/js/cvw-monitor.js',
+  'assets/images/sectorcalc-og-1200x630.jpg'
+];
 for (const f of discovery) {
   if (!existsSync(join(ROOT, 'public', f))) issues.push(`public/${f}: FILE MISSING`);
 }
