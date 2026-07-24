@@ -119,6 +119,10 @@ function checkPage(page) {
   if (page.endsWith('-pro.html')) {
     if (!hrefs.some((h) => h === '/')) issues.push(`${page}: no home link (/)`);
     if (!hrefs.some((h) => h === '/pricing.html')) issues.push(`${page}: no pricing link`);
+    if (!html.includes('sc-tool-guide.css')) issues.push(`${page}: missing sc-tool-guide.css`);
+    if (!html.includes('sc-tool-guide.js')) issues.push(`${page}: missing sc-tool-guide.js`);
+    if (!html.includes('data-sc-engage')) issues.push(`${page}: missing SEO guide engagement mount`);
+    if (!html.includes('id="sc-guide"')) issues.push(`${page}: missing #sc-guide SEO section`);
   }
 
   // Site pages (not legacy calculator redirects) must ship the shared theme engine

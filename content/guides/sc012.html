@@ -1,0 +1,247 @@
+<div class="sc-guide-shell">
+<section class="sc-guide" id="sc-guide" data-tool-id="SC-012" data-tool-name="Quote Pricing Calculator (SC-012)" data-tool-url="https://www.sectorcalc.com/quote-pro.html" itemscope itemtype="https://schema.org/FAQPage">
+
+<div data-sc-engage></div>
+
+<nav class="sc-guide-toc" aria-label="Table of contents">
+  <div class="t">On this page</div>
+  <ul>
+    <li><a href="#overview">Full absorption quoting model</a></li>
+    <li><a href="#material-scrap">Material cost and scrap yield</a></li>
+    <li><a href="#labor-machine">Labor, machine, and setup</a></li>
+    <li><a href="#overhead">Shop overhead absorption</a></li>
+    <li><a href="#finance">Payment terms and finance charge</a></li>
+    <li><a href="#margin-markup">Margin vs markup on sell price</a></li>
+    <li><a href="#sell-cost">Sell price, unit price, and profit</a></li>
+    <li><a href="#contingency">Risk contingencies</a></li>
+    <li><a href="#sc010-rates">When to use SC-010 loaded labor rates</a></li>
+    <li><a href="#faq">Frequently asked questions</a></li>
+  </ul>
+</nav>
+
+<p class="sc-guide-lede"><b>Quote pricing</b> under full absorption adds every direct cost — material with scrap, labor, machine time, setup, energy, consumables, shipping — applies shop overhead, charges finance for payment terms, then sets <b>sell price</b> from a target <b>margin on price</b>. SC-012 conservation-locks nine cost components so the breakdown always sums to total cost before margin is applied.</p>
+
+<p class="note">Engineering preview · Margin-on-price (not markup-on-cost) · Simple interest on payment days · Cross-tool feed from SC-010 is manual · Not a contract pricing system or ERP replacement.</p>
+
+<h2 id="overview">Full absorption quoting model</h2>
+
+<p>Variable costing quotes only direct material and direct labor. Full absorption (full costing) also allocates shop overhead and financing so the quote recovers fixed rent, supervision, QA, and working-capital cost. SC-012 implements a practical job-shop stack:</p>
+
+<ol>
+  <li>Effective material (scrap-adjusted)</li>
+  <li>Direct labor, machine, and setup time at hourly burdens</li>
+  <li>Energy, consumables, and shipping as lump direct costs</li>
+  <li>Overhead as a rate on direct cost</li>
+  <li>Finance charge from customer payment days</li>
+  <li>Sell price from target margin</li>
+</ol>
+
+<div class="sc-formula">totalCost = effMaterial + labor + machine + setup + energy + consumables + shipping + overhead + finance</div>
+
+<p>The runtime engine verifies that these nine items sum exactly to <b>totalCost</b>. Any accounting drift triggers a conservation error — the tool refuses to return an inconsistent quote.</p>
+
+<h2 id="material-scrap">Material cost and scrap yield</h2>
+
+<p>Raw material quotes rarely yield 100% good parts. Nesting loss, saw kerf, bar ends, casting risers, and first-off scrap inflate purchased weight. SC-012 uses a standard yield model:</p>
+
+<div class="sc-formula">effectiveMaterial = materialCost / (1 − scrapRate)</div>
+
+<p>With <b>scrapRate</b> = 0.10, a €100 net material becomes €111.11 effective (10% loss). Enter scrap as a ratio (0.10), not percent (10). The guard <b>scrapRate &lt; 1</b> prevents divide-by-zero.</p>
+
+<p>Non-uniform scrap (one expensive setup piece vs recurring runner loss) is not modeled per-part in v1.0.0. For highly asymmetric scrap, increase material cost or add a contingency line before margin.</p>
+
+<div class="sc-tip"><span class="ico" aria-hidden="true">💡</span><div>Pair material yield with process risk from <a href="/machining-pro.html">SC-020 CNC Feeds &amp; Speeds</a> (tool breakage, roughing scrap) and <a href="/weld-pro.html">SC-001 Weld Thickness</a> (weld repair loops). Tighter tolerances from <a href="/sc008-pro.html">SC-008</a> often increase scrap and inspection labor — reflect that in scrap rate or overhead.</div></div>
+
+<h2 id="labor-machine">Labor, machine, and setup</h2>
+
+<p>Direct conversion cost is time × rate:</p>
+
+<div class="sc-formula">labor = laborHours × laborHourlyCost
+machine = machineHours × machineHourlyCost
+setup = (setupMinutes / 60) × setupHourlyCost</div>
+
+<p><b>Labor hours</b> should come from routings, CAM estimates, or time studies — not guesswork. <b>Machine hours</b> may track spindle time separately from labor (unattended machining). Setup is amortized over the quote quantity inside SC-012 only if you enter total setup minutes for the job; per-unit setup allocation is implicit when you quote batch quantity in the margin step.</p>
+
+<p>Machine hourly burden typically includes depreciation, maintenance, power, and floor space. Do not embed the same fixed costs again in overhead unless your chart of accounts is designed for that split.</p>
+
+<h2 id="overhead">Shop overhead absorption</h2>
+
+<p>Overhead recovers indirect costs: rent, utilities, management, quality, IT, and shop supplies not tagged to the job.</p>
+
+<div class="sc-formula">overhead = directCost × overheadRate
+directCost = effMaterial + labor + machine + setup + energy + consumables + shipping</div>
+
+<p>A 25% overhead rate on direct cost means €1,000 direct becomes €250 overhead. Activity-based costing (ABC) is not implemented — one flat rate assumes homogeneous job mix. Mixed low- and high-intensity jobs may need separate overhead rates or manual adjustment.</p>
+
+<table>
+  <thead>
+    <tr><th>Absorption element</th><th>Typical input in SC-012</th><th>Common pitfall</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Material + scrap</td><td>materialCost, scrapRate</td><td>Forgetting bar-end and nesting loss</td></tr>
+    <tr><td>Labor</td><td>laborHours × laborHourlyCost</td><td>Using net pay instead of loaded rate</td></tr>
+    <tr><td>Machine</td><td>machineHours × machineHourlyCost</td><td>Double-counting depreciation in overhead</td></tr>
+    <tr><td>Shop burden</td><td>overheadRate on direct</td><td>Rate calibrated on revenue, not direct cost</td></tr>
+  </tbody>
+</table>
+
+<h2 id="finance">Payment terms and finance charge</h2>
+
+<p>When customers pay net 30, net 60, or longer, your working capital carries interest. SC-012 applies simple interest:</p>
+
+<div class="sc-formula">financeCharge = (directCost + overhead) × monthlyInterestRate × (paymentDays / 30)</div>
+
+<p>This is a planning estimate, not compound interest or letter-of-credit fees. Increase <b>monthlyInterestRate</b> for risky accounts or currency exposure. Zero payment days removes finance from the stack.</p>
+
+<h2 id="margin-markup">Margin vs markup on sell price</h2>
+
+<p>SC-012 uses <b>margin on sell price</b> (also called gross margin percentage of price):</p>
+
+<div class="sc-formula">sellPrice = totalCost / (1 − targetMargin)</div>
+
+<p>With total cost €800 and target margin 0.25 (25% of sell price), sell = €800 / 0.75 = €1,066.67. Profit = €266.67, which is exactly 25% of sell — not 25% of cost.</p>
+
+<p><b>Markup on cost</b> would be sell = cost × (1 + markup). A 25% markup on €800 gives €1,000 sell — lower than margin-on-price. Confusing the two is a classic quoting error; SC-012 enforces margin-on-price consistently. The guard <b>targetMargin &lt; 1</b> prevents invalid inputs.</p>
+
+<div class="sc-formula">markupOnCost equivalent: markup = targetMargin / (1 − targetMargin)
+(for margin 0.25 → markup = 0.333… on cost)</div>
+
+<h2 id="sell-cost">Sell price, unit price, and profit</h2>
+
+<div class="sc-formula">unitPrice = sellPrice / quantity
+profit = sellPrice − totalCost
+profitPerUnit = profit / quantity</div>
+
+<p>Quantity must be positive. For prototype qty 1, setup dominates unit price; for production qty 500, setup spreads thin. Run SC-012 twice when presenting both prototype and production tiers.</p>
+
+<h2 id="contingency">Risk contingencies</h2>
+
+<p>SC-012 has no dedicated contingency field — risk is absorbed by adjusting inputs:</p>
+
+<ul>
+  <li><b>Scrap rate</b> — technical risk, new material, tight tolerances</li>
+  <li><b>Overhead rate</b> — inspection, rework, engineering support</li>
+  <li><b>Labor hours</b> — learning curve, manual deburr, secondary ops</li>
+  <li><b>Target margin</b> — commercial risk, warranty, customer volatility</li>
+  <li><b>Finance charge</b> — slow pay, export, bonding</li>
+</ul>
+
+<p>Document which knob carries which risk so repricing stays auditable. Avoid stacking the same risk into scrap, overhead, and margin without labeling — that over-prices competitively sensitive jobs.</p>
+
+<h2 id="sc010-rates">When to use SC-010 loaded labor rates</h2>
+
+<p>Always use <b>true hourly cost</b> from <a href="/labor-pro.html">SC-010 True Labor Cost</a> as SC-012's <b>laborHourlyCost</b> when labor is shop employees on payroll. SC-010 grosses net pay, adds employer SS/unemployment, benefits, severance accrual, overtime, and recruitment — the same dollars payroll actually spends.</p>
+
+<p>Use cases:</p>
+
+<ul>
+  <li><b>Welding / fabrication</b> — load SC-010 welder rate; estimate hours from weld length and WPS or use SC-001 for sizing context</li>
+  <li><b>Machining</b> — operator labor at SC-010 rate; machine spindle at separate machine burden; cycle time from SC-020</li>
+  <li><b>Blended shop rate</b> — weighted average of SC-010 outputs by headcount when routings are not detailed</li>
+</ul>
+
+<p>Do not use SC-010 for subcontractor invoices quoted as lump sum — enter those as material or a direct line. Do not use net pay: you will under-recover roughly 30–80% depending on country preset.</p>
+
+<div class="sc-tip"><span class="ico" aria-hidden="true">💡</span><div>Workflow: SC-010 → copy <b>trueHourlyCost</b> → SC-012 labor field → add SC-020 cycle times for hours → set margin last after all direct and overhead costs are locked. Browse <a href="/tools.html">all calculators</a> for linked tools.</div></div>
+
+<div class="sc-guide-faq" id="faq">
+  <h2>Frequently asked questions</h2>
+
+  <div class="q" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">Does SC-012 use margin or markup?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text"><p>Margin on sell price: sell = totalCost / (1 − targetMargin). A 30% target margin means 30% of the invoice is gross profit, not 30% added on top of cost. Markup-on-cost would use sell = cost × (1 + markup) and yields a lower sell price for the same nominal percentage.</p></div>
+    </div>
+  </div>
+
+  <div class="q" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">How do I enter scrap — percent or ratio?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text"><p>Enter scrap as a ratio between 0 and 1. Ten percent scrap is 0.10, not 10. The formula material / (1 − scrapRate) blows up as scrap approaches 100%; the engine rejects scrapRate ≥ 1.</p></div>
+    </div>
+  </div>
+
+  <div class="q" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">Why doesn't SC-012 pull labor rate automatically from SC-010?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text"><p>Tools stay independent in v1.0.0 so quotes remain reproducible and offline. Copy trueHourlyCost manually and note the date and preset in your quote worksheet. Automatic cross-tool linking may come in a later release.</p></div>
+    </div>
+  </div>
+
+  <div class="q" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">Where do setup costs go for a quantity of 100?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text"><p>Enter total setup minutes for the job and setup hourly rate; SC-012 adds full setup to job total cost, then divides sell price by quantity for unit price. Setup is not auto-spread — the quantity field only affects unit price after total sell is computed.</p></div>
+    </div>
+  </div>
+
+  <div class="q" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">Is overhead double-counted if I use loaded labor from SC-010?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text"><p>SC-010 loaded labor includes employer taxes and benefits, not shop rent or plant supervision. Overhead in SC-012 still applies unless your SC-010 inputs already embed plant burden — which would be non-standard. Keep employer burden in SC-010 and facility burden in SC-012 overhead.</p></div>
+    </div>
+  </div>
+</div>
+
+<details class="related">
+  <summary>Related calculators</summary>
+  <ul>
+    <li><a href="/labor-pro.html">SC-010 True Labor Cost</a> — fully loaded hourly for labor input</li>
+    <li><a href="/machining-pro.html">SC-020 CNC Feeds &amp; Speeds</a> — cycle time and tool life for hour estimates</li>
+    <li><a href="/weld-pro.html">SC-001 Weld Thickness</a> — weld leg sizing for fab quotes</li>
+    <li><a href="/sc008-pro.html">SC-008 Tolerance Stack-Up</a> — fit risk driving scrap and rework</li>
+    <li><a href="/tools.html">All calculators</a></li>
+  </ul>
+</details>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does SC-012 use margin or markup?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Margin on sell price: sell equals totalCost divided by (1 minus targetMargin). A 30% target margin means 30% of the invoice is gross profit, not 30% added on top of cost. Markup-on-cost would use sell equals cost times (1 plus markup) and yields a lower sell price for the same nominal percentage."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I enter scrap — percent or ratio?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Enter scrap as a ratio between 0 and 1. Ten percent scrap is 0.10, not 10. The formula material divided by (1 minus scrapRate) blows up as scrap approaches 100%; the engine rejects scrapRate greater than or equal to 1."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why doesn't SC-012 pull labor rate automatically from SC-010?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tools stay independent in v1.0.0 so quotes remain reproducible and offline. Copy trueHourlyCost manually and note the date and preset in your quote worksheet. Automatic cross-tool linking may come in a later release."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where do setup costs go for a quantity of 100?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Enter total setup minutes for the job and setup hourly rate; SC-012 adds full setup to job total cost, then divides sell price by quantity for unit price. Setup is not auto-spread — the quantity field only affects unit price after total sell is computed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is overhead double-counted if I use loaded labor from SC-010?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SC-010 loaded labor includes employer taxes and benefits, not shop rent or plant supervision. Overhead in SC-012 still applies unless your SC-010 inputs already embed plant burden — which would be non-standard. Keep employer burden in SC-010 and facility burden in SC-012 overhead."
+      }
+    }
+  ]
+}
+</script>
+
+</section>
+</div>

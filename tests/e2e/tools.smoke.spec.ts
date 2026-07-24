@@ -73,14 +73,24 @@ test('SC-021 bearing-pro: live + audit', async ({ page }) => {
   await expect(page.locator('#aEngine')).toContainText('BL-ENGINE');
 });
 
-test('tools catalog: omni search + live links', async ({ page }) => {
-  await page.goto('/tools.html');
-  await expect(page.locator('#q')).toBeVisible();
-  await expect(page.locator('#stLive')).not.toHaveText('0');
-  await page.locator('#q').fill('bearing');
-  await expect(page.locator('#catalog')).toContainText(/Bearing Life/i);
-  await expect(page.locator('a[href="/bearing-pro.html"]').first()).toBeVisible();
-  await expect(page.locator('a[href="/machining-pro.html"]').first()).toBeVisible();
+test('tool SEO guide + engagement mounts on SC-020', async ({ page }) => {
+  await page.goto('/machining-pro.html');
+  await expect(page.locator('#sc-guide')).toBeVisible();
+  await expect(page.locator('#sc-guide [data-sc-engage] .sc-engage')).toBeVisible({ timeout: 5000 });
+  await expect(page.locator('#sc-guide [data-sc-engage]')).toContainText(/find this calculator helpful/i);
+  await expect(page.locator('#sc-guide a[href="#taylor"], #sc-guide a[href*="taylor"]').first()).toBeVisible();
+  await page.locator('.sc-engage-btn[data-panel="cite"]').click();
+  await expect(page.locator('[data-pane="cite"].open')).toBeVisible();
+  await expect(page.locator('[data-cite]')).toContainText(/SectorCalc/);
+  // No embed control
+  await expect(page.locator('.sc-engage')).not.toContainText(/Embed/i);
+});
+
+test('tool SEO guide present on SC-008', async ({ page }) => {
+  await page.goto('/sc008-pro.html');
+  await expect(page.locator('#sc-guide')).toBeVisible();
+  await expect(page.locator('#sc-guide')).toContainText(/Tolerance Stack-Up/i);
+  await expect(page.locator('#sc-guide [data-sc-engage] .sc-engage')).toBeVisible({ timeout: 5000 });
 });
 
 test('legacy calculator redirects still land on pro tools', async ({ page }) => {

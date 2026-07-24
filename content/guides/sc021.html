@@ -1,0 +1,317 @@
+<div class="sc-guide-shell">
+<section class="sc-guide" id="sc-guide" data-tool-id="SC-021" data-tool-name="Bearing Life L10 Calculator — ISO 281 (SC-021)" data-tool-url="https://www.sectorcalc.com/bearing-pro.html" itemscope itemtype="https://schema.org/FAQPage">
+
+<div data-sc-engage></div>
+
+<nav class="sc-guide-toc" aria-label="Table of contents">
+  <h2 class="sc-guide-toc-title">Contents</h2>
+  <ol>
+    <li><a href="#basic-rating-life">Basic rating life L<sub>10</sub></a></li>
+    <li><a href="#modified-life">Modified rating life L<sub>nm</sub> and a<sub>1</sub></a></li>
+    <li><a href="#catalog-ratings">Catalog ratings C, C<sub>0</sub>, and C<sub>u</sub></a></li>
+    <li><a href="#equivalent-load">Equivalent dynamic load P and DGBB X/Y factors</a></li>
+    <li><a href="#viscosity-ratio">Viscosity ratio κ and required viscosity ν<sub>1</sub></a></li>
+    <li><a href="#walther-viscosity">ASTM D341 Walther viscosity model</a></li>
+    <li><a href="#contamination">Contamination factor e<sub>C</sub> (ISO 281 Table 13)</a></li>
+    <li><a href="#aiso-factor">Life modification factor a<sub>ISO</sub></a></li>
+    <li><a href="#static-safety">Static safety factor s<sub>0</sub> (ISO 76)</a></li>
+    <li><a href="#high-speed">High-speed limit n·d<sub>m</sub></a></li>
+    <li><a href="#a1-table">Reliability factor a<sub>1</sub> reference</a></li>
+    <li><a href="#faqs">Frequently asked questions</a></li>
+  </ol>
+</nav>
+
+<p class="sc-guide-lede">SectorCalc <strong>SC-021</strong> computes <strong>ISO 281:2007</strong> bearing rating life: basic life <strong>L<sub>10</sub></strong>, modified life <strong>L<sub>nm</sub> = a<sub>1</sub> · a<sub>ISO</sub> · L<sub>10</sub></strong>, and static safety <strong>s<sub>0</sub></strong> from manufacturer catalog data and operating conditions. The engine applies the <strong>digitized a<sub>ISO</sub> equations</strong> as functions of viscosity ratio <strong>κ</strong>, contamination <strong>e<sub>C</sub></strong>, fatigue load limit <strong>C<sub>u</sub></strong>, and equivalent load <strong>P</strong>. Results are reference-grade engineering estimates — final bearing selection must be confirmed against the <strong>manufacturer's catalog</strong>, application review, and any contractual life method (ISO/TS 16281, manufacturer software).</p>
+
+<h2 id="basic-rating-life">Basic rating life L<sub>10</sub></h2>
+
+<p>ISO 281 defines the <strong>basic rating life</strong> L<sub>10</sub> as the number of revolutions (or hours at a given speed) that 90% of a sufficiently large group of identical bearings will complete or exceed before the first evidence of material fatigue. It is the classical Lundberg–Palmgren relationship, expressed in millions of revolutions:</p>
+
+<div class="sc-formula">
+  L<sub>10</sub> [M rev] = (C / P)<sup>p</sup><br>
+  L<sub>10h</sub> [h] = L<sub>10</sub> · 10<sup>6</sup> / (60 · n)<br>
+  p = 3 for ball bearings · p = 10/3 for roller bearings
+</div>
+
+<p>Where <strong>C</strong> is the dynamic load rating from the bearing catalog (kN), <strong>P</strong> is the equivalent dynamic bearing load (kN), and <strong>n</strong> is operating speed (rpm). SC-021 selects the exponent <em>p</em> from bearing type: deep groove and angular contact ball bearings use <em>p</em> = 3; cylindrical, spherical, and tapered roller bearings use <em>p</em> = 10/3. Thrust bearings follow the same family rules with type-specific load combinations.</p>
+
+<p>L<sub>10</sub> assumes conventional bearing steel, adequate lubrication, clean operating conditions, and steady load — conditions rarely met exactly in field service. That is why ISO 281:2007 extends basic life with modification factors rather than treating L<sub>10</sub> alone as a warranty number.</p>
+
+<h2 id="modified-life">Modified rating life L<sub>nm</sub> and a<sub>1</sub></h2>
+
+<p>The <strong>modified rating life</strong> adjusts L<sub>10</sub> for reliability other than 90%, lubrication condition, and contamination:</p>
+
+<div class="sc-formula">
+  L<sub>nm</sub> [M rev] = a<sub>1</sub> · a<sub>ISO</sub> · L<sub>10</sub><br>
+  L<sub>nmh</sub> [h] = L<sub>nm</sub> · 10<sup>6</sup> / (60 · n)
+</div>
+
+<p><strong>a<sub>1</sub></strong> is the reliability life modification factor from ISO 281:2007. At the standard 90% reliability (L<sub>10</sub>), a<sub>1</sub> = 1.00. Higher reliability targets — 95%, 99%, or 99.9% survival — reduce a<sub>1</sub> below unity because fewer bearings are expected to survive the same load cycle count. SC-021 maps your selected reliability percentage directly to the tabulated a<sub>1</sub> value.</p>
+
+<p><strong>a<sub>ISO</sub></strong> captures lubrication and contamination effects through the viscosity ratio κ and the load ratio e<sub>C</sub>·C<sub>u</sub>/(b<sub>1</sub>·P). It can exceed 1 when κ is high and contamination is low, or fall toward the standard floor of 0.1 under severe boundary lubrication. ISO 281 caps a<sub>ISO</sub> at 50 for practical steel limits.</p>
+
+<div class="sc-tip"><span class="ico" aria-hidden="true">💡</span><div>Bearing bore and housing fits affect preload and effective load. After life screening, close clearance and stack contributors with <a href="/sc008-pro.html">SC-008 Tolerance Stack-Up</a> before releasing a shaft assembly drawing.</div></div>
+
+<h2 id="catalog-ratings">Catalog ratings C, C<sub>0</sub>, and C<sub>u</sub></h2>
+
+<p>Accurate life calculation depends on three catalog values for the <em>exact bearing designation</em> from the manufacturer:</p>
+
+<ul>
+  <li><strong>C — dynamic load rating:</strong> the load that gives L<sub>10</sub> = 1 million revolutions under ISO-defined reference conditions. Published in kN on all major catalogs (SKF, Schaeffler, NSK, NTN, etc.). Do not interpolate C between bore sizes or mix series.</li>
+  <li><strong>C<sub>0</sub> — static load rating:</strong> the load below which permanent deformation at the most heavily loaded contact remains below 0.0001 × rolling element diameter (ISO 76 basis). Required for static safety s<sub>0</sub> and for DGBB X/Y interpolation via Fa/C<sub>0</sub>.</li>
+  <li><strong>C<sub>u</sub> — fatigue load limit:</strong> the load below which material fatigue failure is unlikely under ideal lubrication and cleanliness. Not all budget datasheets publish C<sub>u</sub>; SC-021 offers a rough estimate (ball ≈ C<sub>0</sub>/22, roller ≈ C<sub>0</sub>/13) flagged as a warning — replace with catalog C<sub>u</sub> before production release.</li>
+</ul>
+
+<p class="note">Internal geometry, heat treatment, and contact stress distribution vary between manufacturers and even between series of the same bore. Using C from one brand's table with dimensions from another is a common source of optimistic or pessimistic life by 30% or more. Always trace C, C<sub>0</sub>, and C<sub>u</sub> to a single catalog page for the ordered part number.</p>
+
+<h2 id="equivalent-load">Equivalent dynamic load P and DGBB X/Y factors</h2>
+
+<p>Combined radial and axial loads must be reduced to a single equivalent dynamic load P before applying the life equation. For <strong>deep groove ball bearings (DGBB)</strong>, ISO uses load factors X and Y that depend on the axial-to-static-load ratio Fa/C<sub>0</sub>:</p>
+
+<div class="sc-formula">
+  If Fa/Fr ≤ e: &nbsp; P = Fr &nbsp; (X = 1, Y = 0)<br>
+  If Fa/Fr &gt; e: &nbsp; P = X·Fr + Y·Fa &nbsp; with X = 0.56<br>
+  e and Y interpolated on Fa/C<sub>0</sub> from manufacturer standard table
+</div>
+
+<p>SC-021 digitizes the standard DGBB interpolation table (Fa/C<sub>0</sub> from 0.014 to 0.56) to obtain e and Y at each load point. Example anchor values:</p>
+
+<table>
+  <thead>
+    <tr><th>Fa/C<sub>0</sub></th><th>e</th><th>Y</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>0.014</td><td>0.19</td><td>2.30</td></tr>
+    <tr><td>0.056</td><td>0.26</td><td>1.71</td></tr>
+    <tr><td>0.11</td><td>0.30</td><td>1.45</td></tr>
+    <tr><td>0.28</td><td>0.38</td><td>1.15</td></tr>
+    <tr><td>0.56</td><td>0.44</td><td>1.00</td></tr>
+  </tbody>
+</table>
+
+<p>Other bearing types use fixed or catalog-entered factors: single-row angular contact ball bearings (e = 0.68), cylindrical rollers (P = Fr only), spherical and tapered rollers (user-entered e and Y from catalog), and thrust bearings (P = Fa with radial load warnings).</p>
+
+<h2 id="viscosity-ratio">Viscosity ratio κ and required viscosity ν<sub>1</sub></h2>
+
+<p>The <strong>viscosity ratio</strong> compares actual lubricant kinematic viscosity at operating temperature to the <strong>reference viscosity ν<sub>1</sub></strong> required for adequate film formation at the bearing mean diameter and speed:</p>
+
+<div class="sc-formula">
+  d<sub>m</sub> [mm] = (d + D) / 2<br>
+  κ = ν(T<sub>op</sub>) / ν<sub>1</sub><br><br>
+  ν<sub>1</sub> [cSt] = 45000 · n<sup>−0.83</sup> · d<sub>m</sub><sup>−0.5</sup> &nbsp;&nbsp; when n &lt; 1000 rpm<br>
+  ν<sub>1</sub> [cSt] = 4500 · n<sup>−0.5</sup> · d<sub>m</sub><sup>−0.5</sup> &nbsp;&nbsp; when n ≥ 1000 rpm
+</div>
+
+<p>ISO 281 defines κ bands that drive the a<sub>ISO</sub> digitized coefficients: κ &lt; 0.4 (severe boundary lubrication), 0.4 ≤ κ &lt; 1 (mixed/boundary), κ ≥ 1 (full elastohydrodynamic regime). SC-021 clamps κ to 0.1–4 for equation validity — values below 0.1 trigger an error because a<sub>ISO</sub> is not defined; values above 4 trigger an informational note because extra viscosity adds churning loss without proportional life gain.</p>
+
+<div class="sc-tip"><span class="ico" aria-hidden="true">💡</span><div>Operating temperature drives ν at the contact — often higher than the oil sump. Cross-check thermal margin and speed limits from <a href="/machining-pro.html">SC-020 Feeds &amp; Speeds</a> when the bearing sits on a high-duty spindle or gearbox shaft.</div></div>
+
+<h2 id="walther-viscosity">ASTM D341 Walther viscosity model</h2>
+
+<p>When you enter an ISO VG grade and operating temperature rather than a direct viscosity measurement, SC-021 estimates kinematic viscosity through a two-step model aligned with common lubricant datasheets:</p>
+
+<div class="sc-formula">
+  Step 1 — ν<sub>100</sub> from VG grade and viscosity index VI (empirical, VI = 95 mineral baseline):<br>
+  ν<sub>100</sub> ≈ 0.169 · ν<sub>40</sub> · (ν<sub>40</sub>/32)<sup>−0.353</sup> · (1 + 0.004 · (VI − 95))<br><br>
+  Step 2 — ASTM D341 Walther equation to ν at T<sub>op</sub>:<br>
+  W(ν) = log<sub>10</sub>(log<sub>10</sub>(ν + 0.7))<br>
+  B = [W(ν<sub>40</sub>) − W(ν<sub>100</sub>)] / [log<sub>10</sub>(373.15) − log<sub>10</sub>(313.15)]<br>
+  A = W(ν<sub>40</sub>) + B · log<sub>10</sub>(313.15 K)<br>
+  ν(T) = 10<sup>10<sup>A − B·log<sub>10</sub>(T)</sup></sup> − 0.7 &nbsp; [cSt]
+</div>
+
+<p>For contract work or warranty submissions, replace this estimate with the lubricant manufacturer's measured ν<sub>40</sub> and ν<sub>100</sub> at the actual operating temperature from oil analysis or datasheet Walther lines. Grease lubrication uses the <strong>base-oil VG grade</strong>, not the thickener name. Synthetic PAO oils typically carry VI = 130–180; adjust VI accordingly or switch to direct viscosity entry mode.</p>
+
+<h2 id="contamination">Contamination factor e<sub>C</sub> (ISO 281 Table 13)</h2>
+
+<p>Particle contamination accelerates surface-initiated fatigue. ISO 281:2007 Table 13 assigns guideline contamination factors e<sub>C</sub> based on lubricant cleanliness relative to bearing size and speed. SC-021 exposes the mid-range values for engineering screening:</p>
+
+<table>
+  <thead>
+    <tr><th>Operating environment</th><th>e<sub>C</sub> (guideline)</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Extreme cleanliness — sealed-for-life, laboratory conditions</td><td>1.00</td></tr>
+    <tr><td>High cleanliness — fine filtration, closed system</td><td>0.70</td></tr>
+    <tr><td>Normal cleanliness — standard industrial filtration</td><td>0.55</td></tr>
+    <tr><td>Slight contamination — moderate ingress</td><td>0.40</td></tr>
+    <tr><td>Typical contamination — general workshop environment</td><td>0.20</td></tr>
+    <tr><td>Severe contamination — heavy particulate, poor sealing</td><td>0.05</td></tr>
+  </tbody>
+</table>
+
+<p class="note">Annex A of ISO 281 refines e<sub>C</sub> using ISO 4406 cleanliness codes, filter ratings, and bearing mean diameter. Annex A values are usually <em>lower</em> (more conservative) than Table 13 mid-values for small bearings. Treat Table 13 entries as screening defaults, not as a substitute for oil cleanliness measurement on critical machinery.</p>
+
+<h2 id="aiso-factor">Life modification factor a<sub>ISO</sub></h2>
+
+<p>ISO 281:2007 publishes <strong>digitized equations</strong> for a<sub>ISO</sub> rather than nomograph reading. SC-021 implements the published constants for ball and roller contact (point vs line), selecting coefficients b<sub>0</sub> and m from the κ band:</p>
+
+<div class="sc-formula">
+  x = e<sub>C</sub> · C<sub>u</sub> / (b<sub>1</sub> · P)<br>
+  κ-term = max(ψ − b<sub>0</sub> / κ<sup>m</sup>, 0)<br>
+  a<sub>ISO</sub> = 0.1 · [1 − (κ-term)<sup>2.5w</sup> · x<sup>w</sup>]<sup>−c/e</sup> &nbsp;&nbsp; capped at 50, floor 0.1<br><br>
+  Ball (point contact): ψ = 2.5671, w = 1/3, c/e = 9.185, b<sub>1</sub> = 1<br>
+  Roller (line contact): ψ = 1.5859, w = 1/2.5, c/e = 9.185, b<sub>1</sub> = 1<br>
+  Thrust ball: b<sub>1</sub> = 3 · Thrust roller: b<sub>1</sub> = 2.5
+</div>
+
+<p>When x ≥ 1 (operating load at or below the effective fatigue limit scaled by contamination), life is dominated by lubrication and cleanliness rather than classical rolling-contact fatigue — a<sub>ISO</sub> rises but uncertainty increases. When κ &lt; 1, the κ-term grows and a<sub>ISO</sub> falls sharply, reflecting wear and surface distress not captured in basic L<sub>10</sub>.</p>
+
+<h2 id="static-safety">Static safety factor s<sub>0</sub> (ISO 76)</h2>
+
+<p>Even if fatigue life passes, static overload can cause permanent brinelling at standstill or under shock. ISO 76 defines static load rating C<sub>0</sub>; the guideline static safety factor is:</p>
+
+<div class="sc-formula">
+  P<sub>0</sub> = max(Fr + 0.6·Fa, Fr) &nbsp; (simplified ball-bearing combination)<br>
+  s<sub>0</sub> = C<sub>0</sub> / P<sub>0</sub>
+</div>
+
+<p>Rule-of-thumb acceptance: s<sub>0</sub> ≥ 1 for smooth, low-vibration duty; ≥ 2 for normal industrial applications; ≥ 3 for shock or heavy vibration. SC-021 flags s<sub>0</sub> &lt; 1 as a critical error (brinelling risk regardless of L<sub>nm</sub>) and s<sub>0</sub> &lt; 2 as a warning. Final verification should use catalog X<sub>0</sub>/Y<sub>0</sub> static factors for the specific bearing type.</p>
+
+<h2 id="high-speed">High-speed limit n·d<sub>m</sub></h2>
+
+<p>ISO 281 modified life does not model centrifugal loading, cage instability, or slip at high speed. A practical screening parameter is the speed factor:</p>
+
+<div class="sc-formula">
+  n · d<sub>m</sub> [mm/min] = n [rpm] · (d + D)/2 [mm]
+</div>
+
+<p>When n·d<sub>m</sub> exceeds approximately <strong>500,000 mm/min</strong>, SC-021 warns that ISO 281 alone may be insufficient. High-speed machine-tool spindles, turbocharger bearings, and dental handpiece speeds often require ISO/TS 16281 reference life methods, manufacturer-specific speed ratings, or hybrid/ceramic rolling elements. Always compare calculated speed against the catalog <em>limiting speed</em> and <em>thermal reference speed</em> for the exact grease or oil fill specified.</p>
+
+<div class="sc-tip"><span class="ico" aria-hidden="true">💡</span><div>Screen additional shaft, fit, and duty tools from the <a href="/tools.html">All SectorCalc Tools</a> directory — tolerance stack-up, machining, weld sizing, and costing calculators share the same audit-trail philosophy.</div></div>
+
+<h2 id="a1-table">Reliability factor a<sub>1</sub> reference</h2>
+
+<p>Illustrative a<sub>1</sub> values from ISO 281:2007 for modified life at reliabilities other than 90%:</p>
+
+<table>
+  <thead>
+    <tr><th>Reliability</th><th>Notation</th><th>a<sub>1</sub></th></tr>
+  </thead>
+  <tbody>
+    <tr><td>90%</td><td>L<sub>10</sub></td><td>1.00</td></tr>
+    <tr><td>95%</td><td>L<sub>5</sub></td><td>0.64</td></tr>
+    <tr><td>96%</td><td>—</td><td>0.55</td></tr>
+    <tr><td>97%</td><td>—</td><td>0.47</td></tr>
+    <tr><td>98%</td><td>—</td><td>0.37</td></tr>
+    <tr><td>99%</td><td>L<sub>1</sub></td><td>0.25</td></tr>
+    <tr><td>99.2%</td><td>—</td><td>0.22</td></tr>
+    <tr><td>99.4%</td><td>—</td><td>0.19</td></tr>
+    <tr><td>99.6%</td><td>—</td><td>0.16</td></tr>
+    <tr><td>99.8%</td><td>—</td><td>0.12</td></tr>
+    <tr><td>99.9%</td><td>—</td><td>0.093</td></tr>
+    <tr><td>99.95%</td><td>—</td><td>0.077</td></tr>
+  </tbody>
+</table>
+
+<p>All SC-021 outputs are labeled engineering preview estimates. They do not replace the bearing manufacturer's published life calculation, application engineering sign-off, or contractual warranty methodology.</p>
+
+<h2 id="faqs">Frequently asked questions</h2>
+
+<div class="q" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 itemprop="name" id="faq-l10-vs-lnm">What is the difference between L<sub>10</sub> and L<sub>nm</sub>?</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <div itemprop="text">
+      <p>L<sub>10</sub> is basic rating life at 90% reliability under ideal lubrication and cleanliness — purely (C/P)<sup>p</sup>. L<sub>nm</sub> is modified rating life per ISO 281:2007: L<sub>nm</sub> = a<sub>1</sub> · a<sub>ISO</sub> · L<sub>10</sub>, where a<sub>1</sub> adjusts for reliability targets other than 90% and a<sub>ISO</sub> adjusts for viscosity ratio κ, contamination e<sub>C</sub>, and proximity to the fatigue load limit C<sub>u</sub>. SC-021 reports both so you can see how much lubrication and cleanliness move the result relative to catalog-only basic life.</p>
+    </div>
+  </div>
+</div>
+
+<div class="q" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 itemprop="name" id="faq-catalog-c">Why must C, C<sub>0</sub>, and C<sub>u</sub> come from the manufacturer catalog?</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <div itemprop="text">
+      <p>Dynamic and static ratings depend on internal geometry, number of rolling elements, contact angle, and heat treatment — none of which are inferable from bore and outside diameter alone. Two 6208 bearings from different brands can differ by more than 10% in C. C<sub>u</sub> is especially sensitive and is not published on all datasheets. SC-021 flags estimated C<sub>u</sub> values and treats them as placeholders until you enter catalog data for the exact part number you will purchase.</p>
+    </div>
+  </div>
+</div>
+
+<div class="q" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 itemprop="name" id="faq-kappa-low">What happens when viscosity ratio κ is below 1?</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <div itemprop="text">
+      <p>κ &lt; 1 indicates the lubricant film is thinner than the ISO reference viscosity ν<sub>1</sub> for your speed and mean diameter — mixed or boundary lubrication. a<sub>ISO</sub> drops sharply, reducing L<sub>nm</sub> even if basic L<sub>10</sub> looks adequate. Remedies include higher VG grade, lower operating temperature, improved filtration (higher e<sub>C</sub>), or a bearing with higher C. κ below 0.1 is outside ISO 281 equation validity; SC-021 reports this as a critical model error.</p>
+    </div>
+  </div>
+</div>
+
+<div class="q" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 itemprop="name" id="faq-static-vs-fatigue">Should I select a bearing based on L<sub>nm</sub> or static safety s<sub>0</sub>?</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <div itemprop="text">
+      <p>Both checks are mandatory. Fatigue life (L<sub>nm</sub>) governs rolling contact failure under cyclic load. Static safety s<sub>0</sub> = C<sub>0</sub>/P<sub>0</sub> governs permanent deformation under peak or shock load, including standstill. A bearing can pass life yet fail static safety under a single overload event. SC-021 treats s<sub>0</sub> &lt; 1 as a critical failure independent of L<sub>nm</sub> margin.</p>
+    </div>
+  </div>
+</div>
+
+<div class="q" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 itemprop="name" id="faq-high-speed">When does ISO 281 modified life become unreliable?</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <div itemprop="text">
+      <p>ISO 281 does not model misalignment, clearance preload errors, edge loading, cage creep, or high-speed centrifugal effects. SC-021 warns when n·d<sub>m</sub> exceeds 500,000 mm/min and whenever operating speed approaches catalog limiting speed. For such applications, use ISO/TS 16281 reference life, manufacturer application software, or measured duty-cycle analysis with Palmgren–Miner damage summation for variable load spectra.</p>
+    </div>
+  </div>
+</div>
+
+<details class="related">
+  <summary>Related calculators</summary>
+  <ul>
+    <li><a href="/bearing-pro.html">SC-021 Bearing Life L10</a> — run ISO 281:2007 modified life with full audit trail</li>
+    <li><a href="/sc008-pro.html">SC-008 Tolerance Stack-Up</a> — shaft and housing fit stacks affecting bearing preload</li>
+    <li><a href="/machining-pro.html">SC-020 Feeds &amp; Speeds</a> — spindle duty and thermal context for bearing temperature</li>
+    <li><a href="/weld-pro.html">SC-001 Weld Thickness</a> — welded frame deflection feeding bearing alignment loads</li>
+    <li><a href="/tools.html">All SectorCalc Tools</a> — full engineering calculator directory</li>
+  </ul>
+</details>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the difference between L10 and Lnm?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "L10 is basic rating life at 90% reliability under ideal conditions — (C/P)^p. Lnm is modified rating life per ISO 281:2007: Lnm = a1 · aISO · L10, where a1 adjusts reliability and aISO adjusts for viscosity ratio κ, contamination eC, and fatigue load limit Cu."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why must C, C0, and Cu come from the manufacturer catalog?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ratings depend on internal geometry and heat treatment not inferable from bore and outside diameter alone. Two bearings of the same size from different brands can differ significantly in C. Cu is especially sensitive and must be traced to the exact part number catalog page."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens when viscosity ratio κ is below 1?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "κ below 1 indicates mixed or boundary lubrication. aISO drops sharply, reducing modified life. Increase VG grade, lower operating temperature, improve filtration, or select a larger bearing. κ below 0.1 is outside ISO 281 equation validity."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I select a bearing based on Lnm or static safety s0?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Both checks are mandatory. Lnm governs fatigue failure under cyclic load. Static safety s0 = C0/P0 governs permanent deformation under peak or shock load. s0 below 1 is a critical failure regardless of life margin."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When does ISO 281 modified life become unreliable?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "ISO 281 does not model misalignment, high-speed centrifugal effects, or variable load spectra. Use ISO/TS 16281 or manufacturer software when n·dm exceeds 500,000 mm/min or when speed approaches catalog limiting speed."
+      }
+    }
+  ]
+}
+</script>
+
+</section>
+</div>
