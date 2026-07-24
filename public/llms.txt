@@ -77,10 +77,20 @@ Every live calculator ships an English study toolbar: **Load Sample Study** (com
 - SC-021 constants (digitized aISO coefficients, Table 13 eC mid-values, empirical ν100 correlation) follow ISO 281:2007 reference values; C, C0 and Cu must come from the bearing manufacturer's catalog. aISO is capped at 50 and valid for 0.1 ≤ κ ≤ 4. Do not present its outputs as measured data.
 - Engineering preview: outputs are predicted from stated assumptions; not for production approval and not a substitute for measured data or a licensed engineer.
 
+## SEO / discovery (v2026.07.24+)
+
+- Canonical host: `https://www.sectorcalc.com` (pages keep `.html` extensions; Firebase `cleanUrls: false`).
+- Discovery files: `/robots.txt`, `/sitemap.xml`, `/sitemap-images.xml`, `/sitemap-videos.xml` (video map stays empty until real `/assets/videos/` assets ship), `/llm.txt`, `/llms.txt`.
+- Schema Mesh on public HTML: Organization + WebSite (global), SoftwareApplication + BreadcrumbList + HowTo on `*-pro.html`, Product offers on `/pricing.html`. Existing guide `FAQPage` JSON-LD is kept — do **not** invent AggregateRating/Review markup.
+- Open Graph default image: `/assets/images/sectorcalc-og-1200x630.jpg`. Core Web Vitals probe: `/assets/js/cvw-monitor.js` (console metrics; GA4 send disabled until a real Measurement ID is configured).
+- Custom 404: `/404.html` (noindex) with internal links back to tools.
+
 ## Optional
 
-- [Full sitemap](https://www.sectorcalc.com/sitemap.xml): Canonical URL list for crawlers (lastmod tracks brand/icon and page updates).
-- [robots.txt](https://www.sectorcalc.com/robots.txt): Crawl rules.
+- [Full sitemap](https://www.sectorcalc.com/sitemap.xml): Canonical URL list for crawlers (hreflang en + x-default).
+- [Image sitemap](https://www.sectorcalc.com/sitemap-images.xml): Real hosted images only.
+- [Video sitemap](https://www.sectorcalc.com/sitemap-videos.xml): Placeholder until videos exist.
+- [robots.txt](https://www.sectorcalc.com/robots.txt): Crawl rules + AI crawler directives.
 - [llms.txt](https://www.sectorcalc.com/llms.txt): This index (canonical AI discovery file).
 - [llm.txt](https://www.sectorcalc.com/llm.txt): Mirror of llms.txt for alternate discovery paths.
 - [site.webmanifest](https://www.sectorcalc.com/site.webmanifest): PWA name + 192/512 icon entries for the 4-tile brand mark.
