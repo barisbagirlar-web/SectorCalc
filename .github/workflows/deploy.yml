@@ -63,10 +63,18 @@ jobs:
         id: live_www
         continue-on-error: true
         run: node scripts/seo-live-guard.mjs --scope=www
-      - name: Live apex homepage guard
-        id: live_home
+      - name: Live apex HTTP status probe
+        id: home_status
         continue-on-error: true
-        run: node scripts/seo-live-guard.mjs --scope=home
+        run: node scripts/seo-home-probe.mjs --check=status
+      - name: Live apex release-content probe
+        id: home_content
+        continue-on-error: true
+        run: node scripts/seo-home-probe.mjs --check=content
+      - name: Live apex canonical probe
+        id: home_canonical
+        continue-on-error: true
+        run: node scripts/seo-home-probe.mjs --check=canonical
       - name: Live discovery hard-refresh guard
         id: live_discovery
         continue-on-error: true
@@ -85,7 +93,9 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           WWW_OUTCOME: ${{ steps.live_www.outcome }}
-          HOME_OUTCOME: ${{ steps.live_home.outcome }}
+          STATUS_OUTCOME: ${{ steps.home_status.outcome }}
+          CONTENT_OUTCOME: ${{ steps.home_content.outcome }}
+          CANONICAL_OUTCOME: ${{ steps.home_canonical.outcome }}
           DISCOVERY_OUTCOME: ${{ steps.live_discovery.outcome }}
           TOOLS_OUTCOME: ${{ steps.live_tools.outcome }}
           LEGACY_OUTCOME: ${{ steps.live_legacy.outcome }}
@@ -95,7 +105,9 @@ jobs:
             gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}" -f state="$state" -f context="$context" -f description="hard-refresh live guard: $outcome"
           }
           post_status 'SectorCalc WWW Redirect' "$WWW_OUTCOME"
-          post_status 'SectorCalc Apex Home' "$HOME_OUTCOME"
+          post_status 'SectorCalc Apex Status' "$STATUS_OUTCOME"
+          post_status 'SectorCalc Apex Content' "$CONTENT_OUTCOME"
+          post_status 'SectorCalc Apex Canonical' "$CANONICAL_OUTCOME"
           post_status 'SectorCalc Live Discovery' "$DISCOVERY_OUTCOME"
           post_status 'SectorCalc Live Tools' "$TOOLS_OUTCOME"
           post_status 'SectorCalc Live Legacy' "$LEGACY_OUTCOME"
@@ -104,13 +116,15 @@ jobs:
         id: final_seo
         env:
           WWW_OUTCOME: ${{ steps.live_www.outcome }}
-          HOME_OUTCOME: ${{ steps.live_home.outcome }}
+          STATUS_OUTCOME: ${{ steps.home_status.outcome }}
+          CONTENT_OUTCOME: ${{ steps.home_content.outcome }}
+          CANONICAL_OUTCOME: ${{ steps.home_canonical.outcome }}
           DISCOVERY_OUTCOME: ${{ steps.live_discovery.outcome }}
           TOOLS_OUTCOME: ${{ steps.live_tools.outcome }}
           LEGACY_OUTCOME: ${{ steps.live_legacy.outcome }}
         run: |
-          if [ "$WWW_OUTCOME" != success ] || [ "$HOME_OUTCOME" != success ] || [ "$DISCOVERY_OUTCOME" != success ] || [ "$TOOLS_OUTCOME" != success ] || [ "$LEGACY_OUTCOME" != success ]; then
-            echo "::error::Production SEO scope failure: www=$WWW_OUTCOME home=$HOME_OUTCOME discovery=$DISCOVERY_OUTCOME tools=$TOOLS_OUTCOME legacy=$LEGACY_OUTCOME"
+          if [ "$WWW_OUTCOME" != success ] || [ "$STATUS_OUTCOME" != success ] || [ "$CONTENT_OUTCOME" != success ] || [ "$CANONICAL_OUTCOME" != success ] || [ "$DISCOVERY_OUTCOME" != success ] || [ "$TOOLS_OUTCOME" != success ] || [ "$LEGACY_OUTCOME" != success ]; then
+            echo "::error::Production SEO scope failure: www=$WWW_OUTCOME status=$STATUS_OUTCOME content=$CONTENT_OUTCOME canonical=$CANONICAL_OUTCOME discovery=$DISCOVERY_OUTCOME tools=$TOOLS_OUTCOME legacy=$LEGACY_OUTCOME"
             exit 1
           fi
 
@@ -125,5 +139,5 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          description="credential=${{ steps.firebase_credential.outcome }} build=${{ steps.production_build.outcome }} seo=${{ steps.deterministic_seo.outcome }} deploy=${{ steps.firebase_deploy.outcome }} www=${{ steps.live_www.outcome }} home=${{ steps.live_home.outcome }} discovery=${{ steps.live_discovery.outcome }} tools=${{ steps.live_tools.outcome }} legacy=${{ steps.live_legacy.outcome }}"
+          description="credential=${{ steps.firebase_credential.outcome }} build=${{ steps.production_build.outcome }} seo=${{ steps.deterministic_seo.outcome }} deploy=${{ steps.firebase_deploy.outcome }} www=${{ steps.live_www.outcome }} status=${{ steps.home_status.outcome }} content=${{ steps.home_content.outcome }} canonical=${{ steps.home_canonical.outcome }} discovery=${{ steps.live_discovery.outcome }} tools=${{ steps.live_tools.outcome }} legacy=${{ steps.live_legacy.outcome }}"
           gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}" -f state=failure -f context='SectorCalc Production SEO' -f description="$description"
