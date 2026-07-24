@@ -4,7 +4,7 @@ import { CanonicalInput, fnv1a, stableStringify, unitOption } from '../src/indus
 import { INDUSTRIAL_TOOLS } from '../src/industrial-suite/registry.js';
 
 const EXPECTED_CODES = [
-  'SC-020','SC-021','SC-022','SC-023','SC-024','SC-025','SC-026','SC-027','SC-028','SC-029','SC-030','SC-031','SC-032','SC-033','SC-034','SC-035','SC-036','SC-037','SC-038','SC-039','SC-040'
+  'SC-001','SC-010','SC-012','SC-020','SC-021','SC-022','SC-023','SC-024','SC-025','SC-026','SC-027','SC-028','SC-029','SC-030','SC-031','SC-032','SC-033','SC-034','SC-035','SC-036','SC-037','SC-038','SC-039','SC-040'
 ] as const;
 
 function defaultInput(code: string): CanonicalInput {
@@ -38,7 +38,7 @@ function outputSignature(code: string): string {
 }
 
 describe('Unified Decimal industrial suite registry', () => {
-  it('contains the 15 activated tools plus all 6 migrated native engines', () => {
+  it('contains 24 shared-runtime tools with unique codes/slugs', () => {
     expect(INDUSTRIAL_TOOLS).toHaveLength(EXPECTED_CODES.length);
     expect([...INDUSTRIAL_TOOLS.map((x) => x.code)].sort()).toEqual([...EXPECTED_CODES].sort());
     expect(new Set(INDUSTRIAL_TOOLS.map((x) => x.code)).size).toBe(EXPECTED_CODES.length);
