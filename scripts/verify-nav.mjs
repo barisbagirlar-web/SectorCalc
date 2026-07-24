@@ -15,6 +15,8 @@ const PAGES = [
   'quote-pro.html',
   'weld-pro.html',
   'machining-pro.html',
+  'bearing-pro.html',
+  'pro.html',
   'calculator.html',
   'calculator2.html',
   'calculator3.html',
@@ -29,6 +31,7 @@ const EXPECTED = {
       '/labor-pro.html',
       '/weld-pro.html',
       '/machining-pro.html',
+      '/bearing-pro.html',
       '/pricing.html',
       '#decide',
       '#method',
@@ -51,7 +54,7 @@ const EXPECTED = {
     ]
   },
   'pricing.html': {
-    mustInclude: ['/', '/sc008-pro.html', '/quote-pro.html', '/labor-pro.html', '/weld-pro.html', '/machining-pro.html']
+    mustInclude: ['/', '/sc008-pro.html', '/quote-pro.html', '/labor-pro.html', '/weld-pro.html', '/machining-pro.html', '/bearing-pro.html']
   }
 };
 
@@ -127,6 +130,7 @@ const roleMap = [
   ['Costing', '/labor-pro.html'],
   ['Fabrication', '/weld-pro.html'],
   ['Machining', '/machining-pro.html'],
+  ['Bearings', '/bearing-pro.html'],
   ['Quality', '/sc008-pro.html']
 ];
 for (const [role, href] of roleMap) {

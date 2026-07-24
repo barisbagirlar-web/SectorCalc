@@ -22,7 +22,9 @@ export default defineConfig({
         'labor-pro': 'labor-pro.html',
         'quote-pro': 'quote-pro.html',
         'weld-pro': 'weld-pro.html',
-        'machining-pro': 'machining-pro.html'
+        'machining-pro': 'machining-pro.html',
+        'bearing-pro': 'bearing-pro.html',
+        pro: 'pro.html'
       }
     }
   },

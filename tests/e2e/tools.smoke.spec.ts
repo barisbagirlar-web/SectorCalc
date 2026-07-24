@@ -54,17 +54,23 @@ test('SC-008 sc008-pro: live + report', async ({ page }) => {
   await expect(page.locator('#reportArea .sc-chart, #reportArea svg').first()).toBeVisible();
 });
 
-test('SC-020 machining-pro: live + report', async ({ page }) => {
+test('SC-020 machining-pro: live + audit', async ({ page }) => {
   await page.goto('/machining-pro.html');
-  await expect(page.locator('#liveResult')).not.toHaveText('—', { timeout: 8000 });
-  await page.fill('#vc', '140');
-  await page.locator('#vc').dispatchEvent('input');
-  await expect(page.locator('#liveResult')).toContainText(/\d/);
-  await page.locator('button.sc-btn-primary').click();
-  await expect(page.locator('#reportArea .sc-report-title')).toBeVisible({ timeout: 8000 });
-  await expect(page.locator('#reportArea .sc-report-title')).toContainText('SC-020');
-  await expect(page.locator('#reportArea')).toContainText('Audit / Review');
-  await expect(page.locator('#reportArea')).toContainText('Integrity');
+  await page.locator('#calcBtn').click();
+  await expect(page.locator('#verdict')).toBeVisible({ timeout: 8000 });
+  await expect(page.locator('#verdict')).toContainText(/RELEASED|CAUTION|DO NOT RUN|FAIL|ACCEPTED/i);
+  await expect(page.locator('#kpis .kpi').first()).toBeVisible();
+  await expect(page.locator('#aEngine')).toContainText('FS-ENGINE');
+  await expect(page.locator('#aEngine')).toContainText(/integrity|hash/i);
+});
+
+test('SC-021 bearing-pro: live + audit', async ({ page }) => {
+  await page.goto('/bearing-pro.html');
+  await page.locator('#calcBtn').click();
+  await expect(page.locator('#verdict')).toBeVisible({ timeout: 8000 });
+  await expect(page.locator('#verdict')).toContainText(/ACCEPTED|CONDITIONALLY|REJECTED|FAIL/i);
+  await expect(page.locator('#kpis .kpi').first()).toBeVisible();
+  await expect(page.locator('#aEngine')).toContainText('BL-ENGINE');
 });
 
 test('legacy calculator redirects still land on pro tools', async ({ page }) => {

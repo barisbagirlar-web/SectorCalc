@@ -21,6 +21,7 @@ SectorCalc ships industrial calculation tools with visible inputs, assumptions, 
 
 - [Tolerance stack-up (SC-008)](https://www.sectorcalc.com/sc008-pro.html): 1D linear stack-up - worst-case, RSS, Monte Carlo; per-component distributions; deterministic seed; Decimal engine.
 - [CNC Feeds & Speeds + Tool Life (SC-020)](https://www.sectorcalc.com/machining-pro.html): Extended Taylor tool life with coolant and interruption correction; radial chip-thinning and HEM engagement-angle compensation; Kienzle cutting force; spindle power and torque verification; tool deflection; theoretical surface finish; Gilbert minimum-cost speed with savings percent; ISO 513 material database (14 materials); per-field universal units with reference values; full Audit/Review trail with integrity hash; FS-ENGINE v2.1.0.
+- [Bearing Life L10 — ISO 281 (SC-021)](https://www.sectorcalc.com/bearing-pro.html): Basic and modified rating life per ISO 281:2007 — digitized aISO equations (viscosity ratio κ, contamination eC, fatigue load limit Cu), ASTM D341 viscosity-temperature model, X/Y equivalent-load interpolation, static safety s0, life-margin verdict; BL-ENGINE v1.0.0.
 - [True labor cost (SC-010)](https://www.sectorcalc.com/labor-pro.html): Loaded labor burden from net salary, taxes, benefits, and shop overhead.
 - [Quote pricing (SC-012)](https://www.sectorcalc.com/quote-pro.html): Material, labor, scrap, and margin into sell price and cost breakdown.
 - [Weld thickness (SC-001)](https://www.sectorcalc.com/weld-pro.html): Fillet weld leg, throat, and utilization against design load and code minimums.
@@ -41,6 +42,7 @@ SectorCalc ships industrial calculation tools with visible inputs, assumptions, 
 - Theme preference and toggle position are client-side only (localStorage); they are not accounts or server profiles.
 - Report and result surfaces must keep readable contrast in light and dark themes. New tools must follow the same token + theme-palette pattern.
 - SC-020 constants (ISO 513 kc1/mc, Taylor C/n, coolant and interruption factors) are reference-grade mid-band values; the tool itself instructs calibration against tooling-supplier datasheets for contract work. Do not present its outputs as measured data.
+- SC-021 constants (digitized aISO coefficients, Table 13 eC mid-values, empirical ν100 correlation) follow ISO 281:2007 reference values; C, C0 and Cu must come from the bearing manufacturer's catalog. aISO is capped at 50 and valid for 0.1 ≤ κ ≤ 4. Do not present its outputs as measured data.
 - Engineering preview: outputs are predicted from stated assumptions; not for production approval and not a substitute for measured data or a licensed engineer.
 
 ## Optional
