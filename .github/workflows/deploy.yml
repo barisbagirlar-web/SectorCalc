@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: read
+  statuses: write
 
 concurrency:
   group: sectorcalc-production-deploy
@@ -23,6 +24,14 @@ jobs:
         with:
           node-version: 22
           cache: npm
+      - name: Mark production deployment pending
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}" \
+            -f state=pending \
+            -f context='SectorCalc Production Deploy' \
+            -f description='Build, guards and Firebase production deployment in progress'
       - name: Verify Firebase credential present
         run: |
           if [ -z "${FIREBASE_TOKEN:-}" ]; then
@@ -45,3 +54,82 @@ jobs:
         run: npx --yes firebase-tools@14 deploy --only hosting --project sectorcalc-prod --token "$FIREBASE_TOKEN"
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+      - name: Verify live production contract
+        shell: bash
+        run: |
+          set -euo pipefail
+          base='https://www.sectorcalc.com'
+          cache_bust="release=${GITHUB_SHA}"
+
+          fetch_live() {
+            local path="$1"
+            local out="$2"
+            local ok=0
+            for attempt in $(seq 1 18); do
+              if curl --fail --silent --show-error --location \
+                --connect-timeout 10 --max-time 30 \
+                -H 'Cache-Control: no-cache' \
+                "${base}${path}?${cache_bust}" -o "$out"; then
+                ok=1
+                break
+              fi
+              sleep 5
+            done
+            if [ "$ok" -ne 1 ]; then
+              echo "::error::Live fetch failed for ${path}"
+              exit 1
+            fi
+          }
+
+          fetch_live '/tools.html' /tmp/tools.html
+          grep -q 'id="stLive">25<' /tmp/tools.html
+          grep -q '25</div><div class="l">Live calculators' /tmp/tools.html
+
+          fetch_live '/bearing-pro.html' /tmp/bearing.html
+          grep -q 'data-tool-code="SC-021"' /tmp/bearing.html
+          grep -q 'A1 · Engine Identity &amp; Integrity' /tmp/bearing.html
+          grep -q 'auditWarnings' /tmp/bearing.html
+
+          fetch_live '/quote-pro.html' /tmp/quote.html
+          grep -q 'data-tool-code="SC-012"' /tmp/quote.html
+          grep -q 'auditFormulas' /tmp/quote.html
+
+          fetch_live '/heat-input-pro.html' /tmp/heat.html
+          grep -q 'data-tool-code="SC-029"' /tmp/heat.html
+          grep -q 'auditAssumptions' /tmp/heat.html
+
+          fetch_live '/sc008-pro.html' /tmp/sc008.html
+          grep -q 'SC-008' /tmp/sc008.html
+
+          fetch_live '/sitemap.xml' /tmp/sitemap.xml
+          grep -q 'https://www.sectorcalc.com/hydraulic-pro.html' /tmp/sitemap.xml
+          grep -q 'https://www.sectorcalc.com/bearing-freq-pro.html' /tmp/sitemap.xml
+          grep -q '2026-07-24' /tmp/sitemap.xml
+
+          fetch_live '/llms.txt' /tmp/llms.txt
+          grep -q '24 calculators use the schema-driven Decimal.js industrial runtime' /tmp/llms.txt
+          grep -q 'All tools — 25 live, 0 planned' /tmp/llms.txt
+          grep -q 'A1-A5 Audit/Review' /tmp/llms.txt
+
+          fetch_live '/llm.txt' /tmp/llm.txt
+          grep -q 'SC-040 Hydraulic Cylinder Sizing' /tmp/llm.txt
+          grep -q 'deterministic input hash' /tmp/llm.txt
+
+          echo 'LIVE_PRODUCTION_VERIFY=PASS'
+      - name: Mark production deployment success
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}" \
+            -f state=success \
+            -f context='SectorCalc Production Deploy' \
+            -f description='Firebase deploy and live production verification passed'
+      - name: Mark production deployment failure
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}" \
+            -f state=failure \
+            -f context='SectorCalc Production Deploy' \
+            -f description='Production build, deploy or live verification failed'
