@@ -177,9 +177,92 @@ h1,h2,h3,h4{
   border: 1.5px solid var(--sheet-line-strong);
   background: var(--sheet-paper);
   transition: background 0.3s ease;
+  overflow: visible;
 }
 
-/* zone-edge / reg-mark crop rulers removed — they read as broken debug lines */
+/* ---- Engineering sheet rails (motto: drafting / metrology frame) ----
+   Crop marks sit on the border corner centers.
+   Zone ticks use a stable 5-column grid so labels never drift. */
+.sheet-rail{
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+}
+.sheet-crop{
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  color: var(--sheet-line-strong);
+}
+.sheet-crop::before,
+.sheet-crop::after{
+  content: "";
+  position: absolute;
+  background: currentColor;
+}
+.sheet-crop::before{
+  width: 100%;
+  height: 1.5px;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+.sheet-crop::after{
+  width: 1.5px;
+  height: 100%;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+}
+.sheet-crop.tl{ top: 0; left: 0; transform: translate(-50%, -50%); }
+.sheet-crop.tr{ top: 0; right: 0; transform: translate(50%, -50%); }
+.sheet-crop.bl{ bottom: 0; left: 0; transform: translate(-50%, 50%); }
+.sheet-crop.br{ bottom: 0; right: 0; transform: translate(50%, 50%); }
+
+.sheet-zones{
+  position: absolute;
+  left: 0;
+  right: 0;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  font-family: var(--f-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--sheet-text-3);
+  line-height: 1;
+}
+.sheet-zones.top{
+  top: 0;
+  transform: translateY(calc(-100% - 8px));
+}
+.sheet-zones.bottom{
+  bottom: 0;
+  transform: translateY(calc(100% + 8px));
+}
+.sheet-zones span{
+  position: relative;
+  text-align: center;
+  padding: 0 2px;
+}
+.sheet-zones.top span::after,
+.sheet-zones.bottom span::after{
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 1.5px;
+  height: 7px;
+  background: var(--sheet-line-strong);
+  transform: translateX(-50%);
+}
+.sheet-zones.top span::after{ bottom: -8px; }
+.sheet-zones.bottom span::after{ top: -8px; }
+
+@media (max-width: 720px){
+  .sheet-rail{ display: none; }
+  .sheet{ margin: max(12px, var(--frame)); }
+}
 
 .blueprint-grid{
   position:absolute; inset:0;
@@ -1878,9 +1961,18 @@ select:focus-visible{
 
 
 
+
 <a href="#main-content" class="skip-link">Skip to main content</a>
 
 <div class="sheet">
+  <div class="sheet-rail" aria-hidden="true">
+    <span class="sheet-crop tl"></span>
+    <span class="sheet-crop tr"></span>
+    <span class="sheet-crop bl"></span>
+    <span class="sheet-crop br"></span>
+    <div class="sheet-zones top"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div>
+    <div class="sheet-zones bottom"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span></div>
+  </div>
   <main id="main-content">
   <section class="sc-hero" aria-label="Hero section">
     <div class="hero-grid">
