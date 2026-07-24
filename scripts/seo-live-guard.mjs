@@ -59,7 +59,11 @@ async function checkHome(issues) {
   const home = await fetchFresh('/');
   const homeBody = await home.text();
   if (home.status !== 200) issues.push(`home status ${home.status}`);
-  if (!homeBody.includes('Turn industrial inputs into defensible decisions.')) issues.push('home body does not match current production architecture');
+  const hasCurrentTitle = /<title>SectorCalc\s*-\s*Deterministic Industrial Decision Calculators<\/title>/i.test(homeBody);
+  const hasCurrentHero = /class=["'][^"']*sc-hero[^"']*["']/i.test(homeBody) && /class=["'][^"']*sc-hero-title[^"']*["']/i.test(homeBody);
+  if (!hasCurrentTitle || !hasCurrentHero || !/<h1\b/i.test(homeBody)) {
+    issues.push(`home release identity mismatch title=${hasCurrentTitle} hero=${hasCurrentHero} h1=${/<h1\b/i.test(homeBody)}`);
+  }
   const homeCanonical = canonicalFrom(homeBody);
   if (homeCanonical !== `${SITE_ORIGIN}/`) issues.push(`home canonical mismatch: ${homeCanonical ?? 'missing'}`);
 }
@@ -115,7 +119,7 @@ async function checkLegacy(issues) {
     const response = await fetchFresh(path);
     const body = await response.text();
     if (response.status !== 404 && response.status !== 410) issues.push(`${path} must be 404/410, got ${response.status}`);
-    if (response.status === 200 && body.includes('Turn industrial inputs into defensible decisions.')) issues.push(`${path} is a homepage soft-404`);
+    if (response.status === 200 && /<h1\b/i.test(body)) issues.push(`${path} is an indexable soft-404 candidate`);
   }
 }
 
