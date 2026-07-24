@@ -18,6 +18,7 @@ const pages = ['index.html', 'tools.html', 'pro.html', 'pricing.html',
 
 for (const f of [
   'public/robots.txt',
+  'public/ai-robots.txt',
   'public/sitemap.xml',
   'public/sitemap-images.xml',
   'public/sitemap-videos.xml',
@@ -25,6 +26,7 @@ for (const f of [
   'public/llms.txt',
   'public/404.html',
   'public/assets/js/cvw-monitor.js',
+  'public/assets/js/sc-ga4-id.js',
   'public/assets/images/sectorcalc-og-1200x630.jpg',
 ]) {
   if (!existsSync(join(ROOT, f))) fail(`missing ${f}`);
