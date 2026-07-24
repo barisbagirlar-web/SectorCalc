@@ -1,4 +1,5 @@
 import { ToolDefinition } from './engine.js';
+import { CORE_ADAPTER_TOOLS } from './registry-core-adapters.js';
 import { MACHINING_TOOLS } from './registry-machining.js';
 import { FABRICATION_TOOLS } from './registry-fabrication.js';
 import { PROCESS_TOOLS } from './registry-process.js';
@@ -27,6 +28,7 @@ function normalizeDefinition(tool: ToolDefinition): ToolDefinition {
 }
 
 export const INDUSTRIAL_TOOLS: readonly ToolDefinition[] = [
+  ...CORE_ADAPTER_TOOLS,
   ...LEGACY_MIGRATED_TOOLS,
   ...MACHINING_TOOLS,
   ...FABRICATION_TOOLS,
