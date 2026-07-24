@@ -248,6 +248,10 @@ html[data-theme="dark"] .tlist a{color:#7fb3e8}
       <a href="/sc008-pro.html">SC-008</a> ·
       <a href="/machining-pro.html">SC-020</a> ·
       <a href="/bearing-pro.html">SC-021</a> ·
+      <a href="/shaft-pro.html">SC-026</a> ·
+      <a href="/bolt-pro.html">SC-035</a> ·
+      <a href="/punching-pro.html">SC-039</a> ·
+      <a href="/hydraulic-pro.html">SC-040</a> ·
       <a href="/labor-pro.html">SC-010</a> ·
       <a href="/quote-pro.html">SC-012</a> ·
       <a href="/weld-pro.html">SC-001</a> ·
@@ -287,18 +291,20 @@ const TOOLS=[
  {c:'rotating',code:'SC-021',name:'Bearing Life L10 Calculator (ISO 281)',live:true,url:'/bearing-pro.html',kw:'bearing life l10 iso 281 skf fag lubrication kappa reliability maintenance'},
  {c:'rotating',code:'SC-024',name:'Bearing Frequencies Calculator (BPFO / BPFI)',live:false,kw:'bearing frequencies bpfo bpfi bsf ftf vibration diagnosis defect'},
  {c:'rotating',code:'SC-025',name:'Belt & Chain Drive Sizing Calculator',live:false,kw:'belt drive v-belt timing chain tension power transmission'},
- {c:'rotating',code:'SC-026',name:'Shaft & Keyway Strength Calculator',live:false,kw:'shaft diameter keyway key strength asme torque bending'},
+ {c:'rotating',code:'SC-026',name:'Shaft Design Calculator (Torsion + Bending)',live:true,url:'/shaft-pro.html',kw:'shaft design diameter torsion bending asme goodman marin fatigue torque deflection keyway'},
  {c:'tolerance',code:'SC-008',name:'Tolerance Stack-Up Calculator',live:true,url:'/sc008-pro.html',kw:'tolerance stack up worst case rss monte carlo gd&t gap analysis'},
  {c:'tolerance',code:'SC-027',name:'Fits & Clearances Calculator (ISO 286)',live:false,kw:'fits clearances iso 286 h7 g6 hole shaft limits'},
  {c:'tolerance',code:'SC-028',name:'Surface Finish Converter (Ra / Rz)',live:false,kw:'surface finish ra rz roughness converter n grade'},
  {c:'welding',code:'SC-001',name:'Weld Thickness Calculator',live:true,url:'/weld-pro.html',kw:'weld fillet throat leg size utilization welding strength'},
  {c:'welding',code:'SC-029',name:'Heat Input & Cooling Rate Calculator',live:false,kw:'heat input welding cooling rate t8/5 preheat'},
  {c:'welding',code:'SC-030',name:'Sheet Metal Bend & K-Factor Calculator',live:false,kw:'sheet metal bend allowance deduction k factor bending'},
+ {c:'welding',code:'SC-039',name:'Punching Force & Die Clearance Calculator',live:true,url:'/punching-pro.html',kw:'punching force die clearance press tonnage stamping pierce stripper punch die slug'},
  {c:'lifting',code:'SC-031',name:'Sling Capacity & Angle Calculator',live:false,kw:'lifting sling capacity angle rigging wll crane'},
  {c:'lifting',code:'SC-032',name:'Shackle & Eye Bolt Check Calculator',live:false,kw:'shackle eye bolt wll derating lifting point'},
  {c:'pressure',code:'SC-033',name:'Pressure Vessel Shell Calculator (ASME VIII)',live:false,kw:'pressure vessel asme viii shell thickness head design'},
  {c:'pressure',code:'SC-034',name:'Pipe Wall Thickness Calculator (ASME B31)',live:false,kw:'pipe wall thickness asme b31 schedule pressure piping'},
- {c:'fasteners',code:'SC-035',name:'Bolt Torque & Preload Calculator',live:false,kw:'bolt torque preload tightening nut factor vdi'},
+ {c:'pressure',code:'SC-040',name:'Hydraulic Cylinder Sizing Calculator',live:true,url:'/hydraulic-pro.html',kw:'hydraulic cylinder sizing bore rod buckling euler force flow iso 3320 actuator stroke'},
+ {c:'fasteners',code:'SC-035',name:'Bolt Torque & Preload Calculator (VDI 2230)',live:true,url:'/bolt-pro.html',kw:'bolt torque preload tightening nut factor vdi 2230 assembly friction property class'},
  {c:'fasteners',code:'SC-036',name:'Bolted Joint Verification (VDI 2230)',live:false,kw:'bolted joint vdi 2230 verification fatigue preload'},
  {c:'costing',code:'SC-010',name:'True Labor Cost Calculator',live:true,url:'/labor-pro.html',kw:'labor cost burden rate employee true cost payroll'},
  {c:'costing',code:'SC-012',name:'Quote Pricing Calculator',live:true,url:'/quote-pro.html',kw:'quote pricing quotation estimate margin sell price'},
