@@ -70,7 +70,13 @@ for (const page of pages) {
   if (page.endsWith('-pro.html')) {
     const slug = page.replace('.html', '');
     if (!t.includes(`sc-schema-tool-${slug}`)) fail(`${page} missing tool schema`);
+    if (!t.includes(`sc-schema-dataset-${slug}`)) fail(`${page} missing Dataset schema`);
+    if (!t.includes('sc-breadcrumb') && page !== 'index.html') fail(`${page} missing breadcrumb nav`);
   }
+  if (['tools.html', 'pricing.html', 'pro.html'].includes(page) && !t.includes('sc-breadcrumb')) {
+    fail(`${page} missing breadcrumb nav`);
+  }
+  if (!t.includes('SC-SEO-SECURITY')) fail(`${page} missing security head block`);
 }
 
 const fj = JSON.parse(readFileSync(join(ROOT, 'firebase.json'), 'utf8'));

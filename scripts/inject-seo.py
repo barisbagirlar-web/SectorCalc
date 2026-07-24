@@ -478,6 +478,89 @@ def schema_tool(slug: str, meta: dict) -> str:
     )
 
 
+def schema_dataset(slug: str, meta: dict) -> str:
+    url = f"{HOST}/{slug}.html"
+    measured = {
+        "sc008-pro": [
+            "Tolerance Stack-Up Spread",
+            "Predicted Cpk",
+            "Predicted PPM",
+            "Monte Carlo Seed",
+            "Engine Version Hash",
+        ],
+        "machining-pro": [
+            "Spindle Speed",
+            "Feed Rate",
+            "Tool Life",
+            "Cutting Power",
+            "Engine Version Hash",
+        ],
+        "bearing-pro": [
+            "L10 Life",
+            "Viscosity Ratio",
+            "Static Safety Factor",
+            "Engine Version Hash",
+        ],
+        "weld-pro": [
+            "Weld Throat",
+            "Weld Leg",
+            "Utilization",
+            "Engine Version Hash",
+        ],
+        "labor-pro": [
+            "True Hourly Cost",
+            "Employer Burden",
+            "Engine Version Hash",
+        ],
+        "quote-pro": [
+            "Sell Price",
+            "Margin",
+            "Cost Build-Up",
+            "Engine Version Hash",
+        ],
+    }.get(
+        slug,
+        [
+            "Primary Result",
+            "Derived Checks",
+            "Warnings",
+            "Engine Version Hash",
+        ],
+    )
+    data = {
+        "@context": "https://schema.org",
+        "@type": "Dataset",
+        "@id": f"{url}#dataset",
+        "name": f"{meta['name']} — Audit Report Dataset",
+        "description": (
+            "Deterministic calculation audit trail including inputs, formulas, "
+            "assumptions, warnings, and engine version. Exported as hash-verified PDF."
+        ),
+        "creator": {"@id": f"{HOST}/#organization"},
+        "publisher": {"@id": f"{HOST}/#organization"},
+        "reviewedBy": {"@id": f"{HOST}/#person-neela-nataraj"},
+        "license": f"{HOST}/terms.html",
+        "isAccessibleForFree": True,
+        "distribution": {
+            "@type": "DataDownload",
+            "encodingFormat": "application/pdf",
+            "contentUrl": f"{url}?export=pdf",
+        },
+        "variableMeasured": measured,
+        "temporalCoverage": "2024-01-15/2026-07-25",
+        "spatialCoverage": {"@type": "Place", "name": "Global"},
+        "inLanguage": ["en", "en-US", "en-GB"],
+        "datePublished": "2024-01-15",
+        "dateModified": "2026-07-25",
+        "isPartOf": {"@id": f"{url}#software"},
+    }
+    return (
+        f'<script type="application/ld+json" id="sc-schema-dataset-{slug}">\n'
+        + json.dumps(data, ensure_ascii=False, indent=2)
+        + "\n</script>"
+    )
+
+
 def schema_pricing() -> str:
     data = {
         "@context": "https://schema.org",
@@ -829,6 +912,7 @@ def process(page: str) -> None:
     slug = page.replace(".html", "")
     if page.endswith("-pro.html") and slug in TOOL_META:
         schemas.append(schema_tool(slug, TOOL_META[slug]))
+        schemas.append(schema_dataset(slug, TOOL_META[slug]))
         schemas.append(
             schema_speakable(
                 page,
