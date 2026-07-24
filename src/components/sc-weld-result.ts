@@ -18,18 +18,18 @@ export interface WeldResultData {
 export class ScWeldResult extends LitElement {
   static properties = { result: { type: Object } };
   static styles = css`
-    :host { display: block; }
-    .hero { font: 800 38px var(--sc-mono, monospace); color: var(--sc-rust, #d35400); }
-    .meta { font: 14px var(--sc-sans, system-ui); color: var(--sc-muted, #636e72); margin-bottom: 12px; }
+    :host { display: block; color: var(--text-primary, #2d3436); }
+    .hero { font: 800 38px var(--sc-mono, monospace); color: var(--sc-rust, var(--accent-amber, #d35400)); }
+    .meta { font: 14px var(--sc-sans, system-ui); color: var(--text-muted, var(--sc-muted, #636e72)); margin-bottom: 12px; }
     .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px; }
-    .cell { background: #f8f9fa; border-radius: 8px; padding: 8px 10px; }
-    .cell .k { font: 12px var(--sc-sans, system-ui); color: var(--sc-muted, #636e72); }
-    .cell .v { font: 600 16px var(--sc-mono, monospace); color: var(--sc-steel, #2d3436); }
-    .bar { height: 10px; background: #ecf0f1; border-radius: 5px; overflow: hidden; margin: 4px 0 12px; }
-    .bar > span { display: block; height: 100%; background: var(--sc-chip, #27ae60); }
-    details { margin-top: 8px; } summary { cursor: pointer; font-weight: 600; }
-    pre { font: 12px var(--sc-mono, monospace); background: #f8f9fa; padding: 8px; border-radius: 6px; overflow-x: auto; }
-    .empty { color: var(--sc-muted, #636e72); }
+    .cell { background: var(--bg-2, #f8f9fa); border-radius: 8px; padding: 8px 10px; }
+    .cell .k { font: 12px var(--sc-sans, system-ui); color: var(--text-muted, var(--sc-muted, #636e72)); }
+    .cell .v { font: 600 16px var(--sc-mono, monospace); color: var(--text-primary, var(--sc-steel, #2d3436)); }
+    .bar { height: 10px; background: var(--bg-3, #ecf0f1); border-radius: 5px; overflow: hidden; margin: 4px 0 12px; }
+    .bar > span { display: block; height: 100%; background: var(--sc-chip, var(--accent-green, #27ae60)); }
+    details { margin-top: 8px; } summary { cursor: pointer; font-weight: 600; color: var(--text-primary, #2d3436); }
+    pre { font: 12px var(--sc-mono, monospace); background: var(--bg-2, #f8f9fa); color: var(--text-primary, #1a1a1a); padding: 8px; border-radius: 6px; overflow-x: auto; }
+    .empty { color: var(--text-muted, var(--sc-muted, #636e72)); }
   `;
 
   declare result: WeldResultData | null;

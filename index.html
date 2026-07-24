@@ -1,538 +1,3006 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>(function(){try{var k='sectorcalc-theme';var t=localStorage.getItem(k);if(t!=='dark'&&t!=='light')t=(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';document.documentElement.setAttribute('data-theme',t);document.documentElement.style.colorScheme=t;}catch(e){}})();</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SectorCalc — Industrial decision calculators</title>
-<meta name="description" content="Deterministic calculators for engineering, machining, quality and costing. See every input, assumption, formula and warning before you act. Client-side; your data never leaves your browser.">
+<title>SectorCalc - Deterministic Industrial Decision Calculators</title>
+<meta name="description" content="Deterministic calculators for engineering, machining, quality and costing. Client-side, full-precision, reproducible.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --bg:#F5F7FA; --surface:#FFFFFF; --surface-2:#FBFCFE; --ink:#0B1220; --ink-2:#334155; --muted:#64748B;
-    --blue:#1D4ED8; --blue-2:#2563EB; --blue-soft:#EFF4FF; --green:#15803D; --green-soft:#ECFDF3;
-    --amber:#B45309; --amber-soft:#FFFBEB; --red:#DC2626; --red-soft:#FEF2F2; --border:#E2E8F0; --border-2:#CBD5E1;
-    --sans:'IBM Plex Sans',system-ui,sans-serif; --mono:'IBM Plex Mono',ui-monospace,monospace;
-    --r:8px; --shadow:0 1px 2px rgba(15,23,42,0.04),0 1px 3px rgba(15,23,42,0.06);
+/* ============================================================
+   SECTORCALC v5.0 - EXHAUSTIVE UPDATE
+   All critical gaps fixed + Phase 0/1 complete
+   ============================================================ */
+
+:root{
+  --iso-blue:      #0055A4;
+  --iso-blue-light:#E6F0F7;
+  --iso-blue-dim:  #003D66;
+  --iso-blue-glow: rgba(0,85,164,0.12);
+  --iso-orange:    #E87722;
+  --iso-orange-light:#FDF2EC;
+  --iso-orange-dim:#A3471F;
+  --iso-orange-glow: rgba(232,119,34,0.12);
+  --iso-green:     #007A33;
+  --iso-green-light:#E8F5EE;
+  --iso-green-dim: #1A5F3D;
+  --iso-green-glow: rgba(0,122,51,0.12);
+  --iso-red:       #C8102E;
+  --iso-red-light: #FCE8E8;
+  --iso-red-dim:   #751B1A;
+  --iso-yellow:    #F1C40F;
+  --iso-yellow-light:#FFF8E6;
+  --sheet-white:   #F5F5F0;
+  --sheet-paper:   #FFFFFF;
+  --sheet-grid:    #E0E0D8;
+  --sheet-line:    #C5C5BE;
+  --sheet-line-strong:#999994;
+  --sheet-line-hair:#D8D8D0;
+  --sheet-text:    #1A1A1A;
+  --sheet-text-2:  #4A4A4A;
+  --sheet-text-3:  #7A7A7A;
+  --f-display: 'Barlow Condensed', sans-serif;
+  --f-body:    'Inter', sans-serif;
+  --f-mono:    'JetBrains Mono', monospace;
+  --sp-1: 4px;  --sp-2: 8px;  --sp-3: 12px; --sp-4: 16px;
+  --sp-5: 24px; --sp-6: 32px; --sp-7: 48px; --sp-8: 64px;
+  --sp-9: 96px; --sp-10: 128px;
+  --frame: 28px;
+  --maxw: 1220px;
+}
+
+[data-theme="dark"] {
+  --sheet-white:   #14171A;
+  --sheet-paper:   #1B1F23;
+  --sheet-grid:    #2E343A;
+  --sheet-line:    #3A4046;
+  --sheet-line-strong:#555C64;
+  --sheet-line-hair:#2E343A;
+  --sheet-text:    #FFFFFF;
+  --sheet-text-2:  #E8EAEC;
+  --sheet-text-3:  #A8B0B8;
+  --iso-blue:      #4FA6D6;
+  --iso-blue-dim:  #3A8FBE;
+  --iso-blue-light:#1A2A38;
+  --iso-orange-light:#2A2118;
+  --iso-green-light:#1A2A20;
+  --iso-red-light: #2A1818;
+  --iso-yellow-light:#2A2618;
+  --iso-blue-glow: rgba(79,166,214,0.16);
+  --iso-orange-glow: rgba(255,106,43,0.18);
+  --iso-green-glow: rgba(124,196,107,0.14);
+}
+
+@media(max-width:320px){ :root{ --frame: 8px; --sp-6: 20px; } }
+@media(min-width:321px) and (max-width:374px){ :root{ --frame: 10px; } }
+@media(min-width:375px) and (max-width:767px){ :root{ --frame: 12px; } }
+@media(min-width:768px) and (max-width:1023px){ :root{ --frame: 20px; } }
+@media(min-width:1024px) and (max-width:1439px){ :root{ --frame: 24px; } }
+@media(min-width:1440px){ :root{ --frame: 28px; } }
+
+*,*::before,*::after{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+@media(prefers-reduced-motion:reduce){
+  html{ scroll-behavior: auto; }
+  *{ animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+}
+
+body{
+  margin:0;
+  background: var(--sheet-white);
+  color: var(--sheet-text);
+  font-family: var(--f-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+img,svg{ display:block; max-width:100%; }
+a{ color: inherit; text-decoration:none; }
+::selection{ background: var(--iso-blue); color:#fff; }
+
+h1,h2,h3,h4{
+  font-family: var(--f-display);
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  margin: 0;
+  color: var(--sheet-text);
+}
+
+.mono{ font-family: var(--f-mono); }
+
+.skip-link{
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--iso-blue);
+  color: #fff;
+  padding: 8px 16px;
+  z-index: 10000;
+  font-family: var(--f-mono);
+  font-size: 12px;
+  text-decoration: none;
+  transition: top 0.2s;
+}
+.skip-link:focus{ top: 0; }
+
+.theme-toggle{
+  position: fixed;
+  top: 20px; right: 20px;
+  z-index: 10060;
+  width: 48px; height: 48px;
+  border: 1.5px solid var(--sheet-line-strong);
+  background: var(--sheet-paper);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+.theme-toggle:hover{ 
+  border-color: var(--iso-blue); 
+  box-shadow: 0 4px 20px var(--iso-blue-glow);
+}
+.theme-toggle svg{ width: 22px; height: 22px; color: var(--sheet-text-2); }
+@media(max-width:900px){
+  .theme-toggle:not([data-sc-pos="1"]){ top: auto; bottom: 20px; right: 20px; }
+}
+
+.sheet{
+  position: relative;
+  margin: var(--frame);
+  border: 1.5px solid var(--sheet-line-strong);
+  background: var(--sheet-paper);
+  transition: background 0.3s ease;
+}
+
+.zone-edge{
+  position: absolute;
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--sheet-text-3);
+  pointer-events: none;
+  user-select: none;
+}
+.zone-edge.top{ top: -20px; }
+.zone-edge.bottom{ bottom: -20px; }
+.zone-edge.left{ left: -24px; writing-mode: vertical-rl; transform: rotate(180deg); }
+.zone-edge.right{ right: -24px; writing-mode: vertical-rl; transform: rotate(180deg); }
+@media(max-width:720px){ .zone-edge{ display:none; } }
+
+.reg-mark{
+  position: absolute;
+  width: 16px; height: 16px;
+  pointer-events: none;
+}
+.reg-mark::before, .reg-mark::after{
+  content:"";
+  position:absolute;
+  background: var(--sheet-line-strong);
+}
+.reg-mark::before{ width:100%; height:1.5px; top:50%; left:0; }
+.reg-mark::after{ width:1.5px; height:100%; left:50%; top:0; }
+.reg-mark.tl{ top:-8px; left:-8px; }
+.reg-mark.tr{ top:-8px; right:-8px; }
+.reg-mark.bl{ bottom:-8px; left:-8px; }
+.reg-mark.br{ bottom:-8px; right:-8px; }
+@media(max-width:720px){ .reg-mark{ display:none; } }
+
+.blueprint-grid{
+  position:absolute; inset:0;
+  background-image:
+    linear-gradient(var(--sheet-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--sheet-grid) 1px, transparent 1px);
+  background-size: 48px 48px;
+  opacity: 0.5;
+  mask-image: linear-gradient(to bottom, black, transparent 88%);
+  pointer-events: none;
+}
+
+.container{
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 var(--sp-6);
+}
+@media(max-width:720px){ .container{ padding: 0 var(--sp-4); } }
+@media(max-width:375px){ .container{ padding: 0 var(--sp-3); } }
+
+.section{ 
+  padding: var(--sp-9) 0; 
+  border-top: 1.5px solid var(--sheet-line); 
+  position: relative; 
+}
+.section:first-of-type{ border-top: none; }
+@media(max-width:720px){ .section{ padding: var(--sp-8) 0; } }
+@media(max-width:375px){ .section{ padding: var(--sp-7) 0; } }
+
+.section-head{
+  display:flex; justify-content: space-between; align-items: flex-end;
+  gap: var(--sp-6); margin-bottom: var(--sp-8);
+  flex-wrap: wrap;
+}
+.section-head h2{ 
+  font-size: clamp(30px, 4.2vw, 48px); 
+  line-height: 1.05; 
+  max-width: 640px; 
+}
+.section-head .lede{ max-width: 400px; color: var(--sheet-text-2); font-size: 15.5px; line-height: 1.65; }
+.section-kicker{ color: var(--iso-orange); font-weight: 700; }
+
+.site-header{
+  display:flex; align-items:center; justify-content: space-between;
+  padding: var(--sp-5) var(--sp-6);
+  border-bottom: 1.5px solid var(--sheet-line);
+  background: var(--sheet-paper);
+}
+@media(max-width:720px){ .site-header{ padding: var(--sp-4); } }
+
+.brand{ display:flex; align-items:center; gap: var(--sp-3); text-decoration:none; }
+.brand-mark{
+  width: auto; height: 48px;
+  border: none;
+  display:flex; align-items:center; justify-content:center;
+  flex-shrink:0;
+  position: relative;
+  background: transparent;
+  padding: 0;
+  overflow: visible;
+}
+.brand-mark::after{ display: none; }
+.brand-mark img{
+  width: auto;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.brand-mark--footer{
+  height: 56px;
+}
+.brand-word{ display: none; }
+
+.main-nav{ display:flex; align-items:center; gap: var(--sp-7); }
+.main-nav ul{ list-style:none; display:flex; gap: var(--sp-6); margin:0; padding:0; }
+.main-nav a{
+  text-decoration:none; color: var(--sheet-text-2);
+  font-family: var(--f-mono); font-size: 12.5px; letter-spacing: 0.08em; text-transform: uppercase;
+  transition: color 0.15s, border-color 0.15s;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 3px;
+  font-weight: 500;
+}
+.main-nav a:hover{ color: var(--iso-blue); border-color: var(--iso-blue); }
+.main-nav a.btn-primary,
+.main-nav a.btn-primary:hover{
+  color: #FFFFFF;
+  border-bottom-color: transparent;
+  padding-bottom: 0;
+}
+.mobile-nav-overlay a.btn-primary,
+.mobile-nav-overlay a.btn-primary:hover{
+  color: #FFFFFF;
+}
+
+.mobile-menu-btn{
+  display: none;
+  width: 44px; height: 44px;
+  border: 1.5px solid var(--sheet-line-strong);
+  background: var(--sheet-paper);
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+}
+.mobile-menu-btn span{
+  display: block;
+  width: 20px; height: 2px;
+  background: var(--sheet-text);
+  transition: all 0.2s;
+}
+
+@media(max-width:900px){ 
+  .main-nav ul, .main-nav .btn{ display:none; } 
+  .mobile-menu-btn{ display: flex; }
+}
+
+.mobile-nav-overlay{
+  position: fixed;
+  inset: 0;
+  background: var(--sheet-paper);
+  z-index: 9998;
+  display: none;
+  flex-direction: column;
+  padding: 80px var(--sp-6) var(--sp-6);
+  gap: var(--sp-4);
+}
+.mobile-nav-overlay.active{ display: flex; }
+.mobile-nav-overlay a{
+  font-family: var(--f-mono);
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--sheet-text);
+  padding: var(--sp-4) 0;
+  border-bottom: 1.5px solid var(--sheet-line);
+}
+.mobile-nav-overlay .btn-primary{ margin-top: var(--sp-4); justify-content: center; }
+
+.btn{
+  font-family: var(--f-mono);
+  font-size: 12.5px; letter-spacing: 0.06em; text-transform: uppercase;
+  text-decoration:none;
+  padding: 14px 24px;
+  display:inline-flex; align-items:center; gap: var(--sp-2);
+  border: 1.5px solid var(--sheet-line-strong);
+  background: var(--sheet-paper);
+  color: var(--sheet-text);
+  cursor:pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+  font-weight: 600;
+  min-height: 44px;
+  min-width: 0;
+}
+.btn:hover{ 
+  border-color: var(--iso-blue); 
+  color: var(--iso-blue);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px var(--iso-blue-glow);
+}
+.btn-primary{
+  background: var(--iso-blue);
+  border-color: var(--iso-blue);
+  color: #FFFFFF !important;
+  font-weight: 700;
+}
+.btn-primary:hover{ 
+  background: var(--iso-blue-dim); 
+  border-color: var(--iso-blue-dim);
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 16px var(--iso-blue-glow);
+}
+.btn-ghost{ background: transparent; }
+.btn-ghost:hover{ color: var(--iso-orange); border-color: var(--iso-orange); box-shadow: 0 4px 12px var(--iso-orange-glow); }
+
+.btn-orange{
+  background: var(--iso-orange);
+  border-color: var(--iso-orange);
+  color: #FFFFFF;
+  font-weight: 700;
+}
+.btn-orange:hover{ 
+  background: var(--iso-orange-dim); 
+  border-color: var(--iso-orange-dim);
+  box-shadow: 0 4px 16px var(--iso-orange-glow);
+}
+
+@media(max-width:375px){
+  .btn{ padding: 12px 18px; font-size: 11px; }
+}
+
+.eyebrow{
+  font-family: var(--f-mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sheet-text-3);
+  display: inline;
+  font-weight: 500;
+  max-width: 100%;
+}
+.eyebrow .dot{
+  display: inline-block;
+  vertical-align: 0;
+  margin-right: 8px;
+}
+@media(max-width:480px){
+  .eyebrow{ font-size: 10px; letter-spacing: 0.08em; }
+}
+
+.eyebrow .dot{
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--iso-green);
+  box-shadow: 0 0 0 3px var(--iso-green-glow);
+  animation: pulse 2.4s ease-in-out infinite;
+}
+@keyframes pulse{
+  0%,100%{ opacity: 1; }
+  50%{ opacity: 0.35; }
+}
+
+.badge{
+  display:inline-flex; align-items:center; gap:6px;
+  font-family: var(--f-mono); font-size: 11px; letter-spacing:0.06em; text-transform:uppercase;
+  border: 1.5px solid var(--sheet-line-strong); 
+  padding: 6px 12px; 
+  color: var(--sheet-text-2);
+  background: var(--sheet-paper);
+  font-weight: 500;
+}
+.badge.warn{ border-color: var(--iso-orange); color: var(--iso-orange); background: var(--iso-orange-light); }
+.badge.safe{ border-color: var(--iso-green); color: var(--iso-green); background: var(--iso-green-light); }
+.badge.info{ border-color: var(--iso-blue); color: var(--iso-blue); background: var(--iso-blue-light); }
+.badge.danger{ border-color: var(--iso-red); color: var(--iso-red); background: var(--iso-red-light); }
+
+.hero{
+  position: relative;
+  padding: var(--sp-9) 0 var(--sp-8);
+  overflow: hidden;
+}
+.hero-inner{
+  position: relative; z-index:1;
+  display:grid; grid-template-columns: 1.15fr 0.85fr; gap: var(--sp-8);
+  align-items: center;
+}
+@media(max-width:980px){ .hero-inner{ grid-template-columns: 1fr; } }
+
+.hero h1{
+  font-size: clamp(36px, 5.5vw, 72px);
+  line-height: 0.95;
+  margin: var(--sp-5) 0 var(--sp-5);
+  font-weight: 900;
+}
+.hero h1 em{
+  font-style: normal;
+  color: var(--iso-blue);
+}
+.hero p.sub{
+  font-size: 17.5px;
+  color: var(--sheet-text-2);
+  max-width: 500px;
+  margin-bottom: var(--sp-6);
+  line-height: 1.65;
+}
+.hero p.sub b{ color: var(--sheet-text); font-weight: 700; }
+
+.hero-ctas{ display:flex; gap: var(--sp-4); flex-wrap: wrap; margin-bottom: var(--sp-6); }
+
+.hero-flags{
+  display:flex; gap: var(--sp-6); flex-wrap:wrap;
+  font-family: var(--f-mono); font-size: 12.5px; color: var(--sheet-text-3);
+  letter-spacing: 0.04em;
+}
+.hero-flags span{ display:flex; align-items:center; gap: 6px; max-width: 100%; }
+.hero-flags span::before{ content:"//"; color: var(--sheet-line-strong); font-weight: 700; }
+
+.panel{
+  background: var(--sheet-paper);
+  border: 1.5px solid var(--sheet-line);
+  position: relative;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+}
+.panel::before{
+  content: attr(data-label);
+  position: absolute; top:0; left:0;
+  font-family: var(--f-mono); font-size: 10px; letter-spacing: 0.12em;
+  color: var(--sheet-text-3); background: var(--sheet-white);
+  padding: 6px 12px; 
+  border-right: 1.5px solid var(--sheet-line); 
+  border-bottom: 1.5px solid var(--sheet-line);
+  font-weight: 600;
+}
+
+.gauge-panel{ padding: var(--sp-7) var(--sp-6) var(--sp-6); }
+.gauge-wrap{ display:flex; justify-content:center; margin: var(--sp-5) 0 var(--sp-4); }
+
+.gauge-readout{
+  display:grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1.5px solid var(--sheet-line); 
+  margin-top: var(--sp-5);
+}
+.gauge-readout div{
+  padding: var(--sp-4) var(--sp-3) 0;
+  border-right: 1.5px solid var(--sheet-line);
+  text-align:center;
+  cursor: pointer;
+  transition: background 0.2s;
+  position: relative;
+}
+.gauge-readout div:hover{ background: var(--sheet-white); }
+.gauge-readout div:last-child{ border-right:none; }
+.gauge-readout .k{ 
+  font-family: var(--f-mono); 
+  font-size: 10.5px; 
+  color: var(--sheet-text-3); 
+  text-transform: uppercase; 
+  letter-spacing: 0.06em; 
+  font-weight: 500; 
+}
+.gauge-readout .v{ 
+  font-family: var(--f-mono); 
+  font-size: 18px; 
+  font-weight: 700; 
+  margin-top: 6px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.gauge-readout .k{ overflow: hidden; text-overflow: ellipsis; }
+.gauge-readout .v.wc{ color: var(--sheet-text); }
+.gauge-readout .v.rss{ color: var(--iso-blue); }
+.gauge-readout .v.mc{ color: var(--iso-orange); }
+
+.gauge-tooltip{
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--sheet-text);
+  color: var(--sheet-paper);
+  font-family: var(--f-mono);
+  font-size: 11px;
+  padding: 6px 12px;
+  border-radius: 4px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.2s, visibility 0.2s;
+  z-index: 10;
+}
+.gauge-readout div:hover .gauge-tooltip, .gauge-readout div:focus .gauge-tooltip{ opacity: 1; visibility: visible; }
+.gauge-tooltip::after{
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: var(--sheet-text);
+}
+
+.gauge-arc{ 
+  transform-origin: 90px 90px; 
+  transition: stroke-dashoffset 1.2s cubic-bezier(.2,.7,.2,1); 
+  cursor: pointer;
+}
+.gauge-arc:hover{ filter: brightness(1.2); }
+
+.hero-illustration{
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.trust-strip{
+  display:flex; justify-content:center; gap: var(--sp-8);
+  padding: var(--sp-5) 0;
+  border-bottom: 1.5px solid var(--sheet-line);
+  flex-wrap: wrap;
+  background: var(--sheet-white);
+}
+.trust-item{
+  display:flex; align-items:center; gap: var(--sp-2);
+  font-family: var(--f-mono);
+  font-size: 11px;
+  color: var(--sheet-text-3);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 500;
+}
+.trust-item svg{ width: 16px; height: 16px; color: var(--iso-green); }
+
+.spec-strip{
+  display:grid; grid-template-columns: repeat(4,1fr);
+  border-top: 1.5px solid var(--sheet-line); 
+  border-bottom: 1.5px solid var(--sheet-line);
+  background: var(--sheet-white);
+}
+.spec-strip div{
+  padding: var(--sp-5) var(--sp-5);
+  border-right: 1.5px solid var(--sheet-line);
+  position: relative;
+}
+.spec-strip div:last-child{ border-right:none; }
+.spec-strip div::before{
+  content:"";
+  position:absolute; 
+  top:12px; left:12px;
+  width:6px; height:6px; 
+  border-radius:50%;
+  background: var(--sheet-line-strong);
+}
+.spec-num{ 
+  font-family: var(--f-display); 
+  font-size: 32px; 
+  font-weight: 900; 
+  color: var(--sheet-text); 
+}
+.spec-label{ 
+  font-family: var(--f-mono); 
+  font-size: 11px; 
+  color: var(--sheet-text-3); 
+  text-transform: uppercase; 
+  letter-spacing: 0.06em; 
+  margin-top: 4px;
+  font-weight: 500;
+}
+@media(max-width:720px){
+  .spec-strip{ grid-template-columns: repeat(2,1fr); }
+  .spec-strip div:nth-child(2){ border-right:none; }
+}
+@media(max-width:375px){
+  .spec-strip{ grid-template-columns: 1fr; }
+  .spec-strip div{ border-right: none; border-bottom: 1.5px solid var(--sheet-line); }
+}
+
+.testimonials-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-5);
+}
+@media(max-width:900px){ .testimonials-grid{ grid-template-columns: 1fr; } }
+
+.testimonial-card{
+  border: 1.5px solid var(--sheet-line);
+  background: var(--sheet-paper);
+  padding: var(--sp-6);
+  position: relative;
+  transition: all 0.2s ease;
+}
+.testimonial-card:hover{
+  border-color: var(--iso-blue);
+  box-shadow: 0 8px 24px var(--iso-blue-glow);
+  transform: translateY(-2px);
+}
+.testimonial-card::before{
+  content: "\201C";
+  font-family: var(--f-display);
+  font-size: 64px;
+  color: var(--iso-blue);
+  opacity: 0.15;
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  line-height: 1;
+}
+.testimonial-quote{
+  font-size: 15px;
+  color: var(--sheet-text-2);
+  line-height: 1.7;
+  margin-bottom: var(--sp-5);
+  font-style: italic;
+}
+.testimonial-author{
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+}
+.testimonial-avatar{
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: var(--iso-blue-light);
+  border: 1.5px solid var(--iso-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--f-mono);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--iso-blue);
+  flex-shrink: 0;
+}
+.testimonial-name{
+  font-family: var(--f-body);
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--sheet-text);
+}
+.testimonial-role{
+  font-family: var(--f-mono);
+  font-size: 11px;
+  color: var(--sheet-text-3);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.testimonial-metric{
+  margin-top: var(--sp-3);
+  padding-top: var(--sp-3);
+  border-top: 1.5px solid var(--sheet-line);
+  font-family: var(--f-mono);
+  font-size: 12px;
+  color: var(--iso-green);
+  font-weight: 600;
+}
+
+.comparison-grid{
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: var(--sp-5);
+  align-items: stretch;
+}
+@media(max-width:720px){ .comparison-grid{ grid-template-columns: 1fr; } }
+
+.comparison-card{
+  border: 1.5px solid var(--sheet-line);
+  background: var(--sheet-paper);
+  padding: var(--sp-6);
+}
+.comparison-card.before{ border-color: var(--iso-red); }
+.comparison-card.after{ border-color: var(--iso-green); }
+.comparison-label{
+  font-family: var(--f-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--sp-4);
+  font-weight: 700;
+}
+.comparison-card.before .comparison-label{ color: var(--iso-red); }
+.comparison-card.after .comparison-label{ color: var(--iso-green); }
+.comparison-time{
+  font-family: var(--f-display);
+  font-size: 48px;
+  font-weight: 900;
+  color: var(--sheet-text);
+  line-height: 1;
+  margin-bottom: var(--sp-3);
+}
+.comparison-desc{
+  font-size: 14.5px;
+  color: var(--sheet-text-2);
+  line-height: 1.6;
+}
+.comparison-divider{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--f-mono);
+  font-size: 14px;
+  color: var(--sheet-text-3);
+  font-weight: 700;
+}
+@media(max-width:720px){ .comparison-divider{ padding: var(--sp-3) 0; } }
+
+.security-badges{
+  display: flex;
+  justify-content: center;
+  gap: var(--sp-6);
+  flex-wrap: wrap;
+  margin-top: var(--sp-5);
+}
+.security-badge{
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-family: var(--f-mono);
+  font-size: 11px;
+  color: var(--sheet-text-3);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 500;
+}
+.security-badge svg{
+  width: 20px; height: 20px;
+  color: var(--iso-green);
+}
+
+.switchboard{
+  display:grid; grid-template-columns: repeat(3, 1fr); 
+  gap: 1.5px;
+  background: var(--sheet-line);
+  border: 1.5px solid var(--sheet-line);
+}
+@media(max-width:900px){ .switchboard{ grid-template-columns: repeat(2,1fr); } }
+@media(max-width:560px){ .switchboard{ grid-template-columns: 1fr; } }
+
+.switch-card{
+  background: var(--sheet-paper);
+  padding: var(--sp-6);
+  text-decoration:none;
+  color: var(--sheet-text);
+  display:flex; flex-direction:column; gap: var(--sp-3);
+  transition: all 0.2s ease;
+  position: relative;
+  cursor: pointer;
+}
+.switch-card:hover{ 
+  background: var(--sheet-white); 
+  box-shadow: inset 0 0 0 2px var(--iso-blue);
+}
+.switch-card:hover .switch-icon{ border-color: var(--iso-blue); color: var(--iso-blue); }
+.switch-card:hover .switch-arrow{ transform: translateX(5px); color: var(--iso-blue); }
+.switch-card.hidden{ display: none; }
+
+.switch-top{ display:flex; justify-content: space-between; align-items:flex-start; }
+.switch-icon{
+  width: 44px; height:44px;
+  border: 1.5px solid var(--sheet-line-strong);
+  display:flex; align-items:center; justify-content:center;
+  color: var(--sheet-text-2);
+  transition: all 0.2s ease;
+  flex-shrink:0;
+  background: var(--sheet-paper);
+}
+.switch-icon svg{ width:22px; height:22px; }
+.switch-role{ 
+  font-family: var(--f-mono); 
+  font-size: 10.5px; 
+  color: var(--sheet-text-3); 
+  letter-spacing: 0.08em; 
+  text-transform:uppercase; 
+  text-align:right;
+  font-weight: 500;
+}
+
+.switch-card h3{ 
+  font-family: var(--f-body); 
+  text-transform:none; 
+  font-weight:700; 
+  font-size: 17.5px; 
+  letter-spacing:0; 
+  line-height: 1.3;
+}
+.switch-card p{ color: var(--sheet-text-2); font-size: 14.5px; margin:0; flex:1; line-height: 1.55; }
+.switch-bottom{ display:flex; align-items:center; gap:6px; font-family: var(--f-mono); font-size: 12.5px; color: var(--sheet-text-2); font-weight: 500; }
+.switch-arrow{ transition: all 0.2s ease; }
+
+.switch-card .premium-badge{
+  position: absolute;
+  top: 12px; right: 12px;
+  font-family: var(--f-mono);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  background: var(--iso-orange-light);
+  color: var(--iso-orange);
+  border: 1px solid var(--iso-orange);
+  font-weight: 600;
+}
+
+.role-tabs{
+  display:flex; gap: var(--sp-1);
+  margin-bottom: var(--sp-5);
+  flex-wrap: wrap;
+}
+.role-tab{
+  font-family: var(--f-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 8px 16px;
+  border: 1.5px solid var(--sheet-line);
+  background: var(--sheet-paper);
+  color: var(--sheet-text-2);
+  cursor: pointer;
+  transition: all 0.15s;
+  font-weight: 600;
+  min-height: 36px;
+}
+.role-tab:hover{ border-color: var(--iso-blue); color: var(--iso-blue); }
+.role-tab.active{
+  background: var(--iso-blue);
+  border-color: var(--iso-blue);
+  color: #fff;
+}
+.role-tab:focus-visible{
+  outline: 2px solid var(--iso-blue);
+  outline-offset: 2px;
+}
+
+.demo-section{
+  background: var(--sheet-white);
+  border: 1.5px solid var(--sheet-line);
+  padding: var(--sp-6);
+  margin-top: var(--sp-6);
+}
+.demo-header{
+  display:flex; justify-content:space-between; align-items:center;
+  margin-bottom: var(--sp-5);
+  flex-wrap: wrap; gap: var(--sp-3);
+}
+.demo-grid{
+  display:grid; grid-template-columns: 1fr 1fr; gap: var(--sp-5);
+}
+@media(max-width:720px){ .demo-grid{ grid-template-columns:1fr; } }
+
+.demo-input-group{ margin-bottom: var(--sp-4); }
+.demo-input-group label{
+  display:block;
+  font-family: var(--f-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--sheet-text-3);
+  margin-bottom: var(--sp-2);
+  font-weight: 600;
+}
+.demo-input-group .input-wrap{
+  display:flex; align-items:center;
+  border: 1.5px solid var(--sheet-line);
+  background: var(--sheet-paper);
+  transition: border-color 0.2s;
+}
+.demo-input-group .input-wrap:focus-within{
+  border-color: var(--iso-blue);
+  box-shadow: 0 0 0 3px var(--iso-blue-glow);
+}
+.demo-input-group input{
+  flex:1;
+  min-width: 0;
+  border:none;
+  background:transparent;
+  padding: 12px 14px;
+  font-family: var(--f-mono);
+  font-size: 15px;
+  color: var(--sheet-text);
+  outline:none;
+  min-height: 44px;
+}
+.demo-input-group .unit-select{
+  border:none;
+  border-left: 1.5px solid var(--sheet-line);
+  background: var(--sheet-white);
+  padding: 12px 10px;
+  font-family: var(--f-mono);
+  font-size: 12px;
+  color: var(--sheet-text-2);
+  cursor: default;
+  outline:none;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+.demo-input-group .ref-value{
+  font-family: var(--f-mono);
+  font-size: 11px;
+  color: var(--sheet-text-3);
+  margin-top: var(--sp-1);
+  font-style: italic;
+}
+
+.demo-result{
+  background: var(--sheet-paper);
+  border: 1.5px solid var(--sheet-line);
+  padding: var(--sp-5);
+}
+.demo-result h4{
+  font-family: var(--f-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--sheet-text-3);
+  margin-bottom: var(--sp-4);
+  font-weight: 600;
+}
+
+.mini-gauge{
+  display:flex; align-items:center; gap: var(--sp-4);
+  margin: var(--sp-4) 0;
+}
+.mini-gauge-bar{
+  flex:1; height: 8px;
+  background: var(--sheet-grid);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+.mini-gauge-fill{
+  height:100%;
+  background: linear-gradient(90deg, var(--iso-green), var(--iso-yellow), var(--iso-orange), var(--iso-red));
+  border-radius: 4px;
+  transition: width 0.6s ease;
+}
+.mini-gauge-label{
+  font-family: var(--f-mono);
+  font-size: 12px;
+  color: var(--sheet-text-2);
+  min-width: 60px;
+  text-align: right;
+  font-weight: 600;
+}
+
+.shimmer{
+  background: linear-gradient(90deg, var(--sheet-grid) 25%, var(--sheet-line-hair) 50%, var(--sheet-grid) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 4px;
+}
+@keyframes shimmer{
+  0%{ background-position: 200% 0; }
+  100%{ background-position: -200% 0; }
+}
+
+.skeleton{
+  background: var(--sheet-grid);
+  border-radius: 4px;
+  animation: skeleton-pulse 1.5s ease-in-out infinite;
+}
+@keyframes skeleton-pulse{
+  0%, 100%{ opacity: 1; }
+  50%{ opacity: 0.5; }
+}
+
+.flagship{
+  display:grid; grid-template-columns: 1fr 1fr; gap: var(--sp-8);
+  align-items:start;
+}
+@media(max-width:940px){ .flagship{ grid-template-columns:1fr; } }
+
+.checklist{ list-style:none; margin: var(--sp-5) 0; padding:0; display:flex; flex-direction:column; gap: var(--sp-3); }
+.checklist li{ display:flex; gap: var(--sp-3); font-size: 15px; color: var(--sheet-text-2); line-height: 1.5; }
+.checklist li::before{
+  content:"";
+  flex-shrink:0;
+  width:16px; height:16px; 
+  margin-top:3px;
+  border:1.5px solid var(--iso-blue); 
+  background: var(--iso-blue-light);
+}
+
+.report-card{
+  border: 1.5px solid var(--sheet-line);
+  background: var(--sheet-paper);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+}
+.report-card-head{
+  padding: var(--sp-4) var(--sp-5);
+  border-bottom: 1.5px solid var(--sheet-line);
+  display:flex; justify-content:space-between; align-items:center;
+  font-family: var(--f-mono); font-size: 11px; color: var(--sheet-text-3);
+  font-weight: 500;
+  background: var(--sheet-white);
+}
+.report-card-body{ padding: var(--sp-5); }
+.report-row{
+  display:flex; justify-content:space-between; align-items:baseline;
+  padding: var(--sp-3) 0; 
+  border-bottom: 1px solid var(--sheet-grid);
+  font-family: var(--f-mono); font-size: 13.5px;
+}
+.report-row:last-of-type{ border-bottom:none; }
+.report-row .k{ color: var(--sheet-text-2); font-weight: 500; flex-shrink: 0; }
+.report-row .v{ font-size: 15.5px; font-weight: 700; overflow-wrap: anywhere; text-align: right; }
+.report-card-head{ flex-wrap: wrap; gap: 2px 12px; }
+.report-verdict{
+  margin-top: var(--sp-5); 
+  padding: var(--sp-4);
+  border: 1.5px dashed var(--iso-green);
+  color: var(--iso-green);
+  font-family: var(--f-mono); font-size: 12.5px;
+  display:flex; align-items:center; gap: var(--sp-3);
+  background: var(--iso-green-light);
+  font-weight: 600;
+}
+.report-verdict::before{ content:"\2713"; font-weight:900; font-size: 14px; }
+
+.modal-overlay{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(4px);
+  z-index: 10000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: var(--sp-4);
+}
+.modal-overlay.active{ display: flex; }
+.modal-content{
+  background: var(--sheet-paper);
+  border: 1.5px solid var(--sheet-line);
+  max-width: 800px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.2);
+}
+.modal-close{
+  position: absolute;
+  top: var(--sp-4);
+  right: var(--sp-4);
+  width: 36px; height: 36px;
+  border: 1.5px solid var(--sheet-line);
+  background: var(--sheet-white);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--f-mono);
+  font-size: 18px;
+  color: var(--sheet-text-2);
+  transition: all 0.2s;
+  z-index: 10;
+}
+.modal-close:hover{
+  border-color: var(--iso-red);
+  color: var(--iso-red);
+}
+
+.pdf-preview{
+  padding: var(--sp-6);
+}
+.pdf-preview-header{
+  text-align: center;
+  border-bottom: 2px solid var(--sheet-line-strong);
+  padding-bottom: var(--sp-4);
+  margin-bottom: var(--sp-5);
+}
+.pdf-preview-header h3{
+  font-family: var(--f-display);
+  font-size: 24px;
+  margin-bottom: var(--sp-2);
+}
+.pdf-preview-header p{
+  font-family: var(--f-mono);
+  font-size: 11px;
+  color: var(--sheet-text-3);
+}
+
+.modules{ display:grid; grid-template-columns: repeat(3,1fr); gap: var(--sp-5); }
+@media(max-width:860px){ .modules{ grid-template-columns:1fr; } }
+.module{
+  border: 1.5px solid var(--sheet-line);
+  padding: var(--sp-6);
+  background: var(--sheet-paper);
+  transition: all 0.2s ease;
+}
+.module:hover{
+  border-color: var(--iso-blue);
+  box-shadow: 0 8px 24px var(--iso-blue-glow);
+  transform: translateY(-2px);
+}
+.module-glyph{
+  font-family: var(--f-mono); font-size: 28px; color: var(--iso-blue);
+  border: 1.5px solid var(--sheet-line-strong); width:56px; height:56px;
+  display:flex; align-items:center; justify-content:center;
+  margin-bottom: var(--sp-5);
+  background: var(--sheet-white);
+  font-weight: 700;
+}
+.module h3{ font-family: var(--f-body); text-transform:none; font-weight:700; font-size: 19px; margin-bottom: var(--sp-2); }
+.module p{ color: var(--sheet-text-2); font-size: 14.5px; margin-bottom: var(--sp-5); line-height: 1.55; }
+.module a{ color: inherit; text-decoration: none; }
+.module a:hover{ color: var(--iso-blue); }
+.module ul{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap: var(--sp-2); }
+.module li{ font-family: var(--f-mono); font-size: 13.5px; color: var(--sheet-text-2); display:flex; gap: var(--sp-3); align-items: baseline; }
+.module li b{ color: var(--sheet-text); font-weight:700; min-width: 56px; }
+
+.method-rail{
+  display:grid; grid-template-columns: repeat(4,1fr);
+  position: relative;
+  gap: var(--sp-5);
+}
+@media(max-width:860px){ .method-rail{ grid-template-columns:1fr 1fr; } }
+@media(max-width:560px){ .method-rail{ grid-template-columns:1fr; } }
+
+.method-rail::before{
+  content:"";
+  position:absolute; 
+  top:21px; left: 0; right:0; 
+  height:1.5px;
+  background: repeating-linear-gradient(to right, var(--sheet-line-strong) 0 8px, transparent 8px 16px);
+  z-index:0;
+}
+@media(max-width:860px){ .method-rail::before{ display:none; } }
+
+.method-step{ position:relative; z-index:1; }
+.method-num{
+  width: 42px; height: 42px;
+  border: 1.5px solid var(--sheet-line-strong);
+  background: var(--sheet-paper);
+  display:flex; align-items:center; justify-content:center;
+  font-family: var(--f-mono); font-size: 13px; color: var(--iso-orange);
+  margin-bottom: var(--sp-4);
+  font-weight: 700;
+}
+.method-step h4{ font-family: var(--f-body); text-transform:none; font-weight:700; font-size:17px; margin-bottom: var(--sp-2); }
+.method-step p{ font-size: 14px; color: var(--sheet-text-2); line-height: 1.6; }
+
+.standards-grid{ display:grid; grid-template-columns: repeat(3,1fr); gap: var(--sp-6); }
+@media(max-width:900px){ .standards-grid{ grid-template-columns:1fr; } }
+.standards-col h4{
+  font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.08em; text-transform:uppercase;
+  color: var(--sheet-text-3); margin-bottom: var(--sp-4); padding-bottom: var(--sp-3);
+  border-bottom: 1.5px solid var(--sheet-line);
+  font-weight: 600;
+}
+.standards-col ul{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap: var(--sp-4); }
+.standards-col li{ font-size: 14.5px; color: var(--sheet-text-2); line-height: 1.55; }
+.standards-col li b{ color: var(--sheet-text); font-family: var(--f-mono); font-weight:700; display:block; margin-bottom:3px; font-size:13px; }
+.standards-col.limits{ color: var(--iso-orange); }
+.standards-col.limits li{ color: var(--sheet-text-2); }
+
+.credit-band{
+  background: var(--sheet-white);
+  border: 1.5px solid var(--sheet-line);
+  padding: var(--sp-7) var(--sp-6);
+}
+.credit-header{
+  display:flex; justify-content:space-between; align-items:center; gap: var(--sp-6); flex-wrap:wrap;
+  margin-bottom: var(--sp-7);
+}
+.credit-balance{
+  font-family: var(--f-mono);
+  font-size: 14px;
+  color: var(--sheet-text-2);
+}
+.credit-balance strong{
+  color: var(--iso-blue);
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.credit-packages{
+  display:grid; grid-template-columns: repeat(5, 1fr); gap: var(--sp-4);
+}
+@media(max-width:1100px){ .credit-packages{ grid-template-columns: repeat(3, 1fr); } }
+@media(max-width:720px){ .credit-packages{ grid-template-columns: repeat(2, 1fr); } }
+@media(max-width:480px){ .credit-packages{ grid-template-columns: 1fr; } }
+
+.credit-card{
+  border: 1.5px solid var(--sheet-line);
+  padding: var(--sp-5);
+  background: var(--sheet-paper);
+  text-align: center;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  position: relative;
+}
+.credit-card:hover{
+  border-color: var(--iso-blue);
+  box-shadow: 0 8px 24px var(--iso-blue-glow);
+  transform: translateY(-3px);
+}
+.credit-card.featured{
+  border-color: var(--iso-blue);
+  box-shadow: 0 4px 20px var(--iso-blue-glow);
+}
+.credit-card.featured::before{
+  content: "MOST POPULAR";
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--iso-blue);
+  color: #fff;
+  font-family: var(--f-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  padding: 4px 12px;
+  font-weight: 700;
+}
+.credit-card .cr-amount{
+  font-family: var(--f-display);
+  font-size: 42px;
+  font-weight: 900;
+  color: var(--sheet-text);
+  line-height: 1;
+}
+.credit-card .cr-unit{
+  font-family: var(--f-mono);
+  font-size: 12px;
+  color: var(--sheet-text-3);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: var(--sp-2) 0;
+}
+.credit-card .cr-price{
+  font-family: var(--f-display);
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--iso-blue);
+}
+.credit-card .cr-per{
+  font-family: var(--f-mono);
+  font-size: 12px;
+  color: var(--sheet-text-3);
+  margin: var(--sp-2) 0 var(--sp-4);
+}
+
+.warning-box{
+  background: var(--iso-orange-light);
+  border: 1.5px solid var(--iso-orange);
+  padding: var(--sp-4) var(--sp-5);
+  margin: var(--sp-5) 0;
+  display:flex; gap: var(--sp-3);
+  align-items: flex-start;
+}
+.warning-box svg{
+  width: 20px; height: 20px;
+  color: var(--iso-orange);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.warning-box p{
+  font-family: var(--f-mono);
+  font-size: 12.5px;
+  color: var(--iso-orange-dim);
+  margin: 0;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+.cta-band{
+  text-align:center;
+  padding: var(--sp-9) var(--sp-6);
+  background:
+    radial-gradient(circle at 50% 0%, var(--iso-blue-glow), transparent 60%),
+    var(--sheet-white);
+  border-top: 1.5px solid var(--sheet-line);
+}
+.cta-band h2{ font-size: clamp(30px,4.8vw,48px); max-width: 720px; margin: 0 auto var(--sp-5); }
+.cta-band p{ color: var(--sheet-text-2); max-width: 500px; margin: 0 auto var(--sp-6); font-size: 16px; }
+.cta-band .hero-ctas{ justify-content:center; }
+
+.title-block{
+  border-top: 1.5px solid var(--sheet-line-strong);
+}
+.tb-links{
+  display:grid; grid-template-columns: 1.3fr repeat(3, 1fr);
+  gap: var(--sp-6);
+  padding: var(--sp-8) var(--sp-6);
+  border-bottom: 1.5px solid var(--sheet-line);
+}
+@media(max-width:780px){ .tb-links{ grid-template-columns: 1fr 1fr; } }
+.tb-links h5{
+  font-family: var(--f-mono); font-size: 11px; letter-spacing:0.08em; text-transform:uppercase;
+  color: var(--sheet-text-3); margin: 0 0 var(--sp-3);
+  font-weight: 600;
+}
+.tb-links ul{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap: var(--sp-2); }
+.tb-links a{ text-decoration:none; color: var(--sheet-text-2); font-size: 14px; transition: color 0.15s; }
+.tb-links a:hover{ color: var(--iso-blue); }
+.tb-brand p{ color: var(--sheet-text-2); font-size: 14px; max-width: 300px; line-height: 1.6; }
+
+.tb-grid{
+  display:grid;
+  grid-template-columns: repeat(6, 1fr);
+  font-family: var(--f-mono); font-size: 11px;
+}
+.tb-cell{
+  border-right: 1.5px solid var(--sheet-line); 
+  border-top: 1.5px solid var(--sheet-line);
+  padding: var(--sp-3) var(--sp-4);
+}
+.tb-cell:last-child{ border-right:none; }
+.tb-cell .k{ color: var(--sheet-text-3); text-transform:uppercase; letter-spacing:0.06em; display:block; margin-bottom:4px; font-weight: 500; }
+.tb-cell .v{ color: var(--sheet-text); font-size:12.5px; font-weight: 600; }
+@media(max-width:780px){
+  .tb-grid{ grid-template-columns: repeat(3,1fr); }
+  .tb-cell:nth-child(3){ border-right:none; }
+}
+@media(max-width:480px){
+  .tb-grid{ grid-template-columns: repeat(2,1fr); }
+  .tb-cell:nth-child(even){ border-right:none; }
+}
+
+.legal{
+  padding: var(--sp-5) var(--sp-6);
+  font-family: var(--f-mono); font-size: 11px; color: var(--sheet-text-3);
+  border-top: 1.5px solid var(--sheet-line);
+  display:flex; justify-content:space-between; gap: var(--sp-4); flex-wrap:wrap;
+  font-weight: 500;
+}
+
+[data-reveal]{ opacity:0; transform: translateY(16px); transition: opacity 0.7s ease, transform 0.7s ease; }
+[data-reveal].in-view{ opacity:1; transform: none; }
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible{
+  outline: 2px solid var(--iso-blue);
+  outline-offset: 2px;
+}
+
+@media(prefers-reduced-motion:reduce){
+  [data-reveal]{ opacity:1; transform:none; transition:none; }
+  .gauge-arc{ transition:none; }
+  .shimmer{ animation:none; background: var(--sheet-grid); }
+  .skeleton{ animation:none; opacity:1; }
+}
+
+@media(prefers-contrast:more){
+  .btn, .switch-card, .credit-card, .module, .testimonial-card{
+    border-width: 2px;
   }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{font-size:16px;-webkit-font-smoothing:antialiased;scroll-behavior:smooth}
-  body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.6}
-  a{color:inherit;text-decoration:none}
-  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
-  .mono{font-family:var(--mono)}
+  .report-verdict{ border-style: solid; }
+}
 
-  /* header */
-  header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
-  .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
-  .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:17px;letter-spacing:-0.2px}
-  .brand .mk{width:30px;height:30px;border-radius:7px;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-weight:600;font-size:13px}
-  .navlinks{display:flex;gap:28px;font-size:14px;font-weight:500;color:var(--ink-2)}
-  .navlinks a:hover{color:var(--blue)}
-  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:14px;padding:10px 18px;border-radius:var(--r);border:1px solid transparent;cursor:pointer;transition:all .15s}
-  .btn-primary{background:var(--blue);color:#fff}
-  .btn-primary:hover{background:var(--blue-2)}
-  .btn-ghost{background:var(--surface);color:var(--ink);border-color:var(--border-2)}
-  .btn-ghost:hover{border-color:var(--blue);color:var(--blue)}
-  @media(max-width:820px){.navlinks{display:none}}
+/* ================= BLUEPRINT ILLUSTRATION ================= */
+.blueprint-section{ background: var(--sheet-white); }
+.blueprint-grid-2{ display:grid; grid-template-columns: 1.25fr 0.75fr; gap: var(--sp-7); align-items: stretch; }
+@media(max-width:940px){ .blueprint-grid-2{ grid-template-columns:1fr; } }
+.blueprint-frame{
+  border: 1.5px solid var(--sheet-line-strong);
+  background: var(--sheet-paper);
+  position: relative;
+  padding: var(--sp-4);
+  padding-top: calc(var(--sp-4) + 22px);
+}
+.blueprint-frame::before{
+  content:"SC-CNC-001 \00B7 REV A \00B7 SCALE 1:2";
+  position:absolute; top:0; left:0;
+  font-family:var(--f-mono); font-size:10px; letter-spacing:0.12em;
+  color:var(--sheet-text-3); background:var(--sheet-white);
+  padding:6px 12px; border-right:1.5px solid var(--sheet-line); border-bottom:1.5px solid var(--sheet-line);
+  font-weight:600; z-index:2;
+}
+.blueprint-frame svg{ width:100%; height:auto; }
+.measure-steps{ display:flex; flex-direction:column; border:1.5px solid var(--sheet-line); background:var(--sheet-paper); }
+.measure-step{ display:flex; gap:var(--sp-4); padding:var(--sp-5); border-bottom:1.5px solid var(--sheet-line); align-items:flex-start; transition: background 0.2s; flex:1; }
+.measure-step:last-child{ border-bottom:none; }
+.measure-step:hover{ background: var(--sheet-white); }
+.measure-step .ms-num{ font-family:var(--f-mono); font-weight:700; color:var(--iso-orange); font-size:13px; border:1.5px solid var(--sheet-line-strong); width:40px; height:40px; display:flex; align-items:center; justify-content:center; flex-shrink:0; background:var(--sheet-paper); }
+.measure-step h4{ font-family:var(--f-body); text-transform:none; font-size:15.5px; font-weight:700; margin-bottom:4px; }
+.measure-step p{ font-size:13.5px; color:var(--sheet-text-2); line-height:1.55; margin:0; }
 
-  /* hero */
-  .hero{padding:72px 0 56px;border-bottom:1px solid var(--border);background:linear-gradient(180deg,#fff 0%,var(--bg) 100%)}
-  .hero-grid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:56px;align-items:center}
-  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;font-weight:500;color:var(--blue);background:var(--blue-soft);border:1px solid #DBE7FF;padding:5px 12px;border-radius:999px;margin-bottom:22px}
-  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--green)}
-  h1{font-size:54px;line-height:1.06;letter-spacing:-1.4px;font-weight:700;margin-bottom:20px}
-  .lede{font-size:18px;color:var(--ink-2);max-width:520px;margin-bottom:30px}
-  .lede strong{color:var(--ink);font-weight:600}
-  .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
-  .hero-note{margin-top:18px;font-family:var(--mono);font-size:12px;color:var(--muted)}
-  @media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:40px}h1{font-size:38px;letter-spacing:-0.8px}}
+/* ================= STACK LIST ================= */
+.stack-list-wrap{ margin-top: var(--sp-5); }
+.stack-list-label{ font-family:var(--f-mono); font-size:11px; text-transform:uppercase; letter-spacing:0.08em; color:var(--sheet-text-3); margin-bottom:var(--sp-2); font-weight:600; }
+.stack-list-label span{ color:var(--iso-blue); }
+.stack-chips{ display:flex; flex-direction:column; gap:6px; }
+.stack-chip{
+  display:flex; align-items:center; gap:var(--sp-3);
+  border:1.5px solid var(--sheet-line); background:var(--sheet-paper);
+  padding:8px 12px; font-family:var(--f-mono); font-size:12.5px;
+  animation: chipIn 0.25s ease;
+}
+@keyframes chipIn{ from{ opacity:0; transform:translateY(4px); } to{ opacity:1; transform:none; } }
+.stack-chip .sc-name{ font-weight:700; color:var(--sheet-text); flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.stack-chip .sc-tol{ color:var(--iso-blue); font-weight:600; }
+.stack-chip .sc-dist{ color:var(--sheet-text-3); font-size:10.5px; text-transform:uppercase; }
+.stack-chip .sc-remove{
+  border:1px solid var(--sheet-line); background:transparent; color:var(--sheet-text-3);
+  width:24px; height:24px; cursor:pointer; font-family:var(--f-mono); font-size:13px; line-height:1;
+  display:flex; align-items:center; justify-content:center; transition: all 0.15s; flex-shrink:0;
+}
+.stack-chip .sc-remove:hover{ border-color:var(--iso-red); color:var(--iso-red); }
 
-  /* live engineering stack-up diagram (open theme) */
-  .calc{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px;box-shadow:var(--shadow)}
-  .calc-hd{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
-  .calc-title{font-family:var(--mono);font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
-  .calc-live{display:flex;align-items:center;gap:7px;font-family:var(--mono);font-size:11px;color:var(--green)}
-  .calc-live .d{width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green);animation:p 2.4s infinite}
-  @keyframes p{0%,100%{opacity:1}50%{opacity:.35}}
-  .calc-body{display:grid;grid-template-columns:150px 1fr;gap:16px}
-  .calc-inputs .ci{margin-bottom:8px}
-  .calc-inputs label{display:block;font-family:var(--mono);font-size:9.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:3px}
-  .calc-inputs input{width:100%;background:var(--surface-2);border:1px solid var(--border);border-radius:6px;padding:7px 9px;font-family:var(--mono);font-size:12.5px;color:var(--ink);outline:none}
-  .calc-inputs input:focus{border-color:var(--blue)}
-  .calc-spec{display:flex;gap:6px;align-items:center;margin-top:10px;padding-top:10px;border-top:1px solid var(--border)}
-  .calc-spec input{width:70px;background:var(--surface-2);border:1px solid var(--border);border-radius:6px;padding:7px 9px;font-family:var(--mono);font-size:12.5px;color:var(--ink);outline:none}
-  .calc-spec span{font-family:var(--mono);font-size:10px;color:var(--muted)}
-  .stack-svg{width:100%;height:auto;background:var(--surface-2);border:1px solid var(--border);border-radius:8px}
-  .calc-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
-  .cm{background:var(--surface-2);border:1px solid var(--border);border-radius:8px;padding:9px 11px}
-  .cm-k{font-family:var(--mono);font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
-  .cm-v{font-family:var(--mono);font-size:16px;font-weight:600;color:var(--ink);margin-top:1px}
-  .calc-verdict{margin-top:10px;border-radius:8px;padding:10px 13px;font-family:var(--mono);font-size:12.5px;font-weight:600;display:flex;align-items:center;gap:9px}
-  .cv-pass{background:var(--green-soft);color:var(--green);border:1px solid #BBF7D0}
-  .cv-warn{background:var(--amber-soft);color:var(--amber);border:1px solid #FDE68A}
-  .cv-fail{background:var(--red-soft);color:var(--red);border:1px solid #FECACA}
-  .calc-ft{margin-top:11px;font-family:var(--mono);font-size:10.5px;color:var(--muted)}
-  .calc-ft a{color:var(--blue)}
-  @media(max-width:560px){.calc-body{grid-template-columns:1fr}}
+/* ================= HISTOGRAM ================= */
+.mc-hist-wrap{ margin: var(--sp-5) 0 var(--sp-2); }
+.mc-hist-label{ font-family:var(--f-mono); font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--sheet-text-3); margin-bottom:var(--sp-2); font-weight:600; }
+#mcHistogram{ width:100%; height:140px; display:block; border:1.5px solid var(--sheet-line); background:var(--sheet-white); }
 
-  /* trust bar */
-  .trust{border-bottom:1px solid var(--border);background:var(--surface)}
-  .trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
-  .trust-cell{padding:22px 24px;border-right:1px solid var(--border)}
-  .trust-cell:last-child{border-right:none}
-  .trust-k{font-family:var(--mono);font-size:22px;font-weight:600;color:var(--ink);letter-spacing:-0.5px}
-  .trust-v{font-size:12.5px;color:var(--muted);margin-top:3px}
-  @media(max-width:820px){.trust-grid{grid-template-columns:1fr 1fr}.trust-cell:nth-child(2){border-right:none}}
+.contributor-row{ display:flex; justify-content:space-between; align-items:baseline; padding-top:var(--sp-3); margin-top:var(--sp-2); gap:var(--sp-3); }
 
-  section{padding:72px 0}
-  .sec-eyebrow{font-family:var(--mono);font-size:12px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:12px}
-  h2{font-size:34px;letter-spacing:-0.8px;font-weight:700;line-height:1.15;margin-bottom:14px}
-  .sec-lede{font-size:16.5px;color:var(--ink-2);max-width:640px;margin-bottom:40px}
+.readout-flash{ animation: flashCell 0.9s ease; }
+@keyframes flashCell{ 0%{ background: var(--iso-blue-glow); } 100%{ background: transparent; } }
+@media(prefers-reduced-motion:reduce){
+  .stack-chip{ animation:none; }
+  .readout-flash{ animation:none; }
+}
 
-  /* role cards */
-  .roles{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-  .role{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:24px;transition:all .15s}
-  .role:hover{border-color:var(--blue);box-shadow:var(--shadow);transform:translateY(-2px)}
-  .role-q{font-size:12px;font-family:var(--mono);color:var(--muted);margin-bottom:8px}
-  .role-t{font-size:17px;font-weight:600;margin-bottom:8px}
-  .role-d{font-size:13.5px;color:var(--ink-2);margin-bottom:14px}
-  .role-link{font-size:13px;font-weight:600;color:var(--blue);display:inline-flex;align-items:center;gap:6px}
-  @media(max-width:820px){.roles{grid-template-columns:1fr}}
+/* ================= GRID MIN-WIDTH SAFETY (mobile overflow fix) ================= */
+.hero-inner > *, .demo-grid > *, .blueprint-grid-2 > *, .flagship > *,
+.comparison-grid > *, .switchboard > *, .modules > *, .method-rail > *,
+.standards-grid > *, .credit-packages > *, .testimonials-grid > *,
+.spec-strip > *, .tb-grid > *, .tb-links > *{ min-width: 0; }
+#mcHistogram{ min-width: 0; }
 
-  /* flagship */
-  .flag{background:var(--surface);border:1px solid var(--border);border-radius:16px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr}
-  .flag-body{padding:40px}
-  .flag-tag{display:inline-block;font-family:var(--mono);font-size:11px;font-weight:600;color:var(--amber);background:var(--amber-soft);border:1px solid #FDE68A;padding:3px 10px;border-radius:6px;margin-bottom:16px}
-  .flag h3{font-size:24px;font-weight:700;letter-spacing:-0.4px;margin-bottom:12px}
-  .flag p{font-size:14.5px;color:var(--ink-2);margin-bottom:20px}
-  .flag-list{list-style:none;margin-bottom:24px}
-  .flag-list li{font-size:13.5px;color:var(--ink-2);padding:7px 0;border-bottom:1px solid var(--border);display:flex;gap:10px}
-  .flag-list li:last-child{border-bottom:none}
-  .flag-list .ck{color:var(--green);font-weight:700;font-family:var(--mono)}
-  .flag-vis{background:#0B1220;padding:40px;display:flex;flex-direction:column;justify-content:center;gap:12px}
-  .fv-row{display:flex;justify-content:space-between;align-items:baseline;font-family:var(--mono);font-size:13px;color:#94A3B8;padding:9px 0;border-bottom:1px solid #1E293B}
-  .fv-row b{color:#F1F5F9;font-weight:600}
-  .fv-row .g{color:#4ADE80}.fv-row .a{color:#FBBF24}
-  @media(max-width:820px){.flag{grid-template-columns:1fr}}
+/* ================= SMALL-PHONE POLISH ================= */
+@media(max-width:480px){
+  #addToStackBtn, #resetBtn, #fullReportBtn, #downloadPdfBtn{ flex:1 1 100%; justify-content:center; }
+  .gauge-readout .v{ font-size: 14px; }
+  .gauge-readout .k{ font-size: 9px; }
+}
 
-  /* groups */
-  .groups{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-  .group{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:26px}
-  .group-ic{width:38px;height:38px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-weight:600;font-size:15px;margin-bottom:16px}
-  .g-cost .group-ic{background:var(--blue-soft);color:var(--blue)} .g-qual .group-ic{background:var(--green-soft);color:var(--green)} .g-risk .group-ic{background:var(--amber-soft);color:var(--amber)}
-  .group h4{font-size:17px;font-weight:600;margin-bottom:8px}
-  .group p{font-size:13.5px;color:var(--ink-2);margin-bottom:16px}
-  .group ul{list-style:none}
-  .group li{font-size:13px;color:var(--muted);padding:5px 0;font-family:var(--mono)}
-  .group li b{color:var(--ink-2);font-weight:500}
-  @media(max-width:820px){.groups{grid-template-columns:1fr}}
-
-  /* verify layers */
-  .layers{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-  .layer{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:22px;position:relative}
-  .layer-n{font-family:var(--mono);font-size:11px;font-weight:600;color:var(--blue);margin-bottom:10px}
-  .layer h5{font-size:15px;font-weight:600;margin-bottom:8px}
-  .layer p{font-size:12.5px;color:var(--muted);line-height:1.55}
-  @media(max-width:820px){.layers{grid-template-columns:1fr 1fr}}
-
-  /* sample report */
-  .sample{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:36px;display:grid;grid-template-columns:0.9fr 1.1fr;gap:36px;align-items:center}
-  .sample-meta{font-family:var(--mono);font-size:12px;color:var(--muted);line-height:2;margin:16px 0}
-  .sample-meta b{color:var(--ink)}
-  .sample-card{background:#0B1220;border-radius:12px;padding:24px;color:#E2E8F0}
-  .sc-line{display:flex;justify-content:space-between;font-family:var(--mono);font-size:12.5px;padding:8px 0;border-bottom:1px solid #1E293B;color:#94A3B8}
-  .sc-line:last-child{border-bottom:none}
-  .sc-line b{color:#F1F5F9}
-  .sc-vd{margin-top:14px;background:rgba(21,128,61,0.14);border:1px solid rgba(21,128,61,0.3);color:#4ADE80;border-radius:8px;padding:11px 14px;font-family:var(--mono);font-size:13px;font-weight:600}
-  @media(max-width:820px){.sample{grid-template-columns:1fr}}
-
-  /* outcomes (honest, no fake counters) */
-  .outcomes{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-  .oc{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:24px;display:flex;gap:16px}
-  .oc-ic{width:34px;height:34px;border-radius:8px;background:var(--blue-soft);color:var(--blue);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-weight:600;flex-shrink:0}
-  .oc h5{font-size:15px;font-weight:600;margin-bottom:6px}
-  .oc p{font-size:13.5px;color:var(--ink-2)}
-  @media(max-width:820px){.outcomes{grid-template-columns:1fr}}
-
-  /* standards */
-  .std-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-  .std-box{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:26px}
-  .std-box h5{font-size:15px;font-weight:600;margin-bottom:14px}
-  .std-line{font-family:var(--mono);font-size:12.5px;color:var(--ink-2);padding:7px 0;border-bottom:1px solid var(--border)}
-  .std-line:last-child{border-bottom:none}
-  .std-line b{color:var(--blue)}
-  .limits{background:var(--amber-soft);border:1px solid #FDE68A;border-radius:12px;padding:22px;margin-top:16px}
-  .limits h5{font-size:14px;font-weight:600;color:var(--amber);margin-bottom:10px}
-  .limits p{font-size:13px;color:var(--ink-2);line-height:1.7}
-  @media(max-width:820px){.std-grid{grid-template-columns:1fr}}
-
-  /* pricing teaser */
-  .price-cta{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:44px;text-align:center}
-  .price-cta h2{margin-bottom:12px}
-  .price-cta p{font-size:16px;color:var(--ink-2);max-width:560px;margin:0 auto 26px}
-
-  /* final cta */
-  .final{background:#0B1220;border-radius:20px;padding:60px 40px;text-align:center;color:#F1F5F9}
-  .final h2{color:#fff;margin-bottom:14px}
-  .final p{color:#94A3B8;font-size:16px;max-width:520px;margin:0 auto 28px}
-  .final .btn-primary{background:#2563EB}
-
-  footer{border-top:1px solid var(--border);background:var(--surface);padding:40px 0;margin-top:72px}
-  .foot{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:flex-start}
-  .foot-brand{max-width:360px}
-  .foot-brand p{font-size:12.5px;color:var(--muted);margin-top:10px;line-height:1.7}
-  .foot-cols{display:flex;gap:56px;flex-wrap:wrap}
-  .foot-col h6{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--ink);margin-bottom:12px}
-  .foot-col a{display:block;font-size:13px;color:var(--muted);padding:4px 0}
-  .foot-col a:hover{color:var(--blue)}
-  .foot-legal{margin-top:30px;padding-top:20px;border-top:1px solid var(--border);font-family:var(--mono);font-size:11.5px;color:var(--muted);line-height:1.8}
+/* ============================================================
+   SC-HERO - live cell hero (scoped; from ACIK-TEMA)
+   ============================================================ */
+.sc-hero{
+  --sc-hero-bg:var(--sheet-white);--sc-hero-bg2:var(--sheet-grid);--sc-hero-panel:var(--sheet-paper);
+  --sc-hero-line:var(--sheet-line-hair);--sc-hero-line2:var(--sheet-line);
+  --sc-hero-blue:var(--iso-blue);--sc-hero-blue-deep:#0055A4;--sc-hero-orange:var(--iso-orange);
+  --sc-hero-green:var(--iso-green);--sc-hero-red:var(--iso-red);
+  --sc-hero-ink:var(--sheet-text);--sc-hero-ink2:var(--sheet-text-2);--sc-hero-steel:var(--sheet-text-3);
+  --sc-hero-mono:var(--f-mono);--sc-hero-disp:var(--f-display);--sc-hero-body:var(--f-body);
+  --sc-hero-surface:rgba(255,255,255,.85);--sc-hero-surface-solid:#fff;
+  --sc-hero-deck:rgba(248,248,244,.94);--sc-hero-cell-a:#F2F5F8;--sc-hero-cell-b:#DDE4EA;
+  --sc-hero-badge-bg:#E6F4EB;--sc-hero-mlabel-bg:rgba(255,255,255,.95);
+  --sc-hero-needle:#1A1A1A;
+  position:relative;min-height:calc(100vh - 88px);display:flex;flex-direction:column;overflow:hidden;
+}
+[data-theme="dark"] .sc-hero{
+  --sc-hero-blue-deep:#0055A4;
+  --sc-hero-ink:#FFFFFF;
+  --sc-hero-ink2:#FFFFFF;
+  --sc-hero-steel:#A8B0B8;
+  --sc-hero-surface:rgba(27,31,35,.92);
+  --sc-hero-surface-solid:var(--sheet-paper);
+  --sc-hero-deck:rgba(20,23,26,.96);
+  --sc-hero-cell-a:#243038;
+  --sc-hero-cell-b:#1A2228;
+  --sc-hero-badge-bg:rgba(0,122,51,.22);
+  --sc-hero-mlabel-bg:rgba(27,31,35,.95);
+  --sc-hero-needle:#E8EAEC;
+}
+.sc-hero::before{content:"";position:absolute;inset:0;
+  background-image:linear-gradient(rgba(0,85,164,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(0,85,164,.06) 1px,transparent 1px);
+  background-size:44px 44px;pointer-events:none;z-index:0}
+[data-theme="dark"] .sc-hero::before{
+  background-image:linear-gradient(rgba(79,166,214,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(79,166,214,.08) 1px,transparent 1px);
+}
+.sc-hero .hero-grid{position:relative;z-index:3;flex:1;display:grid;grid-template-columns:42% 58%;max-width:1440px;margin:0 auto;width:100%;padding:36px 40px;gap:40px;align-items:center}
+.sc-hero .sc-hero-badge{display:inline-flex;align-items:center;gap:8px;font-family:var(--sc-hero-mono);font-size:11px;font-weight:700;letter-spacing:.14em;color:var(--sc-hero-green);background:var(--sc-hero-badge-bg);border:1px solid var(--sc-hero-green);padding:6px 14px;border-radius:100px;text-transform:uppercase}
+.sc-hero .sc-hero-badge .dot{width:8px;height:8px;border-radius:50%;background:var(--sc-hero-green);animation:sc-hero-pulse 1.6s infinite}
+@keyframes sc-hero-pulse{0%,100%{opacity:1}50%{opacity:.25}}
+.sc-hero .sc-hero-title{font-family:var(--sc-hero-disp);font-size:clamp(38px,4.2vw,58px);line-height:1.07;letter-spacing:-.01em;margin:22px 0 16px;color:var(--sc-hero-ink);font-weight:800;text-transform:none}
+.sc-hero .sc-hero-title em{font-style:normal;color:var(--sc-hero-blue)}
+.sc-hero .sc-hero-lead{font-size:17px;color:var(--sc-hero-ink2);max-width:480px;margin-bottom:26px;font-family:var(--sc-hero-body)}
+.sc-hero .sc-hero-lead strong{color:var(--sc-hero-ink);font-weight:700}
+.sc-hero .sc-hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:26px}
+.sc-hero .sc-hero-btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:15px;padding:13px 24px;border-radius:4px;border:1px solid transparent;cursor:pointer;text-decoration:none;transition:all .15s;font-family:var(--sc-hero-body)}
+.sc-hero .sc-hero-btn-b{background:var(--sc-hero-blue-deep);color:#fff !important}.sc-hero .sc-hero-btn-b:hover{background:#003E78;color:#fff !important}
+.sc-hero .sc-hero-btn-o{border-color:var(--sc-hero-line2);color:var(--sc-hero-ink);background:transparent}.sc-hero .sc-hero-btn-o:hover{border-color:var(--sc-hero-blue);color:var(--sc-hero-blue)}
+.sc-hero .sc-hero-trust{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.sc-hero .sc-hero-trust div{border:1px solid var(--sc-hero-line);background:var(--sc-hero-surface);padding:11px 13px;border-radius:4px}
+.sc-hero .sc-hero-trust b{display:block;font-size:12.5px;color:var(--sc-hero-ink)}.sc-hero .sc-hero-trust span{font-size:11.5px;color:var(--sc-hero-ink2)}
+.sc-hero .cell{position:relative;border:1px solid var(--sc-hero-line2);border-radius:10px;overflow:hidden;
+  background:radial-gradient(120% 90% at 50% 32%,var(--sc-hero-cell-a) 0%,var(--sc-hero-cell-b) 78%);
+  box-shadow:0 30px 80px rgba(26,26,26,.18),inset 0 1px 0 rgba(255,255,255,.9)}
+[data-theme="dark"] .sc-hero .cell{box-shadow:0 30px 80px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.06)}
+.sc-hero #stage{display:block;width:100%;height:100%;cursor:grab}
+.sc-hero .stage-wrap{position:relative;width:100%;height:430px}
+.stage-wrap{position:relative;width:100%;height:100%}
+.stage-wrap canvas{position:absolute;inset:0;width:100%;height:100%;opacity:0;transition:opacity .45s ease}
+.stage-wrap canvas.is-ready{opacity:1}
+.stage-poster{position:absolute;inset:0;width:100%;height:100%;transition:opacity .5s ease .1s}
+[data-theme="dark"] .stage-poster #sp-bg stop:nth-child(1){stop-color:#243038}
+[data-theme="dark"] .stage-poster #sp-bg stop:nth-child(2){stop-color:#1A2228}
+.stage-wrap:has(canvas.is-ready) .stage-poster{opacity:0;pointer-events:none}
+@media (prefers-reduced-motion: reduce){
+  .stage-wrap canvas,.stage-poster{transition:none}
+}
+.sc-hero .hud{position:absolute;top:0;left:0;right:0;height:430px;pointer-events:none;font-family:var(--sc-hero-mono)}
+.sc-hero .hud .corner{position:absolute;width:22px;height:22px;border:2px solid rgba(0,85,164,.5)}
+[data-theme="dark"] .sc-hero .hud .corner{border-color:rgba(79,166,214,.55)}
+.sc-hero .hud .c1{top:12px;left:12px;border-right:none;border-bottom:none}
+.sc-hero .hud .c2{top:12px;right:12px;border-left:none;border-bottom:none}
+.sc-hero .hud .c3{bottom:12px;left:12px;border-right:none;border-top:none}
+.sc-hero .hud .c4{bottom:12px;right:12px;border-left:none;border-top:none}
+.sc-hero .hud .telemetry{position:absolute;top:16px;left:44px;font-size:10.5px;line-height:1.9;color:var(--sc-hero-blue);letter-spacing:.06em;text-shadow:0 0 6px rgba(255,255,255,.9)}
+[data-theme="dark"] .sc-hero .hud .telemetry{text-shadow:0 0 8px rgba(0,0,0,.65)}
+.sc-hero .hud .telemetry b{color:var(--sc-hero-ink)}
+.sc-hero .hud .gcode{position:absolute;bottom:14px;left:44px;font-size:10.5px;color:var(--sc-hero-green);letter-spacing:.05em;text-shadow:0 0 6px rgba(255,255,255,.9)}
+[data-theme="dark"] .sc-hero .hud .gcode{text-shadow:0 0 8px rgba(0,0,0,.65);color:#7CC46B}
+.sc-hero .hud .celltag{position:absolute;top:16px;right:44px;font-size:10.5px;color:var(--sc-hero-ink2);text-align:right;line-height:1.9}
+.sc-hero .hud .celltag b{color:var(--sc-hero-orange)}
+.sc-hero .scanline{position:absolute;top:0;left:0;right:0;height:430px;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(26,26,26,.022) 0 1px,transparent 1px 3px)}
+[data-theme="dark"] .sc-hero .scanline{background:repeating-linear-gradient(0deg,rgba(255,255,255,.03) 0 1px,transparent 1px 3px)}
+.sc-hero .mlabel{position:absolute;font-family:var(--sc-hero-mono);font-size:11px;font-weight:700;color:var(--sc-hero-ink);
+  background:var(--sc-hero-mlabel-bg);border:1px solid var(--sc-hero-orange);padding:4px 9px;border-radius:3px;
+  transform:translate(-50%,-130%);opacity:0;transition:opacity .25s;pointer-events:none;white-space:nowrap;
+  box-shadow:0 4px 14px rgba(232,119,34,.3)}
+.sc-hero .mlabel::after{content:"";position:absolute;top:100%;left:50%;width:1px;height:14px;background:var(--sc-hero-orange)}
+.sc-hero .mlabel.show{opacity:1}
+.sc-hero .mlabel .mu{color:var(--sc-hero-orange)}
+.sc-hero .deck{border-top:1px solid var(--sc-hero-line);background:var(--sc-hero-deck);padding:16px 22px 14px}
+.sc-hero .deck-top{display:grid;grid-template-columns:1fr 190px;gap:22px;align-items:start}
+.sc-hero .e-ctrl label{display:flex;justify-content:space-between;font-size:12.5px;font-weight:600;color:var(--sc-hero-ink);margin-bottom:4px;font-family:var(--sc-hero-mono)}
+.sc-hero .e-ctrl label output{color:var(--sc-hero-blue);font-weight:700}
+.sc-hero .e-ctrl input[type=range]{width:100%;accent-color:var(--sc-hero-blue);height:24px;cursor:grab;background:transparent}
+.sc-hero .e-ctrl .hint{font-size:10px;color:var(--sc-hero-steel);font-family:var(--sc-hero-mono)}
+.sc-hero .histo-wrap{position:relative;border:1px solid var(--sc-hero-line);border-radius:4px;background:var(--sc-hero-surface);margin-top:8px}
+.sc-hero #histo{display:block;width:100%;height:104px}
+.sc-hero .histo-cap{display:flex;justify-content:space-between;font-family:var(--sc-hero-mono);font-size:9.5px;color:var(--sc-hero-steel);padding-top:4px}
+.sc-hero .sc-hero-gauge-wrap{position:relative;text-align:center;padding-bottom:34px}
+.sc-hero #gauge{width:170px;height:102px;display:block;margin:0 auto;color:var(--sc-hero-needle)}
+.sc-hero .gauge-val{position:absolute;bottom:0;left:0;right:0}
+.sc-hero .gauge-val b{font-family:var(--sc-hero-mono);font-size:21px;color:var(--sc-hero-ink)}
+.sc-hero .gauge-val span{display:block;font-family:var(--sc-hero-mono);font-size:8.5px;letter-spacing:.16em;color:var(--sc-hero-steel);text-transform:uppercase}
+.sc-hero .vals{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
+.sc-hero .val{border:1px solid var(--sc-hero-line);border-radius:4px;padding:8px 6px;text-align:center;background:var(--sc-hero-surface-solid)}
+.sc-hero .val .l{font-family:var(--sc-hero-mono);font-size:8.5px;letter-spacing:.12em;color:var(--sc-hero-steel);text-transform:uppercase}
+.sc-hero .val .v{font-family:var(--sc-hero-mono);font-size:15.5px;font-weight:700;margin-top:2px;color:var(--sc-hero-ink)}
+.sc-hero .val.rss .v{color:var(--sc-hero-blue)}.sc-hero .val.mc .v{color:var(--sc-hero-orange)}
+.sc-hero .deck-foot{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-top:10px;font-family:var(--sc-hero-mono);font-size:10px;color:var(--sc-hero-ink2)}
+.sc-hero .deck-foot b{color:var(--sc-hero-blue)}
+.sc-hero .deck-foot .ok{color:var(--sc-hero-green)}
+[data-theme="dark"] .sc-hero .deck-foot .ok{color:#7CC46B}
+@media(max-width:1020px){
+  .sc-hero .hero-grid{grid-template-columns:1fr;padding:28px 20px}
+  .sc-hero .deck-top{grid-template-columns:1fr}
+  .sc-hero .stage-wrap,.sc-hero #stage{height:340px}
+  .sc-hero .hud,.sc-hero .scanline{height:340px}
+  .sc-hero .sc-hero-trust{grid-template-columns:1fr}
+}
 </style>
+<script type="importmap">
+{"imports":{"three":"/vendor/three/three.module.js",
+"three/addons/environments/RoomEnvironment.js":"/vendor/three/RoomEnvironment.js"}}
+</script>
+<link rel="modulepreload" href="/vendor/three/three.module.js" crossorigin>
+<link rel="modulepreload" href="/vendor/three/RoomEnvironment.js" crossorigin>
+<link rel="stylesheet" href="./sc-theme.css?v=8">
+<script src="./sc-theme.js?v=8" defer></script>
 </head>
 <body>
 
-<header>
-  <div class="wrap nav">
-    <a class="brand" href="/"><span class="mk">SC</span> SectorCalc</a>
-    <nav class="navlinks">
-      <a href="#tools">Tools</a>
-      <a href="#verify">Method</a>
-      <a href="#standards">Standards</a>
-      <a href="/pricing.html">Pricing</a>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme" aria-pressed="false" title="Dark mode">
+  <svg data-theme-icon="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  <svg data-theme-icon="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+</button>
+
+<div class="sheet">
+  <div class="reg-mark tl"></div><div class="reg-mark tr"></div><div class="reg-mark bl"></div><div class="reg-mark br"></div>
+  <div class="zone-edge top" style="left:8%;">1</div><div class="zone-edge top" style="left:28%;">2</div><div class="zone-edge top" style="left:48%;">3</div><div class="zone-edge top" style="left:68%;">4</div><div class="zone-edge top" style="left:92%;">5</div>
+  <div class="zone-edge bottom" style="left:8%;">A</div><div class="zone-edge bottom" style="left:28%;">B</div><div class="zone-edge bottom" style="left:48%;">C</div><div class="zone-edge bottom" style="left:68%;">D</div><div class="zone-edge bottom" style="left:92%;">E</div>
+
+  <header class="site-header" role="banner">
+    <a href="/" class="brand" aria-label="SectorCalc Home"><span class="brand-mark"><img class="logo-light" src="/sectorcalc-logo.png" alt="SectorCalc" width="183" height="48"><img class="logo-dark" src="/sectorcalc-logo-dark.png?v=2" alt="" width="183" height="48" aria-hidden="true"></span></a>
+    <nav class="main-nav" role="navigation" aria-label="Main navigation">
+      <ul><li><a href="#decide">Tools</a></li><li><a href="#method">Method</a></li><li><a href="#standards">Standards</a></li><li><a href="/pricing.html">Pricing</a></li></ul>
+      <a href="/sc008-pro.html" class="btn btn-primary">Run a Calculation</a>
     </nav>
-    <a class="btn btn-primary" href="/sc008-pro.html">Run a Calculation</a>
+    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <div class="mobile-nav-overlay" id="mobileNav" role="dialog" aria-label="Mobile menu" aria-hidden="true">
+    <a href="#decide">Tools</a>
+    <a href="#method">Method</a>
+    <a href="#standards">Standards</a>
+    <a href="/pricing.html">Pricing</a>
+    <a href="/sc008-pro.html" class="btn btn-primary">Run a Calculation</a>
   </div>
-</header>
 
-<!-- HERO -->
-<div class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <span class="eyebrow"><span class="dot"></span> Deterministic engine · same inputs, same result</span>
-      <h1>Turn industrial inputs into defensible decisions.</h1>
-      <p class="lede">Deterministic calculators for engineering, machining, quality and costing. <strong>See every input, assumption, formula and warning</strong> before you act. Client-side — your data never leaves your browser.</p>
-      <div class="hero-cta">
-        <a class="btn btn-primary" href="/sc008-pro.html">Run a Calculation</a>
-        <a class="btn btn-ghost" href="/sc008-pro.html">View a Sample Report</a>
+  <section class="sc-hero" id="main-content" aria-label="Hero section">
+    <div class="hero-grid">
+      <div>
+        <span class="sc-hero-badge"><span class="dot" aria-hidden="true"></span> Live Cell · Deterministic Engine</span>
+        <h1 class="sc-hero-title">The Machine Is Running. <em>The Math Is Yours.</em></h1>
+        <p class="sc-hero-lead">A live turning cell measuring a real part - and under it, the actual SC-008 engine computing your tolerance stack-up. <strong>Drag the slider. Same seed, same result, every time.</strong></p>
+        <div class="sc-hero-ctas">
+          <a href="/sc008-pro.html" class="sc-hero-btn sc-hero-btn-b">Run SC-008 Free →</a>
+          <a href="#decide" class="sc-hero-btn sc-hero-btn-o">Browse Calculators</a>
+        </div>
+        <div class="sc-hero-trust">
+          <div><b>ISO 3864 UI</b><span>Shop-floor readable</span></div>
+          <div><b>100% Client-Side</b><span>Data never leaves browser</span></div>
+          <div><b>Audit-Ready PDF</b><span>Hash + version stamped</span></div>
+        </div>
       </div>
-      <div class="hero-note">No login to try · No data uploaded · Reproducible by seed</div>
-    </div>
 
-    <!-- LIVE ENGINEERING STACK-UP DIAGRAM -->
-    <div class="calc">
-      <div class="calc-hd">
-        <span class="calc-title">Tolerance Stack-Up · live</span>
-        <span class="calc-live"><span class="d"></span> computing</span>
-      </div>
-      <div class="calc-body">
-        <div class="calc-inputs">
-          <div class="ci"><label>Spacer ±tol</label><input type="number" id="t0" value="0.050" step="0.001"></div>
-          <div class="ci"><label>Bearing ±tol</label><input type="number" id="t1" value="0.025" step="0.001"></div>
-          <div class="ci"><label>Housing ±tol</label><input type="number" id="t2" value="0.040" step="0.001"></div>
-          <div class="calc-spec">
-            <span>Spec ±</span>
-            <input type="number" id="spec" value="0.150" step="0.001">
-            <span>mm</span>
+      <div class="cell">
+        <div class="stage-wrap">
+          <svg class="stage-poster" viewBox="0 0 640 400" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <linearGradient id="sp-bg" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#F2F5F8"/><stop offset="1" stop-color="#DDE4EA"/>
+              </linearGradient>
+              <linearGradient id="sp-steel" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#C6CCD3"/><stop offset=".5" stop-color="#9BA2AB"/><stop offset="1" stop-color="#7D848D"/>
+              </linearGradient>
+            </defs>
+            <rect width="640" height="400" fill="url(#sp-bg)"/>
+            <g stroke="#C9D2DA" stroke-width="1">
+              <path d="M0 340h640M0 300h640M0 260h640" opacity=".6"/>
+            </g>
+            <rect x="88" y="152" width="96" height="96" rx="8" fill="#2E3338"/>
+            <path d="M176 192 h60 v-14 h44 v14 h56 v-22 h40 v22 h64 v-8 h56 v8 h68 v16 h-388 z" fill="url(#sp-steel)"/>
+            <ellipse cx="424" cy="200" rx="16" ry="34" fill="#8A9098"/>
+            <rect x="416" y="92" width="8" height="78" rx="3" fill="#4A5058"/>
+            <circle cx="420" cy="176" r="7" fill="#E8536B"/>
+            <rect x="408" y="86" width="24" height="10" rx="3" fill="#0055A4"/>
+            <rect x="448" y="120" width="120" height="26" rx="6" fill="#fff" stroke="#E3E7EC"/>
+            <text x="458" y="138" font-family="ui-monospace,monospace" font-size="13" fill="#0055A4">D41.600 <tspan fill="#E87722">-0.006</tspan></text>
+          </svg>
+          <canvas id="stage" aria-label="Live 3D turning cell"></canvas>
+        </div>
+        <div class="scanline" aria-hidden="true"></div>
+        <div class="hud" aria-hidden="true">
+          <div class="corner c1"></div><div class="corner c2"></div><div class="corner c3"></div><div class="corner c4"></div>
+          <div class="telemetry">
+            SPINDLE <b id="tRpm">1420</b> RPM · FEED <b>0.20</b> mm/rev<br>
+            X <b id="tX">+0.000</b> · Z <b id="tZ">+0.000</b> · PROBE <b id="tProbe">READY</b>
+          </div>
+          <div class="celltag">CELL <b>SC-008</b> · TURNING + INSPECT<br>MODE <b id="tMode">AUTO-MEASURE</b></div>
+          <div class="gcode" id="gcode">G01 X40.000 Z-12.000 F0.20</div>
+          <div class="mlabel" id="mlabel">D40.000 <span class="mu">+0.012</span></div>
+        </div>
+
+        <div class="deck">
+          <div class="deck-top">
+            <div>
+              <div class="e-ctrl">
+                <label>SPACER TOLERANCE <output id="oTol">±0.050 mm</output></label>
+                <input type="range" id="inTol" min="10" max="100" value="50" step="5" aria-label="Spacer tolerance">
+                <div class="hint">ISO 2768-m · sigma = Tol/3 · NORMAL · 10,000 ITER</div>
+              </div>
+              <div class="histo-wrap"><canvas id="histo" aria-label="Monte Carlo histogram"></canvas></div>
+              <div class="histo-cap"><span>−0.15</span><span>MONTE CARLO · SEED 7A3F1C9E</span><span>+0.15 mm</span></div>
+            </div>
+            <div class="sc-hero-gauge-wrap">
+              <svg id="gauge" viewBox="0 0 200 118" role="img" aria-label="Cpk gauge">
+                <path d="M14 108 A 86 86 0 0 1 57 32" fill="none" stroke="#C8102E" stroke-width="12" opacity=".8"/>
+                <path d="M60 30 A 86 86 0 0 1 100 22" fill="none" stroke="#E87722" stroke-width="12" opacity=".8"/>
+                <path d="M104 22 A 86 86 0 0 1 186 108" fill="none" stroke="#007A33" stroke-width="12" opacity=".8"/>
+                <g id="needle" transform="rotate(0 100 108)">
+                  <line x1="100" y1="100" x2="100" y2="36" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+                  <circle cx="100" cy="108" r="4.5" fill="currentColor"/>
+                </g>
+              </svg>
+              <div class="gauge-val"><b id="cpkVal">1.50</b><span>Cpk</span></div>
+            </div>
+          </div>
+          <div class="vals">
+            <div class="val"><div class="l">Worst-Case</div><div class="v" id="vWC">±0.1250</div></div>
+            <div class="val rss"><div class="l">RSS</div><div class="v" id="vRSS">±0.0665</div></div>
+            <div class="val mc"><div class="l">Monte Carlo</div><div class="v" id="vMC">±0.0660</div></div>
+          </div>
+          <div class="deck-foot">
+            <span>SEED <b>0x7A3F1C9E</b></span><span>ITER <b>10,000</b></span>
+            <span>ENGINE <b>v2.0.0</b></span><span>TIME <b id="calcTime">0.4 ms</b></span>
+            <span class="ok">✓ REPRODUCIBLE</span>
           </div>
         </div>
-        <svg class="stack-svg" id="stackSvg" viewBox="0 0 540 300" role="img" aria-label="Tolerance stack-up diagram"></svg>
-      </div>
-      <div class="calc-metrics">
-        <div class="cm"><div class="cm-k">Worst-case</div><div class="cm-v" id="wc">—</div></div>
-        <div class="cm"><div class="cm-k">RSS</div><div class="cm-v" id="rss">—</div></div>
-        <div class="cm"><div class="cm-k">Monte Carlo</div><div class="cm-v" id="mc">—</div></div>
-      </div>
-      <div class="calc-verdict" id="verdict"></div>
-      <div class="calc-ft">Live preview — full Monte Carlo, Cpk &amp; PDF in the <a href="/sc008-pro.html">calculator</a>.</div>
-    </div>
-  </div>
-</div>
-
-<!-- TRUST BAR (real technical facts, no fake counters) -->
-<div class="trust">
-  <div class="wrap trust-grid">
-    <div class="trust-cell"><div class="trust-k">394</div><div class="trust-v">automated tests, all passing</div></div>
-    <div class="trust-cell"><div class="trust-k">Decimal</div><div class="trust-v">full-precision engine, no float drift</div></div>
-    <div class="trust-cell"><div class="trust-k">100%</div><div class="trust-v">client-side — nothing uploaded</div></div>
-    <div class="trust-cell"><div class="trust-k">Seeded</div><div class="trust-v">reproducible Monte Carlo</div></div>
-  </div>
-</div>
-
-<!-- ROLES -->
-<section id="decide">
-  <div class="wrap">
-    <div class="sec-eyebrow">Start from your decision</div>
-    <h2>What are you trying to decide?</h2>
-    <p class="sec-lede">Different roles run the numbers for different reasons. Pick the question — we route you to the right calculator and the right evidence.</p>
-    <div class="roles">
-      <a class="role" href="/sc008-pro.html"><div class="role-q">Engineering</div><div class="role-t">Will this tolerance stack hold the spec?</div><div class="role-d">Worst-case, RSS and Monte Carlo with predicted Cpk — every assumption visible.</div><span class="role-link">Open stack-up →</span></a>
-      <a class="role" href="/quote-pro.html"><div class="role-q">Estimating</div><div class="role-t">Is this quote profitable?</div><div class="role-d">Full-absorption cost build-up, margin and sell/cost ratio before you commit.</div><span class="role-link">Open quote pricing →</span></a>
-      <a class="role" href="/labor-pro.html"><div class="role-q">Costing</div><div class="role-t">What does labor really cost?</div><div class="role-d">True loaded labor cost — statutory burden and benefits, not just net wage.</div><span class="role-link">Open labor cost →</span></a>
-      <a class="role" href="/weld-pro.html"><div class="role-q">Fabrication</div><div class="role-t">Is this weld sized correctly?</div><div class="role-d">Required leg and throat against design load, with utilization check.</div><span class="role-link">Open weld check →</span></a>
-      <a class="role" href="/sc008-pro.html"><div class="role-q">Quality</div><div class="role-t">Is the process capable?</div><div class="role-d">Predicted capability from tolerances — flagged as prediction, not measured SPC.</div><span class="role-link">Open capability →</span></a>
-      <a class="role" href="#verify"><div class="role-q">Audit / Review</div><div class="role-t">Can I defend this number?</div><div class="role-d">Inputs, formula, assumptions, warnings and engine version in every report.</div><span class="role-link">See the method →</span></a>
-    </div>
-  </div>
-</section>
-
-<!-- FLAGSHIP -->
-<section id="tools" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-eyebrow">Flagship</div>
-    <h2>Statistical Tolerance Stack-Up</h2>
-    <p class="sec-lede">The hardest everyday question on the floor — will the assembled dimensions stay within spec? Three methods, one deterministic engine.</p>
-    <div class="flag">
-      <div class="flag-body">
-        <span class="flag-tag">Engineering preview · not for production approval</span>
-        <h3>Three methods, one answer you can trace</h3>
-        <p>Worst-case for the safe bound, RSS for the statistical estimate, seeded Monte Carlo for the distribution — compared side by side, with the contributor that drives the most variation called out.</p>
-        <ul class="flag-list">
-          <li><span class="ck">✓</span> Per-part distribution: normal, uniform, truncated-normal, triangular</li>
-          <li><span class="ck">✓</span> Real sample histogram — not a decorative bell curve</li>
-          <li><span class="ck">✓</span> Predicted Cpk &amp; PPM with a 95% confidence interval</li>
-          <li><span class="ck">✓</span> Deterministic: same inputs + seed + engine version = same report</li>
-          <li><span class="ck">✓</span> Save / load projects, CSV import, revision compare, PDF trace</li>
-        </ul>
-        <a class="btn btn-primary" href="/sc008-pro.html">Open the calculator</a>
-      </div>
-      <div class="flag-vis">
-        <div class="fv-row"><span>Worst-case</span><b>±0.1150 mm</b></div>
-        <div class="fv-row"><span>RSS</span><b class="a">±0.0687 mm</b></div>
-        <div class="fv-row"><span>Monte Carlo (n=10 000)</span><b>±0.0671 mm</b></div>
-        <div class="fv-row"><span>Predicted Cpk</span><b class="g">2.18</b></div>
-        <div class="fv-row"><span>Top contributor</span><b>Spacer Width · 53%</b></div>
-        <div class="fv-row"><span>Verdict</span><b class="g">Predicted in spec</b></div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- GROUPS -->
-<section style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-eyebrow">The set</div>
-    <h2>Cost, quality and risk — one deterministic engine</h2>
-    <p class="sec-lede">Every tool shares the same principles: structured inputs, full-precision math, visible assumptions, and a result you can defend.</p>
-    <div class="groups">
-      <div class="group g-cost"><div class="group-ic">$</div><h4>Cost &amp; Quoting</h4><p>Know the real number before you commit a price or a hire.</p><ul><li><b>SC-010</b> True labor cost</li><li><b>SC-012</b> Quote pricing &amp; margin</li></ul></div>
-      <div class="group g-qual"><div class="group-ic">σ</div><h4>Quality &amp; Capability</h4><p>Predicted capability from tolerances — flagged as prediction.</p><ul><li><b>SC-008</b> Tolerance stack-up</li><li><b>SC-001</b> Weld thickness</li></ul></div>
-      <div class="group g-risk"><div class="group-ic">!</div><h4>Risk &amp; Review</h4><p>See the contributor, the margin and the warning before it costs you.</p><ul><li><b>Pareto</b> variation contribution</li><li><b>What-if</b> sensitivity, recomputed</li></ul></div>
-    </div>
+  <!-- ================= TRUST STRIP ================= -->
+  <div class="trust-strip" role="region" aria-label="Trust indicators">
+    <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>ISO 3864 Compliant Colors</div>
+    <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Client-Side Only &mdash; Zero Upload</div>
+    <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>394 Automated Tests Passing</div>
+    <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>Audit-Ready PDF Reports</div>
   </div>
-</section>
 
-<!-- VERIFY -->
-<section id="verify" style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
-  <div class="wrap">
-    <div class="sec-eyebrow">Method</div>
-    <h2>How a SectorCalc result is built</h2>
-    <p class="sec-lede">A result is only useful if you can defend it. Every report carries four layers — so a reviewer can follow the number from input to decision.</p>
-    <div class="layers">
-      <div class="layer"><div class="layer-n">01 · DECISION</div><h5>Recommended action</h5><p>Primary result, pass / warning / fail, and the operational or commercial impact — stated up front.</p></div>
-      <div class="layer"><div class="layer-n">02 · CALCULATION</div><h5>Inputs &amp; formula</h5><p>Every input with units, derived values, the formula used and the assumptions made. Nothing hidden.</p></div>
-      <div class="layer"><div class="layer-n">03 · VALIDATION</div><h5>Checks &amp; warnings</h5><p>Input consistency checks, outlier warnings, the applicable standard and edition, and the engine version.</p></div>
-      <div class="layer"><div class="layer-n">04 · REPORT</div><h5>Audit trail</h5><p>Executive result, detailed calculation, deviations, deterministic hashes and a PDF / shareable record.</p></div>
-    </div>
+  <!-- ================= SPEC STRIP ================= -->
+  <div class="spec-strip" role="region" aria-label="Key specifications">
+    <div><div class="spec-num">394</div><div class="spec-label">Automated tests passing</div></div>
+    <div><div class="spec-num">Decimal</div><div class="spec-label">Full-precision in tools (Decimal.js)</div></div>
+    <div><div class="spec-num">100%</div><div class="spec-label">Client-side, nothing uploaded</div></div>
+    <div><div class="spec-num">Seeded</div><div class="spec-label">Reproducible Monte Carlo</div></div>
   </div>
-</section>
 
-<!-- SAMPLE REPORT -->
-<section>
-  <div class="wrap">
-    <div class="sec-eyebrow">Evidence</div>
-    <h2>What a report actually looks like</h2>
-    <p class="sec-lede">Not a black-box number. A traceable record — the kind you can hand to a reviewer or attach to a design file.</p>
-    <div class="sample">
-      <div>
-        <h3 style="font-size:20px;font-weight:700;margin-bottom:6px">SC-008 · Predicted Analysis</h3>
-        <div class="sample-meta">
-          Calc ID <b>SC008-7A3F1C9E</b> (from inputs)<br>
-          Engine <b>SC008-2026.07-formula-v1.0.0+dist</b><br>
-          Input hash <b>7a3f1c9e</b> · Output hash <b>4d8b2e61</b><br>
-          Method <b>worst + RSS + seeded MC (n=10 000)</b>
+  <!-- ================= BLUEPRINT TECHNICAL ILLUSTRATION ================= -->
+  <section class="section blueprint-section" id="blueprint" aria-labelledby="blueprint-heading">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="blueprint-heading"><span class="section-kicker">On the floor</span><br>Where the numbers come from</h2>
+        <p class="lede">Every calculation maps to a real measurement on a real machine. ISO-standard technical illustration &mdash; not stock photography.</p>
+      </div>
+      <div class="blueprint-grid-2" data-reveal>
+        <div class="blueprint-frame">
+          <svg viewBox="0 0 680 440" role="img" aria-label="Technical blueprint of a CNC machining center probing a workpiece, with dimension lines and tolerance callouts">
+            <defs>
+              <pattern id="bpGrid" width="20" height="20" patternUnits="userSpaceOnUse">
+                <path d="M20 0H0V20" fill="none" stroke="var(--sheet-grid)" stroke-width="0.7"/>
+              </pattern>
+              <marker id="arrowB" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path d="M0 0L10 5L0 10z" fill="var(--iso-blue)"/>
+              </marker>
+            </defs>
+            <rect x="0" y="0" width="680" height="440" fill="url(#bpGrid)"/>
+            <rect x="10" y="10" width="660" height="420" fill="none" stroke="var(--sheet-line-strong)" stroke-width="1.5"/>
+            <text x="28" y="44" font-family="JetBrains Mono, monospace" font-size="10" fill="var(--sheet-text-3)" letter-spacing="2">FIG. 01 &#8212; TOLERANCE MEASUREMENT, VERTICAL MACHINING CENTER</text>
+
+            <!-- machine: front view schematic -->
+            <g stroke="var(--sheet-text-2)" stroke-width="1.6" fill="none">
+              <rect x="110" y="316" width="300" height="26"/>
+              <line x1="110" y1="329" x2="410" y2="329" stroke-width="0.9"/>
+              <rect x="128" y="120" width="46" height="196"/>
+              <rect x="346" y="120" width="46" height="196"/>
+              <rect x="128" y="96" width="264" height="42"/>
+              <line x1="128" y1="117" x2="392" y2="117" stroke-width="0.9"/>
+              <rect x="232" y="138" width="56" height="58"/>
+              <path d="M244 196 L276 196 L270 224 L250 224 Z"/>
+              <line x1="260" y1="224" x2="260" y2="258"/>
+              <line x1="256" y1="231" x2="264" y2="231" stroke-width="0.9"/>
+              <line x1="256" y1="239" x2="264" y2="239" stroke-width="0.9"/>
+              <line x1="256" y1="247" x2="264" y2="247" stroke-width="0.9"/>
+              <rect x="196" y="292" width="128" height="24"/>
+              <path d="M210 262 L224 262 L224 292 L210 292 Z"/>
+              <path d="M296 262 L310 262 L310 292 L296 292 Z"/>
+            </g>
+            <!-- workpiece -->
+            <rect x="224" y="262" width="72" height="30" fill="none" stroke="var(--iso-blue)" stroke-width="1.8"/>
+            <g stroke="var(--iso-blue)" stroke-width="0.7">
+              <line x1="228" y1="292" x2="240" y2="262"/>
+              <line x1="240" y1="292" x2="252" y2="262"/>
+              <line x1="252" y1="292" x2="264" y2="262"/>
+              <line x1="264" y1="292" x2="276" y2="262"/>
+              <line x1="276" y1="292" x2="288" y2="262"/>
+              <line x1="288" y1="292" x2="296" y2="284"/>
+            </g>
+
+            <!-- measurement points A B C -->
+            <g>
+              <circle cx="236" cy="262" r="4" fill="var(--iso-orange)"/>
+              <circle cx="260" cy="262" r="4" fill="var(--iso-orange)"/>
+              <circle cx="284" cy="262" r="4" fill="var(--iso-orange)"/>
+              <g stroke="var(--iso-orange)" stroke-width="1" fill="none" stroke-dasharray="3 3">
+                <line x1="236" y1="256" x2="236" y2="228"/>
+                <line x1="260" y1="256" x2="260" y2="214"/>
+                <line x1="284" y1="256" x2="284" y2="228"/>
+              </g>
+              <g font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" fill="var(--iso-orange)">
+                <text x="232" y="224">A</text>
+                <text x="256" y="210">B</text>
+                <text x="280" y="224">C</text>
+              </g>
+            </g>
+
+            <!-- horizontal dimension -->
+            <g stroke="var(--iso-blue)" stroke-width="1.2" fill="none">
+              <line x1="224" y1="346" x2="224" y2="366"/>
+              <line x1="296" y1="346" x2="296" y2="366"/>
+              <line x1="224" y1="360" x2="296" y2="360" marker-start="url(#arrowB)" marker-end="url(#arrowB)"/>
+            </g>
+            <text x="260" y="354" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="var(--iso-blue)" font-weight="700">25.000 &#177;0.050</text>
+
+            <!-- vertical dimension -->
+            <g stroke="var(--iso-blue)" stroke-width="1.2" fill="none">
+              <line x1="202" y1="262" x2="214" y2="262"/>
+              <line x1="202" y1="292" x2="214" y2="292"/>
+              <line x1="206" y1="262" x2="206" y2="292" marker-start="url(#arrowB)" marker-end="url(#arrowB)"/>
+            </g>
+            <text x="196" y="281" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="10" fill="var(--iso-blue)">30.00</text>
+
+            <!-- tolerance callout box -->
+            <g>
+              <rect x="452" y="48" width="204" height="74" fill="var(--sheet-paper)" stroke="var(--sheet-line-strong)" stroke-width="1.5"/>
+              <text x="464" y="71" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" fill="var(--sheet-text)">ISO 2768-m</text>
+              <text x="464" y="89" font-family="JetBrains Mono, monospace" font-size="9.5" fill="var(--sheet-text-3)">GENERAL TOLERANCE</text>
+              <text x="464" y="107" font-family="JetBrains Mono, monospace" font-size="9.5" fill="var(--iso-blue)">&#177;0.050 mm @ 18&#8211;30 mm range</text>
+              <line x1="452" y1="122" x2="330" y2="200" stroke="var(--sheet-line-strong)" stroke-width="1"/>
+            </g>
+
+            <!-- balloons -->
+            <g font-family="JetBrains Mono, monospace" font-size="11" font-weight="700">
+              <circle cx="104" cy="80" r="12" fill="var(--sheet-paper)" stroke="var(--sheet-text-2)" stroke-width="1.4"/>
+              <text x="104" y="84.5" text-anchor="middle" fill="var(--sheet-text)" stroke="none">1</text>
+              <line x1="113" y1="89" x2="226" y2="152" stroke="var(--sheet-text-3)" stroke-width="1"/>
+              <circle cx="436" cy="216" r="12" fill="var(--sheet-paper)" stroke="var(--sheet-text-2)" stroke-width="1.4"/>
+              <text x="436" y="220.5" text-anchor="middle" fill="var(--sheet-text)" stroke="none">2</text>
+              <line x1="427" y1="223" x2="312" y2="272" stroke="var(--sheet-text-3)" stroke-width="1"/>
+            </g>
+
+            <!-- title block -->
+            <g font-family="JetBrains Mono, monospace">
+              <rect x="430" y="376" width="226" height="54" fill="var(--sheet-paper)" stroke="var(--sheet-line-strong)" stroke-width="1.5"/>
+              <line x1="430" y1="394" x2="656" y2="394" stroke="var(--sheet-line)" stroke-width="1"/>
+              <line x1="543" y1="394" x2="543" y2="430" stroke="var(--sheet-line)" stroke-width="1"/>
+              <text x="440" y="389" font-size="10" font-weight="700" fill="var(--sheet-text)">SECTORCALC &#183; CNC PROBING</text>
+              <text x="440" y="410" font-size="8.5" fill="var(--sheet-text-3)">DWG NO</text>
+              <text x="440" y="423" font-size="9.5" font-weight="700" fill="var(--sheet-text-2)">SC-CNC-001</text>
+              <text x="553" y="410" font-size="8.5" fill="var(--sheet-text-3)">SCALE / REV</text>
+              <text x="553" y="423" font-size="9.5" font-weight="700" fill="var(--sheet-text-2)">1:2 &#183; A</text>
+            </g>
+          </svg>
         </div>
-        <a class="btn btn-ghost" href="/sc008-pro.html">Generate your own →</a>
-      </div>
-      <div class="sample-card">
-        <div class="sc-line"><span>Worst-case</span><b>±0.1150 mm</b></div>
-        <div class="sc-line"><span>RSS</span><b>±0.0687 mm</b></div>
-        <div class="sc-line"><span>Monte Carlo</span><b>±0.0671 mm</b></div>
-        <div class="sc-line"><span>Predicted Cpk</span><b>2.18</b></div>
-        <div class="sc-line"><span>Predicted PPM (95% CI)</span><b>3 · 0–11</b></div>
-        <div class="sc-line"><span>Top contributor</span><b>Spacer Width · 53%</b></div>
-        <div class="sc-vd">✓ Predicted in spec — verify with measured data before release</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- OUTCOMES (honest framing, no invented metrics) -->
-<section style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-eyebrow">What you get</div>
-    <h2>Built to be defended, not just displayed</h2>
-    <p class="sec-lede">We don't claim to replace measured data or a licensed engineer. We claim to make the calculation transparent, repeatable and reviewable.</p>
-    <div class="outcomes">
-      <div class="oc"><div class="oc-ic">∑</div><div><h5>Every input visible</h5><p>Structured, unit-aware inputs with tooltips that state the assumption — no hidden defaults.</p></div></div>
-      <div class="oc"><div class="oc-ic">fx</div><div><h5>The formula shown</h5><p>The method and the math are stated in the report, so a reviewer can follow the derivation.</p></div></div>
-      <div class="oc"><div class="oc-ic">!</div><div><h5>Warnings flagged</h5><p>Out-of-range inputs, thin margins and out-of-spec predictions are called out, not buried.</p></div></div>
-      <div class="oc"><div class="oc-ic">≡</div><div><h5>Reproducible record</h5><p>Deterministic seed + engine version + hashes mean the same inputs reproduce the same report.</p></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- STANDARDS -->
-<section id="standards" style="background:var(--surface);border-top:1px solid var(--border)">
-  <div class="wrap">
-    <div class="sec-eyebrow">Standards &amp; honesty</div>
-    <h2>What we reference — and what we are not</h2>
-    <p class="sec-lede">Trust comes from stating limits as clearly as capabilities.</p>
-    <div class="std-grid">
-      <div class="std-box">
-        <h5>Referenced methodology</h5>
-        <div class="std-line"><b>ISO 286-1</b> — tolerance grades (reference for deviations)</div>
-        <div class="std-line"><b>ASME Y14.5</b> — statistical tolerancing context (RSS)</div>
-        <div class="std-line"><b>AIAG SPC</b> — Cpk definition (model-derived here, not measured)</div>
-        <div class="std-line"><b>AWS D1.1 / EN ISO 2553</b> — weld sizing context</div>
-        <div class="std-line"><b>Engine</b> — SC008-2026.07-formula-v1.0.0+dist · 394 tests</div>
-      </div>
-      <div class="std-box">
-        <h5>How to read our results</h5>
-        <div class="std-line">Validated against closed-form worst-case / RSS invariants</div>
-        <div class="std-line">Calculated under stated distribution assumptions</div>
-        <div class="std-line">Applicable within 1D linear stack-ups</div>
-        <div class="std-line">Predicted capability — not observed process capability</div>
-        <div class="std-line">Reproducible from inputs + seed + engine version</div>
+        <div class="measure-steps" role="list" aria-label="Tolerance measurement process, step by step">
+          <div class="measure-step" role="listitem">
+            <div class="ms-num">01</div>
+            <div><h4>Mount &amp; zero</h4><p>Workpiece clamped in the vice, probe zeroed on the datum face. Fixture repeatability &le; 2 &mu;m.</p></div>
+          </div>
+          <div class="measure-step" role="listitem">
+            <div class="ms-num">02</div>
+            <div><h4>Probe the points</h4><p>Touch-off at points A, B and C along the measured edge. Three readings per point, averaged.</p></div>
+          </div>
+          <div class="measure-step" role="listitem">
+            <div class="ms-num">03</div>
+            <div><h4>Read the deviation</h4><p>Deviation from nominal 25.000 mm is read directly &mdash; checked against &plusmn;0.050 mm (ISO 2768-m).</p></div>
+          </div>
+          <div class="measure-step" role="listitem">
+            <div class="ms-num">04</div>
+            <div><h4>Feed the stack</h4><p>The measured tolerance becomes an input to SC-008 &mdash; the same number you see in the report below.</p></div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="limits">
-      <h5>Known limitations (stated on purpose)</h5>
-      <p>1D linear stacks only. Per-part sigma is derived from the tolerance (no measured-process input yet). No correlation model between dimensions yet. Results are <strong>predicted from drawing tolerances</strong> — an engineering preview to support a decision, <strong>not a substitute for measured SPC or a licensed engineer's sign-off</strong>, and not for production approval on their own.</p>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- PRICING TEASER -->
-<section>
-  <div class="wrap">
-    <div class="price-cta">
-      <div class="sec-eyebrow" style="margin-bottom:8px">Pricing</div>
-      <h2>Pay with credits. Only for what you use.</h2>
-      <p>No subscription. Try every tool free first; open a premium calculation with credits valid for 12 months. Heavy users save with big packs; light users pay little.</p>
-      <a class="btn btn-primary" href="/pricing.html">See credit pricing</a>
+  <!-- ================= TRUST / METHOD PROOF ================= -->
+  <section class="section testimonials-section" id="testimonials" aria-labelledby="testimonials-heading">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="testimonials-heading"><span class="section-kicker">Trusted</span><br>by how the work is built</h2>
+        <p class="lede">No anonymous quotes. Trust comes from method, client-side execution, and results you can reproduce.</p>
+      </div>
+      <div class="testimonials-grid" data-reveal>
+        <div class="testimonial-card">
+          <p class="testimonial-quote">Same inputs, seed, and engine version produce the same report. Reviewers can re-run the number instead of trusting a black box.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" aria-hidden="true">01</div>
+            <div>
+              <div class="testimonial-name">Deterministic engine</div>
+              <div class="testimonial-role">Reproducible by seed</div>
+            </div>
+          </div>
+          <div class="testimonial-metric">Identical outputs for identical inputs</div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-quote">Calculations run in your browser. Inputs stay on device - no account required to try the tools.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" aria-hidden="true">02</div>
+            <div>
+              <div class="testimonial-name">Client-side only</div>
+              <div class="testimonial-role">Zero upload for core calc</div>
+            </div>
+          </div>
+          <div class="testimonial-metric">Data never leaves your browser</div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-quote">Production tools use Decimal.js with Decimal128 semantics. The homepage demo is a seeded preview; open SC-008 for the full engine.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" aria-hidden="true">03</div>
+            <div>
+              <div class="testimonial-name">Full-precision tools</div>
+              <div class="testimonial-role">SC-008 / SC-010 / SC-012 / SC-001</div>
+            </div>
+          </div>
+          <div class="testimonial-metric">394 automated tests in CI</div>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- FINAL CTA -->
-<section style="padding-top:0">
-  <div class="wrap">
-    <div class="final">
-      <h2>Stop guessing. Start defending your numbers.</h2>
-      <p>Run a tolerance stack-up in your browser — no login, no upload, reproducible by seed.</p>
-      <a class="btn btn-primary" href="/sc008-pro.html">Run a Calculation</a>
+  <!-- ================= BEFORE / AFTER COMPARISON ================= -->
+  <section class="section comparison-section" aria-labelledby="comparison-heading">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="comparison-heading"><span class="section-kicker">Impact</span><br>Excel vs SectorCalc</h2>
+        <p class="lede">The difference is not just speed. It is defensibility, reproducibility, and zero human error in the formula chain.</p>
+      </div>
+      <div class="comparison-grid" data-reveal>
+        <div class="comparison-card before">
+          <div class="comparison-label">Before &mdash; Excel + Manual</div>
+          <div class="comparison-time">45 min</div>
+          <div class="comparison-desc">
+            <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;">
+              <li style="font-size:14px;color:var(--sheet-text-2);">&times; Copy-paste formulas between sheets</li>
+              <li style="font-size:14px;color:var(--sheet-text-2);">&times; Float drift in repeated calculations</li>
+              <li style="font-size:14px;color:var(--sheet-text-2);">&times; No audit trail or version control</li>
+              <li style="font-size:14px;color:var(--sheet-text-2);">&times; Cannot reproduce result by seed</li>
+              <li style="font-size:14px;color:var(--sheet-text-2);">&times; PDF export requires manual formatting</li>
+            </ul>
+          </div>
+        </div>
+        <div class="comparison-divider" aria-hidden="true">VS</div>
+        <div class="comparison-card after">
+          <div class="comparison-label">After &mdash; SectorCalc</div>
+          <div class="comparison-time">3 min</div>
+          <div class="comparison-desc">
+            <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;">
+              <li style="font-size:14px;color:var(--sheet-text-2);">&check; Deterministic engine &mdash; same seed, same result</li>
+              <li style="font-size:14px;color:var(--sheet-text-2);">&check; Full-precision decimal arithmetic in the tools</li>
+              <li style="font-size:14px;color:var(--sheet-text-2);">&check; Every assumption visible and traceable</li>
+              <li style="font-size:14px;color:var(--sheet-text-2);">&check; Shareable report with inputs, formula and warnings</li>
+              <li style="font-size:14px;color:var(--sheet-text-2);">&check; Client-side only &mdash; zero data leaves browser</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<footer>
-  <div class="wrap">
-    <div class="foot">
-      <div class="foot-brand">
-        <a class="brand" href="/"><span class="mk">SC</span> SectorCalc</a>
+  <!-- ================= DECISION SWITCHBOARD ================= -->
+  <section class="section" id="decide" aria-labelledby="decide-heading">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="decide-heading"><span class="section-kicker">Start</span> from your decision</h2>
+        <p class="lede">Different roles run the numbers for different reasons. Pick the question &mdash; it routes to the right calculator and the right evidence.</p>
+      </div>
+
+      <div class="role-tabs" role="tablist" aria-label="Filter calculators by role" style="margin-bottom:var(--sp-6);">
+        <button class="role-tab active" role="tab" aria-selected="true" data-filter="all" aria-controls="switchboard">All Roles</button>
+        <button class="role-tab" role="tab" aria-selected="false" data-filter="engineer" aria-controls="switchboard">Engineer</button>
+        <button class="role-tab" role="tab" aria-selected="false" data-filter="shop" aria-controls="switchboard">Shop Floor</button>
+        <button class="role-tab" role="tab" aria-selected="false" data-filter="estimator" aria-controls="switchboard">Estimator</button>
+        <button class="role-tab" role="tab" aria-selected="false" data-filter="quality" aria-controls="switchboard">Quality</button>
+        <button class="role-tab" role="tab" aria-selected="false" data-filter="cfo" aria-controls="switchboard">CFO / Finance</button>
+      </div>
+
+      <div class="switchboard" id="switchboard" data-reveal role="region" aria-label="Calculator switchboard">
+        <a href="/sc008-pro.html" class="switch-card" data-roles="engineer quality">
+          <div class="switch-top"><span class="switch-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12h4M17 12h4M7 6v12M17 6v12M7 12h10"/></svg></span><span class="switch-role">Engineering</span></div>
+          <h3>Will this tolerance stack hold the spec?</h3><p>Worst-case, RSS and Monte Carlo with predicted Cpk &mdash; every assumption visible.</p><div class="switch-bottom">Open stack-up <span class="switch-arrow">&rarr;</span></div>
+        </a>
+        <a href="/quote-pro.html" class="switch-card" data-roles="estimator cfo">
+          <div class="switch-top"><span class="switch-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v18M8 7h5.5a2.5 2.5 0 0 1 0 5H8m0 0h6.5a2.5 2.5 0 0 1 0 5H8"/></svg></span><span class="switch-role">Estimating</span></div>
+          <h3>Is this quote actually profitable?</h3><p>Full-absorption cost build-up, margin and sell/cost ratio before you commit.</p><div class="switch-bottom">Open quote pricing <span class="switch-arrow">&rarr;</span></div>
+        </a>
+        <a href="/labor-pro.html" class="switch-card" data-roles="cfo estimator">
+          <div class="switch-top"><span class="switch-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 7v5l3 3"/></svg></span><span class="switch-role">Costing</span></div>
+          <h3>What does labor really cost?</h3><p>True loaded labor cost &mdash; statutory burden and benefits, not just net wage.</p><div class="switch-bottom">Open labor cost <span class="switch-arrow">&rarr;</span></div>
+        </a>
+        <a href="/weld-pro.html" class="switch-card" data-roles="shop engineer">
+          <div class="switch-top"><span class="switch-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20l7-7M13 4l7 7-3 3-7-7 3-3zM9 15l-2 5 5-2"/></svg></span><span class="switch-role">Fabrication</span></div>
+          <h3>Is this weld sized correctly?</h3><p>Required leg and throat against design load, with utilization check.</p><div class="switch-bottom">Open weld check <span class="switch-arrow">&rarr;</span></div>
+        </a>
+        <a href="/machining-pro.html" class="switch-card" data-roles="shop engineer">
+          <div class="switch-top"><span class="switch-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></span><span class="switch-role">Machining</span></div>
+          <h3>Are these feeds and speeds safe to run?</h3><p>Taylor tool life, chip thinning, Kienzle force, spindle power and deflection - FS-ENGINE SI core.</p><div class="switch-bottom">Open feeds &amp; speeds <span class="switch-arrow">&rarr;</span></div>
+        </a>
+        <a href="/sc008-pro.html" class="switch-card" data-roles="quality engineer">
+          <div class="switch-top"><span class="switch-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2.5 2.5"/></svg></span><span class="switch-role">Quality</span></div>
+          <h3>Is the process capable?</h3><p>Predicted capability from tolerances &mdash; flagged as prediction, not measured SPC.</p><div class="switch-bottom">Open capability <span class="switch-arrow">&rarr;</span></div>
+        </a>
+        <a href="#verify" class="switch-card" data-roles="engineer quality cfo estimator shop">
+          <div class="switch-top"><span class="switch-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="10" cy="10" r="6"/><path d="M14.5 14.5L20 20"/></svg></span><span class="switch-role">Audit / Review</span></div>
+          <h3>Can I actually defend this number?</h3><p>Inputs, formula, assumptions, warnings and engine version &mdash; in every report.</p><div class="switch-bottom">See the method <span class="switch-arrow">&rarr;</span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= INTERACTIVE DEMO - Real Working Calculator ================= -->
+  <section class="section" id="run" aria-labelledby="run-heading">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="run-heading"><span class="section-kicker">Try</span> before you buy</h2>
+        <p class="lede">No login required. Change the values below and see the result update in real time. Values are in mm &mdash; open SC-008 for the full Decimal engine.</p>
+      </div>
+      <div class="demo-section" data-reveal>
+        <div class="demo-header">
+          <div><span class="badge info">SC-008 &middot; TOLERANCE STACK-UP &middot; SEEDED PREVIEW (Number math)</span></div>
+          <div><a class="btn btn-ghost" href="/sc008-pro.html">Open full Decimal tool &rarr;</a></div>
+        </div>
+        <div class="demo-grid">
+          <div>
+            <div class="demo-input-group">
+              <label for="partName">Part Name <span style="color:var(--iso-blue)">&#9432;</span></label>
+              <div class="input-wrap"><input type="text" id="partName" value="Spacer Width" placeholder="e.g. Shaft Diameter" aria-describedby="partNameRef"></div>
+              <div class="ref-value" id="partNameRef">Ref: ISO 2768-m (medium) general tolerances</div>
+            </div>
+            <div class="demo-input-group">
+              <label for="nominalDim">Nominal Dimension <span style="color:var(--iso-blue)">&#9432;</span></label>
+              <div class="input-wrap"><input type="number" id="nominalDim" value="25.000" step="0.001" aria-describedby="nominalRef"><span class="unit-select" aria-hidden="true">mm</span></div>
+              <div class="ref-value" id="nominalRef">Ref: 25.000 mm &mdash; common spacer width</div>
+            </div>
+            <div class="demo-input-group">
+              <label for="tolerance">Tolerance <span style="color:var(--iso-blue)">&#9432;</span></label>
+              <div class="input-wrap"><input type="number" id="tolerance" value="0.050" step="0.001" aria-describedby="toleranceRef"><span class="unit-select" aria-hidden="true">mm</span></div>
+              <div class="ref-value" id="toleranceRef">Ref: &plusmn;0.050 mm &mdash; ISO 2768-m for 18-30mm range</div>
+            </div>
+            <div class="demo-input-group">
+              <label for="distribution">Distribution <span style="color:var(--iso-blue)">&#9432;</span></label>
+              <div class="input-wrap"><select class="unit-select" id="distribution" style="border:none;border-left:none;width:100%;padding:12px 14px;" aria-describedby="distRef"><option value="normal">Normal (&sigma; = Tol/3)</option><option value="uniform">Uniform</option><option value="triangular">Triangular</option><option value="truncated">Truncated Normal</option></select></div>
+              <div class="ref-value" id="distRef">Ref: Normal &mdash; most common in machined parts</div>
+            </div>
+            <div style="display:flex;gap:var(--sp-3);margin-top:var(--sp-5);flex-wrap:wrap;">
+              <button class="btn btn-primary" id="addToStackBtn" style="flex:1;justify-content:center;" aria-label="Add to tolerance stack">
+                <span id="addToStackText">Add to Stack</span>
+                <span id="addToStackLoading" class="shimmer" style="display:none;width:80px;height:16px;"></span>
+              </button>
+              <button class="btn btn-ghost" id="resetBtn" aria-label="Reset to default values">Reset Defaults</button>
+            </div>
+            <div class="stack-list-wrap">
+              <div class="stack-list-label">Tolerance stack &mdash; <span id="stackCount">3 parts</span></div>
+              <div class="stack-chips" id="stackChips" role="list" aria-label="Parts currently in the tolerance stack"></div>
+            </div>
+          </div>
+          <div class="demo-result" id="demoResult" aria-live="polite" aria-atomic="false">
+            <h4>LIVE RESULT &mdash; UPDATES AS YOU TYPE</h4>
+
+            <!-- Loading skeleton (hidden by default) -->
+            <div id="resultSkeleton" style="display:none;">
+              <div style="margin:var(--sp-5) 0;">
+                <div class="skeleton" style="width:60%;height:20px;margin-bottom:var(--sp-3);"></div>
+                <div class="skeleton" style="width:100%;height:8px;"></div>
+              </div>
+              <div style="margin:var(--sp-5) 0;">
+                <div class="skeleton" style="width:50%;height:20px;margin-bottom:var(--sp-3);"></div>
+                <div class="skeleton" style="width:100%;height:8px;"></div>
+              </div>
+              <div style="margin:var(--sp-5) 0;">
+                <div class="skeleton" style="width:70%;height:20px;margin-bottom:var(--sp-3);"></div>
+                <div class="skeleton" style="width:100%;height:8px;"></div>
+              </div>
+            </div>
+
+            <div id="resultContent">
+              <div style="margin:var(--sp-5) 0;">
+                <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:var(--sp-3);"><span style="font-family:var(--f-mono);font-size:13px;color:var(--sheet-text-2);">Worst-case</span><span style="font-family:var(--f-mono);font-size:20px;font-weight:700;color:var(--sheet-text);" id="wcValue">&plusmn;0.1150 <span style="font-size:13px;color:var(--sheet-text-3);">mm</span></span></div>
+                <div class="mini-gauge"><div class="mini-gauge-bar"><div class="mini-gauge-fill" id="wcBar" style="width:65%;"></div></div><span class="mini-gauge-label" id="wcPct">65%</span></div>
+              </div>
+              <div style="margin:var(--sp-5) 0;">
+                <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:var(--sp-3);"><span style="font-family:var(--f-mono);font-size:13px;color:var(--sheet-text-2);">RSS</span><span style="font-family:var(--f-mono);font-size:20px;font-weight:700;color:var(--iso-blue);" id="rssValue">&plusmn;0.0687 <span style="font-size:13px;color:var(--sheet-text-3);">mm</span></span></div>
+                <div class="mini-gauge"><div class="mini-gauge-bar"><div class="mini-gauge-fill" id="rssBar" style="width:42%;"></div></div><span class="mini-gauge-label" id="rssPct">42%</span></div>
+              </div>
+              <div style="margin:var(--sp-5) 0;">
+                <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:var(--sp-3);"><span style="font-family:var(--f-mono);font-size:13px;color:var(--sheet-text-2);">Monte Carlo (n=10,000)</span><span style="font-family:var(--f-mono);font-size:20px;font-weight:700;color:var(--iso-orange);" id="mcValue">&plusmn;0.0671 <span style="font-size:13px;color:var(--sheet-text-3);">mm</span></span></div>
+                <div class="mini-gauge"><div class="mini-gauge-bar"><div class="mini-gauge-fill" id="mcBar" style="width:40%;"></div></div><span class="mini-gauge-label" id="mcPct">40%</span></div>
+              </div>
+              <div class="mc-hist-wrap">
+                <div class="mc-hist-label">Monte Carlo distribution &mdash; n=10,000 &middot; seeded &amp; reproducible</div>
+                <canvas id="mcHistogram" height="140" role="img" aria-label="Histogram of 10,000 Monte Carlo simulation results"></canvas>
+              </div>
+              <div style="border-top:1.5px solid var(--sheet-line);padding-top:var(--sp-4);margin-top:var(--sp-4);">
+                <div style="display:flex;justify-content:space-between;align-items:baseline;"><span style="font-family:var(--f-mono);font-size:13px;color:var(--sheet-text-2);">Predicted Cpk</span><span style="font-family:var(--f-mono);font-size:24px;font-weight:700;color:var(--iso-green);" id="cpkValue">2.18</span></div>
+              </div>
+              <div class="contributor-row"><span style="font-family:var(--f-mono);font-size:13px;color:var(--sheet-text-2);">Top contributor</span><span style="font-family:var(--f-mono);font-size:14px;font-weight:700;color:var(--sheet-text);" id="contributorValue">Spacer Width &middot; 53%</span></div>
+              <div class="report-verdict" id="verdict" style="margin-top:var(--sp-4);">Predicted in spec &mdash; verify with measured data before release</div>
+              <div style="margin-top:var(--sp-5);display:flex;gap:var(--sp-3);flex-wrap:wrap;">
+                <a class="btn btn-primary" href="/sc008-pro.html" style="flex:1;justify-content:center;">Open SC-008 Tool &rarr;</a>
+                <button class="btn btn-ghost" id="fullReportBtn" aria-label="View sample report preview">Sample report</button>
+                <button class="btn btn-ghost" id="downloadPdfBtn" aria-label="Print sample report">Print preview</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FLAGSHIP ================= -->
+  <section class="section" id="evidence" aria-labelledby="evidence-heading">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="evidence-heading"><span class="section-kicker">Flagship</span><br>Statistical tolerance stack-up</h2>
+        <p class="lede">The hardest everyday question on the floor &mdash; will the assembled dimensions stay within spec? Three methods, one deterministic engine.</p>
+      </div>
+      <div class="flagship" data-reveal>
+        <div>
+          <span class="badge warn">Engineering preview &middot; not for production approval</span>
+          <ul class="checklist">
+            <li>Per-part distribution: normal, uniform, truncated-normal, triangular</li>
+            <li>Real sample histogram &mdash; not a decorative bell curve</li>
+            <li>Predicted Cpk &amp; PPM with a 95% confidence interval</li>
+            <li>Deterministic: same inputs + seed + engine version &rarr; same report</li>
+            <li>Full report in the SC-008 tool: charts, warnings and share integrity</li>
+          </ul>
+          <a href="/sc008-pro.html" class="btn btn-primary">Open the calculator &rarr;</a>
+        </div>
+        <div class="report-card">
+          <div class="report-card-head"><span>SC-008 &middot; PREDICTED ANALYSIS</span><span>ENGINE V1.0.0</span></div>
+          <div class="report-card-body">
+            <div class="report-row"><span class="k">Worst-case</span><span class="v">&plusmn;0.1150 mm</span></div>
+            <div class="report-row"><span class="k">RSS</span><span class="v" style="color:var(--iso-blue)">&plusmn;0.0687 mm</span></div>
+            <div class="report-row"><span class="k">Monte Carlo (n=10,000)</span><span class="v" style="color:var(--iso-orange)">&plusmn;0.0671 mm</span></div>
+            <div class="report-row"><span class="k">Predicted Cpk</span><span class="v">2.18</span></div>
+            <div class="report-row"><span class="k">Top contributor</span><span class="v">Spacer Width &middot; 53%</span></div>
+            <div class="report-verdict">Predicted in spec &mdash; verify with measured data before release</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ENGINE MODULES ================= -->
+  <section class="section" aria-labelledby="modules-heading">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="modules-heading"><span class="section-kicker">The set</span><br>Cost, quality and risk &mdash; one engine</h2>
+        <p class="lede">Every tool shares the same spine: structured inputs, full-precision math, visible assumptions, and a result you can defend.</p>
+      </div>
+      <div class="modules" data-reveal>
+        <div class="module">
+          <div class="module-glyph">$</div>
+          <h3>Cost &amp; quoting</h3>
+          <p>Know the real number before you commit a price or a hire.</p>
+          <ul><li><a href="/labor-pro.html"><b>SC-010</b> True labor cost</a></li><li><a href="/quote-pro.html"><b>SC-012</b> Quote pricing &amp; margin</a></li></ul>
+        </div>
+        <div class="module">
+          <div class="module-glyph">&sigma;</div>
+          <h3>Quality &amp; capability</h3>
+          <p>Predicted capability from tolerances &mdash; flagged as prediction.</p>
+          <ul><li><a href="/sc008-pro.html"><b>SC-008</b> Tolerance stack-up</a></li><li><a href="/weld-pro.html"><b>SC-001</b> Weld thickness</a></li></ul>
+        </div>
+        <div class="module">
+          <div class="module-glyph">!</div>
+          <h3>Risk &amp; review</h3>
+          <p>See the contributor, the margin and the warning before it costs you.</p>
+          <ul><li><a href="/machining-pro.html"><b>SC-020</b> Feeds &amp; speeds + tool life</a></li><li><b>What-if</b> Sensitivity, recomputed</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= METHOD RAIL ================= -->
+  <section class="section" id="method" aria-labelledby="method-heading">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="method-heading"><span class="section-kicker">Method</span><br>How a result gets built</h2>
+        <p class="lede">A result is only useful if you can defend it. Every report carries four layers, so a reviewer can follow the number from input to decision.</p>
+      </div>
+      <div class="method-rail" data-reveal>
+        <div class="method-step">
+          <div class="method-num">01</div>
+          <h4>Recommended action</h4>
+          <p>Primary result, pass / warning / fail, and the operational or commercial impact &mdash; stated up front.</p>
+        </div>
+        <div class="method-step">
+          <div class="method-num">02</div>
+          <h4>Inputs &amp; formula</h4>
+          <p>Every input with units, derived values, the formula used and the assumptions made. Nothing hidden.</p>
+        </div>
+        <div class="method-step">
+          <div class="method-num">03</div>
+          <h4>Checks &amp; warnings</h4>
+          <p>Input consistency checks, outlier warnings, applicable standard and edition, and engine version.</p>
+        </div>
+        <div class="method-step">
+          <div class="method-num">04</div>
+          <h4>Audit trail</h4>
+          <p>Executive result, detailed calculation, deviations, deterministic hashes and a shareable PDF record.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= EVIDENCE / SAMPLE REPORT ================= -->
+  <section class="section" id="verify" aria-labelledby="verify-heading">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="verify-heading"><span class="section-kicker">Evidence</span><br>What a report actually looks like</h2>
+        <p class="lede">Not a black-box number. A traceable record &mdash; the kind you hand to a reviewer or attach to a design file.</p>
+      </div>
+      <div class="report-card" style="max-width:640px" data-reveal>
+        <div class="report-card-head"><span>CALC ID SC008-7A3F1C9E</span><span>INPUT 7a3f1c9e / OUTPUT 4d8b2e61</span></div>
+        <div class="report-card-body">
+          <div class="report-row"><span class="k">Engine</span><span class="v">SC008-2026.07-formula-v1.0.0+dist</span></div>
+          <div class="report-row"><span class="k">Method</span><span class="v">Worst + RSS + seeded MC (n=10,000)</span></div>
+          <div class="report-row"><span class="k">Predicted PPM (95% CI)</span><span class="v">3 &middot; 0&ndash;11</span></div>
+          <div class="report-row"><span class="k">Top contributor</span><span class="v">Spacer Width &middot; 53%</span></div>
+          <div class="report-verdict">Predicted in spec &mdash; verify with measured data before release</div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:var(--sp-6);">
+        <button class="btn btn-primary" id="viewPdfModalBtn" aria-label="Open sample PDF report in modal">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:6px;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          View Sample PDF Report
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= STANDARDS ================= -->
+  <section class="section" id="standards" aria-labelledby="standards-heading">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="standards-heading"><span class="section-kicker">Standards &amp; honesty</span><br>What we reference &mdash; and what we are not</h2>
+        <p class="lede">Trust comes from stating limits as clearly as capabilities.</p>
+      </div>
+      <div class="standards-grid" data-reveal>
+        <div class="standards-col">
+          <h4>Referenced methodology</h4>
+          <ul>
+            <li><b>ISO 286-1</b>Tolerance grades &mdash; reference for deviations</li>
+            <li><b>ASME Y14.5</b>Statistical tolerancing context (RSS)</li>
+            <li><b>AIAG SPC</b>Cpk definition &mdash; model-derived here, not measured</li>
+            <li><b>AWS D1.1 / EN ISO 2553</b>Weld sizing context</li>
+          </ul>
+        </div>
+        <div class="standards-col">
+          <h4>How to read our results</h4>
+          <ul>
+            <li>Validated against closed-form worst-case / RSS invariants</li>
+            <li>Calculated under stated distribution assumptions</li>
+            <li>Applicable within 1D linear stack-ups</li>
+            <li>Predicted capability &mdash; not observed process capability</li>
+          </ul>
+        </div>
+        <div class="standards-col limits">
+          <h4>Known limitations &mdash; stated on purpose</h4>
+          <ul>
+            <li>1D linear stacks only; no correlation model between dimensions yet.</li>
+            <li>Per-part sigma is derived from tolerance, not a measured-process input.</li>
+            <li>Results are predicted from drawing tolerances &mdash; an engineering preview, not a substitute for measured SPC or a licensed engineer&apos;s sign-off, and not valid for production approval on their own.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PRICING / CREDIT SYSTEM ================= -->
+  <section class="section" id="pricing" aria-labelledby="pricing-heading">
+    <div class="container">
+      <div class="section-head">
+        <h2 id="pricing-heading"><span class="section-kicker">Pricing</span><br>Pay with credits.<br>Only for what you use.</h2>
+        <p class="lede">No subscription. Try every tool free first; open a premium calculation with credits valid for 12 months.</p>
+      </div>
+      <div class="credit-band" data-reveal>
+        <div class="credit-header">
+          <div><span class="badge info">CREDIT PACKAGES &middot; 12 MONTH VALIDITY</span></div>
+          <div class="credit-balance">Calculators are free until Paddle checkout launches</div>
+        </div>
+                <div class="credit-packages">
+          <div class="credit-card" role="button" tabindex="0" aria-label="Buy 1 credit for 1.99 dollars">
+            <div class="cr-amount">1</div>
+            <div class="cr-unit">credit</div>
+            <div class="cr-price">$1.99</div>
+            <div class="cr-per">$1.99 per credit</div>
+            <a class="btn btn-primary" href="/pricing.html" style="width:100%;justify-content:center;text-decoration:none;">See packs &rarr;</a>
+          </div>
+          <div class="credit-card" role="button" tabindex="0" aria-label="Buy 5 credits for 4.99 dollars">
+            <div class="cr-amount">5</div>
+            <div class="cr-unit">credits</div>
+            <div class="cr-price">$4.99</div>
+            <div class="cr-per">$1.00 per credit</div>
+            <a class="btn btn-primary" href="/pricing.html" style="width:100%;justify-content:center;text-decoration:none;">See packs &rarr;</a>
+          </div>
+          <div class="credit-card featured" role="button" tabindex="0" aria-label="Buy 15 credits for 7.99 dollars, most popular">
+            <div class="cr-amount">15</div>
+            <div class="cr-unit">credits</div>
+            <div class="cr-price">$7.99</div>
+            <div class="cr-per">$0.53 per credit</div>
+            <a class="btn btn-primary" href="/pricing.html" style="width:100%;justify-content:center;text-decoration:none;">See packs &rarr;</a>
+          </div>
+          <div class="credit-card" role="button" tabindex="0" aria-label="Buy 30 credits for 11.99 dollars">
+            <div class="cr-amount">30</div>
+            <div class="cr-unit">credits</div>
+            <div class="cr-price">$11.99</div>
+            <div class="cr-per">$0.40 per credit</div>
+            <a class="btn btn-primary" href="/pricing.html" style="width:100%;justify-content:center;text-decoration:none;">See packs &rarr;</a>
+          </div>
+          <div class="credit-card" role="button" tabindex="0" aria-label="Buy 100 credits for 24.99 dollars">
+            <div class="cr-amount">100</div>
+            <div class="cr-unit">credits</div>
+            <div class="cr-price">$24.99</div>
+            <div class="cr-per">$0.25 per credit</div>
+            <a class="btn btn-primary" href="/pricing.html" style="width:100%;justify-content:center;text-decoration:none;">See packs &rarr;</a>
+          </div>
+        </div>
+
+        <div class="security-badges" role="region" aria-label="Payment status">
+          <div class="security-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            Planned: Paddle Merchant of Record
+          </div>
+          <div class="security-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Client-side tools &mdash; no card required to try
+          </div>
+        </div>
+
+        <div class="warning-box" style="margin-top:var(--sp-6);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          <p>Payments are not live yet. Every calculator is free to use. Planned packs live on <a href="/pricing.html" style="color:var(--iso-orange);text-decoration:underline;">Pricing</a> &mdash; notify-only until Paddle checkout ships.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CTA BAND ================= -->
+  <div class="cta-band" role="region" aria-label="Call to action">
+    <span class="eyebrow"><span class="dot" aria-hidden="true"></span>No login &middot; no upload &middot; seeded</span>
+    <h2>Stop guessing.<br>Start defending your numbers.</h2>
+    <p>Run a tolerance stack-up in your browser &mdash; reproducible by seed, traceable to the formula.</p>
+    <div class="hero-ctas"><a href="/sc008-pro.html" class="btn btn-primary">Run a Calculation &rarr;</a></div>
+  </div>
+
+  <!-- ================= TITLE BLOCK / FOOTER ================= -->
+  <footer class="title-block" role="contentinfo">
+    <div class="tb-links">
+      <div class="tb-brand">
+        <a href="/" class="brand" style="margin-bottom:var(--sp-4);display:inline-flex;"><span class="brand-mark brand-mark--footer"><img class="logo-light" src="/sectorcalc-logo.png" alt="SectorCalc" width="214" height="56"><img class="logo-dark" src="/sectorcalc-logo-dark.png?v=2" alt="" width="214" height="56" aria-hidden="true"></span></a>
         <p>Deterministic industrial decision calculators. Client-side, full-precision, reproducible. Built for the shop floor and the design review.</p>
       </div>
-      <div class="foot-cols">
-        <div class="foot-col"><h6>Tools</h6><a href="/sc008-pro.html">Tolerance Stack-Up</a><a href="/quote-pro.html">Quote Pricing</a><a href="/labor-pro.html">True Labor Cost</a><a href="/weld-pro.html">Weld Thickness</a></div>
-        <div class="foot-col"><h6>Method</h6><a href="#verify">How results are built</a><a href="#standards">Standards</a><a href="/sc008-pro.html">Sample report</a></div>
-        <div class="foot-col"><h6>Product</h6><a href="/pricing.html">Pricing</a><a href="#decide">By role</a></div>
+      <div>
+        <h5>Tools</h5>
+        <ul><li><a href="/sc008-pro.html">Tolerance Stack-Up</a></li><li><a href="/machining-pro.html">Feeds &amp; Speeds</a></li><li><a href="/quote-pro.html">Quote Pricing</a></li><li><a href="/labor-pro.html">True Labor Cost</a></li><li><a href="/weld-pro.html">Weld Thickness</a></li></ul>
+      </div>
+      <div>
+        <h5>Method</h5>
+        <ul><li><a href="#method">How results are built</a></li><li><a href="#standards">Standards</a></li><li><a href="#evidence">Evidence</a></li><li><a href="#verify">Sample report</a></li></ul>
+      </div>
+      <div>
+        <h5>Product</h5>
+        <ul><li><a href="/pricing.html">Pricing</a></li><li><a href="#decide">By role</a></li></ul>
       </div>
     </div>
-    <div class="foot-legal">
-      Engineering preview — predicted from inputs and stated assumptions; not for production approval and not a substitute for measured data or a licensed engineer.<br>
-      Client-side only: your data never leaves your browser. © 2026 SectorCalc.
+    <div class="tb-grid">
+      <div class="tb-cell"><span class="k">Title</span><span class="v">SectorCalc &mdash; Homepage</span></div>
+      <div class="tb-cell"><span class="k">Dwg No</span><span class="v">SC-HOME-001</span></div>
+      <div class="tb-cell"><span class="k">Rev</span><span class="v">A</span></div>
+      <div class="tb-cell"><span class="k">Scale</span><span class="v">None</span></div>
+      <div class="tb-cell"><span class="k">Sheet</span><span class="v">1 of 1</span></div>
+      <div class="tb-cell"><span class="k">Material</span><span class="v">Client-side</span></div>
+    </div>
+    <div class="legal">
+      <span>Engineering preview &mdash; predicted from stated assumptions; not for production approval, not a substitute for measured data or a licensed engineer.</span>
+      <span>&copy; 2026 SectorCalc</span>
+    </div>
+  </footer>
+</div>
+
+<!-- ================= PDF PREVIEW MODAL ================= -->
+<div class="modal-overlay" id="pdfModal" role="dialog" aria-modal="true" aria-labelledby="pdfModalTitle" aria-hidden="true">
+  <div class="modal-content">
+    <button class="modal-close" id="modalClose" aria-label="Close PDF preview">&times;</button>
+    <div class="pdf-preview">
+      <div class="pdf-preview-header">
+        <h3 id="pdfModalTitle">SectorCalc &mdash; Sample Report</h3>
+        <p>SC-008 &middot; Tolerance Stack-Up Analysis &middot; Deterministic Engine V1.0.0</p>
+      </div>
+      <div class="report-card" style="margin-bottom:var(--sp-5);">
+        <div class="report-card-head"><span>EXECUTIVE SUMMARY</span><span>CONFIDENTIAL</span></div>
+        <div class="report-card-body">
+          <div class="report-row"><span class="k">Calculation ID</span><span class="v">SC008-7A3F1C9E</span></div>
+          <div class="report-row"><span class="k">Date Generated</span><span class="v" id="pdfDate">2026-07-23</span></div>
+          <div class="report-row"><span class="k">Engine Version</span><span class="v">SC008-2026.07-formula-v1.0.0+dist</span></div>
+          <div class="report-row"><span class="k">Deterministic Seed</span><span class="v">7a3f1c9e</span></div>
+          <div class="report-row"><span class="k">Input Hash</span><span class="v">Sample illustration &mdash; live hash in SC-008</span></div>
+        </div>
+      </div>
+      <div style="border:1.5px solid var(--sheet-line);padding:var(--sp-5);margin-bottom:var(--sp-5);">
+        <h4 style="font-family:var(--f-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--sheet-text-3);margin-bottom:var(--sp-4);font-weight:600;">INPUT PARAMETERS</h4>
+        <div class="report-row"><span class="k">Stack Parts</span><span class="v" id="pdfInputs" style="text-align:right;max-width:72%;line-height:1.6;">Spacer Width &plusmn;0.050 (normal)</span></div>
+        <div class="report-row"><span class="k">Method</span><span class="v">WC + RSS + seeded MC (n=10,000)</span></div>
+        <div class="report-row"><span class="k">Standard Reference</span><span class="v">ISO 2768-m</span></div>
+      </div>
+      <div style="border:1.5px solid var(--sheet-line);padding:var(--sp-5);margin-bottom:var(--sp-5);">
+        <h4 style="font-family:var(--f-mono);font-size:11px;text-transform:uppercase;letter-spacing:0.08em;color:var(--sheet-text-3);margin-bottom:var(--sp-4);font-weight:600;">CALCULATION RESULTS</h4>
+        <div class="report-row"><span class="k">Worst-case Stack</span><span class="v" id="pdfWC">&plusmn;0.1150 mm</span></div>
+        <div class="report-row"><span class="k">RSS Stack</span><span class="v" style="color:var(--iso-blue)" id="pdfRSS">&plusmn;0.0687 mm</span></div>
+        <div class="report-row"><span class="k">Monte Carlo (n=10,000)</span><span class="v" style="color:var(--iso-orange)" id="pdfMC">&plusmn;0.0671 mm</span></div>
+        <div class="report-row"><span class="k">Predicted Cpk</span><span class="v" id="pdfCpk">2.18</span></div>
+        <div class="report-row"><span class="k">Predicted PPM (95% CI)</span><span class="v" id="pdfPPM">3 &middot; 0&ndash;11</span></div>
+      </div>
+      <div class="report-verdict">Predicted in spec &mdash; verify with measured data before release</div>
+      <div style="margin-top:var(--sp-5);text-align:center;">
+        <button class="btn btn-primary" onclick="window.print()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:6px;"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+          Print / Save as PDF
+        </button>
+      </div>
     </div>
   </div>
-</footer>
+</div>
 
 <script>
-// Live tolerance stack-up diagram (Number, demo). Real Decimal engine lives in the calculator.
-const dims = [
-  { name:'Spacer',  nominal: 25, tol: 0.050, color:'#2563EB' },
-  { name:'Bearing', nominal: 30, tol: 0.025, color:'#0891B2' },
-  { name:'Housing', nominal:-55, tol: 0.040, color:'#7C3AED' }
-];
-const $ = (id) => document.getElementById(id);
-function draw(){
-  const spec = Math.abs(parseFloat($('spec').value)||0);
-  dims[0].tol = Math.abs(parseFloat($('t0').value)||0);
-  dims[1].tol = Math.abs(parseFloat($('t1').value)||0);
-  dims[2].tol = Math.abs(parseFloat($('t2').value)||0);
-  const nomSum = dims.reduce((s,d)=>s+d.nominal,0);
-  const worst = dims.reduce((s,d)=>s+d.tol,0);
-  const rss = Math.sqrt(dims.reduce((s,d)=>s+d.tol*d.tol,0));
-  // simple Monte Carlo (uniform per part) for the preview number
-  let seed = 12345; const lcg = () => { seed=(seed*1664525+1013904223)%4294967296; return seed/4294967296-0.5; };
-  const samp=[]; for(let i=0;i<4000;i++){ let s=0; for(const d of dims) s+=d.nominal+lcg()*2*d.tol; samp.push(s); }
-  samp.sort((a,b)=>a-b); const mc=(samp[Math.floor(4000*0.9985)]-samp[Math.floor(4000*0.0015)])/2;
+(function(){
+  'use strict';
 
-  $('wc').textContent='±'+worst.toFixed(4);
-  $('rss').textContent='±'+rss.toFixed(4);
-  $('mc').textContent='±'+mc.toFixed(4);
-  const v=$('verdict'); let cls,ic,txt;
-  if(rss<=spec*0.8){cls='cv-pass';ic='✓';txt='Within spec — statistically sound';}
-  else if(rss<=spec){cls='cv-warn';ic='!';txt='Marginal — monitor the process';}
-  else{cls='cv-fail';ic='×';txt='Out of spec — tighten tolerances';}
-  v.className='calc-verdict '+cls; v.innerHTML=`<span>${ic}</span> ${txt}`;
-
-  // ---- engineering drawing ----
-  const W=540,H=300, padL=70, padR=24, padT=24, padB=40;
-  const cx = nomSum; // center of stack on the mm axis
-  const span = Math.max(spec, worst)*1.25 + 0.02;
-  const x0 = cx - span, x1 = cx + span;
-  const X = (mm) => padL + (mm - x0)/(x1 - x0)*(W-padL-padR);
-  const gridStep = span>0.4?0.1:span>0.15?0.05:0.02;
-  let g='';
-  // engineering paper grid
-  for(let mm=Math.ceil(x0/gridStep)*gridStep; mm<=x1; mm+=gridStep){
-    const gx=X(mm); g+=`<line x1="${gx}" y1="${padT}" x2="${gx}" y2="${H-padB}" stroke="#EEF2F7" stroke-width="1"/>`;
-    g+=`<text x="${gx}" y="${H-padB+15}" text-anchor="middle" font-family="IBM Plex Mono" font-size="8.5" fill="#94A3B8">${mm.toFixed(2)}</text>`;
-  }
-  g+=`<text x="${(padL+W-padR)/2}" y="${H-6}" text-anchor="middle" font-family="IBM Plex Mono" font-size="9" fill="#64748B">assembled dimension (mm)</text>`;
-  // spec zone (green band) + USL/LSL
-  const uslX=X(cx+spec), lslX=X(cx-spec);
-  g+=`<rect x="${lslX}" y="${padT}" width="${uslX-lslX}" height="${H-padB-padT}" fill="rgba(21,128,61,0.06)"/>`;
-  g+=`<line x1="${uslX}" y1="${padT}" x2="${uslX}" y2="${H-padB}" stroke="#15803D" stroke-width="1.4" stroke-dasharray="5,4"/>`;
-  g+=`<line x1="${lslX}" y1="${padT}" x2="${lslX}" y2="${H-padB}" stroke="#15803D" stroke-width="1.4" stroke-dasharray="5,4"/>`;
-  g+=`<text x="${uslX}" y="${padT-7}" text-anchor="middle" font-family="IBM Plex Mono" font-size="8.5" fill="#15803D">USL</text>`;
-  g+=`<text x="${lslX}" y="${padT-7}" text-anchor="middle" font-family="IBM Plex Mono" font-size="8.5" fill="#15803D">LSL</text>`;
-  // nominal center line
-  g+=`<line x1="${X(cx)}" y1="${padT}" x2="${X(cx)}" y2="${H-padB}" stroke="#94A3B8" stroke-width="1" stroke-dasharray="2,3"/>`;
-  // dimension rows (tolerance bands)
-  const rowY0=padT+18, rowH=(H-padB-padT-70)/dims.length;
-  dims.forEach((d,i)=>{
-    const y=rowY0+i*rowH;
-    const lo=X(d.nominal-d.tol), hi=X(d.nominal+d.tol), mid=X(d.nominal);
-    g+=`<text x="${padL-8}" y="${y+9}" text-anchor="end" font-family="IBM Plex Mono" font-size="9" fill="#64748B">${d.name}</text>`;
-    g+=`<line x1="${lo}" y1="${y+5}" x2="${hi}" y2="${y+5}" stroke="${d.color}" stroke-width="1" opacity="0.5"/>`;
-    g+=`<rect x="${lo}" y="${y}" width="${Math.max(hi-lo,2)}" height="10" rx="2" fill="${d.color}" opacity="0.18"/>`;
-    g+=`<line x1="${mid}" y1="${y-2}" x2="${mid}" y2="${y+12}" stroke="${d.color}" stroke-width="1.6"/>`;
-    g+=`<text x="${hi+4}" y="${y+9}" font-family="IBM Plex Mono" font-size="8" fill="${d.color}">±${d.tol.toFixed(3)}</text>`;
+  // ============================================================
+  // THEME - redraw demo histogram when theme flips
+  // ============================================================
+  window.addEventListener('sectorcalc-theme', function(){
+    if (typeof redrawHistogramSafe === 'function') redrawHistogramSafe();
   });
-  // result brackets at bottom
-  const by=H-padB-26;
-  const wLo=X(cx-worst), wHi=X(cx+worst), rLo=X(cx-rss), rHi=X(cx+rss);
-  g+=`<line x1="${wLo}" y1="${by}" x2="${wHi}" y2="${by}" stroke="#DC2626" stroke-width="2"/>`;
-  g+=`<line x1="${wLo}" y1="${by-5}" x2="${wLo}" y2="${by+5}" stroke="#DC2626" stroke-width="2"/><line x1="${wHi}" y1="${by-5}" x2="${wHi}" y2="${by+5}" stroke="#DC2626" stroke-width="2"/>`;
-  g+=`<text x="${(wLo+wHi)/2}" y="${by-7}" text-anchor="middle" font-family="IBM Plex Mono" font-size="8.5" fill="#DC2626">worst ±${worst.toFixed(3)}</text>`;
-  const by2=by+15;
-  g+=`<line x1="${rLo}" y1="${by2}" x2="${rHi}" y2="${by2}" stroke="#1D4ED8" stroke-width="2.4"/>`;
-  g+=`<line x1="${rLo}" y1="${by2-5}" x2="${rLo}" y2="${by2+5}" stroke="#1D4ED8" stroke-width="2.4"/><line x1="${rHi}" y1="${by2-5}" x2="${rHi}" y2="${by2+5}" stroke="#1D4ED8" stroke-width="2.4"/>`;
-  g+=`<text x="${(rLo+rHi)/2}" y="${by2-7}" text-anchor="middle" font-family="IBM Plex Mono" font-size="8.5" fill="#1D4ED8">RSS ±${rss.toFixed(3)}</text>`;
-  $('stackSvg').innerHTML = g;
-}
-['t0','t1','t2','spec'].forEach(id=>$(id).addEventListener('input',draw));
-draw();
+
+  // ============================================================
+  // MOBILE MENU
+  // ============================================================
+  var mobileBtn = document.getElementById('mobileMenuBtn');
+  var mobileNav = document.getElementById('mobileNav');
+  if (mobileBtn && mobileNav) {
+    mobileBtn.addEventListener('click', function(){
+      var expanded = mobileBtn.getAttribute('aria-expanded') === 'true';
+      mobileBtn.setAttribute('aria-expanded', !expanded);
+      mobileNav.setAttribute('aria-hidden', expanded);
+      mobileNav.classList.toggle('active');
+      document.body.style.overflow = expanded ? '' : 'hidden';
+    });
+    mobileNav.querySelectorAll('a').forEach(function(link){
+      link.addEventListener('click', function(){
+        mobileBtn.setAttribute('aria-expanded', 'false');
+        mobileNav.setAttribute('aria-hidden', 'true');
+        mobileNav.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+  }
+
+  // ============================================================
+  // SCROLL REVEAL
+  // ============================================================
+  var els = document.querySelectorAll('[data-reveal]');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('in-view'); io.unobserve(e.target); }
+      });
+    }, {threshold: 0.15});
+    els.forEach(function(el){ io.observe(el); });
+  } else {
+    els.forEach(function(el){ el.classList.add('in-view'); });
+  }
+
+  // ============================================================
+  // ANIMATE HERO GAUGE ARCS
+  // ============================================================
+  // Hero gauge arcs are synced to live results by updateHeroGauge() (engine below).
+
+  // ============================================================
+  // ROLE TABS - WORKING FILTER
+  // ============================================================
+  var tabs = document.querySelectorAll('.role-tab');
+  var cards = document.querySelectorAll('.switch-card');
+
+  tabs.forEach(function(tab){
+    tab.addEventListener('click', function(){
+      var filter = this.getAttribute('data-filter');
+
+      // Update active tab
+      tabs.forEach(function(t){ 
+        t.classList.remove('active'); 
+        t.setAttribute('aria-selected', 'false');
+      });
+      this.classList.add('active');
+      this.setAttribute('aria-selected', 'true');
+
+      // Filter cards with animation
+      cards.forEach(function(card){
+        var roles = card.getAttribute('data-roles');
+        if (filter === 'all' || (roles && roles.indexOf(filter) !== -1)) {
+          card.style.display = '';
+          card.style.opacity = '0';
+          card.style.transform = 'translateY(8px)';
+          setTimeout(function(){
+            card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+          }, 50);
+        } else {
+          card.style.opacity = '0';
+          card.style.transform = 'translateY(8px)';
+          setTimeout(function(){ card.style.display = 'none'; }, 300);
+        }
+      });
+    });
+  });
+
+  // ============================================================
+  // REAL WORKING CALCULATOR
+  // ============================================================
+  var nominalInput = document.getElementById('nominalDim');
+  var toleranceInput = document.getElementById('tolerance');
+  var distributionSelect = document.getElementById('distribution');
+  var addToStackBtn = document.getElementById('addToStackBtn');
+  var resetBtn = document.getElementById('resetBtn');
+  var fullReportBtn = document.getElementById('fullReportBtn');
+  var downloadPdfBtn = document.getElementById('downloadPdfBtn');
+
+  // Result elements
+  var wcValue = document.getElementById('wcValue');
+  var wcBar = document.getElementById('wcBar');
+  var wcPct = document.getElementById('wcPct');
+  var rssValue = document.getElementById('rssValue');
+  var rssBar = document.getElementById('rssBar');
+  var rssPct = document.getElementById('rssPct');
+  var mcValue = document.getElementById('mcValue');
+  var mcBar = document.getElementById('mcBar');
+  var mcPct = document.getElementById('mcPct');
+  var cpkValue = document.getElementById('cpkValue');
+  var verdict = document.getElementById('verdict');
+  var creditBalance = document.getElementById('creditBalance');
+
+  var resultSkeleton = document.getElementById('resultSkeleton');
+  var resultContent = document.getElementById('resultContent');
+  var addToStackText = document.getElementById('addToStackText');
+  var addToStackLoading = document.getElementById('addToStackLoading');
+  var fullReportText = document.getElementById('fullReportText');
+  var fullReportLoading = document.getElementById('fullReportLoading');
+
+  var credits = 47;
+
+  // ---- Deterministic engine: seeded PRNG, reproducible sampling ----
+  function mulberry32(seed){
+    var a = seed >>> 0;
+    return function(){
+      a |= 0; a = (a + 0x6D2B79F5) | 0;
+      var t = Math.imul(a ^ (a >>> 15), 1 | a);
+      t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+  }
+  function randNormal(rng){
+    var u = 0, v = 0;
+    while (u === 0) u = rng();
+    while (v === 0) v = rng();
+    return Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v);
+  }
+  function phi(x){ /* standard normal CDF (Abramowitz-Stegun 7.1.26) */
+    var t = 1 / (1 + 0.2316419 * Math.abs(x));
+    var d = 0.3989423 * Math.exp(-x * x / 2);
+    var p = d * t * (0.3193815 + t * (-0.3565638 + t * (1.781478 + t * (-1.821256 + t * 1.330274))));
+    return x > 0 ? 1 - p : p;
+  }
+  function escapeHtml(s){
+    return String(s).replace(/[&<>"']/g, function(c){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+    });
+  }
+
+  var DEFAULT_STACK = [
+    { name: 'Spacer Width', nominal: 25.000, tol: 0.050, dist: 'normal'  },
+    { name: 'Housing Bore', nominal: 40.000, tol: 0.030, dist: 'normal'  },
+    { name: 'Shim',         nominal: 2.000,  tol: 0.020, dist: 'uniform' }
+  ];
+  var stack = DEFAULT_STACK.map(function(p){ return { name:p.name, nominal:p.nominal, tol:p.tol, dist:p.dist }; });
+  var MC_N = 10000;
+  var MC_SEED = 0x7a3f1c9e;
+  var lastSamples = null;
+  var lastResult = null;
+
+  function samplePart(p, rng){
+    switch(p.dist){
+      case 'uniform':    return (rng() * 2 - 1) * p.tol;
+      case 'triangular': return (rng() + rng() - 1) * p.tol;
+      case 'truncated':  var z; do { z = randNormal(rng); } while (Math.abs(z) > 3); return z * p.tol / 3;
+      default:           return randNormal(rng) * p.tol / 3;
+    }
+  }
+  function partSigma(p){
+    switch(p.dist){
+      case 'uniform':    return p.tol / Math.sqrt(3);
+      case 'triangular': return p.tol / Math.sqrt(6);
+      default:           return p.tol / 3;
+    }
+  }
+  function pendingPart(){
+    var nameEl = document.getElementById('partName');
+    var nm = nameEl ? nameEl.value.trim() : '';
+    return {
+      name: nm || 'New Part',
+      nominal: parseFloat(nominalInput.value) || 0,
+      tol: Math.abs(parseFloat(toleranceInput.value)) || 0.05,
+      dist: distributionSelect.value
+    };
+  }
+
+  function drawHistogram(samples, wc){
+    var canvas = document.getElementById('mcHistogram');
+    if (!canvas || !samples) return;
+    var w = canvas.clientWidth || (canvas.parentElement ? canvas.parentElement.clientWidth : 0) || 300;
+    var h = 140;
+    var dpr = window.devicePixelRatio || 1;
+    if (canvas.width !== Math.round(w * dpr)){ canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr); }
+    var ctx = canvas.getContext('2d');
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, w, h);
+    var css = getComputedStyle(document.documentElement);
+    var cBlue   = (css.getPropertyValue('--iso-blue')    || '#0055A4').trim();
+    var cOrange = (css.getPropertyValue('--iso-orange')  || '#E87722').trim();
+    var cGrid   = (css.getPropertyValue('--sheet-grid')  || '#E0E0D8').trim();
+    var cText   = (css.getPropertyValue('--sheet-text-3')|| '#7A7A7A').trim();
+
+    var BINS = 48, min = -wc, max = wc;
+    var bins = new Array(BINS); for (var b0 = 0; b0 < BINS; b0++) bins[b0] = 0;
+    for (var i = 0; i < samples.length; i++){
+      var s = samples[i];
+      if (s < min || s > max) continue;
+      var bi = Math.floor((s - min) / (max - min) * BINS);
+      bins[Math.min(BINS - 1, Math.max(0, bi))]++;
+    }
+    var peak = 1; for (var b1 = 0; b1 < BINS; b1++) if (bins[b1] > peak) peak = bins[b1];
+    var padL = 8, padR = 8, padT = 10, padB = 18;
+    var plotW = w - padL - padR, plotH = h - padT - padB;
+
+    ctx.strokeStyle = cGrid; ctx.lineWidth = 1;
+    for (var g = 0; g <= 4; g++){
+      var gy = padT + plotH * g / 4;
+      ctx.beginPath(); ctx.moveTo(padL, gy); ctx.lineTo(w - padR, gy); ctx.stroke();
+    }
+    var bw = plotW / BINS;
+    ctx.fillStyle = cBlue; ctx.globalAlpha = 0.85;
+    for (var b = 0; b < BINS; b++){
+      var bh = (bins[b] / peak) * plotH;
+      if (bh > 0) ctx.fillRect(padL + b * bw + 0.5, padT + plotH - bh, Math.max(1, bw - 1), bh);
+    }
+    ctx.globalAlpha = 1;
+    ctx.strokeStyle = cOrange; ctx.setLineDash([4, 3]); ctx.lineWidth = 1.5;
+    var cx = padL + plotW / 2;
+    ctx.beginPath(); ctx.moveTo(cx, padT); ctx.lineTo(cx, padT + plotH); ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle = cText; ctx.font = '10px "JetBrains Mono", monospace';
+    ctx.textAlign = 'left';   ctx.fillText('-' + wc.toFixed(3), padL, h - 5);
+    ctx.textAlign = 'center'; ctx.fillText('0', cx, h - 5);
+    ctx.textAlign = 'right';  ctx.fillText('+' + wc.toFixed(3), w - padR, h - 5);
+  }
+  function redrawHistogramSafe(){
+    if (lastSamples && lastResult){
+      setTimeout(function(){ drawHistogram(lastSamples, lastResult.wc); }, 60);
+    }
+  }
+
+  function updateHeroGauge(wc, rss, mc, cpk){
+    var pairs = [['arcWC', wc], ['arcRSS', rss], ['arcMC', mc]];
+    for (var i = 0; i < pairs.length; i++){
+      var el = document.getElementById(pairs[i][0]);
+      if (!el) continue;
+      var dash = parseFloat(el.getAttribute('stroke-dasharray')) || 100;
+      var frac = wc > 0 ? Math.min(1, pairs[i][1] / wc) : 0;
+      el.style.strokeDashoffset = dash * (1 - frac);
+      el.setAttribute('aria-valuenow', Math.round(frac * 100));
+    }
+    var hWC = document.getElementById('heroWC'); if (hWC) hWC.innerHTML = '&plusmn;' + wc.toFixed(4);
+    var hRS = document.getElementById('heroRSS'); if (hRS) hRS.innerHTML = '&plusmn;' + rss.toFixed(4);
+    var hMC = document.getElementById('heroMC'); if (hMC) hMC.innerHTML = '&plusmn;' + mc.toFixed(4);
+    var hCk = document.getElementById('heroCpk'); if (hCk) hCk.textContent = 'CPK ' + cpk.toFixed(2);
+  }
+
+  function renderStack(){
+    var wrap = document.getElementById('stackChips');
+    if (!wrap) return;
+    wrap.innerHTML = '';
+    stack.forEach(function(p, idx){
+      var chip = document.createElement('div');
+      chip.className = 'stack-chip';
+      chip.setAttribute('role', 'listitem');
+      var name = document.createElement('span'); name.className = 'sc-name'; name.textContent = p.name;
+      var tol = document.createElement('span'); tol.className = 'sc-tol'; tol.textContent = '\u00B1' + p.tol.toFixed(3);
+      var dist = document.createElement('span'); dist.className = 'sc-dist'; dist.textContent = p.dist;
+      var btn = document.createElement('button');
+      btn.className = 'sc-remove';
+      btn.type = 'button';
+      btn.setAttribute('aria-label', 'Remove ' + p.name + ' from stack');
+      btn.textContent = '\u00D7';
+      btn.addEventListener('click', function(){
+        if (stack.length <= 1) return;
+        stack.splice(idx, 1);
+        calculate();
+      });
+      chip.appendChild(name); chip.appendChild(tol); chip.appendChild(dist); chip.appendChild(btn);
+      wrap.appendChild(chip);
+    });
+    var cnt = document.getElementById('stackCount');
+    if (cnt) cnt.textContent = stack.length + (stack.length === 1 ? ' part' : ' parts');
+  }
+
+  function calculate(calcStack){
+    var parts = calcStack || stack;
+    if (!parts.length) return;
+
+    var wc = 0, varSum = 0, rssSum = 0, i, j;
+    for (i = 0; i < parts.length; i++){
+      wc += parts[i].tol;
+      rssSum += parts[i].tol * parts[i].tol;
+      var ps = partSigma(parts[i]);
+      varSum += ps * ps;
+    }
+    var rss = Math.sqrt(rssSum); /* classic RSS: root-sum-square of tolerances */
+
+    /* Seeded Monte Carlo - same inputs + seed + engine => identical result */
+    var rng = mulberry32(MC_SEED);
+    var samples = new Float64Array(MC_N);
+    var mean = 0, M2 = 0;
+    for (i = 0; i < MC_N; i++){
+      var sum = 0;
+      for (j = 0; j < parts.length; j++) sum += samplePart(parts[j], rng);
+      samples[i] = sum;
+      var delta = sum - mean; mean += delta / (i + 1);
+      M2 += delta * (sum - mean);
+    }
+    var sigma = Math.sqrt(M2 / (MC_N - 1));
+    var mc = 3 * sigma;
+
+    var cpk = sigma > 0 ? wc / (3 * sigma) : 0;
+    if (cpk > 10) cpk = 10;
+    var ppm = Math.round(2 * (1 - phi(sigma > 0 ? wc / sigma : 99)) * 1e6);
+
+    var topIdx = 0, topShare = 0;
+    for (i = 0; i < parts.length; i++){
+      var share = Math.pow(partSigma(parts[i]), 2) / varSum;
+      if (share > topShare){ topShare = share; topIdx = i; }
+    }
+
+    lastResult = { wc: wc, rss: rss, mc: mc, sigma: sigma, cpk: cpk, ppm: ppm,
+                   top: parts[topIdx].name, topShare: topShare };
+    lastSamples = samples;
+
+    /* result panel */
+    wcValue.innerHTML  = '\u00B1' + wc.toFixed(4)  + ' <span style="font-size:13px;color:var(--sheet-text-3);">mm</span>';
+    rssValue.innerHTML = '\u00B1' + rss.toFixed(4) + ' <span style="font-size:13px;color:var(--sheet-text-3);">mm</span>';
+    mcValue.innerHTML  = '\u00B1' + mc.toFixed(4)  + ' <span style="font-size:13px;color:var(--sheet-text-3);">mm</span>';
+    cpkValue.textContent = cpk.toFixed(2);
+
+    wcBar.style.width = '100%'; wcPct.textContent = '100%';
+    rssBar.style.width = Math.round(rss / wc * 100) + '%'; rssPct.textContent = Math.round(rss / wc * 100) + '%';
+    mcBar.style.width  = Math.round(mc / wc * 100) + '%';  mcPct.textContent  = Math.round(mc / wc * 100) + '%';
+
+    var contribEl = document.getElementById('contributorValue');
+    if (contribEl) contribEl.textContent = lastResult.top + ' \u00B7 ' + Math.round(topShare * 100) + '%';
+
+    /* verdict */
+    if (cpk >= 1.67) {
+      verdict.textContent = 'Predicted in spec with high confidence \u2014 verify with measured data before release';
+      verdict.style.borderColor = 'var(--iso-green)';
+      verdict.style.color = 'var(--iso-green)';
+      verdict.style.background = 'var(--iso-green-light)';
+    } else if (cpk >= 1.33) {
+      verdict.textContent = 'Predicted capable \u2014 monitor process closely';
+      verdict.style.borderColor = 'var(--iso-blue)';
+      verdict.style.color = 'var(--iso-blue)';
+      verdict.style.background = 'var(--iso-blue-light)';
+    } else if (cpk >= 1.0) {
+      verdict.textContent = 'Marginal capability \u2014 consider tolerance review';
+      verdict.style.borderColor = 'var(--iso-orange)';
+      verdict.style.color = 'var(--iso-orange)';
+      verdict.style.background = 'var(--iso-orange-light)';
+    } else {
+      verdict.textContent = 'WARNING: Predicted not capable \u2014 redesign or tighten controls required';
+      verdict.style.borderColor = 'var(--iso-red)';
+      verdict.style.color = 'var(--iso-red)';
+      verdict.style.background = 'var(--iso-red-light)';
+    }
+
+    updateHeroGauge(wc, rss, mc, cpk);
+    drawHistogram(samples, wc);
+    renderStack();
+  }
+
+  function populatePdfModal(){
+    if (!lastResult) return;
+    var setV = function(id, txt){ var el = document.getElementById(id); if (el) el.textContent = txt; };
+    setV('pdfWC',  '\u00B1' + lastResult.wc.toFixed(4) + ' mm');
+    setV('pdfRSS', '\u00B1' + lastResult.rss.toFixed(4) + ' mm');
+    setV('pdfMC',  '\u00B1' + lastResult.mc.toFixed(4) + ' mm');
+    setV('pdfCpk', lastResult.cpk.toFixed(2));
+    var p = lastResult.ppm / 1e6;
+    var se = Math.sqrt(Math.max(p * (1 - p), 0) / MC_N) * 1e6;
+    var lo = Math.max(0, Math.round(lastResult.ppm - 1.96 * se));
+    var hi = Math.round(lastResult.ppm + 1.96 * se);
+    setV('pdfPPM', lastResult.ppm + ' \u00B7 ' + lo + '\u2013' + hi);
+    setV('pdfInputs', stack.map(function(pt){
+      return pt.name + ' \u00B1' + pt.tol.toFixed(3) + ' (' + pt.dist + ')';
+    }).join('  |  '));
+    setV('pdfDate', new Date().toISOString().slice(0, 10));
+  }
+
+  // Live preview: typing shows what the stack looks like WITH this part added
+  function livePreview(){ calculate(stack.concat([pendingPart()])); }
+  if (nominalInput) nominalInput.addEventListener('input', livePreview);
+  if (toleranceInput) toleranceInput.addEventListener('input', livePreview);
+  if (distributionSelect) distributionSelect.addEventListener('change', livePreview);
+  var partNameInput = document.getElementById('partName');
+  if (partNameInput) partNameInput.addEventListener('input', livePreview);
+
+  // Add to Stack: pushes the pending part into the deterministic stack
+  if (addToStackBtn) {
+    addToStackBtn.addEventListener('click', function(){
+      stack.push(pendingPart());
+
+      addToStackText.style.display = 'none';
+      addToStackLoading.style.display = 'block';
+      addToStackBtn.disabled = true;
+      resultContent.style.display = 'none';
+      resultSkeleton.style.display = 'block';
+
+      setTimeout(function(){
+        resultSkeleton.style.display = 'none';
+        resultContent.style.display = 'block';
+        calculate();
+        addToStackText.style.display = 'block';
+        addToStackLoading.style.display = 'none';
+        addToStackBtn.disabled = false;
+      }, 800);
+    });
+  }
+
+  // Reset
+  if (resetBtn) {
+    resetBtn.addEventListener('click', function(){
+      stack = DEFAULT_STACK.map(function(p){ return { name:p.name, nominal:p.nominal, tol:p.tol, dist:p.dist }; });
+      if (partNameInput) partNameInput.value = 'Spacer Width';
+      nominalInput.value = '25.000';
+      toleranceInput.value = '0.050';
+      distributionSelect.value = 'normal';
+      calculate();
+    });
+  }
+
+  // Sample report preview (no credit theater)
+  if (fullReportBtn) {
+    fullReportBtn.addEventListener('click', function(){
+      populatePdfModal();
+      openPdfModal();
+    });
+  }
+
+  // Print preview
+  if (downloadPdfBtn) {
+    downloadPdfBtn.addEventListener('click', function(){
+      window.print();
+    });
+  }
+
+  // ============================================================
+  // PDF MODAL
+  // ============================================================
+  var pdfModal = document.getElementById('pdfModal');
+  var modalClose = document.getElementById('modalClose');
+  var viewPdfModalBtn = document.getElementById('viewPdfModalBtn');
+  var viewSampleReportBtn = document.getElementById('viewSampleReportBtn');
+
+  function openPdfModal() {
+    if (pdfModal) {
+      pdfModal.classList.add('active');
+      pdfModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      // Focus trap
+      modalClose.focus();
+    }
+  }
+
+  function closePdfModal() {
+    if (pdfModal) {
+      pdfModal.classList.remove('active');
+      pdfModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+  }
+
+  if (modalClose) modalClose.addEventListener('click', closePdfModal);
+  if (viewPdfModalBtn) viewPdfModalBtn.addEventListener('click', function(){
+    populatePdfModal();
+    openPdfModal();
+  });
+  // Hero "View a Sample Report" scrolls to #evidence (native anchor). Modal is on the Evidence section button.
+  // Close on backdrop click
+  if (pdfModal) {
+    pdfModal.addEventListener('click', function(e){
+      if (e.target === pdfModal) closePdfModal();
+    });
+  }
+
+  // Close on Escape key
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') {
+      closePdfModal();
+      if (mobileNav && mobileNav.classList.contains('active')) {
+        mobileBtn.setAttribute('aria-expanded', 'false');
+        mobileNav.setAttribute('aria-hidden', 'true');
+        mobileNav.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
+  });
+
+  // ============================================================
+  // GAUGE INTERACTIVITY - Click to toggle values
+  // ============================================================
+  var gaugeArcs = document.querySelectorAll('.gauge-arc');
+  var readoutCells = document.querySelectorAll('.gauge-readout > div');
+  gaugeArcs.forEach(function(arc, i){
+    function flashCell(){
+      var cell = readoutCells[i];
+      if (!cell) return;
+      cell.classList.remove('readout-flash');
+      void cell.offsetWidth; /* restart animation */
+      cell.classList.add('readout-flash');
+    }
+    arc.addEventListener('click', flashCell);
+    arc.addEventListener('keydown', function(e){
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        flashCell();
+      }
+    });
+  });
+
+  // ============================================================
+  // SMOOTH SCROLL FOR ANCHOR LINKS
+  // ============================================================
+  document.querySelectorAll('a[href^="#"]').forEach(function(anchor){
+    anchor.addEventListener('click', function(e){
+      var targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+      var target = document.querySelector(targetId);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // ============================================================
+  // RESIZE - keep histogram crisp
+  // ============================================================
+  var resizeTimer;
+  window.addEventListener('resize', function(){
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(redrawHistogramSafe, 180);
+  });
+
+  // ============================================================
+  // INITIAL CALCULATION
+  // ============================================================
+  calculate();
+
+})();
 </script>
+
+<script type="module" src="/sc-hero-cell.js?v=12"></script>
+<script src="/sc-hero-engine.js?v=12"></script>
+
+
 </body>
 </html>

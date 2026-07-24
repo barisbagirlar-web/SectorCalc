@@ -21,7 +21,8 @@ export default defineConfig({
         'sc008-pro': 'sc008-pro.html',
         'labor-pro': 'labor-pro.html',
         'quote-pro': 'quote-pro.html',
-        'weld-pro': 'weld-pro.html'
+        'weld-pro': 'weld-pro.html',
+        'machining-pro': 'machining-pro.html'
       }
     }
   },

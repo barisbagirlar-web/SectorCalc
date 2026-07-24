@@ -1,58 +1,117 @@
 import { test, expect } from '@playwright/test';
 
 /**
- * Milestone visual smoke: every shipped tool really renders, accepts input,
- * runs the engine, and shows its hero result in a real browser.
- * One file, one test per tool — adding a tool later = one test appended here.
- * Lit open shadow DOM is pierced recursively by Playwright CSS selectors.
- * Fill order matches each schema's property order (deterministic).
+ * Visual smoke against shipped *-pro calculator pages.
+ * Each test: page loads, live engine updates, Generate Report shows a real report.
  */
 
-test('SC-010: form -> engine -> hero', async ({ page }) => {
+test('SC-010 labor-pro: live + report', async ({ page }) => {
+  await page.goto('/labor-pro.html');
+  await expect(page.locator('#liveResult')).not.toHaveText('—', { timeout: 8000 });
+  await page.fill('#netSalary', '3500');
+  await page.locator('#netSalary').dispatchEvent('input');
+  await expect(page.locator('#liveResult')).toContainText(/\d/);
+  await page.locator('button.sc-btn-primary').click();
+  await expect(page.locator('#reportArea .sc-report-title')).toBeVisible({ timeout: 8000 });
+  await expect(page.locator('#reportArea .sc-report-title')).toContainText('SC-010');
+  await expect(page.locator('#reportArea .sc-chart, #reportArea .sc-pareto-row').first()).toBeVisible();
+});
+
+test('SC-012 quote-pro: live + report', async ({ page }) => {
+  await page.goto('/quote-pro.html');
+  await expect(page.locator('#liveResult')).not.toHaveText('—', { timeout: 8000 });
+  await page.fill('#materialCost', '1500');
+  await page.locator('#materialCost').dispatchEvent('input');
+  await expect(page.locator('#liveResult')).toContainText(/\d/);
+  await page.locator('button.sc-btn-primary').click();
+  await expect(page.locator('#reportArea .sc-report-title')).toBeVisible({ timeout: 8000 });
+  await expect(page.locator('#reportArea .sc-report-title')).toContainText('SC-012');
+  await expect(page.locator('#reportArea .sc-chart, #reportArea .sc-pareto-row').first()).toBeVisible();
+});
+
+test('SC-001 weld-pro: live + report', async ({ page }) => {
+  await page.goto('/weld-pro.html');
+  await expect(page.locator('#liveResult')).not.toHaveText('—', { timeout: 8000 });
+  await page.fill('#weldLengthMm', '80');
+  await page.locator('#weldLengthMm').dispatchEvent('input');
+  await expect(page.locator('#liveResult')).toContainText(/\d/);
+  await page.locator('button.sc-btn-primary').click();
+  await expect(page.locator('#reportArea .sc-report-title')).toBeVisible({ timeout: 8000 });
+  await expect(page.locator('#reportArea .sc-report-title')).toContainText('SC-001');
+  await expect(page.locator('#reportArea .sc-chart, #reportArea svg').first()).toBeVisible();
+});
+
+test('SC-008 sc008-pro: live + report', async ({ page }) => {
+  await page.goto('/sc008-pro.html');
+  await expect(page.locator('#liveResult')).not.toHaveText('—', { timeout: 15000 });
+  const tol = page.locator('#dimList input[data-f="tolerance"]').first();
+  await tol.fill('0.080');
+  await tol.dispatchEvent('input');
+  await expect(page.locator('#liveResult')).toContainText(/\d/);
+  await page.locator('#genReport').click();
+  await expect(page.locator('#reportArea .sc-report-title')).toBeVisible({ timeout: 15000 });
+  await expect(page.locator('#reportArea .sc-report-title')).toContainText('SC-008');
+  await expect(page.locator('#reportArea .sc-chart, #reportArea svg').first()).toBeVisible();
+});
+
+test('SC-020 machining-pro: live + report', async ({ page }) => {
+  await page.goto('/machining-pro.html');
+  await expect(page.locator('#liveResult')).not.toHaveText('—', { timeout: 8000 });
+  await page.fill('#vc', '140');
+  await page.locator('#vc').dispatchEvent('input');
+  await expect(page.locator('#liveResult')).toContainText(/\d/);
+  await page.locator('button.sc-btn-primary').click();
+  await expect(page.locator('#reportArea .sc-report-title')).toBeVisible({ timeout: 8000 });
+  await expect(page.locator('#reportArea .sc-report-title')).toContainText('SC-020');
+  await expect(page.locator('#reportArea')).toContainText('Audit / Review');
+  await expect(page.locator('#reportArea')).toContainText('Integrity');
+});
+
+test('legacy calculator redirects still land on pro tools', async ({ page }) => {
   await page.goto('/calculator.html');
-  await page.locator('sc-select-input select').first().selectOption('US');
-  await page.locator('sc-number-input input').first().fill('3500');
-  await page.locator('sc-select-input select').nth(1).selectOption('monthly');
-  await page.locator('sc-form-renderer button').click();
-  const hero = page.locator('sc-result-card .hero');
-  await expect(hero).toBeVisible({ timeout: 5000 });
-  await expect(hero).toContainText(/\d/);
-  await expect(page.locator('sc-result-card table tr').first()).toBeVisible();
-  await expect(page.locator('sc-warning-panel .w').first()).toBeVisible();
-});
-
-test('SC-012: form -> engine -> hero', async ({ page }) => {
+  await expect(page).toHaveURL(/labor-pro/);
   await page.goto('/calculator2.html');
-  // Schema property order (number inputs): materialCost, scrapRate, laborHours,
-  // laborHourlyCost, machineHours, machineHourlyCost, then optional costs,
-  // then targetMargin (14), quantity (15). Required = first 6 + 14 + 15.
-  const required: Array<[number, string]> = [
-    [0, '1000'], [1, '0.1'], [2, '5'], [3, '40'], [4, '3'], [5, '60'],
-    [14, '0.2'], [15, '10']
-  ];
-  const inputs = page.locator('sc-number-input input');
-  for (const [i, v] of required) {
-    await inputs.nth(i).fill(v);
-  }
-  await page.locator('sc-form-renderer button').click();
-  const hero = page.locator('sc-quote-result .hero');
-  await expect(hero).toBeVisible({ timeout: 5000 });
-  await expect(hero).toContainText(/\d/);
-  await expect(page.locator('sc-quote-result table tr').first()).toBeVisible();
+  await expect(page).toHaveURL(/quote-pro/);
+  await page.goto('/calculator3.html');
+  await expect(page).toHaveURL(/weld-pro/);
+  await page.goto('/calculator4.html');
+  await expect(page).toHaveURL(/machining-pro/);
 });
 
-test('SC-001: form -> engine -> hero', async ({ page }) => {
-  await page.goto('/calculator3.html');
-  // required numbers in schema order: designLoadN, weldLengthMm, weldStrengthMpa,
-  // safetyFactor, materialThicknessMm (jointType enum is optional, left default)
-  const values = ['50000', '200', '480', '2', '10'];
-  const inputs = page.locator('sc-number-input input');
-  for (let i = 0; i < values.length; i++) {
-    await inputs.nth(i).fill(values[i]!);
-  }
-  await page.locator('sc-form-renderer button').click();
-  const hero = page.locator('sc-weld-result .hero');
-  await expect(hero).toBeVisible({ timeout: 5000 });
-  await expect(hero).toContainText(/\d/);
-  await expect(page.locator('sc-weld-result .bar > span')).toBeVisible();
+test('pricing page renders packages from source of truth', async ({ page }) => {
+  await page.goto('/pricing.html');
+  await expect(page.locator('#packages .pack')).toHaveCount(5, { timeout: 8000 });
+  await expect(page.locator('#packages .pack.pop, #packages .pack.featured').first()).toBeVisible();
+  await page.locator('#packages button.load').first().click();
+  await expect(page.locator('#pay-status')).toContainText(/Checkout is not live yet/i);
+});
+
+test('homepage mobile nav hamburger opens links', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/');
+  const toggle = page.locator('#mobileMenuBtn');
+  await expect(toggle).toBeVisible();
+  await expect(page.locator('#mobileNav')).toHaveAttribute('aria-hidden', 'true');
+  await toggle.click();
+  await expect(page.locator('#mobileNav')).toHaveClass(/active/);
+  await expect(page.locator('#mobileNav')).toHaveAttribute('aria-hidden', 'false');
+  await expect(page.locator('#mobileNav a[href="#decide"]')).toBeVisible();
+  await expect(page.locator('#mobileNav a[href="/pricing.html"]')).toBeVisible();
+  await page.locator('#mobileNav a[href="/pricing.html"]').click();
+  await expect(page).toHaveURL(/pricing/);
+});
+
+test('discovery files are served as text/xml', async ({ request }) => {
+  const robots = await request.get('/robots.txt');
+  expect(robots.ok()).toBeTruthy();
+  expect(await robots.text()).toContain('Sitemap:');
+  const sitemap = await request.get('/sitemap.xml');
+  expect(sitemap.ok()).toBeTruthy();
+  expect(await sitemap.text()).toContain('sc008-pro.html');
+  const llms = await request.get('/llms.txt');
+  expect(llms.ok()).toBeTruthy();
+  expect(await llms.text()).toContain('SC-008');
+  const llm = await request.get('/llm.txt');
+  expect(llm.ok()).toBeTruthy();
+  expect(await llm.text()).toContain('SC-010');
 });

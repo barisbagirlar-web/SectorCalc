@@ -3,11 +3,15 @@ import { calculate } from './tools/SC-008-tolerance-stack/v1.0.0/formula.js';
 import { lcg, sampleNormal, sampleUniform, sampleTruncatedNormal, sampleTriangular } from './core/monte-carlo.js';
 import { D } from './core/engine.js';
 import { parseCSV, saveProject, loadProject, listProjects, makeShareURL, parseShareURL, compareRevisions } from './lib/sc008-p4.js';
+import { readThemePalette, exportSurfaceBg, onThemeChange } from './lib/theme-palette.js';
 
 // Sampling lives here (composed from monte-carlo.ts primitives); the MATH lives in
 // formula.ts calculate(). calculate() receives the samples, so UI/PDF/share all agree.
 const ENGINE_VERSION = 'SC008-2026.07-formula-v1.0.0+dist';
-const TH = { track:'#F1F5F9', grid:'#E2E8F0', axis:'#94A3B8', text:'#64748B', ink:'#0B1220', blue:'#1D4ED8', green:'#15803D', amber:'#B45309', red:'#DC2626', greenFill:'rgba(21,128,61,0.12)', amberFill:'rgba(180,83,9,0.12)', redFill:'rgba(220,38,38,0.12)', blueFill:'rgba(29,78,216,0.10)' };
+function chartTheme(){
+  const P = readThemePalette();
+  return { track:P.track, grid:P.grid, axis:P.axis, text:P.text, ink:P.ink, blue:P.blue, green:P.green, amber:P.amber, red:P.red, greenFill:P.greenFill, amberFill:P.amberFill, redFill:P.redFill, blueFill:P.blueFill };
+}
 const MC_RUNS = 10000;
 const unitConv = { mm:{toMm:1,fromMm:1}, inch:{toMm:25.4,fromMm:1/25.4}, um:{toMm:0.001,fromMm:1000} };
 const presets = {
@@ -20,6 +24,13 @@ let currentUnit = 'mm';
 let dimensions = presets.standard.dims.map(d => ({...d}));
 let calcData = null;
 const $ = (id) => document.getElementById(id);
+let _reportSyncing = false;
+function reportIsOpen(){ return !!($('reportArea') && $('reportArea').querySelector('.sc-report-hd')); }
+function syncReportIfOpen(){
+  if (_reportSyncing || !reportIsOpen() || !calcData) return;
+  _reportSyncing = true;
+  try { generateReport({ sync: true }); } finally { _reportSyncing = false; }
+}
 
 function toProjectState(){
   return {
@@ -115,6 +126,7 @@ function compute(){
   calcData={ b, result, samplesNum, rssTol, wcTol, mcSpread, cpk, ppm, ciLo, ciHi, specHalf, rssInSpec, fromMm, hist, inputHash, outputHash, calcId };
   $('liveResult').textContent='+/- '+(rssTol*fromMm).toFixed(4)+' '+currentUnit;
   $('liveSub').innerHTML='<span>'+b.dims.length+' dims</span><span>pred. Cpk '+cpk.toFixed(2)+'</span><span>'+(rssInSpec?'predicted in spec':'predicted OUT')+'</span>';
+  syncReportIfOpen();
 }
 
 function loadPreset(key){
@@ -149,14 +161,15 @@ function radarAxes(d){
   return [{name:'Spec margin',val:specMargin,note:'1 - RSS/specHalf'},{name:'Pred. Cpk ratio',val:cpkRatio,note:'predicted Cpk / target'},{name:'Pred. yield',val:yieldRate,note:'1 - PPM/1e6'},{name:'MC-RSS agree',val:mcRssAgree,note:'sim vs RSS spread'},{name:'Stat. gain',val:statGain,note:'RSS / worst-case'}];
 }
 
-function generateReport(){
+function generateReport(_opts){
   if(!calcData)compute();
   const d=calcData; if(!d)return;
+  const TH = chartTheme();
   const u=d.fromMm, uL=currentUnit;
   const overall=!d.rssInSpec?'CRITICAL':(d.cpk<d.b.cpkTarget?'WARNING':'PASS');
   const gCol=overall==='PASS'?TH.green:(overall==='WARNING'?TH.amber:TH.red);
   const gaugeAngle=Math.max(-90,Math.min(90,(d.rssTol/d.specHalf)*90));
-  const pColors=[TH.red,TH.amber,TH.blue,'#7C3AED',TH.blue];
+  const pColors=[TH.red,TH.amber,TH.blue,'#005387',TH.green];
   const top=d.result.pareto[0]; const axes=radarAxes(d);
   const maxC=Math.max(...d.hist.map(h=>h.c),1);
   const histBars=d.hist.map((h,i)=>{ const bw=500/d.hist.length; const bh=(h.c/maxC)*140; return `<rect x="${50+i*bw}" y="${150-bh}" width="${bw-1}" height="${bh}" fill="${TH.blue}" opacity="0.8"/>`; }).join('');
@@ -248,14 +261,16 @@ function generateReport(){
       <span>Reproducibility</span> — same inputs + distributions + seed + engine version reproduce this report exactly (hashes above)
     </div></div></div>
     <div class="sc-footer">SectorCalc — Engineering preview. Client-side. Deterministic Decimal engine. Not for production approval.<br>Predicted from drawing tolerances and chosen distributions; verify with measured process data.</div>`;
-  $('pdfBtn').addEventListener('click',()=>exportPDF(false));
-  $('gfxBtn').addEventListener('click',()=>exportPDF(true));
-  $('shareBtn').addEventListener('click', () => {
+  // Assign onclick (not addEventListener) so live report sync does not stack handlers
+  const on = (id, fn) => { const el = $(id); if (el) el.onclick = fn; };
+  on('pdfBtn', () => exportPDF(false));
+  on('gfxBtn', () => exportPDF(true));
+  on('shareBtn', () => {
     navigator.clipboard.writeText(makeShareURL(location.origin, toProjectState())).then(()=>alert('Share URL copied (tamper-evident integrity hash attached)'));
   });
   const snap = (slot) => { window['__snap'+slot] = { cpk:d.cpk, ppm:d.ppm, rss:d.rssTol, worst:d.wcTol, label:'Snap '+slot+' ('+d.calcId+')' }; alert('Saved '+window['__snap'+slot].label); if (window.__snapA && window.__snapB) showCompare(); };
-  $('snapABtn').addEventListener('click', () => snap('A'));
-  $('snapBBtn').addEventListener('click', () => snap('B'));
+  on('snapABtn', () => snap('A'));
+  on('snapBBtn', () => snap('B'));
   function showCompare(){
     const rows = compareRevisions(window.__snapA, window.__snapB);
     const tbl = rows.map(r=>`<tr><td class="td-name">${r.metric}</td><td>${r.a.toFixed(3)}</td><td>${r.b.toFixed(3)}</td><td class="${r.better?'td-ok':'td-high'}">${r.delta>=0?'+':''}${r.delta.toFixed(3)}</td></tr>`).join('');
@@ -269,7 +284,7 @@ function exportPDF(graphic){
   const d=calcData; if(!d)return;
   const u=d.fromMm, uL=currentUnit; const distUsed=[...new Set(d.b.dims.map(x=>x.dist))].join(', ');
   if(graphic){
-    html2canvas($('reportArea'),{scale:1.5,backgroundColor:'#FFFFFF',useCORS:true,logging:false}).then(canvas=>{
+    html2canvas($('reportArea'),{scale:1.5,backgroundColor:exportSurfaceBg(),useCORS:true,logging:false}).then(canvas=>{
       const {jsPDF}=window.jspdf; const pdf=new jsPDF({unit:'pt',format:'a4'});
       const pW=pdf.internal.pageSize.getWidth(), pH=pdf.internal.pageSize.getHeight();
       const iH=(canvas.height*pW)/canvas.width; const img=canvas.toDataURL('image/jpeg',0.82);
@@ -305,6 +320,7 @@ $('unitSpec2').addEventListener('change',()=>{ $('unitSpec').value=$('unitSpec2'
 $('addDim').addEventListener('click',()=>{ dimensions.push({name:'Dim '+(dimensions.length+1),nominal:10,tolerance:0.05,dist:'normal'}); renderDims(); compute(); });
 $('resetAll').addEventListener('click',()=>loadPreset('standard'));
 $('genReport').addEventListener('click',generateReport);
+onThemeChange(syncReportIfOpen);
 $('dimList').addEventListener('input',e=>{ const t=e.target; if(t.dataset.i!==undefined){ const i=+t.dataset.i,f=t.dataset.f; dimensions[i][f]= f==='name'?t.value:(f==='dist'?t.value:parseFloat(t.value)); compute(); }});
 $('dimList').addEventListener('change',e=>{ const t=e.target; if(t.dataset.f==='dist'){ dimensions[+t.dataset.i].dist=t.value; compute(); }});
 $('dimList').addEventListener('click',e=>{ const t=e.target; if(t.dataset.del!==undefined&&dimensions.length>1){ dimensions.splice(+t.dataset.del,1); renderDims(); compute(); }});

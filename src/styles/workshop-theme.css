@@ -1,13 +1,17 @@
 :root {
-  --sc-steel: #2D3436;
-  --sc-rust: #D35400;
-  --sc-chip: #27AE60;
-  --sc-bg: #F5F6FA;
+  --iso-blue: #0055A4;
+  --iso-orange: #E87722;
+  --iso-green: #007A33;
+  --sc-steel: #1A1A1A;
+  --sc-rust: #E87722;
+  --sc-chip: #007A33;
+  --sc-bg: #F5F5F0;
   --sc-card: #FFFFFF;
-  --sc-text: #2D3436;
-  --sc-muted: #636E72;
-  --sc-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
-  --sc-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --sc-text: #1A1A1A;
+  --sc-muted: #7A7A7A;
+  --sc-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --sc-sans: 'Inter', system-ui, sans-serif;
+  --sc-display: 'Barlow Condensed', sans-serif;
 }
 
 * { box-sizing: border-box; }
@@ -25,9 +29,9 @@ main {
   margin: 4rem auto;
   padding: 2rem;
   background: var(--sc-card);
-  border: 1px solid #DFE6E9;
-  border-radius: 12px;
+  border: 1px solid #C5C5BE;
+  border-radius: 0;
 }
 
-h1 { color: var(--sc-steel); }
+h1 { color: var(--sc-steel); font-family: var(--sc-display); text-transform: uppercase; }
 #engine-check { font-family: var(--sc-mono); }

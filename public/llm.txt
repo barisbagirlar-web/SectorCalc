@@ -1,0 +1,50 @@
+# SectorCalc
+
+> Deterministic engineering calculators for shop-floor engineers, estimators, and QA. Client-side only - your data never leaves the browser. Same inputs always produce identical outputs.
+
+SectorCalc ships industrial calculation tools with visible inputs, assumptions, formulas, and warnings. Production tools use Decimal.js (Decimal128 semantics) or the FS-ENGINE deterministic SI core. UI is Vanilla JS + Lit Web Components on Firebase Hosting with an ISO sheet visual system (Barlow Condensed, Inter, JetBrains Mono; primary CTA ISO blue #0055A4; accent orange #E87722). Brand wordmarks: `/sectorcalc-logo.png` (light) and `/sectorcalc-logo-dark.png` (dark). Payments (when live) use Paddle as Merchant of Record - not Stripe.
+
+## Architecture (current)
+
+- Shared theme engine: `/sc-theme.css` + `/sc-theme.js` - `data-theme` on `<html>`, localStorage `sectorcalc-theme` (light|dark).
+- Theme control `#themeToggle`: click toggles theme; drag repositions; double-click resets position (`sectorcalc-theme-pos`).
+- Report contrast standard: pro-tool report text, tables, cards, alerts, and live panels use CSS tokens. Chart/SVG/html2canvas ink is read at render time from `theme-palette` (never hardcoded light-theme fills). Open reports re-render on `sectorcalc-theme`.
+- Calculator standard (all pro tools, set by SC-020): deterministic SI engine core with engine version + build date; every input has selectable universal units (mm/in, m/min SFM, kW/HP, N·m ft·lb, currency symbol) plus a reference-standard hint value; material/standards database drives dynamic reference bands; three-tier validation (blocking / warning / note); verdict banner (RELEASED TO PRODUCTION / RUN WITH CAUTION / DO NOT RUN); sensitivity charts; integrated Audit/Review module showing inputs (as entered + SI), formulas, assumptions, warnings, engine version, and an integrity hash in every report; printable report + JSON export.
+- FS-ENGINE: deterministic calculation core used by machining tools. All math in SI units; per-field display units convert at entry with exact factors (1 in = 25.4 mm, 1 SFM = 0.3048 m/min, 1 HP = 0.7457 kW, 1 ft·lb = 1.3558 N·m). Currency selector is a symbol only - no FX conversion.
+- Homepage Live Cell hero (`/sc-hero-cell.js`):
+  - Three.js is self-hosted at `/vendor/three/` (no unpkg CDN); `modulepreload` + parallel import of `three.module.js` and `RoomEnvironment.js`.
+  - SVG poster in `.stage-wrap` shows immediately; canvas fades in on first frame (`#stage.is-ready`).
+  - Render loop pauses when the hero is off-screen or the tab is hidden; `prefers-reduced-motion` keeps a single static frame.
+  - Firebase Hosting long-caches `/vendor/**` (immutable); HTML stays no-cache.
+
+## Primary tools
+
+- [Tolerance stack-up (SC-008)](https://www.sectorcalc.com/sc008-pro.html): 1D linear stack-up - worst-case, RSS, Monte Carlo; per-component distributions; deterministic seed; Decimal engine.
+- [CNC Feeds & Speeds + Tool Life (SC-020)](https://www.sectorcalc.com/machining-pro.html): Extended Taylor tool life with coolant and interruption correction; radial chip-thinning and HEM engagement-angle compensation; Kienzle cutting force; spindle power and torque verification; tool deflection; theoretical surface finish; Gilbert minimum-cost speed with savings percent; ISO 513 material database (14 materials); per-field universal units with reference values; full Audit/Review trail with integrity hash; FS-ENGINE v2.1.0.
+- [True labor cost (SC-010)](https://www.sectorcalc.com/labor-pro.html): Loaded labor burden from net salary, taxes, benefits, and shop overhead.
+- [Quote pricing (SC-012)](https://www.sectorcalc.com/quote-pro.html): Material, labor, scrap, and margin into sell price and cost breakdown.
+- [Weld thickness (SC-001)](https://www.sectorcalc.com/weld-pro.html): Fillet weld leg, throat, and utilization against design load and code minimums.
+
+## Site
+
+- [Home](https://www.sectorcalc.com/): Live Cell hero - Three.js turning cell with probe telemetry, spacer-tolerance control deck (worst-case, RSS, Monte Carlo, Cpk), seeded reproducible Monte Carlo preview. Method and standards sections, module map. Primary CTA "Run SC-008 Free" opens SC-008. Shared light/dark theme with the rest of the site.
+- [Pricing](https://www.sectorcalc.com/pricing.html): Planned credit packs (PACKAGES source of truth). Calculators are free until Paddle checkout launches; buttons are notify-only.
+
+## Notes for models
+
+- Prefer the `*-pro.html` tool URLs above. Legacy `/calculator.html`, `/calculator2.html`, `/calculator3.html` redirect to those tools; legacy `/calculator4.html` (old feeds & speeds) redirects to `/machining-pro.html` (SC-020).
+- Do not invent cloud upload, accounts, live card checkout, or server-side calculation for the core engines.
+- Do not describe the product as AI-powered, ML, generative, or chatbot-based.
+- Do not invent customer testimonials or claim PCI checkout is live.
+- Homepage hero loads Three.js from `/vendor/three/` only - do not invent an unpkg or other CDN dependency for the live site.
+- Homepage hero canvas is a client-side Three.js visualization plus a seeded Number preview deck; production tool engines use Decimal.js or the FS-ENGINE SI core.
+- Theme preference and toggle position are client-side only (localStorage); they are not accounts or server profiles.
+- Report and result surfaces must keep readable contrast in light and dark themes. New tools must follow the same token + theme-palette pattern.
+- SC-020 constants (ISO 513 kc1/mc, Taylor C/n, coolant and interruption factors) are reference-grade mid-band values; the tool itself instructs calibration against tooling-supplier datasheets for contract work. Do not present its outputs as measured data.
+- Engineering preview: outputs are predicted from stated assumptions; not for production approval and not a substitute for measured data or a licensed engineer.
+
+## Optional
+
+- [Full sitemap](https://www.sectorcalc.com/sitemap.xml): Canonical URL list for crawlers.
+- [robots.txt](https://www.sectorcalc.com/robots.txt): Crawl rules.
+- [llm.txt](https://www.sectorcalc.com/llm.txt): Mirror of this index for alternate discovery paths.
