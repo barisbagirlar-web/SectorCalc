@@ -59,6 +59,7 @@
 
 ## Model limits that must not be hidden
 
+- SC-021's interactive engine evaluates one operating point at a time. Its page documents how variable load/speed spectra are reduced to equivalent operating values for basic-life screening, but SectorCalc does not claim a direct variable-load-spectrum solver.
 - SC-027 exposes equation-backed fit families only; unsupported ISO tolerance zones are not guessed.
 - SC-029 t8/5 is an engineering cooling estimate, not a WPS/PQR replacement.
 - SC-031 uses conservative load sharing unless engineered equalization is established.
@@ -75,6 +76,11 @@
 - [Pricing](https://www.sectorcalc.com/pricing.html)
 - [Sitemap](https://www.sectorcalc.com/sitemap.xml)
 - [Robots](https://www.sectorcalc.com/robots.txt)
+
+## Search and retrieval
+- `robots.txt` explicitly allows Googlebot, Bingbot and OAI-SearchBot to crawl public production content.
+- The XML sitemap contains canonical indexable URLs only. Retired routes are intentionally excluded.
+- `llms.txt` is supplemental discovery documentation; the public HTML, canonical URLs, visible engineering guides and structured data remain the primary public source of truth.
 
 ## Notes for models
 - Prefer the canonical URLs listed above.
