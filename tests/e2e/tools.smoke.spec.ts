@@ -28,9 +28,7 @@ async function expectSharedRuntime(page: Page, code: string, url: string) {
 }
 
 test('24 shared calculators mount the unified Decimal + A1-A5 production contract', async ({ page }) => {
-  for (const [code,url] of SHARED_TOOLS) {
-    await expectSharedRuntime(page,code,url);
-  }
+  for (const [code,url] of SHARED_TOOLS) await expectSharedRuntime(page,code,url);
 });
 
 test('SC-010 live input updates engine-owned results and audit', async ({ page }) => {
@@ -180,7 +178,7 @@ test('discovery files expose unified architecture and all-live catalog', async (
   expect(robotsText).toContain('User-agent: Googlebot');
   expect(robotsText).toContain('User-agent: Bingbot');
   expect(robotsText).toContain('User-agent: OAI-SearchBot');
-  expect(robotsText).toContain('Sitemap: https://www.sectorcalc.com/sitemap.xml');
+  expect(robotsText).toContain('Sitemap: https://sectorcalc.com/sitemap.xml');
 
   const sitemap = await request.get('/sitemap.xml');
   expect(sitemap.ok()).toBeTruthy();
@@ -192,6 +190,7 @@ test('discovery files expose unified architecture and all-live catalog', async (
   expect(sm).not.toContain('<changefreq>');
   expect(sm).not.toContain('/categories');
   expect(sm).not.toContain('/developer-showcase');
+  expect(sm).not.toContain('https://www.sectorcalc.com');
   const locs = [...sm.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
   expect(locs).toHaveLength(29);
   expect(new Set(locs).size).toBe(locs.length);
@@ -204,6 +203,7 @@ test('discovery files expose unified architecture and all-live catalog', async (
   expect(llmsText).toContain('25 live, 0 planned');
   expect(llmsText).toContain('SC-008 Tolerance Stack-Up');
   expect(llmsText).toContain('OAI-SearchBot');
+  expect(llmsText).not.toContain('https://www.sectorcalc.com');
 
   const llm = await request.get('/llm.txt');
   expect(llm.ok()).toBeTruthy();
