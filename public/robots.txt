@@ -1,5 +1,6 @@
 # SectorCalc — robots.txt (production)
 # Canonical host: https://www.sectorcalc.com
+# Google indexing: Allow all public HTML tools. No noindex headers on indexable pages.
 
 User-agent: *
 Allow: /
@@ -9,7 +10,9 @@ Allow: /sitemap-videos.xml
 Allow: /llm.txt
 Allow: /llms.txt
 Allow: /site.webmanifest
+Allow: /assets/
 
+# Non-content / waste paths
 Disallow: /cgi-bin/
 Disallow: /tmp/
 Disallow: /draft/
@@ -18,31 +21,17 @@ Disallow: /admin/
 Disallow: /api/
 Disallow: /internal/
 Disallow: /assets/cache/
-Disallow: /*?seed=
-Disallow: /*?ref=
-Disallow: /*?utm_
-Disallow: /*?fbclid=
-Disallow: /*?gclid=
 
 User-agent: Googlebot
 Allow: /
-Allow: /*.js$
-Allow: /*.css$
-Allow: /*.png$
-Allow: /*.jpg$
-Allow: /*.svg$
-Allow: /*.pdf$
 
 User-agent: Googlebot-Image
-Allow: /assets/images/
-Allow: /sectorcalc-logo
-Allow: /icon-
-Allow: /favicon
+Allow: /
 
 User-agent: Bingbot
 Allow: /
 
-# AI search crawlers (allow discovery; training bots blocked below)
+# AI search crawlers (discovery allowed)
 User-agent: Google-Extended
 Allow: /
 
@@ -61,7 +50,7 @@ Allow: /
 User-agent: cohere-ai
 Allow: /
 
-# Training-oriented crawlers
+# Training-oriented crawlers (search allowed above; training blocked)
 User-agent: GPTBot
 Disallow: /
 

@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
+<!--SC-SEO-HOST-->
+<script>(function(){try{if(location.hostname==='sectorcalc.com'){location.replace('https://www.sectorcalc.com'+location.pathname+location.search+location.hash);}}catch(e){}})();</script>
+<!--SC-SEO-HOST-END-->
 <script>(function(){try{var k='sectorcalc-theme';var t=localStorage.getItem(k);if(t!=='dark'&&t!=='light')t=(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';document.documentElement.setAttribute('data-theme',t);document.documentElement.style.colorScheme=t;}catch(e){}})();</script>
 <meta charset="UTF-8">
 <link rel="icon" href="./favicon.ico?v=20260724c" sizes="any">
@@ -188,25 +191,28 @@ html[data-theme="dark"] .tlist a{color:#7fb3e8}
 <link rel="alternate" hreflang="en" href="https://www.sectorcalc.com/tools.html">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="googlebot" content="index, follow">
+<meta name="bingbot" content="index, follow">
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="website">
 <meta property="og:title" content="All Calculators &amp; Tools — SectorCalc Pro">
 <meta property="og:description" content="Every SectorCalc industrial engineering calculator in one place — searchable by task, sector or standard. Machining, bearings, tolerances, welding, lifting, costing and more.">
 <meta property="og:url" content="https://www.sectorcalc.com/tools.html">
 <meta property="og:site_name" content="SectorCalc">
-<meta property="og:image" content="https://www.sectorcalc.com/assets/images/og-default-1200x630.jpg">
+<meta property="og:image" content="https://www.sectorcalc.com/assets/images/og-tools-1200x630.jpg">
+<meta property="og:image:secure_url" content="https://www.sectorcalc.com/assets/images/og-tools-1200x630.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:type" content="image/jpeg">
-<meta property="og:image:alt" content="SectorCalc — Deterministic Industrial Decision Calculators">
+<meta property="og:image:alt" content="All Calculators &amp; Tools — SectorCalc Pro">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="All Calculators &amp; Tools — SectorCalc Pro">
 <meta name="twitter:description" content="Every SectorCalc industrial engineering calculator in one place — searchable by task, sector or standard. Machining, bearings, tolerances, welding, lifting, costing and more.">
-<meta name="twitter:image" content="https://www.sectorcalc.com/assets/images/og-default-1200x630.jpg">
-<meta name="twitter:image:alt" content="SectorCalc">
+<meta name="twitter:image" content="https://www.sectorcalc.com/assets/images/og-tools-1200x630.jpg">
+<meta name="twitter:image:alt" content="All Calculators &amp; Tools — SectorCalc Pro">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="author" content="SectorCalc Engineering Team">
 <meta name="theme-color" content="#0055A4">
+<meta name="format-detection" content="telephone=no">
 <!--SC-SEO-META-END-->
 <!--SC-SEO-SCHEMA-START-->
 <script type="application/ld+json" id="sc-schema-global">
@@ -382,6 +388,7 @@ html[data-theme="dark"] .tlist a{color:#7fb3e8}
   <a href="/sc008-pro.html" class="btn-primary">Run a Calculation</a>
 </div>
 <!--SC-SITE-NAV-END-->
+
 
 
 
@@ -656,13 +663,27 @@ window.pickCat=pickCat;
     });
   }
   if(qEl){
+    const syncUrl=()=>{
+      try{
+        const u=new URL(location.href);
+        if(curQ.trim()) u.searchParams.set('q', curQ.trim());
+        else u.searchParams.delete('q');
+        history.replaceState(null,'', u.pathname + u.search + u.hash);
+      }catch(e){}
+    };
     const apply=()=>{
       curQ=qEl.value;
       // Typing clears category lock so queries search the full catalog.
       if(curQ.trim()) curCat='all';
       suggestIdx=-1;
       renderAll();
+      syncUrl();
     };
+    // Hydrate SearchAction / shared links: tools.html?q=
+    try{
+      const bootQ=(new URL(location.href)).searchParams.get('q');
+      if(bootQ){ qEl.value=bootQ; curQ=bootQ; curCat='all'; }
+    }catch(e){}
     qEl.addEventListener('input',apply);
     qEl.addEventListener('change',apply);
     qEl.addEventListener('focus',()=>{ if(curQ.trim()) renderSuggest(); });
@@ -682,7 +703,7 @@ window.pickCat=pickCat;
         activateSuggest(suggestIdx);
       }else if(e.key==='Escape'){
         if(open){e.preventDefault(); setSuggestOpen(false); return;}
-        qEl.value=''; curQ=''; curCat='all'; renderAll(); qEl.blur();
+        qEl.value=''; curQ=''; curCat='all'; renderAll(); syncUrl(); qEl.blur();
       }
     });
     document.addEventListener('keydown',e=>{

@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
+<!--SC-SEO-HOST-->
+<script>(function(){try{if(location.hostname==='sectorcalc.com'){location.replace('https://www.sectorcalc.com'+location.pathname+location.search+location.hash);}}catch(e){}})();</script>
+<!--SC-SEO-HOST-END-->
 <script>(function(){try{var k='sectorcalc-theme';var t=localStorage.getItem(k);if(t!=='dark'&&t!=='light')t=(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';document.documentElement.setAttribute('data-theme',t);document.documentElement.style.colorScheme=t;}catch(e){}})();</script>
 <meta charset="UTF-8">
 <link rel="icon" href="./favicon.ico?v=20260724c" sizes="any">
@@ -11,7 +14,7 @@
 <link rel="manifest" href="./site.webmanifest?v=20260724c">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Shaft Design Calculator — Torsion + Bending (ASME / DE-Goodman) — SectorCalc Pro</title>
-<meta name="description" content="Industrial-grade shaft sizing calculator: torque from power and speed, midspan bending, ASME allowable-stress and DE-Goodman fatigue diameters with Marin factors, standard-size selection, static yield and deflection checks, per-field universal units and full audit trail.">
+<meta name="description" content="ASME / DE-Goodman shaft diameter from torsion, bending, and fatigue factors.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
@@ -135,25 +138,28 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
 <link rel="alternate" hreflang="en" href="https://www.sectorcalc.com/shaft-pro.html">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="googlebot" content="index, follow">
+<meta name="bingbot" content="index, follow">
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Shaft Design Calculator — Torsion + Bending (ASME / DE-Goodman) — SectorCalc Pro">
-<meta property="og:description" content="Industrial-grade shaft sizing calculator: torque from power and speed, midspan bending, ASME allowable-stress and DE-Goodman fatigue diameters with Marin factors, standard-size selection, static yield and deflection checks, per-field universal units and full audit trail.">
+<meta property="og:description" content="ASME / DE-Goodman shaft diameter from torsion, bending, and fatigue factors.">
 <meta property="og:url" content="https://www.sectorcalc.com/shaft-pro.html">
 <meta property="og:site_name" content="SectorCalc">
-<meta property="og:image" content="https://www.sectorcalc.com/assets/images/og-default-1200x630.jpg">
+<meta property="og:image" content="https://www.sectorcalc.com/assets/images/og-shaft-pro-1200x630.jpg">
+<meta property="og:image:secure_url" content="https://www.sectorcalc.com/assets/images/og-shaft-pro-1200x630.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:type" content="image/jpeg">
-<meta property="og:image:alt" content="SectorCalc — Deterministic Industrial Decision Calculators">
+<meta property="og:image:alt" content="Shaft Design Calculator — Torsion + Bending (ASME / DE-Goodman) — SectorCalc Pro">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Shaft Design Calculator — Torsion + Bending (ASME / DE-Goodman) — SectorCalc Pro">
-<meta name="twitter:description" content="Industrial-grade shaft sizing calculator: torque from power and speed, midspan bending, ASME allowable-stress and DE-Goodman fatigue diameters with Marin factors, standard-size selection, static yield and deflection checks, per-field universal units and full audit trail.">
-<meta name="twitter:image" content="https://www.sectorcalc.com/assets/images/og-default-1200x630.jpg">
-<meta name="twitter:image:alt" content="SectorCalc">
+<meta name="twitter:description" content="ASME / DE-Goodman shaft diameter from torsion, bending, and fatigue factors.">
+<meta name="twitter:image" content="https://www.sectorcalc.com/assets/images/og-shaft-pro-1200x630.jpg">
+<meta name="twitter:image:alt" content="Shaft Design Calculator — Torsion + Bending (ASME / DE-Goodman) — SectorCalc Pro">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="author" content="SectorCalc Engineering Team">
 <meta name="theme-color" content="#0055A4">
+<meta name="format-detection" content="telephone=no">
 <!--SC-SEO-META-END-->
 <!--SC-SEO-SCHEMA-START-->
 <script type="application/ld+json" id="sc-schema-global">
@@ -316,7 +322,7 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
       },
       "screenshot": {
         "@type": "ImageObject",
-        "url": "https://www.sectorcalc.com/assets/images/og-default-1200x630.jpg",
+        "url": "https://www.sectorcalc.com/assets/images/og-shaft-pro-1200x630.jpg",
         "width": 1200,
         "height": 630
       },
@@ -456,6 +462,7 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
   <a href="/sc008-pro.html" class="btn-primary">Run a Calculation</a>
 </div>
 <!--SC-SITE-NAV-END-->
+
 
 
 

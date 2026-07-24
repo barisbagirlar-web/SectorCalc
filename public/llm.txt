@@ -58,21 +58,23 @@ Every live calculator ships an English study toolbar: **Load Sample Study** (com
 - SC-021 constants (digitized aISO coefficients, Table 13 eC mid-values, empirical ν100 correlation) follow ISO 281:2007 reference values; C, C0 and Cu must come from the bearing manufacturer's catalog. aISO is capped at 50 and valid for 0.1 ≤ κ ≤ 4. Do not present its outputs as measured data.
 - Engineering preview: outputs are predicted from stated assumptions; not for production approval and not a substitute for measured data or a licensed engineer.
 
-## SEO / discovery (v2026.07.24+)
+## SEO / discovery (v2026.07.24+ audited)
 
-- Canonical host: `https://www.sectorcalc.com` (pages keep `.html` extensions; Firebase `cleanUrls: false`).
-- Discovery files: `/robots.txt`, `/sitemap.xml`, `/sitemap-images.xml`, `/sitemap-videos.xml` (video map stays empty until real `/assets/videos/` assets ship), `/llm.txt`, `/llms.txt`.
-- Schema Mesh on public HTML: Organization + WebSite (global), SoftwareApplication + BreadcrumbList + HowTo on `*-pro.html`, Product offers on `/pricing.html`. Existing guide `FAQPage` JSON-LD is kept — do **not** invent AggregateRating/Review markup.
-- Open Graph default image: `/assets/images/sectorcalc-og-1200x630.jpg`. Core Web Vitals probe: `/assets/js/cvw-monitor.js` (console metrics; GA4 send disabled until a real Measurement ID is configured).
-- Custom 404: `/404.html` (noindex) with internal links back to tools.
+- Canonical host: `https://www.sectorcalc.com` (`.html` URLs; Firebase `cleanUrls: false`). Apex `sectorcalc.com` client-redirects to `www` via `SC-SEO-HOST` boot script; set Firebase Console primary domain redirect when available.
+- Discovery: `/robots.txt` (Googlebot Allow:/), `/sitemap.xml` (hreflang en + x-default only), `/sitemap-images.xml` (real assets + per-page OG JPEGs), `/sitemap-videos.xml` (empty until real videos), `/llm.txt`, `/llms.txt`.
+- Every public HTML page: unique `<title>`, meta description, single `<h1>`, canonical, OG/Twitter (`/assets/images/og-{slug}-1200x630.jpg`), Schema Mesh (Organization, Person/IIT E-E-A-T, WebSite, SoftwareApplication, HowTo, BreadcrumbList; pricing Product offers as PreOrder). Existing guide `FAQPage` kept. **No AggregateRating/Review.**
+- `WebSite.potentialAction` SearchAction → `/tools.html?q={search_term_string}` is wired (omni search hydrates from `?q=` and syncs the URL).
+- Custom `/404.html` (noindex) + Firebase rewrite catch-all removed (real HTTP 404).
+- CVW probe `/assets/js/cvw-monitor.js` (GA4 send off until real Measurement ID). Build gate: `scripts/verify-seo.mjs`.
 
 ## Optional
 
-- [Full sitemap](https://www.sectorcalc.com/sitemap.xml): Canonical URL list for crawlers (hreflang en + x-default).
-- [Image sitemap](https://www.sectorcalc.com/sitemap-images.xml): Real hosted images only.
+- [Full sitemap](https://www.sectorcalc.com/sitemap.xml): Canonical URL list (hreflang en + x-default).
+- [Image sitemap](https://www.sectorcalc.com/sitemap-images.xml): Real hosted images + OG covers.
 - [Video sitemap](https://www.sectorcalc.com/sitemap-videos.xml): Placeholder until videos exist.
 - [robots.txt](https://www.sectorcalc.com/robots.txt): Crawl rules + AI crawler directives.
 - [llms.txt](https://www.sectorcalc.com/llms.txt): Canonical AI discovery index.
 - [llm.txt](https://www.sectorcalc.com/llm.txt): This file — mirror of llms.txt for alternate discovery paths.
 - [site.webmanifest](https://www.sectorcalc.com/site.webmanifest): PWA name + 192/512 icon entries for the 4-tile brand mark.
 - [Favicon SVG](https://www.sectorcalc.com/favicon.svg): Canonical crisp brand mark for browsers that prefer SVG icons.
+- [OG default](https://www.sectorcalc.com/assets/images/sectorcalc-og-1200x630.jpg): 1200×630 social share image.

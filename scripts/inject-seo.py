@@ -393,12 +393,12 @@ def schema_tool(slug: str, meta: dict) -> str:
                 "softwareVersion": meta["version"],
                 "provider": {"@id": f"{HOST}/#organization"},
                 "author": {"@id": f"{HOST}/#organization"},
-                "screenshot": {
-                    "@type": "ImageObject",
-                    "url": OG_DEFAULT,
-                    "width": 1200,
-                    "height": 630,
-                },
+                    "screenshot": {
+                        "@type": "ImageObject",
+                        "url": f"{HOST}/assets/images/og-{slug}-1200x630.jpg",
+                        "width": 1200,
+                        "height": 630,
+                    },
                 "inLanguage": ["en"],
                 "dateModified": "2026-07-24",
                 "isPartOf": {"@id": f"{HOST}/#website"},
@@ -541,23 +541,31 @@ def schema_speakable(path: str, headline: str, description: str, selectors: list
     )
 
 
-def page_meta_block(page: str, title: str, description: str) -> str:
+def og_image_for(page: str) -> str:
+    slug_map = {
+        "index.html": "home",
+        "tools.html": "tools",
+        "pro.html": "pro",
+        "pricing.html": "pricing",
+    }
+    slug = slug_map.get(page, page.replace(".html", ""))
+    candidate = ROOT / f"public/assets/images/og-{slug}-1200x630.jpg"
+    if candidate.exists():
+        return f"{HOST}/assets/images/og-{slug}-1200x630.jpg"
     if page == "index.html":
-        path = ""
-        slug = "home"
-        og_type = "website"
-        og_img = OG_HOME
-        page_path = ""
-    else:
-        path = page
-        slug = page.replace(".html", "")
-        og_type = "website"
-        og_img = OG_DEFAULT
-        page_path = page
+        return OG_HOME
+    return OG_DEFAULT
+
+
+def page_meta_block(page: str, title: str, description: str) -> str:
+    page_path = "" if page == "index.html" else page
+    og_type = "website"
+    og_img = og_image_for(page)
 
     canonical = f"{HOST}/" if page == "index.html" else f"{HOST}/{page_path}"
     safe_title = html.escape(title, quote=True)
-    safe_desc = html.escape(description or title, quote=True)
+    safe_desc = html.escape((description or title)[:300], quote=True)
+    safe_alt = html.escape(title[:120], quote=True)
 
     return f"""<!--SC-SEO-META-START-->
 <link rel="canonical" href="{canonical}">
@@ -565,6 +573,7 @@ def page_meta_block(page: str, title: str, description: str) -> str:
 <link rel="alternate" hreflang="en" href="{canonical}">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="googlebot" content="index, follow">
+<meta name="bingbot" content="index, follow">
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="{og_type}">
 <meta property="og:title" content="{safe_title}">
@@ -572,18 +581,20 @@ def page_meta_block(page: str, title: str, description: str) -> str:
 <meta property="og:url" content="{canonical}">
 <meta property="og:site_name" content="SectorCalc">
 <meta property="og:image" content="{og_img}">
+<meta property="og:image:secure_url" content="{og_img}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:type" content="image/jpeg">
-<meta property="og:image:alt" content="SectorCalc — Deterministic Industrial Decision Calculators">
+<meta property="og:image:alt" content="{safe_alt}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{safe_title}">
 <meta name="twitter:description" content="{safe_desc}">
 <meta name="twitter:image" content="{og_img}">
-<meta name="twitter:image:alt" content="SectorCalc">
+<meta name="twitter:image:alt" content="{safe_alt}">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="author" content="SectorCalc Engineering Team">
 <meta name="theme-color" content="#0055A4">
+<meta name="format-detection" content="telephone=no">
 <!--SC-SEO-META-END-->"""
 
 
@@ -637,10 +648,40 @@ def upsert_cvw(text: str) -> str:
     return re.sub(r"</body>", block + "\n</body>", text, count=1, flags=re.I)
 
 
+HOST_REDIRECT = """<!--SC-SEO-HOST-->
+<script>(function(){try{if(location.hostname==='sectorcalc.com'){location.replace('https://www.sectorcalc.com'+location.pathname+location.search+location.hash);}}catch(e){}})();</script>
+<!--SC-SEO-HOST-END-->"""
+
+
+def upsert_host_redirect(text: str) -> str:
+    start, end = "<!--SC-SEO-HOST-->", "<!--SC-SEO-HOST-END-->"
+    if start in text and end in text:
+        return re.sub(
+            re.escape(start) + r".*?" + re.escape(end),
+            HOST_REDIRECT.strip(),
+            text,
+            count=1,
+            flags=re.S,
+        )
+    # Place immediately after <head> open so redirect wins early
+    return re.sub(r"(<head[^>]*>)", r"\1\n" + HOST_REDIRECT, text, count=1, flags=re.I)
+
+
 def process(page: str) -> None:
     path = ROOT / page
     text = path.read_text(encoding="utf-8")
     title, desc = extract_title_desc(text)
+    # Prefer TOOL_META description for calculator pages
+    slug = page.replace(".html", "")
+    if slug in TOOL_META:
+        desc = TOOL_META[slug]["desc"]
+    elif page == "pricing.html":
+        desc = "SectorCalc credit packs for premium engineering workflows. Core calculators stay free and client-side. Starter, Pro, and Enterprise packs — no subscription."
+    elif page == "index.html":
+        desc = "Deterministic industrial engineering calculators — tolerance stack-up, CNC feeds & speeds, bearing life, welding, costing. Client-side, full-precision, audit-ready."
+    elif page == "pro.html":
+        desc = "SectorCalc Pro calculators for shop-floor engineers: CNC feeds & speeds, bearing life, tolerance stack-up and more — deterministic SI engines with audit trails."
+    text = upsert_host_redirect(text)
     text = upsert_block(text, "<!--SC-SEO-META-START-->", "<!--SC-SEO-META-END-->", page_meta_block(page, title, desc))
 
     schemas = [schema_global()]
