@@ -2,6 +2,7 @@ import { ToolDefinition } from './engine.js';
 import { MACHINING_TOOLS } from './registry-machining.js';
 import { FABRICATION_TOOLS } from './registry-fabrication.js';
 import { PROCESS_TOOLS } from './registry-process.js';
+import { LEGACY_MIGRATED_TOOLS } from './registry-legacy.js';
 
 const overrideDefaults: Readonly<Record<string, Readonly<Record<string, number>>>> = {
   'SC-025': { allowT: 5000 },
@@ -26,6 +27,7 @@ function normalizeDefinition(tool: ToolDefinition): ToolDefinition {
 }
 
 export const INDUSTRIAL_TOOLS: readonly ToolDefinition[] = [
+  ...LEGACY_MIGRATED_TOOLS,
   ...MACHINING_TOOLS,
   ...FABRICATION_TOOLS,
   ...PROCESS_TOOLS
