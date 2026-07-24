@@ -11,6 +11,7 @@ const ROOT = process.cwd();
 const PARTIAL = readFileSync(join(ROOT, 'content/partials/site-header.html'), 'utf8').trim();
 
 const FORM_FIELDS_VERSION = 4;
+const STUDY_VERSION = 1;
 const NAV_ASSETS = `
 <link rel="stylesheet" href="./sc-site-nav.css?v=1">
 <script src="./sc-site-nav.js?v=1" defer></script>
@@ -18,6 +19,11 @@ const NAV_ASSETS = `
 
 const FORM_FIELDS_ASSET =
   `<link rel="stylesheet" href="./sc-form-fields.css?v=${FORM_FIELDS_VERSION}">`;
+
+const STUDY_ASSETS = `
+<link rel="stylesheet" href="./sc-study.css?v=${STUDY_VERSION}">
+<script src="./sc-study.js?v=${STUDY_VERSION}" defer></script>
+`.trim();
 
 /** Explicit page configs (nav strip + tool badge). New tools auto-register below. */
 const PAGES = [
@@ -89,7 +95,7 @@ function autoRegisterProPages() {
   }
 }
 
-function ensureAssets(html) {
+function ensureAssets(html, page = '') {
   let out = html;
   if (!out.includes('sc-site-nav.css')) {
     out = out.replace('</head>', `${NAV_ASSETS}\n</head>`);
@@ -102,6 +108,20 @@ function ensureAssets(html) {
       /sc-form-fields\.css\?v=\d+/g,
       `sc-form-fields.css?v=${FORM_FIELDS_VERSION}`
     );
+  }
+  // Study toolbar only on calculator pages (not home/tools/pricing that merely link to *-pro)
+  if (String(page).endsWith('-pro.html')) {
+    if (!out.includes('sc-study.css')) {
+      out = out.replace('</head>', `${STUDY_ASSETS}\n</head>`);
+    } else {
+      out = out
+        .replace(/sc-study\.css\?v=\d+/g, `sc-study.css?v=${STUDY_VERSION}`)
+        .replace(/sc-study\.js\?v=\d+/g, `sc-study.js?v=${STUDY_VERSION}`);
+    }
+  } else {
+    out = out
+      .replace(/\s*<link rel="stylesheet" href="\.\/sc-study\.css[^"]*">\s*/g, '\n')
+      .replace(/\s*<script src="\.\/sc-study\.js[^"]*" defer><\/script>\s*/g, '\n');
   }
   return out;
 }
@@ -155,7 +175,7 @@ for (const row of PAGES) {
     process.exit(1);
   }
   let html = readFileSync(path, 'utf8');
-  html = ensureAssets(html);
+  html = ensureAssets(html, row.page);
   html = stripOldNav(html, row.strip);
   html = setBodyBadge(html, row.badge);
   let block = PARTIAL;

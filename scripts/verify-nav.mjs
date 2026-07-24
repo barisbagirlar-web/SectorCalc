@@ -148,6 +148,12 @@ function checkPage(page) {
       issues.push(`${page}: missing site.webmanifest link`);
     }
   }
+
+  // Live calculators must ship the English study toolbar assets
+  if (page.endsWith('-pro.html')) {
+    if (!html.includes('sc-study.css')) issues.push(`${page}: missing sc-study.css`);
+    if (!html.includes('sc-study.js')) issues.push(`${page}: missing sc-study.js`);
+  }
 }
 
 for (const page of PAGES) checkPage(page);
@@ -229,6 +235,12 @@ if (existsSync(dist)) {
   for (const asset of brandIcons) {
     if (!existsSync(join(dist, asset))) {
       console.error('[FAIL] dist missing brand icon: ' + asset);
+      process.exit(1);
+    }
+  }
+  for (const asset of ['sc-study.js', 'sc-study.css']) {
+    if (!existsSync(join(dist, asset))) {
+      console.error('[FAIL] dist missing study toolbar asset: ' + asset);
       process.exit(1);
     }
   }
