@@ -28,7 +28,8 @@ jobs:
           node-version-file: '.nvmrc'
           cache: npm
       - run: npm ci
-      - name: Typecheck with PR diagnostics
+      - name: Collect typecheck diagnostics
+        id: tsc
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
@@ -37,6 +38,10 @@ jobs:
           npm run typecheck > typecheck.log 2>&1
           status=$?
           cat typecheck.log
+          first_error="$(grep -m1 'error TS' typecheck.log | tr '\n' ' ' | sed 's/%/%25/g;s/\r/%0D/g;s/\n/%0A/g' | cut -c1-180)"
+          if [ -z "$first_error" ]; then first_error="typecheck failed without TS diagnostic"; fi
+          echo "status=$status" >> "$GITHUB_OUTPUT"
+          echo "first_error=$first_error" >> "$GITHUB_OUTPUT"
           if [ "$status" -ne 0 ] && [ "${{ github.event_name }}" = "pull_request" ]; then
             {
               echo '### Typecheck diagnostics'
@@ -44,9 +49,12 @@ jobs:
               head -n 80 typecheck.log
               echo '```'
             } > typecheck-comment.md
-            gh pr comment "${{ github.event.pull_request.number }}" --body-file typecheck-comment.md
+            gh pr comment "${{ github.event.pull_request.number }}" --body-file typecheck-comment.md || true
           fi
-          exit "$status"
+          exit 0
+      - name: Typecheck failure — ${{ steps.tsc.outputs.first_error }}
+        if: steps.tsc.outputs.status != '0'
+        run: exit 1
       - run: npm test
       - run: npm run build
       - run: node scripts/verify-nav.mjs
