@@ -124,30 +124,43 @@ html[data-theme="dark"]{
   --border2:#555C64;
 }
 
-/* ---- Toggle button (fixed; drag to reposition) ---- */
+/* ---- Toggle: docked in site header (never overlays CTA / sheet border) ---- */
 .theme-toggle{
-  position:fixed !important;
-  top:20px;
-  right:20px;
-  z-index:10060 !important;
-  width:48px;
-  height:48px;
+  position:relative !important;
+  top:auto !important;
+  right:auto !important;
+  bottom:auto !important;
+  left:auto !important;
+  z-index:2;
+  width:40px;
+  height:40px;
+  flex-shrink:0;
   border-radius:50%;
   border:1.5px solid var(--sheet-line-strong, var(--border-mid, #999994));
   background:var(--sheet-paper, var(--bg-1, #fff));
   color:var(--sheet-text-2, var(--text-secondary, #4A4A4A));
-  display:flex !important;
+  display:inline-flex !important;
   align-items:center;
   justify-content:center;
-  cursor:grab;
-  box-shadow:0 2px 12px rgba(0,0,0,.12);
+  cursor:pointer;
+  box-shadow:none;
   pointer-events:auto !important;
   -webkit-tap-highlight-color:transparent;
-  touch-action:none;
+  touch-action:manipulation;
   user-select:none;
   padding:0;
-  margin:0;
+  margin:0 0 0 4px;
   appearance:none;
+}
+.site-header .theme-toggle{
+  margin-left:10px;
+  margin-right:4px;
+}
+/* Hide legacy floating duplicates when header already has the control */
+body.has-site-header > .theme-toggle,
+body.has-site-header .sc-header #themeToggle,
+body.has-site-header .sc-layout > #themeToggle{
+  display:none !important;
 }
 .theme-toggle:hover{
   border-color:var(--iso-blue, var(--accent-blue, #0055A4));
@@ -157,20 +170,9 @@ html[data-theme="dark"]{
   outline:2px solid var(--iso-blue, var(--accent-blue, #0055A4));
   outline-offset:3px;
 }
-.theme-toggle.is-dragging{
-  cursor:grabbing;
-  box-shadow:0 6px 20px rgba(0,0,0,.22);
-  border-color:var(--iso-blue, var(--accent-blue, #0055A4));
-  transform:none !important;
-}
-/* Saved drag position overrides default corner placement */
-.theme-toggle[data-sc-pos="1"]{
-  right:auto !important;
-  bottom:auto !important;
-}
 .theme-toggle svg{
-  width:22px;
-  height:22px;
+  width:18px;
+  height:18px;
   display:none !important;
   pointer-events:none;
 }
@@ -186,9 +188,6 @@ html[data-theme="dark"] .theme-toggle [data-theme-icon="moon"],
 html[data-theme="light"] .theme-toggle [data-theme-icon="sun"],
 html:not([data-theme="dark"]) .theme-toggle [data-theme-icon="sun"]{
   display:none !important;
-}
-@media(max-width:900px){
-  .theme-toggle:not([data-sc-pos="1"]){top:auto;bottom:20px;right:20px}
 }
 
 /* ---- Pro page surfaces ---- */

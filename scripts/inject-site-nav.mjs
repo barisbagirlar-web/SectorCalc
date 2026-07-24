@@ -12,9 +12,15 @@ const PARTIAL = readFileSync(join(ROOT, 'content/partials/site-header.html'), 'u
 
 const FORM_FIELDS_VERSION = 5;
 const STUDY_VERSION = 2;
+const THEME_VERSION = 11;
+const NAV_VERSION = 3;
 const NAV_ASSETS = `
-<link rel="stylesheet" href="./sc-site-nav.css?v=3">
+<link rel="stylesheet" href="./sc-site-nav.css?v=${NAV_VERSION}">
 <script src="./sc-site-nav.js?v=2" defer></script>
+`.trim();
+const THEME_ASSETS = `
+<link rel="stylesheet" href="./sc-theme.css?v=${THEME_VERSION}">
+<script src="./sc-theme.js?v=${THEME_VERSION}" defer></script>
 `.trim();
 
 const FORM_FIELDS_ASSET =
@@ -99,6 +105,15 @@ function ensureAssets(html, page = '') {
   let out = html;
   if (!out.includes('sc-site-nav.css')) {
     out = out.replace('</head>', `${NAV_ASSETS}\n</head>`);
+  } else {
+    out = out.replace(/sc-site-nav\.css\?v=\d+/g, `sc-site-nav.css?v=${NAV_VERSION}`);
+  }
+  if (!out.includes('sc-theme.css')) {
+    out = out.replace('</head>', `${THEME_ASSETS}\n</head>`);
+  } else {
+    out = out
+      .replace(/sc-theme\.css\?v=\d+/g, `sc-theme.css?v=${THEME_VERSION}`)
+      .replace(/sc-theme\.js\?v=\d+/g, `sc-theme.js?v=${THEME_VERSION}`);
   }
   // Always ensure form-field readability CSS (independent of nav)
   if (!out.includes('sc-form-fields.css')) {
@@ -177,6 +192,8 @@ for (const row of PAGES) {
   let html = readFileSync(path, 'utf8');
   html = ensureAssets(html, row.page);
   html = stripOldNav(html, row.strip);
+  // Header owns #themeToggle — drop legacy floating / sidebar duplicates (avoid dual IDs)
+  html = html.replace(/<button[^>]*\bid=["']themeToggle["'][^>]*>[\s\S]*?<\/button>\s*/gi, '');
   html = setBodyBadge(html, row.badge);
   let block = PARTIAL;
   if (row.toolStrip) block = `${PARTIAL}\n${row.toolStrip}`;

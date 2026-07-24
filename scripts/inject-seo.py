@@ -23,8 +23,9 @@ OG_HOME = f"{HOST}/assets/images/sectorcalc-og-1200x630.jpg"
 # CSP must allow existing CDN / fonts / optional GA4 (do not tighten blindly).
 CSP_CONTENT = (
     "default-src 'self'; "
-    "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com "
+    "script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: https://cdnjs.cloudflare.com "
     "https://www.googletagmanager.com https://www.google-analytics.com; "
+    "worker-src 'self' blob:; "
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; "
     "font-src 'self' https://fonts.gstatic.com data:; "
     "img-src 'self' data: blob: https:; "

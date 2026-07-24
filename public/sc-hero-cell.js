@@ -8,8 +8,49 @@ const stageEl = document.getElementById('stage');
 const heroRoot = document.querySelector('.sc-hero') || stageEl;
 
 function heroFallback(err) {
-  if (stageEl) stageEl.style.display = 'none';
+  if (stageEl) {
+    stageEl.classList.remove('is-ready');
+    stageEl.style.opacity = '0';
+  }
   console.warn('3D fallback:', err);
+  startHudFallback();
+}
+
+function startHudFallback() {
+  const gcodeEl = document.getElementById('gcode');
+  const tRpmEl = document.getElementById('tRpm');
+  const tProbe = document.getElementById('tProbe');
+  const tX = document.getElementById('tX');
+  const tZ = document.getElementById('tZ');
+  const glines = [
+    'G01 X40.000 Z-12.000 F0.20',
+    'G02 X36.800 Z-24.500 R3.0',
+    'G01 Z-48.000 F0.18',
+    'M05 (SPINDLE STOP)',
+    'G28 U0 W0 (HOME)',
+    'M00 (MEASURE D41.6)',
+    'G04 X0.8 (DWELL)'
+  ];
+  let gi = 0;
+  let px = -1.55;
+  const stations = [-1.55, -0.95, -0.05, 0.62, 1.45];
+  let si = 0;
+  const modes = ['MOVE', 'PROBE', 'READ', 'RETRACT'];
+  let mi = 0;
+  setInterval(() => {
+    if (gcodeEl) gcodeEl.textContent = glines[gi++ % glines.length];
+  }, 1400);
+  setInterval(() => {
+    if (tRpmEl) tRpmEl.textContent = String(1415 + Math.round(Math.random() * 10));
+  }, 700);
+  setInterval(() => {
+    si = (si + 1) % stations.length;
+    px = stations[si];
+    mi = (mi + 1) % modes.length;
+    if (tProbe) tProbe.textContent = modes[mi];
+    if (tX) tX.textContent = (px >= 0 ? '+' : '') + px.toFixed(3);
+    if (tZ) tZ.textContent = '-' + Math.abs(px).toFixed(3);
+  }, 900);
 }
 
 function waitUntilVisible(el) {
@@ -56,7 +97,17 @@ async function boot() {
 
   try {
     const canvas = stageEl;
-    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+    const renderer = new THREE.WebGLRenderer({
+      canvas,
+      antialias: true,
+      alpha: true,
+      powerPreference: 'high-performance',
+      failIfMajorPerformanceCaveat: false
+    });
+    const gl = renderer.getContext();
+    if (!gl || (typeof gl.isContextLost === 'function' && gl.isContextLost())) {
+      throw new Error('WebGL context unavailable');
+    }
     renderer.setPixelRatio(Math.min(devicePixelRatio, 1.5));
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.toneMappingExposure = 0.92;
