@@ -1,11 +1,12 @@
 import { defineConfig } from 'vite';
 import { unifiedToolHtmlPlugin } from './scripts/unified-tool-html.mjs';
 import { catalogLiveCleanupPlugin } from './scripts/catalog-live-cleanup.mjs';
+import { seoHtmlPlugin } from './scripts/seo-html.mjs';
 
 export default defineConfig({
   root: '.',
   base: './', // Firebase Hosting subdirectory compatibility
-  plugins: [catalogLiveCleanupPlugin(), unifiedToolHtmlPlugin()],
+  plugins: [catalogLiveCleanupPlugin(), unifiedToolHtmlPlugin(), seoHtmlPlugin()],
 
   build: {
     outDir: 'dist',

@@ -52,11 +52,16 @@ jobs:
         run: |
           set -o pipefail
           npm run typecheck 2>&1 | tee typecheck.log
-      - name: Production build + guards
+      - name: Production build
         shell: bash
         run: |
           set -o pipefail
           npm run build 2>&1 | tee build.log
+      - name: Enterprise SEO deterministic guard
+        shell: bash
+        run: |
+          set -o pipefail
+          npm run seo:guard 2>&1 | tee seo-guard.log
       - run: node scripts/verify-nav.mjs
       - name: Upload check diagnostics
         if: always()
@@ -67,6 +72,7 @@ jobs:
             test.log
             typecheck.log
             build.log
+            seo-guard.log
           if-no-files-found: ignore
 
   e2e:

@@ -176,7 +176,11 @@ test('tools search narrows live as query grows', async ({ page }) => {
 test('discovery files expose unified architecture and all-live catalog', async ({ request }) => {
   const robots = await request.get('/robots.txt');
   expect(robots.ok()).toBeTruthy();
-  expect(await robots.text()).toContain('Sitemap:');
+  const robotsText = await robots.text();
+  expect(robotsText).toContain('User-agent: Googlebot');
+  expect(robotsText).toContain('User-agent: Bingbot');
+  expect(robotsText).toContain('User-agent: OAI-SearchBot');
+  expect(robotsText).toContain('Sitemap: https://www.sectorcalc.com/sitemap.xml');
 
   const sitemap = await request.get('/sitemap.xml');
   expect(sitemap.ok()).toBeTruthy();
@@ -184,7 +188,13 @@ test('discovery files expose unified architecture and all-live catalog', async (
   for (const [,url] of SHARED_TOOLS) expect(sm).toContain(url.slice(1));
   expect(sm).toContain('sc008-pro.html');
   expect(sm).toContain('tools.html');
-  expect(sm).toContain('2026-07-24');
+  expect(sm).not.toContain('<priority>');
+  expect(sm).not.toContain('<changefreq>');
+  expect(sm).not.toContain('/categories');
+  expect(sm).not.toContain('/developer-showcase');
+  const locs = [...sm.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
+  expect(locs).toHaveLength(29);
+  expect(new Set(locs).size).toBe(locs.length);
 
   const llms = await request.get('/llms.txt');
   expect(llms.ok()).toBeTruthy();
@@ -193,10 +203,12 @@ test('discovery files expose unified architecture and all-live catalog', async (
   expect(llmsText).toContain('A1-A5 Audit/Review');
   expect(llmsText).toContain('25 live, 0 planned');
   expect(llmsText).toContain('SC-008 Tolerance Stack-Up');
+  expect(llmsText).toContain('OAI-SearchBot');
 
   const llm = await request.get('/llm.txt');
   expect(llm.ok()).toBeTruthy();
   const llmText = await llm.text();
+  expect(llmText).toBe(llmsText);
   expect(llmText).toContain('SC-010 True Labor Cost');
   expect(llmText).toContain('SC-040 Hydraulic Cylinder Sizing');
   expect(llmText).toContain('deterministic input hash');

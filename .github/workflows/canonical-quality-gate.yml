@@ -34,3 +34,5 @@ jobs:
           node scripts/verify-form-fields.mjs
       - name: Unified Decimal production architecture guard
         run: node scripts/verify-unified-engine.mjs
+      - name: Enterprise SEO deterministic guard
+        run: npm run seo:guard
