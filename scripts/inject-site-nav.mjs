@@ -10,7 +10,7 @@ import { join } from 'node:path';
 const ROOT = process.cwd();
 const PARTIAL = readFileSync(join(ROOT, 'content/partials/site-header.html'), 'utf8').trim();
 
-const FORM_FIELDS_VERSION = 3;
+const FORM_FIELDS_VERSION = 4;
 const NAV_ASSETS = `
 <link rel="stylesheet" href="./sc-site-nav.css?v=1">
 <script src="./sc-site-nav.js?v=1" defer></script>

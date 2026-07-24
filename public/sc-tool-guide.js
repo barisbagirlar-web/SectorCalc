@@ -1,6 +1,6 @@
 /**
- * SectorCalc tool guide engagement bar.
- * Like / dislike (local), suggestion, notify, share, cite.
+ * SectorCalc tool guide: engagement bar + balanced page layout.
+ * Layout turns flat long-form SEO copy into sticky TOC + section cards on every *-pro page.
  * No embed control — iframe embedding is blocked site-wide (X-Frame-Options: DENY).
  */
 (function () {
@@ -47,6 +47,84 @@
     return Promise.resolve();
   }
 
+  /** Wrap flat guide children into sticky TOC + section cards (all tools). */
+  function layoutGuide(guide) {
+    if (!guide || guide.dataset.laidOut === '1') return;
+    guide.dataset.laidOut = '1';
+
+    const toc = guide.querySelector('.sc-guide-toc');
+    const engageHost = guide.querySelector('[data-sc-engage]') || guide.querySelector('.sc-engage');
+    if (!toc) return;
+
+    const main = document.createElement('div');
+    main.className = 'sc-guide-main';
+
+    const keep = new Set([toc, engageHost]);
+    const moving = [...guide.children].filter((n) => !keep.has(n) && n.tagName !== 'SCRIPT');
+    moving.forEach((n) => main.appendChild(n));
+
+    // Intro card: lede (+ any nodes before first h2)
+    const intro = document.createElement('div');
+    intro.className = 'sc-guide-intro';
+    while (main.firstChild && main.firstChild.tagName !== 'H2') {
+      intro.appendChild(main.firstChild);
+    }
+    if (intro.childNodes.length) main.insertBefore(intro, main.firstChild);
+    else intro.remove();
+
+    // Section cards: each h2 opens a card until the next h2 / script
+    const nodes = [...main.childNodes];
+    let card = null;
+    nodes.forEach((node) => {
+      if (node.nodeType !== 1) return;
+      if (node.classList && node.classList.contains('sc-guide-intro')) {
+        card = null;
+        return;
+      }
+      if (node.tagName === 'H2') {
+        card = document.createElement('article');
+        card.className = 'sc-guide-card';
+        if (node.id) card.dataset.for = node.id;
+        main.insertBefore(card, node);
+        card.appendChild(node);
+        return;
+      }
+      if (card) card.appendChild(node);
+    });
+
+    // FAQ grid inside FAQ card(s)
+    main.querySelectorAll('.sc-guide-card').forEach((c) => {
+      const qs = [...c.querySelectorAll(':scope > .q')];
+      if (qs.length < 2) return;
+      const grid = document.createElement('div');
+      grid.className = 'sc-guide-faq-grid';
+      qs[0].before(grid);
+      qs.forEach((q) => grid.appendChild(q));
+    });
+
+    // Tables: horizontal scroll wrappers
+    main.querySelectorAll('table').forEach((table) => {
+      if (table.parentElement && table.parentElement.classList.contains('sc-table-wrap')) return;
+      const wrap = document.createElement('div');
+      wrap.className = 'sc-table-wrap';
+      table.parentNode.insertBefore(wrap, table);
+      wrap.appendChild(table);
+    });
+
+    // Normalize TOC title
+    const title = toc.querySelector('.t, .sc-guide-toc-title');
+    if (title) title.textContent = 'On this page';
+
+    const grid = document.createElement('div');
+    grid.className = 'sc-guide-grid';
+    grid.appendChild(toc);
+    grid.appendChild(main);
+
+    if (engageHost && engageHost.nextSibling) guide.insertBefore(grid, engageHost.nextSibling);
+    else if (engageHost) engageHost.after(grid);
+    else guide.prepend(grid);
+  }
+
   function mount(root) {
     const guide = root.closest('.sc-guide') || document.querySelector('.sc-guide');
     if (!guide || root.dataset.mounted) return;
@@ -68,7 +146,12 @@
 
     const bar = el(`
       <div class="sc-engage" role="region" aria-label="Tool feedback and sharing">
-        <div class="sc-engage-helpful">${SVG.thumb}<span><b data-helpful>${fmt(helpful)}</b> people find this calculator helpful</span></div>
+        <div class="sc-engage-lead">
+          <div class="sc-engage-helpful">${SVG.thumb}<span><b data-helpful>${fmt(helpful)}</b> people find this calculator helpful</span></div>
+          <button type="button" class="sc-engage-btn sc-engage-google" data-act="google" title="Open Google Search for this tool">
+            <img src="https://www.google.com/favicon.ico" width="18" height="18" alt="" loading="lazy"> Add as preferred on Google
+          </button>
+        </div>
         <div class="sc-engage-row">
           <div class="sc-engage-btn sc-engage-vote" role="group" aria-label="Was this helpful?">
             <button type="button" class="half" data-act="up" aria-pressed="false" title="Helpful">${SVG.up}<span data-up-count>0</span></button>
@@ -79,40 +162,34 @@
           <button type="button" class="sc-engage-btn" data-act="share" title="Share this calculator">${SVG.share}<span>Share</span></button>
           <button type="button" class="sc-engage-btn" data-panel="cite" title="Cite this calculator">${SVG.cite}<span>Cite</span></button>
         </div>
-        <button type="button" class="sc-engage-btn sc-engage-google" data-act="google" title="Open Google Search for this tool">
-          <img src="https://www.google.com/favicon.ico" width="18" height="18" alt="" loading="lazy"> Add as preferred on Google
-        </button>
-        <div class="sc-engage-panel" data-pane="suggest" hidden>
-          <label for="sc-sug-${toolId}">Suggestion for ${toolName}</label>
-          <textarea id="sc-sug-${toolId}" maxlength="2000" placeholder="Describe the improvement, missing standard, or bug (English)."></textarea>
-          <div class="row">
-            <button type="button" class="sc-engage-btn" data-act="send-suggest">Send suggestion</button>
+        <div class="sc-engage-panels">
+          <div class="sc-engage-panel" data-pane="suggest">
+            <label for="sc-sug-${toolId}">Suggestion for ${toolName}</label>
+            <textarea id="sc-sug-${toolId}" maxlength="2000" placeholder="Describe the improvement, missing standard, or bug (English)."></textarea>
+            <div class="row">
+              <button type="button" class="sc-engage-btn" data-act="send-suggest">Send suggestion</button>
+            </div>
+            <div class="msg" data-msg></div>
           </div>
-          <div class="msg" data-msg></div>
-        </div>
-        <div class="sc-engage-panel" data-pane="notify" hidden>
-          <label for="sc-ntf-${toolId}">Email for product updates (stored locally until checkout launches)</label>
-          <input id="sc-ntf-${toolId}" type="email" autocomplete="email" placeholder="you@company.com">
-          <div class="row">
-            <button type="button" class="sc-engage-btn" data-act="send-notify">Save notification preference</button>
+          <div class="sc-engage-panel" data-pane="notify">
+            <label for="sc-ntf-${toolId}">Email for product updates (stored locally until checkout launches)</label>
+            <input id="sc-ntf-${toolId}" type="email" autocomplete="email" placeholder="you@company.com">
+            <div class="row">
+              <button type="button" class="sc-engage-btn" data-act="send-notify">Save notification preference</button>
+            </div>
+            <div class="msg" data-msg></div>
           </div>
-          <div class="msg" data-msg></div>
-        </div>
-        <div class="sc-engage-panel" data-pane="cite" hidden>
-          <label>Citation</label>
-          <div class="cite" data-cite></div>
-          <div class="row">
-            <button type="button" class="sc-engage-btn" data-act="copy-cite">Copy citation</button>
+          <div class="sc-engage-panel" data-pane="cite">
+            <label>Citation</label>
+            <div class="cite" data-cite></div>
+            <div class="row">
+              <button type="button" class="sc-engage-btn" data-act="copy-cite">Copy citation</button>
+            </div>
+            <div class="msg" data-msg></div>
           </div>
-          <div class="msg" data-msg></div>
         </div>
       </div>
     `);
-
-    // Remove hidden attribute pattern - use class open
-    bar.querySelectorAll('.sc-engage-panel').forEach((p) => {
-      p.removeAttribute('hidden');
-    });
 
     root.appendChild(bar);
 
@@ -232,10 +309,16 @@
         msg.textContent = 'Citation copied to clipboard.';
       }
     });
+
+    layoutGuide(guide);
   }
 
   function boot() {
-    document.querySelectorAll('[data-sc-engage]').forEach(mount);
+    document.querySelectorAll('.sc-guide').forEach((guide) => {
+      const host = guide.querySelector('[data-sc-engage]');
+      if (host) mount(host);
+      else layoutGuide(guide);
+    });
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);

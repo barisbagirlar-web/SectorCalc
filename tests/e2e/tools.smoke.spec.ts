@@ -78,6 +78,9 @@ test('tool SEO guide + engagement mounts on SC-020', async ({ page }) => {
   await expect(page.locator('#sc-guide')).toBeVisible();
   await expect(page.locator('#sc-guide [data-sc-engage] .sc-engage')).toBeVisible({ timeout: 5000 });
   await expect(page.locator('#sc-guide [data-sc-engage]')).toContainText(/find this calculator helpful/i);
+  await expect(page.locator('#sc-guide .sc-guide-grid')).toBeVisible();
+  await expect(page.locator('#sc-guide .sc-guide-toc')).toBeVisible();
+  await expect(page.locator('#sc-guide .sc-guide-main .sc-guide-card').first()).toBeVisible();
   await expect(page.locator('#sc-guide a[href="#taylor"], #sc-guide a[href*="taylor"]').first()).toBeVisible();
   await page.locator('.sc-engage-btn[data-panel="cite"]').click();
   await expect(page.locator('[data-pane="cite"].open')).toBeVisible();
@@ -91,6 +94,8 @@ test('tool SEO guide present on SC-008', async ({ page }) => {
   await expect(page.locator('#sc-guide')).toBeVisible();
   await expect(page.locator('#sc-guide')).toContainText(/Tolerance Stack-Up/i);
   await expect(page.locator('#sc-guide [data-sc-engage] .sc-engage')).toBeVisible({ timeout: 5000 });
+  await expect(page.locator('#sc-guide .sc-guide-grid')).toBeVisible();
+  await expect(page.locator('#sc-guide .sc-guide-card').first()).toBeVisible();
 });
 
 test('legacy calculator redirects still land on pro tools', async ({ page }) => {

@@ -17,17 +17,22 @@ const MAP = [
   { page: 'bearing-pro.html', guide: 'content/guides/sc021.html', mode: 'before-footer' }
 ];
 
+const GUIDE_ASSETS_V = 2;
 const ASSETS = `
-<link rel="stylesheet" href="./sc-tool-guide.css?v=1">
-<script src="./sc-tool-guide.js?v=1" defer></script>
+<link rel="stylesheet" href="./sc-tool-guide.css?v=${GUIDE_ASSETS_V}">
+<script src="./sc-tool-guide.js?v=${GUIDE_ASSETS_V}" defer></script>
 `.trim();
 
 function ensureAssets(html) {
-  if (html.includes('sc-tool-guide.css')) return html;
-  if (html.includes('</head>')) {
-    return html.replace('</head>', `${ASSETS}\n</head>`);
+  let out = html;
+  if (!out.includes('sc-tool-guide.css')) {
+    if (out.includes('</head>')) out = out.replace('</head>', `${ASSETS}\n</head>`);
+  } else {
+    out = out
+      .replace(/sc-tool-guide\.css\?v=\d+/g, `sc-tool-guide.css?v=${GUIDE_ASSETS_V}`)
+      .replace(/sc-tool-guide\.js\?v=\d+/g, `sc-tool-guide.js?v=${GUIDE_ASSETS_V}`);
   }
-  return html;
+  return out;
 }
 
 function wrap(fragment) {

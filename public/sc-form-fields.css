@@ -92,6 +92,26 @@ input.sc-input[type="number"]{
     grid-template-columns:minmax(380px,540px) 1fr !important;
   }
 }
+@media (max-width:1000px){
+  .wrap > .grid{
+    grid-template-columns:1fr !important;
+  }
+}
+/* Mobile: never let calculator panels force horizontal page scroll */
+.wrap{
+  max-width:min(1320px, 100%);
+  overflow-x:clip;
+}
+.sc-layout{
+  max-width:100%;
+  overflow-x:clip;
+}
+@media (max-width:560px){
+  .uwrap > input,
+  .sc-input-wrap > .sc-input{
+    min-width:0 !important;
+  }
+}
 
 /* Lit / SC-008 / labor / quote / weld */
 .sc-input-wrap{
