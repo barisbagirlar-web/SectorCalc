@@ -3,13 +3,25 @@ import { MACHINING_TOOLS } from './registry-machining.js';
 import { FABRICATION_TOOLS } from './registry-fabrication.js';
 import { PROCESS_TOOLS } from './registry-process.js';
 
+const overrideDefaults: Readonly<Record<string, Readonly<Record<string, number>>>> = {
+  'SC-025': { allowT: 5000 },
+  'SC-028': { ra: 0.0016 },
+  'SC-031': { legWll: 20 },
+  'SC-032': { shackleWll: 30, liftPointWll: 30 },
+  'SC-036': { proof: 800 }
+};
+
 function normalizeDefinition(tool: ToolDefinition): ToolDefinition {
-  if (tool.code !== 'SC-028') return tool;
+  const overrides = overrideDefaults[tool.code];
+  if (!overrides) return tool;
   return {
     ...tool,
-    fields: tool.fields.map((field) => field.id === 'ra' && field.kind === 'number'
-      ? { ...field, defaultValue: 0.0016, step: 0.00005 }
-      : field)
+    fields: tool.fields.map((field) => {
+      if (field.kind !== 'number') return field;
+      const next = overrides[field.id];
+      if (next === undefined) return field;
+      return { ...field, defaultValue: next, ...(field.id === 'ra' ? { step: 0.00005 } : {}) };
+    })
   };
 }
 
