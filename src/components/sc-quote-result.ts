@@ -18,16 +18,16 @@ export interface QuoteResultData {
 export class ScQuoteResult extends LitElement {
   static properties = { result: { type: Object } };
   static styles = css`
-    :host { display: block; }
-    .hero { font: 800 38px var(--sc-mono, monospace); color: var(--sc-rust, #d35400); }
-    .meta { font: 14px var(--sc-sans, system-ui); color: var(--sc-muted, #636e72); margin-bottom: 12px; }
+    :host { display: block; color: var(--text-primary, #2d3436); }
+    .hero { font: 800 38px var(--sc-mono, monospace); color: var(--sc-rust, var(--accent-amber, #d35400)); }
+    .meta { font: 14px var(--sc-sans, system-ui); color: var(--text-muted, var(--sc-muted, #636e72)); margin-bottom: 12px; }
     table { width: 100%; border-collapse: collapse; font: 14px var(--sc-sans, system-ui); }
-    td { padding: 6px 4px; border-bottom: 1px solid #ecf0f1; }
+    td { padding: 6px 4px; border-bottom: 1px solid var(--border-subtle, #ecf0f1); color: var(--text-primary, #2d3436); }
     td.num { text-align: right; font-family: var(--sc-mono, monospace); }
     details { margin-top: 12px; }
-    summary { cursor: pointer; font-weight: 600; }
-    pre { font: 12px var(--sc-mono, monospace); background: #f8f9fa; padding: 8px; border-radius: 6px; overflow-x: auto; }
-    .empty { color: var(--sc-muted, #636e72); }
+    summary { cursor: pointer; font-weight: 600; color: var(--text-primary, #2d3436); }
+    pre { font: 12px var(--sc-mono, monospace); background: var(--bg-2, #f8f9fa); color: var(--text-primary, #1a1a1a); padding: 8px; border-radius: 6px; overflow-x: auto; }
+    .empty { color: var(--text-muted, var(--sc-muted, #636e72)); }
   `;
 
   declare result: QuoteResultData | null;

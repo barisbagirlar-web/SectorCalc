@@ -4,6 +4,12 @@
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "cleanUrls": false,
     "trailingSlash": false,
+    "redirects": [
+      { "source": "/calculator.html", "destination": "/labor-pro.html", "type": 301 },
+      { "source": "/calculator2.html", "destination": "/quote-pro.html", "type": 301 },
+      { "source": "/calculator3.html", "destination": "/weld-pro.html", "type": 301 },
+      { "source": "/calculator4.html", "destination": "/machining-pro.html", "type": 301 }
+    ],
     "headers": [
       {
         "source": "**",
@@ -16,11 +22,43 @@
       },
       {
         "source": "**/*.@(js|css|woff2|png|svg)",
+        "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400" }]
+      },
+      {
+        "source": "/assets/**",
         "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+      },
+      {
+        "source": "/vendor/**",
+        "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+      },
+      {
+        "source": "/sc-hero-cell.js",
+        "headers": [{ "key": "Cache-Control", "value": "public, max-age=300" }]
+      },
+      {
+        "source": "/sc-hero-engine.js",
+        "headers": [{ "key": "Cache-Control", "value": "public, max-age=300" }]
+      },
+      {
+        "source": "/sc-theme.js",
+        "headers": [{ "key": "Cache-Control", "value": "public, max-age=300" }]
+      },
+      {
+        "source": "/sc-theme.css",
+        "headers": [{ "key": "Cache-Control", "value": "public, max-age=300" }]
       },
       {
         "source": "**/*.html",
         "headers": [{ "key": "Cache-Control", "value": "no-cache" }]
+      },
+      {
+        "source": "/",
+        "headers": [{ "key": "Cache-Control", "value": "no-cache" }]
+      },
+      {
+        "source": "**/*.@(txt|xml)",
+        "headers": [{ "key": "Cache-Control", "value": "public, max-age=3600" }]
       }
     ],
     "rewrites": [{ "source": "**", "destination": "/index.html" }]

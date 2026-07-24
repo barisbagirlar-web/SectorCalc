@@ -1,5 +1,6 @@
 // @ts-nocheck
 import { calculate } from './tools/SC-010-labor-cost/v1.0.0/formula.js';
+import { readThemePalette, exportSurfaceBg, onThemeChange } from './lib/theme-palette.js';
 
 // Robust field reader: tries several likely result keys so the page never hard-breaks
 // if formula.ts names a field differently. Falls back to def (no ERR, no crash).
@@ -11,6 +12,19 @@ const presets = {
   mid:   { netSalary:4000, payFrequency:'monthly', hoursPerWeek:45, employerSSRate:0.0765, employerUnempRate:0.06, employeeRate:0.23, healthMonthly:200, mealMonthly:50, transportMonthly:30, annualBonus:6000, severanceRate:0.02 }
 };
 const $ = (id) => document.getElementById(id);
+let _reportSyncing = false;
+function reportIsOpen(){ return !!($('reportArea') && $('reportArea').querySelector('.sc-report-hd')); }
+function syncReportIfOpen(){
+  if (_reportSyncing || !reportIsOpen() || !calcData) return;
+  _reportSyncing = true;
+  try { generateReport({ sync: true }); } finally { _reportSyncing = false; }
+}
+function setFieldState(f, ok, msg) {
+  const fld = $('fld-' + f); const val = $('val-' + f);
+  if (fld) fld.classList.toggle('has-error', !ok);
+  if (val) { val.className = 'sc-val ' + (ok ? 'ok' : 'error'); val.textContent = msg; }
+}
+
 let calcData = null;
 
 function readInputs() {
@@ -35,15 +49,15 @@ function buildBreakdown(input, gross) {
 function validateAndCalc() {
   let hasError = false;
   const net = parseFloat($('netSalary').value);
-  if (isNaN(net) || net < 0) { $('fld-netSalary').classList.add('has-error'); $('val-netSalary').className='sc-val error'; $('val-netSalary').textContent='X Net salary must be >= 0'; hasError = true; }
-  else { $('fld-netSalary').classList.remove('has-error'); $('val-netSalary').className='sc-val ok'; $('val-netSalary').textContent='OK'; }
+  if (isNaN(net) || net < 0) { setFieldState('netSalary', false, 'X Net salary must be >= 0'); hasError = true; }
+  else { setFieldState('netSalary', true, 'OK'); }
   const hrs = parseFloat($('hoursPerWeek').value);
-  if (isNaN(hrs) || hrs <= 0 || hrs > 168) { $('fld-hoursPerWeek').classList.add('has-error'); $('val-hoursPerWeek').className='sc-val error'; $('val-hoursPerWeek').textContent='X Hours 0-168'; hasError = true; }
-  else { $('fld-hoursPerWeek').classList.remove('has-error'); $('val-hoursPerWeek').className='sc-val ok'; $('val-hoursPerWeek').textContent='OK'; }
+  if (isNaN(hrs) || hrs <= 0 || hrs > 168) { setFieldState('hoursPerWeek', false, 'X Hours 0-168'); hasError = true; }
+  else { setFieldState('hoursPerWeek', true, 'OK'); }
   ['employerSSRate','employerUnempRate','employeeRate','severanceRate'].forEach(f => {
     const v = parseFloat($(f).value);
-    if (isNaN(v) || v < 0 || v > 1) { $('fld-'+f).classList.add('has-error'); $('val-'+f).className='sc-val error'; $('val-'+f).textContent='X ratio 0-1'; hasError = true; }
-    else { $('fld-'+f).classList.remove('has-error'); $('val-'+f).className='sc-val ok'; $('val-'+f).textContent='OK'; }
+    if (isNaN(v) || v < 0 || v > 1) { setFieldState(f, false, 'X ratio 0-1'); hasError = true; }
+    else { setFieldState(f, true, 'OK'); }
   });
   if (hasError) { $('liveResult').textContent = '—'; $('liveSub').innerHTML = ''; return; }
 
@@ -60,14 +74,14 @@ function validateAndCalc() {
   calcData = { input, r, trueCost, mult, hiddenPct, gross, breakdown };
   $('liveResult').textContent = trueCost.toFixed(0) + ' /mo';
   $('liveSub').innerHTML = '<span>Multiplier ' + mult.toFixed(2) + 'x</span><span>Hidden ' + hiddenPct.toFixed(1) + '%</span><span>Gross ' + gross.toFixed(0) + '</span>';
+  syncReportIfOpen();
 }
 
 function loadPreset(key) {
   const p = presets[key];
   FIELDS.forEach(f => $(f).value = p[f]);
   $('payFrequency').value = p.payFrequency;
-  document.querySelectorAll('.sc-preset').forEach(b => b.classList.toggle('active', b.dataset ? false : false));
-  document.querySelectorAll('.sc-preset').forEach((b, i) => b.classList.toggle('active', (key === 'small' ? i === 0 : i === 1)));
+  document.querySelectorAll('.sc-preset').forEach(b => b.classList.toggle('active', b.dataset.preset === key));
   validateAndCalc();
 }
 function resetAll() { loadPreset('small'); }
@@ -82,20 +96,21 @@ function loadFromURL() {
   } catch (e) {}
 }
 
-function gaugeColor(mult) { return mult >= 2 ? '#f5222d' : (mult >= 1.5 ? '#faad14' : '#52c41a'); }
+function gaugeColor(mult) { return mult >= 2 ? '#9B2423' : (mult >= 1.5 ? '#D05D29' : '#237F52'); }
 function overallStatus(mult) { return mult >= 2 ? 'CRITICAL' : (mult >= 1.5 ? 'WARNING' : 'PASS'); }
 
-function generateReport() {
+function generateReport(opts = {}) {
   if (!calcData) validateAndCalc();
   const d = calcData;
   if (!d) return;
   const now = new Date();
-  const calcId = 'SC-010-' + Math.random().toString(36).substr(2, 9).toUpperCase();
+  const calcId = (opts.sync && window.calcId) ? window.calcId : ('SC-010-' + Math.random().toString(36).substr(2, 9).toUpperCase());
   window.calcId = calcId;
+  const P = readThemePalette();
   const status = overallStatus(d.mult);
   const gCol = gaugeColor(d.mult);
   const gaugeAngle = Math.max(-90, Math.min(90, (d.mult / 3) * 180 - 90));
-  const paretoColors = ['#f5222d','#faad14','#5b8def','#a855f7','#4ecdc4','#52c41a','#4ecdc4','#5b8def'];
+  const paretoColors = [P.red,P.amber,P.blue,P.blue,P.blue,P.green,P.blue,P.blue];
   const top = d.breakdown[0];
 
   const whatIfs = [
@@ -158,15 +173,15 @@ function generateReport() {
       <tr><td class="td-name">Severance rate</td><td class="td-val">${d.input.severanceRate}</td><td>ratio</td></tr>
     </tbody></table></div></div></div>
     <div class="sc-sec"><div class="sc-sec-hd">Cost Multiplier Gauge</div><div class="sc-chart"><div style="display:flex;justify-content:center"><svg width="300" height="170" viewBox="0 0 300 170">
-      <path d="M 40 150 A 110 110 0 0 1 260 150" fill="none" stroke="#111720" stroke-width="24" stroke-linecap="round"/>
-      <path d="M 40 150 A 110 110 0 0 1 110 50" fill="none" stroke="rgba(82,196,26,0.2)" stroke-width="24" stroke-linecap="round"/>
-      <path d="M 110 50 A 110 110 0 0 1 190 50" fill="none" stroke="rgba(250,173,20,0.2)" stroke-width="24" stroke-linecap="round"/>
-      <path d="M 190 50 A 110 110 0 0 1 260 150" fill="none" stroke="rgba(245,34,45,0.2)" stroke-width="24" stroke-linecap="round"/>
+      <path d="M 40 150 A 110 110 0 0 1 260 150" fill="none" stroke="${P.track}" stroke-width="24" stroke-linecap="round"/>
+      <path d="M 40 150 A 110 110 0 0 1 110 50" fill="none" stroke="rgba(35,127,82,0.25)" stroke-width="24" stroke-linecap="round"/>
+      <path d="M 110 50 A 110 110 0 0 1 190 50" fill="none" stroke="rgba(208,93,41,0.25)" stroke-width="24" stroke-linecap="round"/>
+      <path d="M 190 50 A 110 110 0 0 1 260 150" fill="none" stroke="rgba(155,36,35,0.25)" stroke-width="24" stroke-linecap="round"/>
       <line x1="150" y1="150" x2="${150 + 95 * Math.cos(gaugeAngle * Math.PI / 180)}" y2="${150 + 95 * Math.sin(gaugeAngle * Math.PI / 180)}" stroke="${gCol}" stroke-width="3" stroke-linecap="round"/>
       <circle cx="150" cy="150" r="7" fill="${gCol}"/>
-      <text x="150" y="135" text-anchor="middle" fill="#f0f4f8" font-size="24" font-weight="700" font-family="JetBrains Mono">${d.mult.toFixed(2)}x</text>
-      <text x="150" y="155" text-anchor="middle" fill="#4a5568" font-size="10">true / net</text>
-      <text x="30" y="168" fill="#4a5568" font-size="9">1.0</text><text x="262" y="168" fill="#4a5568" font-size="9">3.0</text>
+      <text x="150" y="135" text-anchor="middle" fill="${P.ink}" font-size="24" font-weight="700" font-family="IBM Plex Mono">${d.mult.toFixed(2)}x</text>
+      <text x="150" y="155" text-anchor="middle" fill="${P.muted}" font-size="10">true / net</text>
+      <text x="30" y="168" fill="${P.muted}" font-size="9">1.0</text><text x="262" y="168" fill="${P.muted}" font-size="9">3.0</text>
     </svg></div></div></div>
     <div class="sc-sec"><div class="sc-sec-hd">Cost Breakdown (Pareto)</div><div class="sc-card">
       ${d.breakdown.map((c, i) => `<div class="sc-pareto-row"><div class="sc-pareto-name">${c.name}</div><div class="sc-pareto-track"><div class="sc-pareto-fill" style="width:${c.pct}%;background:${paretoColors[i % paretoColors.length]}"><span>${c.amount.toFixed(0)}</span></div></div><div class="sc-pareto-pct">${c.pct.toFixed(1)}%</div></div>`).join('')}
@@ -217,7 +232,7 @@ async function exportPDFGraphic() {
   const el = $('reportArea'); if (!el || !calcData) { alert('Generate the report first.'); return; }
   const btn = event && event.target; if (btn) { btn.textContent = 'Rendering...'; btn.disabled = true; }
   try {
-    const canvas = await html2canvas(el, { scale: 1.5, backgroundColor: '#070a0f', useCORS: true, logging: false });
+    const canvas = await html2canvas(el, { scale: 1.5, backgroundColor: exportSurfaceBg(), useCORS: true, logging: false });
     const { jsPDF } = window.jspdf;
     const pdf = new jsPDF({ unit: 'pt', format: 'a4' });
     const pageW = pdf.internal.pageSize.getWidth(), pageH = pdf.internal.pageSize.getHeight();
@@ -239,10 +254,10 @@ function shareReport() {
   navigator.clipboard.writeText(location.origin + '/labor-pro.html?s=' + s).then(() => alert('Shareable URL copied'));
 }
 
-loadFromURL();
-validateAndCalc();
+try { loadFromURL(); validateAndCalc(); } catch (e) { console.error(e); }
 
 window.generateReport = generateReport;
+onThemeChange(syncReportIfOpen);
 window.exportPDF = exportPDF;
 window.exportPDFGraphic = exportPDFGraphic;
 window.shareReport = shareReport;

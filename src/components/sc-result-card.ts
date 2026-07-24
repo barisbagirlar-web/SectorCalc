@@ -17,15 +17,15 @@ export class ScResultCard extends LitElement {
   static properties = { result: { type: Object } };
 
   static styles = css`
-    :host { display: block; margin-bottom: 16px; }
-    .empty { color: var(--sc-muted, #636e72); font: 14px var(--sc-sans, system-ui); padding: 12px 0; }
-    .hero { font: 700 28px var(--sc-mono, monospace); color: var(--sc-steel, #2d3436); margin-bottom: 4px; }
-    .meta { color: var(--sc-muted, #636e72); font: 14px var(--sc-sans, system-ui); margin-bottom: 16px; }
+    :host { display: block; margin-bottom: 16px; color: var(--text-primary, #2d3436); }
+    .empty { color: var(--text-muted, var(--sc-muted, #636e72)); font: 14px var(--sc-sans, system-ui); padding: 12px 0; }
+    .hero { font: 700 28px var(--sc-mono, monospace); color: var(--text-primary, var(--sc-steel, #2d3436)); margin-bottom: 4px; }
+    .meta { color: var(--text-muted, var(--sc-muted, #636e72)); font: 14px var(--sc-sans, system-ui); margin-bottom: 16px; }
     table { width: 100%; border-collapse: collapse; font: 14px var(--sc-sans, system-ui); margin-bottom: 12px; }
-    td { padding: 6px 0; border-bottom: 1px solid #dfe6e9; }
+    td { padding: 6px 0; border-bottom: 1px solid var(--border-subtle, #dfe6e9); color: var(--text-primary, #2d3436); }
     td:last-child { text-align: right; font-family: var(--sc-mono, monospace); }
-    details { font: 13px var(--sc-sans, system-ui); color: var(--sc-muted, #636e72); }
-    summary { cursor: pointer; font-weight: 600; color: var(--sc-steel, #2d3436); }
+    details { font: 13px var(--sc-sans, system-ui); color: var(--text-muted, var(--sc-muted, #636e72)); }
+    summary { cursor: pointer; font-weight: 600; color: var(--text-primary, var(--sc-steel, #2d3436)); }
     .step { margin: 6px 0; font-family: var(--sc-mono, monospace); font-size: 12px; }
   `;
 

@@ -101,7 +101,7 @@ Verification: `node scripts/check-language.mjs --strict`
 - Reliability: 99.99% uptime target; deterministic engine
 - Security: SOC 2 path; client-side data; Paddle PCI compliance
 - Maintainability: JSON Schema, versioned, testable
-- Extensibility: new tools = new JSON files
+- Extensibility: new tools via `npm run new:tool` + JSON schemas; locked form layout (`sc-form-fields.css`, never `min-width:0` on value inputs)
 
 ### Irreversible setup
 

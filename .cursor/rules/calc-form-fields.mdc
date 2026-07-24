@@ -1,0 +1,52 @@
+---
+description: Locked calculator form-field layout for all SectorCalc tools
+globs: "*-pro.html,public/sc-form-fields.css,src/styles/pro-theme.css,content/templates/**,scripts/new-tool.mjs,scripts/verify-form-fields.mjs,scripts/inject-site-nav.mjs"
+alwaysApply: false
+---
+# Calculator form fields (locked)
+
+Every SectorCalc calculator (`*-pro.html`) MUST use the shared form layout so number digits never clip beside unit selectors.
+
+## Canonical assets
+
+- `public/sc-form-fields.css` — source of truth (also `@import`ed by `public/sc-theme.css`)
+- Injected on every page by `scripts/inject-site-nav.mjs`
+- Enforced by `scripts/verify-form-fields.mjs` (wired into `npm run build`)
+
+## Required markup
+
+**Lit / sidebar tools:**
+
+```html
+<div class="sc-input-wrap">
+  <input class="sc-input" type="number" ...>
+  <select class="sc-unit">...</select>
+</div>
+```
+
+**Engine / panel tools (machining-style):**
+
+```html
+<div class="uwrap">
+  <input type="number" ...>
+  <select class="units">...</select>
+</div>
+```
+
+## Forbidden
+
+- `min-width: 0` on `.sc-input` or `.uwrap input` (allows digit clipping)
+- Number + unit side-by-side without `.sc-input-wrap` / `.uwrap`
+- Shipping a new `*-pro.html` without `sc-form-fields.css`
+- Three narrow columns of numeric+unit fields without enough width (use max 2 cols)
+- Engagement bar only in the SEO guide — it must mount under `#calcBtn` or `.sc-sidebar-ft`
+
+## New tools
+
+```bash
+node scripts/new-tool.mjs --id SC-0XX --slug my-tool --title "My Tool" --kind lit
+# or --kind engine
+npm run build
+```
+
+Templates live in `content/templates/tool-pro-lit.html` and `tool-pro-engine.html`.

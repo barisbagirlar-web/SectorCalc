@@ -1,0 +1,41 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main, ship/mobile-nav-discovery]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sectorcalc-production-deploy
+  cancel-in-progress: true
+
+jobs:
+  deploy-production:
+    name: Firebase production deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Verify Firebase credential present
+        run: |
+          if [ -z "${FIREBASE_TOKEN:-}" ]; then
+            echo "::error::FIREBASE_TOKEN secret is not configured. Add it in repo Settings > Secrets, then re-run."
+            exit 1
+          fi
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+      - name: Install locked dependencies
+        run: npm ci --no-audit --no-fund
+      - name: Build production bundle
+        run: npm run build
+      - name: Deploy Firebase Hosting (sectorcalc-prod)
+        run: npx --yes firebase-tools@14 deploy --only hosting --project sectorcalc-prod --token "$FIREBASE_TOKEN"
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}

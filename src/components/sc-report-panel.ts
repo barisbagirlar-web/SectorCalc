@@ -32,9 +32,13 @@ export class ScReportPanel extends LitElement {
     if (!ctx) return;
     const r = this.report;
     const color = this.gaugeColor(r);
+    let track = '#ecf0f1';
+    try {
+      track = getComputedStyle(document.documentElement).getPropertyValue('--bg-2').trim() || track;
+    } catch { /* ignore */ }
     const cfg = {
       type: 'doughnut' as const,
-      data: { labels: ['v', ''], datasets: [{ data: [Math.min(r.metricValue, r.gaugeMax), Math.max(r.gaugeMax - r.metricValue, 0)], backgroundColor: [color, '#ecf0f1'] }] },
+      data: { labels: ['v', ''], datasets: [{ data: [Math.min(r.metricValue, r.gaugeMax), Math.max(r.gaugeMax - r.metricValue, 0)], backgroundColor: [color, track] }] },
       options: { rotation: -90, circumference: 180, cutout: '70%', animation: false, plugins: { legend: { display: false }, tooltip: { enabled: false } } }
     };
     if (this.chart) {
@@ -72,22 +76,22 @@ export class ScReportPanel extends LitElement {
   disconnectedCallback() { super.disconnectedCallback(); this.chart?.destroy(); this.chart = null; }
 
   static styles = css`
-    :host { display: block; background: #fff; border: 1px solid #dfe6e9; border-radius: 12px; padding: 20px; margin-top: 16px; }
-    h3 { font: 700 16px var(--sc-sans, system-ui); margin: 0 0 10px; }
+    :host { display: block; background: var(--bg-1, #fff); color: var(--text-primary, #2d3436); border: 1px solid var(--border-subtle, #dfe6e9); border-radius: 12px; padding: 20px; margin-top: 16px; }
+    h3 { font: 700 16px var(--sc-sans, system-ui); margin: 0 0 10px; color: var(--text-primary, #2d3436); }
     .verdict { display: inline-block; font: 800 18px var(--sc-sans, system-ui); padding: 6px 14px; border-radius: 8px; }
-    .verdict.pass { background: #eafaf1; color: #27ae60; }
-    .verdict.warn { background: #fef9e7; color: #f39c12; }
-    .verdict.crit { background: #fdedec; color: #e74c3c; }
+    .verdict.pass { background: var(--accent-green-glow, #eafaf1); color: var(--accent-green, #27ae60); }
+    .verdict.warn { background: var(--accent-amber-glow, #fef9e7); color: var(--accent-amber, #f39c12); }
+    .verdict.crit { background: var(--accent-red-glow, #fdedec); color: var(--accent-red, #e74c3c); }
     .gauge { max-width: 220px; margin: 12px 0; text-align: center; }
-    .metric { font: 600 13px var(--sc-mono, monospace); color: var(--sc-steel, #2d3436); }
-    .ri { padding: 8px 10px; border-radius: 8px; font: 13px var(--sc-sans, system-ui); margin-bottom: 6px; }
-    .ri em { color: var(--sc-muted, #636e72); font-style: normal; }
-    .ri.critical { background: #fdedec; border-left: 4px solid #e74c3c; }
-    .ri.warning { background: #fef9e7; border-left: 4px solid #f39c12; }
-    .ri.pass { background: #eafaf1; border-left: 4px solid #27ae60; }
-    .block h4 { font: 700 14px var(--sc-sans, system-ui); margin: 12px 0 6px; }
-    .block ul { margin: 0; padding-left: 18px; font: 13px var(--sc-sans, system-ui); line-height: 1.7; }
-    .empty { color: var(--sc-muted, #636e72); }
+    .metric { font: 600 13px var(--sc-mono, monospace); color: var(--text-primary, var(--sc-steel, #2d3436)); }
+    .ri { padding: 8px 10px; border-radius: 8px; font: 13px var(--sc-sans, system-ui); margin-bottom: 6px; color: var(--text-primary, #2d3436); }
+    .ri em { color: var(--text-muted, var(--sc-muted, #636e72)); font-style: normal; }
+    .ri.critical { background: var(--accent-red-glow, #fdedec); border-left: 4px solid var(--accent-red, #e74c3c); }
+    .ri.warning { background: var(--accent-amber-glow, #fef9e7); border-left: 4px solid var(--accent-amber, #f39c12); }
+    .ri.pass { background: var(--accent-green-glow, #eafaf1); border-left: 4px solid var(--accent-green, #27ae60); }
+    .block h4 { font: 700 14px var(--sc-sans, system-ui); margin: 12px 0 6px; color: var(--text-primary, #2d3436); }
+    .block ul { margin: 0; padding-left: 18px; font: 13px var(--sc-sans, system-ui); line-height: 1.7; color: var(--text-secondary, #4A4A4A); }
+    .empty { color: var(--text-muted, #636e72); }
   `;
 }
 if (!customElements.get('sc-report-panel')) customElements.define('sc-report-panel', ScReportPanel);

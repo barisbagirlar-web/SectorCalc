@@ -1,32 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>(function(){try{var k='sectorcalc-theme';var t=localStorage.getItem(k);if(t!=='dark'&&t!=='light')t=(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';document.documentElement.setAttribute('data-theme',t);document.documentElement.style.colorScheme=t;var raw=localStorage.getItem('sectorcalc-theme-pos');if(raw){var p=JSON.parse(raw);if(p&&typeof p.leftPct==='number'&&typeof p.topPct==='number'){var s=document.createElement('style');s.id='sc-theme-pos-boot';var w=Math.max(0,(window.innerWidth||0)-48);var h=Math.max(0,(window.innerHeight||0)-48);var L=Math.min(w,Math.max(0,(p.leftPct/100)*w));var T=Math.min(h,Math.max(0,(p.topPct/100)*h));s.textContent='#themeToggle{left:'+L+'px!important;top:'+T+'px!important;right:auto!important;bottom:auto!important}';document.documentElement.appendChild(s);document.documentElement.setAttribute('data-sc-pos-boot','1');}}}catch(e){}})();</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>SC-008 — Tolerance Stack-Up (Predicted) | SectorCalc</title>
+<title>SC-008 - Tolerance Stack-Up (Predicted) | SectorCalc</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
-  :root{--bg-0:#F5F7FA;--bg-1:#FFFFFF;--bg-2:#F1F5F9;--bg-3:#E9EEF5;--bg-4:#E2E8F0;--border-subtle:#F1F5F9;--border-soft:#E2E8F0;--border-mid:#CBD5E1;--text-primary:#0B1220;--text-secondary:#334155;--text-tertiary:#64748B;--text-muted:#94A3B8;--text-dim:#CBD5E1;--accent-blue:#1D4ED8;--accent-blue-glow:rgba(29,78,216,0.12);--accent-cyan:#0891B2;--accent-green:#15803D;--accent-amber:#B45309;--accent-red:#DC2626;--radius-sm:6px;--radius-md:10px;--radius-lg:14px;--font-sans:'IBM Plex Sans',system-ui,sans-serif;--font-mono:'IBM Plex Mono',monospace;--tf:0.12s cubic-bezier(0.4,0,0.2,1)}
+  @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+  :root{--bg-0:#F5F5F0;--bg-1:#FFFFFF;--bg-2:#E0E0D8;--bg-3:#E8E8E2;--bg-4:#D8D8D0;--border-subtle:#D8D8D0;--border-soft:#C5C5BE;--border-mid:#999994;--text-primary:#1A1A1A;--text-secondary:#4A4A4A;--text-tertiary:#4A4A4A;--text-muted:#7A7A7A;--text-dim:#C5C5BE;--accent-blue:#0055A4;--accent-blue-glow:rgba(0,85,164,0.08);--accent-cyan:#0055A4;--accent-green:#007A33;--accent-amber:#E87722;--accent-red:#C8102E;--radius-sm:2px;--radius-md:2px;--radius-lg:2px;--font-sans:'Inter',system-ui,sans-serif;--font-mono:'JetBrains Mono',monospace;--font-display:'Barlow Condensed',sans-serif;--tf:0.12s cubic-bezier(0.4,0,0.2,1)}
   *{box-sizing:border-box;margin:0;padding:0}html{font-size:15px;-webkit-font-smoothing:antialiased}
   body{font-family:var(--font-sans);background:var(--bg-0);color:var(--text-primary);line-height:1.55;min-height:100vh;overflow-x:hidden}
   ::-webkit-scrollbar{width:5px;height:5px}::-webkit-scrollbar-thumb{background:var(--border-mid);border-radius:10px}
-  .sc-header{position:fixed;top:0;left:0;right:0;z-index:1000;height:56px;background:rgba(255,255,255,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border-soft);display:flex;align-items:center;justify-content:space-between;padding:0 24px}
+  .sc-header{position:fixed;top:0;left:0;right:0;z-index:1000;height:56px;background:var(--bg-1);color:var(--text-primary);backdrop-filter:none;border-bottom:1px solid var(--border-soft);display:flex;align-items:center;justify-content:space-between;padding:0 24px}
   .sc-header-left{display:flex;align-items:center;gap:14px}
-  .sc-logo{width:32px;height:32px;background:linear-gradient(135deg,var(--accent-blue),var(--accent-cyan));border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:11px;color:#fff}
-  .sc-header-title{font-size:13px;font-weight:700}
+  a.sc-logo{text-decoration:none;display:inline-flex;align-items:center;gap:10px;color:var(--text-primary)}.sc-logo{background:transparent;border:none;border-radius:0;flex-shrink:0;padding:0;height:42px}.sc-logo img{width:auto;height:42px;object-fit:contain;display:block;flex-shrink:0}.sc-logo-word{display:none}
+  .sc-header-title{font-family:var(--font-display);font-size:15px;font-weight:800;letter-spacing:0.01em;text-transform:uppercase;color:var(--text-primary)}
   .sc-header-sub{font-size:10px;font-weight:500;color:var(--text-muted);font-family:var(--font-mono)}
-  .sc-badge{font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:1px;padding:4px 10px;border-radius:var(--radius-sm);font-family:var(--font-mono);border:1px solid rgba(250,173,20,0.2);background:rgba(250,173,20,0.08);color:var(--accent-amber)}
+  .sc-badge{font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:1px;padding:4px 10px;border-radius:var(--radius-sm);font-family:var(--font-mono);border:1px solid rgba(232,119,34,0.2);background:rgba(232,119,34,0.08);color:var(--accent-amber)}
   .sc-layout{display:grid;grid-template-columns:380px 1fr;min-height:100vh;padding-top:56px}
   .sc-sidebar{background:var(--bg-1);border-right:1px solid var(--border-subtle);display:flex;flex-direction:column;height:calc(100vh - 56px);position:sticky;top:56px;overflow:hidden}
   .sc-sidebar-scroll{flex:1;overflow-y:auto;padding-bottom:80px}
   .sc-section-hd{padding:14px 20px 10px;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:var(--text-muted)}
   .sc-presets{display:flex;gap:6px;padding:0 20px 14px;flex-wrap:wrap}
   .sc-preset{padding:6px 12px;border-radius:var(--radius-sm);font-size:11px;font-weight:600;cursor:pointer;border:1px solid var(--border-soft);background:var(--bg-2);color:var(--text-tertiary);transition:var(--tf);white-space:nowrap}
-  .sc-preset.active{background:linear-gradient(135deg,var(--accent-blue),#4a7de4);color:#fff;border-color:transparent}
+  .sc-preset.active{background:var(--accent-blue);color:#fff;border-color:var(--accent-blue)}
   .sc-field{padding:14px 20px;border-bottom:1px solid var(--border-soft)}
-  .sc-field.has-error{background:rgba(245,34,45,0.03);border-left:2px solid var(--accent-red)}
+  .sc-field.has-error{background:rgba(200,16,46,0.03);border-left:2px solid var(--accent-red)}
   .sc-field-label{display:flex;align-items:center;gap:6px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--text-tertiary);margin-bottom:8px}
   .sc-info{width:14px;height:14px;border-radius:50%;border:1px solid var(--text-dim);color:var(--text-dim);font-size:8px;display:inline-flex;align-items:center;justify-content:center;cursor:help;font-weight:800;position:relative}
   .sc-info:hover{border-color:var(--accent-blue);color:var(--accent-blue)}
@@ -34,12 +35,12 @@
   .sc-info:hover .sc-tooltip{opacity:1;visibility:visible}
   .sc-tooltip strong{color:var(--text-primary);display:block;margin-bottom:5px;font-size:12px}
   .sc-input-wrap{display:flex;gap:8px}
-  .sc-input{flex:1;background:var(--bg-0);border:1px solid var(--border-soft);border-radius:var(--radius-sm);padding:9px 12px;color:var(--text-primary);font-family:var(--font-mono);font-size:13px;outline:none;transition:var(--tf);min-width:0}
-  .sc-input:focus{border-color:var(--accent-blue);box-shadow:0 0 0 3px var(--accent-blue-glow)}
+  .sc-input{flex:1 1 auto;background:var(--bg-0);border:1px solid var(--border-soft);border-radius:var(--radius-sm);padding:9px 12px;color:var(--text-primary);font-family:var(--font-mono);font-size:13px;outline:none;transition:var(--tf);min-width:5.75rem;width:auto;font-variant-numeric:tabular-nums;overflow-x:auto;box-sizing:border-box}
+  .sc-input[type=number]{-moz-appearance:textfield;appearance:textfield}.sc-input[type=number]::-webkit-outer-spin-button,.sc-input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}.sc-input:focus{border-color:var(--accent-blue);box-shadow:0 0 0 3px var(--accent-blue-glow)}
   .sc-input.error{border-color:var(--accent-red)}
   .sc-unit{background:var(--bg-3);border:1px solid var(--border-soft);border-radius:var(--radius-sm);padding:9px 10px;color:var(--text-secondary);font-family:var(--font-mono);font-size:11px;font-weight:600;min-width:60px}
   .sc-ref{display:flex;align-items:center;gap:8px;margin-top:7px}
-  .sc-ref-tag{font-size:9px;font-weight:700;text-transform:uppercase;padding:2px 7px;border-radius:4px;font-family:var(--font-mono);background:rgba(250,173,20,0.08);color:var(--accent-amber)}
+  .sc-ref-tag{font-size:9px;font-weight:700;text-transform:uppercase;padding:2px 7px;border-radius:4px;font-family:var(--font-mono);background:rgba(232,119,34,0.08);color:var(--accent-amber)}
   .sc-ref-text{font-size:10px;color:var(--text-muted);font-family:var(--font-mono)}
   .sc-val{font-size:10px;margin-top:7px;font-family:var(--font-mono);min-height:16px}
   .sc-val.error{color:var(--accent-red)}.sc-val.ok{color:var(--accent-green)}
@@ -48,27 +49,27 @@
   .sc-dim input,.sc-dim select{background:var(--bg-0);border:1px solid var(--border-soft);border-radius:var(--radius-sm);padding:6px 6px;color:var(--text-primary);font-family:var(--font-mono);font-size:11px;outline:none;width:100%}
   .sc-dim-num{font-family:var(--font-mono);font-size:10px;color:var(--text-muted);text-align:center}
   .sc-dim-del{width:24px;height:24px;background:none;border:none;color:var(--text-dim);cursor:pointer;font-size:16px;border-radius:var(--radius-sm)}
-  .sc-dim-del:hover{background:rgba(245,34,45,0.1);color:var(--accent-red)}
+  .sc-dim-del:hover{background:rgba(200,16,46,0.1);color:var(--accent-red)}
   .sc-dim-add{padding:8px 20px 14px}
-  .sc-live{margin:14px 20px;background:linear-gradient(135deg,rgba(78,205,196,0.06),rgba(91,141,239,0.04));border:1px solid rgba(78,205,196,0.12);border-radius:var(--radius-md);padding:16px 18px;position:relative;overflow:hidden}
+  .sc-live{margin:14px 20px;background:linear-gradient(135deg,rgba(0,85,164,0.06),rgba(232,119,34,0.04));border:1px solid rgba(0,85,164,0.14);border-radius:var(--radius-md);padding:16px 18px;position:relative;overflow:hidden}
   .sc-live::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:linear-gradient(180deg,var(--accent-cyan),var(--accent-blue))}
   .sc-live-hd{font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:1.2px;color:var(--accent-cyan);margin-bottom:6px;display:flex;align-items:center;gap:8px}
   .sc-live-dot{width:5px;height:5px;background:var(--accent-cyan);border-radius:50%;box-shadow:0 0 8px var(--accent-cyan);animation:pulse 2.5s infinite}
   @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
-  .sc-live-val{font-family:var(--font-mono);font-size:26px;font-weight:700}
+  .sc-live-val{font-family:var(--font-mono);font-size:26px;font-weight:700;color:var(--text-primary)}
   .sc-live-sub{font-size:11px;color:var(--text-tertiary);margin-top:5px;font-family:var(--font-mono);display:flex;gap:12px;flex-wrap:wrap}
   .sc-sidebar-ft{position:sticky;bottom:0;background:var(--bg-1);border-top:1px solid var(--border-subtle);padding:14px 20px;display:flex;gap:8px}
-  .sc-btn{padding:10px 18px;border-radius:var(--radius-sm);font-size:12px;font-weight:700;text-transform:uppercase;cursor:pointer;border:none;transition:var(--tf);display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
-  .sc-btn-primary{background:linear-gradient(135deg,var(--accent-blue),#4a7de4);color:#fff;flex:1;justify-content:center}
+  .sc-btn{padding:10px 18px;border-radius:0;font-size:12.5px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;cursor:pointer;border:1px solid var(--border-mid);transition:var(--tf);font-family:var(--font-mono);display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+  .sc-btn-primary{background:var(--accent-blue);border:1px solid var(--accent-blue);color:#fff;flex:1;justify-content:center}
   .sc-btn-ghost{background:var(--bg-3);color:var(--text-tertiary);border:1px solid var(--border-soft);padding:10px 14px}
   .sc-main{background:var(--bg-0);min-height:calc(100vh - 56px);overflow-y:auto}
   .sc-main-inner{max-width:900px;margin:0 auto;padding:32px 32px 60px}
   .sc-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:60vh;text-align:center;color:var(--text-muted)}
   .sc-empty-title{font-size:16px;font-weight:600;color:var(--text-secondary);margin-bottom:8px}
   .sc-empty-desc{font-size:13px;color:var(--text-muted);font-family:var(--font-mono);line-height:1.8;max-width:380px}
-  .sc-preview-tag{display:inline-block;margin-top:14px;padding:4px 12px;border-radius:var(--radius-sm);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;background:rgba(250,173,20,0.1);color:var(--accent-amber);border:1px solid rgba(250,173,20,0.2)}
+  .sc-preview-tag{display:inline-block;margin-top:14px;padding:4px 12px;border-radius:var(--radius-sm);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;background:rgba(232,119,34,0.1);color:var(--accent-amber);border:1px solid rgba(232,119,34,0.2)}
   .sc-report-hd{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:28px;padding-bottom:24px;border-bottom:1px solid var(--border-subtle);gap:20px;flex-wrap:wrap}
-  .sc-report-title{font-size:22px;font-weight:800;letter-spacing:-0.4px;margin-bottom:10px}
+  .sc-report-title{font-family:var(--font-display);font-size:clamp(22px,3vw,28px);font-weight:800;letter-spacing:0.005em;text-transform:uppercase;margin-bottom:10px;line-height:1.1}
   .sc-report-meta{font-size:11px;color:var(--text-muted);font-family:var(--font-mono);line-height:2}
   .sc-report-meta span{color:var(--accent-blue);font-weight:600}.sc-report-meta .ok{color:var(--accent-green)}.sc-report-meta .warn{color:var(--accent-amber)}
   .sc-report-hd-right{display:flex;gap:8px;flex-wrap:wrap}
@@ -77,7 +78,7 @@
   .sc-sec-hd::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--border-soft),transparent)}
   .sc-card{background:var(--bg-1);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);padding:20px}
   .sc-alert{border-radius:var(--radius-md);padding:16px 18px;margin-bottom:12px;border:1px solid}
-  .sc-alert-crit{background:rgba(245,34,45,0.04);border-color:rgba(245,34,45,0.2)}.sc-alert-warn{background:rgba(250,173,20,0.04);border-color:rgba(250,173,20,0.2)}.sc-alert-pass{background:rgba(82,196,26,0.04);border-color:rgba(82,196,26,0.2)}
+  .sc-alert-crit{background:rgba(200,16,46,0.04);border-color:rgba(200,16,46,0.2)}.sc-alert-warn{background:rgba(232,119,34,0.04);border-color:rgba(232,119,34,0.2)}.sc-alert-pass{background:rgba(0,122,51,0.04);border-color:rgba(0,122,51,0.2)}
   .sc-alert-title{font-size:11px;font-weight:800;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.8px}
   .sc-alert-crit .sc-alert-title{color:var(--accent-red)}.sc-alert-warn .sc-alert-title{color:var(--accent-amber)}.sc-alert-pass .sc-alert-title{color:var(--accent-green)}
   .sc-alert-body{font-size:12px;color:var(--text-tertiary);line-height:1.7;font-family:var(--font-mono)}
@@ -87,13 +88,13 @@
   .sc-card-res::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
   .sc-card-res.pass::before{background:var(--accent-green)}.sc-card-res.warn::before{background:var(--accent-amber)}.sc-card-res.crit::before{background:var(--accent-red)}
   .sc-card-res-label{font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);margin-bottom:10px}
-  .sc-card-res-val{font-family:var(--font-mono);font-size:22px;font-weight:700;margin-bottom:4px}
+  .sc-card-res-val{font-family:var(--font-mono);font-size:22px;font-weight:700;margin-bottom:4px;color:var(--text-primary)}
   .sc-card-res-sub{font-size:10px;color:var(--text-muted);font-family:var(--font-mono)}
   .sc-card-res-badge{display:inline-block;margin-top:10px;padding:3px 10px;border-radius:var(--radius-sm);font-size:9px;font-weight:800;text-transform:uppercase}
-  .sc-badge-pass{background:rgba(82,196,26,0.1);color:var(--accent-green)}.sc-badge-warn{background:rgba(250,173,20,0.1);color:var(--accent-amber)}.sc-badge-crit{background:rgba(245,34,45,0.1);color:var(--accent-red)}
+  .sc-badge-pass{background:rgba(0,122,51,0.1);color:var(--accent-green)}.sc-badge-warn{background:rgba(232,119,34,0.1);color:var(--accent-amber)}.sc-badge-crit{background:rgba(200,16,46,0.1);color:var(--accent-red)}
   .sc-table{width:100%;border-collapse:collapse;font-size:12px}
   .sc-table th{text-align:left;padding:10px 12px;font-size:9px;font-weight:800;text-transform:uppercase;color:var(--text-muted);border-bottom:1px solid var(--border-soft);background:var(--bg-2)}
-  .sc-table td{padding:10px 12px;border-bottom:1px solid var(--border-subtle);font-family:var(--font-mono)}
+  .sc-table td{padding:10px 12px;border-bottom:1px solid var(--border-subtle);font-family:var(--font-mono);color:var(--text-primary)}
   .sc-table .td-name{font-family:var(--font-sans);color:var(--text-secondary)}
   .sc-table .td-high{color:var(--accent-red);font-weight:700}.sc-table .td-ok{color:var(--accent-green)}
   .sc-chart{background:var(--bg-1);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);padding:20px;margin-bottom:16px}
@@ -112,12 +113,12 @@
   .sc-whatif{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
   .sc-whatif-card{background:var(--bg-2);border:1px solid var(--border-subtle);border-radius:var(--radius-md);padding:16px;text-align:center}
   .sc-whatif-lbl{font-size:9px;font-weight:800;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px}
-  .sc-whatif-val{font-family:var(--font-mono);font-size:20px;font-weight:700}
+  .sc-whatif-val{font-family:var(--font-mono);font-size:20px;font-weight:700;color:var(--text-primary)}
   .sc-whatif-chg{font-size:11px;margin-top:5px;font-family:var(--font-mono);font-weight:600}
   .sc-whatif-chg.pos{color:var(--accent-green)}.sc-whatif-chg.neg{color:var(--accent-red)}.sc-whatif-chg.neu{color:var(--text-muted)}
   .sc-rec{background:var(--bg-2);border:1px solid var(--border-subtle);border-radius:var(--radius-md);padding:16px 18px;margin-bottom:10px}
   .sc-rec-hd{display:flex;align-items:flex-start;gap:10px;margin-bottom:8px}
-  .sc-rec-num{width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,var(--accent-blue),#4a7de4);color:#fff;font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:var(--font-mono)}
+  .sc-rec-num{width:22px;height:22px;border-radius:50%;background:var(--accent-amber);color:#fff;font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:var(--font-mono);border-radius:0}
   .sc-rec-title{font-size:13px;font-weight:600;padding-top:2px}
   .sc-rec-body{font-size:12px;color:var(--text-tertiary);line-height:1.7;padding-left:32px;font-family:var(--font-mono)}
   .sc-rec-body .pos{color:var(--accent-green)}.sc-rec-body .neg{color:var(--accent-amber)}
@@ -126,11 +127,64 @@
   .sc-footer{text-align:center;padding:24px;color:var(--text-dim);font-size:10px;font-family:var(--font-mono);border-top:1px solid var(--border-subtle);margin-top:20px}
   @media(max-width:768px){.sc-layout{grid-template-columns:1fr}.sc-sidebar{position:relative;top:0;height:auto;border-right:none;border-bottom:1px solid var(--border-subtle)}.sc-cards,.sc-whatif{grid-template-columns:1fr}.sc-header-sub{display:none}}
 </style>
+<link rel="stylesheet" href="./sc-theme.css?v=8">
+<script src="./sc-theme.js?v=8" defer></script>
+<link rel="stylesheet" href="./sc-tool-guide.css?v=3">
+<script src="./sc-tool-guide.js?v=3" defer></script>
+<link rel="stylesheet" href="./sc-site-nav.css?v=1">
+<script src="./sc-site-nav.js?v=1" defer></script>
+<link rel="stylesheet" href="./sc-form-fields.css?v=4">
 </head>
-<body>
+<body data-tool-badge="SC-008 · Tolerance Stack-Up">
+<!--SC-SITE-NAV-START-->
+<header class="site-header" id="siteHeader" role="banner">
+  <a href="/" class="brand" aria-label="SectorCalc Home"><span class="brand-mark"><img class="logo-light" src="/sectorcalc-logo.png" alt="SectorCalc" width="183" height="48"><img class="logo-dark" src="/sectorcalc-logo-dark.png?v=2" alt="" width="183" height="48" aria-hidden="true"></span></a>
+  <nav class="main-nav" role="navigation" aria-label="Main navigation">
+    <ul>
+      <li><a href="/tools.html" data-nav="tools">Tools</a></li>
+      <li><a href="/#method" data-nav="method" data-nav-home="#method">Method</a></li>
+      <li><a href="/#standards" data-nav="standards" data-nav-home="#standards">Standards</a></li>
+      <li><a href="/pricing.html" data-nav="pricing">Pricing</a></li>
+    </ul>
+    <span class="sc-nav-tool" aria-hidden="true"></span>
+    <a href="/sc008-pro.html" class="btn btn-primary">Run a Calculation</a>
+  </nav>
+  <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+<div class="mobile-nav-overlay" id="mobileNav" role="dialog" aria-label="Mobile menu" aria-hidden="true">
+  <a href="/tools.html" data-nav="tools">All Tools</a>
+  <a href="/#method" data-nav-home="#method">Method</a>
+  <a href="/#standards" data-nav-home="#standards">Standards</a>
+  <a href="/pricing.html" data-nav="pricing">Pricing</a>
+  <a href="/sc008-pro.html" class="btn-primary">Run a Calculation</a>
+</div>
+<!--SC-SITE-NAV-END-->
+<div class="sc-tool-strip"><b>SC-008 · Tolerance Stack-Up</b><span>Engineering preview · Decimal engine · Not for production approval</span></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme" aria-pressed="false" title="Dark mode - drag to move, double-click to reset">
+  <svg data-theme-icon="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  <svg data-theme-icon="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+</button>
+
+
 <div class="sc-header">
-  <div class="sc-header-left"><div class="sc-logo">SC</div><div><div class="sc-header-title">SC-008 — Tolerance Stack-Up</div><div class="sc-header-sub">Engineering preview · 1D linear stack-up · per-component distribution · client-side · not for production approval</div></div></div>
-  <div class="sc-badge">Preview</div>
+  <div class="sc-header-left"><a href="/" class="sc-logo" title="SectorCalc home" aria-label="SectorCalc home"><img class="logo-light" src="/sectorcalc-logo.png" alt="SectorCalc" width="160" height="42"><img class="logo-dark" src="/sectorcalc-logo-dark.png?v=2" alt="" width="160" height="42" aria-hidden="true"></a><div><div class="sc-header-title">SC-008 - Tolerance Stack-Up</div><div class="sc-header-sub">Engineering preview · 1D linear stack-up · per-component distribution · client-side · not for production approval</div></div></div>
+  <div style="display:flex;align-items:center;gap:10px"><a href="/" class="sc-btn sc-btn-ghost" style="text-decoration:none">All tools</a><a href="/pricing.html" class="sc-btn sc-btn-ghost" style="margin-right:10px;text-decoration:none">Pricing</a><div class="sc-badge">Preview</div></div>
 </div>
 <div class="sc-layout">
   <div class="sc-sidebar"><div class="sc-sidebar-scroll">
@@ -149,7 +203,7 @@
     <div class="sc-dims-hd"><span>#</span><span>Name</span><span>Nominal</span><span>+/-Tol</span><span>Distrib.</span><span></span></div>
     <div id="dimList"></div>
     <div class="sc-dim-add"><button class="sc-btn sc-btn-ghost" style="width:100%;justify-content:center" id="addDim">+ Add Dimension</button></div>
-    <div class="sc-live"><div class="sc-live-hd"><span class="sc-live-dot"></span>Predicted RSS</div><div class="sc-live-val" id="liveResult">—</div><div class="sc-live-sub" id="liveSub"></div></div>
+    <div class="sc-live"><div class="sc-live-hd"><span class="sc-live-dot"></span>Predicted RSS</div><div class="sc-live-val" id="liveResult">-</div><div class="sc-live-sub" id="liveSub"></div></div>
   </div>
   <div class="sc-sidebar-ft" style="flex-wrap:wrap">
   <button class="sc-btn sc-btn-primary" id="genReport">Generate Report</button>
@@ -160,9 +214,335 @@
   <input type="file" id="csvFile" accept=".csv" style="display:none">
 </div></div>
   <div class="sc-main"><div class="sc-main-inner" id="reportArea">
-    <div class="sc-empty"><div class="sc-empty-title">Predicted Analysis Ready</div><div class="sc-empty-desc">Configure the stack and choose a distribution per dimension. Values update live from the deterministic Decimal engine. Predicted, drawing-based — verify with measured process data before any release.</div><div class="sc-preview-tag">Engineering preview — not for production approval</div></div>
+    <div class="sc-empty"><div class="sc-empty-title">Predicted Analysis Ready</div><div class="sc-empty-desc">Configure the stack and choose a distribution per dimension. Values update live from the deterministic Decimal engine. Predicted, drawing-based - verify with measured process data before any release.</div><div class="sc-preview-tag">Engineering preview - not for production approval</div></div>
   </div></div>
 </div>
+<!--SC-GUIDE-START-->
+<div class="sc-guide-shell">
+<section class="sc-guide" id="sc-guide" data-tool-id="SC-008" data-tool-name="Tolerance Stack-Up Calculator (SC-008)" data-tool-url="https://www.sectorcalc.com/sc008-pro.html" itemscope itemtype="https://schema.org/FAQPage">
+
+<nav class="sc-guide-toc" aria-label="Table of contents">
+  <h2 class="sc-guide-toc-title">Contents</h2>
+  <ol>
+    <li><a href="#what-is-tolerance-stack-up">What is a 1D tolerance stack-up?</a></li>
+    <li><a href="#three-methods">Worst-case, RSS, and Monte Carlo</a></li>
+    <li><a href="#distribution-choices">Distribution choices per component</a></li>
+    <li><a href="#cpk-and-spc">Predicted Cpk vs measured SPC</a></li>
+    <li><a href="#iso-286">ISO 286 and drawing tolerances</a></li>
+    <li><a href="#seed-determinism">Seed determinism and reproducibility</a></li>
+    <li><a href="#when-worst-case">When worst-case is required</a></li>
+    <li><a href="#failure-modes">Common failure modes</a></li>
+    <li><a href="#method-comparison">Method comparison reference</a></li>
+    <li><a href="#faqs">Frequently asked questions</a></li>
+  </ol>
+</nav>
+
+<p class="sc-guide-lede">A <strong>1D linear tolerance stack-up</strong> sums independent dimensional contributors along a single measurement direction to predict whether an assembly gap, interference, or overall length will stay within specification. SectorCalc <strong>SC-008</strong> compares <strong>worst-case</strong>, <strong>root-sum-square (RSS)</strong>, and <strong>seeded Monte Carlo</strong> methods on the same stack, reports <strong>predicted Cpk and PPM</strong> from your chosen distributions, and flags engineering-preview limits before you commit tooling. This is a design-time model — not a substitute for measured statistical process control (SPC) on production parts.</p>
+
+<h2 id="what-is-tolerance-stack-up">What is a 1D tolerance stack-up?</h2>
+
+<p>In mechanical design, critical functional dimensions — bearing preload, seal compression, valve lash, shaft end float — rarely depend on a single feature. They emerge from a chain of part lengths, bore depths, shim thicknesses, and clearance gaps measured along one axis. A <em>1D linear stack</em> models that chain as a signed sum of nominal values plus tolerances.</p>
+
+<p>Each contributor carries a <strong>nominal dimension</strong>, a <strong>± tolerance band</strong>, and a <strong>sign</strong> indicating whether the feature adds or subtracts from the closed loop. The assembly specification is expressed as a deviation band around the nominal stack sum — for example, a gap must remain between −0.150 mm and +0.150 mm relative to the target closure dimension.</p>
+
+<div class="sc-formula">
+  Stack nominal: &nbsp; X<sub>nom</sub> = Σ n<sub>i</sub><br>
+  Worst-case envelope: &nbsp; X<sub>WC</sub> = Σ (n<sub>i</sub> ± t<sub>i</sub>) arranged for maximum accumulation<br>
+  RSS spread: &nbsp; T<sub>RSS</sub> = √(Σ t<sub>i</sub>²)
+</div>
+
+<p>SC-008 operates strictly in one dimension. It does not resolve two-dimensional position tolerances, profile variations, or form errors that require a full GD&amp;T datum reference frame. Treat it as the first-pass arithmetic check that every stack-up analyst performs before moving to more complex tolerance analysis software or physical build-and-measure validation.</p>
+
+<div class="sc-tip"><span class="ico" aria-hidden="true">💡</span><div>Stack contributors often come from machined features whose process capability you already model elsewhere. Cross-check nominal and tolerance inputs against <a href="/machining-pro.html">SC-020 Feeds &amp; Speeds</a> and your shop's capability studies before accepting a predicted Cpk.</div></div>
+
+<h2 id="three-methods">Worst-case, RSS, and Monte Carlo</h2>
+
+<p>Three accumulation philosophies answer the same question — <em>how much total variation should I budget?</em> — with different assumptions about part-to-part independence and process centering.</p>
+
+<h3>Worst-case (WC)</h3>
+
+<p>Worst-case analysis assumes every contributor simultaneously sits at its least favorable extreme within the stated tolerance. For a stack of <em>n</em> independent bilateral tolerances, the accumulated spread equals the arithmetic sum of individual tolerances. WC is conservative: it guarantees assembly feasibility if and only if the stack closes under simultaneous extremes. The trade-off is over-design — you may reject stacks that would pass in production because simultaneous extremes are statistically rare.</p>
+
+<div class="sc-formula">
+  T<sub>WC</sub> = t<sub>1</sub> + t<sub>2</sub> + … + t<sub>n</sub>
+</div>
+
+<h3>Root-sum-square (RSS)</h3>
+
+<p>RSS assumes independent, centered normal variation where each tolerance represents approximately ±3σ of that contributor. Variances add; standard deviations do not. RSS predicts a ~99.73% stack envelope under ideal normality and independence — the classical ASME Y14.5 statistical tolerancing shortcut. It is less conservative than WC and appropriate when processes are capable, centered, and uncorrelated.</p>
+
+<div class="sc-formula">
+  T<sub>RSS</sub> = √(t<sub>1</sub>² + t<sub>2</sub>² + … + t<sub>n</sub>²)
+</div>
+
+<h3>Monte Carlo simulation</h3>
+
+<p>When distributions are non-normal, truncated, or mixed across components, RSS closed-form math loses accuracy. Monte Carlo draws random samples per contributor according to the assigned distribution, sums them, and builds an empirical histogram of stack outcomes. SC-008 runs 10,000 seeded iterations using Decimal arithmetic, reports the 99.7% spread (P<sub>0.13</sub> to P<sub>99.87</sub>), predicted PPM outside specification limits, and a 95% confidence interval on the defect rate.</p>
+
+<p>Compare all three methods side by side. If RSS and Monte Carlo agree closely, your distribution assumptions are self-consistent. A large gap between RSS and Monte Carlo signals that at least one contributor is not well approximated by the ±3σ normal model — revisit distribution assignments before trusting predicted Cpk.</p>
+
+<div class="sc-tip"><span class="ico" aria-hidden="true">💡</span><div>Bearing fits and housing bores in a stack often interact with life calculations. After closing the stack, validate load and clearance assumptions in the <a href="/bearing-pro.html">SC-010 Bearing Life</a> calculator using the predicted gap range.</div></div>
+
+<h2 id="distribution-choices">Distribution choices per component</h2>
+
+<p>SC-008 assigns a distribution to each stack contributor. The tolerance field semantics depend on the distribution type — a detail that causes silent errors if ignored.</p>
+
+<ul>
+  <li><strong>Normal:</strong> tolerance = ±3σ. The process is assumed centered on nominal with Gaussian spread. Appropriate for capable machining and grinding when the drawing tolerance reflects natural process variation rather than a hard physical limit.</li>
+  <li><strong>Truncated normal:</strong> same ±3σ interpretation, but samples are rejected outside ±tolerance. Use when inspection or tooling physically prevents out-of-limit parts from entering the stack — for example, a selective assembly station or 100% screening.</li>
+  <li><strong>Uniform:</strong> tolerance = hard half-range. Every value between nominal − t and nominal + t is equally likely. Models worst-case-unaware processes with no central tendency — rough casting wall thickness, uncontrolled shim packs, or legacy ± tolerance blocks without capability data.</li>
+  <li><strong>Triangular:</strong> tolerance = hard half-range with the mode at nominal. A pragmatic expert-elicitation shape when you know the minimum, maximum, and most likely value but lack sample data. More conservative than normal at the tails, less conservative than uniform.</li>
+</ul>
+
+<p>Choosing the wrong distribution is the single largest source of optimistic Cpk in stack-up work. A drawing ±0.05 mm on a turned feature is not automatically uniform simply because the print shows a bilateral block — if the lathe holds Cpk ≥ 1.33, normal or truncated-normal is more defensible. Document your rationale; SC-008 outputs the distribution set in the report hash for audit traceability.</p>
+
+<h2 id="cpk-and-spc">Predicted Cpk vs measured SPC</h2>
+
+<p>Process capability index Cpk measures how well a stable process fits inside specification limits:</p>
+
+<div class="sc-formula">
+  Cpk = min [ (USL − μ) / 3σ , (μ − LSL) / 3σ ]
+</div>
+
+<p>In SC-008, μ and σ are <strong>model-derived</strong> from your tolerance inputs and distribution choices — not from an X̄-R chart, individuals chart, or production CMM dataset. The reported value is <strong>predicted Cpk</strong>: a design estimate of what capability you need (or what capability your assumed distributions imply) for the stack to meet the target.</p>
+
+<p>Measured SPC Cpk from AIAG or ISO 22514 methods requires:</p>
+
+<ul>
+  <li>A defined, stable process in statistical control</li>
+  <li>Adequate sample size (typically ≥ 100 individual measurements for initial studies)</li>
+  <li>Rational subgrouping that reflects the actual sources of variation</li>
+  <li>Specification limits that match the functional requirement, not just the drawing block</li>
+</ul>
+
+<p>Do not cite SC-008 predicted Cpk on a PPAP cover sheet or customer capability report. Use it to prioritize which contributors to tighten, which processes to capability-study first, and whether the stack has margin before cutting steel. When production data arrives, replace assumed distributions with empirical histograms or fitted parameters and re-run.</p>
+
+<div class="sc-tip"><span class="ico" aria-hidden="true">💡</span><div>Welded sub-assemblies introduce shrinkage and distortion not captured in a 1D part stack. For joint-level sizing that feeds stack nominal values, see <a href="/weld-pro.html">SC-001 Weld Thickness</a>.</div></div>
+
+<h2 id="iso-286">ISO 286 and drawing tolerances</h2>
+
+<p>ISO 286-1 defines the ISO tolerance system for linear sizes — fundamental deviations (e.g., H7, g6) and tolerance grades IT01 through IT18. When a stack contributor is a standard fit — a ⌀32 mm H7 bore mating a ⌀32 mm f7 shaft — the ± deviation you enter should come from the ISO 286 tables for the nominal size and grade, not from an approximate round number.</p>
+
+<p>Key points when mapping ISO 286 to SC-008 inputs:</p>
+
+<ul>
+  <li><strong>Upper and lower deviations are asymmetric</strong> for most letter codes. Convert each feature to a signed nominal plus bilateral tolerance only after applying the correct deviation values relative to the stack direction.</li>
+  <li><strong>Grade IT drives precision cost.</strong> IT7 versus IT9 on the same nominal can swing a marginal stack from pass to fail under WC while RSS remains acceptable — run both methods before relaxing a grade.</li>
+  <li><strong>Fit class ≠ stack sign.</strong> A shaft diameter and its mating bore contribute opposite signs to an internal clearance stack. ISO 286 tells you the size limits; you still assign the sign per the stack sketch.</li>
+</ul>
+
+<p>SC-008 references ISO 286-1 as context for deviation values. It does not auto-lookup grade tables — you remain responsible for entering the correct numeric deviations from the standard or your CAD model's tolerance advisor.</p>
+
+<h2 id="seed-determinism">Seed determinism and reproducibility</h2>
+
+<p>Monte Carlo results must be reproducible for engineering review, customer audit, and regression testing. SC-008 uses a seeded linear congruential generator (LCG) with Decimal arithmetic: identical inputs, distribution selections, seed, and engine version produce identical samples, histograms, PPM, and report hashes.</p>
+
+<p>Practical implications:</p>
+
+<ul>
+  <li>Record the seed in your calculation log alongside drawing revision and engine version string.</li>
+  <li>Changing the seed while holding inputs constant explores Monte Carlo sampling noise — useful for sensitivity checks but not for baseline sign-off.</li>
+  <li>Share URLs and exported reports embed input and output integrity hashes so a reviewer can confirm the report matches the stated inputs without re-entering data manually.</li>
+</ul>
+
+<p>Determinism applies to the simulation engine, not to physical manufacturing. Two production lots with the same seed in SC-008 will not produce identical parts — the seed governs only the pseudo-random draw sequence inside the calculator.</p>
+
+<h2 id="when-worst-case">When worst-case is required vs statistical methods</h2>
+
+<p>Statistical stack-up (RSS or Monte Carlo) is appropriate when:</p>
+
+<ul>
+  <li>Contributors are independently manufactured and not sorted into correlated sets</li>
+  <li>Processes are centered and reasonably capable (Cpk ≥ 1.0, ideally ≥ 1.33)</li>
+  <li>Regulatory or contractual requirements permit statistical tolerancing per ASME Y14.5</li>
+  <li>Failure mode is gradual ( increased wear, noise) rather than sudden and safety-critical at the tolerance boundary</li>
+</ul>
+
+<p>Worst-case (or worst-case with a small statistical guard band) is required when:</p>
+
+<ul>
+  <li>Safety-critical or single-failure-path mechanisms where simultaneous extremes must not occur — flight controls, medical device interference fits subject to FDA worst-case reasoning, pressure-boundary preload stacks</li>
+  <li>Small lot sizes or prototype builds where the central limit theorem provides no comfort</li>
+  <li>Customer contract, drawing note, or PPAP procedure explicitly mandates WC accumulation</li>
+  <li>Contributors are intentionally correlated — matched pairs, selective assembly, or serial size compensation</li>
+  <li>Any contributor lacks capability data and you cannot defend a distribution assumption</li>
+</ul>
+
+<p>Best practice: run WC first. If WC fails, the stack is not robust regardless of RSS optimism. If WC passes with excessive margin, RSS and Monte Carlo quantify potential tolerance relief or cost savings from loosening non-critical contributors.</p>
+
+<h2 id="failure-modes">Common failure modes</h2>
+
+<h3>Direction sign errors</h3>
+
+<p>The most frequent stack-up mistake is assigning the wrong sign to a contributor. A bore depth that removes material from the stack length must subtract; a spacer adds. Work from a single closed-loop sketch with a consistent positive direction. One sign inversion can flip a passing stack to a critical failure under WC while leaving RSS deceptively unchanged if the inverted term is small.</p>
+
+<h3>Bonus tolerance in 1D linear stacks</h3>
+
+<p>Under ASME Y14.5, bonus tolerance arises when a feature-of-size departs from MMC — extra clearance from a hole growing or a shaft shrinking. SC-008 1D linear analysis does <strong>not</strong> automatically apply MMC/LMC bonus or shift tolerances. Enter the fixed geometric tolerance or size tolerance appropriate to the analysis state (typically at MMC for minimum clearance stacks, or at nominal for a neutral estimate). Attempting to fold bonus tolerance into a simple ± value without a full datum reference frame overstates available margin.</p>
+
+<h3>Datum scheme mismatches</h3>
+
+<p>A stack-up sketch defines an measurement path between two functional surfaces. GD&amp;T datum features (primary, secondary, tertiary) define a different constraint model. If your stack direction is not aligned with the datum-controlled degree of freedom — for example, stacking axial lengths while flatness and perpendicularity govern seating — the 1D result may not bound the true assembly variation. Resolve datum precedence on the drawing before trusting a single-axis sum.</p>
+
+<h3>Other recurring errors</h3>
+
+<ul>
+  <li><strong>Double-counting:</strong> including the same variation twice under different feature names (CAD dimension and drawing callout).</li>
+  <li><strong>Temperature and compliance:</strong> ignoring thermal expansion or gasket creep that consumes part of the spec band at operating condition.</li>
+  <li><strong>Confusing spec limits with tolerance:</strong> SC-008 spec deviation is relative to the nominal stack sum; USL/LSL are computed internally from that sum plus your entered deviations.</li>
+</ul>
+
+<h2 id="method-comparison">Method comparison reference</h2>
+
+<table class="sc-guide-table">
+  <thead>
+    <tr>
+      <th>Method</th>
+      <th>Conservatism</th>
+      <th>Key assumption</th>
+      <th>Typical use</th>
+      <th>SC-008 output</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Worst-case</td>
+      <td>Highest</td>
+      <td>All extremes simultaneous</td>
+      <td>Safety-critical, contractual WC, early feasibility</td>
+      <td>± WC spread vs spec</td>
+    </tr>
+    <tr>
+      <td>RSS</td>
+      <td>Moderate</td>
+      <td>Independent normal, ±3σ tolerances</td>
+      <td>Capable serial production, cost-down reviews</td>
+      <td>± RSS spread, contributor Pareto</td>
+    </tr>
+    <tr>
+      <td>Monte Carlo</td>
+      <td>Depends on distributions</td>
+      <td>User-selected per-part distributions</td>
+      <td>Mixed processes, truncated/normal/uniform/triangular</td>
+      <td>Histogram, 99.7% spread, predicted PPM, 95% CI</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>All SC-008 results are labeled <em>engineering preview — predicted from drawing tolerances and chosen distributions, not measured data. Not for production approval.</em> Validate conclusions with physical build, CMM measurement, and SPC before releasing tooling or accepting PPAP.</p>
+
+<div class="sc-tip"><span class="ico" aria-hidden="true">💡</span><div>Explore the full SectorCalc tool suite — stack-up, machining, bearing life, weld sizing, and more — from the <a href="/tools.html">All Tools</a> directory.</div></div>
+
+<h2 id="faqs">Frequently asked questions</h2>
+
+<div class="q" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 itemprop="name" id="faq-wc-vs-rss">When should I use worst-case instead of RSS for a tolerance stack-up?</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <div itemprop="text">
+      <p>Use worst-case when the drawing, contract, or safety analysis requires guaranteed closure under simultaneous tolerance extremes — common in aerospace, medical devices, and any assembly where a single stacked gap controls a failure mode. RSS is appropriate when parts are independently produced by capable, centered processes and your quality system accepts statistical tolerancing per ASME Y14.5. SC-008 runs both on the same inputs so you can see whether statistical relief is even available before proposing tolerance changes to manufacturing.</p>
+    </div>
+  </div>
+</div>
+
+<div class="q" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 itemprop="name" id="faq-distribution-normal-uniform">What is the difference between normal and uniform distribution in SC-008?</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <div itemprop="text">
+      <p>For normal and truncated-normal distributions, the entered ± tolerance represents three standard deviations (±3σ) centered on nominal. For uniform and triangular distributions, the tolerance is the hard half-range — every value within that band is possible. Using normal when the process is actually uncontrolled yields optimistic Cpk; using uniform for a capable lathe wastes margin. Match the distribution to the manufacturing evidence you have, not to the shape of the tolerance symbol on the print.</p>
+    </div>
+  </div>
+</div>
+
+<div class="q" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 itemprop="name" id="faq-predicted-cpk-ppap">Can I use SC-008 predicted Cpk on a PPAP submission?</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <div itemprop="text">
+      <p>No. SC-008 predicted Cpk is computed from assumed distributions and drawing tolerances — it is a design-time forecast, not measured process capability. PPAP and customer SPC requirements expect Cpk from production data in statistical control. Use SC-008 to identify which contributors most need capability studies and whether the stack has predicted margin before you cut tooling; replace model assumptions with measured mean and standard deviation once parts exist.</p>
+    </div>
+  </div>
+</div>
+
+<div class="q" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 itemprop="name" id="faq-monte-carlo-seed">Why does Monte Carlo use a fixed seed, and should I change it?</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <div itemprop="text">
+      <p>The seed fixes the pseudo-random sequence so two engineers with identical inputs reproduce the same histogram, PPM, and report hashes — essential for review, audit, and regression testing. Change the seed only when you intentionally want to test sampling stability or demonstrate that conclusions do not depend on a particular draw sequence. For baseline documentation, keep the default or assigned seed constant and record it in your calculation log.</p>
+    </div>
+  </div>
+</div>
+
+<div class="q" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 itemprop="name" id="faq-bonus-tolerance-1d">Does SC-008 include GD&amp;T bonus tolerance in 1D stack-up?</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <div itemprop="text">
+      <p>No. Bonus tolerance from MMC/LMC departure applies within a datum reference frame and feature-of-size rules — it cannot be faithfully captured in a simple signed 1D sum without over-counting margin. Enter the tolerance appropriate to your analysis condition (typically at MMC for minimum clearance checks). For stacks where bonus tolerance dominates — sheet metal slots to tabs, clearance holes to pins at LMC — use dedicated GD&amp;T stack software or manual two-zone analysis rather than inflating a linear ± value.</p>
+    </div>
+  </div>
+</div>
+
+<details class="related">
+  <summary>Related calculators</summary>
+  <ul>
+    <li><a href="/sc008-pro.html">SC-008 Tolerance Stack-Up</a> — run worst-case, RSS, and Monte Carlo on your stack</li>
+    <li><a href="/machining-pro.html">SC-020 Feeds &amp; Speeds</a> — process planning for stack contributors</li>
+    <li><a href="/bearing-pro.html">SC-010 Bearing Life L10</a> — validate fits after clearance stack closes</li>
+    <li><a href="/weld-pro.html">SC-001 Weld Thickness</a> — joint sizing for welded assembly inputs</li>
+    <li><a href="/tools.html">All SectorCalc Tools</a> — full engineering calculator directory</li>
+  </ul>
+</details>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "When should I use worst-case instead of RSS for a tolerance stack-up?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use worst-case when the drawing, contract, or safety analysis requires guaranteed closure under simultaneous tolerance extremes — common in aerospace, medical devices, and any assembly where a single stacked gap controls a failure mode. RSS is appropriate when parts are independently produced by capable, centered processes and your quality system accepts statistical tolerancing per ASME Y14.5."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between normal and uniform distribution in SC-008?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For normal and truncated-normal distributions, the entered ± tolerance represents three standard deviations (±3σ) centered on nominal. For uniform and triangular distributions, the tolerance is the hard half-range. Using normal when the process is uncontrolled yields optimistic Cpk; using uniform for a capable process wastes margin."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use SC-008 predicted Cpk on a PPAP submission?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. SC-008 predicted Cpk is computed from assumed distributions and drawing tolerances — a design-time forecast, not measured process capability. PPAP requires Cpk from production data in statistical control."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does Monte Carlo use a fixed seed, and should I change it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The seed fixes the pseudo-random sequence so identical inputs reproduce the same histogram, PPM, and report hashes for review and audit. Change the seed only to test sampling stability; record the baseline seed in your calculation log."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does SC-008 include GD&T bonus tolerance in 1D stack-up?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Bonus tolerance from MMC/LMC departure requires a datum reference frame and feature-of-size rules. Enter the tolerance for your analysis condition (typically at MMC). Use dedicated GD&T tools for stacks where bonus tolerance dominates."
+      }
+    }
+  ]
+}
+</script>
+
+</section>
+</div>
+<!--SC-GUIDE-END-->
 <script type="module" src="/src/sc008-pro.ts"></script>
 </body>
 </html>

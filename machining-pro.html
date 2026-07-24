@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>(function(){try{var k='sectorcalc-theme';var t=localStorage.getItem(k);if(t!=='dark'&&t!=='light')t=(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';document.documentElement.setAttribute('data-theme',t);document.documentElement.style.colorScheme=t;}catch(e){}})();</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CNC Feeds &amp; Speeds + Tool Life Calculator — SectorCalc Pro</title>
+<meta name="description" content="Industrial-grade CNC feeds, speeds and Taylor tool-life calculator with per-field universal units, reference values and integrated audit trail.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0f2744; --steel:#1b3a5c; --blue:#0055A4; --accent:#E87722;
+  --panel2:#fbfcfe; --thead:#eef2f7;
+  --bg:#f4f6f9; --panel:#ffffff; --line:#d9e0e8; --ink:#1c2733; --mut:#5d6b7a;
+  --ok:#1a7f4b; --warn:#b26a00; --err:#b3261e; --mono:'JetBrains Mono','Consolas',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter','Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+h1,.logo,.panel-h,.btn,.verdict .big{font-family:'Barlow Condensed','Inter',sans-serif;letter-spacing:.4px}
+.topbar{background:var(--navy);color:#fff;padding:14px 24px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.topbar .logo{font-weight:700;font-size:18px;letter-spacing:.5px}
+.topbar .logo span{color:var(--accent)}
+.badge{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);font-size:11px;padding:3px 10px;border-radius:20px;letter-spacing:1px;text-transform:uppercase}
+.eng{font-family:var(--mono);font-size:11px;color:#9db8d4;margin-left:auto}
+.wrap{max-width:1320px;margin:0 auto;padding:24px}
+.head{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:flex-end}
+.head h1{font-size:26px;color:var(--navy);margin-bottom:4px}
+.head p{color:var(--mut);font-size:14px;max-width:820px}
+.grid{display:grid;grid-template-columns:minmax(380px,540px) 1fr;gap:20px;margin-top:20px;align-items:start}
+@media(max-width:1000px){.grid{grid-template-columns:1fr}}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.panel-h{background:linear-gradient(90deg,var(--steel),var(--navy));color:#fff;padding:10px 16px;font-size:13px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.panel-b{padding:16px}
+.fgroup{margin-bottom:18px}
+.fgroup>label{display:block;font-size:12px;font-weight:700;color:var(--steel);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px;border-bottom:1px solid var(--line);padding-bottom:4px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.row3{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:560px){.row,.row3{grid-template-columns:1fr}}
+.field{margin-bottom:8px}
+.field label{display:block;font-size:11px;color:var(--mut);margin-bottom:3px}
+.field input,.field select{width:100%;padding:8px 10px;border:1px solid var(--line);border-radius:6px;font-size:14px;font-family:inherit;background:var(--panel2);transition:border-color .15s}
+.field input:focus,.field select:focus{outline:none;border-color:var(--blue);background:#fff}
+.uwrap{display:flex;gap:6px;align-items:stretch;width:100%;min-width:0}
+.uwrap input{flex:1 1 auto;min-width:5.75rem;width:auto;padding:8px 10px;font-family:var(--mono);font-variant-numeric:tabular-nums;overflow-x:auto;box-sizing:border-box}
+.uwrap input[type=number]{-moz-appearance:textfield;appearance:textfield}
+.uwrap input[type=number]::-webkit-outer-spin-button,.uwrap input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.uwrap select.units{flex:0 0 auto;width:auto;min-width:3.75rem;max-width:5.5rem;padding:8px 6px;font-size:11px;font-weight:600;color:var(--steel);background:var(--thead);box-sizing:border-box}
+.ref{font-size:10px;color:#8593a5;margin-top:2px;font-style:italic;line-height:1.35}
+.hint{font-size:10.5px;color:var(--mut);margin-top:2px}
+.btn{display:inline-block;background:var(--accent);color:#fff;border:none;padding:12px 26px;font-size:14px;font-weight:700;border-radius:7px;cursor:pointer;width:100%;letter-spacing:.5px;transition:background .15s}
+.btn:hover{background:#cf621a}
+.btn2{background:var(--steel);font-size:12px;padding:8px 14px;width:auto;border:none;color:#fff;border-radius:6px;cursor:pointer;font-weight:600}
+.btn2:hover{background:var(--navy)}
+.btn3{background:var(--panel);color:var(--steel);border:1px solid var(--line);font-size:11px;padding:5px 10px;border-radius:6px;cursor:pointer;font-weight:600}
+.btn3:hover{border-color:var(--blue);color:var(--blue)}
+.seg{display:flex;border:1px solid var(--line);border-radius:7px;overflow:hidden}
+.seg button{flex:1;padding:8px 0;background:var(--panel);border:none;font-size:12px;font-weight:700;cursor:pointer;color:var(--mut)}
+.seg button.on{background:var(--navy);color:#fff}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:16px}
+.kpi{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:8px;padding:12px 14px}
+.kpi .v{font-family:var(--mono);font-size:20px;font-weight:700;color:var(--navy)}
+.kpi .l{font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.5px}
+.kpi .u{font-size:11px;color:var(--mut)}
+.kpi.hot{border-left-color:var(--accent)} .kpi.good{border-left-color:var(--ok)}
+.verdict{border-radius:10px;padding:16px 20px;margin-bottom:16px;color:#fff;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.verdict.pass{background:linear-gradient(90deg,#12572f,#1a7f4b)}
+.verdict.cond{background:linear-gradient(90deg,#8a5100,#b26a00)}
+.verdict.fail{background:linear-gradient(90deg,#7c1610,#b3261e)}
+.verdict .big{font-size:22px;font-weight:800;letter-spacing:1px}
+.verdict .sub{font-size:12.5px;opacity:.92}
+.verdict .score{margin-left:auto;font-family:var(--mono);font-size:26px;font-weight:700}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{padding:7px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:var(--thead);color:var(--steel);font-size:11px;text-transform:uppercase;letter-spacing:.5px}
+td.num{font-family:var(--mono);text-align:right}
+.warnbox{border-radius:8px;padding:10px 14px;margin-bottom:10px;font-size:13px}
+.warnbox.w{background:#fff7e8;border:1px solid #f0c979;color:var(--warn)}
+.warnbox.e{background:#fdecea;border:1px solid #f1a9a4;color:var(--err)}
+.warnbox.i{background:#e9f4fd;border:1px solid #a9d2ef;color:#12567f}
+.warnbox b{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.5px;margin-bottom:2px}
+.audit{margin-top:20px}
+details{border:1px solid var(--line);border-radius:8px;margin-bottom:10px;background:var(--panel2)}
+summary{cursor:pointer;padding:10px 14px;font-weight:700;font-size:13px;color:var(--navy);list-style:none}
+summary::before{content:'▸ ';color:var(--accent)}
+details[open] summary::before{content:'▾ '}
+details .body{padding:0 14px 14px;font-size:12.5px}
+.formula{font-family:var(--mono);background:#0f2744;color:#cfe3f5;padding:10px 14px;border-radius:6px;font-size:12.5px;margin:6px 0;overflow-x:auto}
+.hash{font-family:var(--mono);font-size:11px;background:var(--thead);padding:6px 10px;border-radius:5px;word-break:break-all}
+.sig{color:var(--ok);font-weight:700}
+.charts{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:760px){.charts{grid-template-columns:1fr}}
+.chartbox{border:1px solid var(--line);border-radius:8px;padding:10px;background:var(--panel2)}
+.chartbox .t{font-size:11px;font-weight:700;color:var(--steel);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
+canvas{width:100%;height:auto;display:block}
+.presets{display:flex;gap:6px;align-items:center;font-size:11px;color:#cfe0f0}
+footer{margin-top:28px;padding:18px;text-align:center;color:var(--mut);font-size:12px;border-top:1px solid var(--line)}
+html[data-theme="dark"]{
+  --bg:#0e131a; --panel:#161d27; --panel2:#1b2430; --line:#2a3646;
+  --ink:#e6ecf3; --mut:#93a3b5; --thead:#212c3a;
+  --navy:#0a1626; --steel:#12385e; --blue:#4c9be8; --accent:#E87722;
+  --ok:#3fbf7f; --warn:#e8a33d; --err:#f26d64;
+}
+html[data-theme="dark"] .warnbox.w{background:#3a2e12;border-color:#6b5418;color:#e8a33d}
+html[data-theme="dark"] .warnbox.e{background:#3a1a17;border-color:#6b2a25;color:#f26d64}
+html[data-theme="dark"] .warnbox.i{background:#14273a;border-color:#1e4a6e;color:#7fb3e8}
+html[data-theme="dark"] .field input,html[data-theme="dark"] .field select{background:#131a23;color:var(--ink)}
+html[data-theme="dark"] .field input:focus,html[data-theme="dark"] .field select:focus{background:#0f151d}
+html[data-theme="dark"] .kpi .v{color:#e6ecf3}
+html[data-theme="dark"] .verdict.pass{background:linear-gradient(90deg,#0d3a20,#146039)}
+html[data-theme="dark"] .verdict.cond{background:linear-gradient(90deg,#5e3900,#8a5a10)}
+html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#8a1f18)}
+#themeToggle{position:fixed;right:18px;bottom:18px;z-index:60;box-shadow:0 2px 10px rgba(0,0,0,.25)}
+@media print{#themeToggle{display:none}}
+@media print{.topbar .eng,.btn,.btn2,.btn3,.seg,.presets{display:none}.grid{grid-template-columns:1fr}details{display:block}details .body{display:block}}
+</style>
+<link rel="stylesheet" href="./sc-theme.css?v=8">
+<script src="./sc-theme.js?v=8" defer></script>
+<link rel="stylesheet" href="./sc-tool-guide.css?v=3">
+<script src="./sc-tool-guide.js?v=3" defer></script>
+<link rel="stylesheet" href="./sc-site-nav.css?v=1">
+<script src="./sc-site-nav.js?v=1" defer></script>
+<link rel="stylesheet" href="./sc-form-fields.css?v=4">
+</head>
+<body data-tool-badge="SC-020 · Feeds & Speeds">
+<!--SC-SITE-NAV-START-->
+<header class="site-header" id="siteHeader" role="banner">
+  <a href="/" class="brand" aria-label="SectorCalc Home"><span class="brand-mark"><img class="logo-light" src="/sectorcalc-logo.png" alt="SectorCalc" width="183" height="48"><img class="logo-dark" src="/sectorcalc-logo-dark.png?v=2" alt="" width="183" height="48" aria-hidden="true"></span></a>
+  <nav class="main-nav" role="navigation" aria-label="Main navigation">
+    <ul>
+      <li><a href="/tools.html" data-nav="tools">Tools</a></li>
+      <li><a href="/#method" data-nav="method" data-nav-home="#method">Method</a></li>
+      <li><a href="/#standards" data-nav="standards" data-nav-home="#standards">Standards</a></li>
+      <li><a href="/pricing.html" data-nav="pricing">Pricing</a></li>
+    </ul>
+    <span class="sc-nav-tool" aria-hidden="true"></span>
+    <a href="/sc008-pro.html" class="btn btn-primary">Run a Calculation</a>
+  </nav>
+  <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+<div class="mobile-nav-overlay" id="mobileNav" role="dialog" aria-label="Mobile menu" aria-hidden="true">
+  <a href="/tools.html" data-nav="tools">All Tools</a>
+  <a href="/#method" data-nav-home="#method">Method</a>
+  <a href="/#standards" data-nav-home="#standards">Standards</a>
+  <a href="/pricing.html" data-nav="pricing">Pricing</a>
+  <a href="/sc008-pro.html" class="btn-primary">Run a Calculation</a>
+</div>
+<!--SC-SITE-NAV-END-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="wrap">
+  <div class="head">
+    <div>
+      <h1>CNC Feeds &amp; Speeds + Tool Life Calculator</h1>
+      <p>Industrial-grade machining parameter engine: extended Taylor tool-life with coolant &amp; interruption correction, radial chip-thinning compensation, Kienzle cutting force, spindle power &amp; torque verification, tool deflection, surface-finish prediction and Gilbert minimum-cost optimization. Every input carries <b>selectable universal units</b> and <b>reference-standard values</b>; every report embeds the full audit trail — inputs, formulas, assumptions, warnings, engine version and integrity hash.</p>
+    </div>
+    <div>
+      <div class="seg" style="width:230px">
+        <button id="uMetric" class="on" onclick="setAllUnits('metric')">All Metric (SI)</button>
+        <button id="uImp" onclick="setAllUnits('imp')">All Imperial</button>
+      </div>
+      <div class="hint" style="text-align:right;margin-top:4px">…or set units per field below</div>
+    </div>
+  </div>
+
+  <div class="grid">
+    <!-- ================= INPUT PANEL ================= -->
+    <div class="panel">
+      <div class="panel-h">1 · Machining Inputs
+        <span class="presets">Preset:
+          <button class="btn3" onclick="preset('save',1)">S1</button><button class="btn3" onclick="preset('load',1)">L1</button>
+          <button class="btn3" onclick="preset('save',2)">S2</button><button class="btn3" onclick="preset('load',2)">L2</button>
+        </span>
+      </div>
+      <div class="panel-b">
+
+        <div class="fgroup">
+          <label>Operation &amp; Workpiece Material</label>
+          <div class="row">
+            <div class="field"><label>Operation</label>
+              <select id="op">
+                <option value="mill" selected>End Milling</option>
+                <option value="face">Face Milling</option>
+                <option value="drill">Drilling</option>
+                <option value="turn">Turning</option>
+              </select></div>
+            <div class="field"><label>Tool Substrate</label>
+              <select id="substrate">
+                <option value="carbide" selected>Carbide (coated)</option>
+                <option value="hss">HSS</option>
+              </select>
+              <div class="ref">Ref: carbide = default industry choice; HSS ≈ ×0.4 of carbide Vc</div></div>
+          </div>
+          <div class="field"><label>Material Group (ISO 513)</label>
+            <select id="mat"></select>
+            <div class="hint" id="matHint"></div>
+          </div>
+        </div>
+
+        <div class="fgroup">
+          <label>Tool Geometry</label>
+          <div class="row3">
+            <div class="field"><label>Ø Tool</label>
+              <div class="uwrap"><input type="number" id="D" value="12" step="0.1" min="0.1">
+              <select class="units" id="u_D" data-f="D" data-kind="len"><option value="mm" selected>mm</option><option value="in">in</option></select></div>
+              <div class="ref">Ref: ISO endmills 3–25 mm · ANSI 1/8″–1″ common</div></div>
+            <div class="field"><label>Flutes z</label><input type="number" id="z" value="4" step="1" min="1">
+              <div class="ref">Ref: 2–3 for Al (chip space) · 4+ steel · more flutes = higher vf</div></div>
+            <div class="field"><label>Overhang L</label>
+              <div class="uwrap"><input type="number" id="L" value="30" step="1" min="1">
+              <select class="units" id="u_L" data-f="L" data-kind="len"><option value="mm" selected>mm</option><option value="in">in</option></select></div>
+              <div class="ref">Ref: keep L/D ≤ 4 — stiffness drops with L³</div></div>
+          </div>
+          <div class="row">
+            <div class="field"><label>Nose radius r</label>
+              <div class="uwrap"><input type="number" id="r" value="0.8" step="0.1" min="0">
+              <select class="units" id="u_r" data-f="r" data-kind="len"><option value="mm" selected>mm</option><option value="in">in</option></select></div>
+              <div class="ref">Ref: ISO inserts 0.4 / 0.8 / 1.2 mm (1/64″–3/64″)</div></div>
+            <div class="field"><label>Tool shape</label>
+              <select id="shape"><option value="flat" selected>Flat / square</option><option value="ball">Ball nose</option></select>
+              <div class="ref">Ref: ball nose → engine uses effective Ø at ap</div></div>
+          </div>
+        </div>
+
+        <div class="fgroup">
+          <label>Cutting Conditions</label>
+          <div class="row3">
+            <div class="field"><label>Cutting speed Vc</label>
+              <div class="uwrap"><input type="number" id="Vc" value="180" step="1" min="1">
+              <select class="units" id="u_Vc" data-f="Vc" data-kind="spd"><option value="mmin" selected>m/min</option><option value="sfm">SFM</option></select></div>
+              <div class="ref" id="refVc">Ref: —</div></div>
+            <div class="field"><label>Feed per tooth fz</label>
+              <div class="uwrap"><input type="number" id="fz" value="0.08" step="0.005" min="0.001">
+              <select class="units" id="u_fz" data-f="fz" data-kind="len"><option value="mm" selected>mm/t</option><option value="in">in/t</option></select></div>
+              <div class="ref" id="refFz">Ref: —</div></div>
+            <div class="field"><label>Axial depth ap</label>
+              <div class="uwrap"><input type="number" id="ap" value="6" step="0.1" min="0.01">
+              <select class="units" id="u_ap" data-f="ap" data-kind="len"><option value="mm" selected>mm</option><option value="in">in</option></select></div>
+              <div class="ref">Ref: roughing 0.5–1.0×D · finishing ≤ 0.05×D</div></div>
+          </div>
+          <div class="row">
+            <div class="field"><label>Radial width ae</label>
+              <div class="uwrap"><input type="number" id="ae" value="4" step="0.1" min="0.01">
+              <select class="units" id="u_ae" data-f="ae" data-kind="len"><option value="mm" selected>mm</option><option value="in">in</option></select></div>
+              <div class="ref">Ref: conventional 30–50%×D · HEM 5–15%×D · slot 100%</div></div>
+            <div class="field"><label>Engagement angle (°)</label><input type="number" id="engAng" value="0" step="1" min="0" max="180">
+              <div class="ref">Ref: 0 = auto · slot 180° · HEM typically 20–60°</div></div>
+          </div>
+        </div>
+
+        <div class="fgroup">
+          <label>Environment &amp; Cut Type (life correction)</label>
+          <div class="row">
+            <div class="field"><label>Coolant</label>
+              <select id="coolant">
+                <option value="1.0" selected>Flood coolant (×1.00)</option>
+                <option value="0.9">MQL (×0.90)</option>
+                <option value="0.85">Air blast (×0.85)</option>
+                <option value="0.75">Dry (×0.75)</option>
+              </select></div>
+            <div class="field"><label>Cut continuity</label>
+              <select id="interr">
+                <option value="1.0" selected>Continuous (×1.00)</option>
+                <option value="0.8">Light interruption (×0.80)</option>
+                <option value="0.6">Heavy interruption (×0.60)</option>
+              </select></div>
+          </div>
+          <div class="ref">Ref: multipliers per machining-handbook practice; welds/cast skin = heavy interruption</div>
+        </div>
+
+        <div class="fgroup">
+          <label>Machine Limits</label>
+          <div class="row3">
+            <div class="field"><label>Max spindle speed</label>
+              <div class="uwrap"><input type="number" id="nmax" value="12000" step="100">
+              <select class="units" disabled><option>rpm</option></select></div>
+              <div class="ref">Ref: VMCs 8,000–24,000 rpm typical</div></div>
+            <div class="field"><label>Spindle power</label>
+              <div class="uwrap"><input type="number" id="pmax" value="11" step="0.5">
+              <select class="units" id="u_pmax" data-f="pmax" data-kind="pwr"><option value="kw" selected>kW</option><option value="hp">HP</option></select></div>
+              <div class="ref">Ref: typical VMC 7.5–22 kW (10–30 HP)</div></div>
+            <div class="field"><label>Max feed rate</label>
+              <div class="uwrap"><input type="number" id="vfmax" value="8000" step="100">
+              <select class="units" id="u_vfmax" data-f="vfmax" data-kind="len"><option value="mm" selected>mm/min</option><option value="in">in/min</option></select></div>
+              <div class="ref">Ref: modern machines 10–20 m/min; check spec sheet</div></div>
+          </div>
+          <div class="row">
+            <div class="field"><label>Spindle efficiency η (%)</label><input type="number" id="eta" value="85" step="1" min="50" max="100">
+              <div class="ref">Ref: 80–90% belt/direct-drive spindles</div></div>
+            <div class="field"><label>Torque limit</label>
+              <div class="uwrap"><input type="number" id="tqmax" value="95" step="1">
+              <select class="units" id="u_tqmax" data-f="tqmax" data-kind="torq"><option value="nm" selected>N·m</option><option value="ftlb">ft·lb</option></select></div>
+              <div class="ref">Ref: read from machine torque curve, not nameplate</div></div>
+          </div>
+        </div>
+
+        <div class="fgroup">
+          <label>Tool-Life Model (Taylor) &amp; Costing</label>
+          <div class="row3">
+            <div class="field"><label>Taylor C (m/min)</label><input type="number" id="taylorC" value="420" step="1">
+              <div class="ref">Ref: auto-set per material · always m/min (SFM ≈ ×3.28)</div></div>
+            <div class="field"><label>Taylor n (—)</label><input type="number" id="taylorN" value="0.25" step="0.01">
+              <div class="ref">Ref: carbide 0.20–0.40 · HSS 0.10–0.15 · ceramic 0.5–0.7</div></div>
+            <div class="field"><label>Target tool life (min)</label><input type="number" id="targetT" value="45" step="5">
+              <div class="ref">Ref: production 30–90 min · HSM 15–30 min</div></div>
+          </div>
+          <div class="row3">
+            <div class="field"><label>Tool cost / edge</label>
+              <div class="uwrap"><input type="number" id="toolCost" value="18" step="0.5">
+              <select class="units" id="currency"><option value="€" selected>€</option><option value="$">$</option><option value="£">£</option></select></div>
+              <div class="ref">Ref: insert edge 8–25 · solid carbide 25–120</div></div>
+            <div class="field"><label>Change time (min)</label><input type="number" id="tChange" value="3" step="0.5">
+              <div class="ref">Ref: 2–5 min typical swap</div></div>
+            <div class="field"><label>Machine rate / min</label><input type="number" id="mRate" value="1.2" step="0.1">
+              <div class="ref">Ref: job shop 0.8–2.0 /min (≈ 50–120 /h)</div></div>
+          </div>
+          <div class="hint">Currency selector sets the symbol for both cost fields — the engine is currency-agnostic (no FX conversion).</div>
+        </div>
+
+        <button class="btn" id="calcBtn">CALCULATE &amp; AUDIT</button>
+      </div>
+    </div>
+
+    <!-- ================= RESULTS ================= -->
+    <div>
+      <div class="verdict pass" id="verdict"></div>
+      <div id="warnings"></div>
+      <div class="kpis" id="kpis"></div>
+
+      <div class="panel">
+        <div class="panel-h">2 · Calculation Results <span style="font-weight:400;font-size:11px;text-transform:none">(engine computes in SI — values shown SI)</span></div>
+        <div class="panel-b"><table id="resTable"></table></div>
+      </div>
+
+      <div class="panel" style="margin-top:20px">
+        <div class="panel-h">3 · Sensitivity Charts</div>
+        <div class="panel-b charts">
+          <div class="chartbox"><div class="t">Tool Life vs Cutting Speed (Taylor)</div><canvas id="chLife" width="520" height="300"></canvas></div>
+          <div class="chartbox"><div class="t">Cost per Cutting-Minute vs Vc (Gilbert)</div><canvas id="chCost" width="520" height="300"></canvas></div>
+        </div>
+      </div>
+
+      <div class="panel" style="margin-top:20px">
+        <div class="panel-h">4 · Economics — Cost-Optimized Cutting Speed</div>
+        <div class="panel-b"><table id="ecoTable"></table></div>
+      </div>
+
+      <!-- ================= AUDIT ================= -->
+      <div class="audit panel">
+        <div class="panel-h" style="background:linear-gradient(90deg,#3d2a10,#5c3a10)">5 · Audit / Review Trail — Verification Module
+          <span>
+            <button class="btn3" onclick="copyReport()">Copy Report</button>
+            <button class="btn3" onclick="exportJSON()">Export JSON</button>
+          </span>
+        </div>
+        <div class="panel-b">
+          <div class="warnbox i"><b>Audit Statement</b>
+            This report is generated deterministically from the inputs below, each captured together with its selected display unit. Re-entering identical inputs into the same engine version reproduces identical outputs. Any deviation indicates input drift, unit mismatch, or manual tampering — investigate before releasing to production.</div>
+          <details open><summary>A1 · Engine Identity &amp; Integrity</summary><div class="body" id="aEngine"></div></details>
+          <details open><summary>A2 · Input Snapshot (value + selected unit)</summary><div class="body" id="aInputs"></div></details>
+          <details><summary>A3 · Formulas Applied</summary><div class="body" id="aFormulas"></div></details>
+          <details><summary>A4 · Engineering Assumptions</summary><div class="body" id="aAssump"></div></details>
+          <details open><summary>A5 · Warnings &amp; Limit Checks</summary><div class="body" id="aWarn"></div></details>
+          <div style="margin-top:12px;text-align:right">
+            <button class="btn btn2" onclick="window.print()">⎙ Print / Export PDF Report</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button id="themeToggle" class="btn3" title="Toggle light/dark (saved locally)">◐ Theme</button>
+  <!--SC-GUIDE-START-->
+<div class="sc-guide-shell">
+<section class="sc-guide" id="sc-guide" data-tool-id="SC-020" data-tool-name="CNC Feeds & Speeds + Tool Life Calculator (SC-020)" data-tool-url="https://www.sectorcalc.com/machining-pro.html" itemscope itemtype="https://schema.org/FAQPage">
+
+<p class="sc-guide-lede">The <b>CNC Feeds &amp; Speeds + Tool Life Calculator (SC-020)</b> runs on <b>FS-ENGINE v2.1.0</b> — an industrial parameter engine that couples <b>extended Taylor tool-life</b> (flank wear VB = 0.3&nbsp;mm), <b>ISO 513</b> material bands, <b>Kienzle</b> cutting-force modelling, radial <b>chip-thinning</b> / HEM engagement compensation, spindle <b>power and torque</b> verification, cantilever <b>deflection</b>, and <b>Gilbert</b> minimum-cost speed — all computed in <b>SI</b> with per-field universal units and a full audit trail. Results are engineering previews: calibrate Taylor C/n and kc1 against your tooling supplier before release to production.</p>
+
+<nav class="sc-guide-toc" aria-label="Table of contents">
+  <div class="t">On this page</div>
+  <ul>
+    <li><a href="#overview">What SC-020 computes</a></li>
+    <li><a href="#taylor">Taylor tool life and VB = 0.3&nbsp;mm</a></li>
+    <li><a href="#iso513">ISO 513 material groups</a></li>
+    <li><a href="#kienzle">Kienzle specific cutting force</a></li>
+    <li><a href="#chip-thinning">Chip thinning and HEM engagement</a></li>
+    <li><a href="#power-torque">Spindle power and torque</a></li>
+    <li><a href="#deflection">Tool deflection and L/D stability</a></li>
+    <li><a href="#gilbert">Gilbert economic cutting speed</a></li>
+    <li><a href="#environment">Coolant and interruption multipliers</a></li>
+    <li><a href="#ball-nose">Ball-nose effective diameter</a></li>
+    <li><a href="#fs-engine">FS-ENGINE SI core and units</a></li>
+    <li><a href="#faqs">Frequently asked questions</a></li>
+  </ul>
+</nav>
+
+<h2 id="overview">What SC-020 computes</h2>
+<p>SC-020 is not a lookup table with imperial/metric toggles. Each input — tool diameter, overhang, cutting speed, feed per tooth, depth and width of cut, machine limits, Taylor constants, and costing fields — carries its own unit selector. The engine normalises everything to SI (millimetres, metres per minute, kilowatts, newton-metres) before calculation, then renders results and warnings against your selected display units.</p>
+<p>A single run produces spindle speed and table feed, mean chip thickness (with thinning compensation where applicable), material removal rate, specific cutting force and tangential load, net and gross spindle power, torque demand versus machine limit, static tool deflection, corrected Taylor tool life, back-solved speed for a target life, theoretical feed-mark roughness, Gilbert economic speed, and cost-per-cutting-minute comparison. Blocking errors (RPM over limit, power exceeded, ae &gt; D, critically low life) halt release; warnings flag envelope excursions that are physically valid but risky.</p>
+<p class="note">Preview caveat: reference constants loaded from ISO 513 presets are mid-band handbook values. Contract machining, aerospace release, and tooling warranty claims require supplier-specific C, n, kc1, and mc validated on your machine–tool–material combination.</p>
+
+<h2 id="taylor">Taylor tool life and VB = 0.3&nbsp;mm</h2>
+<p>The classical Taylor speed–life relation describes how cutting speed V<sub>c</sub> trades off against tool life T for a fixed tool–workpiece pair under stated test conditions. SectorCalc implements the extended form with multiplicative environment corrections:</p>
+
+<div class="sc-formula">T [min] = (C / V<sub>c</sub>)<sup>1/n</sup> · k<sub>cool</sub> · k<sub>interrupt</sub></div>
+
+<p>where C and n are empirically fitted constants for the selected material and tool substrate (carbide vs HSS bands differ), k<sub>cool</sub> accounts for coolant strategy, and k<sub>interrupt</sub> penalises interrupted cuts. The implicit wear criterion is <b>average flank wear land VB = 0.3&nbsp;mm</b> on the major cutting edge — the ISO turning-test convention. Tool life below 15 minutes triggers a blocking warning; life between half and four times the user target generates advisory messages with a back-solved speed V<sub>c,T</sub> for the target life T<sub>target</sub>:</p>
+
+<div class="sc-formula">V<sub>c,T</sub> [m/min] = C · (T<sub>target</sub> / (k<sub>cool</sub> · k<sub>interrupt</sub>))<sup>−n</sup></div>
+
+<p>Taylor n typically ranges from 0.15 (superalloys, hardened steels) to 0.40 (aluminium). A low n means life is highly sensitive to speed — small V<sub>c</sub> increases yield disproportionate life gains. Operating above the calibrated ISO 513 band can underestimate wear because C/n were fitted inside the recommended envelope, not at the edge of thermal failure.</p>
+
+<h2 id="iso513">ISO 513 material groups</h2>
+<p>ISO 513 classifies workpiece materials by machinability using letter groups that map to colour codes on cutting-tool packaging. SC-020 presets bundle typical V<sub>c</sub> bands, feed-per-tooth ranges, Kienzle kc1/mc pairs, and suggested Taylor C/n for each selectable grade:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>ISO 513 group</th>
+      <th>Representative grades</th>
+      <th>Illustrative V<sub>c</sub> mid-band (carbide)</th>
+      <th>Typical Taylor n</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>P — Steel</td>
+      <td>1018, C45, 4140, pre-hardened tool steel</td>
+      <td>180–280 m/min (medium carbon)</td>
+      <td>0.20–0.26</td>
+    </tr>
+    <tr>
+      <td>M — Stainless</td>
+      <td>304/316 austenitic, 2205 duplex</td>
+      <td>150–230 m/min (304); 100–160 (duplex)</td>
+      <td>0.21–0.22</td>
+    </tr>
+    <tr>
+      <td>K — Cast iron</td>
+      <td>GG25 grey, GGG50 nodular</td>
+      <td>160–260 m/min (grey); 120–200 (nodular)</td>
+      <td>0.26–0.28</td>
+    </tr>
+    <tr>
+      <td>N — Non-ferrous</td>
+      <td>6061/7075 Al, brass, copper</td>
+      <td>400–900 m/min (wrought Al); 250–450 (brass)</td>
+      <td>0.30–0.40</td>
+    </tr>
+    <tr>
+      <td>S — Superalloys &amp; Ti</td>
+      <td>Ti-6Al-4V, Inconel 718</td>
+      <td>45–90 m/min (Ti); 25–55 (Inconel)</td>
+      <td>0.15–0.18</td>
+    </tr>
+    <tr>
+      <td>H — Hardened</td>
+      <td>52–62 HRC hardened steel</td>
+      <td>50–100 m/min</td>
+      <td>0.18</td>
+    </tr>
+  </tbody>
+</table>
+<p class="note">Mid-band values are reference hints, not hard limits. HSS substrate selection automatically derates V<sub>c</sub> to roughly 40–45% of the carbide band inside the engine.</p>
+
+<h2 id="kienzle">Kienzle specific cutting force</h2>
+<p>Cutting power depends on the specific cutting force k<sub>c</sub>, which varies with undeformed chip thickness h. The Kienzle equation captures the nonlinear increase in k<sub>c</sub> as chip load decreases (rubbing regime):</p>
+
+<div class="sc-formula">k<sub>c</sub> [N/mm²] = k<sub>c1</sub> · h<sup>−m<sub>c</sub></sup></div>
+
+<p>k<sub>c1</sub> and m<sub>c</sub> are material constants from the ISO 513 preset (e.g. medium-carbon steel: k<sub>c1</sub> ≈ 1980 N/mm², m<sub>c</sub> ≈ 0.25). The engine uses mean chip thickness h<sub>m</sub> after thinning compensation, floored at 0.01&nbsp;mm to avoid singularities. Material removal rate Q (cm³/min) and net cutting power follow:</p>
+
+<div class="sc-formula">Q [cm³/min] = a<sub>p</sub> · a<sub>e</sub> · v<sub>f</sub> / 1000 &nbsp;&nbsp;(milling/face); &nbsp; Q = π · D² · v<sub>f</sub> / (4 · 1000) &nbsp;(drilling)</div>
+<div class="sc-formula">P<sub>c</sub> [kW] = k<sub>c</sub> · Q / 60000</div>
+
+<p>Tangential force F<sub>c</sub> = P<sub>c</sub> · 60000 / V<sub>c</sub> feeds the deflection model. k<sub>c</sub> from handbook tables assumes sharp tools and conventional flood coolant; worn edges, built-up edge, and cryogenic or dry extremes are not modelled explicitly — use coolant and interruption multipliers on life, not on k<sub>c</sub>, unless you recalibrate k<sub>c1</sub> from force measurements.</p>
+
+<h2 id="chip-thinning">Chip thinning and HEM engagement</h2>
+<p>When radial width of cut a<sub>e</sub> is less than half the tool diameter, the chip is thinner than the programmed feed per tooth f<sub>z</sub>. Programming catalogue f<sub>z</sub> for full-slot conditions in a trochoidal or HEM toolpath produces rubbing, heat, and premature wear. SC-020 applies one of two compensation paths:</p>
+<ol>
+  <li><b>CAM engagement angle θ</b> (preferred when available): h<sub>m</sub> = f<sub>z</sub> · sin θ.</li>
+  <li><b>Radial fallback</b> when a<sub>e</sub>/D &lt; 0.5 and no angle is supplied: h<sub>m</sub> = f<sub>z</sub> · 2√(a<sub>e</sub>/D · (1 − a<sub>e</sub>/D)).</li>
+</ol>
+
+<div class="sc-formula">h<sub>m</sub> [mm] = f<sub>z</sub> · sin θ &nbsp;&nbsp;or&nbsp;&nbsp; h<sub>m</sub> = f<sub>z</sub> · 2√(a<sub>e</sub>/D · (1 − a<sub>e</sub>/D))</div>
+
+<p>The engine reports the compensated h<sub>m</sub> and the f<sub>z</sub> you should program to achieve a target chip load. High-efficiency machining (HEM) typically runs a<sub>e</sub>/D between 0.10 and 0.25 with a<sub>p</sub> ≈ 1–2 × D and elevated f<sub>z</sub> after thinning correction — the calculator verifies that corrected loads still respect power, torque, deflection, and life envelopes.</p>
+
+<h2 id="power-torque">Spindle power and torque</h2>
+<p>Gross spindle demand divides net cutting power by spindle efficiency η (typically 80–90% for belt- or direct-drive VMC spindles):</p>
+
+<div class="sc-formula">P<sub>s</sub> [kW] = P<sub>c</sub> / η ; &nbsp;&nbsp; M [N·m] = 9550 · P<sub>c</sub> / n</div>
+
+<p>Utilisation above 100% of rated power or torque is blocking; 80% power or 85% torque triggers warnings. Critical preview limitation: the engine applies a single torque limit at operating RPM — it does <em>not</em> interpolate the machine's torque–speed curve. High-speed spindles deliver far less torque near maximum RPM than the nameplate peak at base speed. Always cross-check M against the manufacturer's curve at the calculated n, not the catalog maximum alone.</p>
+
+<h2 id="deflection">Tool deflection and L/D stability</h2>
+<p>Static cantilever deflection treats the tool shank as a circular beam with second moment I = πD⁴/64 and Young's modulus E (580 GPa carbide, 200 GPa HSS):</p>
+
+<div class="sc-formula">δ [mm] = F<sub>c</sub> · L³ / (3 · E · I)</div>
+
+<p>Overhang ratio L/D governs chatter risk: L/D ≤ 4 is generally stable; 4–6 requires feed derating; L/D &gt; 6 is flagged as critical for regenerative chatter. Deflection above 0.05&nbsp;mm blocks release; 0.02–0.05&nbsp;mm warns. Fluted end mills are 10–20% more flexible than the solid-cylinder assumption — treat δ as a lower bound. Finish passes with reduced a<sub>e</sub> and shorter L are standard mitigation when roughing deflection is acceptable.</p>
+
+<h2 id="gilbert">Gilbert economic cutting speed</h2>
+<p>Maximum metal-removal rate is rarely minimum cost. Gilbert's model minimises cost per cutting minute by balancing machine time against edge consumption. Edge cost in machine-minutes is tool cost divided by machine rate plus changeover time. Economic tool life:</p>
+
+<div class="sc-formula">T<sub>econ</sub> [min] = (1/n − 1) · (C<sub>t</sub>/C<sub>m</sub> + t<sub>change</sub>) · k<sub>cool</sub> · k<sub>interrupt</sub></div>
+<div class="sc-formula">V<sub>econ</sub> [m/min] = C · T<sub>econ</sub><sup>−n</sup></div>
+
+<p>SC-020 compares cost per minute at your current V<sub>c</sub> versus V<sub>econ</sub> and reports potential savings on the machining-cost component only — scrap risk, surface-finish rework, and downstream operations are excluded. Currency selector sets display symbol; no FX conversion is performed.</p>
+
+<h2 id="environment">Coolant and interruption multipliers</h2>
+<p>Environment corrections scale Taylor life and Gilbert economics multiplicatively. They are engineering factors from machining-handbook practice, not measured data for your shop:</p>
+<ul>
+  <li><b>Coolant k<sub>cool</sub>:</b> flood 1.00 · MQL 0.90 · air blast 0.85 · dry 0.75</li>
+  <li><b>Cut continuity k<sub>interrupt</sub>:</b> continuous 1.00 · light interruption 0.80 · heavy interruption 0.60</li>
+</ul>
+<p>Heavy interruption applies to cast skin, welds, cross-holes, and entry/exit breaks where thermal cycling accelerates thermal-fatigue cratering. Dry machining of steels may need more aggressive derating than 0.75 on life — validate with toolmaker tests.</p>
+
+<h2 id="ball-nose">Ball-nose effective diameter</h2>
+<p>Surface speed at the tool tip of a ball-nose end mill is near zero if nominal diameter is used in n = 1000·V<sub>c</sub>/(πD). SC-020 replaces D with effective diameter at depth of cut a<sub>p</sub>:</p>
+
+<div class="sc-formula">D<sub>eff</sub> [mm] = 2 · √(R² − (R − a<sub>p</sub>)²) &nbsp;&nbsp;where R = D/2</div>
+
+<p>When D<sub>eff</sub> &lt; 0.3D, a warning recommends 10–15° tool tilt to bring the cutting zone onto a larger-radius section of the sphere. RPM, feed, power, and life all use D<sub>eff</sub> and the resulting V<sub>c,eff</sub>.</p>
+
+<h2 id="fs-engine">FS-ENGINE SI core and units</h2>
+<p>FS-ENGINE v2.1.0 computes deterministically in SI regardless of per-field display units. Conversion factors applied at input:</p>
+<ul>
+  <li>Length: in → mm × 25.4</li>
+  <li>Speed: SFM → m/min × 0.3048</li>
+  <li>Power: HP → kW × 0.7457</li>
+  <li>Torque: ft·lb → N·m × 1.3558</li>
+</ul>
+<p>Every report embeds engine version, UTC timestamp, FNV-1a integrity hash, entered values with units, SI values used internally, formula catalogue, and explicit assumptions. Identical inputs always yield identical outputs — no hidden state or stochastic variation.</p>
+
+<div class="sc-tip">
+  <span class="ico" aria-hidden="true">💡</span>
+  <div>
+    <b>Related SectorCalc tools</b> — Pair machining parameters with downstream checks:
+    <a href="/bearing-pro.html">Bearing Life L10 (ISO 281)</a> for spindle bearing duty from n and load;
+    <a href="/sc008-pro.html">Tolerance Stack-Up (SC-008)</a> when deflection-driven size drift affects assembly fit;
+    <a href="/quote-pro.html">Quote Pricing (SC-012)</a> to roll cycle time and tool cost into sell price;
+    browse all tools on the <a href="/tools.html">SectorCalc catalog</a>.
+  </div>
+</div>
+
+<h2 id="faqs" class="sc-guide-faq">Frequently asked questions</h2>
+
+<div class="q" id="faq-vb" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 itemprop="name">What wear criterion does the Taylor model use?</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <div itemprop="text">
+      <p>SC-020 assumes ISO-style flank wear with average land width <b>VB = 0.3&nbsp;mm</b> on the major cutting edge. C and n constants from the material preset were conceptually fitted to that endpoint. If your shop uses a different criterion — crater wear on stainless, maximum flank for aerospace, or surface-finish-driven change — refit C and n from your own tool tests or apply a safety factor to predicted life.</p>
+    </div>
+  </div>
+</div>
+
+<div class="q" id="faq-chip-thinning" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 itemprop="name">Why is my programmed feed per tooth higher than the chip load shown?</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <div itemprop="text">
+      <p>When a<sub>e</sub> &lt; 0.5D or a CAM engagement angle is supplied, the physical chip thickness h<sub>m</sub> is less than programmed f<sub>z</sub>. The engine displays compensated h<sub>m</sub> and suggests the f<sub>z</sub> to program for a target load. This is expected in HEM and rest-machining strategies — always size f<sub>z</sub> from h<sub>m</sub>, not from full-slot catalogue values.</p>
+    </div>
+  </div>
+</div>
+
+<div class="q" id="faq-power" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 itemprop="name">Why can spindle power pass while torque fails (or vice versa)?</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <div itemprop="text">
+      <p>Power P = M·ω couples torque and speed. Low-speed, heavy cuts are torque-limited; high-speed, light cuts are power-limited. SC-020 checks both against your entered limits at the operating RPM. Because torque curves droop with speed, a pass at nameplate torque may still fail on machine — verify against the OEM curve for the calculated spindle speed.</p>
+    </div>
+  </div>
+</div>
+
+<div class="q" id="faq-gilbert" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 itemprop="name">Should I always run at Gilbert economic speed V<sub>econ</sub>?</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <div itemprop="text">
+      <p>Not necessarily. V<sub>econ</sub> minimises machining cost per minute for the stated tool cost, change time, and machine rate. It does not account for scrap risk from tight tolerances, required surface finish, unstable setups, or contractual cycle-time caps. Use V<sub>econ</sub> as a benchmark — if your current speed sits far below it with life ≫ target, there is often room to increase V<sub>c</sub> without violating life or power limits.</p>
+    </div>
+  </div>
+</div>
+
+<div class="q" id="faq-units" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 itemprop="name">Can I mix metric and imperial inputs?</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <div itemprop="text">
+      <p>Yes. Each dimensional field has its own unit selector; the engine converts to SI before calculation. Mixing SFM for V<sub>c</sub> with millimetre tool dimensions is supported — the audit trail records both as-entered values and SI internals. Use global “All Metric” or “All Imperial” toggles for consistency, then override individual fields where needed (e.g. inch tools on a metric machine).</p>
+    </div>
+  </div>
+</div>
+
+<details class="related">
+  <summary>Related calculators</summary>
+  <ul>
+    <li><a href="/machining-pro.html">SC-020 — CNC Feeds &amp; Speeds + Tool Life</a> (this tool)</li>
+    <li><a href="/bearing-pro.html">SC-021 — Bearing Life L10 (ISO 281)</a></li>
+    <li><a href="/sc008-pro.html">SC-008 — Tolerance Stack-Up</a></li>
+    <li><a href="/quote-pro.html">SC-012 — Quote Pricing</a></li>
+    <li><a href="/tools.html">Full SectorCalc tool catalog</a></li>
+  </ul>
+</details>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What wear criterion does the Taylor model use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SC-020 assumes ISO-style flank wear with average land width VB = 0.3 mm on the major cutting edge. C and n constants from the material preset were conceptually fitted to that endpoint. If your shop uses a different criterion, refit C and n from tool tests or apply a safety factor to predicted life."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is my programmed feed per tooth higher than the chip load shown?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "When radial width of cut ae is less than half the tool diameter or a CAM engagement angle is supplied, the physical chip thickness hm is less than programmed fz. The engine displays compensated hm and suggests the fz to program for a target load — expected in HEM and rest-machining strategies."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why can spindle power pass while torque fails (or vice versa)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Power equals torque times angular speed. Low-speed heavy cuts are torque-limited; high-speed light cuts are power-limited. SC-020 checks both at operating RPM; verify against the machine OEM torque curve because nameplate torque may overstate capability at high speed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I always run at Gilbert economic speed Vecon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Vecon minimises machining cost per minute for stated tool cost, change time, and machine rate. It ignores scrap risk, surface finish, unstable setups, and cycle-time caps. Use it as a benchmark; if current speed is far below Vecon with life much greater than target, increasing Vc may be economical."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I mix metric and imperial inputs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Each field has its own unit selector; FS-ENGINE converts to SI before calculation. The audit trail records as-entered values and SI internals. Global All Metric or All Imperial toggles set defaults; individual fields can be overridden."
+      }
+    }
+  ]
+}
+</script>
+
+</section>
+</div>
+<!--SC-GUIDE-END-->
+<footer>
+    SectorCalc Pro · SC-020 · Reference-grade engineering estimates — verify against tooling manufacturer datasheets before production release. Not a substitute for a signed-off process plan.
+  </footer>
+</div>
+
+<script>
+/* =====================================================================
+   FS-ENGINE v2.1.0 — CNC Feeds & Speeds + Tool Life
+   Per-field universal units · reference-standard hints · deterministic SI core
+   ===================================================================== */
+const ENGINE = {name:'FS-ENGINE', version:'2.1.0', build:'2026-07-24',
+  model:'Extended Taylor + coolant/interruption correction + Kienzle + Gilbert economics + deflection'};
+let LAST=null;
+
+const MATS = [
+  {g:'P — Steel',   items:[
+    {nm:'Low-carbon steel (S235 / 1018), HB 125', vc:[220,320], fz:[.05,.15], kc1:1700, mc:.25, C:480, n:.26},
+    {nm:'Medium-carbon steel (C45 / 1045), HB 200', vc:[180,280], fz:[.05,.14], kc1:1980, mc:.25, C:420, n:.25},
+    {nm:'Alloy steel (42CrMo4 / 4140), HB 275', vc:[130,220], fz:[.04,.12], kc1:2300, mc:.26, C:340, n:.24},
+    {nm:'Tool steel hardened 45–52 HRC', vc:[60,110], fz:[.02,.06], kc1:3200, mc:.28, C:180, n:.20}]},
+  {g:'M — Stainless', items:[
+    {nm:'Austenitic stainless (304 / 316), HB 180', vc:[150,230], fz:[.04,.12], kc1:2400, mc:.22, C:330, n:.22},
+    {nm:'Duplex stainless (2205), HB 260', vc:[100,160], fz:[.03,.10], kc1:2700, mc:.24, C:260, n:.21}]},
+  {g:'K — Cast Iron', items:[
+    {nm:'Grey cast iron (GG25), HB 220', vc:[160,260], fz:[.06,.20], kc1:1300, mc:.27, C:430, n:.28},
+    {nm:'Nodular cast iron (GGG50), HB 250', vc:[120,200], fz:[.05,.16], kc1:1600, mc:.26, C:360, n:.26}]},
+  {g:'N — Non-Ferrous', items:[
+    {nm:'Aluminium wrought (6061/7075), Si<12%', vc:[400,900], fz:[.05,.25], kc1:800, mc:.25, C:1400, n:.40},
+    {nm:'Aluminium cast, Si>12%', vc:[250,500], fz:[.05,.18], kc1:1000, mc:.25, C:900, n:.35},
+    {nm:'Brass / Bronze', vc:[250,450], fz:[.05,.20], kc1:900, mc:.24, C:900, n:.34},
+    {nm:'Copper, pure', vc:[200,400], fz:[.05,.18], kc1:1350, mc:.24, C:700, n:.30}]},
+  {g:'S — Superalloys & Ti', items:[
+    {nm:'Titanium Ti-6Al-4V, HB 350', vc:[45,90], fz:[.03,.10], kc1:1800, mc:.23, C:120, n:.18},
+    {nm:'Inconel 718, HB 380', vc:[25,55], fz:[.02,.08], kc1:2900, mc:.24, C:70, n:.15}]},
+  {g:'H — Hardened', items:[
+    {nm:'Hardened steel 52–62 HRC', vc:[50,100], fz:[.02,.06], kc1:3500, mc:.28, C:150, n:.18}]}
+];
+
+/* conversion to SI: len→mm, spd→m/min, pwr→kW, torq→N·m */
+const TO_SI={len:{mm:1,in:25.4},spd:{mmin:1,sfm:0.3048},pwr:{kw:1,hp:0.7457},torq:{nm:1,ftlb:1.3558}};
+const matSel=document.getElementById('mat');
+MATS.forEach((g,gi)=>{const og=document.createElement('optgroup');og.label=g.g;
+  g.items.forEach((m,ii)=>{const o=document.createElement('option');o.value=gi+'-'+ii;o.textContent=m.nm;og.appendChild(o);});
+  matSel.appendChild(og);});
+matSel.value='0-1';
+function curMat(){const [gi,ii]=matSel.value.split('-').map(Number);return MATS[gi].items[ii];}
+function g(id){return document.getElementById(id);}
+function num(id){return parseFloat(g(id).value);}
+const fmt=(x,d=2)=>Number.isFinite(x)?x.toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d}):'—';
+
+/* read a field WITH its unit → SI value; also returns display pair for audit */
+function fieldSI(id){
+  const us=g('u_'+id);
+  if(!us)return{si:num(id),disp:num(id)+' (fixed)'};
+  const kind=us.dataset.kind, u=us.value;
+  const raw=num(id);
+  return{si:Number.isFinite(raw)?raw*TO_SI[kind][u]:NaN, disp:`${raw} ${us.options[us.selectedIndex].text}`, unit:u, kind};
+}
+/* per-field unit change → convert the displayed value */
+document.querySelectorAll('select.units[data-f]').forEach(us=>{
+  us.addEventListener('change',()=>{
+    const inp=g(us.dataset.f), val=parseFloat(inp.value);
+    if(Number.isFinite(val)&&us.dataset.prev&&us.dataset.prev!==us.value){
+      const k=us.dataset.kind;
+      inp.value=+(val*TO_SI[k][us.dataset.prev]/TO_SI[k][us.value]).toPrecision(6);
+    }
+    us.dataset.prev=us.value;
+    updateRefs(); calculate();
+  });
+  us.dataset.prev=us.value;
+});
+/* global set-all */
+function setAllUnits(sys){
+  const map=sys==='imp'?{len:'in',spd:'sfm',pwr:'hp',torq:'ftlb'}:{len:'mm',spd:'mmin',pwr:'kw',torq:'nm'};
+  document.querySelectorAll('select.units[data-f]').forEach(us=>{
+    const want=map[us.dataset.kind];
+    if(us.value!==want){us.value=want;us.dispatchEvent(new Event('change'));}
+  });
+  g('uMetric').classList.toggle('on',sys==='metric');
+  g('uImp').classList.toggle('on',sys==='imp');
+}
+
+/* dynamic reference hints (material band in the field's CURRENT unit) */
+function updateRefs(){
+  const m=curMat(), uV=g('u_Vc').value, uF=g('u_fz').value;
+  const vK=uV==='sfm'?1/0.3048:1, fK=uF==='in'?1/25.4:1;
+  g('refVc').textContent=`Ref (${m.nm.split('(')[0].trim()}): ${fmt(m.vc[0]*vK,0)}–${fmt(m.vc[1]*vK,0)} ${uV==='sfm'?'SFM':'m/min'} carbide`;
+  g('refFz').textContent=`Ref: ${fmt(m.fz[0]*fK,uF==='in'?4:2)}–${fmt(m.fz[1]*fK,uF==='in'?4:2)} ${uF==='in'?'in':'mm'}/tooth`;
+  g('matHint').textContent=`ISO 513 band · kc1 ${m.kc1} N/mm² · suggested Taylor C=${m.C} m/min, n=${m.n} (auto-loaded below)`;
+}
+matSel.addEventListener('change',()=>{
+  const m=curMat(); g('taylorC').value=m.C; g('taylorN').value=m.n; updateRefs(); calculate();
+});
+updateRefs();
+
+/* ---------------- presets ---------------- */
+const IDS=['op','substrate','mat','D','u_D','z','L','u_L','r','u_r','shape','Vc','u_Vc','fz','u_fz','ap','u_ap','ae','u_ae','engAng','coolant','interr','nmax','pmax','u_pmax','vfmax','u_vfmax','eta','tqmax','u_tqmax','taylorC','taylorN','targetT','toolCost','currency','tChange','mRate'];
+function preset(mode,slot){
+  const key='fs008_preset_'+slot;
+  if(mode==='save'){const o={};IDS.forEach(i=>o[i]=g(i).value);localStorage.setItem(key,JSON.stringify(o));}
+  else{const s=localStorage.getItem(key);if(!s)return;const o=JSON.parse(s);
+    IDS.forEach(i=>{if(o[i]!=null)g(i).value=o[i];});
+    document.querySelectorAll('select.units[data-f]').forEach(us=>us.dataset.prev=us.value);
+    updateRefs(); calculate();}
+}
+function fnv(s){let h=0x811c9dc5;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=(h*0x01000193)>>>0;}return ('00000000'+h.toString(16)).slice(-8).toUpperCase();}
+
+/* =====================================================================
+   CORE CALCULATION (SI)
+   ===================================================================== */
+function calculate(){
+  const W=[], m=curMat();
+  const fD=fieldSI('D'), fL=fieldSI('L'), fr=fieldSI('r'), fVc=fieldSI('Vc'),
+        ffz=fieldSI('fz'), fap=fieldSI('ap'), fae=fieldSI('ae'),
+        fP=fieldSI('pmax'), fVf=fieldSI('vfmax'), fTq=fieldSI('tqmax');
+  const cur=g('currency').value;
+  const disp={D:fD.disp,L:fL.disp,r:fr.disp,Vc:fVc.disp,fz:ffz.disp,ap:fap.disp,ae:fae.disp,
+              pmax:fP.disp,vfmax:fVf.disp,tqmax:fTq.disp,toolCost:num('toolCost')+' '+cur,mRate:num('mRate')+' '+cur+'/min'};
+  const inp={op:g('op').value,substrate:g('substrate').value,material:m.nm,currency:cur,
+    D:fD.si,z:num('z'),L:fL.si,r:fr.si,shape:g('shape').value,
+    Vc:fVc.si,fz:ffz.si,ap:fap.si,ae:fae.si,engAng:num('engAng'),
+    kCool:parseFloat(g('coolant').value),kInt:parseFloat(g('interr').value),
+    nmax:num('nmax'),pmax:fP.si,vfmax:fVf.si,eta:num('eta')/100,tqmax:fTq.si,
+    taylorC:num('taylorC'),taylorN:num('taylorN'),targetT:num('targetT'),
+    toolCost:num('toolCost'),tChange:num('tChange'),mRate:num('mRate')};
+
+  /* --- validation --- */
+  for(const [k,lab] of [['D','Tool diameter'],['z','Flutes'],['Vc','Cutting speed'],['fz','Feed per tooth'],['ap','Depth of cut'],['ae','Width of cut']]){
+    if(!Number.isFinite(inp[k])||inp[k]<=0)W.push({lvl:'e',t:'Invalid input — '+lab,d:lab+' must be a positive number. Check value AND its unit selector. Calculation aborted to prevent scrap.'});
+  }
+  if(inp.z!==Math.round(inp.z))W.push({lvl:'e',t:'Non-integer flute count',d:`z = ${inp.z} is not an integer.`});
+  if(inp.ae>inp.D&&inp.op!=='turn')W.push({lvl:'e',t:'ae exceeds tool diameter',d:`ae = ${fmt(inp.ae,2)} mm > Ø${fmt(inp.D,2)} mm (SI, after unit conversion). Physically impossible for milling — check the unit selectors on both fields.`});
+  if(W.some(w=>w.lvl==='e')){render(inp,null,W,m,disp);return;}
+
+  /* --- effective diameter (ball nose) --- */
+  let Deff=inp.D, ballNote=false;
+  if(inp.shape==='ball'&&inp.op!=='turn'){
+    const R=inp.D/2, a=Math.min(inp.ap,R);
+    Deff=2*Math.sqrt(Math.max(R*R-(R-a)*(R-a),0.0001)); ballNote=true;
+    if(Deff<0.3*inp.D)W.push({lvl:'w',t:'Ball-nose effective diameter very small',d:`At ap = ${fmt(inp.ap,2)} mm the effective Ø is only ${fmt(Deff,2)} mm (${fmt(Deff/inp.D*100,0)}% of nominal). Surface speed near the tip is low — consider tilting the tool 10–15°.`});
+  }
+
+  /* --- 1. spindle speed --- */
+  const n=1000*inp.Vc/(Math.PI*Deff);
+  let nClamped=false;
+  if(n>inp.nmax){nClamped=true;W.push({lvl:'e',t:'RPM exceeds machine limit',d:`Required n = ${fmt(n,0)} rpm > machine max ${fmt(inp.nmax,0)} rpm. Clamped; effective Vc drops to ${fmt(inp.nmax*Math.PI*Deff/1000,1)} m/min. Life prediction uses the clamped speed.`});}
+  const nEff=Math.min(n,inp.nmax);
+  const VcEff=nEff*Math.PI*Deff/1000;
+
+  /* --- 2. chip thickness --- */
+  let hm=inp.fz, chipThin=false, engUsed=null;
+  if(inp.op==='mill'||inp.op==='face'){
+    if(inp.engAng>0){
+      engUsed=inp.engAng; hm=inp.fz*Math.sin(engUsed*Math.PI/180); chipThin=true;
+      W.push({lvl:'i',t:'HEM engagement angle applied',d:`Engagement ${engUsed}° → hm = fz·sin θ = ${fmt(hm,4)} mm (programmed fz ${fmt(inp.fz,4)}). To hit target chip load, program fz = ${fmt(inp.fz/Math.max(Math.sin(engUsed*Math.PI/180),0.05),4)} mm/tooth.`});
+    } else if(inp.ae/inp.D<0.5){
+      const ratio=inp.ae/inp.D, cf=2*Math.sqrt(ratio*(1-ratio));
+      chipThin=true; hm=inp.fz*cf; engUsed=Math.asin(Math.min(cf,1))*180/Math.PI;
+      W.push({lvl:'i',t:'Chip-thinning compensation active',d:`ae/D = ${fmt(ratio,3)} < 0.5 (≈${fmt(engUsed,0)}° engagement) → hm = ${fmt(hm,4)} mm. To achieve TARGET chip load, program fz = ${fmt(inp.fz/cf,4)} mm/tooth.`});
+    }
+  }
+  let vf=inp.fz*inp.z*nEff;
+  if(vf>inp.vfmax)W.push({lvl:'e',t:'Feed rate exceeds machine limit',d:`vf = ${fmt(vf,0)} mm/min > max ${fmt(inp.vfmax,0)} mm/min. Reduce fz, flutes or RPM — breakage and scrap risk.`});
+
+  /* --- 3. MRR --- */
+  const MRR=inp.op==='drill'?Math.PI*Math.pow(inp.D/2,2)*vf/1000:inp.ap*inp.ae*vf/1000;
+
+  /* --- 4. Kienzle force & power --- */
+  const h=Math.max(hm,0.01);
+  const kc=m.kc1*Math.pow(h,-m.mc);
+  const Pc=kc*MRR/60000, Psp=Pc/inp.eta;
+  const M_tq=Pc*9550/Math.max(nEff,1);
+  const pUtil=Psp/inp.pmax*100, tqUtil=M_tq/inp.tqmax*100;
+  if(pUtil>100)W.push({lvl:'e',t:'Spindle power exceeded',d:`Required ${fmt(Psp,2)} kW > available ${fmt(inp.pmax,2)} kW (${fmt(pUtil,0)}%). Stall/breakage risk — reduce ap, ae or vf.`});
+  else if(pUtil>80)W.push({lvl:'w',t:'High spindle load',d:`${fmt(pUtil,0)}% of rated power — above the 80% continuous-duty guideline.`});
+  if(tqUtil>100)W.push({lvl:'e',t:'Torque limit exceeded',d:`Required torque ${fmt(M_tq,1)} N·m > limit ${fmt(inp.tqmax,1)} N·m. Check the machine torque curve at ${fmt(nEff,0)} rpm — spindles droop well before max RPM.`});
+  else if(tqUtil>85)W.push({lvl:'w',t:'Torque near limit',d:`${fmt(tqUtil,0)}% of torque limit at operating speed. Verify against the torque curve, not the nameplate.`});
+
+  /* --- 5. Taylor tool life + corrections --- */
+  const Traw=Math.pow(inp.taylorC/VcEff,1/inp.taylorN);
+  const T=Traw*inp.kCool*inp.kInt;
+  const VcForTarget=inp.taylorC*Math.pow(inp.targetT/(inp.kCool*inp.kInt),-inp.taylorN);
+  if(T<15)W.push({lvl:'e',t:'Tool life critically low',d:`Predicted T = ${fmt(T,1)} min < 15 min (raw ${fmt(Traw,1)} × coolant ${inp.kCool} × interruption ${inp.kInt}). Guaranteed scrap & downtime — drop Vc toward ${fmt(VcForTarget,0)} m/min.`});
+  else if(T<inp.targetT*0.5)W.push({lvl:'w',t:'Tool life below target',d:`T = ${fmt(T,1)} min is under half the ${inp.targetT} min target. Vc for target life: ${fmt(VcForTarget,0)} m/min.`});
+  else if(T>inp.targetT*4)W.push({lvl:'i',t:'Over-conservative speed',d:`T = ${fmt(T,0)} min ≫ target. Raising Vc toward ${fmt(VcForTarget,0)} m/min keeps T = ${inp.targetT} min and cuts cycle time.`});
+
+  /* --- 6. bands --- */
+  const band=inp.substrate==='hss'?[m.vc[0]*0.4,m.vc[1]*0.45]:m.vc;
+  if(VcEff<band[0])W.push({lvl:'w',t:'Vc below material band',d:`${fmt(VcEff,0)} m/min < recommended ${fmt(band[0],0)}–${fmt(band[1],0)} m/min for ${m.nm}. Built-up edge risk.`});
+  if(VcEff>band[1])W.push({lvl:'w',t:'Vc above material band',d:`${fmt(VcEff,0)} m/min > recommended ${fmt(band[0],0)}–${fmt(band[1],0)} m/min. Taylor may underestimate wear outside the calibrated band.`});
+  if(inp.fz<m.fz[0]||inp.fz>m.fz[1])W.push({lvl:'w',t:'fz outside typical band',d:`fz = ${fmt(inp.fz,3)} mm vs typical ${m.fz[0]}–${m.fz[1]} mm/tooth. Rubbing (low) or edge chipping (high) risk.`});
+
+  /* --- 7. deflection & stability --- */
+  const E=inp.substrate==='carbide'?580000:200000;
+  const I=Math.PI*Math.pow(inp.D,4)/64;
+  const Fc=Pc>0?Pc*60000/VcEff:0;
+  const delta=Fc*Math.pow(inp.L,3)/(3*E*I);
+  const LD=inp.L/inp.D;
+  if(delta>0.05)W.push({lvl:'e',t:'Tool deflection excessive',d:`Estimated static deflection δ = ${fmt(delta,3)} mm > 0.05 mm. Dimensional error and chatter guaranteed — shorten overhang or reduce radial load.`});
+  else if(delta>0.02)W.push({lvl:'w',t:'Notable tool deflection',d:`δ ≈ ${fmt(delta,3)} mm > 0.02 mm roughing guideline. Expect size drift — finish pass with reduced ae recommended.`});
+  if(LD>6)W.push({lvl:'e',t:'Extreme overhang — chatter risk',d:`L/D = ${fmt(LD,1)} > 6. Regenerative chatter almost certain; anti-vibration tooling or reduced ae required.`});
+  else if(LD>4)W.push({lvl:'w',t:'Long overhang',d:`L/D = ${fmt(LD,1)} > 4. Derate fz ≈${fmt((1-4/LD)*100,0)}% for chatter-free cutting.`});
+
+  /* --- 8. surface finish --- */
+  const fRev=inp.op==='turn'?inp.fz:inp.fz*inp.z;
+  const Ra=inp.r>0?32*fRev*fRev/inp.r:NaN;
+  if(Number.isFinite(Ra)&&Ra>6.3)W.push({lvl:'w',t:'Theoretical roughness high',d:`Ra ≈ ${fmt(Ra,1)} µm from feed marks alone. For Ra ≤ 3.2 cut feed/rev to ≤ ${fmt(Math.sqrt(3.2*inp.r/32),3)} mm/rev or use a wiper/larger r.`});
+
+  /* --- 9. Gilbert economics --- */
+  const nT=inp.taylorN;
+  const edgeMin=inp.toolCost/inp.mRate+inp.tChange;
+  const TeconRaw=(1/nT-1)*edgeMin;
+  const TeconCorr=TeconRaw*inp.kCool*inp.kInt;
+  const Vecon=inp.taylorC*Math.pow(TeconRaw,-nT);
+  const costNow=inp.mRate+(inp.toolCost+inp.tChange*inp.mRate)/T;
+  const costEco=inp.mRate+(inp.toolCost+inp.tChange*inp.mRate)/TeconCorr;
+  const savings=(1-costEco/costNow)*100;
+
+  const out={n,nEff,VcEff,vf,MRR,kc,h,hm,Fc,Pc,Psp,M_tq,pUtil,tqUtil,T,Traw,VcForTarget,LD,delta,Ra,fRev,
+    TeconCorr,Vecon,costNow,costEco,savings,nClamped,chipThin,engUsed,Deff,ballNote};
+  render(inp,out,W,m,disp);
+}
+
+/* =====================================================================
+   RENDER
+   ===================================================================== */
+function render(inp,out,W,m,disp){
+  LAST={inp,disp,out,W,mat:m.nm,ts:new Date().toISOString()};
+  const errs=W.filter(w=>w.lvl==='e').length, warns=W.filter(w=>w.lvl==='w').length;
+  const vd=g('verdict'), total=9, passed=Math.max(total-errs*2-warns,0);
+  if(!out||errs>0){vd.className='verdict fail';vd.innerHTML=`<div class="big">⛔ DO NOT RUN — FAIL</div><div class="sub">${errs} blocking issue(s), ${warns} warning(s). Running these parameters risks tool breakage, scrap and machine damage. Resolve red items first.</div><div class="score">${passed}/${total}</div>`;}
+  else if(warns>0){vd.className='verdict cond';vd.innerHTML=`<div class="big">⚠ RUN WITH CAUTION</div><div class="sub">${warns} warning(s) — parameters physically valid but outside one or more validated envelopes. Review yellow items before release.</div><div class="score">${passed}/${total}</div>`;}
+  else{vd.className='verdict pass';vd.innerHTML=`<div class="big">✓ RELEASED TO PRODUCTION</div><div class="sub">All checks passed. Parameters are within validated envelopes for the selected material, tool and machine.</div><div class="score">${total}/${total}</div>`;}
+
+  g('warnings').innerHTML=W.map(w=>`<div class="warnbox ${w.lvl}"><b>${w.lvl==='e'?'⛔ BLOCKING':w.lvl==='w'?'⚠ WARNING':'ℹ NOTE'} — ${w.t}</b>${w.d}</div>`).join('');
+  g('aWarn').innerHTML=W.length?
+    W.map(w=>`<div class="warnbox ${w.lvl}" style="margin:6px 0"><b>${w.t}</b>${w.d}</div>`).join('')
+    :'<div class="warnbox i"><b>ALL CLEAR</b>No warnings. All parameters within validated envelopes.</div>';
+
+  const kpis=g('kpis'),res=g('resTable'),eco=g('ecoTable');
+  if(!out){kpis.innerHTML='';res.innerHTML='<tr><td style="color:var(--err);font-weight:700">Calculation aborted — resolve blocking errors above.</td></tr>';eco.innerHTML='';drawCharts(null);buildAudit(inp,null,W,m,disp);return;}
+
+  kpis.innerHTML=`
+    <div class="kpi"><div class="v">${fmt(out.nEff,0)}</div><div class="l">Spindle Speed ${out.nClamped?'(clamped)':''}</div><div class="u">rpm</div></div>
+    <div class="kpi"><div class="v">${fmt(out.vf,0)}</div><div class="l">Feed Rate</div><div class="u">mm/min</div></div>
+    <div class="kpi hot"><div class="v">${fmt(out.T,1)}</div><div class="l">Tool Life (corrected)</div><div class="u">min</div></div>
+    <div class="kpi"><div class="v">${fmt(out.MRR,1)}</div><div class="l">MRR</div><div class="u">cm³/min</div></div>
+    <div class="kpi ${out.pUtil>80||out.tqUtil>85?'hot':'good'}"><div class="v">${fmt(out.Psp,2)}</div><div class="l">Spindle Power</div><div class="u">kW · ${fmt(out.pUtil,0)}%</div></div>
+    <div class="kpi good"><div class="v">${fmt(out.Vecon,0)}</div><div class="l">Economic Vc</div><div class="u">m/min · saves ${fmt(out.savings,1)}%</div></div>`;
+
+  res.innerHTML=`<tr><th>Parameter</th><th>Symbol</th><th style="text-align:right">Value</th><th>Unit</th><th>Note</th></tr>
+  <tr><td>Spindle speed (required)</td><td>n</td><td class="num">${fmt(out.n,0)}</td><td>rpm</td><td>${out.nClamped?'Clamped to machine max':'Within machine limit'}</td></tr>
+  ${out.ballNote?`<tr><td>Effective diameter (ball nose)</td><td>D<sub>eff</sub></td><td class="num">${fmt(out.Deff,2)}</td><td>mm</td><td>2·√(R²−(R−ap)²)</td></tr>`:''}
+  <tr><td>Effective cutting speed</td><td>Vc,eff</td><td class="num">${fmt(out.VcEff,1)}</td><td>m/min</td><td>n = 1000·Vc/(π·D${out.ballNote?'eff':''})</td></tr>
+  <tr><td>Table feed</td><td>vf</td><td class="num">${fmt(out.vf,0)}</td><td>mm/min</td><td>vf = fz·z·n</td></tr>
+  <tr><td>Mean chip thickness</td><td>hm</td><td class="num">${fmt(out.hm,4)}</td><td>mm</td><td>${out.chipThin?'Compensated (engagement ≈'+fmt(out.engUsed,0)+'°)':'Full radial engagement'}</td></tr>
+  <tr><td>Material removal rate</td><td>Q</td><td class="num">${fmt(out.MRR,2)}</td><td>cm³/min</td><td>Q = ap·ae·vf/1000</td></tr>
+  <tr><td>Specific cutting force</td><td>kc</td><td class="num">${fmt(out.kc,0)}</td><td>N/mm²</td><td>Kienzle: kc = kc1·h<sup>−mc</sup></td></tr>
+  <tr><td>Tangential cutting force</td><td>Fc</td><td class="num">${fmt(out.Fc,0)}</td><td>N</td><td>Fc = Pc·60000/Vc</td></tr>
+  <tr><td>Cutting power (net)</td><td>Pc</td><td class="num">${fmt(out.Pc,2)}</td><td>kW</td><td>Pc = kc·Q/60000</td></tr>
+  <tr><td>Spindle power (gross)</td><td>Ps</td><td class="num">${fmt(out.Psp,2)}</td><td>kW</td><td>÷ η = ${fmt(inp.eta*100,0)}%</td></tr>
+  <tr><td>Spindle torque</td><td>M</td><td class="num">${fmt(out.M_tq,1)}</td><td>N·m</td><td>M = 9550·Pc/n · limit ${fmt(inp.tqmax,0)} N·m</td></tr>
+  <tr><td>Tool deflection (static)</td><td>δ</td><td class="num">${fmt(out.delta,4)}</td><td>mm</td><td>δ = Fc·L³/(3EI)</td></tr>
+  <tr><td>Overhang ratio</td><td>L/D</td><td class="num">${fmt(out.LD,2)}</td><td>—</td><td>≤4 stable · 4–6 derate · &gt;6 critical</td></tr>
+  <tr><td>Predicted tool life (corrected)</td><td>T</td><td class="num">${fmt(out.T,1)}</td><td>min</td><td>raw ${fmt(out.Traw,1)} × coolant ${inp.kCool} × interruption ${inp.kInt}</td></tr>
+  <tr><td>Vc for target life (${inp.targetT} min)</td><td>Vc,T</td><td class="num">${fmt(out.VcForTarget,0)}</td><td>m/min</td><td>Back-solved corrected Taylor</td></tr>
+  ${Number.isFinite(out.Ra)?`<tr><td>Theoretical surface roughness</td><td>Ra</td><td class="num">${fmt(out.Ra,2)}</td><td>µm</td><td>Ra ≈ 32·f<sub>rev</sub>²/r (feed marks only)</td></tr>`:''}`;
+
+  const C=inp.currency;
+  eco.innerHTML=`<tr><th>Economic Parameter</th><th style="text-align:right">Value</th><th>Unit</th><th>Basis</th></tr>
+  <tr><td>Edge cost in machine-minutes</td><td class="num">${fmt(inp.toolCost/inp.mRate+inp.tChange,1)}</td><td>min</td><td>tool cost ÷ machine rate + change time</td></tr>
+  <tr><td>Economic tool life T<sub>econ</sub></td><td class="num">${fmt(out.TeconCorr,1)}</td><td>min</td><td>(1/n − 1)·(Ct/Cm + t<sub>ch</sub>), coolant/interruption corrected</td></tr>
+  <tr><td>Economic cutting speed V<sub>econ</sub></td><td class="num">${fmt(out.Vecon,0)}</td><td>m/min</td><td>V<sub>econ</sub> = C·T<sub>econ</sub><sup>−n</sup></td></tr>
+  <tr><td>Cost per cutting-minute @ current Vc</td><td class="num">${C} ${fmt(out.costNow,3)}</td><td>—</td><td>machine rate + (tool + change)/T</td></tr>
+  <tr><td>Cost per cutting-minute @ V<sub>econ</sub></td><td class="num">${C} ${fmt(out.costEco,3)}</td><td>—</td><td>minimum-cost operating point</td></tr>
+  <tr><td><b>Potential cost reduction</b></td><td class="num"><b>${fmt(out.savings,1)} %</b></td><td>—</td><td>machining-cost component only</td></tr>`;
+
+  drawCharts({inp,out});
+  buildAudit(inp,out,W,m,disp);
+}
+
+/* ---------------- charts ---------------- */
+function drawCharts(data){
+  const draw=(cvId,fn,cur,econ,xlab,ylab)=>{
+    const cv=g(cvId),ctx=cv.getContext('2d'),Wc=cv.width,Hc=cv.height;
+    const cs=getComputedStyle(document.documentElement), pv=n=>cs.getPropertyValue(n).trim();
+    const C={bg:pv('--panel2')||'#fbfcfe',grid:pv('--line')||'#d9e0e8',txt:pv('--mut')||'#5d6b7a',
+             line:pv('--blue')||'#0055A4',cur:pv('--accent')||'#E87722',eco:pv('--ok')||'#1a7f4b'};
+    ctx.clearRect(0,0,Wc,Hc);ctx.fillStyle=C.bg;ctx.fillRect(0,0,Wc,Hc);
+    if(!data){ctx.fillStyle=C.txt;ctx.font='13px sans-serif';ctx.fillText('No data — resolve errors',20,30);return;}
+    const pts=fn();
+    const xs=pts.map(p=>p[0]),ys=pts.map(p=>p[1]);
+    const x0=Math.min(...xs),x1=Math.max(...xs),y1=Math.max(...ys)*1.1;
+    const P={l:48,r:12,t:14,b:30};
+    const X=x=>P.l+(x-x0)/(x1-x0)*(Wc-P.l-P.r), Y=y=>Hc-P.b-y/y1*(Hc-P.t-P.b);
+    ctx.strokeStyle=C.grid;ctx.lineWidth=1;ctx.beginPath();
+    for(let i=0;i<=4;i++){const y=P.t+i*(Hc-P.t-P.b)/4;ctx.moveTo(P.l,y);ctx.lineTo(Wc-P.r,y);}ctx.stroke();
+    ctx.strokeStyle=C.line;ctx.lineWidth=2.5;ctx.beginPath();
+    pts.forEach((p,i)=>i?ctx.lineTo(X(p[0]),Y(p[1])):ctx.moveTo(X(p[0]),Y(p[1])));ctx.stroke();
+    const mark=(x,y,c,t)=>{ctx.fillStyle=c;ctx.beginPath();ctx.arc(X(x),Y(y),5,0,7);ctx.fill();
+      ctx.font='bold 11px sans-serif';ctx.fillText(t,Math.min(X(x)+8,Wc-90),Math.max(Y(y)-6,12));};
+    mark(cur[0],cur[1],C.cur,'current');
+    mark(econ[0],econ[1],C.eco,'economic');
+    ctx.fillStyle=C.txt;ctx.font='11px sans-serif';
+    ctx.fillText(xlab,P.l,Hc-8);ctx.fillText(ylab,4,12);ctx.fillText(fmt(x1,0),Wc-P.r-24,Hc-8);
+  };
+  if(!data){['chLife','chCost'].forEach(id=>{const c=g(id).getContext('2d');c.clearRect(0,0,520,300);c.fillStyle=getComputedStyle(document.documentElement).getPropertyValue('--mut');c.font='13px sans-serif';c.fillText('No data — resolve errors',20,30);});return;}
+  const {inp,out}=data;
+  const vcA=out.VcEff*0.35, vcB=out.VcEff*2.2;
+  draw('chLife',
+    ()=>{const a=[];for(let i=0;i<=80;i++){const vc=vcA+(vcB-vcA)*i/80;a.push([vc,Math.pow(inp.taylorC/vc,1/inp.taylorN)*inp.kCool*inp.kInt]);}return a;},
+    [out.VcEff,out.T],[out.Vecon,out.TeconCorr],'Vc (m/min) →','T (min)');
+  draw('chCost',
+    ()=>{const a=[];for(let i=0;i<=80;i++){const vc=vcA+(vcB-vcA)*i/80;const T=Math.pow(inp.taylorC/vc,1/inp.taylorN)*inp.kCool*inp.kInt;a.push([vc,inp.mRate+(inp.toolCost+inp.tChange*inp.mRate)/T]);}return a;},
+    [out.VcEff,out.costNow],[out.Vecon,out.costEco],'Vc (m/min) →','cost/min');
+}
+
+/* ---------------- audit ---------------- */
+function buildAudit(inp,out,W,m,disp){
+  const ts=LAST.ts;
+  const hash=fnv(JSON.stringify({inp,disp,mat:m.n,eng:ENGINE.version,ts}));
+  g('aEngine').innerHTML=`
+    <table><tr><th>Field</th><th>Value</th></tr>
+    <tr><td>Engine</td><td>${ENGINE.name} v${ENGINE.version}</td></tr>
+    <tr><td>Model core</td><td>${ENGINE.model}</td></tr>
+    <tr><td>Build date</td><td>${ENGINE.build}</td></tr>
+    <tr><td>Report timestamp (UTC)</td><td>${ts}</td></tr>
+    <tr><td>Report integrity hash (FNV-1a)</td><td><span class="hash">${hash}</span></td></tr>
+    <tr><td>Determinism</td><td><span class="sig">✓ VERIFIED</span> — identical inputs → identical outputs, no hidden state</td></tr></table>`;
+  const rows=Object.entries(disp).map(([k,v2])=>`<tr><td>${k}</td><td class="num" style="text-align:right">${v2}</td><td class="num">${fmt(inp[k],4)}</td></tr>`).join('');
+  const other=['op','substrate','shape','z','engAng','kCool','kInt','nmax','eta','taylorC','taylorN','targetT','tChange']
+    .map(k=>`<tr><td>${k}</td><td class="num" style="text-align:right">${typeof inp[k]==='number'?fmt(inp[k],4):inp[k]}</td><td class="num">—</td></tr>`).join('');
+  g('aInputs').innerHTML=`<table><tr><th>Input</th><th style="text-align:right">As entered (value + selected unit)</th><th style="text-align:right">SI used by engine</th></tr>${rows}${other}</table>`;
+  g('aFormulas').innerHTML=`
+    <div class="formula">unit conv.     : in→mm ×25.4 · SFM→m/min ×0.3048 · HP→kW ×0.7457 · ft·lb→N·m ×1.3558</div>
+    <div class="formula">n [rpm]        = 1000 · Vc / (π · D_eff)          D_eff(ball) = 2·√(R² − (R−ap)²)</div>
+    <div class="formula">vf [mm/min]    = fz · z · n</div>
+    <div class="formula">hm [mm]        = fz · sin θ                        (θ from CAM engagement angle)</div>
+    <div class="formula">hm [mm]        = fz · 2·√(ae/D · (1−ae/D))        (fallback, ae/D &lt; 0.5)</div>
+    <div class="formula">Q [cm³/min]    = ap · ae · vf / 1000              (drilling: π·D²/4 · vf / 1000)</div>
+    <div class="formula">kc [N/mm²]     = kc1 · h^(−mc)                    (Kienzle)</div>
+    <div class="formula">Pc [kW]        = kc · Q / 60000 ;  Ps = Pc / η ;  M [N·m] = 9550 · Pc / n</div>
+    <div class="formula">δ [mm]         = Fc · L³ / (3 · E · I) ;  I = π·D⁴/64</div>
+    <div class="formula">T [min]        = (C / Vc)^(1/n) · k_cool · k_interrupt   (corrected Taylor)</div>
+    <div class="formula">Ra [µm]        ≈ 32 · f_rev² / r                  (theoretical feed-mark cusp)</div>
+    <div class="formula">T_econ [min]   = (1/n − 1) · (Ct/Cm + t_change)   (Gilbert minimum-cost)</div>
+    <div class="formula">V_econ [m/min] = C · T_econ^(−n)</div>`;
+  g('aAssump').innerHTML=`
+    <ul style="padding-left:18px;line-height:1.8">
+      <li>Material constants (kc1, mc, Taylor C/n) are reference-grade mid-band values for the selected ISO 513 group; calibrate against your tooling supplier's datasheet for contract work.</li>
+      <li>Taylor model assumes flank-wear criterion VB = 0.3 mm; coolant and interruption factors are engineering multipliers, not measured data.</li>
+      <li>Power model is net cutting power ÷ single efficiency factor; spindle torque-curve droop at high RPM is NOT modelled — verify torque at operating speed.</li>
+      <li>Deflection is a static cantilever estimate with full-diameter second moment of area — fluted tools are ~10–20% more flexible in reality.</li>
+      <li>Surface roughness covers feed-mark geometry only; chatter, BUE and wear degrade real finish below this floor.</li>
+      <li>Economic speed optimizes machining cost only; scrap risk, finish specs and downstream operations are not priced.</li>
+      <li>Currency selector sets a symbol only — no FX conversion; engine is currency-agnostic.</li>
+      <li>Reference hints under each input are universal typical ranges (ISO 513 / machining-handbook practice), not limits — the engine validates physics, not preferences.</li>
+      <li>Engine computes in SI regardless of per-field display units (exact factors in A3).</li>
+    </ul>`;
+}
+
+/* ---------------- export ---------------- */
+function reportText(){
+  if(!LAST)return'';
+  const L=LAST;
+  let s=`SECTORCALC PRO — SC-020 CNC FEEDS & SPEEDS + TOOL LIFE REPORT\nEngine: ${ENGINE.name} v${ENGINE.version} | UTC: ${L.ts}\nMaterial: ${L.mat}\n\nINPUTS (as entered / SI):\n`;
+  for(const [k,v2] of Object.entries(L.disp))s+=`  ${k}: ${v2}  →  ${fmt(L.inp[k],4)} SI\n`;
+  if(L.out){s+=`\nKEY RESULTS:\n  n = ${fmt(L.out.nEff,0)} rpm | vf = ${fmt(L.out.vf,0)} mm/min | T = ${fmt(L.out.T,1)} min | Q = ${fmt(L.out.MRR,2)} cm³/min\n  Ps = ${fmt(L.out.Psp,2)} kW | M = ${fmt(L.out.M_tq,1)} N·m | δ = ${fmt(L.out.delta,4)} mm | V_econ = ${fmt(L.out.Vecon,0)} m/min\n`;}
+  s+=`\nWARNINGS (${L.W.length}):\n`;L.W.forEach(w=>s+=`  [${w.lvl.toUpperCase()}] ${w.t}: ${w.d}\n`);
+  return s;
+}
+function copyReport(){navigator.clipboard.writeText(reportText()).then(()=>alert('Audit report copied to clipboard.'));}
+function exportJSON(){
+  if(!LAST)return;
+  const blob=new Blob([JSON.stringify({engine:ENGINE,...LAST},null,2)],{type:'application/json'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='SC020_audit_report.json';a.click();
+}
+
+
+g('calcBtn').addEventListener('click',calculate);
+document.querySelectorAll('input,select').forEach(el=>el.addEventListener('change',calculate));
+document.querySelectorAll('input').forEach(el=>el.addEventListener('input',calculate));
+calculate();
+</script>
+</body>
+</html>

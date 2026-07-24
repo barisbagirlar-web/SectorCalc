@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>(function(){try{var k='sectorcalc-theme';var t=localStorage.getItem(k);if(t!=='dark'&&t!=='light')t=(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';document.documentElement.setAttribute('data-theme',t);document.documentElement.style.colorScheme=t;}catch(e){}})();</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>{{TITLE}} | SectorCalc</title>
+<meta name="description" content="{{DESCRIPTION}}">
+<!--
+  CANONICAL CALCULATOR FORM LAYOUT (locked):
+  - Always ship sc-theme.css + sc-form-fields.css (inject:nav enforces this).
+  - Value + unit rows MUST use .sc-input-wrap > input.sc-input + select.sc-unit
+  - NEVER set min-width:0 on .sc-input / value inputs beside units.
+  - Spinners are hidden by sc-form-fields.css; keep type="number".
+-->
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+  :root{--bg-0:#F5F5F0;--bg-1:#FFFFFF;--bg-2:#E0E0D8;--bg-3:#E8E8E2;--border-soft:#C5C5BE;--border-subtle:#D8D8D0;--text-primary:#1A1A1A;--text-secondary:#4A4A4A;--text-muted:#7A7A7A;--accent-blue:#0055A4;--accent-amber:#E87722;--font-sans:'Inter',system-ui,sans-serif;--font-mono:'JetBrains Mono',monospace;--font-display:'Barlow Condensed',sans-serif;--radius-sm:2px;--tf:0.12s ease}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--font-sans);background:var(--bg-0);color:var(--text-primary);min-height:100vh}
+  .sc-layout{display:grid;grid-template-columns:minmax(320px,400px) 1fr;min-height:100vh;padding-top:56px}
+  @media(max-width:900px){.sc-layout{grid-template-columns:1fr}}
+  .sc-sidebar{background:var(--bg-1);border-right:1px solid var(--border-subtle);padding-bottom:40px}
+  .sc-section-hd{padding:14px 20px 10px;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:var(--text-muted)}
+  .sc-field{padding:14px 20px;border-bottom:1px solid var(--border-soft)}
+  .sc-field-label{display:block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--text-secondary);margin-bottom:8px}
+  /* Form chrome only — sizing/readability owned by sc-form-fields.css */
+  .sc-input-wrap{display:flex;gap:8px;align-items:stretch;width:100%}
+  .sc-input{flex:1 1 auto;min-width:5.75rem;background:var(--bg-0);border:1px solid var(--border-soft);border-radius:var(--radius-sm);padding:9px 12px;font-family:var(--font-mono);font-size:13px;font-variant-numeric:tabular-nums}
+  .sc-unit{flex:0 0 auto;min-width:3.75rem;max-width:5.75rem;background:var(--bg-3);border:1px solid var(--border-soft);border-radius:var(--radius-sm);padding:9px 10px;font-family:var(--font-mono);font-size:11px;font-weight:600}
+  .sc-main{padding:24px}
+  .sc-live{margin:14px 20px;padding:16px 18px;border:1px solid rgba(0,85,164,0.14);border-radius:var(--radius-sm);background:rgba(0,85,164,0.04)}
+  .sc-live-hd{font-size:9px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:var(--accent-blue);margin-bottom:6px}
+  .sc-live-val{font-family:var(--font-mono);font-size:26px;font-weight:700}
+  .sc-sidebar-ft{padding:14px 20px;border-top:1px solid var(--border-soft);display:flex;gap:8px;flex-wrap:wrap}
+  .sc-btn{padding:10px 18px;border-radius:var(--radius-sm);font-size:12px;font-weight:700;cursor:pointer;border:none;font-family:var(--font-sans)}
+  .sc-btn-primary{background:var(--accent-blue);color:#fff;flex:1;justify-content:center;display:inline-flex;align-items:center}
+</style>
+<link rel="stylesheet" href="./sc-theme.css?v=8">
+<script src="./sc-theme.js?v=8" defer></script>
+<link rel="stylesheet" href="./sc-form-fields.css?v=3">
+<link rel="stylesheet" href="./sc-tool-guide.css?v=1">
+<script src="./sc-tool-guide.js?v=1" defer></script>
+</head>
+<body data-tool-badge="{{BADGE}}">
+<div class="sc-layout">
+  <aside class="sc-sidebar">
+    <div class="sc-section-hd">{{TITLE}} · Inputs</div>
+    <!-- EXAMPLE: required value+unit structure -->
+    <div class="sc-field">
+      <label class="sc-field-label" for="exampleValue">Example value</label>
+      <div class="sc-input-wrap">
+        <input class="sc-input" id="exampleValue" type="number" value="10" step="0.1" min="0">
+        <select class="sc-unit" id="exampleUnit" aria-label="Unit">
+          <option value="mm" selected>mm</option>
+          <option value="in">in</option>
+        </select>
+      </div>
+    </div>
+    <div class="sc-live">
+      <div class="sc-live-hd">Live result</div>
+      <div class="sc-live-val" id="liveResult">—</div>
+    </div>
+    <div class="sc-sidebar-ft">
+      <button class="sc-btn sc-btn-primary" type="button" id="genReport">Generate Report</button>
+    </div>
+  </aside>
+  <main class="sc-main">
+    <h1>{{TITLE}}</h1>
+    <p>{{DESCRIPTION}}</p>
+  </main>
+</div>
+<!--SC-GUIDE-MOUNT-->
+<script type="module">
+  // Wire your Decimal.js engine here. Keep money/calc on Decimal — never Number for money.
+  const input = document.getElementById('exampleValue');
+  const out = document.getElementById('liveResult');
+  const sync = () => { out.textContent = input.value || '—'; };
+  input.addEventListener('input', sync);
+  document.getElementById('genReport')?.addEventListener('click', sync);
+  sync();
+</script>
+</body>
+</html>
