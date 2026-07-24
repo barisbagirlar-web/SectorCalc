@@ -37,27 +37,55 @@ jobs:
       - name: Verify Firebase credential present
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          GH_TOKEN: ${{ github.token }}
         run: |
           if [ -z "${FIREBASE_TOKEN:-}" ]; then
             echo '::error::FIREBASE_TOKEN secret is not configured.'
             exit 1
           fi
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${{ steps.release.outputs.sha }}" \
+            -f state=success -f context='SectorCalc Firebase Credential' -f description='Firebase credential is available'
       - name: Install locked dependencies
-        run: npm ci --no-audit --no-fund
-      - name: English-only language gate
-        run: node scripts/check-language.mjs --strict
-      - name: Unit + golden + industrial regression tests
-        run: npm test
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          npm ci --no-audit --no-fund
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${{ steps.release.outputs.sha }}" \
+            -f state=success -f context='SectorCalc Release Install' -f description='Locked dependency install passed'
+      - name: English + unit + golden + industrial tests
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          node scripts/check-language.mjs --strict
+          npm test
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${{ steps.release.outputs.sha }}" \
+            -f state=success -f context='SectorCalc Release Tests' -f description='Language and regression tests passed'
       - name: Strict TypeScript
-        run: npm run typecheck
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          npm run typecheck
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${{ steps.release.outputs.sha }}" \
+            -f state=success -f context='SectorCalc Release Typecheck' -f description='Strict TypeScript passed'
       - name: Build + navigation + form + unified-engine guards
-        run: npm run build
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          npm run build
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${{ steps.release.outputs.sha }}" \
+            -f state=success -f context='SectorCalc Release Build Guard' -f description='Production build and all guards passed'
       - name: Deploy Firebase Hosting (sectorcalc-prod)
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-        run: npx --yes firebase-tools@14 deploy --only hosting --project sectorcalc-prod --token "$FIREBASE_TOKEN"
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          npx --yes firebase-tools@14 deploy --only hosting --project sectorcalc-prod --token "$FIREBASE_TOKEN"
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${{ steps.release.outputs.sha }}" \
+            -f state=success -f context='SectorCalc Firebase Deploy' -f description='Firebase Hosting deploy command passed'
       - name: Verify live production contract
         shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
           base='https://www.sectorcalc.com'
@@ -81,30 +109,25 @@ jobs:
 
           fetch_until '/tools.html' /tmp/tools.html 'id="stLive">25<'
           grep -Fq '25</div><div class="l">Live calculators' /tmp/tools.html
-
           fetch_until '/bearing-pro.html' /tmp/bearing.html 'data-tool-code="SC-021"'
           grep -Fq 'A1 · Engine Identity &amp; Integrity' /tmp/bearing.html
           grep -Fq 'auditWarnings' /tmp/bearing.html
-
           fetch_until '/quote-pro.html' /tmp/quote.html 'data-tool-code="SC-012"'
           grep -Fq 'auditFormulas' /tmp/quote.html
-
           fetch_until '/heat-input-pro.html' /tmp/heat.html 'data-tool-code="SC-029"'
           grep -Fq 'auditAssumptions' /tmp/heat.html
-
           fetch_until '/sc008-pro.html' /tmp/sc008.html 'SC-008'
-
           fetch_until '/sitemap.xml' /tmp/sitemap.xml 'https://www.sectorcalc.com/hydraulic-pro.html'
           grep -Fq 'https://www.sectorcalc.com/bearing-freq-pro.html' /tmp/sitemap.xml
           grep -Fq '2026-07-24' /tmp/sitemap.xml
-
           fetch_until '/llms.txt' /tmp/llms.txt '24 calculators use the schema-driven Decimal.js industrial runtime'
           grep -Fq 'All tools — 25 live, 0 planned' /tmp/llms.txt
           grep -Fq 'A1-A5 Audit/Review' /tmp/llms.txt
-
           fetch_until '/llm.txt' /tmp/llm.txt 'SC-040 Hydraulic Cylinder Sizing'
           grep -Fq 'deterministic input hash' /tmp/llm.txt
 
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${release_sha}" \
+            -f state=success -f context='SectorCalc Live Production' -f description='Live 25-tool, audit and discovery contract verified'
           echo 'LIVE_PRODUCTION_VERIFY=PASS'
       - name: Mark main production deploy success
         env:
