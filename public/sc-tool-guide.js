@@ -1,6 +1,8 @@
 /**
  * SectorCalc tool guide: engagement bar + balanced page layout.
- * Layout turns flat long-form SEO copy into sticky TOC + section cards on every *-pro page.
+ * Engagement mounts directly under the primary form action
+ * (CALCULATE & AUDIT / Generate Report) on every live calculator.
+ * Layout turns flat SEO copy into sticky TOC + section cards.
  * No embed control — iframe embedding is blocked site-wide (X-Frame-Options: DENY).
  */
 (function () {
@@ -13,6 +15,8 @@
     cite: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 8H6a2 2 0 0 0-2 2v2h4V8zm0 0V6a2 2 0 0 0-2-2H6m12 4h-4a2 2 0 0 0-2 2v2h4V8zm0 0V6a2 2 0 0 0-2-2h-2"/></svg>',
     thumb: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3H14zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>'
   };
+
+  const SYNC = 'sectorcalc-engage-sync';
 
   function el(html) {
     const t = document.createElement('template');
@@ -47,23 +51,66 @@
     return Promise.resolve();
   }
 
+  function toolMeta() {
+    const guide = document.querySelector('#sc-guide, .sc-guide');
+    return {
+      toolId: (guide && guide.dataset.toolId) || 'SC',
+      toolName: (guide && guide.dataset.toolName) || document.title,
+      toolUrl: (guide && guide.dataset.toolUrl) || (location.origin + location.pathname)
+    };
+  }
+
+  /**
+   * Ensure engagement host sits directly under the primary form action.
+   * Engine tools: after #calcBtn (CALCULATE & AUDIT).
+   * Lit tools: inside .sc-sidebar-ft, under Generate Report (avoids sticky overflow clip).
+   */
+  function ensureFormEngageHost() {
+    let host = document.querySelector('[data-sc-engage-slot="form"]');
+    if (host) return host;
+
+    host = document.createElement('div');
+    host.setAttribute('data-sc-engage', '');
+    host.setAttribute('data-sc-engage-slot', 'form');
+    host.className = 'sc-engage-form-host';
+
+    const calcBtn = document.getElementById('calcBtn');
+    if (calcBtn && calcBtn.parentElement) {
+      calcBtn.insertAdjacentElement('afterend', host);
+      return host;
+    }
+
+    const ft = document.querySelector('.sc-sidebar-ft');
+    if (ft) {
+      ft.classList.add('sc-sidebar-ft--with-engage');
+      ft.appendChild(host);
+      return host;
+    }
+
+    return null;
+  }
+
   /** Wrap flat guide children into sticky TOC + section cards (all tools). */
   function layoutGuide(guide) {
     if (!guide || guide.dataset.laidOut === '1') return;
     guide.dataset.laidOut = '1';
 
     const toc = guide.querySelector('.sc-guide-toc');
-    const engageHost = guide.querySelector('[data-sc-engage]') || guide.querySelector('.sc-engage');
     if (!toc) return;
+
+    // Guide-top engage hosts are legacy — strip so the bar lives under the form only.
+    guide.querySelectorAll('[data-sc-engage]:not([data-sc-engage-slot="form"])').forEach((n) => {
+      if (!n.classList.contains('sc-engage-form-host')) n.remove();
+    });
 
     const main = document.createElement('div');
     main.className = 'sc-guide-main';
 
-    const keep = new Set([toc, engageHost]);
-    const moving = [...guide.children].filter((n) => !keep.has(n) && n.tagName !== 'SCRIPT');
+    const moving = [...guide.children].filter(
+      (n) => n !== toc && n.tagName !== 'SCRIPT' && !n.classList.contains('sc-guide-grid')
+    );
     moving.forEach((n) => main.appendChild(n));
 
-    // Intro card: lede (+ any nodes before first h2)
     const intro = document.createElement('div');
     intro.className = 'sc-guide-intro';
     while (main.firstChild && main.firstChild.tagName !== 'H2') {
@@ -72,7 +119,6 @@
     if (intro.childNodes.length) main.insertBefore(intro, main.firstChild);
     else intro.remove();
 
-    // Section cards: each h2 opens a card until the next h2 / script
     const nodes = [...main.childNodes];
     let card = null;
     nodes.forEach((node) => {
@@ -92,7 +138,6 @@
       if (card) card.appendChild(node);
     });
 
-    // FAQ grid inside FAQ card(s)
     main.querySelectorAll('.sc-guide-card').forEach((c) => {
       const qs = [...c.querySelectorAll(':scope > .q')];
       if (qs.length < 2) return;
@@ -102,7 +147,6 @@
       qs.forEach((q) => grid.appendChild(q));
     });
 
-    // Tables: horizontal scroll wrappers
     main.querySelectorAll('table').forEach((table) => {
       if (table.parentElement && table.parentElement.classList.contains('sc-table-wrap')) return;
       const wrap = document.createElement('div');
@@ -111,7 +155,6 @@
       wrap.appendChild(table);
     });
 
-    // Normalize TOC title
     const title = toc.querySelector('.t, .sc-guide-toc-title');
     if (title) title.textContent = 'On this page';
 
@@ -119,21 +162,19 @@
     grid.className = 'sc-guide-grid';
     grid.appendChild(toc);
     grid.appendChild(main);
-
-    if (engageHost && engageHost.nextSibling) guide.insertBefore(grid, engageHost.nextSibling);
-    else if (engageHost) engageHost.after(grid);
-    else guide.prepend(grid);
+    guide.prepend(grid);
   }
 
   function mount(root) {
-    const guide = root.closest('.sc-guide') || document.querySelector('.sc-guide');
-    if (!guide || root.dataset.mounted) return;
+    if (!root || root.dataset.mounted === '1') return;
     root.dataset.mounted = '1';
 
-    const toolId = guide.dataset.toolId || 'SC';
-    const toolName = guide.dataset.toolName || document.title;
-    const toolUrl = guide.dataset.toolUrl || (location.origin + location.pathname);
+    const meta = toolMeta();
+    const toolId = meta.toolId;
+    const toolName = meta.toolName;
+    const toolUrl = meta.toolUrl;
     const year = new Date().getUTCFullYear();
+    const uid = `${toolId}-${root.dataset.scEngageSlot || 'guide'}`.replace(/[^a-zA-Z0-9_-]/g, '');
 
     const voteKey = storageKey(toolId, 'vote');
     const countKey = storageKey(toolId, 'helpful');
@@ -164,16 +205,16 @@
         </div>
         <div class="sc-engage-panels">
           <div class="sc-engage-panel" data-pane="suggest">
-            <label for="sc-sug-${toolId}">Suggestion for ${toolName}</label>
-            <textarea id="sc-sug-${toolId}" maxlength="2000" placeholder="Describe the improvement, missing standard, or bug (English)."></textarea>
+            <label for="sc-sug-${uid}">Suggestion for ${toolName}</label>
+            <textarea id="sc-sug-${uid}" maxlength="2000" placeholder="Describe the improvement, missing standard, or bug (English)."></textarea>
             <div class="row">
               <button type="button" class="sc-engage-btn" data-act="send-suggest">Send suggestion</button>
             </div>
             <div class="msg" data-msg></div>
           </div>
           <div class="sc-engage-panel" data-pane="notify">
-            <label for="sc-ntf-${toolId}">Email for product updates (stored locally until checkout launches)</label>
-            <input id="sc-ntf-${toolId}" type="email" autocomplete="email" placeholder="you@company.com">
+            <label for="sc-ntf-${uid}">Email for product updates (stored locally until checkout launches)</label>
+            <input id="sc-ntf-${uid}" type="email" autocomplete="email" placeholder="you@company.com">
             <div class="row">
               <button type="button" class="sc-engage-btn" data-act="send-notify">Save notification preference</button>
             </div>
@@ -204,6 +245,9 @@
     citeBox.textContent = citation;
 
     function syncVoteUI() {
+      vote = localStorage.getItem(voteKey) || '';
+      helpful = parseInt(localStorage.getItem(countKey) || String(helpful), 10);
+      if (!Number.isFinite(helpful)) helpful = seedHelpful(toolId);
       upBtn.setAttribute('aria-pressed', vote === 'up' ? 'true' : 'false');
       downBtn.setAttribute('aria-pressed', vote === 'down' ? 'true' : 'false');
       bar.querySelector('.sc-engage-vote').classList.toggle('on-up', vote === 'up');
@@ -214,11 +258,20 @@
     }
     syncVoteUI();
 
+    window.addEventListener(SYNC, (e) => {
+      if (!e.detail || e.detail.toolId !== toolId) return;
+      syncVoteUI();
+    });
+
     function openPanel(name) {
       bar.querySelectorAll('.sc-engage-panel').forEach((p) => {
         if (p.dataset.pane === name) p.classList.toggle('open');
         else p.classList.remove('open');
       });
+    }
+
+    function broadcast() {
+      window.dispatchEvent(new CustomEvent(SYNC, { detail: { toolId } }));
     }
 
     bar.addEventListener('click', async (e) => {
@@ -244,6 +297,7 @@
         localStorage.setItem(voteKey, vote);
         localStorage.setItem(countKey, String(helpful));
         syncVoteUI();
+        broadcast();
         return;
       }
 
@@ -309,15 +363,20 @@
         msg.textContent = 'Citation copied to clipboard.';
       }
     });
-
-    layoutGuide(guide);
   }
 
   function boot() {
+    const formHost = ensureFormEngageHost();
+    if (formHost) mount(formHost);
+
     document.querySelectorAll('.sc-guide').forEach((guide) => {
-      const host = guide.querySelector('[data-sc-engage]');
-      if (host) mount(host);
-      else layoutGuide(guide);
+      layoutGuide(guide);
+    });
+
+    // Optional secondary mounts still in DOM (if any)
+    document.querySelectorAll('[data-sc-engage]').forEach((host) => {
+      if (host.dataset.mounted === '1') return;
+      mount(host);
     });
   }
 

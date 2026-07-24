@@ -17,7 +17,7 @@ const MAP = [
   { page: 'bearing-pro.html', guide: 'content/guides/sc021.html', mode: 'before-footer' }
 ];
 
-const GUIDE_ASSETS_V = 2;
+const GUIDE_ASSETS_V = 3;
 const ASSETS = `
 <link rel="stylesheet" href="./sc-tool-guide.css?v=${GUIDE_ASSETS_V}">
 <script src="./sc-tool-guide.js?v=${GUIDE_ASSETS_V}" defer></script>

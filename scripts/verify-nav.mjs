@@ -119,9 +119,8 @@ function checkPage(page) {
     if (!hrefs.some((h) => h === '/pricing.html')) issues.push(`${page}: no pricing link`);
     if (!html.includes('sc-tool-guide.css')) issues.push(`${page}: missing sc-tool-guide.css`);
     if (!html.includes('sc-tool-guide.js')) issues.push(`${page}: missing sc-tool-guide.js`);
-    if (!html.includes('data-sc-engage')) issues.push(`${page}: missing SEO guide engagement mount`);
     if (!html.includes('id="sc-guide"')) issues.push(`${page}: missing #sc-guide SEO section`);
-    if (!/<link[^>]+sc-form-fields\.css/i.test(html)) issues.push(`${page}: missing sc-form-fields.css`);
+    // Engagement mounts under CALCULATE / Generate Report via sc-tool-guide.js (data-sc-engage-slot=form)    if (!/<link[^>]+sc-form-fields\.css/i.test(html)) issues.push(`${page}: missing sc-form-fields.css`);
   }
 
   // Site pages (not legacy calculator redirects) must ship the shared theme engine

@@ -76,24 +76,31 @@ test('SC-021 bearing-pro: live + audit', async ({ page }) => {
 test('tool SEO guide + engagement mounts on SC-020', async ({ page }) => {
   await page.goto('/machining-pro.html');
   await expect(page.locator('#sc-guide')).toBeVisible();
-  await expect(page.locator('#sc-guide [data-sc-engage] .sc-engage')).toBeVisible({ timeout: 5000 });
-  await expect(page.locator('#sc-guide [data-sc-engage]')).toContainText(/find this calculator helpful/i);
+  // Engagement sits directly under CALCULATE & AUDIT
+  const formEngage = page.locator('[data-sc-engage-slot="form"] .sc-engage');
+  await expect(formEngage).toBeVisible({ timeout: 5000 });
+  await expect(formEngage).toContainText(/find this calculator helpful/i);
+  const afterBtn = await page.evaluate(() => {
+    const btn = document.getElementById('calcBtn');
+    const host = document.querySelector('[data-sc-engage-slot="form"]');
+    return !!(btn && host && btn.nextElementSibling === host);
+  });
+  expect(afterBtn).toBeTruthy();
   await expect(page.locator('#sc-guide .sc-guide-grid')).toBeVisible();
   await expect(page.locator('#sc-guide .sc-guide-toc')).toBeVisible();
   await expect(page.locator('#sc-guide .sc-guide-main .sc-guide-card').first()).toBeVisible();
   await expect(page.locator('#sc-guide a[href="#taylor"], #sc-guide a[href*="taylor"]').first()).toBeVisible();
-  await page.locator('.sc-engage-btn[data-panel="cite"]').click();
-  await expect(page.locator('[data-pane="cite"].open')).toBeVisible();
-  await expect(page.locator('[data-cite]')).toContainText(/SectorCalc/);
-  // No embed control
-  await expect(page.locator('.sc-engage')).not.toContainText(/Embed/i);
+  await page.locator('[data-sc-engage-slot="form"] .sc-engage-btn[data-panel="cite"]').click();
+  await expect(page.locator('[data-sc-engage-slot="form"] [data-pane="cite"].open')).toBeVisible();
+  await expect(page.locator('[data-sc-engage-slot="form"] [data-cite]')).toContainText(/SectorCalc/);
+  await expect(formEngage).not.toContainText(/Embed/i);
 });
 
 test('tool SEO guide present on SC-008', async ({ page }) => {
   await page.goto('/sc008-pro.html');
   await expect(page.locator('#sc-guide')).toBeVisible();
   await expect(page.locator('#sc-guide')).toContainText(/Tolerance Stack-Up/i);
-  await expect(page.locator('#sc-guide [data-sc-engage] .sc-engage')).toBeVisible({ timeout: 5000 });
+  await expect(page.locator('[data-sc-engage-slot="form"] .sc-engage')).toBeVisible({ timeout: 5000 });
   await expect(page.locator('#sc-guide .sc-guide-grid')).toBeVisible();
   await expect(page.locator('#sc-guide .sc-guide-card').first()).toBeVisible();
 });
