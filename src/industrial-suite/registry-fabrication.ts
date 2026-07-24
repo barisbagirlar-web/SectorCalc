@@ -1,5 +1,5 @@
 import { D, Decimal, CalcError } from '../core/engine.js';
-import { ToolDefinition, CanonicalInput, numberValue as n, selectValue as s, output as o, warning as w, decimalPi as PI, sinDeg, tanDeg, clamp } from './engine.js';
+import { ToolDefinition, CanonicalInput, numberValue as n, selectValue as s, output as o, warning as w, decimalPi as PI, sinDeg, tanDeg } from './engine.js';
 
 const positive = (x: Decimal, name: string): Decimal => { if (x.lte(0)) throw new CalcError('E_NON_POSITIVE', `${name} must be > 0`); return x; };
 const nonNegative = (x: Decimal, name: string): Decimal => { if (x.lt(0)) throw new CalcError('E_NEGATIVE', `${name} must be >= 0`); return x; };
@@ -88,7 +88,7 @@ function sideLoadFactor(angle:Decimal):Decimal{
 }
 const SC032: ToolDefinition = {
   code:'SC-032', slug:'shackle-eyebolt-pro', name:'Shackle & Eye-Bolt Load-Path Verification', category:'Lifting & Rigging', standard:'Manufacturer-WLL based load-path model with generic shackle side-load screening', engineVersion:'SC032-UEK-1.0.0',
-  summary:'Checks per-point factored demand against shackle and lifting-point capacity while making side-load, sling-angle, temperature and manufacturer derating explicit.', decision:'Prevent the common failure of dividing load by point count while ignoring sling angle, COG, side loading and hardware derating.',
+  summary:'Checks per-point factored demand against shackle and lifting-point capacity while making side-load, sling-angle, center-of-gravity and manufacturer derating explicit.', decision:'Prevent the common failure of dividing load by point count while ignoring sling angle, COG, side loading and hardware derating.',
   fields:[
     {kind:'number',id:'load',label:'Lifted load',defaultValue:30,step:.5,family:'force',defaultUnit:'kN',min:.01,max:10000000,reference:'Total suspended load including lifting frame/attachments.'},
     {kind:'number',id:'points',label:'Effective lifting points',defaultValue:2,step:1,family:'count',defaultUnit:'count',min:1,max:8,reference:'Use effective points actually sharing load; do not assume redundant points carry equally.'},
