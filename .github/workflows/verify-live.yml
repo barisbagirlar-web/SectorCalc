@@ -107,8 +107,9 @@ jobs:
             return 1
           }
 
-          fetch_until '/tools.html' /tmp/tools.html 'id="stLive">25<'
-          grep -Fq '25</div><div class="l">Live calculators' /tmp/tools.html
+          fetch_until '/tools.html' /tmp/tools.html '25</div><div class="l">Live calculators'
+          grep -Fq '/hydraulic-pro.html' /tmp/tools.html
+          grep -Fq '/bearing-freq-pro.html' /tmp/tools.html
           fetch_until '/bearing-pro.html' /tmp/bearing.html 'data-tool-code="SC-021"'
           grep -Fq 'A1 · Engine Identity &amp; Integrity' /tmp/bearing.html
           grep -Fq 'auditWarnings' /tmp/bearing.html
