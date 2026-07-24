@@ -26,8 +26,11 @@ async function probe() {
   }
 
   if (mode === 'content') {
-    if (!html.includes('Turn industrial inputs into defensible decisions.')) {
-      throw new Error('apex homepage does not contain current release identity');
+    const hasCurrentTitle = /<title>SectorCalc\s*-\s*Deterministic Industrial Decision Calculators<\/title>/i.test(html);
+    const hasCurrentHero = /class=["'][^"']*sc-hero[^"']*["']/i.test(html) && /class=["'][^"']*sc-hero-title[^"']*["']/i.test(html);
+    const hasH1 = /<h1\b/i.test(html);
+    if (!hasCurrentTitle || !hasCurrentHero || !hasH1) {
+      throw new Error(`apex homepage release identity mismatch title=${hasCurrentTitle} hero=${hasCurrentHero} h1=${hasH1}`);
     }
     return;
   }
