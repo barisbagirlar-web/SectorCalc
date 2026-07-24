@@ -4,7 +4,7 @@
 Rules:
 - Do not replace existing title/description/favicon/theme boot scripts.
 - Do not add AggregateRating / Review.
-- Do not add CSP meta (would break cdnjs / fonts already in use).
+- CSP meta allows cdnjs, Google Fonts, and GA4 endpoints used by live tools.
 - Canonical host: https://www.sectorcalc.com
 - Idempotent via SC-SEO-* markers.
 """
@@ -19,6 +19,24 @@ ROOT = Path(__file__).resolve().parents[1]
 HOST = "https://www.sectorcalc.com"
 OG_DEFAULT = f"{HOST}/assets/images/og-default-1200x630.jpg"
 OG_HOME = f"{HOST}/assets/images/sectorcalc-og-1200x630.jpg"
+
+# CSP must allow existing CDN / fonts / optional GA4 (do not tighten blindly).
+CSP_CONTENT = (
+    "default-src 'self'; "
+    "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com "
+    "https://www.googletagmanager.com https://www.google-analytics.com; "
+    "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; "
+    "font-src 'self' https://fonts.gstatic.com data:; "
+    "img-src 'self' data: blob: https:; "
+    "connect-src 'self' https://www.google-analytics.com https://analytics.google.com "
+    "https://region1.google-analytics.com https://www.googletagmanager.com; "
+    "frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests"
+)
+
+PERMISSIONS_POLICY = (
+    "camera=(), microphone=(), geolocation=(), payment=(), usb=(), "
+    "magnetometer=(), gyroscope=(), accelerometer=(), interest-cohort=()"
+)
 
 TOOL_META = {
     "sc008-pro": {
@@ -662,6 +680,44 @@ HOST_REDIRECT = """<!--SC-SEO-HOST-->
 <!--SC-SEO-HOST-END-->"""
 
 
+def security_head_block() -> str:
+    """CSP + Permissions-Policy + Dublin Core (English-only; language gate safe)."""
+    return f"""<!--SC-SEO-SECURITY-START-->
+<meta http-equiv="Content-Security-Policy" content="{CSP_CONTENT}">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Permissions-Policy" content="{PERMISSIONS_POLICY}">
+<link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
+<meta name="DC.title" content="SectorCalc — Deterministic Industrial Engineering Calculators">
+<meta name="DC.creator" content="SectorCalc Inc.">
+<meta name="DC.subject" content="Engineering Calculators, Tolerance Analysis, Monte Carlo Simulation">
+<meta name="DC.description" content="Deterministic industrial calculators with ISO audit trails">
+<meta name="DC.publisher" content="SectorCalc Inc.">
+<meta name="DC.date" content="2026-07-25">
+<meta name="DC.type" content="Text">
+<meta name="DC.format" content="text/html">
+<meta name="DC.language" content="en">
+<meta name="DC.coverage" content="Global">
+<meta name="DC.rights" content="2024-2026 SectorCalc Inc.">
+<!--SC-SEO-SECURITY-END-->"""
+
+
+def upsert_security(text: str) -> str:
+    start, end = "<!--SC-SEO-SECURITY-START-->", "<!--SC-SEO-SECURITY-END-->"
+    block = security_head_block()
+    if start in text and end in text:
+        return re.sub(
+            re.escape(start) + r".*?" + re.escape(end),
+            block.strip(),
+            text,
+            count=1,
+            flags=re.S,
+        )
+    # Place early in <head> (after host redirect if present)
+    if "<!--SC-SEO-HOST-END-->" in text:
+        return text.replace("<!--SC-SEO-HOST-END-->", "<!--SC-SEO-HOST-END-->\n" + block, 1)
+    return re.sub(r"(<head[^>]*>)", r"\1\n" + block, text, count=1, flags=re.I)
+
+
 def upsert_host_redirect(text: str) -> str:
     start, end = "<!--SC-SEO-HOST-->", "<!--SC-SEO-HOST-END-->"
     if start in text and end in text:
@@ -691,6 +747,7 @@ def process(page: str) -> None:
     elif page == "pro.html":
         desc = "SectorCalc Pro calculators for shop-floor engineers: CNC feeds & speeds, bearing life, tolerance stack-up and more — deterministic SI engines with audit trails."
     text = upsert_host_redirect(text)
+    text = upsert_security(text)
     text = upsert_block(text, "<!--SC-SEO-META-START-->", "<!--SC-SEO-META-END-->", page_meta_block(page, title, desc))
 
     schemas = [schema_global()]
