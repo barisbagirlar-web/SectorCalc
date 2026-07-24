@@ -41,6 +41,7 @@ const EXPECTED = {
       '#evidence',
       '#verify'
     ],
+    // mobile overlay must expose the catalog (n8n edge: phone path ≠ desktop footer only)
     mustHaveIds: [
       'main-content',
       'decide',
