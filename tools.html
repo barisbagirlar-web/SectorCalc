@@ -119,8 +119,8 @@ html[data-theme="dark"] .hero h1{color:var(--ink)}
 .omni{max-width:760px;margin:28px auto 0;position:relative}
 .omni input{width:100%;padding:20px 58px 20px 62px;font-size:18px;border-radius:60px;border:2px solid var(--line);background:var(--panel);color:var(--ink);box-shadow:0 10px 40px rgba(15,39,68,.12);outline:none;transition:border-color .15s,box-shadow .15s;font-family:inherit}
 .omni input:focus{border-color:var(--blue);box-shadow:0 10px 44px rgba(0,85,164,.22)}
-.omni .glass{position:absolute;left:24px;top:50%;transform:translateY(-50%);font-size:21px;color:var(--mut)}
-.omni kbd{position:absolute;right:22px;top:50%;transform:translateY(-50%);font-family:var(--mono);font-size:12px;color:var(--mut);border:1px solid var(--line);border-radius:6px;padding:3px 9px;background:var(--panel2)}
+.omni .glass{position:absolute;left:24px;top:50%;transform:translateY(-50%);font-size:21px;color:var(--mut);pointer-events:none}
+.omni kbd{position:absolute;right:22px;top:50%;transform:translateY(-50%);font-family:var(--mono);font-size:12px;color:var(--mut);border:1px solid var(--line);border-radius:6px;padding:3px 9px;background:var(--panel2);pointer-events:none}
 .stats{display:flex;justify-content:center;margin:24px auto 0;max-width:760px;border:1px solid var(--line);border-radius:12px;background:var(--panel);overflow:hidden}
 .stats div{flex:1;padding:13px 8px;text-align:center;border-right:1px solid var(--line)}
 .stats div:last-child{border-right:none}
@@ -188,6 +188,7 @@ html[data-theme="dark"] .tlist a{color:#7fb3e8}
   <a href="/sc008-pro.html" class="btn-primary">Run a Calculation</a>
 </div>
 <!--SC-SITE-NAV-END-->
+
 
 
 
@@ -283,21 +284,32 @@ const TOOLS=[
 /* ---------------- state & render ---------------- */
 const g=id=>document.getElementById(id);
 let curCat='all', curQ='';
-g('stLive').textContent=TOOLS.filter(t=>t.live).length;
-g('stPipe').textContent=TOOLS.filter(t=>!t.live).length;
 
+function norm(s){return String(s||'').toLowerCase().replace(/[–—−]/g,'-').replace(/\s+/g,' ').trim();}
+function tokens(q){return norm(q).split(/[^a-z0-9+./-]+/).filter(Boolean);}
+function haystack(t){
+  const cat=CATS.find(c=>c.id===t.c);
+  return norm([t.name,t.code,t.kw,t.c,cat&&cat.name,cat&&cat.full,cat&&cat.purpose].filter(Boolean).join(' '));
+}
+function matchTool(t,q){
+  const toks=tokens(q);
+  if(!toks.length)return true;
+  const h=haystack(t);
+  return toks.every(tok=>h.includes(tok));
+}
 function catTools(id,q){
-  q=(q||'').toLowerCase().trim();
-  return TOOLS.filter(t=>t.c===id&&(!q||(t.name+' '+t.code+' '+t.kw).toLowerCase().includes(q)));
+  return TOOLS.filter(t=>t.c===id&&matchTool(t,q));
 }
 function renderTiles(){
-  g('tiles').innerHTML=CATS.map(c=>{
+  const tiles=g('tiles'); if(!tiles)return;
+  tiles.innerHTML=CATS.map(c=>{
     const n=catTools(c.id,curQ).length;
-    return `<div class="tile ${curCat===c.id?'on':''}" onclick="pickCat('${c.id}')">
+    const blurb=(c.purpose.split(/[—–-]/)[1]||c.purpose).trim();
+    return `<div class="tile ${curCat===c.id?'on':''}" data-cat="${c.id}" role="button" tabindex="0">
       <svg viewBox="0 0 42 42">${IC[c.id]}</svg>
       <div class="tn">${c.name}</div>
       <div class="tc">${n} calculator${n!==1?'s':''}</div>
-      <div class="tp">${c.purpose.split('—')[1]||''}</div>
+      <div class="tp">${blurb}</div>
     </div>`;}).join('');
 }
 function toolItem(t){
@@ -305,19 +317,22 @@ function toolItem(t){
   return `<li><span class="planned-i">${t.name}</span><span class="badge-p">Planned</span></li>`;
 }
 function renderCatalog(){
+  const catalog=g('catalog'), nores=g('nores'); if(!catalog||!nores)return;
   let shown=0;
-  g('catalog').innerHTML=CATS.map(c=>{
-    if(curCat!=='all'&&c.id!==curCat)return'';
+  // While searching, always show every matching category (ignore tile filter).
+  const filterCat=curQ.trim()? 'all' : curCat;
+  catalog.innerHTML=CATS.map(c=>{
+    if(filterCat!=='all'&&c.id!==filterCat)return'';
     const tools=catTools(c.id,curQ);
     if(!tools.length)return'';
     shown+=tools.length;
     return `<section class="catsec" id="cat-${c.id}">
-      <h2>${c.full} calculators ⚙</h2>
+      <h2>${c.full} calculators</h2>
       <div class="cp">${c.purpose}</div>
       <ul class="tlist">${tools.map(toolItem).join('')}</ul>
     </section>`;}).join('');
-  g('nores').classList.toggle('hidden',shown>0);
-  if(!shown)g('nq').textContent=curQ;
+  nores.classList.toggle('hidden',shown>0);
+  if(!shown){const nq=g('nq'); if(nq)nq.textContent=curQ;}
 }
 function renderAll(){renderTiles();renderCatalog();}
 function pickCat(id){
@@ -325,13 +340,49 @@ function pickCat(id){
   renderAll();
   if(curCat!=='all'){const el=g('cat-'+id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});}
 }
-const qEl=g('q');
-qEl.addEventListener('input',()=>{curQ=qEl.value;renderAll();});
-document.addEventListener('keydown',e=>{
-  if(e.key==='/'&&document.activeElement!==qEl){e.preventDefault();qEl.focus();}
-  if(e.key==='Escape'){qEl.value='';curQ='';curCat='all';renderAll();qEl.blur();}
-});
-renderAll();
+window.pickCat=pickCat;
+
+(function initCatalog(){
+  const stLive=g('stLive'), stPipe=g('stPipe');
+  if(stLive)stLive.textContent=String(TOOLS.filter(t=>t.live).length);
+  if(stPipe)stPipe.textContent=String(TOOLS.filter(t=>!t.live).length);
+
+  const qEl=g('q');
+  const tiles=g('tiles');
+  if(tiles){
+    tiles.addEventListener('click',e=>{
+      const tile=e.target.closest('[data-cat]'); if(!tile)return;
+      pickCat(tile.getAttribute('data-cat'));
+    });
+    tiles.addEventListener('keydown',e=>{
+      if(e.key!=='Enter'&&e.key!==' ')return;
+      const tile=e.target.closest('[data-cat]'); if(!tile)return;
+      e.preventDefault(); pickCat(tile.getAttribute('data-cat'));
+    });
+  }
+  if(qEl){
+    const apply=()=>{
+      curQ=qEl.value;
+      // Typing clears category lock so "cnc" is never trapped inside Weld/Costing/etc.
+      if(curQ.trim()) curCat='all';
+      renderAll();
+    };
+    qEl.addEventListener('input',apply);
+    qEl.addEventListener('change',apply);
+    qEl.addEventListener('keyup',apply);
+    document.addEventListener('keydown',e=>{
+      if(e.key==='/'&&document.activeElement!==qEl&&!e.metaKey&&!e.ctrlKey&&!e.altKey){
+        const tag=(document.activeElement&&document.activeElement.tagName)||'';
+        if(tag==='INPUT'||tag==='TEXTAREA'||tag==='SELECT')return;
+        e.preventDefault(); qEl.focus();
+      }
+      if(e.key==='Escape'&&document.activeElement===qEl){
+        qEl.value=''; curQ=''; curCat='all'; renderAll(); qEl.blur();
+      }
+    });
+  }
+  renderAll();
+})();
 
 </script>
 </body>

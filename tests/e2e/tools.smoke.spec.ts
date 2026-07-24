@@ -145,6 +145,16 @@ test('tools.html uses shared site header', async ({ page }) => {
   await expect(page.locator('#stLive')).not.toHaveText('0');
 });
 
+test('tools.html search finds CNC feeds even after category click', async ({ page }) => {
+  await page.goto('/tools.html');
+  await expect(page.locator('#stLive')).toHaveText('6');
+  await page.locator('.tile[data-cat="costing"]').click();
+  await page.locator('#q').fill('cnc');
+  await expect(page.locator('#catalog')).toContainText(/CNC Feeds & Speeds/i);
+  await expect(page.locator('a[href="/machining-pro.html"]').first()).toBeVisible();
+  await expect(page.locator('#nores')).toBeHidden();
+});
+
 test('discovery files are served as text/xml', async ({ request }) => {
   const robots = await request.get('/robots.txt');
   expect(robots.ok()).toBeTruthy();
