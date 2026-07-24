@@ -48,7 +48,7 @@ test('SC-012 quote uses unified report contract and canonical scrap input', asyn
   await page.locator('#material').dispatchEvent('input');
   await expect(page.locator('#resultTable')).toContainText(/Total sell price/i);
   await expect(page.locator('#resultTable')).toContainText(/Effective material after scrap/i);
-  await expect(page.locator('#auditFormulas')).toContainText(/material\/(1−scrap)/i);
+  await expect(page.locator('#auditFormulas')).toContainText('material/(1−scrap)');
   await expect(page.locator('#auditEngine')).toContainText('SC012-DECIMAL');
 });
 
