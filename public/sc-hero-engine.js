@@ -1,6 +1,6 @@
-/* sc-hero-engine.js — SectorCalc Live Deck v25
-   Premium SC-008 Monte Carlo demo under the live cell.
-   Deterministic seed · WC / RSS / MC · animated histogram with LSL/USL.
+/* sc-hero-engine.js — SectorCalc Live Deck v26
+   Auto-live SC-008 Monte Carlo under the cell.
+   Self-driving scenario choreography · deterministic seed · LSL/USL histogram.
 */
 (function () {
   'use strict';
@@ -316,12 +316,140 @@
 
   paintTicks();
   var deb = null;
+  var userPinned = false;
+  var resumeTimer = null;
+  var autoRaf = null;
+  var autoRunning = false;
+  var sceneEl = document.getElementById('deckScene');
+  var liveDot = document.getElementById('deckLive');
+  var calm = false;
+  try {
+    calm = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  } catch (e) {}
+
+  // Choreography: different motion grammars, not a single monotone sweep.
+  var SCENES = [
+    { name: 'TIGHT FIT', from: 50, to: 20, ms: 2200, hold: 1600 },
+    { name: 'NOMINAL ISO-m', from: 20, to: 50, ms: 1800, hold: 1400 },
+    { name: 'PROCESS DRIFT', from: 50, to: 80, ms: 2400, hold: 1200 },
+    { name: 'RISK SWEEP', from: 80, to: 100, ms: 2000, hold: 1500 },
+    { name: 'RECOVERY', from: 100, to: 35, ms: 2800, hold: 1100 },
+    { name: 'PULSE CHECK', from: 35, to: 55, ms: 900, hold: 400, pulse: true },
+    { name: 'PULSE CHECK', from: 55, to: 35, ms: 900, hold: 400, pulse: true },
+    { name: 'PULSE CHECK', from: 35, to: 50, ms: 1000, hold: 1600 }
+  ];
+  if (calm) {
+    SCENES = [
+      { name: 'TIGHT FIT', from: 50, to: 25, ms: 3200, hold: 2200 },
+      { name: 'NOMINAL ISO-m', from: 25, to: 50, ms: 3000, hold: 2200 },
+      { name: 'RISK SWEEP', from: 50, to: 90, ms: 3400, hold: 2200 },
+      { name: 'RECOVERY', from: 90, to: 50, ms: 3400, hold: 2200 }
+    ];
+  }
+
+  var sceneIdx = 0;
+  var sceneT0 = 0;
+  var scenePhase = 'move'; // move | hold
+  var lastCommit = -1;
+
+  function setSceneLabel(name, live) {
+    if (sceneEl) sceneEl.textContent = name;
+    if (liveDot) {
+      liveDot.dataset.on = live ? '1' : '0';
+      liveDot.textContent = live ? 'AUTO-LIVE' : 'PAUSED';
+    }
+  }
+
+  function easeInOut(p) {
+    return p < 0.5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2;
+  }
+
+  function commitTol(v, force) {
+    var snapped = Math.round(v / 5) * 5;
+    snapped = Math.max(10, Math.min(100, snapped));
+    if (!force && snapped === lastCommit) {
+      // still update continuous readout for premium feel
+      if (oTol) oTol.textContent = '±' + (v / 1000).toFixed(3) + ' mm';
+      if (inTol) inTol.value = String(snapped);
+      return;
+    }
+    lastCommit = snapped;
+    if (inTol) inTol.value = String(snapped);
+    recalc();
+  }
+
+  function pinUser() {
+    userPinned = true;
+    autoRunning = false;
+    setSceneLabel('MANUAL INPUT', false);
+    if (resumeTimer) clearTimeout(resumeTimer);
+    resumeTimer = setTimeout(function () {
+      userPinned = false;
+      startAuto();
+    }, calm ? 14000 : 9000);
+  }
+
+  function autoTick(now) {
+    autoRaf = null;
+    if (userPinned || document.hidden) return;
+    autoRunning = true;
+    var sc = SCENES[sceneIdx % SCENES.length];
+    setSceneLabel(sc.name, true);
+
+    if (scenePhase === 'move') {
+      var p = Math.min(1, (now - sceneT0) / sc.ms);
+      var e = easeInOut(p);
+      var v = sc.from + (sc.to - sc.from) * e;
+      // Soft continuous readout + engine commit on 5µm steps
+      if (oTol) oTol.textContent = '±' + (v / 1000).toFixed(3) + ' mm';
+      if (inTol) inTol.value = String(Math.round(v / 5) * 5);
+      if (p >= 1 || Math.abs(v - lastCommit) >= 4.5) commitTol(v, p >= 1);
+      if (p >= 1) {
+        scenePhase = 'hold';
+        sceneT0 = now;
+        commitTol(sc.to, true);
+      }
+    } else {
+      if (now - sceneT0 >= sc.hold) {
+        sceneIdx = (sceneIdx + 1) % SCENES.length;
+        scenePhase = 'move';
+        sceneT0 = now;
+        lastCommit = -1;
+      }
+    }
+    autoRaf = requestAnimationFrame(autoTick);
+  }
+
+  function startAuto() {
+    if (userPinned) return;
+    if (autoRaf) cancelAnimationFrame(autoRaf);
+    scenePhase = 'move';
+    sceneT0 = performance.now();
+    lastCommit = -1;
+    setSceneLabel(SCENES[sceneIdx % SCENES.length].name, true);
+    autoRaf = requestAnimationFrame(autoTick);
+  }
+
   if (inTol) {
+    inTol.addEventListener('pointerdown', pinUser);
     inTol.addEventListener('input', function () {
+      pinUser();
       clearTimeout(deb);
-      deb = setTimeout(recalc, 90);
+      deb = setTimeout(recalc, 70);
+    });
+    inTol.addEventListener('change', function () {
+      pinUser();
+      recalc();
     });
   }
+
+  var deckRoot = document.querySelector('.sc-hero .deck');
+  if (deckRoot) {
+    deckRoot.addEventListener('pointerdown', function (e) {
+      if (e.target && (e.target.id === 'inTol' || (e.target.closest && e.target.closest('.e-ctrl')))) pinUser();
+    });
+  }
+
   addEventListener('resize', function () {
     if (current) build(current.samples);
   });
@@ -331,8 +459,37 @@
     });
     ro.observe(canvas.parentElement || canvas);
   }
+
+  var visIO = null;
+  try {
+    var cell = document.querySelector('.sc-hero .cell') || deckRoot;
+    if (cell && typeof IntersectionObserver !== 'undefined') {
+      visIO = new IntersectionObserver(function (entries) {
+        var on = entries.some(function (en) { return en.isIntersecting; });
+        if (!on) {
+          if (autoRaf) cancelAnimationFrame(autoRaf);
+          autoRaf = null;
+          autoRunning = false;
+          setSceneLabel('STANDBY', false);
+        } else if (!userPinned) startAuto();
+      }, { threshold: 0.15 });
+      visIO.observe(cell);
+    }
+  } catch (e2) {}
+
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) {
+      if (autoRaf) cancelAnimationFrame(autoRaf);
+      autoRaf = null;
+      autoRunning = false;
+    } else if (!userPinned) startAuto();
+  });
+
   recalc();
-  setTimeout(recalc, 2000);
+  setTimeout(function () {
+    recalc();
+    if (!userPinned) startAuto();
+  }, 1200);
   document.addEventListener('sectorcalc-theme', function () {
     if (current) build(current.samples);
   });
