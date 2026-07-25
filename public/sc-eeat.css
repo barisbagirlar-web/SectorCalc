@@ -40,15 +40,11 @@ html[data-theme="dark"] .sc-eeat-shell {
 }
 @media (max-width: 640px) {
   .sc-eeat-card { grid-template-columns: 1fr; }
-  .sc-eeat-photo {
-    width: 96px;
-    height: 96px;
-  }
 }
 .sc-eeat-photo {
-  width: 112px;
-  height: 112px;
-  border-radius: 4px;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
   object-fit: cover;
   object-position: center top;
   border: 1.5px solid var(--eeat-blue);
