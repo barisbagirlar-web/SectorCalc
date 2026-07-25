@@ -98,3 +98,14 @@ html[data-theme="dark"] .sc-eeat-kicker { color: var(--iso-orange, #E87722); }
   line-height: 1.55;
   max-width: 62ch;
 }
+
+/* Stay above calculation-sheet / overlay grids */
+.sc-eeat-shell {
+  position: relative;
+  z-index: 2;
+}
+.calc-sheet .sc-eeat-shell,
+.theme-calc-sheet .sc-eeat-shell {
+  position: relative;
+  z-index: 2;
+}
