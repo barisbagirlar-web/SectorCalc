@@ -5,17 +5,19 @@
  * the UI composes them, and formula.ts calculate() is the math SSOT on samples.
  *
  * Design decisions (documented):
- *  - PRNG: Decimal Linear Congruential Generator (Numerical Recipes constants).
- *    mulberry32/xorshift need integer bit-ops (imul/xor/shift) that Decimal cannot
- *    express; LCG uses only *, +, mod -> fully Decimal. Adequate for Monte Carlo
- *    integration. Documented fallback for a higher-quality stream: mulberry32
- *    (bit-ops in Number, output -> Decimal) — requires an explicit exception.
- *  - Normal sampling: inverse-CDF method (NOT Box-Muller). Box-Muller needs cos,
- *    which decimal.js does not provide. The inverse standard-normal CDF uses
- *    Acklam's rational approximation (~1e-9 relative error) with only +,-,*,/,
- *    sqrt,ln — all in decimal.js. Industry-standard alternative to a Taylor series
- *    (which diverges in the tails and is impractical for quantiles).
- *  - Reproducibility: same seed -> identical Decimal stream -> identical report.
+ * - PRNG: Decimal Linear Congruential Generator (Numerical Recipes constants).
+ *   mulberry32/xorshift need integer bit-ops (imul/xor/shift) that Decimal cannot
+ *   express; LCG uses only *, +, mod -> fully Decimal. Adequate for Monte Carlo
+ *   integration. Documented fallback for a higher-quality stream: mulberry32
+ *   (bit-ops in Number, output -> Decimal) — requires an explicit exception.
+ * - Normal sampling: inverse-CDF method (NOT Box-Muller). Box-Muller needs cos,
+ *   which decimal.js does not provide. The inverse standard-normal CDF uses
+ *   Acklam's rational approximation (~1e-9 relative error) with only +,-,*,/,
+ *   sqrt,ln — all in decimal.js. Industry-standard alternative to a Taylor series
+ *   (which diverges in the tails and is impractical for quantiles).
+ * - Reproducibility: same seed -> identical Decimal stream -> identical report.
+ * - TRUNCATED-NORMAL GUARANTEE: after max rejection iterations, deterministically
+ *   clamp to [lo, hi]. Never returns an out-of-bounds value.
  */
 import { D, Decimal } from './engine.js';
 import { CalcError } from './guards.js';
@@ -51,7 +53,6 @@ function horner(coeffs: Decimal[], x: Decimal): Decimal {
 export function invNormCdf(p: Decimal.Value): Decimal {
   const pv = D(p);
   if (pv.lte(0) || pv.gte(1)) throw new CalcError('E_OUT_OF_RANGE', `invNormCdf p must be in (0,1), got ${pv.toString()}`);
-  // Acklam denominators end with (...)*x + 1, not horner(...)+1 (one multiply missing).
   if (pv.lt(P_LOW)) {
     const q = pv.ln().times(-2).sqrt();
     return horner(CC, q).div(horner(DD, q).times(q).plus(1));
@@ -79,7 +80,9 @@ export function sampleUniform(rng: () => Decimal, min: Decimal.Value, max: Decim
   return D(min).plus(rng().times(D(max).minus(min)));
 }
 
-/** Truncated normal via rejection sampling. Deterministic (rng is deterministic). */
+/** Truncated normal via rejection sampling. Deterministic (rng is deterministic).
+ *  GUARANTEE: never returns outside [lo, hi]. After max iterations, clamps
+ *  deterministically to preserve reproducibility and safety. */
 export function sampleTruncatedNormal(
   rng: () => Decimal,
   mean: Decimal.Value,
@@ -94,7 +97,9 @@ export function sampleTruncatedNormal(
     const x = sampleNormal(rng, m, std);
     if (x.gte(L) && x.lte(H)) return x;
   }
-  return sampleNormal(rng, m, std);
+  // Deterministic fallback: clamp to nearest bound. Never breach the contract.
+  const x = sampleNormal(rng, m, std);
+  return x.lt(L) ? L : x.gt(H) ? H : x;
 }
 
 /** Triangular on [lo, hi] with mode. Inverse-CDF, full Decimal. */

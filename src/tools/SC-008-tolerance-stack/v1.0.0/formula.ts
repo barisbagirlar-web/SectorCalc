@@ -1,17 +1,22 @@
 /**
  * SC-008 Statistical Tolerance Stack-Up — built ON the universal engine.
- * Version 1.0.0. Deterministic, full-Decimal, pure.
+ * Version 1.1.0. Deterministic, full-Decimal, pure.
  * Three accumulation methods compared: worst-case, RSS, and seeded Decimal
  * Monte Carlo. Capability (Cp/Cpk), empirical defect ppm, and a contribution
  * pareto round out the analysis. Monte Carlo sampling is deterministic via a
  * seeded LCG (same seed -> identical distribution -> reproducible report).
+ *
+ * CHANGELOG v1.1.0:
+ * - Uses stddevPopulation for Monte Carlo sigma (simulated population, not sample).
+ * - Added truncated-normal and triangular distribution support in simulateStack.
+ * - Distribution contract now enforced at engine level (never out-of-bounds).
  */
 import { D, Decimal } from '../../../core/engine.js';
 import { CalcError } from '../../../core/guards.js';
 import { roundHalfUp } from '../../../core/rounding.js';
 import { tol, worstCaseSum, rssSum } from '../../../core/tolerance.js';
-import { mean as statsMean, stddev as statsStddev, percentile } from '../../../core/stats.js';
-import { lcg, sampleNormal, sampleUniform } from '../../../core/monte-carlo.js';
+import { mean as statsMean, stddevPopulation as statsStddevPop, percentile } from '../../../core/stats.js';
+import { lcg, sampleNormal, sampleUniform, sampleTruncatedNormal, sampleTriangular } from '../../../core/monte-carlo.js';
 
 const PLACES = 4;
 function num(d: Decimal): string { return roundHalfUp(d, PLACES).toFixed(PLACES); }
@@ -20,7 +25,7 @@ export interface Component {
   name: string;
   nominal: Decimal.Value;
   tol: Decimal.Value;
-  distribution: 'normal' | 'uniform';
+  distribution: 'normal' | 'uniform' | 'truncated_normal' | 'triangular';
   cpk?: Decimal.Value;
 }
 
@@ -73,6 +78,12 @@ export function simulateStack(components: Component[], input: StackInput): Decim
       if (t.lt(0)) throw new CalcError('E_NEGATIVE', `tol of ${c.name} must be >= 0`);
       if (c.distribution === 'uniform') {
         sum = sum.plus(sampleUniform(rng, nom.minus(t), nom.plus(t)));
+      } else if (c.distribution === 'triangular') {
+        sum = sum.plus(sampleTriangular(rng, nom.minus(t), nom, nom.plus(t)));
+      } else if (c.distribution === 'truncated_normal') {
+        const cpk = c.cpk !== undefined && c.cpk !== null ? D(c.cpk) : null;
+        const std = normalStd(t, cpk);
+        sum = sum.plus(sampleTruncatedNormal(rng, nom, std, nom.minus(t), nom.plus(t)));
       } else {
         const cpk = c.cpk !== undefined && c.cpk !== null ? D(c.cpk) : null;
         sum = sum.plus(sampleNormal(rng, nom, normalStd(t, cpk)));
@@ -105,8 +116,7 @@ export function calculate(input: StackInput, samples?: Decimal[]): StackResult {
   const usedSamples = samples ?? simulateStack(components, input);
   const sorted = usedSamples.slice().sort((a, b) => a.cmp(b));
   const mean = statsMean(usedSamples);
-  const std = statsStddev(usedSamples);
-  // iterations >= 1 and components.length >= 1 are guarded above; ! is safe.
+  const std = statsStddevPop(usedSamples); // POPULATION stddev for simulated data
   const min = sorted[0]!;
   const max = sorted[sorted.length - 1]!;
   const p0013 = percentile(usedSamples, '0.0013');
