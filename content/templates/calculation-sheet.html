@@ -1,0 +1,211 @@
+<!-- REFERENCE ONLY — not deployed. Live tools use sc-calc-sheet.css overlay. Do not copy over *-pro.html. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SC-008 · Tolerance Stack-Up — SectorCalc</title>
+<link rel="stylesheet" href="/sc-calc-sheet.css?v=1">
+<style>
+.theme-calc-sheet { min-height: 100vh; padding: 2rem 1rem; }
+.cs-sheet { padding: 0; position: relative; }
+.cs-header {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  padding: 2rem 2.5rem; border-bottom: 2px solid var(--cs-border); background: #FAFBFC;
+}
+.cs-header-left h1 { font-size: 1.6rem; font-weight: 700; color: var(--cs-border); margin-bottom: 0.35rem; }
+.cs-header-left .cs-subtitle { font-family: var(--font-mono); font-size: 0.7rem; color: #888; text-transform: uppercase; letter-spacing: 0.1em; }
+.cs-header-right { text-align: right; font-family: var(--font-mono); font-size: 0.65rem; color: #888; }
+.cs-header-right .cs-engine { font-size: 0.9rem; font-weight: 700; color: var(--cs-accent); margin-bottom: 0.25rem; }
+
+/* Navigation Bar */
+.cs-nav {
+  display: flex; gap: 0; background: var(--cs-accent); padding: 0 2.5rem;
+}
+.cs-nav a {
+  color: #FFFFFF; text-decoration: none; font-family: var(--font-mono); font-size: 0.7rem;
+  text-transform: uppercase; letter-spacing: 0.1em; padding: 0.75rem 1.25rem;
+  border-right: 1px solid rgba(255,255,255,0.15); transition: background 0.2s;
+}
+.cs-nav a:hover { background: rgba(255,255,255,0.1); }
+.cs-nav a:first-child { border-left: 1px solid rgba(255,255,255,0.15); }
+
+.verdict-banner {
+  padding: 1rem 2.5rem; font-family: var(--font-mono); font-size: 0.8rem;
+  text-transform: uppercase; letter-spacing: 0.1em; display: flex; align-items: center; gap: 1rem;
+}
+.verdict-pass { background: rgba(0,150,57,0.08); border-left: 4px solid var(--iso-green); color: var(--iso-green); }
+.verdict-warning { background: rgba(249,168,0,0.08); border-left: 4px solid var(--iso-yellow); color: var(--iso-orange); }
+.verdict-fail { background: rgba(200,16,46,0.08); border-left: 4px solid var(--iso-red); color: var(--iso-red); }
+
+.cs-main { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+.cs-inputs-panel { padding: 2rem 2.5rem; border-right: 1px solid rgba(26,58,92,0.1); }
+.cs-results-panel { padding: 2rem 2.5rem; background: #FAFBFC; }
+
+.cs-section-header {
+  display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem; border-bottom: 1px solid rgba(26,58,92,0.1);
+}
+.cs-section-header h2 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--cs-accent); font-weight: 600; }
+.cs-section-header .sh-line { flex: 1; height: 1px; background: rgba(26,58,92,0.1); }
+
+.cs-inputs-grid { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
+
+.result-card {
+  border: 1px solid rgba(26,58,92,0.15); padding: 1.25rem; margin-bottom: 1rem;
+  background: #FFFFFF; position: relative;
+}
+.result-card::before {
+  content: attr(data-method); position: absolute; top: -0.6rem; left: 1rem;
+  background: var(--cs-accent); color: #FFF; font-size: 0.55rem; padding: 0.15rem 0.5rem;
+  text-transform: uppercase; letter-spacing: 0.15em; font-family: var(--font-mono);
+}
+.result-card .rc-value { font-family: var(--font-mono); font-size: 1.8rem; font-weight: 700; color: var(--cs-accent); margin: 0.5rem 0; }
+.result-card .rc-unit { font-size: 0.75rem; color: #888; }
+.result-card .rc-desc { font-size: 0.8rem; color: #666; line-height: 1.5; margin-top: 0.5rem; }
+
+.cs-histogram {
+  border: 1px solid rgba(26,58,92,0.15); padding: 1.5rem; background: #FFFFFF;
+  margin-bottom: 1rem; text-align: center; min-height: 200px;
+  display: flex; align-items: center; justify-content: center; flex-direction: column;
+}
+.cs-histogram .hist-label { font-family: var(--font-mono); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--cs-accent); margin-bottom: 1rem; }
+.cs-histogram .hist-placeholder { width: 100%; height: 120px; background: linear-gradient(to top, rgba(26,58,92,0.05) 0%, transparent 100%); border-bottom: 2px solid var(--cs-accent); position: relative; }
+.cs-histogram .hist-placeholder::after { content: ''; position: absolute; bottom: 0; left: 50%; width: 2px; height: 100%; background: var(--iso-red); opacity: 0.5; }
+
+.cp-gauge { border: 1px solid rgba(26,58,92,0.15); padding: 1.5rem; background: #FFFFFF; text-align: center; }
+.cp-gauge .gauge-value { font-family: var(--font-mono); font-size: 2.5rem; font-weight: 700; color: var(--cs-accent); }
+.cp-gauge .gauge-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: #888; margin-top: 0.5rem; }
+.cp-gauge .gauge-scale { display: flex; justify-content: space-between; margin-top: 1rem; font-size: 0.6rem; color: #AAA; font-family: var(--font-mono); }
+
+.pareto-table { width: 100%; border-collapse: collapse; font-family: var(--font-mono); font-size: 0.75rem; margin-top: 1rem; }
+.pareto-table th { text-align: left; padding: 0.5rem; border-bottom: 2px solid var(--cs-border); color: var(--cs-accent); text-transform: uppercase; font-size: 0.6rem; letter-spacing: 0.1em; }
+.pareto-table td { padding: 0.5rem; border-bottom: 1px solid rgba(26,58,92,0.08); }
+.pareto-table .contrib-bar { height: 6px; background: var(--cs-accent); border-radius: 3px; margin-top: 0.25rem; }
+
+.cs-formula-section { padding: 2rem 2.5rem; border-top: 1px solid rgba(26,58,92,0.1); background: #FFFFFF; }
+.cs-assumptions { padding: 2rem 2.5rem; border-top: 1px solid rgba(26,58,92,0.1); background: #FAFBFC; }
+.cs-assumptions h3 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--cs-accent); margin-bottom: 1rem; }
+.cs-assumptions ul { list-style: none; font-size: 0.85rem; color: #555; }
+.cs-assumptions li { padding: 0.5rem 0; border-bottom: 1px solid rgba(26,58,92,0.05); padding-left: 1.5rem; position: relative; }
+.cs-assumptions li::before { content: '→'; position: absolute; left: 0; color: var(--cs-accent); }
+
+@media (max-width: 900px) { .cs-main { grid-template-columns: 1fr; } .cs-inputs-panel { border-right: none; border-bottom: 1px solid rgba(26,58,92,0.1); } }
+@media (max-width: 640px) { .cs-header { flex-direction: column; gap: 1rem; } .cs-header-right { text-align: left; } .cs-nav { flex-wrap: wrap; } }
+</style>
+</head>
+<body class="theme-calc-sheet">
+
+<div class="cs-sheet">
+  <div class="cs-header">
+    <div class="cs-header-left">
+      <h1>SC-008 · Tolerance Stack-Up</h1>
+      <div class="cs-subtitle">Engineering preview · Decimal engine · Not for production approval</div>
+    </div>
+    <div class="cs-header-right">
+      <div class="cs-engine">SC-008-ENGINE v1.0.0</div>
+      <div>DWG NO: SC-008-001</div>
+      <div>SCALE: NTS · REV: A</div>
+      <div>DATE: 2026-07-25</div>
+    </div>
+  </div>
+
+  <nav class="cs-nav">
+    <a href="index.html">← Home</a>
+    <a href="tools.html">Tools Index</a>
+    <a href="sc008-pro.html">SC-008</a>
+    <a href="machining-pro.html">SC-020</a>
+    <a href="bearing-pro.html">SC-010</a>
+    <a href="weld-pro.html">SC-001</a>
+    <a href="pricing.html">Pricing</a>
+  </nav>
+
+  <div class="verdict-banner verdict-pass">
+    <span style="font-size: 1.2rem;">✓</span>
+    <span>Predicted in spec — verify with measured data before release</span>
+  </div>
+
+  <div class="cs-main">
+    <div class="cs-inputs-panel">
+      <div class="cs-section-header">
+        <h2>Inputs</h2><span class="sh-line"></span>
+        <span style="font-family: var(--font-mono); font-size: 0.65rem; color: #888;">DWG: SC-008-SEC-A</span>
+      </div>
+      <div class="cs-ref-box">Reference: ISO 2768-m (medium) general tolerances for machined parts. Enter values in mm.</div>
+      <div class="cs-inputs-grid">
+        <div class="cs-input-group" data-index="1"><label>Part Name</label><input type="text" value="Spacer" readonly><div class="ref-value">Ref: Common spacer width</div></div>
+        <div class="cs-input-group" data-index="2"><label>Nominal Dimension</label><input type="text" value="25.000" readonly><div class="ref-value">Ref: 25.000 mm — typical spacer</div></div>
+        <div class="cs-input-group" data-index="3"><label>Tolerance (±)</label><input type="text" value="0.050" readonly><div class="ref-value">Ref: ISO 2768-m for 18–30 mm range</div></div>
+        <div class="cs-input-group" data-index="4"><label>Distribution</label><select readonly><option>Normal (±3σ)</option></select><div class="ref-value">Ref: Most common in machined parts</div></div>
+        <div class="cs-input-group" data-index="5"><label>Stack Contributors</label><input type="text" value="3 parts" readonly><div class="ref-value">Ref: Linear 1D stack</div></div>
+        <div class="cs-input-group" data-index="6"><label>Monte Carlo Iterations</label><input type="text" value="10,000" readonly><div class="ref-value">Ref: Seeded & reproducible</div></div>
+        <div class="cs-input-group" data-index="7"><label>Random Seed</label><input type="text" value="0x7A3F1C9E" readonly><div class="ref-value">Ref: Deterministic sequence</div></div>
+      </div>
+      <div class="warning-block" style="margin-top: 2rem;">Results are predicted from drawing tolerances and chosen distributions — an engineering preview, not a substitute for measured SPC or a licensed engineer's sign-off.</div>
+    </div>
+
+    <div class="cs-results-panel">
+      <div class="cs-section-header">
+        <h2>Results</h2><span class="sh-line"></span>
+        <span style="font-family: var(--font-mono); font-size: 0.65rem; color: #888;">DWG: SC-008-SEC-B</span>
+      </div>
+      <div class="result-card" data-method="Worst-Case"><div class="rc-value">±0.1150</div><div class="rc-unit">mm</div><div class="rc-desc">Arithmetic sum of all tolerances. Guarantees assembly feasibility under simultaneous extremes. Conservative — may over-design.</div></div>
+      <div class="result-card" data-method="RSS"><div class="rc-value">±0.0687</div><div class="rc-unit">mm</div><div class="rc-desc">Root-sum-square assumes independent normal ±3σ. Predicts ~99.73% envelope under ideal conditions.</div></div>
+      <div class="result-card" data-method="Monte Carlo"><div class="rc-value">±0.0671</div><div class="rc-unit">mm · n=10,000 · seeded</div><div class="rc-desc">Empirical histogram from 10,000 seeded iterations. P0.13 to P99.87 spread with 95% CI on defect rate.</div></div>
+      <div class="cs-histogram">
+        <div class="hist-label">Monte Carlo Distribution — n=10,000 · Seeded & Reproducible</div>
+        <div class="hist-placeholder"></div>
+        <div style="font-family: var(--font-mono); font-size: 0.6rem; color: #AAA; margin-top: 0.5rem;">USL: +0.150 mm · LSL: -0.150 mm · Mean: 0.000 mm · σ: 0.0224 mm</div>
+      </div>
+      <div class="cp-gauge">
+        <div class="gauge-value">2.18</div>
+        <div class="gauge-label">Predicted Cpk</div>
+        <div class="gauge-scale"><span>0</span><span>0.67</span><span>1.0</span><span>1.33</span><span>1.67</span><span>2.0</span><span>2.5</span></div>
+      </div>
+      <div style="margin-top: 1.5rem;">
+        <div style="font-family: var(--font-mono); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--cs-accent); margin-bottom: 0.75rem;">Top Contributors (Pareto)</div>
+        <table class="pareto-table">
+          <thead><tr><th>Contributor</th><th>Tolerance</th><th>%</th></tr></thead>
+          <tbody>
+            <tr><td>Spacer Width</td><td>±0.050 mm</td><td>53%<div class="contrib-bar" style="width: 53%;"></div></td></tr>
+            <tr><td>Housing Bore</td><td>±0.030 mm</td><td>28%<div class="contrib-bar" style="width: 28%;"></div></td></tr>
+            <tr><td>Shaft Length</td><td>±0.025 mm</td><td>19%<div class="contrib-bar" style="width: 19%;"></div></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="cs-formula-section">
+    <div class="cs-section-header"><h2>Formulas</h2><span class="sh-line"></span><span style="font-family: var(--font-mono); font-size: 0.65rem; color: #888;">DWG: SC-008-SEC-C</span></div>
+    <div class="cs-formula-block"><div class="formula">T<sub>WC</sub> = Σ t<sub>i</sub></div><div class="formula-desc">Worst-case: arithmetic sum of all individual tolerances. Guarantees assembly under simultaneous extremes.</div></div>
+    <div class="cs-formula-block"><div class="formula">T<sub>RSS</sub> = √(Σ t<sub>i</sub>²)</div><div class="formula-desc">Root-sum-square: variances add; standard deviations do not. Assumes independent normal ±3σ per contributor.</div></div>
+    <div class="cs-formula-block"><div class="formula">Cpk = min[(USL − μ) / 3σ , (μ − LSL) / 3σ]</div><div class="formula-desc">Process capability index. Model-derived from tolerance inputs and distribution choices — not measured SPC.</div></div>
+    <div class="cs-formula-block"><div class="formula">PPM<sub>predicted</sub> = Φ(−3·Cpk) × 1,000,000</div><div class="formula-desc">Predicted parts per million outside specification. 95% confidence interval from bootstrap on Monte Carlo output.</div></div>
+  </div>
+
+  <div class="cs-assumptions">
+    <h3>Assumptions & Warnings</h3>
+    <ul>
+      <li>1D linear stacks only; no correlation model between dimensions yet.</li>
+      <li>Per-part sigma is derived from tolerance, not a measured-process input.</li>
+      <li>Normal distribution: tolerance = ±3σ centered on nominal.</li>
+      <li>Uniform distribution: tolerance = hard half-range.</li>
+      <li>Results are predicted from drawing tolerances — verify with measured SPC before production approval.</li>
+      <li>Seeded LCG with Decimal arithmetic ensures reproducibility across identical inputs.</li>
+    </ul>
+  </div>
+
+  <div class="cs-audit-footer">
+    <div class="audit-item"><div class="audit-label">Calc ID</div><div class="audit-value">SC008-7A3F1C9E</div></div>
+    <div class="audit-item"><div class="audit-label">Input Hash</div><div class="audit-value">7a3f1c9e</div></div>
+    <div class="audit-item"><div class="audit-label">Output Hash</div><div class="audit-value">4d8b2e61</div></div>
+    <div class="audit-item"><div class="audit-label">Engine Version</div><div class="audit-value">v1.0.0+dist</div></div>
+    <div class="audit-item"><div class="audit-label">Method</div><div class="audit-value">WC + RSS + MC</div></div>
+    <div class="audit-item"><div class="audit-label">Timestamp</div><div class="audit-value">2026-07-25T12:53:00Z</div></div>
+    <div class="audit-item"><div class="audit-label">Seed</div><div class="audit-value">0x7A3F1C9E</div></div>
+    <div class="audit-item"><div class="audit-label">Iterations</div><div class="audit-value">10,000</div></div>
+  </div>
+</div>
+</body>
+</html>

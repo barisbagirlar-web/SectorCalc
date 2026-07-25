@@ -111,6 +111,22 @@ for (const page of pages) {
     if (!t.includes('sc-eeat.css')) fail(`${page} missing sc-eeat.css`);
     if (!t.includes('Academic Oversight')) fail(`${page} missing Academic Oversight label`);
     if (!/"reviewedBy"/.test(t)) fail(`${page} missing reviewedBy entity link`);
+    if (!t.includes('sc-calc-sheet.css')) fail(`${page} missing calculation-sheet CSS`);
+    if (!t.includes('theme-calc-sheet')) fail(`${page} missing theme-calc-sheet body class`);
+  }
+  if (page === 'tools.html') {
+    if (!t.includes('sc-calc-sheet.css')) fail(`${page} missing drawing-index CSS`);
+    if (!t.includes('theme-drawing-index')) fail(`${page} missing theme-drawing-index`);
+  }
+  if (page === 'pricing.html') {
+    if (!t.includes('sc-calc-sheet.css')) fail(`${page} missing BOM sheet CSS`);
+    if (!t.includes('theme-bom')) fail(`${page} missing theme-bom`);
+  }
+  if (page === 'index.html') {
+    if (t.includes('sc-calc-sheet.css') || t.includes('theme-calc-sheet') || t.includes('theme-blueprint')) {
+      fail('index.html must not carry calc-sheet / blueprint theme (live-cell hero sacred)');
+    }
+    if (!t.includes('sc-hero-cell')) fail('index.html missing sc-hero-cell');
   }
   if (['tools.html', 'pricing.html', 'pro.html'].includes(page) && !t.includes('sc-breadcrumb')) {
     fail(`${page} missing breadcrumb nav`);

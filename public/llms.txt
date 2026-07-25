@@ -70,17 +70,29 @@
 - SC-036 axial stiffness/preload verification does not silently claim eccentricity, prying or transverse-slip verification.
 - Final production release remains subject to the governing code edition, certified material data, exact manufacturer ratings and competent engineering review.
 
+## UI surface architecture (2026-07-25)
+
+- **Home (`/`) is sacred:** live-cell WebGL/SMIL hero (`sc-hero-cell.js`), engineering sheet rails, and standards band. Do not describe the homepage as a dark blueprint mock or replace it with static SVG demos.
+- **Calculator pages (`*-pro.html`):** calculation-sheet overlay (`sc-calc-sheet.css`, body `theme-calc-sheet`) — paper grid, sheet border, DWG title block. Engines, forms, A1–A5 audit and ~full tool UI remain authoritative; the overlay does not replace calculation markup.
+- **Tools index (`/tools.html`):** drawing-index format (`theme-drawing-index`) — DWG-style catalog framing for the 25 live tools.
+- **Pricing (`/pricing.html`):** BOM sheet format (`theme-bom`) — itemized credit packs framed as a bill of materials.
+- Reference-only template: `content/templates/calculation-sheet.html` (not a live route).
+
 ## Site
 - [Home](https://sectorcalc.com/)
-- [All tools — 25 live, 0 planned](https://sectorcalc.com/tools.html)
+- [All tools — drawing index · 25 live](https://sectorcalc.com/tools.html)
 - [Pro hub](https://sectorcalc.com/pro.html)
-- [Pricing](https://sectorcalc.com/pricing.html)
+- [Pricing — BOM sheet](https://sectorcalc.com/pricing.html)
+- [Blog](https://sectorcalc.com/blog/)
+- [Case studies](https://sectorcalc.com/case-studies/)
+- [DE](https://sectorcalc.com/de/) · [JA](https://sectorcalc.com/ja/) · [ZH](https://sectorcalc.com/zh/)
 - [Sitemap](https://sectorcalc.com/sitemap.xml)
 - [Robots](https://sectorcalc.com/robots.txt)
+- [AI robots](https://sectorcalc.com/ai-robots.txt)
 
 ## Search and retrieval
 - `robots.txt` explicitly allows Googlebot, Bingbot and OAI-SearchBot to crawl public production content.
-- The XML sitemap contains canonical indexable URLs only. Retired routes are intentionally excluded.
+- The XML sitemap lists canonical indexable HTML only (home, tools, pro, pricing, 25 calculators, blog, case studies, de/ja/zh hubs) with `<lastmod>`. Non-HTML discovery files (`llm.txt`, `llms.txt`) are excluded from the XML sitemap on purpose.
 - `llms.txt` is supplemental discovery documentation; the public HTML, canonical URLs, visible engineering guides and structured data remain the primary public source of truth.
 
 ## Notes for models
