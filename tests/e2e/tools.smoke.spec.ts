@@ -76,7 +76,6 @@ test('SC-021 bearing-pro: live + audit', async ({ page }) => {
 test('tool SEO guide + engagement mounts on SC-020', async ({ page }) => {
   await page.goto('/machining-pro.html');
   await expect(page.locator('#sc-guide')).toBeVisible();
-  // Engagement sits directly under CALCULATE & AUDIT
   const formEngage = page.locator('[data-sc-engage-slot="form"] .sc-engage');
   await expect(formEngage).toBeVisible({ timeout: 5000 });
   await expect(formEngage).toContainText(/find this calculator helpful/i);
@@ -167,7 +166,6 @@ test('tools.html search finds CNC feeds even after category click', async ({ pag
   await expect(page.locator('#catalog')).toContainText(/CNC Feeds & Speeds/i);
   await expect(page.locator('a[href="/machining-pro.html"]').first()).toBeVisible();
   await expect(page.locator('#nores')).toBeHidden();
-  // Typing narrows: "cnc" should not list unrelated costing tools
   await expect(page.locator('#catalog')).not.toContainText(/True Labor Cost/i);
 });
 
@@ -212,10 +210,14 @@ test('engagement mounts under form action on every live tool', async ({ page }) 
   }
 });
 
-test('discovery files are served as text/xml', async ({ request }) => {
+test('discovery surface matches canonical SEO release policy', async ({ request }) => {
   const robots = await request.get('/robots.txt');
   expect(robots.ok()).toBeTruthy();
-  expect(await robots.text()).toContain('Sitemap:');
+  const robotsText = await robots.text();
+  expect(robotsText).toContain('Sitemap: https://sectorcalc.com/sitemap.xml');
+  expect(robotsText).toMatch(/User-agent:\s*OAI-SearchBot[\s\S]*?Allow:\s*\//i);
+  expect(robotsText).toMatch(/User-agent:\s*PerplexityBot[\s\S]*?Allow:\s*\//i);
+
   const sitemap = await request.get('/sitemap.xml');
   expect(sitemap.ok()).toBeTruthy();
   const sm = await sitemap.text();
@@ -223,20 +225,22 @@ test('discovery files are served as text/xml', async ({ request }) => {
   expect(sm).toContain('machining-pro.html');
   expect(sm).toContain('bearing-pro.html');
   expect(sm).toContain('tools.html');
-  expect(sm).toContain('2026-07-24');
+  expect(sm).not.toMatch(/<priority>|<changefreq>|<lastmod>/i);
+  expect(sm).not.toContain('https://sectorcalc.com/de/');
+  expect(sm).not.toContain('https://sectorcalc.com/ja/');
+  expect(sm).not.toContain('https://sectorcalc.com/zh/');
+
   const llms = await request.get('/llms.txt');
-  expect(llms.ok()).toBeTruthy();
-  const llmsText = await llms.text();
-  expect(llmsText).toContain('SC-008');
-  expect(llmsText).toContain('sc-form-fields.css');
-  expect(llmsText).toContain('section cards');
-  expect(llmsText).toContain('typeahead');
-  expect(llmsText).toContain('data-sc-engage-slot');
-  expect(llmsText).toContain('CALCULATE & AUDIT');
   const llm = await request.get('/llm.txt');
+  expect(llms.ok()).toBeTruthy();
   expect(llm.ok()).toBeTruthy();
+  const llmsText = await llms.text();
   const llmText = await llm.text();
-  expect(llmText).toContain('SC-010');
-  expect(llmText).toContain('sc-form-fields.css');
-  expect(llmText).toContain('Generate Report');
+  expect(llmText).toBe(llmsText);
+  expect(llmsText).toContain('SC-008');
+  expect(llmsText).toContain('OAI-SearchBot');
+  expect(llmsText).toContain('PerplexityBot');
+  expect(llmsText).not.toContain('https://sectorcalc.com/de/');
+  expect(llmsText).not.toContain('https://sectorcalc.com/ja/');
+  expect(llmsText).not.toContain('https://sectorcalc.com/zh/');
 });
