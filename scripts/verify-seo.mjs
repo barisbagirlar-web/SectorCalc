@@ -84,6 +84,31 @@ for (const loc of [
   if (!sm.includes(`<loc>${loc}</loc>`)) fail(`sitemap missing hub ${loc}`);
 }
 
+const llm = readFileSync(join(ROOT, 'public/llm.txt'), 'utf8');
+const llms = readFileSync(join(ROOT, 'public/llms.txt'), 'utf8');
+if (!llm.includes('Academic Oversight') || !llm.includes('Prof. Dr. Neela Nataraj')) {
+  fail('llm.txt missing Academic Oversight / Neela Nataraj section');
+}
+if (!llms.includes('Academic Oversight') || !llms.includes('Prof. Dr. Neela Nataraj')) {
+  fail('llms.txt missing Academic Oversight / Neela Nataraj section');
+}
+if (!llm.includes('assets/images/neela-nataraj.jpg')) {
+  fail('llm.txt missing Neela portrait asset URL');
+}
+const simg = readFileSync(join(ROOT, 'public/sitemap-images.xml'), 'utf8');
+if (!simg.includes(`${HOST}/assets/images/neela-nataraj.jpg`)) {
+  fail('sitemap-images.xml missing Neela portrait');
+}
+if (!simg.includes(`${HOST}/tools.html`)) {
+  fail('sitemap-images.xml missing tools.html entry');
+}
+if (!existsSync(join(ROOT, 'public/assets/images/neela-nataraj.jpg'))) {
+  fail('missing public/assets/images/neela-nataraj.jpg');
+}
+if (!existsSync(join(ROOT, 'public/sc-eeat.css'))) {
+  fail('missing public/sc-eeat.css');
+}
+
 const sv = readFileSync(join(ROOT, 'public/sitemap-videos.xml'), 'utf8');
 if (/view_count|content_loc/.test(sv)) fail('video sitemap contains invented entries');
 
