@@ -1610,11 +1610,11 @@ select:focus-visible{
   box-shadow:0 30px 80px rgba(26,26,26,.18),inset 0 1px 0 rgba(255,255,255,.9)}
 [data-theme="dark"] .sc-hero .cell{box-shadow:0 30px 80px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.06)}
 .sc-hero #stage{display:block;width:100%;height:100%;cursor:grab}
-.sc-hero .stage-wrap{position:relative;width:100%;height:430px}
+.sc-hero .stage-wrap{position:relative;width:100%;height:min(52vh,520px);min-height:400px}
 .stage-wrap{position:relative;width:100%;height:100%}
 .stage-wrap canvas{position:absolute;inset:0;width:100%;height:100%;opacity:0;transition:opacity .45s ease}
 .stage-wrap canvas.is-ready{opacity:1}
-.stage-poster{position:absolute;inset:0;width:100%;height:100%;transition:opacity .5s ease .1s}
+.stage-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transition:opacity .5s ease .1s}
 [data-theme="dark"] .stage-poster #sp-bg stop:nth-child(1){stop-color:#243038}
 [data-theme="dark"] .stage-poster #sp-bg stop:nth-child(2){stop-color:#1A2228}
 .stage-wrap:has(canvas.is-ready) .stage-poster{opacity:0;pointer-events:none}
@@ -1696,7 +1696,7 @@ select:focus-visible{
   /* Live cell first on phone/tablet — demo was below the fold and looked "missing" */
   .sc-hero .hero-grid > .cell{order:-1}
   .sc-hero .deck-top{grid-template-columns:1fr}
-  .sc-hero .stage-wrap,.sc-hero #stage{height:340px}
+  .sc-hero .stage-wrap,.sc-hero #stage{height:min(46vh,380px);min-height:300px}
   .sc-hero .hud,.sc-hero .scanline{height:340px}
   .sc-hero .sc-hero-trust{grid-template-columns:1fr}
   /* Narrow HUD: hide right stack so telemetry does not collide */
@@ -1968,6 +1968,7 @@ select:focus-visible{
 
 
 
+
 <a href="#main-content" class="skip-link">Skip to main content</a>
 
 <div class="sheet">
@@ -1999,37 +2000,7 @@ select:focus-visible{
 
       <div class="cell">
         <div class="stage-wrap">
-          <svg class="stage-poster" viewBox="0 0 640 400" aria-hidden="true" preserveAspectRatio="xMidYMid slice">
-            <defs>
-              <linearGradient id="sp-bg" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#F2F5F8"/><stop offset="1" stop-color="#DDE4EA"/>
-              </linearGradient>
-              <linearGradient id="sp-steel" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#C6CCD3"/><stop offset=".5" stop-color="#9BA2AB"/><stop offset="1" stop-color="#7D848D"/>
-              </linearGradient>
-            </defs>
-            <rect width="640" height="400" fill="url(#sp-bg)"/>
-            <g stroke="#C9D2DA" stroke-width="1">
-              <path d="M0 340h640M0 300h640M0 260h640" opacity=".6"/>
-            </g>
-            <g class="sp-spin">
-              <rect x="88" y="152" width="96" height="96" rx="8" fill="#2E3338"/>
-              <path d="M176 192 h60 v-14 h44 v14 h56 v-22 h40 v22 h64 v-8 h56 v8 h68 v16 h-388 z" fill="url(#sp-steel)"/>
-              <ellipse cx="424" cy="200" rx="16" ry="34" fill="#8A9098"/>
-            </g>
-            <g class="sp-probe">
-              <rect x="416" y="92" width="8" height="78" rx="3" fill="#4A5058"/>
-              <circle cx="420" cy="176" r="7" fill="#E8536B"/>
-              <rect x="408" y="86" width="24" height="10" rx="3" fill="#0055A4"/>
-              <!-- SMIL backup if JS/CSS blocked -->
-              <animateTransform attributeName="transform" type="translate" values="0 0;36 18;36 18;72 8;110 22;148 10;0 0" keyTimes="0;0.15;0.3;0.45;0.6;0.75;1" dur="7s" repeatCount="indefinite"/>
-            </g>
-            <g class="sp-readout">
-              <rect x="448" y="120" width="120" height="26" rx="6" fill="#fff" stroke="#E3E7EC"/>
-              <text x="458" y="138" font-family="ui-monospace,monospace" font-size="13" fill="#0055A4">D41.600 <tspan fill="#E87722">-0.006</tspan></text>
-              <animate attributeName="opacity" values="0.35;1;1;0.35" keyTimes="0;0.2;0.55;1" dur="7s" repeatCount="indefinite"/>
-            </g>
-          </svg>
+          <img class="stage-poster" src="/assets/images/hero-cell-poster.png" width="900" height="520" alt="" decoding="async" fetchpriority="high">
           <canvas id="stage" aria-label="Live 3D turning cell"></canvas>
         </div>
         <div class="scanline" aria-hidden="true"></div>
@@ -3329,8 +3300,8 @@ select:focus-visible{
 })();
 </script>
 
-<script type="module" src="/sc-hero-cell.js?v=16"></script>
-<script src="/sc-hero-engine.js?v=16"></script>
+<script type="module" src="/sc-hero-cell-v22.js"></script>
+<script src="/sc-hero-engine.js?v=22"></script>
 <script>
 /* Emergency HUD if module script never boots (old browsers / blocked modules) */
 (function () {

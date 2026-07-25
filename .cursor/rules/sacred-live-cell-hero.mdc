@@ -1,0 +1,23 @@
+---
+description: Homepage live-cell 3D hero is sacred — never break it with SEO/theme/deploy work
+globs: index.html,public/sc-hero-cell*.js,scripts/inject-*.mjs,scripts/inject-seo.py,firebase.json,.github/workflows/deploy.yml
+alwaysApply: false
+---
+
+# Sacred Live-Cell Hero
+
+The homepage `.sc-hero` 3D turning cell is a product-critical surface.
+
+## Hard rules
+
+1. **Never** replace `index.html` live-cell hero with blueprint/calc-sheet/theme mocks.
+2. **Never** load obsolete `sc-hero-cell.js?v=16` (or any `?v=1x` before v22). Always use immutable `sc-hero-cell-v22.js` (bump filename on intentional hero changes).
+3. **Never** reintroduce the flat SVG chuck poster. Poster must be `hero-cell-poster.png`.
+4. **Never** early-return WebGL on `prefers-reduced-motion` — only slow motion.
+5. **Never** make RoomEnvironment/PMREM required — env map failure must not kill WebGL.
+6. SEO injectors, EEAT, calc-sheet, and deploy scripts must not rewrite hero markup/scripts.
+7. After any `npm run build` / Firebase promote, run `node scripts/verify-hero-sacred.mjs` and confirm live loads `sc-hero-cell-v22.js` with canvas `.is-ready`.
+
+## If you touch SEO/deploy
+
+Ship hero assets in the same dist you promote. A SEO-only promote that rebuilds from a tree without v22 will wipe the live cell again.
