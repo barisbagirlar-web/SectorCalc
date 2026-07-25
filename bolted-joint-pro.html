@@ -5,7 +5,7 @@
 <!-- Canonical host is https://sectorcalc.com — Firebase Hosting 301s www → apex. No client reverse-redirect. -->
 <!--SC-SEO-HOST-END-->
 <!--SC-SEO-SECURITY-START-->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: https://cdnjs.cloudflare.com https://www.googletagmanager.com https://www.google-analytics.com; worker-src 'self' blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://www.googletagmanager.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: https://cdnjs.cloudflare.com https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com; worker-src 'self' blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https:; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://*.analytics.google.com https://www.googletagmanager.com https://*.googletagmanager.com https://stats.g.doubleclick.net https://*.g.doubleclick.net https://www.google.com https://google.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=(), interest-cohort=()">
 <link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
@@ -142,10 +142,10 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
 </style>
 <link rel="stylesheet" href="./sc-theme.css?v=12">
 <script src="./sc-theme.js?v=12" defer></script>
-<link rel="stylesheet" href="./sc-tool-guide.css?v=3">
+<link rel="stylesheet" href="./sc-tool-guide.css?v=4">
 <link rel="stylesheet" href="./sc-eeat.css?v=3">
 <link rel="stylesheet" href="./sc-study.css?v=4">
-<script src="./sc-tool-guide.js?v=3" defer></script>
+<script src="./sc-tool-guide.js?v=4" defer></script>
 <script src="./sc-study.js?v=4" defer></script>
 <link rel="stylesheet" href="./sc-site-nav.css?v=4">
 <script src="./sc-site-nav.js?v=2" defer></script>
@@ -505,7 +505,10 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
 </script>
 <!--SC-SEO-SCHEMA-END-->
 <link rel="stylesheet" href="/sc-related-tools.css?v=1">
-              <link rel="stylesheet" href="/sc-calc-sheet.css?v=1">
+              
+<!--SC-SEO-GA4-->
+<script src="/assets/js/sc-ga4-id.js?v=20260725b"></script>
+  <link rel="stylesheet" href="/sc-calc-sheet.css?v=1">
   <!--SC-CALC-SHEET-START-->
   <!-- calc-sheet theme: theme-calc-sheet -->
   <!--SC-CALC-SHEET-END-->
@@ -540,6 +543,12 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
   <a href="/sc008-pro.html" class="btn-primary">Run a Calculation</a>
 </div>
 <!--SC-SITE-NAV-END-->
+
+
+
+
+
+
 
 
 
@@ -829,41 +838,73 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
 </section>
 <!--SC-EEAT-END-->
 <!--SC-GUIDE-START-->
-  <section class="guide" id="sc-guide">
-    <h2>VDI 2230 Bolted Joint Verification — Engineering Guide</h2>
-    <div class="toc">
-      <b>Contents</b>
-      <a href="#g1">1 · The spring model of the joint</a>
-      <a href="#g2">2 · Assembly preload and tightening scatter</a>
-      <a href="#g3">3 · The four service checks</a>
-      <a href="#g4">4 · Worked example</a>
-      <a href="#g5">5 · FAQ</a>
-    </div>
+<div class="sc-guide-shell">
+<section class="sc-guide" id="sc-guide" data-tool-id="SC-036" data-tool-name="VDI 2230 Bolted Joint Calculator (SC-036)" data-tool-url="https://sectorcalc.com/bolted-joint-pro.html" itemscope itemtype="https://schema.org/FAQPage">
 
-    <h3 id="g1">1 · The spring model of the joint</h3>
+<nav class="sc-guide-toc" aria-label="Table of contents">
+  <h2 class="sc-guide-toc-title">On this page</h2>
+  <ul>
+    <li><a href="#g1">1 · The spring model of the joint</a></li>
+    <li><a href="#g2">2 · Assembly preload and tightening scatter</a></li>
+    <li><a href="#g3">3 · The four service checks</a></li>
+    <li><a href="#g4">4 · Worked example</a></li>
+    <li><a href="#g5">5 · FAQ</a></li>
+  </ul>
+</nav>
+
+<div class="sc-guide-intro">
+  <h2>VDI 2230 Bolted Joint Verification — Engineering Guide</h2>
+</div>
+
+<article class="sc-guide-card">
+<h3 id="g1">1 · The spring model of the joint</h3>
     <p>A preloaded joint is two springs in series. The bolt elongates like a tension spring with compliance δ_S; the clamped plates compress like a much stiffer spring with compliance δ_P. When the external axial load F_A enters the joint, it unloads the plate spring and adds load to the bolt spring in proportion to the <b>load factor</b>:</p>
-    <div class="formula">Φ = δ_P / (δ_S + δ_P) &nbsp;·&nbsp; Φ* = n·Φ &nbsp;·&nbsp; F_SA = Φ*·F_A &nbsp;·&nbsp; F_PA = (1−Φ*)·F_A</div>
+    <div class="sc-formula">Φ = δ_P / (δ_S + δ_P) &nbsp;·&nbsp; Φ* = n·Φ &nbsp;·&nbsp; F_SA = Φ*·F_A &nbsp;·&nbsp; F_PA = (1−Φ*)·F_A</div>
     <p>Typical steel joints have Φ = 0.15–0.35: only a fraction of the working load reaches the bolt. That is why preload is so effective — but only if it survives settlement and unloading. The plate compliance uses the VDI substitutional deformation cone from the head bearing diameter dw outward at tanφ = 0.5.</p>
     <p>The load-plane factor n accounts for where along the grip the external load is introduced. Loading at mid-joint (n = 0.5) is typical for flange-like connections; loading directly at the separating interface (n = 1.0) is the conservative bound for cover bolts.</p>
+</article>
 
-    <h3 id="g2">2 · Assembly preload and tightening scatter</h3>
+<article class="sc-guide-card">
+<h3 id="g2">2 · Assembly preload and tightening scatter</h3>
     <p>The maximum assembly preload F_Mmax follows from the von Mises combination of tension and thread torsion at a chosen utilization ν of the yield strength:</p>
-    <div class="formula">F_Mmax = ν·Rp0.2·A_s / √(1 + 3·[(3d₂/2d₃)·(P/(πd₂) + 1.155·μ_G)]²)</div>
+    <div class="sc-formula">F_Mmax = ν·Rp0.2·A_s / √(1 + 3·[(3d₂/2d₃)·(P/(πd₂) + 1.155·μ_G)]²)</div>
     <p>Torque-controlled tightening cannot hit that value exactly. Friction scatter and tool accuracy give a real preload between F_Mmax and F_Mmin = F_Mmax/α_A. Choosing a precise technique (low α_A) buys clamping reserve for free: at α_A = 1.2 the minimum preload is 83 % of maximum; at α_A = 2.5 only 40 %.</p>
     <p>Every real interface settles. Surface roughness flattens, coatings creep, paint squeezes out — typically f_Z = 0.009–0.015 mm per interface pair. The preload loss is F_Z = f_Z/(δ_S+δ_P), which is why short, stiff joints (small l_K, small δ_S) lose a much larger share of preload to the same settlement.</p>
+</article>
 
-    <h3 id="g3">3 · The four service checks</h3>
+<article class="sc-guide-card">
+<h3 id="g3">3 · The four service checks</h3>
     <p><b>Yield:</b> maximum bolt load F_Smax = F_Mmax + F_SA must keep the stress below Rp0.2 with margin (SF ≥ 1.1 recommended). <b>Residual clamping:</b> after settlement and unloading, F_Krest = F_Mmin − F_Z − F_PA must stay positive (otherwise the joint opens, the bolt sees the full alternating load and gaskets leak) and above any functional requirement F_Kerf. <b>Slip:</b> transverse load must satisfy F_Q ≤ μ_T·F_Krest — a slipped joint loses its geometry and usually its preload. <b>Fatigue:</b> the alternating stress σ_a = F_SA/(2A_s) must stay below the size-dependent endurance σ_ASV (≈ 34–51 MPa for rolled metric threads).</p>
+</article>
 
-    <h3 id="g4">4 · Worked example (defaults)</h3>
+<article class="sc-guide-card">
+<h3 id="g4">4 · Worked example (defaults)</h3>
     <p>M12 10.9, μ_G = μ_K = 0.14, α_A = 1.6, l_K = 40 mm steel plates, F_A = 6 kN: the engine finds F_Mmax ≈ 61 kN, M_A ≈ 137 N·m, Φ ≈ 0.30 (Φ* = 0.15 with n = 0.5), F_Smax ≈ 62 kN (SF ≈ 1.3), settlement loss ≈ 3.7 kN, residual clamp ≈ 29 kN and σ_a ≈ 5 MPa — comfortably inside all four limits. Shorten the grip below l_K/d = 3 and the settlement and short-grip warnings appear — try l_K = 24 mm to see both.</p>
+</article>
 
-    <h3 id="g5">5 · FAQ</h3>
-    <p><b>Why is my tightening torque different from SC-035?</b> SC-035 solves assembly sizing with the combined nut-factor view; this tool splits head and thread friction (μ_K, μ_G) exactly as VDI 2230 does and adds service verification. Small numeric differences are expected and documented in A3.</p>
-    <p><b>What if my plates are large flanges?</b> The deformation cone is capped by the actual joint face diameter. If dw + l_K·tanφ exceeds your flange OD, the real plate stiffness is lower and Φ rises — re-run with a reduced effective cone or accept the n = 1.0 conservative setting.</p>
-    <p><b>Can I verify a joint with several bolts?</b> Yes — enter per-bolt loads (total axial and transverse load divided by bolt count, worst-case distribution if uneven). The verification is per bolt; the stiffest-loaded bolt governs.</p>
-    <p><b>Is this a substitute for the full VDI 2230 worksheet?</b> It covers the standard concentric, single-bolt verification chain. Eccentric loading, prying, bolt bending and multi-stage tightening procedures still need the complete standard or a joint FEA.</p>
-  </section>
+<article class="sc-guide-card">
+<h3 id="g5">5 · FAQ</h3>
+<div class="sc-guide-faq-grid">
+<div class="q" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 itemprop="name">Why is my tightening torque different from SC-035?</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><p itemprop="text">SC-035 solves assembly sizing with the combined nut-factor view; this tool splits head and thread friction (μ_K, μ_G) exactly as VDI 2230 does and adds service verification. Small numeric differences are expected and documented in A3.</p></div>
+</div>
+<div class="q" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 itemprop="name">What if my plates are large flanges?</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><p itemprop="text">The deformation cone is capped by the actual joint face diameter. If dw + l_K·tanφ exceeds your flange OD, the real plate stiffness is lower and Φ rises — re-run with a reduced effective cone or accept the n = 1.0 conservative setting.</p></div>
+</div>
+<div class="q" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 itemprop="name">Can I verify a joint with several bolts?</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><p itemprop="text">Yes — enter per-bolt loads (total axial and transverse load divided by bolt count, worst-case distribution if uneven). The verification is per bolt; the stiffest-loaded bolt governs.</p></div>
+</div>
+<div class="q" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 itemprop="name">Is this a substitute for the full VDI 2230 worksheet?</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><p itemprop="text">It covers the standard concentric, single-bolt verification chain. Eccentric loading, prying, bolt bending and multi-stage tightening procedures still need the complete standard or a joint FEA.</p></div>
+</div>
+</div>
+</article>
+
+</section>
 </div>
 <!--SC-GUIDE-END-->
 
@@ -1180,7 +1221,6 @@ document.querySelectorAll('input').forEach(el=>el.addEventListener('input',calcu
 calculate();
 </script>
 <!--SC-SEO-CVW-->
-<script src="/assets/js/sc-ga4-id.js"></script>
 <script src="/assets/js/cvw-monitor.js" defer></script>
 
 <!--SC-RELATED-TOOLS-START-->

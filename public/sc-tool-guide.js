@@ -90,13 +90,89 @@
     return null;
   }
 
+  /** Upgrade legacy .guide / .toc / .formula markup to the premium sc-guide system. */
+  function normalizeLegacyGuide(guide) {
+    if (!guide) return guide;
+
+    guide.classList.add('sc-guide');
+    guide.classList.remove('guide');
+
+    if (!guide.closest('.sc-guide-shell')) {
+      const shell = document.createElement('div');
+      shell.className = 'sc-guide-shell';
+      guide.parentNode.insertBefore(shell, guide);
+      shell.appendChild(guide);
+    }
+
+    guide.querySelectorAll('.formula').forEach((node) => {
+      node.classList.remove('formula');
+      node.classList.add('sc-formula');
+    });
+
+    const oldToc = guide.querySelector(':scope > .toc, :scope .toc');
+    if (oldToc && !guide.querySelector('.sc-guide-toc')) {
+      const nav = document.createElement('nav');
+      nav.className = 'sc-guide-toc';
+      nav.setAttribute('aria-label', 'Table of contents');
+      const title = document.createElement('h2');
+      title.className = 'sc-guide-toc-title';
+      title.textContent = 'On this page';
+      const ul = document.createElement('ul');
+      oldToc.querySelectorAll('a[href^="#"]').forEach((a) => {
+        const li = document.createElement('li');
+        li.appendChild(a.cloneNode(true));
+        ul.appendChild(li);
+      });
+      nav.appendChild(title);
+      nav.appendChild(ul);
+      oldToc.replaceWith(nav);
+    }
+
+    return guide;
+  }
+
+  /** Wrap FAQ question paragraphs into soft .q cards when missing structured FAQ markup. */
+  function softFaqCards(card) {
+    const paras = [...card.querySelectorAll(':scope > p')].filter((p) => {
+      const b = p.querySelector(':scope > b, :scope > strong');
+      if (!b) return false;
+      const text = (b.textContent || '').trim();
+      return text.endsWith('?') || text.length > 24;
+    });
+    if (paras.length < 2) return;
+    const grid = document.createElement('div');
+    grid.className = 'sc-guide-faq-grid';
+    paras[0].before(grid);
+    paras.forEach((p) => {
+      const q = document.createElement('div');
+      q.className = 'q';
+      const b = p.querySelector(':scope > b, :scope > strong');
+      if (b) {
+        const h = document.createElement('h3');
+        h.textContent = b.textContent.replace(/\s+$/, '');
+        q.appendChild(h);
+        b.remove();
+      }
+      const body = document.createElement('p');
+      body.innerHTML = p.innerHTML.trim();
+      q.appendChild(body);
+      p.remove();
+      grid.appendChild(q);
+    });
+  }
+
   /** Wrap flat guide children into sticky TOC + section cards (all tools). */
   function layoutGuide(guide) {
     if (!guide || guide.dataset.laidOut === '1') return;
-    guide.dataset.laidOut = '1';
+    guide = normalizeLegacyGuide(guide);
+    if (guide.querySelector(':scope > .sc-guide-grid')) {
+      guide.dataset.laidOut = '1';
+      return;
+    }
 
     const toc = guide.querySelector('.sc-guide-toc');
     if (!toc) return;
+    guide.dataset.laidOut = '1';
 
     // Guide-top engage hosts are legacy — strip so the bar lives under the form only.
     guide.querySelectorAll('[data-sc-engage]:not([data-sc-engage-slot="form"])').forEach((n) => {
@@ -111,40 +187,55 @@
     );
     moving.forEach((n) => main.appendChild(n));
 
-    const intro = document.createElement('div');
-    intro.className = 'sc-guide-intro';
-    while (main.firstChild && main.firstChild.tagName !== 'H2') {
-      intro.appendChild(main.firstChild);
-    }
-    if (intro.childNodes.length) main.insertBefore(intro, main.firstChild);
-    else intro.remove();
+    const alreadyCarded = !!main.querySelector(':scope > .sc-guide-card, :scope > .sc-guide-intro');
 
-    const nodes = [...main.childNodes];
-    let card = null;
-    nodes.forEach((node) => {
-      if (node.nodeType !== 1) return;
-      if (node.classList && node.classList.contains('sc-guide-intro')) {
-        card = null;
-        return;
+    if (!alreadyCarded) {
+      const intro = document.createElement('div');
+      intro.className = 'sc-guide-intro';
+      while (main.firstChild && main.firstChild.tagName !== 'H2') {
+        intro.appendChild(main.firstChild);
       }
-      if (node.tagName === 'H2') {
-        card = document.createElement('article');
-        card.className = 'sc-guide-card';
-        if (node.id) card.dataset.for = node.id;
-        main.insertBefore(card, node);
-        card.appendChild(node);
-        return;
+      // Title H2 stays in intro for legacy guides that section on H3.
+      const h3Sections = main.querySelectorAll(':scope > h3[id]').length;
+      const h2Sections = [...main.querySelectorAll(':scope > h2[id]')].length;
+      const sectionTag = h3Sections >= 2 && h2Sections === 0 ? 'H3' : 'H2';
+      if (sectionTag === 'H3' && main.firstChild && main.firstChild.tagName === 'H2') {
+        intro.appendChild(main.firstChild);
       }
-      if (card) card.appendChild(node);
-    });
+      if (intro.childNodes.length) main.insertBefore(intro, main.firstChild);
+      else intro.remove();
+
+      const nodes = [...main.childNodes];
+      let card = null;
+      nodes.forEach((node) => {
+        if (node.nodeType !== 1) return;
+        if (node.classList && node.classList.contains('sc-guide-intro')) {
+          card = null;
+          return;
+        }
+        if (node.tagName === sectionTag) {
+          card = document.createElement('article');
+          card.className = 'sc-guide-card';
+          if (node.id) card.dataset.for = node.id;
+          main.insertBefore(card, node);
+          card.appendChild(node);
+          return;
+        }
+        if (card) card.appendChild(node);
+      });
+    }
 
     main.querySelectorAll('.sc-guide-card').forEach((c) => {
       const qs = [...c.querySelectorAll(':scope > .q')];
-      if (qs.length < 2) return;
-      const grid = document.createElement('div');
-      grid.className = 'sc-guide-faq-grid';
-      qs[0].before(grid);
-      qs.forEach((q) => grid.appendChild(q));
+      if (qs.length >= 2) {
+        if (c.querySelector(':scope > .sc-guide-faq-grid')) return;
+        const grid = document.createElement('div');
+        grid.className = 'sc-guide-faq-grid';
+        qs[0].before(grid);
+        qs.forEach((q) => grid.appendChild(q));
+      } else if (!c.querySelector('.sc-guide-faq-grid')) {
+        softFaqCards(c);
+      }
     });
 
     main.querySelectorAll('table').forEach((table) => {
@@ -369,7 +460,7 @@
     const formHost = ensureFormEngageHost();
     if (formHost) mount(formHost);
 
-    document.querySelectorAll('.sc-guide').forEach((guide) => {
+    document.querySelectorAll('.sc-guide, section.guide, #sc-guide').forEach((guide) => {
       layoutGuide(guide);
     });
 

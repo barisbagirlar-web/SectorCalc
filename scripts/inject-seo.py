@@ -20,17 +20,22 @@ HOST = "https://sectorcalc.com"
 OG_DEFAULT = f"{HOST}/assets/images/og-default-1200x630.jpg"
 OG_HOME = f"{HOST}/assets/images/sectorcalc-og-1200x630.jpg"
 
-# CSP must allow existing CDN / fonts / optional GA4 (do not tighten blindly).
+# CSP must allow CDN / fonts / GA4 (gtag destination + collect + consent geo).
+# Google also hits stats.g.doubleclick.net and www.google.com/ccm/geo — without
+# those, page_view can queue in dataLayer and never reach Realtime.
 CSP_CONTENT = (
     "default-src 'self'; "
     "script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: https://cdnjs.cloudflare.com "
-    "https://www.googletagmanager.com https://www.google-analytics.com; "
+    "https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com; "
     "worker-src 'self' blob:; "
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; "
     "font-src 'self' https://fonts.gstatic.com data:; "
     "img-src 'self' data: blob: https:; "
-    "connect-src 'self' https://www.google-analytics.com https://analytics.google.com "
-    "https://region1.google-analytics.com https://www.googletagmanager.com; "
+    "connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com "
+    "https://analytics.google.com https://*.analytics.google.com "
+    "https://www.googletagmanager.com https://*.googletagmanager.com "
+    "https://stats.g.doubleclick.net https://*.g.doubleclick.net "
+    "https://www.google.com https://google.com; "
     "frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests"
 )
 
@@ -738,13 +743,35 @@ def upsert_block(text: str, start: str, end: str, block: str) -> str:
     return re.sub(r"</head>", block + "\n</head>", text, count=1, flags=re.I)
 
 
+def upsert_ga_head(text: str) -> str:
+    """Load GA4 bootstrap in <head> so page_view fires before body scripts."""
+    marker = "<!--SC-SEO-GA4-->"
+    block = f'{marker}\n<script src="/assets/js/sc-ga4-id.js?v=20260725b"></script>\n'
+    # Remove legacy body-end GA bootstrap if present (kept next to CVW before).
+    text = re.sub(
+        r'[ \t]*<script src="/assets/js/sc-ga4-id\.js(?:\?[^"]*)?"></script>\s*',
+        "",
+        text,
+    )
+    # Replace ONLY the GA4 marker + its script — never eat following head assets
+    # (calc-sheet / related-tools comments are often indented: "\\n  <!--...").
+    ga_block_re = re.compile(
+        re.escape(marker) + r"\s*<script\b[^>]*sc-ga4-id\.js[^>]*>\s*</script>\s*",
+        flags=re.I,
+    )
+    if ga_block_re.search(text):
+        return ga_block_re.sub(block, text, count=1)
+    if marker in text:
+        # Orphan marker without script — drop it, then insert cleanly.
+        text = text.replace(marker, "", 1)
+    if "</head>" not in text.lower():
+        raise RuntimeError("No </head>")
+    return re.sub(r"</head>", block + "</head>", text, count=1, flags=re.I)
+
+
 def upsert_cvw(text: str) -> str:
     marker = "<!--SC-SEO-CVW-->"
-    block = (
-        f"{marker}\n"
-        '<script src="/assets/js/sc-ga4-id.js"></script>\n'
-        '<script src="/assets/js/cvw-monitor.js" defer></script>'
-    )
+    block = f'{marker}\n<script src="/assets/js/cvw-monitor.js" defer></script>'
     if marker in text:
         return re.sub(
             re.escape(marker) + r".*?(?=\n</body>|\n<!--|\Z)",
@@ -753,13 +780,15 @@ def upsert_cvw(text: str) -> str:
             count=1,
             flags=re.S,
         )
-    if 'src="/assets/js/cvw-monitor.js"' in text and "sc-ga4-id.js" not in text:
-        return text.replace(
-            '<script src="/assets/js/cvw-monitor.js" defer></script>',
-            block.replace(marker + "\n", ""),
-            1,
-        )
     if 'src="/assets/js/cvw-monitor.js"' in text:
+        # Normalize any old GA+CVW body block down to CVW-only.
+        text = re.sub(
+            r"<!--SC-SEO-CVW-->\s*(?:<script src=\"/assets/js/sc-ga4-id\.js\"></script>\s*)?"
+            r'<script src="/assets/js/cvw-monitor\.js" defer></script>',
+            block,
+            text,
+            count=1,
+        )
         return text
     return re.sub(r"</body>", block + "\n</body>", text, count=1, flags=re.I)
 
@@ -911,6 +940,7 @@ def process(page: str) -> None:
         desc = "SectorCalc Pro calculators for shop-floor engineers: CNC feeds & speeds, bearing life, tolerance stack-up and more — deterministic SI engines with audit trails."
     text = upsert_host_redirect(text)
     text = upsert_security(text)
+    text = upsert_ga_head(text)
     text = upsert_block(text, "<!--SC-SEO-META-START-->", "<!--SC-SEO-META-END-->", page_meta_block(page, title, desc))
     text = upsert_breadcrumb(text, page)
 

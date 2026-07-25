@@ -5,7 +5,7 @@
 <!-- Canonical host is https://sectorcalc.com — Firebase Hosting 301s www → apex. No client reverse-redirect. -->
 <!--SC-SEO-HOST-END-->
 <!--SC-SEO-SECURITY-START-->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: https://cdnjs.cloudflare.com https://www.googletagmanager.com https://www.google-analytics.com; worker-src 'self' blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://www.googletagmanager.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: https://cdnjs.cloudflare.com https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com; worker-src 'self' blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https:; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://*.analytics.google.com https://www.googletagmanager.com https://*.googletagmanager.com https://stats.g.doubleclick.net https://*.g.doubleclick.net https://www.google.com https://google.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=(), interest-cohort=()">
 <link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
@@ -142,10 +142,10 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
 </style>
 <link rel="stylesheet" href="./sc-theme.css?v=12">
 <script src="./sc-theme.js?v=12" defer></script>
-<link rel="stylesheet" href="./sc-tool-guide.css?v=3">
+<link rel="stylesheet" href="./sc-tool-guide.css?v=4">
 <link rel="stylesheet" href="./sc-eeat.css?v=3">
 <link rel="stylesheet" href="./sc-study.css?v=4">
-<script src="./sc-tool-guide.js?v=3" defer></script>
+<script src="./sc-tool-guide.js?v=4" defer></script>
 <script src="./sc-study.js?v=4" defer></script>
 <link rel="stylesheet" href="./sc-site-nav.css?v=4">
 <script src="./sc-site-nav.js?v=2" defer></script>
@@ -505,7 +505,10 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
 </script>
 <!--SC-SEO-SCHEMA-END-->
 <link rel="stylesheet" href="/sc-related-tools.css?v=1">
-              <link rel="stylesheet" href="/sc-calc-sheet.css?v=1">
+              
+<!--SC-SEO-GA4-->
+<script src="/assets/js/sc-ga4-id.js?v=20260725b"></script>
+  <link rel="stylesheet" href="/sc-calc-sheet.css?v=1">
   <!--SC-CALC-SHEET-START-->
   <!-- calc-sheet theme: theme-calc-sheet -->
   <!--SC-CALC-SHEET-END-->
@@ -540,6 +543,12 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
   <a href="/sc008-pro.html" class="btn-primary">Run a Calculation</a>
 </div>
 <!--SC-SITE-NAV-END-->
+
+
+
+
+
+
 
 
 
@@ -748,39 +757,71 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
 </section>
 <!--SC-EEAT-END-->
 <!--SC-GUIDE-START-->
-  <section class="guide" id="sc-guide">
-    <h2>OEE — Engineering &amp; Continuous-Improvement Guide</h2>
-    <div class="toc">
-      <b>Contents</b>
-      <a href="#g1">1 · The OEE decomposition</a>
-      <a href="#g2">2 · The six big losses in time units</a>
-      <a href="#g3">3 · Benchmarks and TEEP</a>
-      <a href="#g4">4 · Worked example</a>
-      <a href="#g5">5 · FAQ</a>
-    </div>
+<div class="sc-guide-shell">
+<section class="sc-guide" id="sc-guide" data-tool-id="SC-037" data-tool-name="OEE Calculator (SC-037)" data-tool-url="https://sectorcalc.com/oee-pro.html" itemscope itemtype="https://schema.org/FAQPage">
 
-    <h3 id="g1">1 · The OEE decomposition</h3>
+<nav class="sc-guide-toc" aria-label="Table of contents">
+  <h2 class="sc-guide-toc-title">On this page</h2>
+  <ul>
+    <li><a href="#g1">1 · The OEE decomposition</a></li>
+    <li><a href="#g2">2 · The six big losses in time units</a></li>
+    <li><a href="#g3">3 · Benchmarks and TEEP</a></li>
+    <li><a href="#g4">4 · Worked example</a></li>
+    <li><a href="#g5">5 · FAQ</a></li>
+  </ul>
+</nav>
+
+<div class="sc-guide-intro">
+  <h2>OEE — Engineering &amp; Continuous-Improvement Guide</h2>
+</div>
+
+<article class="sc-guide-card">
+<h3 id="g1">1 · The OEE decomposition</h3>
     <p>OEE multiplies three independent factors, each answering one question about the same period:</p>
-    <div class="formula">A = Run time / Planned production time · P = (Ideal cycle × Total count) / Run time · Q = Good count / Total count · OEE = A × P × Q</div>
+    <div class="sc-formula">A = Run time / Planned production time · P = (Ideal cycle × Total count) / Run time · Q = Good count / Total count · OEE = A × P × Q</div>
     <p><b>Availability</b> asks: of the time we planned to run, how much did we actually run? <b>Performance</b> asks: while running, how close to the ideal rate did we stay? <b>Quality</b> asks: of everything we made, how much was sellable the first time? Because the factors multiply, OEE is brutally honest: 90 % × 90 % × 90 % is only 73 %.</p>
     <p>The ideal cycle time must be the design or demonstrated best rate — not a padded standard. Padding the cycle inflates Performance, hides speed loss, and is the most common way OEE programs deceive themselves.</p>
+</article>
 
-    <h3 id="g2">2 · The six big losses in time units</h3>
+<article class="sc-guide-card">
+<h3 id="g2">2 · The six big losses in time units</h3>
     <p>The waterfall converts every loss into minutes so losses compare on one scale. <b>Unplanned downtime</b> (breakdowns, changeover overruns, material waits) hits Availability directly. <b>Speed loss</b> = Run time − Ideal cycle × Total count captures slow cycles and minor stops under the downtime threshold. <b>Quality loss</b> = Ideal cycle × Rejects is the time spent making parts nobody can sell. What remains is <b>value time</b> — the minutes that actually became good product.</p>
     <p>Improvement priority follows the waterfall: attack the largest bar first. A plant with 15 % downtime loss and 2 % quality loss that launches a quality program is working on the wrong bar.</p>
+</article>
 
-    <h3 id="g3">3 · Benchmarks and TEEP</h3>
+<article class="sc-guide-card">
+<h3 id="g3">3 · Benchmarks and TEEP</h3>
     <p><b>85 %</b> is the classic world-class line (A ≥ 90 %, P ≥ 95 %, Q ≥ 99.9 %); <b>60 %</b> is typical for discrete manufacturing without a CI program; below <b>40 %</b> the bottleneck is usually systemic — planning, materials or maintenance strategy, not the operator. <b>TEEP</b> scales OEE by calendar loading (planned time / calendar time) and exposes the structural reserve: a single-shift operation can rarely exceed ~33 % TEEP even at perfect OEE — the honest argument for a second shift or a new line.</p>
+</article>
 
-    <h3 id="g4">4 · Worked example (defaults)</h3>
+<article class="sc-guide-card">
+<h3 id="g4">4 · Worked example (defaults)</h3>
     <p>8 h shift, 30 min planned stops, 20 min unplanned downtime, 11.5 s ideal cycle, 2 100 pieces with 25 rejects: planned production time = 450 min, run time = 430 min → A = 95.6 %. Ideal run time = 402.5 min → P = 93.6 %. Q = 98.8 %. OEE = 88.4 % — above the world-class line, with speed loss (27.5 min) as the largest remaining bar. Push downtime to 47 min and the verdict flips below target at 75.6 % — the waterfall immediately shows why.</p>
+</article>
 
-    <h3 id="g5">5 · FAQ</h3>
-    <p><b>Performance came out above 100 % — is that good?</b> It is impossible by definition and means the data is lying: the "ideal" cycle is padded, the counter overcounts, or downtime is under-recorded. The engine blocks the report until the inconsistency is fixed — an OEE above 100 % in any factor destroys the credibility of the whole metric.</p>
-    <p><b>Should changeover be planned or unplanned?</b> Consistency matters more than doctrine, but best practice: planned changeover time sits in planned stops, changeover <i>overruns</i> and waiting sit in unplanned downtime. SMED then attacks the planned part transparently.</p>
-    <p><b>How do I aggregate a week?</b> Sum the minutes and pieces across shifts first, then compute OEE once — never average daily OEE percentages (a zero-output day drags a simple average below any honest number).</p>
-    <p><b>What OEE should the sales team quote?</b> The audited one. OEE is an improvement metric, not a marketing metric — quoting 85 % while running 60 % prices capacity you do not have.</p>
-  </section>
+<article class="sc-guide-card">
+<h3 id="g5">5 · FAQ</h3>
+<div class="sc-guide-faq-grid">
+<div class="q" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 itemprop="name">Performance came out above 100 % — is that good?</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><p itemprop="text">It is impossible by definition and means the data is lying: the "ideal" cycle is padded, the counter overcounts, or downtime is under-recorded. The engine blocks the report until the inconsistency is fixed — an OEE above 100 % in any factor destroys the credibility of the whole metric.</p></div>
+</div>
+<div class="q" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 itemprop="name">Should changeover be planned or unplanned?</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><p itemprop="text">Consistency matters more than doctrine, but best practice: planned changeover time sits in planned stops, changeover <i>overruns</i> and waiting sit in unplanned downtime. SMED then attacks the planned part transparently.</p></div>
+</div>
+<div class="q" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 itemprop="name">How do I aggregate a week?</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><p itemprop="text">Sum the minutes and pieces across shifts first, then compute OEE once — never average daily OEE percentages (a zero-output day drags a simple average below any honest number).</p></div>
+</div>
+<div class="q" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 itemprop="name">What OEE should the sales team quote?</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><p itemprop="text">The audited one. OEE is an improvement metric, not a marketing metric — quoting 85 % while running 60 % prices capacity you do not have.</p></div>
+</div>
+</div>
+</article>
+
+</section>
 </div>
 <!--SC-GUIDE-END-->
 
@@ -1074,7 +1115,6 @@ document.querySelectorAll('input').forEach(el=>el.addEventListener('input',calcu
 calculate();
 </script>
 <!--SC-SEO-CVW-->
-<script src="/assets/js/sc-ga4-id.js"></script>
 <script src="/assets/js/cvw-monitor.js" defer></script>
 
 <!--SC-RELATED-TOOLS-START-->
