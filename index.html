@@ -1678,7 +1678,9 @@ select:focus-visible{
 .sc-hero .deck-live[data-on="0"]::before{animation:none;opacity:.45}
 @keyframes sc-deck-live{0%{box-shadow:0 0 0 0 rgba(0,122,51,.45)}70%{box-shadow:0 0 0 8px rgba(0,122,51,0)}100%{box-shadow:0 0 0 0 rgba(0,122,51,0)}}
 .sc-hero .deck-scene{color:var(--sc-hero-blue);font-weight:700;letter-spacing:.1em}
-.sc-hero .stack-strip > span{transition:flex-grow .45s cubic-bezier(.22,1,.36,1)}
+.sc-hero .stack-strip > span{transition:flex-grow .9s cubic-bezier(.22,1,.36,1)}
+.sc-hero .e-ctrl input[type=range]{transition:none}
+.sc-hero .val .v,.sc-hero .gauge-val b,.sc-hero .e-ctrl label output{transition:color .45s ease}
 @media (prefers-reduced-motion: reduce){
   .sc-hero .deck-live::before{animation:none}
   .sc-hero .stack-strip > span{transition:none}
@@ -2007,6 +2009,7 @@ select:focus-visible{
 
 
 
+
 <a href="#main-content" class="skip-link">Skip to main content</a>
 
 <div class="sheet">
@@ -2105,7 +2108,7 @@ select:focus-visible{
           </div>
           <div class="deck-foot">
             <span>SEED <b>0x7A3F1C9E</b></span><span>ITER <b>10,000</b></span>
-            <span>ENGINE <b>v2.6.0</b></span><span>TIME <b id="calcTime">0.4 ms</b></span>
+            <span>ENGINE <b>v2.7.0</b></span><span>TIME <b id="calcTime">0.4 ms</b></span>
             <span class="ok">✓ REPRODUCIBLE</span>
           </div>
         </div>
@@ -3360,7 +3363,7 @@ select:focus-visible{
 </script>
 
 <script type="module" src="/sc-hero-cell-v24.js"></script>
-<script src="/sc-hero-engine.js?v=26"></script>
+<script src="/sc-hero-engine.js?v=27"></script>
 <script>
 /* Emergency HUD if module script never boots (old browsers / blocked modules) */
 (function () {

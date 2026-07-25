@@ -1,6 +1,6 @@
-/* sc-hero-engine.js — SectorCalc Live Deck v26
-   Auto-live SC-008 Monte Carlo under the cell.
-   Self-driving scenario choreography · deterministic seed · LSL/USL histogram.
+/* sc-hero-engine.js — SectorCalc Live Deck v27
+   Cinematic auto-live SC-008 deck.
+   Soft analytical scrub · full MC only on settle · no histogram explode.
 */
 (function () {
   'use strict';
@@ -112,7 +112,7 @@
       dots.push({
         x: ((b2 + 0.5) / B) * w + (rnd - 0.5) * (w / B * 0.75),
         y: h - 18 - (k / mx) * (h - 36),
-        delay: (i2 / N) * 520,
+        delay: (i2 / N) * 900,
         inSpec: Math.abs(samples[i2]) <= SPEC
       });
     }
@@ -171,7 +171,7 @@
     var t = now - animStart;
     for (var i = 0; i < dots.length; i++) {
       var d = dots[i];
-      var p = (t - d.delay) / 380;
+      var p = (t - d.delay) / 520;
       if (p <= 0) continue;
       var e = p >= 1 ? 1 : 1 - Math.pow(1 - p, 3);
       ctx.globalAlpha = 0.22 + 0.78 * e;
@@ -203,7 +203,7 @@
     ctx.fillText('0', x0 - 3, h - 4);
     ctx.fillText('USL', Math.min(w - 22, xU + 4), h - 4);
 
-    if (t < 980) raf = requestAnimationFrame(draw);
+    if (t < 1500) raf = requestAnimationFrame(draw);
   }
 
   var needle = document.getElementById('needle');
@@ -286,18 +286,37 @@
     });
   }
 
-  function recalc() {
-    if (!inTol) return;
-    var t1 = +inTol.value / 1000;
+  function analytical(t1) {
+    var tols = [t1].concat(FIXED.map(function (p) { return p.tol; }));
+    var wc = tols.reduce(function (a, b) { return a + b; }, 0);
+    var sig = tols.map(function (t) { return t / 3; });
+    var sS = Math.sqrt(sig.reduce(function (a, s) { return a + s * s; }, 0));
+    var rss = 3 * sS;
+    // During scrub, RSS is the closed-form stand-in for MC — no particle rebuild.
+    var mc = rss;
+    return { wc: wc, rss: rss, mc: mc, cpk: SPEC / mc, contrib: tols, samples: null, ms: '—' };
+  }
+
+  function applyReadout(t1, r, opts) {
+    opts = opts || {};
     if (oTol) oTol.textContent = '±' + t1.toFixed(3) + ' mm';
-    var r = runEngine(t1);
-    current = r;
-    tween(document.getElementById('vWC'), r.wc, f4);
-    tween(document.getElementById('vRSS'), r.rss, f4);
-    tween(document.getElementById('vMC'), r.mc, f4);
-    tween(document.getElementById('cpkVal'), r.cpk, f2);
+    if (opts.tween) {
+      tween(document.getElementById('vWC'), r.wc, f4);
+      tween(document.getElementById('vRSS'), r.rss, f4);
+      tween(document.getElementById('vMC'), r.mc, f4);
+      tween(document.getElementById('cpkVal'), r.cpk, f2);
+    } else {
+      var elWC = document.getElementById('vWC');
+      var elRSS = document.getElementById('vRSS');
+      var elMC = document.getElementById('vMC');
+      var elCpk = document.getElementById('cpkVal');
+      if (elWC) { elWC._v = r.wc; elWC.textContent = f4(r.wc); }
+      if (elRSS) { elRSS._v = r.rss; elRSS.textContent = f4(r.rss); }
+      if (elMC) { elMC._v = r.mc; elMC.textContent = f4(r.mc); }
+      if (elCpk) { elCpk._v = r.cpk; elCpk.textContent = f2(r.cpk); }
+    }
     var ct = document.getElementById('calcTime');
-    if (ct) ct.textContent = r.ms + ' ms';
+    if (ct) ct.textContent = r.ms === '—' ? 'preview' : r.ms + ' ms';
 
     var st = cpkStatus(r.cpk);
     if (cpkStatusEl) {
@@ -307,11 +326,47 @@
     var wrap = document.querySelector('.sc-hero-gauge-wrap');
     if (wrap) wrap.dataset.tone = st.tone;
 
-    // needle: Cpk 0 → 2.2 maps -90 → +90
     tgt = -90 + (Math.max(0, Math.min(2.2, r.cpk)) / 2.2) * 180;
     spring();
     paintStack(t1, r);
-    build(r.samples);
+  }
+
+  /** Soft live preview — no Monte Carlo, no histogram restart (prevents "explode"). */
+  function previewTol(tMicron) {
+    var t1 = Math.max(0.01, Math.min(0.1, tMicron / 1000));
+    if (inTol) inTol.value = String(Math.round(tMicron / 5) * 5);
+    var r = analytical(t1);
+    if (current && current.samples) {
+      // Keep settled samples; only move the PDF overlay sigma.
+      current = {
+        wc: r.wc,
+        rss: r.rss,
+        mc: r.mc,
+        cpk: r.cpk,
+        samples: current.samples,
+        ms: '—'
+      };
+    } else {
+      current = r;
+    }
+    applyReadout(t1, r, { tween: false });
+    // Gentle curve re-draw without particle rain restart
+    if (raf) cancelAnimationFrame(raf);
+    raf = requestAnimationFrame(function (now) {
+      animStart = now - 2000; // skip rain; draw settled frame
+      draw(now);
+    });
+  }
+
+  /** Full commit — seeded MC + one cinematic histogram settle. */
+  function recalc(opts) {
+    opts = opts || {};
+    if (!inTol) return;
+    var t1 = +inTol.value / 1000;
+    var r = runEngine(t1);
+    current = r;
+    applyReadout(t1, r, { tween: opts.tween !== false });
+    if (opts.histo !== false) build(r.samples);
   }
 
   paintTicks();
@@ -319,7 +374,6 @@
   var userPinned = false;
   var resumeTimer = null;
   var autoRaf = null;
-  var autoRunning = false;
   var sceneEl = document.getElementById('deckScene');
   var liveDot = document.getElementById('deckLive');
   var calm = false;
@@ -327,30 +381,28 @@
     calm = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
   } catch (e) {}
 
-  // Choreography: different motion grammars, not a single monotone sweep.
+  // Cinematic one-way scenes — long ease, long hold, no scrub/rewind pulse.
   var SCENES = [
-    { name: 'TIGHT FIT', from: 50, to: 20, ms: 2200, hold: 1600 },
-    { name: 'NOMINAL ISO-m', from: 20, to: 50, ms: 1800, hold: 1400 },
-    { name: 'PROCESS DRIFT', from: 50, to: 80, ms: 2400, hold: 1200 },
-    { name: 'RISK SWEEP', from: 80, to: 100, ms: 2000, hold: 1500 },
-    { name: 'RECOVERY', from: 100, to: 35, ms: 2800, hold: 1100 },
-    { name: 'PULSE CHECK', from: 35, to: 55, ms: 900, hold: 400, pulse: true },
-    { name: 'PULSE CHECK', from: 55, to: 35, ms: 900, hold: 400, pulse: true },
-    { name: 'PULSE CHECK', from: 35, to: 50, ms: 1000, hold: 1600 }
+    { name: 'TIGHT FIT', from: 50, to: 20, ms: 5600, hold: 3400 },
+    { name: 'NOMINAL ISO-m', from: 20, to: 50, ms: 6200, hold: 3800 },
+    { name: 'PROCESS DRIFT', from: 50, to: 85, ms: 7200, hold: 3200 },
+    { name: 'SPEC RISK', from: 85, to: 100, ms: 4800, hold: 4000 },
+    { name: 'CORRECTIVE', from: 100, to: 50, ms: 7800, hold: 4200 }
   ];
   if (calm) {
     SCENES = [
-      { name: 'TIGHT FIT', from: 50, to: 25, ms: 3200, hold: 2200 },
-      { name: 'NOMINAL ISO-m', from: 25, to: 50, ms: 3000, hold: 2200 },
-      { name: 'RISK SWEEP', from: 50, to: 90, ms: 3400, hold: 2200 },
-      { name: 'RECOVERY', from: 90, to: 50, ms: 3400, hold: 2200 }
+      { name: 'TIGHT FIT', from: 50, to: 25, ms: 7000, hold: 4500 },
+      { name: 'NOMINAL ISO-m', from: 25, to: 50, ms: 7000, hold: 4500 },
+      { name: 'SPEC RISK', from: 50, to: 95, ms: 8000, hold: 4500 },
+      { name: 'CORRECTIVE', from: 95, to: 50, ms: 8000, hold: 4500 }
     ];
   }
 
   var sceneIdx = 0;
   var sceneT0 = 0;
   var scenePhase = 'move'; // move | hold
-  var lastCommit = -1;
+  var lastPreviewSnap = -1;
+  var activeScene = null;
 
   function setSceneLabel(name, live) {
     if (sceneEl) sceneEl.textContent = name;
@@ -361,61 +413,64 @@
   }
 
   function easeInOut(p) {
-    return p < 0.5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2;
-  }
-
-  function commitTol(v, force) {
-    var snapped = Math.round(v / 5) * 5;
-    snapped = Math.max(10, Math.min(100, snapped));
-    if (!force && snapped === lastCommit) {
-      // still update continuous readout for premium feel
-      if (oTol) oTol.textContent = '±' + (v / 1000).toFixed(3) + ' mm';
-      if (inTol) inTol.value = String(snapped);
-      return;
-    }
-    lastCommit = snapped;
-    if (inTol) inTol.value = String(snapped);
-    recalc();
+    // Smoother cinematic ease (quintic)
+    return p < 0.5
+      ? 16 * p * p * p * p * p
+      : 1 - Math.pow(-2 * p + 2, 5) / 2;
   }
 
   function pinUser() {
     userPinned = true;
-    autoRunning = false;
+    if (autoRaf) cancelAnimationFrame(autoRaf);
+    autoRaf = null;
     setSceneLabel('MANUAL INPUT', false);
     if (resumeTimer) clearTimeout(resumeTimer);
     resumeTimer = setTimeout(function () {
       userPinned = false;
       startAuto();
-    }, calm ? 14000 : 9000);
+    }, calm ? 16000 : 12000);
   }
 
   function autoTick(now) {
     autoRaf = null;
     if (userPinned || document.hidden) return;
-    autoRunning = true;
-    var sc = SCENES[sceneIdx % SCENES.length];
+    var sc = activeScene || SCENES[sceneIdx % SCENES.length];
     setSceneLabel(sc.name, true);
 
     if (scenePhase === 'move') {
       var p = Math.min(1, (now - sceneT0) / sc.ms);
       var e = easeInOut(p);
       var v = sc.from + (sc.to - sc.from) * e;
-      // Soft continuous readout + engine commit on 5µm steps
+      var snap = Math.round(v / 5) * 5;
       if (oTol) oTol.textContent = '±' + (v / 1000).toFixed(3) + ' mm';
-      if (inTol) inTol.value = String(Math.round(v / 5) * 5);
-      if (p >= 1 || Math.abs(v - lastCommit) >= 4.5) commitTol(v, p >= 1);
+      if (snap !== lastPreviewSnap) {
+        lastPreviewSnap = snap;
+        previewTol(v);
+      } else if (inTol) {
+        inTol.value = String(snap);
+      }
+
       if (p >= 1) {
         scenePhase = 'hold';
         sceneT0 = now;
-        commitTol(sc.to, true);
+        lastPreviewSnap = -1;
+        if (inTol) inTol.value = String(sc.to);
+        recalc({ tween: true, histo: true });
       }
-    } else {
-      if (now - sceneT0 >= sc.hold) {
-        sceneIdx = (sceneIdx + 1) % SCENES.length;
-        scenePhase = 'move';
-        sceneT0 = now;
-        lastCommit = -1;
-      }
+    } else if (now - sceneT0 >= sc.hold) {
+      sceneIdx = (sceneIdx + 1) % SCENES.length;
+      var next = SCENES[sceneIdx];
+      var cur = inTol ? +inTol.value : next.from;
+      activeScene = {
+        name: next.name,
+        from: cur,
+        to: next.to,
+        ms: Math.max(next.ms, Math.abs(next.to - cur) * 90),
+        hold: next.hold
+      };
+      scenePhase = 'move';
+      sceneT0 = now;
+      lastPreviewSnap = -1;
     }
     autoRaf = requestAnimationFrame(autoTick);
   }
@@ -423,10 +478,19 @@
   function startAuto() {
     if (userPinned) return;
     if (autoRaf) cancelAnimationFrame(autoRaf);
+    var base = SCENES[sceneIdx % SCENES.length];
+    var cur = inTol ? +inTol.value : base.from;
+    activeScene = {
+      name: base.name,
+      from: cur,
+      to: base.to,
+      ms: Math.max(base.ms, Math.abs(base.to - cur) * 90),
+      hold: base.hold
+    };
     scenePhase = 'move';
     sceneT0 = performance.now();
-    lastCommit = -1;
-    setSceneLabel(SCENES[sceneIdx % SCENES.length].name, true);
+    lastPreviewSnap = -1;
+    setSceneLabel(activeScene.name, true);
     autoRaf = requestAnimationFrame(autoTick);
   }
 
@@ -434,12 +498,13 @@
     inTol.addEventListener('pointerdown', pinUser);
     inTol.addEventListener('input', function () {
       pinUser();
+      previewTol(+inTol.value);
       clearTimeout(deb);
-      deb = setTimeout(recalc, 70);
+      deb = setTimeout(function () { recalc({ tween: true, histo: true }); }, 220);
     });
     inTol.addEventListener('change', function () {
       pinUser();
-      recalc();
+      recalc({ tween: true, histo: true });
     });
   }
 
@@ -451,28 +516,26 @@
   }
 
   addEventListener('resize', function () {
-    if (current) build(current.samples);
+    if (current && current.samples) build(current.samples);
   });
   if (typeof ResizeObserver !== 'undefined') {
     var ro = new ResizeObserver(function () {
-      if (current) build(current.samples);
+      if (current && current.samples) build(current.samples);
     });
     ro.observe(canvas.parentElement || canvas);
   }
 
-  var visIO = null;
   try {
     var cell = document.querySelector('.sc-hero .cell') || deckRoot;
     if (cell && typeof IntersectionObserver !== 'undefined') {
-      visIO = new IntersectionObserver(function (entries) {
+      var visIO = new IntersectionObserver(function (entries) {
         var on = entries.some(function (en) { return en.isIntersecting; });
         if (!on) {
           if (autoRaf) cancelAnimationFrame(autoRaf);
           autoRaf = null;
-          autoRunning = false;
           setSceneLabel('STANDBY', false);
         } else if (!userPinned) startAuto();
-      }, { threshold: 0.15 });
+      }, { threshold: 0.2 });
       visIO.observe(cell);
     }
   } catch (e2) {}
@@ -481,16 +544,14 @@
     if (document.hidden) {
       if (autoRaf) cancelAnimationFrame(autoRaf);
       autoRaf = null;
-      autoRunning = false;
     } else if (!userPinned) startAuto();
   });
 
-  recalc();
+  recalc({ tween: false, histo: true });
   setTimeout(function () {
-    recalc();
     if (!userPinned) startAuto();
-  }, 1200);
+  }, 1600);
   document.addEventListener('sectorcalc-theme', function () {
-    if (current) build(current.samples);
+    if (current && current.samples) build(current.samples);
   });
 })();
