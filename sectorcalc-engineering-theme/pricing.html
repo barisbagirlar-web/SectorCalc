@@ -4,11 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SectorCalc — Pricing & Credits</title>
-<link rel="stylesheet" href="./sectorcalc-engineering.css">
-<link rel="stylesheet" href="./sc-theme.css?v=12">
-<link rel="stylesheet" href="./sc-form-fields.css?v=4">
-<script>(function(){try{var k='sectorcalc-theme';var t=localStorage.getItem(k);if(t!=='dark'&&t!=='light')t=(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
-<script src="./sc-theme.js?v=12" defer></script>
+<link rel="stylesheet" href="sectorcalc-engineering.css">
 <style>
 .theme-bom { min-height: 100vh; padding: 2rem 1rem; }
 .bom-sheet { padding: 0; position: relative; }
@@ -98,40 +94,8 @@
 @media (max-width: 900px) { .spec-grid { grid-template-columns: 1fr; } .bom-notes-grid { grid-template-columns: 1fr; } .bom-title-block-top { grid-template-columns: 1fr 1fr; } .bom-footer-tb { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 640px) { .bom-header { flex-direction: column; gap: 1rem; } .bom-header-right { text-align: left; } .bom-nav { flex-wrap: wrap; } }
 </style>
-<link rel="stylesheet" href="./sc-site-nav.css?v=1">
-<script src="./sc-site-nav.js?v=1" defer></script>
-<link rel="stylesheet" href="./sc-form-fields.css?v=4">
 </head>
 <body class="theme-bom">
-<!--SC-SITE-NAV-START-->
-<header class="site-header" id="siteHeader" role="banner">
-  <a href="/" class="brand" aria-label="SectorCalc Home"><span class="brand-mark"><img class="logo-light" src="/sectorcalc-logo.png" alt="SectorCalc" width="183" height="48"><img class="logo-dark" src="/sectorcalc-logo-dark.png?v=2" alt="" width="183" height="48" aria-hidden="true"></span></a>
-  <nav class="main-nav" role="navigation" aria-label="Main navigation">
-    <ul>
-      <li><a href="/tools.html" data-nav="tools">Tools</a></li>
-      <li><a href="/#method" data-nav="method" data-nav-home="#method">Method</a></li>
-      <li><a href="/#standards" data-nav="standards" data-nav-home="#standards">Standards</a></li>
-      <li><a href="/pricing.html" data-nav="pricing">Pricing</a></li>
-    </ul>
-    <span class="sc-nav-tool" aria-hidden="true"></span>
-    <a href="/sc008-pro.html" class="btn btn-primary">Run a Calculation</a>
-  </nav>
-  <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
-    <span></span><span></span><span></span>
-  </button>
-</header>
-<div class="mobile-nav-overlay" id="mobileNav" role="dialog" aria-label="Mobile menu" aria-hidden="true">
-  <a href="/tools.html" data-nav="tools">All Tools</a>
-  <a href="/#method" data-nav-home="#method">Method</a>
-  <a href="/#standards" data-nav-home="#standards">Standards</a>
-  <a href="/pricing.html" data-nav="pricing">Pricing</a>
-  <a href="/sc008-pro.html" class="btn-primary">Run a Calculation</a>
-</div>
-<!--SC-SITE-NAV-END-->
-
-
-
-
 
 <div class="bom-sheet">
   <div class="bom-header">
@@ -148,12 +112,12 @@
   </div>
 
   <nav class="bom-nav">
-    <a href="/">← Home</a>
-    <a href="/tools.html">Tools Index</a>
-    <a href="/sc008-pro.html">SC-008</a>
-    <a href="/machining-pro.html">SC-020</a>
-    <a href="/bearing-pro.html">SC-010</a>
-    <a href="/weld-pro.html">SC-001</a>
+    <a href="index.html">← Home</a>
+    <a href="tools.html">Tools Index</a>
+    <a href="sc008-pro.html">SC-008</a>
+    <a href="machining-pro.html">SC-020</a>
+    <a href="bearing-pro.html">SC-010</a>
+    <a href="weld-pro.html">SC-001</a>
   </nav>
 
   <div class="bom-title-block-top">
@@ -205,7 +169,7 @@
       <div class="spec-card" data-tier="Free">
         <h3>Free Tier</h3><div class="spec-price">$0</div>
         <ul><li>All calculators — full input access</li><li>Single-run results in browser</li><li>Input validation & warnings</li><li>Basic result display</li><li>Client-side only — zero upload</li><li>Community support</li></ul>
-        <a href="/tools.html" class="spec-cta">Start Calculating</a>
+        <a href="tools.html" class="spec-cta">Start Calculating</a>
       </div>
       <div class="spec-card" data-tier="Pro">
         <h3>Pro (Credits)</h3><div class="spec-price">From $9</div>
@@ -242,8 +206,5 @@
     <div class="tb-cell"><div class="tb-label">ENGINE</div><div class="tb-value">v2.0.0</div></div>
   </div>
 </div>
-<button class="theme" id="themeToggle" type="button">◐ Theme</button>
-<nav aria-label="Required catalog links" style="position:absolute;left:-9999px"><a href="/quote-pro.html">/quote-pro.html</a>
-<a href="/labor-pro.html">/labor-pro.html</a></nav>
 </body>
 </html>

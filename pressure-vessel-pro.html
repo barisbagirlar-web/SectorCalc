@@ -1,128 +1,44 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
-<script>(function(){try{var k='sectorcalc-theme';var t=localStorage.getItem(k);if(t!=='dark'&&t!=='light')t=(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';document.documentElement.setAttribute('data-theme',t);document.documentElement.style.colorScheme=t;}catch(e){}})();</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pressure Vessel Shell Calculator — ASME VIII UG-27 / UG-32 — SectorCalc Pro</title>
-<meta name="description" content="Industrial-grade vessel design calculator: cylindrical shell per UG-27, formed heads per UG-32, joint efficiency, corrosion allowance, plate selection, MAWP back-calculation, hydrostatic test per UG-99 and full audit trail.">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-<style>
-:root{
-  --navy:#0f2744; --steel:#1b3a5c; --blue:#0055A4; --accent:#E87722;
-  --panel2:#fbfcfe; --thead:#eef2f7;
-  --bg:#f4f6f9; --panel:#ffffff; --line:#d9e0e8; --ink:#1c2733; --mut:#5d6b7a;
-  --ok:#1a7f4b; --warn:#b26a00; --err:#b3261e; --mono:'JetBrains Mono','Consolas',monospace;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Inter','Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
-h1,.logo,.panel-h,.btn,.verdict .big{font-family:'Barlow Condensed','Inter',sans-serif;letter-spacing:.4px}
-.topbar{background:var(--navy);color:#fff;padding:14px 24px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
-.topbar .logo{font-weight:700;font-size:18px;letter-spacing:.5px}
-.topbar .logo span{color:var(--accent)}
-.badge{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);font-size:11px;padding:3px 10px;border-radius:20px;letter-spacing:1px;text-transform:uppercase}
-.eng{font-family:var(--mono);font-size:11px;color:#9db8d4;margin-left:auto}
-.wrap{max-width:1320px;margin:0 auto;padding:24px}
-.head{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:flex-end}
-.head h1{font-size:26px;color:var(--navy);margin-bottom:4px}
-.head p{color:var(--mut);font-size:14px;max-width:820px}
-.grid{display:grid;grid-template-columns:minmax(380px,540px) 1fr;gap:20px;margin-top:20px;align-items:start}
-@media(max-width:1000px){.grid{grid-template-columns:1fr}}
-.panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden}
-.panel-h{background:linear-gradient(90deg,var(--steel),var(--navy));color:#fff;padding:10px 16px;font-size:13px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
-.panel-b{padding:16px}
-.fgroup{margin-bottom:18px}
-.fgroup>label{display:block;font-size:12px;font-weight:700;color:var(--steel);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px;border-bottom:1px solid var(--line);padding-bottom:4px}
-.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.row3{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-@media(max-width:560px){.row,.row3{grid-template-columns:1fr}}
-.field{margin-bottom:8px}
-.field label{display:block;font-size:11px;color:var(--mut);margin-bottom:3px}
-.field input,.field select{width:100%;padding:8px 10px;border:1px solid var(--line);border-radius:6px;font-size:14px;font-family:inherit;background:var(--panel2);transition:border-color .15s}
-.field input:focus,.field select:focus{outline:none;border-color:var(--blue);background:#fff}
-.uwrap{display:flex;gap:6px;align-items:stretch;width:100%;min-width:0}
-.uwrap input{flex:1 1 auto;min-width:5.75rem;width:auto;padding:8px 10px;font-family:var(--mono);font-variant-numeric:tabular-nums;overflow-x:auto;box-sizing:border-box}
-.uwrap input[type=number]{-moz-appearance:textfield;appearance:textfield}
-.uwrap input[type=number]::-webkit-outer-spin-button,.uwrap input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
-.uwrap select.units{flex:0 0 auto;width:auto;min-width:3.75rem;max-width:5.5rem;padding:8px 6px;font-size:11px;font-weight:600;color:var(--steel);background:var(--thead);box-sizing:border-box}
-.ref{font-size:10px;color:#8593a5;margin-top:2px;font-style:italic;line-height:1.35}
-.hint{font-size:10.5px;color:var(--mut);margin-top:2px}
-.btn{display:inline-block;background:var(--accent);color:#fff;border:none;padding:12px 26px;font-size:14px;font-weight:700;border-radius:7px;cursor:pointer;width:100%;letter-spacing:.5px;transition:background .15s}
-.btn:hover{background:#cf621a}
-.btn2{background:var(--steel);font-size:12px;padding:8px 14px;width:auto;border:none;color:#fff;border-radius:6px;cursor:pointer;font-weight:600}
-.btn2:hover{background:var(--navy)}
-.btn3{background:var(--panel);color:var(--steel);border:1px solid var(--line);font-size:11px;padding:5px 10px;border-radius:6px;cursor:pointer;font-weight:600}
-.btn3:hover{border-color:var(--blue);color:var(--blue)}
-.seg{display:flex;border:1px solid var(--line);border-radius:7px;overflow:hidden}
-.seg button{flex:1;padding:8px 0;background:var(--panel);border:none;font-size:12px;font-weight:700;cursor:pointer;color:var(--mut)}
-.seg button.on{background:var(--navy);color:#fff}
-.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:16px}
-.kpi{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:8px;padding:12px 14px}
-.kpi .v{font-family:var(--mono);font-size:20px;font-weight:700;color:var(--navy)}
-.kpi .l{font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.5px}
-.kpi .u{font-size:11px;color:var(--mut)}
-.kpi.hot{border-left-color:var(--accent)} .kpi.good{border-left-color:var(--ok)}
-.verdict{border-radius:10px;padding:16px 20px;margin-bottom:16px;color:#fff;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
-.verdict.pass{background:linear-gradient(90deg,#12572f,#1a7f4b)}
-.verdict.cond{background:linear-gradient(90deg,#8a5100,#b26a00)}
-.verdict.fail{background:linear-gradient(90deg,#7c1610,#b3261e)}
-.verdict .big{font-size:22px;font-weight:800;letter-spacing:1px}
-.verdict .sub{font-size:12.5px;opacity:.92}
-.verdict .score{margin-left:auto;font-family:var(--mono);font-size:26px;font-weight:700}
-table{width:100%;border-collapse:collapse;font-size:13px}
-th,td{padding:7px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
-th{background:var(--thead);color:var(--steel);font-size:11px;text-transform:uppercase;letter-spacing:.5px}
-td.num{font-family:var(--mono);text-align:right}
-.warnbox{border-radius:8px;padding:10px 14px;margin-bottom:10px;font-size:13px}
-.warnbox.w{background:#fff7e8;border:1px solid #f0c979;color:var(--warn)}
-.warnbox.e{background:#fdecea;border:1px solid #f1a9a4;color:var(--err)}
-.warnbox.i{background:#e9f4fd;border:1px solid #a9d2ef;color:#12567f}
-.warnbox b{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.5px;margin-bottom:2px}
-.audit{margin-top:20px}
-details{border:1px solid var(--line);border-radius:8px;margin-bottom:10px;background:var(--panel2)}
-summary{cursor:pointer;padding:10px 14px;font-weight:700;font-size:13px;color:var(--navy);list-style:none}
-summary::before{content:'▸ ';color:var(--accent)}
-details[open] summary::before{content:'▾ '}
-details .body{padding:0 14px 14px;font-size:12.5px}
-.formula{font-family:var(--mono);background:#0f2744;color:#cfe3f5;padding:10px 14px;border-radius:6px;font-size:12.5px;margin:6px 0;overflow-x:auto}
-.hash{font-family:var(--mono);font-size:11px;background:var(--thead);padding:6px 10px;border-radius:5px;word-break:break-all}
-.sig{color:var(--ok);font-weight:700}
-.charts{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-@media(max-width:760px){.charts{grid-template-columns:1fr}}
-.chartbox{border:1px solid var(--line);border-radius:8px;padding:10px;background:var(--panel2)}
-.chartbox .t{font-size:11px;font-weight:700;color:var(--steel);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
-canvas{width:100%;height:auto;display:block}
-.presets{display:flex;gap:6px;align-items:center;font-size:11px;color:#cfe0f0}
-footer{margin-top:28px;padding:18px;text-align:center;color:var(--mut);font-size:12px;border-top:1px solid var(--line)}
-html[data-theme="dark"]{
-  --bg:#0e131a; --panel:#161d27; --panel2:#1b2430; --line:#2a3646;
-  --ink:#e6ecf3; --mut:#93a3b5; --thead:#212c3a;
-  --navy:#0a1626; --steel:#12385e; --blue:#4c9be8; --accent:#E87722;
-  --ok:#3fbf7f; --warn:#e8a33d; --err:#f26d64;
-}
-html[data-theme="dark"] .warnbox.w{background:#3a2e12;border-color:#6b5418;color:#e8a33d}
-html[data-theme="dark"] .warnbox.e{background:#3a1a17;border-color:#6b2a25;color:#f26d64}
-html[data-theme="dark"] .warnbox.i{background:#14273a;border-color:#1e4a6e;color:#7fb3e8}
-html[data-theme="dark"] .field input,html[data-theme="dark"] .field select{background:#131a23;color:var(--ink)}
-html[data-theme="dark"] .field input:focus,html[data-theme="dark"] .field select:focus{background:#0f151d}
-html[data-theme="dark"] .kpi .v{color:#e6ecf3}
-html[data-theme="dark"] .verdict.pass{background:linear-gradient(90deg,#0d3a20,#146039)}
-html[data-theme="dark"] .verdict.cond{background:linear-gradient(90deg,#5e3900,#8a5a10)}
-html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#8a1f18)}
-#themeToggle{position:fixed;right:18px;bottom:18px;z-index:60;box-shadow:0 2px 10px rgba(0,0,0,.25)}
-@media print{#themeToggle{display:none}}
-@media print{.topbar .eng,.btn,.btn2,.btn3,.seg,.presets{display:none}.grid{grid-template-columns:1fr}details{display:block}details .body{display:block}}
-</style>
-<link rel="stylesheet" href="./sc-theme.css?v=8">
-<script src="./sc-theme.js?v=8" defer></script>
-<link rel="stylesheet" href="./sc-tool-guide.css?v=3">
-<script src="./sc-tool-guide.js?v=3" defer></script>
+<title>SC-033 · ASME VIII Pressure Vessel Shell — SectorCalc</title>
+<meta name="description" content="Internal-pressure shell thickness screening. Deterministic SI engine, visible formulas, A1–A5 audit trail.">
+<link rel="canonical" href="https://sectorcalc.com/pressure-vessel-pro.html">
+<link rel="stylesheet" href="./sectorcalc-engineering.css">
+<link rel="stylesheet" href="./sc-theme.css?v=12">
+<script>(function(){try{var k='sectorcalc-theme';var t=localStorage.getItem(k);if(t!=='dark'&&t!=='light')t=(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script src="./sc-theme.js?v=12" defer></script>
 <link rel="stylesheet" href="./sc-site-nav.css?v=1">
 <script src="./sc-site-nav.js?v=1" defer></script>
 <link rel="stylesheet" href="./sc-form-fields.css?v=4">
+<style>
+.theme-calc-sheet { min-height: 100vh; padding: 2rem 1rem; }
+.cs-sheet { padding: 0; position: relative; }
+.cs-header { display: flex; justify-content: space-between; align-items: flex-start; padding: 2rem 2.5rem; border-bottom: 2px solid var(--cs-border); background: #FAFBFC; }
+.cs-header-left h1 { font-size: 1.6rem; font-weight: 700; color: var(--cs-border); margin-bottom: 0.35rem; }
+.cs-header-left .cs-subtitle { font-family: var(--font-mono); font-size: 0.7rem; color: #888; text-transform: uppercase; letter-spacing: 0.1em; }
+.cs-header-right { text-align: right; font-family: var(--font-mono); font-size: 0.65rem; color: #888; }
+.cs-header-right .cs-engine { font-size: 0.9rem; font-weight: 700; color: var(--cs-accent); margin-bottom: 0.25rem; }
+.cs-nav { display: flex; gap: 0; background: var(--cs-accent); padding: 0 2.5rem; flex-wrap: wrap; }
+.cs-nav a { color: #FFFFFF; text-decoration: none; font-family: var(--font-mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; padding: 0.75rem 1.25rem; border-right: 1px solid rgba(255,255,255,0.15); }
+.cs-nav a:hover { background: rgba(255,255,255,0.1); }
+.cs-main { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+.cs-inputs-panel { padding: 2rem 2.5rem; border-right: 1px solid rgba(26,58,92,0.1); }
+.cs-results-panel { padding: 2rem 2.5rem; background: #FAFBFC; }
+.cs-section-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(26,58,92,0.1); }
+.cs-section-header h2 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--cs-accent); font-weight: 600; }
+.cs-section-header .sh-line { flex: 1; height: 1px; background: rgba(26,58,92,0.1); }
+.cs-formula-section, .cs-assumptions { padding: 2rem 2.5rem; border-top: 1px solid rgba(26,58,92,0.1); }
+.cs-mount { min-height: 120px; border: 1px dashed rgba(26,58,92,0.25); padding: 1rem; background: #fff; font-family: var(--font-mono); font-size: 0.75rem; color: #666; }
+@media (max-width: 900px) { .cs-main { grid-template-columns: 1fr; } }
+</style>
+<link rel="stylesheet" href="./sc-site-nav.css?v=1">
+<script src="./sc-site-nav.js?v=1" defer></script>
+<link rel="stylesheet" href="./sc-tool-guide.css?v=3"><script src="./sc-tool-guide.js?v=3" defer></script>
 </head>
-<body data-tool-badge="SC-033 · Pressure Vessel Shell (ASME VIII)">
+<body class="theme-calc-sheet" data-tool-code="SC-033" data-tool-badge="SC-033 · Pressure Vessel Shell (ASME VIII)">
 <!--SC-SITE-NAV-START-->
 <header class="site-header" id="siteHeader" role="banner">
   <a href="/" class="brand" aria-label="SectorCalc Home"><span class="brand-mark"><img class="logo-light" src="/sectorcalc-logo.png" alt="SectorCalc" width="183" height="48"><img class="logo-dark" src="/sectorcalc-logo-dark.png?v=2" alt="" width="183" height="48" aria-hidden="true"></span></a>
@@ -149,142 +65,67 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
 </div>
 <!--SC-SITE-NAV-END-->
 
-<div class="wrap">
-  <div class="head">
-    <div>
-      <h1>Pressure Vessel Shell Calculator — ASME VIII Div.1 (SC-033)</h1>
-      <p>Pressure-equipment design engine for mechanical and vessel engineers: cylindrical shell per <b>UG-27</b> (circumferential and longitudinal governing logic), formed heads per <b>UG-32</b> (2:1 semi-elliptical, torispherical with M-factor, hemispherical), joint efficiency by radiography class, corrosion allowance on a corroded-basis radius, validity window P ≤ 0.385·S·E, standard plate selection, <b>MAWP back-calculation</b> and hydrostatic test pressure per UG-99 (1.3× stress ratio). Every input with <b>selectable universal units</b>, every report with the full audit trail.</p>
+
+
+
+<div class="cs-sheet">
+  <div class="cs-header">
+    <div class="cs-header-left">
+      <h1>SC-033 · ASME VIII Pressure Vessel Shell</h1>
+      <div class="cs-subtitle">Deterministic · ISO 3864 · Audit Trail · Engineering preview</div>
     </div>
-    <div>
-      <div class="seg" style="width:230px">
-        <button id="uMetric" class="on" onclick="setAllUnits('metric')">All Metric (SI)</button>
-        <button id="uImp" onclick="setAllUnits('imp')">All Imperial</button>
-      </div>
-      <div class="hint" style="text-align:right;margin-top:4px">…or set units per field below</div>
-    </div>
-  </div>
-
-  <div class="grid">
-    <!-- ================= INPUT PANEL ================= -->
-    <div class="panel">
-      <div class="panel-h">1 · Design Conditions, Material &amp; Construction
-        <span class="presets">Preset:
-          <button class="btn3" onclick="preset('save',1)">S1</button><button class="btn3" onclick="preset('load',1)">L1</button>
-          <button class="btn3" onclick="preset('save',2)">S2</button><button class="btn3" onclick="preset('load',2)">L2</button>
-        </span>
-      </div>
-      <div class="panel-b">
-
-        <div class="fgroup">
-          <label>Design Conditions</label>
-          <div class="row3">
-            <div class="field"><label>Design pressure P</label>
-              <div class="uwrap"><input type="number" id="P" value="16" step="0.5" min="0.1">
-              <select class="units" id="u_P" data-f="P" data-kind="pres"><option value="bar" selected>bar</option><option value="psi">psi</option></select></div>
-              <div class="ref">Ref: max coincident pressure + static head</div></div>
-            <div class="field"><label>Inside diameter D</label>
-              <div class="uwrap"><input type="number" id="D" value="1000" step="50" min="100">
-              <select class="units" id="u_D" data-f="D" data-kind="len"><option value="mm" selected>mm</option><option value="in">in</option></select></div>
-              <div class="ref">Ref: new &amp; cold inside diameter</div></div>
-            <div class="field"><label>Corrosion allowance CA</label>
-              <div class="uwrap"><input type="number" id="CA" value="3" step="0.5" min="0">
-              <select class="units" id="u_CA" data-f="CA" data-kind="len"><option value="mm" selected>mm</option><option value="in">in</option></select></div>
-              <div class="ref">Ref: service-driven · 1.5–6 mm typical</div></div>
-          </div>
-        </div>
-
-        <div class="fgroup">
-          <label>Material &amp; Welding</label>
-          <div class="row3">
-            <div class="field"><label>Material (allowable S)</label>
-              <select id="mat">
-                <option value="sa51670" selected>SA-516 Gr.70 — S 138 MPa (≤343 °C)</option>
-                <option value="sa51660">SA-516 Gr.60 — S 118 MPa (≤343 °C)</option>
-                <option value="sa304">SA-240 304/304L — S 137 MPa (≤343 °C)</option>
-                <option value="sa316">SA-240 316/316L — S 137 MPa (≤343 °C)</option>
-                <option value="p265gh">P265GH (EN 10028) — S 118 MPa</option>
-                <option value="custom">Custom allowable — enter below</option>
-              </select>
-              <div class="ref">Ref: ASME II-D Table 1A at design temp</div></div>
-            <div class="field" id="sWrap" style="display:none"><label>Custom allowable S</label>
-              <div class="uwrap"><input type="number" id="S" value="138" step="1" min="20">
-              <select class="units" id="u_S" data-f="S" data-kind="str"><option value="mpa" selected>MPa</option><option value="ksi">ksi</option></select></div>
-              <div class="ref">Ref: at DESIGN temperature, not ambient</div></div>
-            <div class="field"><label>Joint efficiency E</label>
-              <select id="E">
-                <option value="1.0" selected>1.00 — full radiography (RT-1)</option>
-                <option value="0.85">0.85 — spot radiography (RT-2)</option>
-                <option value="0.70">0.70 — no radiography (RT-3)</option>
-              </select>
-              <div class="ref">Ref: UW-12 · Type 1 butt welds assumed</div></div>
-          </div>
-          <div class="row">
-            <div class="field"><label>Design temperature (S derate)</label>
-              <select id="temp">
-                <option value="1.0" selected>≤343 °C — full table value</option>
-                <option value="0.95">≤400 °C — ×0.95 approx.</option>
-                <option value="0.86">≤450 °C — ×0.86 approx.</option>
-              </select>
-              <div class="ref">Ref: approximate derating — use exact II-D values for design</div></div>
-            <div class="field"><label>Head type</label>
-              <select id="head">
-                <option value="ell" selected>2:1 semi-elliptical (UG-32d)</option>
-                <option value="tor">Torispherical L=D, r=0.1D (UG-32e)</option>
-                <option value="hem">Hemispherical (UG-32f)</option>
-              </select>
-              <div class="ref">Ref: both heads identical assumed</div></div>
-          </div>
-        </div>
-
-        <button class="btn" id="calcBtn">CALCULATE &amp; AUDIT</button>
-      </div>
-    </div>
-
-    <!-- ================= RESULTS ================= -->
-    <div>
-      <div class="verdict pass" id="verdict"></div>
-      <div id="warnings"></div>
-      <div class="kpis" id="kpis"></div>
-
-      <div class="panel">
-        <div class="panel-h">2 · Calculation Results <span style="font-weight:400;font-size:11px;text-transform:none">(engine computes in SI: MPa, mm)</span></div>
-        <div class="panel-b"><table id="resTable"></table></div>
-      </div>
-
-      <div class="panel" style="margin-top:20px">
-        <div class="panel-h">3 · Sensitivity Charts</div>
-        <div class="panel-b charts">
-          <div class="chartbox"><div class="t">Required Thickness vs Design Pressure</div><canvas id="chTP" width="520" height="300"></canvas></div>
-          <div class="chartbox"><div class="t">MAWP vs Remaining Thickness (corrosion life)</div><canvas id="chMAWP" width="520" height="300"></canvas></div>
-        </div>
-      </div>
-
-      <!-- ================= AUDIT ================= -->
-      <div class="audit panel" style="margin-top:20px">
-        <div class="panel-h" style="background:linear-gradient(90deg,#3d2a10,#5c3a10)">4 · Audit / Review Trail — Verification Module
-          <span>
-            <button class="btn3" onclick="copyReport()">Copy Report</button>
-            <button class="btn3" onclick="exportJSON()">Export JSON</button>
-          </span>
-        </div>
-        <div class="panel-b">
-          <div class="warnbox i"><b>Audit Statement</b>
-            This report is generated deterministically from the inputs below, each captured together with its selected display unit. Re-entering identical inputs into the same engine version reproduces identical outputs. Any deviation indicates input drift, unit mismatch, or manual tampering — investigate before design release. Vessel design remains subject to Authorized Inspector review.</div>
-          <details open><summary>A1 · Engine Identity &amp; Integrity</summary><div class="body" id="aEngine"></div></details>
-          <details open><summary>A2 · Input Snapshot (value + selected unit)</summary><div class="body" id="aInputs"></div></details>
-          <details><summary>A3 · Formulas Applied (ASME VIII-1)</summary><div class="body" id="aFormulas"></div></details>
-          <details><summary>A4 · Engineering Assumptions</summary><div class="body" id="aAssump"></div></details>
-          <details open><summary>A5 · Warnings &amp; Limit Checks</summary><div class="body" id="aWarn"></div></details>
-          <div style="margin-top:12px;text-align:right">
-            <button class="btn btn2" onclick="window.print()">⎙ Print / Export PDF Report</button>
-          </div>
-        </div>
-      </div>
+    <div class="cs-header-right">
+      <div class="cs-engine">SC-033-ENGINE v1.0.0</div>
+      <div>DWG NO: SC-033-001</div>
+      <div>SCALE: NTS · REV: A</div>
+      <div>DATE: 2026-07-25</div>
+      <div>ENGINE VERSION: SC-033-ENGINE v1.0.0</div>
     </div>
   </div>
-
-  <button id="themeToggle" class="btn3" title="Toggle light/dark (saved locally)">◐ Theme</button>
-  <!--SC-GUIDE-START-->
+  <nav class="cs-nav">
+    <a href="/">← Home</a>
+    <a href="/tools.html">Tools Index</a>
+    <a href="/sc008-pro.html">SC-008</a>
+    <a href="/machining-pro.html">SC-020</a>
+    <a href="/labor-pro.html">SC-010</a>
+    <a href="/weld-pro.html">SC-001</a>
+    <a href="/pricing.html">Pricing</a>
+  </nav>
+  <div class="cs-main">
+    <div class="cs-inputs-panel">
+      <div class="cs-section-header"><h2>Inputs</h2><span class="sh-line"></span><span style="font-family:var(--font-mono);font-size:0.65rem;color:#888;">DWG: SC-033-SEC-A</span></div>
+      <div class="cs-ref-box">Reference: ASME VIII / EN 13445. Internal-pressure shell thickness screening.</div>
+      <div class="cs-mount" id="theme-input-mount">Production runtime mounts engineering inputs here (universal units · fail-closed validation).</div>
+    </div>
+    <div class="cs-results-panel">
+      <div class="cs-section-header"><h2>Results</h2><span class="sh-line"></span><span style="font-family:var(--font-mono);font-size:0.65rem;color:#888;">DWG: SC-033-SEC-B</span></div>
+      <div class="cs-mount" id="theme-result-mount">Engine-owned outputs, sensitivity and normalized risk charts render here.</div>
+    </div>
+  </div>
+  <div class="cs-formula-section">
+    <div class="cs-section-header"><h2>Formulas</h2><span class="sh-line"></span><span style="font-family:var(--font-mono);font-size:0.65rem;color:#888;">DWG: SC-033-SEC-C</span></div>
+    <div class="cs-formula-block"><div class="formula">t = PR / (SE − 0.6P) + CA</div><div class="formula-desc">Cylindrical shell (ASME form).</div></div>
+  </div>
+  <div class="cs-assumptions">
+    <h3>Assumptions & Warnings</h3>
+    <ul>
+      <li>External pressure charts are out of scope.</li>
+      <li>Results are deterministic for identical canonical inputs and engine version.</li>
+      <li>Governing code edition, certified material data and competent review remain authoritative.</li>
+    </ul>
+  </div>
+  <div class="cs-audit-footer">
+    <div class="audit-item"><div class="audit-label">DWG NO</div><div class="audit-value">SC-033-001</div></div>
+    <div class="audit-item"><div class="audit-label">SCALE</div><div class="audit-value">NTS</div></div>
+    <div class="audit-item"><div class="audit-label">REV</div><div class="audit-value">A</div></div>
+    <div class="audit-item"><div class="audit-label">ENGINE VERSION</div><div class="audit-value">SC-033-ENGINE v1.0.0</div></div>
+    <div class="audit-item"><div class="audit-label">ISO 3864</div><div class="audit-value">Safety colors</div></div>
+    <div class="audit-item"><div class="audit-label">Audit Trail</div><div class="audit-value">A1–A5</div></div>
+    <div class="audit-item"><div class="audit-label">Deterministic</div><div class="audit-value">YES</div></div>
+    <div class="audit-item"><div class="audit-label">Sector</div><div class="audit-value">Pressure Equipment</div></div>
+  </div>
+</div>
+<!--SC-GUIDE-START-->
 <div class="sc-guide-shell">
 <section class="sc-guide" id="sc-guide" data-tool-id="SC-033" data-tool-name="Pressure Vessel Shell Calculator — ASME VIII (SC-033)" data-tool-url="https://www.sectorcalc.com/pressure-vessel-pro.html" itemscope itemtype="https://schema.org/FAQPage">
 
@@ -353,283 +194,7 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
 </section>
 </div>
 <!--SC-GUIDE-END-->
-<footer>
-    SectorCalc Pro · SC-033 · Pre-design membrane analysis per ASME VIII-1 UG-27/32/99 — legal design verification requires the Manufacturer's Data Report and Authorized Inspector sign-off.
-  </footer>
-</div>
-<script>
-/* =====================================================================
-   PV-ENGINE v1.0.0 — Pressure Vessel Shell (ASME VIII-1)
-   UG-27 shell, UG-32 heads, UG-99 hydrotest. Deterministic core (MPa, mm).
-   ===================================================================== */
-const ENGINE = {name:'PV-ENGINE', version:'1.0.0', build:'2026-07-24', standard:'ASME VIII Div.1 UG-27(c) · UG-32(d/e/f) · UW-12 · UG-16 · UG-99(b)',
-  model:'t=PR/(SE−0.6P) vs t=PR/(2SE+0.4P) → max + CA → plate → MAWP back-calc → P_test=1.3·MAWP·Sratio'};
-let LAST=null;
-
-const MATS={
-  sa51670:{name:'SA-516 Gr.70',S:138},sa51660:{name:'SA-516 Gr.60',S:118},
-  sa304:{name:'SA-240 304/304L',S:137},sa316:{name:'SA-240 316/316L',S:137},
-  p265gh:{name:'P265GH (EN)',S:118}
-};
-const PLATES=[3,4,5,6,8,10,12,14,16,18,20,22,25,28,30,32,36,40,45,50,55,60,65,70,80,90,100];
-
-const TO_SI={pres:{bar:0.1,psi:0.006894757},len:{mm:1,in:25.4},str:{mpa:1,ksi:6.894757}};
-function g(id){return document.getElementById(id);}
-function num(id){return parseFloat(g(id).value);}
-const fmt=(x,d=2)=>Number.isFinite(x)?x.toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d}):'—';
-
-function fieldSI(id){
-  const us=g('u_'+id), raw=num(id);
-  if(!us)return{si:raw,disp:String(raw)};
-  const kind=us.dataset.kind,u=us.value;
-  const si=raw*TO_SI[kind][u];
-  return{si,disp:`${raw} ${us.options[us.selectedIndex].text}`};
-}
-document.querySelectorAll('select.units[data-f]').forEach(us=>{
-  us.addEventListener('change',()=>{
-    const inp=g(us.dataset.f),val=parseFloat(inp.value);
-    if(Number.isFinite(val)&&us.dataset.prev&&us.dataset.prev!==us.value){
-      const k=us.dataset.kind;
-      inp.value=+(val*TO_SI[k][us.dataset.prev]/TO_SI[k][us.value]).toPrecision(6);
-    }
-    us.dataset.prev=us.value;calculate();
-  });
-  us.dataset.prev=us.value;
-});
-function setAllUnits(sys){
-  const map=sys==='imp'?{pres:'psi',len:'in',str:'ksi'}:{pres:'bar',len:'mm',str:'mpa'};
-  document.querySelectorAll('select.units[data-f]').forEach(us=>{
-    const want=map[us.dataset.kind];
-    if(want&&us.value!==want){us.value=want;us.dispatchEvent(new Event('change'));}
-  });
-  g('uMetric').classList.toggle('on',sys==='metric');
-  g('uImp').classList.toggle('on',sys==='imp');
-}
-g('mat').addEventListener('change',()=>{
-  g('sWrap').style.display=(g('mat').value==='custom')?'block':'none';calculate();
-});
-
-/* ---------------- presets ---------------- */
-const IDS=['P','u_P','D','u_D','CA','u_CA','mat','S','u_S','E','temp','head'];
-function preset(mode,slot){
-  const key='sc033_preset_'+slot;
-  if(mode==='save'){const o={};IDS.forEach(i=>o[i]=g(i).value);localStorage.setItem(key,JSON.stringify(o));}
-  else{const s=localStorage.getItem(key);if(!s)return;const o=JSON.parse(s);
-    IDS.forEach(i=>{if(o[i]!=null)g(i).value=o[i];});
-    document.querySelectorAll('select.units[data-f]').forEach(us=>us.dataset.prev=us.value);
-    g('mat').dispatchEvent(new Event('change'));}
-}
-function fnv(s){let h=0x811c9dc5;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=(h*0x01000193)>>>0;}return ('00000000'+h.toString(16)).slice(-8).toUpperCase();}
-function tShell(P,R,S,E){ /* returns {circ, long} */
-  return{circ:P*R/(S*E-0.6*P),long:P*R/(2*S*E+0.4*P)};
-}
-function tHead(type,P,D,Rc,S,E){
-  if(type==='ell')return P*(2*Rc)/(2*S*E-0.2*P);
-  if(type==='tor'){const M=(3+Math.sqrt(10))/4;return P*(2*Rc)*M/(2*S*E-0.2*P);}
-  return P*Rc/(2*S*E-0.2*P); /* hem */
-}
-
-/* =====================================================================
-   CORE CALCULATION (MPa, mm)
-   ===================================================================== */
-function calculate(){
-  const W=[];
-  const fP=fieldSI('P'),fD=fieldSI('D'),fCA=fieldSI('CA');
-  const disp={P:fP.disp,D:fD.disp,CA:fCA.disp};
-  const matKey=g('mat').value;
-  let S;
-  if(matKey==='custom'){const fS=fieldSI('S');S=fS.si;disp.S=fS.disp;}
-  else S=MATS[matKey].S;
-  const Sd=S*parseFloat(g('temp').value); /* design-temp allowable */
-  const E=parseFloat(g('E').value);
-  const inp={P:fP.si,D:fD.si,CA:fCA.si,matKey,S,E,tempF:parseFloat(g('temp').value),Sd,head:g('head').value};
-
-  if(!Number.isFinite(inp.P)||inp.P<=0)W.push({lvl:'e',t:'Invalid pressure',d:'Design pressure must be positive. Check bar/psi selector. Calculation aborted.'});
-  if(!Number.isFinite(inp.D)||inp.D<100)W.push({lvl:'e',t:'Invalid diameter',d:'Inside diameter must be ≥ 100 mm. Check mm/in selector.'});
-  if(!Number.isFinite(inp.CA)||inp.CA<0)W.push({lvl:'e',t:'Invalid CA',d:'Corrosion allowance cannot be negative.'});
-  if(!Number.isFinite(Sd)||Sd<=0)W.push({lvl:'e',t:'Invalid allowable stress',d:'Allowable S must be positive at design temperature.'});
-  if(W.some(w=>w.lvl==='e')){render(inp,null,W,disp);return;}
-
-  const R=inp.D/2, Rc=R+inp.CA; /* corroded-basis radius */
-  const ts=tShell(inp.P,Rc,inp.Sd,E);
-  const tShellReq=Math.max(ts.circ,ts.long);
-  const th=tHead(inp.head,inp.P,inp.D,Rc,inp.Sd,E);
-  const M=inp.head==='tor'?(3+Math.sqrt(10))/4:null;
-  const tShellTot=tShellReq+inp.CA, tHeadTot=th+inp.CA;
-  const plateS=PLATES.find(p=>p>=tShellTot);
-  const plateH=PLATES.find(p=>p>=tHeadTot);
-  if(!plateS||!plateH){W.push({lvl:'e',t:'Beyond plate range',d:`Required ${fmt(Math.max(tShellTot,tHeadTot),1)} mm exceeds 100 mm plate table — this vessel needs Appendix 1 thick-shell design, not UG-27.`});render(inp,null,W,disp);return;}
-  /* MAWP on selected shell plate, new condition */
-  const te=plateS-inp.CA;
-  const MAWP=inp.Sd*E*te/(R+0.6*te);
-  const MAWPamb=S*E*te/(R+0.6*te);
-  const Ptest=1.3*MAWP*(S/inp.Sd);
-  const out={...ts,tShellReq,gov:ts.circ>=ts.long?'circumferential':'longitudinal',
-    th,M,tShellTot,tHeadTot,plateS,plateH,te,MAWP,MAWPamb,Ptest,R,Rc};
-
-  /* --- warnings --- */
-  if(inp.P>0.385*inp.Sd*E)W.push({lvl:'e',t:'Outside UG-27 validity',d:`P = ${fmt(inp.P,2)} MPa > 0.385·S·E = ${fmt(0.385*inp.Sd*E,2)} MPa. Thin-wall membrane formulas are invalid — Appendix 1 thick-shell analysis required. Results are non-conservative garbage; do not use.`});
-  if(tShellReq<1.5)W.push({lvl:'w',t:'Below UG-16 minimum',d:`Required shell t = ${fmt(tShellReq,2)} mm < 1.5 mm code minimum (excluding CA). Plate selection enforces it, but review whether this is really a code vessel.`});
-  if(inp.CA>0.6*tShellReq)W.push({lvl:'w',t:'CA dominates design',d:`CA ${fmt(inp.CA,1)} mm = ${fmt(100*inp.CA/tShellReq,0)} % of required thickness. The design case is corrosion LIFE, not pressure — justify the allowance with rate data and inspection intervals.`});
-  if(plateS-tShellTot>6)W.push({lvl:'i',t:'Generous plate step',d:`Selected ${fmt(plateS,0)} mm vs required ${fmt(tShellTot,1)} mm — ${fmt(plateS-tShellTot,1)} mm over. Check nozzle reinforcement credit (excess area counts) or cost-optimize the plate step.`});
-  if(E<1.0)W.push({lvl:'i',t:'Reduced joint efficiency',d:`E = ${E}: thickness penalty ${fmt(100*(1/E-1),0)} % vs full RT. On large vessels, full radiography is often cheaper than the extra plate.`});
-  if(inp.tempF<1.0)W.push({lvl:'w',t:'Approximate temperature derating',d:`S derated ×${inp.tempF} by approximation. For design release, use the exact ASME II-D Table 1A allowable at the actual design temperature.`});
-  if(inp.head==='tor')W.push({lvl:'i',t:'Torispherical head',d:`M = ${fmt(out.M,2)} for L = D, r = 0.1D. Knuckle forming thinning (10–15 %) must be specified as minimum-after-forming on the drawing.`});
-  if(Ptest>1.5*inp.P)W.push({lvl:'i',t:'High test pressure',d:`Hydrotest ${fmt(Ptest,1)} bar = ${fmt(Ptest/inp.P,2)}× design. Verify flange ratings and foundation bolt-up for the test condition.`});
-  if(matKey==='p265gh')W.push({lvl:'w',t:'Non-ASME material',d:'P265GH is an EN pressure-vessel steel: acceptable for EN 13445 feasibility, NOT for an ASME-stamped vessel. Use SA-516 with II-D allowables for code work.'});
-
-  render(inp,out,W,disp);
-}
-</script>
-
-<script>
-/* =====================================================================
-   RENDER
-   ===================================================================== */
-function render(inp,out,W,disp){
-  LAST={inp,disp,out,W,ts:new Date().toISOString()};
-  const errs=W.filter(w=>w.lvl==='e').length, warns=W.filter(w=>w.lvl==='w').length;
-  const vd=g('verdict'), total=9, passed=Math.max(total-errs*2-warns,0);
-  if(!out||errs>0){vd.className='verdict fail';vd.innerHTML=`<div class="big">⛔ VESSEL DESIGN REJECTED — FAIL</div><div class="sub">${errs} blocking issue(s), ${warns} warning(s). Releasing this design risks catastrophic rupture — pressure equipment has no forgiving failure mode.</div><div class="score">${passed}/${total}</div>`;}
-  else if(warns>0){vd.className='verdict cond';vd.innerHTML=`<div class="big">⚠ CONDITIONALLY ACCEPTED</div><div class="sub">${warns} warning(s) — membrane sizing valid but code or construction concerns exist. Review yellow items before design release.</div><div class="score">${passed}/${total}</div>`;}
-  else{vd.className='verdict pass';vd.innerHTML=`<div class="big">✓ VESSEL DESIGN ACCEPTED</div><div class="sub">All checks passed — UG-27/32 sizing, validity window and hydrotest within code envelopes.</div><div class="score">${total}/${total}</div>`;}
-
-  g('warnings').innerHTML=W.map(w=>`<div class="warnbox ${w.lvl}"><b>${w.lvl==='e'?'⛔ BLOCKING':w.lvl==='w'?'⚠ WARNING':'ℹ NOTE'} — ${w.t}</b>${w.d}</div>`).join('');
-  g('aWarn').innerHTML=W.length?
-    W.map(w=>`<div class="warnbox ${w.lvl}" style="margin:6px 0"><b>${w.t}</b>${w.d}</div>`).join('')
-    :'<div class="warnbox i"><b>ALL CLEAR</b>No warnings. All parameters within validated envelopes.</div>';
-
-  const kpis=g('kpis'),res=g('resTable');
-  if(!out){kpis.innerHTML='';res.innerHTML='<tr><td style="color:var(--err);font-weight:700">Calculation aborted — resolve blocking errors above.</td></tr>';drawCharts(null);buildAudit(inp,null,W,disp);return;}
-
-  kpis.innerHTML=`
-    <div class="kpi hot"><div class="v">${out.plateS}</div><div class="l">Shell plate</div><div class="u">mm · req ${fmt(out.tShellTot,1)}</div></div>
-    <div class="kpi"><div class="v">${out.plateH}</div><div class="l">Head plate</div><div class="u">mm · req ${fmt(out.tHeadTot,1)}</div></div>
-    <div class="kpi"><div class="v">${fmt(out.MAWP,1)}</div><div class="l">MAWP</div><div class="u">bar · new condition</div></div>
-    <div class="kpi"><div class="v">${fmt(out.Ptest,1)}</div><div class="l">Hydrotest</div><div class="u">bar · UG-99 1.3×</div></div>
-    <div class="kpi good"><div class="v">${out.gov==='circumferential'?'HOOP':'LONG'}</div><div class="l">Governing stress</div><div class="u">UG-27 case</div></div>`;
-
-  res.innerHTML=`<tr><th>Parameter</th><th>Symbol</th><th style="text-align:right">Value</th><th>Unit</th><th>Note</th></tr>
-  <tr><td>Design allowable (temp-derated)</td><td>S</td><td class="num">${fmt(inp.Sd,1)}</td><td>MPa</td><td>${inp.matKey==='custom'?'custom':MATS[inp.matKey].name} × ${inp.tempF} · E = ${inp.E}</td></tr>
-  <tr><td>Corroded-basis radius</td><td>R_c</td><td class="num">${fmt(out.Rc,1)}</td><td>mm</td><td>R ${fmt(out.R,0)} + CA ${fmt(inp.CA,1)}</td></tr>
-  <tr><td>Shell — circumferential (hoop)</td><td>t_c</td><td class="num">${fmt(out.circ,2)}</td><td>mm</td><td>PR/(SE−0.6P)</td></tr>
-  <tr><td>Shell — longitudinal</td><td>t_l</td><td class="num">${fmt(out.long,2)}</td><td>mm</td><td>PR/(2SE+0.4P)</td></tr>
-  <tr><td><b>Shell required (gov. ${out.gov})</b></td><td><b>t</b></td><td class="num"><b>${fmt(out.tShellReq,2)} + ${fmt(inp.CA,1)} CA</b></td><td><b>mm</b></td><td>UG-16 min 1.5 mm applies</td></tr>
-  <tr><td><b>Selected shell plate</b></td><td><b>—</b></td><td class="num"><b>${out.plateS}</b></td><td><b>mm</b></td><td>standard plate</td></tr>
-  <tr><td>Head required${out.M?` (M ${fmt(out.M,2)})`:''}</td><td>t_h</td><td class="num">${fmt(out.th,2)} + ${fmt(inp.CA,1)} CA</td><td>mm</td><td>${inp.head==='ell'?'2:1 elliptical UG-32d':inp.head==='tor'?'torispherical UG-32e':'hemispherical UG-32f'}</td></tr>
-  <tr><td><b>Selected head plate</b></td><td><b>—</b></td><td class="num"><b>${out.plateH}</b></td><td><b>mm</b></td><td>specify min-after-forming</td></tr>
-  <tr><td><b>MAWP (shell, new)</b></td><td><b>MAWP</b></td><td class="num"><b>${fmt(out.MAWP*10,1)}</b></td><td><b>bar</b></td><td>t_e = ${fmt(out.te,1)} mm effective</td></tr>
-  <tr><td><b>Hydrostatic test</b></td><td><b>P_T</b></td><td class="num"><b>${fmt(out.Ptest*10,1)}</b></td><td><b>bar</b></td><td>1.3 × MAWP × S_ratio (UG-99)</td></tr>
-  <tr><td>UG-27 validity limit</td><td>0.385·S·E</td><td class="num">${fmt(0.385*inp.Sd*inp.E*10,1)}</td><td>bar</td><td>P = ${fmt(inp.P*10,1)} bar ${inp.P>0.385*inp.Sd*inp.E?'EXCEEDS':'within'}</td></tr>`;
-
-  drawCharts({inp,out});
-  buildAudit(inp,out,W,disp);
-}
-
-/* ---------------- charts ---------------- */
-function pal(){const cs=getComputedStyle(document.documentElement),v=n=>cs.getPropertyValue(n).trim();
-  return{bg:v('--panel2')||'#fbfcfe',grid:v('--line')||'#d9e0e8',txt:v('--mut')||'#5d6b7a',
-         line:v('--blue')||'#0055A4',cur:v('--accent')||'#E87722',eco:v('--ok')||'#1a7f4b',sec:'#7a5fc0'};}
-function plot(cvId,series,xlab,ylab,marks){
-  const cv=g(cvId),ctx=cv.getContext('2d'),Wc=cv.width,Hc=cv.height,C=pal();
-  ctx.clearRect(0,0,Wc,Hc);ctx.fillStyle=C.bg;ctx.fillRect(0,0,Wc,Hc);
-  if(!series){ctx.fillStyle=C.txt;ctx.font='13px sans-serif';ctx.fillText('No data — resolve errors',20,30);return;}
-  const xs=series.flatMap(s=>s.pts.map(p=>p[0])),ys=series.flatMap(s=>s.pts.map(p=>p[1]));
-  const x0=Math.min(...xs),x1=Math.max(...xs),y1=Math.max(...ys)*1.08;
-  const P={l:52,r:12,t:14,b:30};
-  const X=x=>P.l+(x-x0)/(x1-x0)*(Wc-P.l-P.r), Y=y=>Hc-P.b-y/y1*(Hc-P.t-P.b);
-  ctx.strokeStyle=C.grid;ctx.lineWidth=1;ctx.beginPath();
-  for(let i=0;i<=4;i++){const y=P.t+i*(Hc-P.t-P.b)/4;ctx.moveTo(P.l,y);ctx.lineTo(Wc-P.r,y);}ctx.stroke();
-  series.forEach(s=>{ctx.strokeStyle=s.color;ctx.lineWidth=2.5;ctx.beginPath();
-    s.pts.forEach((p,i)=>i?ctx.lineTo(X(p[0]),Y(p[1])):ctx.moveTo(X(p[0]),Y(p[1])));ctx.stroke();});
-  (marks||[]).forEach(mk=>{ctx.fillStyle=mk.color;ctx.beginPath();ctx.arc(X(mk.x),Y(mk.y),5,0,7);ctx.fill();
-    ctx.font='bold 11px sans-serif';ctx.fillText(mk.t,Math.min(X(mk.x)+8,Wc-110),Math.max(Y(mk.y)-6,12));});
-  ctx.fillStyle=C.txt;ctx.font='11px sans-serif';
-  ctx.fillText(xlab,P.l,Hc-8);ctx.fillText(ylab,4,12);ctx.fillText(fmt(x1,1),Wc-P.r-34,Hc-8);
-}
-function drawCharts(data){
-  if(!data){plot('chTP',null);plot('chMAWP',null);return;}
-  const {inp,out}=data,C=pal();
-  /* t vs P */
-  const tc=[],pl=[];
-  const pmax=Math.min(inp.P*2.2,0.385*inp.Sd*inp.E*0.98);
-  for(let i=0;i<=50;i++){const P=0.1+(pmax-0.1)*i/50;
-    const ts=tShell(P,out.Rc,inp.Sd,inp.E);
-    tc.push([P*10,Math.max(ts.circ,ts.long)+inp.CA]);pl.push([P*10,out.plateS]);}
-  plot('chTP',[{pts:tc,color:C.line},{pts:pl,color:C.cur}],'P (bar) →','shell t (mm)',
-    [{x:inp.P*10,y:out.tShellTot,color:C.eco,t:'design'}]);
-  /* MAWP vs remaining thickness */
-  const mw=[],pd=[];
-  for(let i=0;i<=50;i++){const te=out.plateS*i/50;
-    if(te<=0.5)continue;
-    mw.push([te,10*inp.Sd*inp.E*te/(out.R+0.6*te)]);}
-  pd.push([out.plateS,inp.P*10]);pd.unshift([0.5,inp.P*10]);
-  plot('chMAWP',[{pts:mw,color:C.line},{pts:pd,color:C.cur}],'remaining t (mm) →','MAWP (bar)',
-    [{x:out.te,y:out.MAWP*10,color:C.eco,t:'new'},{x:Math.max(out.plateS-inp.CA,0.5),y:out.MAWP*10,color:C.sec,t:'fully corroded'}]);
-}
-
-/* ---------------- audit ---------------- */
-function buildAudit(inp,out,W,disp){
-  const ts=LAST.ts;
-  const hash=fnv(JSON.stringify({inp,disp,eng:ENGINE.version,ts}));
-  g('aEngine').innerHTML=`
-    <table><tr><th>Field</th><th>Value</th></tr>
-    <tr><td>Engine</td><td>${ENGINE.name} v${ENGINE.version}</td></tr>
-    <tr><td>Standard basis</td><td>${ENGINE.standard}</td></tr>
-    <tr><td>Model core</td><td>${ENGINE.model}</td></tr>
-    <tr><td>Build date</td><td>${ENGINE.build}</td></tr>
-    <tr><td>Report timestamp (UTC)</td><td>${ts}</td></tr>
-    <tr><td>Report integrity hash (FNV-1a)</td><td><span class="hash">${hash}</span></td></tr>
-    <tr><td>Determinism</td><td><span class="sig">✓ VERIFIED</span> — identical inputs → identical outputs, no hidden state</td></tr></table>`;
-  const rows=Object.entries(disp).map(([k,v2])=>`<tr><td>${k}</td><td class="num" style="text-align:right">${v2}</td><td class="num">${fmt(inp[k],4)}</td></tr>`).join('');
-  const other=['matKey','S','E','tempF','Sd','head']
-    .map(k=>`<tr><td>${k}</td><td class="num" style="text-align:right">${typeof inp[k]==='number'?fmt(inp[k],4):inp[k]}</td><td class="num">—</td></tr>`).join('');
-  g('aInputs').innerHTML=`<table><tr><th>Input</th><th style="text-align:right">As entered (value + unit)</th><th style="text-align:right">SI used by engine</th></tr>${rows}${other}</table>`;
-  g('aFormulas').innerHTML=`
-    <div class="formula">R_c          = D/2 + CA   (corroded basis)</div>
-    <div class="formula">t_circ [mm]  = P·R_c / (S·E − 0.6·P)      UG-27(c)(1)</div>
-    <div class="formula">t_long [mm]  = P·R_c / (2·S·E + 0.4·P)    UG-27(c)(2)</div>
-    <div class="formula">t_shell      = max(t_circ, t_long) + CA</div>
-    <div class="formula">t_head (ell) = P·D_c / (2·S·E − 0.2·P)    UG-32(d)</div>
-    <div class="formula">t_head (tor) = P·L·M / (2·S·E − 0.2·P) · M=(3+√(L/r))/4 · UG-32(e)</div>
-    <div class="formula">t_head (hem) = P·L / (2·S·E − 0.2·P)      UG-32(f)</div>
-    <div class="formula">MAWP [MPa]   = S·E·t_e / (R + 0.6·t_e) · t_e = t_nom − CA</div>
-    <div class="formula">P_test       = 1.3 · MAWP · (S_amb/S_des)  UG-99(b)</div>
-    <div class="formula">validity     : P ≤ 0.385·S·E · t ≥ 1.5 mm + CA (UG-16)</div>`;
-  g('aAssump').innerHTML=`
-    <ul style="padding-left:18px;line-height:1.8">
-      <li>Scope: INTERNAL pressure on butt-welded or seamless cylinders and the three standard head types. Nozzles (UG-36/37), external pressure (UG-28), flanges, supports, fatigue (cyclic) and wind/seismic are separate code chapters — NOT covered.</li>
-      <li>Corroded-basis radius (R + CA) is used — the conservative reading of UG-27; E is applied to head formulas (heads from welded plate). Seamless heads could claim E=1: adjust manually.</li>
-      <li>Allowable stresses are ASME II-D Table 1A typicals ≤343 °C with approximate temperature derating options — design release REQUIRES the exact table value at actual design temperature.</li>
-      <li>Mill undertolerance and head-forming thinning are NOT auto-added: specify "minimum after forming" on head drawings and check plate mill certificates.</li>
-      <li>MAWP is back-calculated on the selected SHELL plate in new condition (nameplate basis). Head MAWP may govern on torispherical designs — verify when head plate &lt; shell plate.</li>
-      <li>Hydrotest per UG-99(b) at 1.3× stress-ratio MAWP; pneumatic testing (lethal energy) is a different procedure and NOT covered.</li>
-      <li>Engine computes in MPa/mm; display converts at entry (1 bar = 0.1 MPa, 1 psi = 0.006894757 MPa, 1 ksi = 6.894757 MPa, 1 in = 25.4 mm).</li>
-    </ul>`;
-}
-
-/* ---------------- export ---------------- */
-function reportText(){
-  if(!LAST)return'';
-  const L=LAST;
-  let s=`SECTORCALC PRO — SC-033 PRESSURE VESSEL SHELL (ASME VIII-1) REPORT\nEngine: ${ENGINE.name} v${ENGINE.version} | UTC: ${L.ts}\n\nINPUTS (as entered / SI):\n`;
-  for(const [k,v2] of Object.entries(L.disp))s+=`  ${k}: ${v2}  →  ${fmt(L.inp[k],4)} SI\n`;
-  s+=`  material ${L.inp.matKey} S ${fmt(L.inp.Sd,1)} MPa (×${L.inp.tempF}) | E ${L.inp.E} | head ${L.inp.head}\n`;
-  if(L.out){s+=`\nKEY RESULTS:\n  shell req ${fmt(L.out.tShellReq,2)} mm + CA ${fmt(L.inp.CA,1)} → plate ${L.out.plateS} mm (gov: ${L.out.gov})\n  head req ${fmt(L.out.th,2)} mm + CA → plate ${L.out.plateH} mm\n  MAWP ${fmt(L.out.MAWP*10,1)} bar | hydrotest ${fmt(L.out.Ptest*10,1)} bar\n`;}
-  s+=`\nWARNINGS (${L.W.length}):\n`;L.W.forEach(w=>s+=`  [${w.lvl.toUpperCase()}] ${w.t}: ${w.d}\n`);
-  return s;
-}
-function copyReport(){navigator.clipboard.writeText(reportText()).then(()=>alert('Audit report copied to clipboard.'));}
-function exportJSON(){
-  if(!LAST)return;
-  const blob=new Blob([JSON.stringify({engine:ENGINE,...LAST},null,2)],{type:'application/json'});
-  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='SC033_audit_report.json';a.click();
-}
-
-g('calcBtn').addEventListener('click',calculate);
-document.querySelectorAll('input,select').forEach(el=>el.addEventListener('change',calculate));
-document.querySelectorAll('input').forEach(el=>el.addEventListener('input',calculate));
-calculate();
-</script>
+<script type="module" src="/src/industrial-tool.ts"></script>
+<button class="theme" id="themeToggle" type="button">◐ Theme</button>
 </body>
 </html>

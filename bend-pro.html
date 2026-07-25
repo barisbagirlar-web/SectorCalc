@@ -1,128 +1,44 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
-<script>(function(){try{var k='sectorcalc-theme';var t=localStorage.getItem(k);if(t!=='dark'&&t!=='light')t=(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';document.documentElement.setAttribute('data-theme',t);document.documentElement.style.colorScheme=t;}catch(e){}})();</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sheet Metal Bend &amp; K-Factor Calculator — Flat Pattern — SectorCalc Pro</title>
-<meta name="description" content="Industrial-grade bending calculator: K-factor from R/T ratio, bend allowance, outside setback, bend deduction, flat-pattern length, minimum radius and flange checks, V-die selection, press-brake tonnage and full audit trail.">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-<style>
-:root{
-  --navy:#0f2744; --steel:#1b3a5c; --blue:#0055A4; --accent:#E87722;
-  --panel2:#fbfcfe; --thead:#eef2f7;
-  --bg:#f4f6f9; --panel:#ffffff; --line:#d9e0e8; --ink:#1c2733; --mut:#5d6b7a;
-  --ok:#1a7f4b; --warn:#b26a00; --err:#b3261e; --mono:'JetBrains Mono','Consolas',monospace;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Inter','Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
-h1,.logo,.panel-h,.btn,.verdict .big{font-family:'Barlow Condensed','Inter',sans-serif;letter-spacing:.4px}
-.topbar{background:var(--navy);color:#fff;padding:14px 24px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
-.topbar .logo{font-weight:700;font-size:18px;letter-spacing:.5px}
-.topbar .logo span{color:var(--accent)}
-.badge{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);font-size:11px;padding:3px 10px;border-radius:20px;letter-spacing:1px;text-transform:uppercase}
-.eng{font-family:var(--mono);font-size:11px;color:#9db8d4;margin-left:auto}
-.wrap{max-width:1320px;margin:0 auto;padding:24px}
-.head{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:flex-end}
-.head h1{font-size:26px;color:var(--navy);margin-bottom:4px}
-.head p{color:var(--mut);font-size:14px;max-width:820px}
-.grid{display:grid;grid-template-columns:minmax(380px,540px) 1fr;gap:20px;margin-top:20px;align-items:start}
-@media(max-width:1000px){.grid{grid-template-columns:1fr}}
-.panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden}
-.panel-h{background:linear-gradient(90deg,var(--steel),var(--navy));color:#fff;padding:10px 16px;font-size:13px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
-.panel-b{padding:16px}
-.fgroup{margin-bottom:18px}
-.fgroup>label{display:block;font-size:12px;font-weight:700;color:var(--steel);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px;border-bottom:1px solid var(--line);padding-bottom:4px}
-.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.row3{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-@media(max-width:560px){.row,.row3{grid-template-columns:1fr}}
-.field{margin-bottom:8px}
-.field label{display:block;font-size:11px;color:var(--mut);margin-bottom:3px}
-.field input,.field select{width:100%;padding:8px 10px;border:1px solid var(--line);border-radius:6px;font-size:14px;font-family:inherit;background:var(--panel2);transition:border-color .15s}
-.field input:focus,.field select:focus{outline:none;border-color:var(--blue);background:#fff}
-.uwrap{display:flex;gap:6px;align-items:stretch;width:100%;min-width:0}
-.uwrap input{flex:1 1 auto;min-width:5.75rem;width:auto;padding:8px 10px;font-family:var(--mono);font-variant-numeric:tabular-nums;overflow-x:auto;box-sizing:border-box}
-.uwrap input[type=number]{-moz-appearance:textfield;appearance:textfield}
-.uwrap input[type=number]::-webkit-outer-spin-button,.uwrap input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
-.uwrap select.units{flex:0 0 auto;width:auto;min-width:3.75rem;max-width:5.5rem;padding:8px 6px;font-size:11px;font-weight:600;color:var(--steel);background:var(--thead);box-sizing:border-box}
-.ref{font-size:10px;color:#8593a5;margin-top:2px;font-style:italic;line-height:1.35}
-.hint{font-size:10.5px;color:var(--mut);margin-top:2px}
-.btn{display:inline-block;background:var(--accent);color:#fff;border:none;padding:12px 26px;font-size:14px;font-weight:700;border-radius:7px;cursor:pointer;width:100%;letter-spacing:.5px;transition:background .15s}
-.btn:hover{background:#cf621a}
-.btn2{background:var(--steel);font-size:12px;padding:8px 14px;width:auto;border:none;color:#fff;border-radius:6px;cursor:pointer;font-weight:600}
-.btn2:hover{background:var(--navy)}
-.btn3{background:var(--panel);color:var(--steel);border:1px solid var(--line);font-size:11px;padding:5px 10px;border-radius:6px;cursor:pointer;font-weight:600}
-.btn3:hover{border-color:var(--blue);color:var(--blue)}
-.seg{display:flex;border:1px solid var(--line);border-radius:7px;overflow:hidden}
-.seg button{flex:1;padding:8px 0;background:var(--panel);border:none;font-size:12px;font-weight:700;cursor:pointer;color:var(--mut)}
-.seg button.on{background:var(--navy);color:#fff}
-.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:16px}
-.kpi{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:8px;padding:12px 14px}
-.kpi .v{font-family:var(--mono);font-size:20px;font-weight:700;color:var(--navy)}
-.kpi .l{font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.5px}
-.kpi .u{font-size:11px;color:var(--mut)}
-.kpi.hot{border-left-color:var(--accent)} .kpi.good{border-left-color:var(--ok)}
-.verdict{border-radius:10px;padding:16px 20px;margin-bottom:16px;color:#fff;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
-.verdict.pass{background:linear-gradient(90deg,#12572f,#1a7f4b)}
-.verdict.cond{background:linear-gradient(90deg,#8a5100,#b26a00)}
-.verdict.fail{background:linear-gradient(90deg,#7c1610,#b3261e)}
-.verdict .big{font-size:22px;font-weight:800;letter-spacing:1px}
-.verdict .sub{font-size:12.5px;opacity:.92}
-.verdict .score{margin-left:auto;font-family:var(--mono);font-size:26px;font-weight:700}
-table{width:100%;border-collapse:collapse;font-size:13px}
-th,td{padding:7px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
-th{background:var(--thead);color:var(--steel);font-size:11px;text-transform:uppercase;letter-spacing:.5px}
-td.num{font-family:var(--mono);text-align:right}
-.warnbox{border-radius:8px;padding:10px 14px;margin-bottom:10px;font-size:13px}
-.warnbox.w{background:#fff7e8;border:1px solid #f0c979;color:var(--warn)}
-.warnbox.e{background:#fdecea;border:1px solid #f1a9a4;color:var(--err)}
-.warnbox.i{background:#e9f4fd;border:1px solid #a9d2ef;color:#12567f}
-.warnbox b{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.5px;margin-bottom:2px}
-.audit{margin-top:20px}
-details{border:1px solid var(--line);border-radius:8px;margin-bottom:10px;background:var(--panel2)}
-summary{cursor:pointer;padding:10px 14px;font-weight:700;font-size:13px;color:var(--navy);list-style:none}
-summary::before{content:'▸ ';color:var(--accent)}
-details[open] summary::before{content:'▾ '}
-details .body{padding:0 14px 14px;font-size:12.5px}
-.formula{font-family:var(--mono);background:#0f2744;color:#cfe3f5;padding:10px 14px;border-radius:6px;font-size:12.5px;margin:6px 0;overflow-x:auto}
-.hash{font-family:var(--mono);font-size:11px;background:var(--thead);padding:6px 10px;border-radius:5px;word-break:break-all}
-.sig{color:var(--ok);font-weight:700}
-.charts{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-@media(max-width:760px){.charts{grid-template-columns:1fr}}
-.chartbox{border:1px solid var(--line);border-radius:8px;padding:10px;background:var(--panel2)}
-.chartbox .t{font-size:11px;font-weight:700;color:var(--steel);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
-canvas{width:100%;height:auto;display:block}
-.presets{display:flex;gap:6px;align-items:center;font-size:11px;color:#cfe0f0}
-footer{margin-top:28px;padding:18px;text-align:center;color:var(--mut);font-size:12px;border-top:1px solid var(--line)}
-html[data-theme="dark"]{
-  --bg:#0e131a; --panel:#161d27; --panel2:#1b2430; --line:#2a3646;
-  --ink:#e6ecf3; --mut:#93a3b5; --thead:#212c3a;
-  --navy:#0a1626; --steel:#12385e; --blue:#4c9be8; --accent:#E87722;
-  --ok:#3fbf7f; --warn:#e8a33d; --err:#f26d64;
-}
-html[data-theme="dark"] .warnbox.w{background:#3a2e12;border-color:#6b5418;color:#e8a33d}
-html[data-theme="dark"] .warnbox.e{background:#3a1a17;border-color:#6b2a25;color:#f26d64}
-html[data-theme="dark"] .warnbox.i{background:#14273a;border-color:#1e4a6e;color:#7fb3e8}
-html[data-theme="dark"] .field input,html[data-theme="dark"] .field select{background:#131a23;color:var(--ink)}
-html[data-theme="dark"] .field input:focus,html[data-theme="dark"] .field select:focus{background:#0f151d}
-html[data-theme="dark"] .kpi .v{color:#e6ecf3}
-html[data-theme="dark"] .verdict.pass{background:linear-gradient(90deg,#0d3a20,#146039)}
-html[data-theme="dark"] .verdict.cond{background:linear-gradient(90deg,#5e3900,#8a5a10)}
-html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#8a1f18)}
-#themeToggle{position:fixed;right:18px;bottom:18px;z-index:60;box-shadow:0 2px 10px rgba(0,0,0,.25)}
-@media print{#themeToggle{display:none}}
-@media print{.topbar .eng,.btn,.btn2,.btn3,.seg,.presets{display:none}.grid{grid-template-columns:1fr}details{display:block}details .body{display:block}}
-</style>
-<link rel="stylesheet" href="./sc-theme.css?v=8">
-<script src="./sc-theme.js?v=8" defer></script>
-<link rel="stylesheet" href="./sc-tool-guide.css?v=3">
-<script src="./sc-tool-guide.js?v=3" defer></script>
+<title>SC-030 · Sheet Metal Bend & K-Factor — SectorCalc</title>
+<meta name="description" content="Bend allowance, setback and flat pattern. Deterministic SI engine, visible formulas, A1–A5 audit trail.">
+<link rel="canonical" href="https://sectorcalc.com/bend-pro.html">
+<link rel="stylesheet" href="./sectorcalc-engineering.css">
+<link rel="stylesheet" href="./sc-theme.css?v=12">
+<script>(function(){try{var k='sectorcalc-theme';var t=localStorage.getItem(k);if(t!=='dark'&&t!=='light')t=(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<script src="./sc-theme.js?v=12" defer></script>
 <link rel="stylesheet" href="./sc-site-nav.css?v=1">
 <script src="./sc-site-nav.js?v=1" defer></script>
 <link rel="stylesheet" href="./sc-form-fields.css?v=4">
+<style>
+.theme-calc-sheet { min-height: 100vh; padding: 2rem 1rem; }
+.cs-sheet { padding: 0; position: relative; }
+.cs-header { display: flex; justify-content: space-between; align-items: flex-start; padding: 2rem 2.5rem; border-bottom: 2px solid var(--cs-border); background: #FAFBFC; }
+.cs-header-left h1 { font-size: 1.6rem; font-weight: 700; color: var(--cs-border); margin-bottom: 0.35rem; }
+.cs-header-left .cs-subtitle { font-family: var(--font-mono); font-size: 0.7rem; color: #888; text-transform: uppercase; letter-spacing: 0.1em; }
+.cs-header-right { text-align: right; font-family: var(--font-mono); font-size: 0.65rem; color: #888; }
+.cs-header-right .cs-engine { font-size: 0.9rem; font-weight: 700; color: var(--cs-accent); margin-bottom: 0.25rem; }
+.cs-nav { display: flex; gap: 0; background: var(--cs-accent); padding: 0 2.5rem; flex-wrap: wrap; }
+.cs-nav a { color: #FFFFFF; text-decoration: none; font-family: var(--font-mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; padding: 0.75rem 1.25rem; border-right: 1px solid rgba(255,255,255,0.15); }
+.cs-nav a:hover { background: rgba(255,255,255,0.1); }
+.cs-main { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+.cs-inputs-panel { padding: 2rem 2.5rem; border-right: 1px solid rgba(26,58,92,0.1); }
+.cs-results-panel { padding: 2rem 2.5rem; background: #FAFBFC; }
+.cs-section-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; padding-bottom: 0.75rem; border-bottom: 1px solid rgba(26,58,92,0.1); }
+.cs-section-header h2 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--cs-accent); font-weight: 600; }
+.cs-section-header .sh-line { flex: 1; height: 1px; background: rgba(26,58,92,0.1); }
+.cs-formula-section, .cs-assumptions { padding: 2rem 2.5rem; border-top: 1px solid rgba(26,58,92,0.1); }
+.cs-mount { min-height: 120px; border: 1px dashed rgba(26,58,92,0.25); padding: 1rem; background: #fff; font-family: var(--font-mono); font-size: 0.75rem; color: #666; }
+@media (max-width: 900px) { .cs-main { grid-template-columns: 1fr; } }
+</style>
+<link rel="stylesheet" href="./sc-site-nav.css?v=1">
+<script src="./sc-site-nav.js?v=1" defer></script>
+<link rel="stylesheet" href="./sc-tool-guide.css?v=3"><script src="./sc-tool-guide.js?v=3" defer></script>
 </head>
-<body data-tool-badge="SC-030 · Sheet Metal Bend &amp; K-Factor">
+<body class="theme-calc-sheet" data-tool-code="SC-030" data-tool-badge="SC-030 · Bend & K-Factor">
 <!--SC-SITE-NAV-START-->
 <header class="site-header" id="siteHeader" role="banner">
   <a href="/" class="brand" aria-label="SectorCalc Home"><span class="brand-mark"><img class="logo-light" src="/sectorcalc-logo.png" alt="SectorCalc" width="183" height="48"><img class="logo-dark" src="/sectorcalc-logo-dark.png?v=2" alt="" width="183" height="48" aria-hidden="true"></span></a>
@@ -149,149 +65,68 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
 </div>
 <!--SC-SITE-NAV-END-->
 
-<div class="wrap">
-  <div class="head">
-    <div>
-      <h1>Sheet Metal Bend &amp; K-Factor Calculator (SC-030)</h1>
-      <p>Press-brake engineering engine for fabricators and designers: bend allowance BA = θ·(R+K·T), outside setback, bend deduction and flat-pattern length, K-factor from the R/T ratio with material presets, minimum inside radius and minimum flange checks, V-die selection and press-brake tonnage per metre — with air-bending springback guidance. Every input with <b>selectable universal units</b> and <b>reference-standard values</b>, every report with the full audit trail.</p>
+
+
+
+<div class="cs-sheet">
+  <div class="cs-header">
+    <div class="cs-header-left">
+      <h1>SC-030 · Sheet Metal Bend & K-Factor</h1>
+      <div class="cs-subtitle">Deterministic · ISO 3864 · Audit Trail · Engineering preview</div>
     </div>
-    <div>
-      <div class="seg" style="width:230px">
-        <button id="uMetric" class="on" onclick="setAllUnits('metric')">All Metric (SI)</button>
-        <button id="uImp" onclick="setAllUnits('imp')">All Imperial</button>
-      </div>
-      <div class="hint" style="text-align:right;margin-top:4px">…or set units per field below</div>
-    </div>
-  </div>
-
-  <div class="grid">
-    <!-- ================= INPUT PANEL ================= -->
-    <div class="panel">
-      <div class="panel-h">1 · Bend Geometry &amp; Material
-        <span class="presets">Preset:
-          <button class="btn3" onclick="preset('save',1)">S1</button><button class="btn3" onclick="preset('load',1)">L1</button>
-          <button class="btn3" onclick="preset('save',2)">S2</button><button class="btn3" onclick="preset('load',2)">L2</button>
-        </span>
-      </div>
-      <div class="panel-b">
-
-        <div class="fgroup">
-          <label>Bend Geometry</label>
-          <div class="row3">
-            <div class="field"><label>Material thickness T</label>
-              <div class="uwrap"><input type="number" id="T" value="2" step="0.1" min="0.3">
-              <select class="units" id="u_T" data-f="T" data-kind="len"><option value="mm" selected>mm</option><option value="in">in</option></select></div>
-              <div class="ref">Ref: measured, not nominal — 2.0 sheet is often 1.95</div></div>
-            <div class="field"><label>Inside radius R</label>
-              <div class="uwrap"><input type="number" id="R" value="2" step="0.1" min="0.1">
-              <select class="units" id="u_R" data-f="R" data-kind="len"><option value="mm" selected>mm</option><option value="in">in</option></select></div>
-              <div class="ref">Ref: air bend R ≈ 0.16·V opening · or punch radius</div></div>
-            <div class="field"><label>Bend angle θ</label>
-              <div class="uwrap"><input type="number" id="ang" value="90" step="5" min="1" max="180">
-              <select class="units" disabled><option>deg</option></select></div>
-              <div class="ref">Ref: INCLUDED angle of the finished part</div></div>
-          </div>
-          <div class="row">
-            <div class="field"><label>Leg 1 (to tangent/apex)</label>
-              <div class="uwrap"><input type="number" id="L1" value="50" step="1" min="0">
-              <select class="units" id="u_L1" data-f="L1" data-kind="len"><option value="mm" selected>mm</option><option value="in">in</option></select></div>
-              <div class="ref">Ref: flange length OUTSIDE face to bend apex</div></div>
-            <div class="field"><label>Leg 2 (to tangent/apex)</label>
-              <div class="uwrap"><input type="number" id="L2" value="80" step="1" min="0">
-              <select class="units" id="u_L2" data-f="L2" data-kind="len"><option value="mm" selected>mm</option><option value="in">in</option></select></div>
-              <div class="ref">Ref: same convention as Leg 1</div></div>
-          </div>
-        </div>
-
-        <div class="fgroup">
-          <label>Material &amp; K-Factor</label>
-          <div class="row3">
-            <div class="field"><label>Material</label>
-              <select id="mat">
-                <option value="mild" selected>Mild steel S235–S355 — Rm 420 MPa</option>
-                <option value="hss">High-strength S700–S960 — Rm 800 MPa</option>
-                <option value="stainless">Stainless 304/316 — Rm 600 MPa</option>
-                <option value="alu_soft">Aluminium soft 1050/3003 — Rm 110 MPa</option>
-                <option value="alu_hard">Aluminium 6061-T6/5083 — Rm 300 MPa</option>
-                <option value="copper">Copper / brass — Rm 250 MPa</option>
-              </select>
-              <div class="ref">Ref: drives min radius &amp; tonnage</div></div>
-            <div class="field"><label>K-factor mode</label>
-              <select id="kmode">
-                <option value="auto" selected>Auto from R/T (DIN 6935 practice)</option>
-                <option value="manual">Manual — enter measured K below</option>
-              </select>
-              <div class="ref">Ref: K = neutral axis offset / T</div></div>
-            <div class="field"><label>K manual</label>
-              <div class="uwrap"><input type="number" id="kman" value="0.44" step="0.01" min="0.2" max="0.5" disabled>
-              <select class="units" disabled><option>—</option></select></div>
-              <div class="ref">Ref: 0.33 coining · 0.44 air bend steel · 0.50 large R</div></div>
-          </div>
-        </div>
-
-        <div class="fgroup">
-          <label>Tooling</label>
-          <div class="row">
-            <div class="field"><label>V-die opening V</label>
-              <div class="uwrap"><input type="number" id="V" value="16" step="1" min="2">
-              <select class="units" id="u_V" data-f="V" data-kind="len"><option value="mm" selected>mm</option><option value="in">in</option></select></div>
-              <div class="ref">Ref: V = 6–8×T steel · 8–10×T stainless · 10–12×T aluminium</div></div>
-            <div class="field"><label>Bend length</label>
-              <div class="uwrap"><input type="number" id="Lb" value="1000" step="50" min="10">
-              <select class="units" id="u_Lb" data-f="Lb" data-kind="len"><option value="mm" selected>mm</option><option value="in">in</option></select></div>
-              <div class="ref">Ref: for total tonnage</div></div>
-          </div>
-        </div>
-
-        <button class="btn" id="calcBtn">CALCULATE &amp; AUDIT</button>
-      </div>
-    </div>
-
-    <!-- ================= RESULTS ================= -->
-    <div>
-      <div class="verdict pass" id="verdict"></div>
-      <div id="warnings"></div>
-      <div class="kpis" id="kpis"></div>
-
-      <div class="panel">
-        <div class="panel-h">2 · Calculation Results <span style="font-weight:400;font-size:11px;text-transform:none">(engine computes in SI)</span></div>
-        <div class="panel-b"><table id="resTable"></table></div>
-      </div>
-
-      <div class="panel" style="margin-top:20px">
-        <div class="panel-h">3 · Sensitivity Charts</div>
-        <div class="panel-b charts">
-          <div class="chartbox"><div class="t">K-Factor &amp; Bend Deduction vs R/T Ratio</div><canvas id="chK" width="520" height="300"></canvas></div>
-          <div class="chartbox"><div class="t">Tonnage vs V-Opening (per metre)</div><canvas id="chTon" width="520" height="300"></canvas></div>
-        </div>
-      </div>
-
-      <!-- ================= AUDIT ================= -->
-      <div class="audit panel" style="margin-top:20px">
-        <div class="panel-h" style="background:linear-gradient(90deg,#3d2a10,#5c3a10)">4 · Audit / Review Trail — Verification Module
-          <span>
-            <button class="btn3" onclick="copyReport()">Copy Report</button>
-            <button class="btn3" onclick="exportJSON()">Export JSON</button>
-          </span>
-        </div>
-        <div class="panel-b">
-          <div class="warnbox i"><b>Audit Statement</b>
-            This report is generated deterministically from the inputs below, each captured together with its selected display unit. Re-entering identical inputs into the same engine version reproduces identical outputs. Any deviation indicates input drift, unit mismatch, or manual tampering — investigate before releasing to production.</div>
-          <details open><summary>A1 · Engine Identity &amp; Integrity</summary><div class="body" id="aEngine"></div></details>
-          <details open><summary>A2 · Input Snapshot (value + selected unit)</summary><div class="body" id="aInputs"></div></details>
-          <details><summary>A3 · Formulas Applied</summary><div class="body" id="aFormulas"></div></details>
-          <details><summary>A4 · Engineering Assumptions</summary><div class="body" id="aAssump"></div></details>
-          <details open><summary>A5 · Warnings &amp; Limit Checks</summary><div class="body" id="aWarn"></div></details>
-          <div style="margin-top:12px;text-align:right">
-            <button class="btn btn2" onclick="window.print()">⎙ Print / Export PDF Report</button>
-          </div>
-        </div>
-      </div>
+    <div class="cs-header-right">
+      <div class="cs-engine">SC-030-ENGINE v1.0.0</div>
+      <div>DWG NO: SC-030-001</div>
+      <div>SCALE: NTS · REV: A</div>
+      <div>DATE: 2026-07-25</div>
+      <div>ENGINE VERSION: SC-030-ENGINE v1.0.0</div>
     </div>
   </div>
-
-  <button id="themeToggle" class="btn3" title="Toggle light/dark (saved locally)">◐ Theme</button>
-  <!--SC-GUIDE-START-->
+  <nav class="cs-nav">
+    <a href="/">← Home</a>
+    <a href="/tools.html">Tools Index</a>
+    <a href="/sc008-pro.html">SC-008</a>
+    <a href="/machining-pro.html">SC-020</a>
+    <a href="/labor-pro.html">SC-010</a>
+    <a href="/weld-pro.html">SC-001</a>
+    <a href="/pricing.html">Pricing</a>
+  </nav>
+  <div class="cs-main">
+    <div class="cs-inputs-panel">
+      <div class="cs-section-header"><h2>Inputs</h2><span class="sh-line"></span><span style="font-family:var(--font-mono);font-size:0.65rem;color:#888;">DWG: SC-030-SEC-A</span></div>
+      <div class="cs-ref-box">Reference: ISO 9013 / shop K-factor. Bend allowance, setback and flat pattern.</div>
+      <div class="cs-mount" id="theme-input-mount">Production runtime mounts engineering inputs here (universal units · fail-closed validation).</div>
+    </div>
+    <div class="cs-results-panel">
+      <div class="cs-section-header"><h2>Results</h2><span class="sh-line"></span><span style="font-family:var(--font-mono);font-size:0.65rem;color:#888;">DWG: SC-030-SEC-B</span></div>
+      <div class="cs-mount" id="theme-result-mount">Engine-owned outputs, sensitivity and normalized risk charts render here.</div>
+    </div>
+  </div>
+  <div class="cs-formula-section">
+    <div class="cs-section-header"><h2>Formulas</h2><span class="sh-line"></span><span style="font-family:var(--font-mono);font-size:0.65rem;color:#888;">DWG: SC-030-SEC-C</span></div>
+    <div class="cs-formula-block"><div class="formula">BA = α·(R + K·T)</div><div class="formula-desc">Bend allowance.</div></div>
+    <div class="cs-formula-block"><div class="formula">BD = 2(R+T)·tan(α/2) − BA</div><div class="formula-desc">Bend deduction.</div></div>
+  </div>
+  <div class="cs-assumptions">
+    <h3>Assumptions & Warnings</h3>
+    <ul>
+      <li>K-factor is process/material dependent.</li>
+      <li>Results are deterministic for identical canonical inputs and engine version.</li>
+      <li>Governing code edition, certified material data and competent review remain authoritative.</li>
+    </ul>
+  </div>
+  <div class="cs-audit-footer">
+    <div class="audit-item"><div class="audit-label">DWG NO</div><div class="audit-value">SC-030-001</div></div>
+    <div class="audit-item"><div class="audit-label">SCALE</div><div class="audit-value">NTS</div></div>
+    <div class="audit-item"><div class="audit-label">REV</div><div class="audit-value">A</div></div>
+    <div class="audit-item"><div class="audit-label">ENGINE VERSION</div><div class="audit-value">SC-030-ENGINE v1.0.0</div></div>
+    <div class="audit-item"><div class="audit-label">ISO 3864</div><div class="audit-value">Safety colors</div></div>
+    <div class="audit-item"><div class="audit-label">Audit Trail</div><div class="audit-value">A1–A5</div></div>
+    <div class="audit-item"><div class="audit-label">Deterministic</div><div class="audit-value">YES</div></div>
+    <div class="audit-item"><div class="audit-label">Sector</div><div class="audit-value">Welding & Fabrication</div></div>
+  </div>
+</div>
+<!--SC-GUIDE-START-->
 <div class="sc-guide-shell">
 <section class="sc-guide" id="sc-guide" data-tool-id="SC-030" data-tool-name="Sheet Metal Bend &amp; K-Factor Calculator (SC-030)" data-tool-url="https://www.sectorcalc.com/bend-pro.html" itemscope itemtype="https://schema.org/FAQPage">
 
@@ -364,272 +199,7 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
 </section>
 </div>
 <!--SC-GUIDE-END-->
-<footer>
-    SectorCalc Pro · SC-030 · Flat patterns are first-article estimates — cut one blank, measure, correct K against your material batch, then release to production.
-  </footer>
-</div>
-<script>
-/* =====================================================================
-   SM-ENGINE v1.0.0 — Sheet Metal Bend & K-Factor
-   BA/OSSB/BD neutral-axis model + tonnage. Deterministic core (mm).
-   ===================================================================== */
-const ENGINE = {name:'SM-ENGINE', version:'1.0.0', build:'2026-07-24', standard:'Neutral-axis bend model · DIN 6935 K practice · air-bend tonnage charts basis',
-  model:'K=0.33+0.17(R/T)/(1+R/T) · BA=θ(R+KT) · BD=2tan(θ/2)(R+T)−BA · F=1.42·Rm·T²/V'};
-let LAST=null;
-
-const MATB={
-  mild:{name:'Mild steel',Rm:420,rmin:1.0,sb:'0.5–2°'},
-  hss:{name:'HSS S700–S960',Rm:800,rmin:3.0,sb:'2–5°'},
-  stainless:{name:'Stainless 304/316',Rm:600,rmin:2.0,sb:'2–5°'},
-  alu_soft:{name:'Aluminium soft',Rm:110,rmin:0.5,sb:'0.5–1.5°'},
-  alu_hard:{name:'Aluminium 6061-T6',Rm:300,rmin:3.0,sb:'1–3°'},
-  copper:{name:'Copper / brass',Rm:250,rmin:0.5,sb:'0.5–2°'}
-};
-function kAuto(rt){return 0.33+0.17*rt/(1+rt);}
-
-const TO_SI={len:{mm:1,in:25.4}};
-function g(id){return document.getElementById(id);}
-function num(id){return parseFloat(g(id).value);}
-const fmt=(x,d=2)=>Number.isFinite(x)?x.toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d}):'—';
-
-function fieldSI(id){
-  const us=g('u_'+id), raw=num(id);
-  if(!us)return{si:raw,disp:String(raw)};
-  const kind=us.dataset.kind,u=us.value;
-  const si=raw*TO_SI[kind][u];
-  return{si,disp:`${raw} ${us.options[us.selectedIndex].text}`};
-}
-document.querySelectorAll('select.units[data-f]').forEach(us=>{
-  us.addEventListener('change',()=>{
-    const inp=g(us.dataset.f),val=parseFloat(inp.value);
-    if(Number.isFinite(val)&&us.dataset.prev&&us.dataset.prev!==us.value){
-      const k=us.dataset.kind;
-      inp.value=+(val*TO_SI[k][us.dataset.prev]/TO_SI[k][us.value]).toPrecision(6);
-    }
-    us.dataset.prev=us.value;calculate();
-  });
-  us.dataset.prev=us.value;
-});
-function setAllUnits(sys){
-  const map=sys==='imp'?{len:'in'}:{len:'mm'};
-  document.querySelectorAll('select.units[data-f]').forEach(us=>{
-    const want=map[us.dataset.kind];
-    if(want&&us.value!==want){us.value=want;us.dispatchEvent(new Event('change'));}
-  });
-  g('uMetric').classList.toggle('on',sys==='metric');
-  g('uImp').classList.toggle('on',sys==='imp');
-}
-g('kmode').addEventListener('change',()=>{
-  g('kman').disabled=(g('kmode').value==='auto');calculate();
-});
-
-/* ---------------- presets ---------------- */
-const IDS=['T','u_T','R','u_R','ang','L1','u_L1','L2','u_L2','mat','kmode','kman','V','u_V','Lb','u_Lb'];
-function preset(mode,slot){
-  const key='sc030_preset_'+slot;
-  if(mode==='save'){const o={};IDS.forEach(i=>o[i]=g(i).value);localStorage.setItem(key,JSON.stringify(o));}
-  else{const s=localStorage.getItem(key);if(!s)return;const o=JSON.parse(s);
-    IDS.forEach(i=>{if(o[i]!=null)g(i).value=o[i];});
-    document.querySelectorAll('select.units[data-f]').forEach(us=>us.dataset.prev=us.value);
-    g('kmode').dispatchEvent(new Event('change'));}
-}
-function fnv(s){let h=0x811c9dc5;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=(h*0x01000193)>>>0;}return ('00000000'+h.toString(16)).slice(-8).toUpperCase();}
-
-/* =====================================================================
-   CORE CALCULATION (mm)
-   ===================================================================== */
-function calculate(){
-  const W=[];
-  const fT=fieldSI('T'),fR=fieldSI('R'),fL1=fieldSI('L1'),fL2=fieldSI('L2'),fV=fieldSI('V'),fLb=fieldSI('Lb');
-  const disp={T:fT.disp,R:fR.disp,L1:fL1.disp,L2:fL2.disp,V:fV.disp,Lb:fLb.disp};
-  const mat=MATB[g('mat').value];
-  const kmode=g('kmode').value;
-  const inp={T:fT.si,R:fR.si,ang:num('ang'),L1:fL1.si,L2:fL2.si,matKey:g('mat').value,
-    kmode,kman:num('kman'),V:fV.si,Lb:fLb.si};
-
-  if(!Number.isFinite(inp.T)||inp.T<0.3||inp.T>25)W.push({lvl:'e',t:'Thickness outside range',d:'Thickness must be 0.3–25 mm (press-brake envelope). Check mm/in selector. Calculation aborted.'});
-  if(!Number.isFinite(inp.R)||inp.R<=0)W.push({lvl:'e',t:'Invalid inside radius',d:'Inside radius must be positive. For air bending use R ≈ 0.16×V if unknown.'});
-  if(!Number.isFinite(inp.ang)||inp.ang<1||inp.ang>180)W.push({lvl:'e',t:'Invalid angle',d:'Bend angle must be 1–180° (included angle of the finished part).'});
-  if(!Number.isFinite(inp.L1)||inp.L1<0||!Number.isFinite(inp.L2)||inp.L2<0)W.push({lvl:'e',t:'Invalid legs',d:'Leg lengths must be zero or positive.'});
-  if(kmode==='manual'&&(!Number.isFinite(inp.kman)||inp.kman<0.2||inp.kman>0.5))W.push({lvl:'e',t:'Invalid K-factor',d:'Manual K must be 0.20–0.50. Values outside this range indicate a measurement error.'});
-  if(!Number.isFinite(inp.V)||inp.V<2)W.push({lvl:'e',t:'Invalid V-die',d:'V opening must be ≥ 2 mm.'});
-  if(W.some(w=>w.lvl==='e')){render(inp,null,W,disp);return;}
-
-  const rt=inp.R/inp.T;
-  const K=kmode==='auto'?kAuto(rt):inp.kman;
-  const th=inp.ang*Math.PI/180;
-  const BA=th*(inp.R+K*inp.T);
-  const OSSB=Math.tan(th/2)*(inp.R+inp.T);
-  const BD=2*OSSB-BA;
-  const flat=inp.L1+inp.L2-BD;
-  const rn=inp.R+K*inp.T;
-  const rmin=mat.rmin*inp.T;
-  const flangeMin=0.7*inp.V+inp.R;
-  const RmKgf=mat.Rm/9.80665;
-  const ton=1.42*RmKgf*Math.pow(inp.T,2)/inp.V; /* t/m */
-  const tonTot=ton*inp.Lb/1000;
-
-  const out={rt,K,BA,OSSB,BD,flat,rn,rmin,flangeMin,ton,tonTot,mName:mat.name,sb:mat.sb,Rm:mat.Rm};
-
-  /* --- warnings --- */
-  if(inp.R<rmin)W.push({lvl:'e',t:'Radius below material minimum',d:`R = ${fmt(inp.R,1)} mm < ${mat.rmin}×T = ${fmt(rmin,1)} mm for ${mat.name} — outside fibre will crack. Increase radius, change material, or hot-bend. (Double across rolling grain.)`});
-  if(inp.L1<flangeMin||inp.L2<flangeMin)W.push({lvl:'w',t:'Flange shorter than die seat',d:`Minimum flange for V = ${fmt(inp.V,0)} mm is ≈ 0.7·V + R = ${fmt(flangeMin,1)} mm. A shorter leg (${fmt(Math.min(inp.L1,inp.L2),1)} mm) drops into the die — use a smaller V or a flanging die.`});
-  if(inp.V<6*inp.T&&(inp.matKey==='mild'||inp.matKey==='hss'||inp.matKey==='stainless'))W.push({lvl:'w',t:'V-die tight for thickness',d:`V = ${fmt(inp.V,1)} mm < 6×T = ${fmt(6*inp.T,1)} mm. Tonnage and die-marking rise sharply; check punch load limit, not just press capacity.`});
-  if(inp.V>12*inp.T)W.push({lvl:'i',t:'V-die wide',d:`V > 12×T: radius grows to ≈ ${fmt(0.16*inp.V,1)} mm and angle consistency suffers. Fine for cosmetics, poor for tight tolerance.`});
-  if(rt>10)W.push({lvl:'w',t:'Large R/T — springback & radius control',d:`R/T = ${fmt(rt,1)}: springback of ${out.sb} or worse and radius follows the die, not the punch. Consider a restrike or smaller R design.`});
-  if(inp.ang>135)W.push({lvl:'i',t:'Obtuse bend',d:'θ > 135°: setback correction dominates; verify with a first article before nesting the batch.'});
-  if(kmode==='auto')W.push({lvl:'i',t:'Auto K-factor',d:`K = ${fmt(K,3)} from R/T = ${fmt(rt,2)} per DIN 6935 practice. Material batch and grain direction shift K by ±0.02–0.05 (~±0.5 mm flange) — correct against a first article.`});
-  if(tonTot>100)W.push({lvl:'w',t:'High total tonnage',d:`${fmt(tonTot,0)} t total for ${fmt(inp.Lb,0)} mm bend length. Verify press capacity AND tool load rating; consider staged bending or a larger V.`});
-
-  render(inp,out,W,disp);
-}
-</script>
-
-<script>
-/* =====================================================================
-   RENDER
-   ===================================================================== */
-function render(inp,out,W,disp){
-  LAST={inp,disp,out,W,ts:new Date().toISOString()};
-  const errs=W.filter(w=>w.lvl==='e').length, warns=W.filter(w=>w.lvl==='w').length;
-  const vd=g('verdict'), total=9, passed=Math.max(total-errs*2-warns,0);
-  if(!out||errs>0){vd.className='verdict fail';vd.innerHTML=`<div class="big">⛔ BEND PLAN REJECTED — FAIL</div><div class="sub">${errs} blocking issue(s), ${warns} warning(s). Releasing this flat pattern scraps blanks or cracks the bend.</div><div class="score">${passed}/${total}</div>`;}
-  else if(warns>0){vd.className='verdict cond';vd.innerHTML=`<div class="big">⚠ CONDITIONALLY ACCEPTED</div><div class="sub">${warns} warning(s) — flat pattern computable but tooling or springback concerns exist. Review yellow items before nesting.</div><div class="score">${passed}/${total}</div>`;}
-  else{vd.className='verdict pass';vd.innerHTML=`<div class="big">✓ BEND PLAN ACCEPTED</div><div class="sub">All checks passed — radius, flange, die opening and tonnage within validated envelopes.</div><div class="score">${total}/${total}</div>`;}
-
-  g('warnings').innerHTML=W.map(w=>`<div class="warnbox ${w.lvl}"><b>${w.lvl==='e'?'⛔ BLOCKING':w.lvl==='w'?'⚠ WARNING':'ℹ NOTE'} — ${w.t}</b>${w.d}</div>`).join('');
-  g('aWarn').innerHTML=W.length?
-    W.map(w=>`<div class="warnbox ${w.lvl}" style="margin:6px 0"><b>${w.t}</b>${w.d}</div>`).join('')
-    :'<div class="warnbox i"><b>ALL CLEAR</b>No warnings. All parameters within validated envelopes.</div>';
-
-  const kpis=g('kpis'),res=g('resTable');
-  if(!out){kpis.innerHTML='';res.innerHTML='<tr><td style="color:var(--err);font-weight:700">Calculation aborted — resolve blocking errors above.</td></tr>';drawCharts(null);buildAudit(inp,null,W,disp);return;}
-
-  kpis.innerHTML=`
-    <div class="kpi hot"><div class="v">${fmt(out.flat,1)}</div><div class="l">Flat pattern length</div><div class="u">mm · L1+L2−BD</div></div>
-    <div class="kpi"><div class="v">${fmt(out.BA,2)}</div><div class="l">Bend allowance</div><div class="u">mm · neutral arc</div></div>
-    <div class="kpi"><div class="v">${fmt(out.BD,2)}</div><div class="l">Bend deduction</div><div class="u">mm · 2·OSSB−BA</div></div>
-    <div class="kpi ${inp.kmode==='auto'?'':'good'}"><div class="v">${fmt(out.K,3)}</div><div class="l">K-factor</div><div class="u">${inp.kmode==='auto'?'auto from R/T':'manual'}</div></div>
-    <div class="kpi ${out.tonTot>100?'hot':''}"><div class="v">${fmt(out.ton,0)}</div><div class="l">Tonnage</div><div class="u">t/m · ${fmt(out.tonTot,0)} t total</div></div>`;
-
-  res.innerHTML=`<tr><th>Parameter</th><th>Symbol</th><th style="text-align:right">Value</th><th>Unit</th><th>Note</th></tr>
-  <tr><td>Material</td><td>—</td><td class="num" style="text-align:right">${out.mName}</td><td>—</td><td>Rm ${fmt(out.Rm,0)} MPa · springback ${out.sb}</td></tr>
-  <tr><td>R/T ratio</td><td>—</td><td class="num">${fmt(out.rt,2)}</td><td>—</td><td>drives auto-K</td></tr>
-  <tr><td><b>K-factor</b></td><td><b>K</b></td><td class="num"><b>${fmt(out.K,3)}</b></td><td><b>—</b></td><td>neutral axis at ${fmt(out.rn,2)} mm from inside</td></tr>
-  <tr><td>Bend allowance</td><td>BA</td><td class="num">${fmt(out.BA,3)}</td><td>mm</td><td>θ·(R+K·T)</td></tr>
-  <tr><td>Outside setback</td><td>OSSB</td><td class="num">${fmt(out.OSSB,3)}</td><td>mm</td><td>tan(θ/2)·(R+T)</td></tr>
-  <tr><td>Bend deduction</td><td>BD</td><td class="num">${fmt(out.BD,3)}</td><td>mm</td><td>2·OSSB − BA</td></tr>
-  <tr><td><b>Flat pattern length</b></td><td><b>L_flat</b></td><td class="num"><b>${fmt(out.flat,2)}</b></td><td><b>mm</b></td><td>${fmt(inp.L1,1)} + ${fmt(inp.L2,1)} − ${fmt(out.BD,2)}</td></tr>
-  <tr><td>Min inside radius (${out.mName})</td><td>R_min</td><td class="num">${fmt(out.rmin,1)}</td><td>mm</td><td>cracking limit · ×2 across grain</td></tr>
-  <tr><td>Min flange for V-die</td><td>b_min</td><td class="num">${fmt(out.flangeMin,1)}</td><td>mm</td><td>0.7·V + R</td></tr>
-  <tr><td>Tonnage per metre</td><td>F</td><td class="num">${fmt(out.ton,1)}</td><td>t/m</td><td>1.42·Rm·T²/V air bending</td></tr>
-  <tr><td>Total bend force</td><td>F_tot</td><td class="num">${fmt(out.tonTot,1)}</td><td>t</td><td>over ${fmt(inp.Lb,0)} mm</td></tr>`;
-
-  drawCharts({inp,out});
-  buildAudit(inp,out,W,disp);
-}
-
-/* ---------------- charts ---------------- */
-function pal(){const cs=getComputedStyle(document.documentElement),v=n=>cs.getPropertyValue(n).trim();
-  return{bg:v('--panel2')||'#fbfcfe',grid:v('--line')||'#d9e0e8',txt:v('--mut')||'#5d6b7a',
-         line:v('--blue')||'#0055A4',cur:v('--accent')||'#E87722',eco:v('--ok')||'#1a7f4b',sec:'#7a5fc0'};}
-function plot(cvId,series,xlab,ylab,marks){
-  const cv=g(cvId),ctx=cv.getContext('2d'),Wc=cv.width,Hc=cv.height,C=pal();
-  ctx.clearRect(0,0,Wc,Hc);ctx.fillStyle=C.bg;ctx.fillRect(0,0,Wc,Hc);
-  if(!series){ctx.fillStyle=C.txt;ctx.font='13px sans-serif';ctx.fillText('No data — resolve errors',20,30);return;}
-  const xs=series.flatMap(s=>s.pts.map(p=>p[0])),ys=series.flatMap(s=>s.pts.map(p=>p[1]));
-  const x0=Math.min(...xs),x1=Math.max(...xs),y1=Math.max(...ys)*1.08;
-  const P={l:52,r:12,t:14,b:30};
-  const X=x=>P.l+(x-x0)/(x1-x0)*(Wc-P.l-P.r), Y=y=>Hc-P.b-y/y1*(Hc-P.t-P.b);
-  ctx.strokeStyle=C.grid;ctx.lineWidth=1;ctx.beginPath();
-  for(let i=0;i<=4;i++){const y=P.t+i*(Hc-P.t-P.b)/4;ctx.moveTo(P.l,y);ctx.lineTo(Wc-P.r,y);}ctx.stroke();
-  series.forEach(s=>{ctx.strokeStyle=s.color;ctx.lineWidth=2.5;ctx.beginPath();
-    s.pts.forEach((p,i)=>i?ctx.lineTo(X(p[0]),Y(p[1])):ctx.moveTo(X(p[0]),Y(p[1])));ctx.stroke();});
-  (marks||[]).forEach(mk=>{ctx.fillStyle=mk.color;ctx.beginPath();ctx.arc(X(mk.x),Y(mk.y),5,0,7);ctx.fill();
-    ctx.font='bold 11px sans-serif';ctx.fillText(mk.t,Math.min(X(mk.x)+8,Wc-110),Math.max(Y(mk.y)-6,12));});
-  ctx.fillStyle=C.txt;ctx.font='11px sans-serif';
-  ctx.fillText(xlab,P.l,Hc-8);ctx.fillText(ylab,4,12);ctx.fillText(fmt(x1,1),Wc-P.r-34,Hc-8);
-}
-function drawCharts(data){
-  if(!data){plot('chK',null);plot('chTon',null);return;}
-  const {inp,out}=data,C=pal();
-  /* K & BD vs R/T */
-  const ks=[],bds=[];
-  const th=inp.ang*Math.PI/180;
-  for(let i=0;i<=50;i++){const rt=0.2+9.8*i/50,R=rt*inp.T,K=kAuto(rt);
-    ks.push([rt,K]);
-    bds.push([rt,2*Math.tan(th/2)*(R+inp.T)-th*(R+K*inp.T)]);}
-  plot('chK',[{pts:ks,color:C.line},{pts:bds.map(p=>[p[0],p[1]/10]),color:C.cur}],'R/T →','K (blue) · BD/10 (orange)',
-    [{x:out.rt,y:out.K,color:C.eco,t:'K now'}]);
-  /* tonnage vs V */
-  const tn=[],lim=[];
-  const RmKgf=out.Rm/9.80665;
-  for(let i=0;i<=50;i++){const V=Math.max(2,4*inp.T)+(20*inp.T-4*inp.T)*i/50;
-    tn.push([V,1.42*RmKgf*inp.T*inp.T/V]);lim.push([V,out.ton]);}
-  plot('chTon',[{pts:tn,color:C.line},{pts:lim,color:C.cur}],'V opening (mm) →','t/m',
-    [{x:inp.V,y:out.ton,color:C.eco,t:'selected V'}]);
-}
-
-/* ---------------- audit ---------------- */
-function buildAudit(inp,out,W,disp){
-  const ts=LAST.ts;
-  const hash=fnv(JSON.stringify({inp,disp,eng:ENGINE.version,ts}));
-  g('aEngine').innerHTML=`
-    <table><tr><th>Field</th><th>Value</th></tr>
-    <tr><td>Engine</td><td>${ENGINE.name} v${ENGINE.version}</td></tr>
-    <tr><td>Standard basis</td><td>${ENGINE.standard}</td></tr>
-    <tr><td>Model core</td><td>${ENGINE.model}</td></tr>
-    <tr><td>Build date</td><td>${ENGINE.build}</td></tr>
-    <tr><td>Report timestamp (UTC)</td><td>${ts}</td></tr>
-    <tr><td>Report integrity hash (FNV-1a)</td><td><span class="hash">${hash}</span></td></tr>
-    <tr><td>Determinism</td><td><span class="sig">✓ VERIFIED</span> — identical inputs → identical outputs, no hidden state</td></tr></table>`;
-  const rows=Object.entries(disp).map(([k,v2])=>`<tr><td>${k}</td><td class="num" style="text-align:right">${v2}</td><td class="num">${fmt(inp[k],4)}</td></tr>`).join('');
-  const other=['ang','matKey','kmode','kman']
-    .map(k=>`<tr><td>${k}</td><td class="num" style="text-align:right">${typeof inp[k]==='number'?fmt(inp[k],4):inp[k]}</td><td class="num">—</td></tr>`).join('');
-  g('aInputs').innerHTML=`<table><tr><th>Input</th><th style="text-align:right">As entered (value + unit)</th><th style="text-align:right">SI used by engine</th></tr>${rows}${other}</table>`;
-  g('aFormulas').innerHTML=`
-    <div class="formula">K (auto)     = 0.33 + 0.17·(R/T)/(1+R/T)   (air-bend practice)</div>
-    <div class="formula">BA [mm]      = θ[rad] · (R + K·T)</div>
-    <div class="formula">OSSB [mm]    = tan(θ/2) · (R + T)</div>
-    <div class="formula">BD [mm]      = 2·OSSB − BA</div>
-    <div class="formula">L_flat [mm]  = L1 + L2 − BD            (legs to apex)</div>
-    <div class="formula">r_neutral    = R + K·T</div>
-    <div class="formula">b_min [mm]   ≈ 0.7·V + R</div>
-    <div class="formula">F [t/m]      = 1.42 · Rm[kgf/mm²] · T² / V   (air bending)</div>`;
-  g('aAssump').innerHTML=`
-    <ul style="padding-left:18px;line-height:1.8">
-      <li>Legs are measured OUTSIDE-FACE-TO-APEX (press-brake convention). CAD mold-line dimensions need conversion — result is identical via the mold-line variant.</li>
-      <li>Auto-K follows DIN 6935 air-bend practice; material batch, grain direction and die opening shift K ±0.02–0.05. First-article correction is mandatory before batch release.</li>
-      <li>Tonnage formula is the standard air-bending chart basis; bottoming/coining needs 3–5× and is not covered.</li>
-      <li>Minimum radii are longitudinal-grain values — DOUBLE them when bending across the rolling grain (stainless, hard aluminium).</li>
-      <li>Springback is flagged but not compensated in the flat pattern — over-bend in the press program.</li>
-      <li>Bend relief, corner fillets and deformation near holes are design-side items, not modelled.</li>
-      <li>Engine computes in mm; display converts at entry (1 in = 25.4 mm).</li>
-    </ul>`;
-}
-
-/* ---------------- export ---------------- */
-function reportText(){
-  if(!LAST)return'';
-  const L=LAST;
-  let s=`SECTORCALC PRO — SC-030 SHEET METAL BEND & K-FACTOR REPORT\nEngine: ${ENGINE.name} v${ENGINE.version} | UTC: ${L.ts}\n\nINPUTS (as entered / SI):\n`;
-  for(const [k,v2] of Object.entries(L.disp))s+=`  ${k}: ${v2}  →  ${fmt(L.inp[k],4)} SI\n`;
-  s+=`  angle ${fmt(L.inp.ang,0)}° | material ${L.inp.matKey} | K mode ${L.inp.kmode}\n`;
-  if(L.out){s+=`\nKEY RESULTS:\n  K = ${fmt(L.out.K,3)} | BA = ${fmt(L.out.BA,2)} mm | BD = ${fmt(L.out.BD,2)} mm\n  FLAT LENGTH = ${fmt(L.out.flat,2)} mm | tonnage ${fmt(L.out.ton,1)} t/m (${fmt(L.out.tonTot,1)} t)\n`;}
-  s+=`\nWARNINGS (${L.W.length}):\n`;L.W.forEach(w=>s+=`  [${w.lvl.toUpperCase()}] ${w.t}: ${w.d}\n`);
-  return s;
-}
-function copyReport(){navigator.clipboard.writeText(reportText()).then(()=>alert('Audit report copied to clipboard.'));}
-function exportJSON(){
-  if(!LAST)return;
-  const blob=new Blob([JSON.stringify({engine:ENGINE,...LAST},null,2)],{type:'application/json'});
-  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='SC030_audit_report.json';a.click();
-}
-
-g('calcBtn').addEventListener('click',calculate);
-document.querySelectorAll('input,select').forEach(el=>el.addEventListener('change',calculate));
-document.querySelectorAll('input').forEach(el=>el.addEventListener('input',calculate));
-calculate();
-</script>
+<script type="module" src="/src/industrial-tool.ts"></script>
+<button class="theme" id="themeToggle" type="button">◐ Theme</button>
 </body>
 </html>

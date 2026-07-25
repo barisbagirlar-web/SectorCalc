@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SectorCalc — Engineering Calculator Index</title>
+<link rel="stylesheet" href="sectorcalc-engineering.css">
+<style>
+.theme-drawing-index { min-height: 100vh; padding: 2rem 1rem; }
+.ds-sheet { padding: 3rem; position: relative; }
+.ds-header {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  margin-bottom: 3rem; padding-bottom: 1.5rem; border-bottom: 2px solid var(--ds-border);
+}
+.ds-header-left h1 { font-size: 1.8rem; font-weight: 700; color: var(--ds-border); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.ds-header-left .ds-subtitle { font-family: var(--font-mono); font-size: 0.75rem; color: #666; text-transform: uppercase; letter-spacing: 0.1em; }
+.ds-header-right { text-align: right; font-family: var(--font-mono); font-size: 0.7rem; color: #888; }
+.ds-header-right .ds-dwg-no { font-size: 1.1rem; font-weight: 700; color: var(--ds-accent); margin-bottom: 0.25rem; }
+.ds-search { display: flex; gap: 1rem; margin-bottom: 2rem; padding: 1rem; border: 1px solid rgba(44,62,80,0.2); background: #FAFBFC; }
+.ds-search input { flex: 1; padding: 0.75rem 1rem; border: 1px solid rgba(44,62,80,0.2); font-family: var(--font-mono); font-size: 0.85rem; background: #FFFFFF; }
+.ds-search input:focus { outline: none; border-color: var(--ds-accent); }
+.ds-search button { padding: 0.75rem 1.5rem; background: var(--ds-border); color: #FFFFFF; border: none; font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; cursor: pointer; }
+.ds-stats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; margin-bottom: 2rem; }
+.ds-stat { border: 1px solid rgba(44,62,80,0.15); padding: 1rem; text-align: center; background: #FFFFFF; }
+.ds-stat .stat-value { font-family: var(--font-mono); font-size: 1.5rem; font-weight: 700; color: var(--ds-accent); }
+.ds-stat .stat-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: #888; margin-top: 0.25rem; }
+.ds-category { margin-bottom: 2rem; }
+.ds-category-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; padding: 0.75rem 1rem; background: var(--ds-border); color: #FFFFFF; }
+.ds-category-header h2 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 600; }
+.ds-category-header .cat-line { flex: 1; height: 1px; background: rgba(255,255,255,0.3); }
+.ds-category-header .cat-count { font-family: var(--font-mono); font-size: 0.7rem; opacity: 0.7; }
+.ds-tool-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+.ds-tool-card {
+  border: 1px solid rgba(44,62,80,0.15); padding: 1.25rem; background: #FFFFFF;
+  transition: all 0.2s; cursor: pointer; position: relative; text-decoration: none; color: inherit; display: block;
+}
+.ds-tool-card:hover { border-color: var(--ds-accent); box-shadow: 0 2px 12px rgba(0,85,164,0.08); }
+.ds-tool-card::before { content: attr(data-dwg); position: absolute; top: 0.5rem; right: 0.75rem; font-family: var(--font-mono); font-size: 0.6rem; color: #AAA; text-transform: uppercase; }
+.ds-tool-card .tool-sector { font-family: var(--font-mono); font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--ds-accent); margin-bottom: 0.5rem; }
+.ds-tool-card .tool-name { font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--ds-text); }
+.ds-tool-card .tool-desc { font-size: 0.8rem; color: #666; line-height: 1.5; margin-bottom: 0.75rem; }
+.ds-tool-card .tool-meta { display: flex; gap: 1rem; font-family: var(--font-mono); font-size: 0.65rem; color: #888; }
+.ds-tool-card .tool-status { display: inline-block; padding: 0.15rem 0.5rem; font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.1em; margin-top: 0.75rem; }
+.status-live { background: rgba(0,150,57,0.1); color: var(--iso-green); border: 1px solid var(--iso-green); }
+.status-preview { background: rgba(249,168,0,0.1); color: var(--iso-orange); border: 1px solid var(--iso-yellow); }
+.ds-table-view { margin-top: 2rem; }
+.ds-table-view h3 { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem; color: var(--ds-border); }
+.ds-revision-table { width: 100%; border-collapse: collapse; font-family: var(--font-mono); font-size: 0.75rem; margin-top: 3rem; }
+.ds-revision-table th { background: var(--ds-border); color: #FFFFFF; padding: 0.6rem 1rem; text-align: left; text-transform: uppercase; font-size: 0.6rem; letter-spacing: 0.1em; }
+.ds-revision-table td { padding: 0.5rem 1rem; border-bottom: 1px solid rgba(44,62,80,0.1); }
+.ds-title-block { margin-top: 2rem; }
+@media (max-width: 768px) { .ds-tool-grid { grid-template-columns: 1fr; } .ds-stats { grid-template-columns: repeat(2, 1fr); } .ds-header { flex-direction: column; gap: 1rem; } .ds-header-right { text-align: left; } }
+</style>
+</head>
+<body class="theme-drawing-index">
+
+<div class="ds-sheet">
+  <div class="ds-header">
+    <div class="ds-header-left">
+      <h1>Engineering Calculator Index</h1>
+      <div class="ds-subtitle">Deterministic SI Engine · Full Audit Trail · ISO Referenced</div>
+    </div>
+    <div class="ds-header-right">
+      <div class="ds-dwg-no">DWG NO: SC-INDEX-001</div>
+      <div>SCALE: NTS</div>
+      <div>REV: A · DATE: 2026-07-25</div>
+      <div>SHEET 1 OF 1</div>
+    </div>
+  </div>
+
+  <div class="ds-search">
+    <input type="text" placeholder="Search by task, sector, machine or standard... (e.g., 'tolerance stack', 'ISO 281', 'CNC')">
+    <button>Search</button>
+  </div>
+
+  <div class="ds-stats">
+    <div class="ds-stat"><div class="stat-value">28</div><div class="stat-label">Live Tools</div></div>
+    <div class="ds-stat"><div class="stat-value">12</div><div class="stat-label">In Pipeline</div></div>
+    <div class="ds-stat"><div class="stat-value">100%</div><div class="stat-label">Deterministic</div></div>
+    <div class="ds-stat"><div class="stat-value">A1–A5</div><div class="stat-label">Audit Trail</div></div>
+    <div class="ds-stat"><div class="stat-value">0</div><div class="stat-label">Data Leaves Browser</div></div>
+  </div>
+
+  <div class="ds-category">
+    <div class="ds-category-header"><h2>Engineering — Tolerance & Quality</h2><span class="cat-line"></span><span class="cat-count">4 TOOLS</span></div>
+    <div class="ds-tool-grid">
+      <a href="sc008-pro.html" class="ds-tool-card" data-dwg="SC-008">
+        <div class="tool-sector">Tolerance Stack-Up</div>
+        <div class="tool-name">SC-008 · Statistical Tolerance Stack-Up</div>
+        <div class="tool-desc">Worst-case, RSS, and seeded Monte Carlo with predicted Cpk. Per-part distributions: normal, uniform, truncated-normal, triangular.</div>
+        <div class="tool-meta"><span>◈ ISO 286-1</span><span>◈ ASME Y14.5</span><span>◈ AIAG SPC</span></div>
+        <span class="tool-status status-live">● Live</span>
+      </a>
+      <a href="sc008-pro.html" class="ds-tool-card" data-dwg="SC-012">
+        <div class="tool-sector">Process Capability</div>
+        <div class="tool-name">SC-012 · Predicted Capability</div>
+        <div class="tool-desc">Predicted Cpk from tolerances — flagged as prediction, not measured SPC. 95% confidence interval on defect rate.</div>
+        <div class="tool-meta"><span>◈ ISO 22514</span><span>◈ AIAG SPC</span></div>
+        <span class="tool-status status-live">● Live</span>
+      </a>
+      <a href="fits-pro.html" class="ds-tool-card" data-dwg="SC-020">
+        <div class="tool-sector">Fits & Tolerances</div>
+        <div class="tool-name">SC-020 · ISO Fits Calculator</div>
+        <div class="tool-desc">ISO 286 hole-basis and shaft-basis fits. H7/g6, H7/k6, H7/p6 with clearance, transition, and interference analysis.</div>
+        <div class="tool-meta"><span>◈ ISO 286-1</span><span>◈ ISO 286-2</span></div>
+        <span class="tool-status status-preview">◐ Preview</span>
+      </a>
+      <a href="surface-finish-pro.html" class="ds-tool-card" data-dwg="SC-021">
+        <div class="tool-sector">Surface Finish</div>
+        <div class="tool-name">SC-021 · Surface Roughness</div>
+        <div class="tool-desc">Ra, Rz, Rmax from cutting parameters. Theoretical feed-mark roughness and process capability mapping.</div>
+        <div class="tool-meta"><span>◈ ISO 4287</span><span>◈ ISO 1302</span></div>
+        <span class="tool-status status-preview">◐ Preview</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="ds-category">
+    <div class="ds-category-header"><h2>Machining — Feeds, Speeds & Tool Life</h2><span class="cat-line"></span><span class="cat-count">5 TOOLS</span></div>
+    <div class="ds-tool-grid">
+      <a href="machining-pro.html" class="ds-tool-card" data-dwg="SC-020">
+        <div class="tool-sector">CNC Milling / Turning</div>
+        <div class="tool-name">SC-020 · Feeds & Speeds + Tool Life</div>
+        <div class="tool-desc">Taylor tool life, chip thinning, Kienzle force, spindle power and deflection. FS-ENGINE SI core with ISO 513 material bands.</div>
+        <div class="tool-meta"><span>◈ ISO 513</span><span>◈ ISO 3685</span><span>◈ VDI 3321</span></div>
+        <span class="tool-status status-live">● Live</span>
+      </a>
+      <a href="tap-thread-pro.html" class="ds-tool-card" data-dwg="SC-022">
+        <div class="tool-sector">Tapping & Threading</div>
+        <div class="tool-name">SC-022 · Tap Drill & Thread Calc</div>
+        <div class="tool-desc">ISO metric, UNC, UNF tap drill sizes. Thread engagement percentage and torque estimation.</div>
+        <div class="tool-meta"><span>◈ ISO 261</span><span>◈ ISO 965</span></div>
+        <span class="tool-status status-live">● Live</span>
+      </a>
+      <a href="bend-pro.html" class="ds-tool-card" data-dwg="SC-023">
+        <div class="tool-sector">Sheet Metal</div>
+        <div class="tool-name">SC-023 · Bend Allowance</div>
+        <div class="tool-desc">K-factor, bend allowance, and setback for air bending and coining. Material thickness to bend radius ratio checks.</div>
+        <div class="tool-meta"><span>◈ ISO 9013</span></div>
+        <span class="tool-status status-live">● Live</span>
+      </a>
+      <a href="punching-pro.html" class="ds-tool-card" data-dwg="SC-024">
+        <div class="tool-sector">Punching</div>
+        <div class="tool-name">SC-024 · Punch Force & Clearance</div>
+        <div class="tool-desc">Blanking and punching force with die clearance optimization. Stripper force and press tonnage verification.</div>
+        <div class="tool-meta"><span>◈ DIN 9830</span></div>
+        <span class="tool-status status-preview">◐ Preview</span>
+      </a>
+      <a href="machine-rate-pro.html" class="ds-tool-card" data-dwg="SC-025">
+        <div class="tool-sector">Machine Rate</div>
+        <div class="tool-name">SC-025 · Machine Hour Rate</div>
+        <div class="tool-desc">Full-absorption machine hour rate with depreciation, energy, maintenance, and overhead allocation.</div>
+        <div class="tool-meta"><span>◈ VDI 3258</span></div>
+        <span class="tool-status status-live">● Live</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="ds-category">
+    <div class="ds-category-header"><h2>Bearings & Power Transmission</h2><span class="cat-line"></span><span class="cat-count">4 TOOLS</span></div>
+    <div class="ds-tool-grid">
+      <a href="bearing-pro.html" class="ds-tool-card" data-dwg="SC-010">
+        <div class="tool-sector">Bearing Life</div>
+        <div class="tool-name">SC-010 · Bearing Life L10 (ISO 281)</div>
+        <div class="tool-desc">Modified rating life with digitized aISO, viscosity ratio κ, and static safety S0. BL-ENGINE SI core.</div>
+        <div class="tool-meta"><span>◈ ISO 281</span><span>◈ ISO 76</span><span>◈ ISO 15312</span></div>
+        <span class="tool-status status-live">● Live</span>
+      </a>
+      <a href="bearing-freq-pro.html" class="ds-tool-card" data-dwg="SC-011">
+        <div class="tool-sector">Bearing Frequencies</div>
+        <div class="tool-name">SC-011 · Bearing Fault Frequencies</div>
+        <div class="tool-desc">BPFO, BPFI, BSF, and FTF from bearing geometry. Vibration analysis input for predictive maintenance.</div>
+        <div class="tool-meta"><span>◈ ISO 15241</span></div>
+        <span class="tool-status status-live">● Live</span>
+      </a>
+      <a href="shaft-pro.html" class="ds-tool-card" data-dwg="SC-026">
+        <div class="tool-sector">Shaft Design</div>
+        <div class="tool-name">SC-026 · Shaft Stress & Deflection</div>
+        <div class="tool-desc">Combined bending and torsion with ASME/ISO safety factors. Critical speed estimation and deflection limits.</div>
+        <div class="tool-meta"><span>◈ ISO 11439</span><span>◈ ASME B106.1</span></div>
+        <span class="tool-status status-preview">◐ Preview</span>
+      </a>
+      <a href="belt-chain-pro.html" class="ds-tool-card" data-dwg="SC-027">
+        <div class="tool-sector">Belt & Chain</div>
+        <div class="tool-name">SC-027 · Belt & Chain Drive</div>
+        <div class="tool-desc">V-belt, timing belt, and roller chain power rating with service factor and center distance optimization.</div>
+        <div class="tool-meta"><span>◈ ISO 1081</span><span>◈ ISO 606</span></div>
+        <span class="tool-status status-live">● Live</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="ds-category">
+    <div class="ds-category-header"><h2>Fabrication & Welding</h2><span class="cat-line"></span><span class="cat-count">4 TOOLS</span></div>
+    <div class="ds-tool-grid">
+      <a href="weld-pro.html" class="ds-tool-card" data-dwg="SC-001">
+        <div class="tool-sector">Weld Sizing</div>
+        <div class="tool-name">SC-001 · Weld Thickness Calculator</div>
+        <div class="tool-desc">Required leg and throat against design load with utilization check. AWS D1.1 and EN ISO 2553 referenced.</div>
+        <div class="tool-meta"><span>◈ AWS D1.1</span><span>◈ EN ISO 2553</span></div>
+        <span class="tool-status status-live">● Live</span>
+      </a>
+      <a href="heat-input-pro.html" class="ds-tool-card" data-dwg="SC-028">
+        <div class="tool-sector">Heat Input</div>
+        <div class="tool-name">SC-028 · Welding Heat Input</div>
+        <div class="tool-desc">kJ/mm heat input for arc welding processes. Preheat and interpass temperature recommendations by material group.</div>
+        <div class="tool-meta"><span>◈ ISO 1011</span><span>◈ AWS D1.1</span></div>
+        <span class="tool-status status-live">● Live</span>
+      </a>
+      <a href="bolted-joint-pro.html" class="ds-tool-card" data-dwg="SC-029">
+        <div class="tool-sector">Bolted Joints</div>
+        <div class="tool-name">SC-029 · Bolted Joint (VDI 2230)</div>
+        <div class="tool-desc">Preload, clamping force, and bolt stress analysis per VDI 2230. Torque-turn and yield-controlled tightening.</div>
+        <div class="tool-meta"><span>◈ VDI 2230</span><span>◈ ISO 898-1</span></div>
+        <span class="tool-status status-live">● Live</span>
+      </a>
+      <a href="hydraulic-pro.html" class="ds-tool-card" data-dwg="SC-030">
+        <div class="tool-sector">Hydraulics</div>
+        <div class="tool-name">SC-030 · Hydraulic Cylinder Sizing</div>
+        <div class="tool-desc">Bore, rod, and pressure sizing for double-acting cylinders. Buckling check and seal selection guidance.</div>
+        <div class="tool-meta"><span>◈ ISO 6020</span><span>◈ ISO 3320</span></div>
+        <span class="tool-status status-preview">◐ Preview</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="ds-category">
+    <div class="ds-category-header"><h2>Lifting & Pressure Systems</h2><span class="cat-line"></span><span class="cat-count">4 TOOLS</span></div>
+    <div class="ds-tool-grid">
+      <a href="sling-pro.html" class="ds-tool-card" data-dwg="SC-031">
+        <div class="tool-sector">Lifting</div>
+        <div class="tool-name">SC-031 · Sling Capacity</div>
+        <div class="tool-desc">Wire rope, chain, and synthetic sling WLL with angle factor and safety factor per ASME B30.9.</div>
+        <div class="tool-meta"><span>◈ ASME B30.9</span><span>◈ EN 13414-1</span></div>
+        <span class="tool-status status-live">● Live</span>
+      </a>
+      <a href="shackle-eyebolt-pro.html" class="ds-tool-card" data-dwg="SC-032">
+        <div class="tool-sector">Lifting Hardware</div>
+        <div class="tool-name">SC-032 · Shackle & Eyebolt</div>
+        <div class="tool-desc">Working load limit verification for bow shackles and eyebolts with angular loading reduction factors.</div>
+        <div class="tool-meta"><span>◈ EN 13889</span><span>◈ DIN 580</span></div>
+        <span class="tool-status status-live">● Live</span>
+      </a>
+      <a href="pressure-vessel-pro.html" class="ds-tool-card" data-dwg="SC-033">
+        <div class="tool-sector">Pressure Vessels</div>
+        <div class="tool-name">SC-033 · Pressure Vessel Wall</div>
+        <div class="tool-desc">ASME VIII Div 1 and EN 13445 minimum wall thickness for cylindrical and spherical shells.</div>
+        <div class="tool-meta"><span>◈ ASME VIII</span><span>◈ EN 13445</span></div>
+        <span class="tool-status status-preview">◐ Preview</span>
+      </a>
+      <a href="pipe-wall-pro.html" class="ds-tool-card" data-dwg="SC-034">
+        <div class="tool-sector">Piping</div>
+        <div class="tool-name">SC-034 · Pipe Wall Thickness</div>
+        <div class="tool-desc">ASME B31.3 and EN 13480 pipe wall with corrosion allowance and mill tolerance. Schedule selection.</div>
+        <div class="tool-meta"><span>◈ ASME B31.3</span><span>◈ EN 13480</span></div>
+        <span class="tool-status status-live">● Live</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="ds-category">
+    <div class="ds-category-header"><h2>Costing & Production Efficiency</h2><span class="cat-line"></span><span class="cat-count">3 TOOLS</span></div>
+    <div class="ds-tool-grid">
+      <a href="quote-pro.html" class="ds-tool-card" data-dwg="SC-013">
+        <div class="tool-sector">Quote Pricing</div>
+        <div class="tool-name">SC-013 · Quote Profitability</div>
+        <div class="tool-desc">Full-absorption cost build-up, margin and sell/cost ratio before you commit. Material, labor, overhead, and risk buffer.</div>
+        <div class="tool-meta"><span>◈ GAAP</span><span>◈ IFRS 15</span></div>
+        <span class="tool-status status-live">● Live</span>
+      </a>
+      <a href="labor-pro.html" class="ds-tool-card" data-dwg="SC-014">
+        <div class="tool-sector">Labor Cost</div>
+        <div class="tool-name">SC-014 · Loaded Labor Cost</div>
+        <div class="tool-desc">True loaded labor cost — statutory burden, benefits, and employer contributions. Not just net wage.</div>
+        <div class="tool-meta"><span>◈ IAS 19</span></div>
+        <span class="tool-status status-live">● Live</span>
+      </a>
+      <a href="oee-pro.html" class="ds-tool-card" data-dwg="SC-015">
+        <div class="tool-sector">OEE</div>
+        <div class="tool-name">SC-015 · OEE Calculator</div>
+        <div class="tool-desc">Availability, performance, and quality loss breakdown. World-class OEE benchmark comparison.</div>
+        <div class="tool-meta"><span>◈ ISO 22400</span></div>
+        <span class="tool-status status-live">● Live</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="ds-table-view">
+    <h3>Complete Drawing Index</h3>
+    <table class="ds-index-table">
+      <thead><tr><th>DWG NO</th><th>Tool Name</th><th>Sector</th><th>Standard</th><th>Status</th><th>Rev</th></tr></thead>
+      <tbody>
+        <tr><td class="dwg-no">SC-001</td><td>Weld Thickness Calculator</td><td>Fabrication</td><td>AWS D1.1 / EN ISO 2553</td><td><span class="rev">LIVE</span></td><td>A</td></tr>
+        <tr><td class="dwg-no">SC-008</td><td>Statistical Tolerance Stack-Up</td><td>Engineering</td><td>ISO 286-1 / ASME Y14.5</td><td><span class="rev">LIVE</span></td><td>A</td></tr>
+        <tr><td class="dwg-no">SC-010</td><td>Bearing Life L10 (ISO 281)</td><td>Bearings</td><td>ISO 281 / ISO 76</td><td><span class="rev">LIVE</span></td><td>A</td></tr>
+        <tr><td class="dwg-no">SC-011</td><td>Bearing Fault Frequencies</td><td>Bearings</td><td>ISO 15241</td><td><span class="rev">LIVE</span></td><td>A</td></tr>
+        <tr><td class="dwg-no">SC-012</td><td>Predicted Capability</td><td>Quality</td><td>ISO 22514 / AIAG SPC</td><td><span class="rev">LIVE</span></td><td>A</td></tr>
+        <tr><td class="dwg-no">SC-013</td><td>Quote Profitability</td><td>Costing</td><td>GAAP / IFRS 15</td><td><span class="rev">LIVE</span></td><td>A</td></tr>
+        <tr><td class="dwg-no">SC-014</td><td>Loaded Labor Cost</td><td>Costing</td><td>IAS 19</td><td><span class="rev">LIVE</span></td><td>A</td></tr>
+        <tr><td class="dwg-no">SC-015</td><td>OEE Calculator</td><td>Production</td><td>ISO 22400</td><td><span class="rev">LIVE</span></td><td>A</td></tr>
+        <tr><td class="dwg-no">SC-020</td><td>Feeds & Speeds + Tool Life</td><td>Machining</td><td>ISO 513 / ISO 3685</td><td><span class="rev">LIVE</span></td><td>A</td></tr>
+        <tr><td class="dwg-no">SC-022</td><td>Tap Drill & Thread Calc</td><td>Machining</td><td>ISO 261 / ISO 965</td><td><span class="rev">LIVE</span></td><td>A</td></tr>
+        <tr><td class="dwg-no">SC-023</td><td>Bend Allowance</td><td>Sheet Metal</td><td>ISO 9013</td><td><span class="rev">LIVE</span></td><td>A</td></tr>
+        <tr><td class="dwg-no">SC-025</td><td>Machine Hour Rate</td><td>Costing</td><td>VDI 3258</td><td><span class="rev">LIVE</span></td><td>A</td></tr>
+        <tr><td class="dwg-no">SC-027</td><td>Belt & Chain Drive</td><td>Power Transmission</td><td>ISO 1081 / ISO 606</td><td><span class="rev">LIVE</span></td><td>A</td></tr>
+        <tr><td class="dwg-no">SC-028</td><td>Welding Heat Input</td><td>Welding</td><td>ISO 1011 / AWS D1.1</td><td><span class="rev">LIVE</span></td><td>A</td></tr>
+        <tr><td class="dwg-no">SC-029</td><td>Bolted Joint (VDI 2230)</td><td>Fasteners</td><td>VDI 2230 / ISO 898-1</td><td><span class="rev">LIVE</span></td><td>A</td></tr>
+        <tr><td class="dwg-no">SC-031</td><td>Sling Capacity</td><td>Lifting</td><td>ASME B30.9 / EN 13414-1</td><td><span class="rev">LIVE</span></td><td>A</td></tr>
+        <tr><td class="dwg-no">SC-032</td><td>Shackle & Eyebolt</td><td>Lifting</td><td>EN 13889 / DIN 580</td><td><span class="rev">LIVE</span></td><td>A</td></tr>
+        <tr><td class="dwg-no">SC-034</td><td>Pipe Wall Thickness</td><td>Piping</td><td>ASME B31.3 / EN 13480</td><td><span class="rev">LIVE</span></td><td>A</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <table class="ds-revision-table">
+    <thead><tr><th>Rev</th><th>Description</th><th>Date</th><th>By</th><th>Approved</th></tr></thead>
+    <tbody><tr><td>A</td><td>Initial release — 28 live tools, 12 in pipeline</td><td>2026-07-25</td><td>SC-ENGINE</td><td>Auto</td></tr></tbody>
+  </table>
+
+  <div class="ds-title-block">
+    <div class="tb-cell"><div class="tb-label">DWG NO</div><div class="tb-value">SC-INDEX-001</div></div>
+    <div class="tb-cell"><div class="tb-label">SCALE</div><div class="tb-value">NTS</div></div>
+    <div class="tb-cell"><div class="tb-label">REV</div><div class="tb-value">A</div></div>
+    <div class="tb-cell"><div class="tb-label">DATE</div><div class="tb-value">2026-07-25</div></div>
+  </div>
+
+</div>
+</body>
+</html>

@@ -47,17 +47,25 @@ function findClipRisks(css, page) {
 function checkProPage(page) {
   const path = join(ROOT, page);
   const html = readFileSync(path, 'utf8');
+  const isUnifiedRuntime =
+    /src=["']\/src\/industrial-tool\.ts["']/.test(html) ||
+    /data-tool-code=["']SC-\d+["']/.test(html);
 
-  if (!/<link[^>]+sc-form-fields\.css/i.test(html)) {
+  // Unified runtime shells get sc-form-fields.css from the Vite HTML transform;
+  // source pages may only declare the engineering theme until transform runs.
+  if (!isUnifiedRuntime && !/<link[^>]+sc-form-fields\.css/i.test(html)) {
     issues.push(`${page}: missing <link> to ${FORM_CSS_NAME} (run inject:nav)`);
   }
 
   // Must have at least one recognized value+unit wrap pattern OR a number field
+  // OR a unified industrial-tool mount point (#fields) for schema-driven inputs.
   const hasForm =
     html.includes('class="uwrap"') ||
     html.includes("class='uwrap'") ||
     html.includes('sc-input-wrap') ||
-    /type=["']number["']/.test(html);
+    /type=["']number["']/.test(html) ||
+    (isUnifiedRuntime && html.includes('id="fields"')) ||
+    (isUnifiedRuntime && html.includes('theme-input-mount'));
   if (!hasForm) {
     issues.push(`${page}: no calculator inputs found (expected .uwrap / .sc-input-wrap / type=number)`);
   }

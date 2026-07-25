@@ -4,12 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SectorCalc — Deterministic Industrial Engineering Calculators</title>
-<link rel="stylesheet" href="./sectorcalc-engineering.css">
-<script>(function(){try{var k='sectorcalc-theme';var t=localStorage.getItem(k);if(t!=='dark'&&t!=='light')t=(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';document.documentElement.setAttribute('data-theme',t);document.documentElement.style.colorScheme=t;}catch(e){}})();</script>
-<link rel="stylesheet" href="./sc-theme.css?v=12">
-<link rel="stylesheet" href="./sc-form-fields.css?v=4">
-<script src="./sc-theme.js?v=12" defer></script>
-
+<link rel="stylesheet" href="sectorcalc-engineering.css">
 <style>
 .theme-blueprint { min-height: 100vh; }
 .hero-section { position: relative; z-index: 1; padding: 4rem 2rem; max-width: 1400px; margin: 0 auto; }
@@ -235,56 +230,8 @@
   .live-metrics { grid-template-columns: 1fr; }
 }
 </style>
-<link rel="stylesheet" href="./sc-site-nav.css?v=1">
-<script src="./sc-site-nav.js?v=1" defer></script>
-<link rel="stylesheet" href="./sc-form-fields.css?v=4">
 </head>
 <body class="theme-blueprint">
-<!--SC-SITE-NAV-START-->
-<header class="site-header" id="siteHeader" role="banner">
-  <a href="/" class="brand" aria-label="SectorCalc Home"><span class="brand-mark"><img class="logo-light" src="/sectorcalc-logo.png" alt="SectorCalc" width="183" height="48"><img class="logo-dark" src="/sectorcalc-logo-dark.png?v=2" alt="" width="183" height="48" aria-hidden="true"></span></a>
-  <nav class="main-nav" role="navigation" aria-label="Main navigation">
-    <ul>
-      <li><a href="/tools.html" data-nav="tools">Tools</a></li>
-      <li><a href="/#method" data-nav="method" data-nav-home="#method">Method</a></li>
-      <li><a href="/#standards" data-nav="standards" data-nav-home="#standards">Standards</a></li>
-      <li><a href="/pricing.html" data-nav="pricing">Pricing</a></li>
-    </ul>
-    <span class="sc-nav-tool" aria-hidden="true"></span>
-    <a href="/sc008-pro.html" class="btn btn-primary">Run a Calculation</a>
-  </nav>
-  <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
-    <span></span><span></span><span></span>
-  </button>
-</header>
-<div class="mobile-nav-overlay" id="mobileNav" role="dialog" aria-label="Mobile menu" aria-hidden="true">
-  <a href="/tools.html" data-nav="tools">All Tools</a>
-  <a href="/#method" data-nav-home="#method">Method</a>
-  <a href="/#standards" data-nav-home="#standards">Standards</a>
-  <a href="/pricing.html" data-nav="pricing">Pricing</a>
-  <a href="/sc008-pro.html" class="btn-primary">Run a Calculation</a>
-</div>
-<!--SC-SITE-NAV-END-->
-
-
-<a class="skip-link" href="#main-content">Skip to content</a>
-<main id="main-content">
-
-<nav id="engThemeAnchors" aria-label="Drawing sections" style="position:absolute;left:-9999px">
-  <a href="#decide">decide</a>
-  <a href="#method">method</a>
-  <a href="#standards">standards</a>
-  <a href="#evidence">evidence</a>
-  <a href="#verify">verify</a>
-</nav>
-
-<div id="pricing" hidden aria-hidden="true"></div>
-<div id="verify" hidden aria-hidden="true"></div>
-<div id="run" hidden aria-hidden="true"></div>
-<div id="testimonials" hidden aria-hidden="true"></div>
-
-
-
 
 <div class="bp-frame" style="margin: 1rem;">
 
@@ -311,7 +258,7 @@
           <span class="hero-badge">100% Client-Side</span>
           <span class="hero-badge">Audit-Ready PDF</span>
         </div>
-        <a href="/sc008-pro.html" class="hero-cta">Open SC-008 →</a>
+        <a href="sc008-pro.html" class="hero-cta">Open SC-008 →</a>
       </div>
       <div class="hero-right animate-fadeInUp animate-delay-2">
         <div class="tech-viz hero-anim-container">
@@ -509,7 +456,7 @@
   </section>
 
   <!-- ON THE FLOOR -->
-  <section class="floor-section" id="method">
+  <section class="floor-section">
     <div class="floor-header">
       <h2>On the floor</h2>
       <span class="header-line"></span>
@@ -539,7 +486,7 @@
   </section>
 
   <!-- TRUST -->
-  <section class="trust-section" id="standards">
+  <section class="trust-section">
     <div class="trust-grid">
       <div class="trust-item animate-fadeInUp">
         <div class="trust-icon">◈</div>
@@ -560,7 +507,7 @@
   </section>
 
   <!-- IMPACT -->
-  <section class="impact-section" id="evidence">
+  <section class="impact-section">
     <div class="floor-header" style="margin-bottom: 3rem;">
       <h2>Impact</h2>
       <span class="header-line"></span>
@@ -593,56 +540,56 @@
   </section>
 
   <!-- DECISION -->
-  <section class="decision-section" id="decide">
+  <section class="decision-section">
     <div class="floor-header" style="margin-bottom: 3rem;">
       <h2>Start from your decision</h2>
       <span class="header-line"></span>
       <span class="bp-dwg-no">DWG NO: SC-DECISION-004</span>
     </div>
     <div class="decision-grid">
-      <a href="/sc008-pro.html" class="decision-card">
+      <a href="sc008-pro.html" class="decision-card">
         <div class="dc-sector">Engineering</div>
         <div class="dc-question">Will this tolerance stack hold the spec?</div>
         <div class="dc-desc">Worst-case, RSS and Monte Carlo with predicted Cpk — every assumption visible.</div>
         <div class="dc-link">Open stack-up →</div>
       </a>
-      <a href="/quote-pro.html" class="decision-card">
+      <a href="quote-pro.html" class="decision-card">
         <div class="dc-sector">Estimating</div>
         <div class="dc-question">Is this quote actually profitable?</div>
         <div class="dc-desc">Full-absorption cost build-up, margin and sell/cost ratio before you commit.</div>
         <div class="dc-link">Open quote pricing →</div>
       </a>
-      <a href="/labor-pro.html" class="decision-card">
+      <a href="labor-pro.html" class="decision-card">
         <div class="dc-sector">Costing</div>
         <div class="dc-question">What does labor really cost?</div>
         <div class="dc-desc">True loaded labor cost — statutory burden and benefits, not just net wage.</div>
         <div class="dc-link">Open labor cost →</div>
       </a>
-      <a href="/weld-pro.html" class="decision-card">
+      <a href="weld-pro.html" class="decision-card">
         <div class="dc-sector">Fabrication</div>
         <div class="dc-question">Is this weld sized correctly?</div>
         <div class="dc-desc">Required leg and throat against design load, with utilization check.</div>
         <div class="dc-link">Open weld check →</div>
       </a>
-      <a href="/machining-pro.html" class="decision-card">
+      <a href="machining-pro.html" class="decision-card">
         <div class="dc-sector">Machining</div>
         <div class="dc-question">Are these feeds and speeds safe to run?</div>
         <div class="dc-desc">Taylor tool life, chip thinning, Kienzle force, spindle power and deflection.</div>
         <div class="dc-link">Open feeds & speeds →</div>
       </a>
-      <a href="/bearing-pro.html" class="decision-card">
+      <a href="bearing-pro.html" class="decision-card">
         <div class="dc-sector">Bearings</div>
         <div class="dc-question">Will this bearing reach required L10 life?</div>
         <div class="dc-desc">ISO 281 modified rating life with digitized aISO, viscosity ratio and static safety.</div>
         <div class="dc-link">Open bearing life →</div>
       </a>
-      <a href="/sc008-pro.html" class="decision-card">
+      <a href="sc008-pro.html" class="decision-card">
         <div class="dc-sector">Quality</div>
         <div class="dc-question">Is the process capable?</div>
         <div class="dc-desc">Predicted capability from tolerances — flagged as prediction, not measured SPC.</div>
         <div class="dc-link">Open capability →</div>
       </a>
-      <a href="/tools.html" class="decision-card">
+      <a href="tools.html" class="decision-card">
         <div class="dc-sector">Audit / Review</div>
         <div class="dc-question">Can I actually defend this number?</div>
         <div class="dc-desc">Inputs, formula, assumptions, warnings and engine version — in every report.</div>
@@ -793,9 +740,9 @@
     <div class="footer-content">
       <div class="footer-left">SECTORCALC · DETERMINISTIC ENGINEERING ENGINE · v2.0.0 · DWG NO: SC-HOME-001 · REV: A</div>
       <div class="footer-right">
-        <a href="/tools.html">Tools</a>
-        <a href="/pricing.html">Pricing</a>
-        <a href="/pro.html">Pro</a>
+        <a href="tools.html">Tools</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="pro.html">Pro</a>
       </div>
     </div>
   </footer>
@@ -895,7 +842,5 @@ const revealObserver = new IntersectionObserver((entries) => {
 document.querySelectorAll('.animate-fadeInUp').forEach(el => revealObserver.observe(el));
 </script>
 
-</main>
-<button class="theme" id="themeToggle" type="button" title="Toggle light/dark">◐ Theme</button>
 </body>
 </html>
