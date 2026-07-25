@@ -1,0 +1,667 @@
+/* ============================================================
+   SECTORCALC CALCULATION SHEET THEME v2.0
+   Isolated CSS — Only for calculator pages (*.html in /calculators/)
+   Does NOT affect index.html, sc-hero-cell.js, or homepage
+   Prefix: cs- (calculation sheet)
+   ============================================================ */
+
+/* ---- Load only on calculator pages via <link> in each calc ---- */
+
+:root {
+  /* ISO 3864 Safety Colors */
+  --cs-iso-blue:   #0055A4;
+  --cs-iso-green:  #009639;
+  --cs-iso-yellow: #F9A800;
+  --cs-iso-orange: #E16A00;
+  --cs-iso-red:    #C8102E;
+  --cs-iso-white:  #FFFFFF;
+  --cs-iso-black:  #1A1A1A;
+
+  /* Calculation Sheet Palette */
+  --cs-bg:         #FFFFFF;
+  --cs-surface:    #FAFBFC;
+  --cs-border:     #1A3A5C;
+  --cs-border-light: rgba(26,58,92,0.12);
+  --cs-text:       #1A1A1A;
+  --cs-text-muted: #666666;
+  --cs-accent:     #1A3A5C;
+  --cs-grid:       rgba(26,58,92,0.05);
+
+  /* Typography */
+  --cs-font-mono:  'SF Mono', 'Fira Code', 'Consolas', monospace;
+  --cs-font-sans:  'Inter', 'Segoe UI', system-ui, sans-serif;
+
+  /* Grid */
+  --cs-grid-size:  20px;
+}
+
+/* ============================================================
+   CALCULATION SHEET WRAPPER
+   ============================================================ */
+.calc-sheet {
+  background: var(--cs-bg);
+  color: var(--cs-text);
+  font-family: var(--cs-font-sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Optional: subtle engineering grid background */
+.calc-sheet.has-grid::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image:
+    linear-gradient(var(--cs-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--cs-grid) 1px, transparent 1px);
+  background-size: var(--cs-grid-size) var(--cs-grid-size);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ============================================================
+   SHEET BORDER (Technical Drawing Style)
+   ============================================================ */
+.cs-sheet-border {
+  position: relative;
+  border: 2px solid var(--cs-border);
+  margin: 1.5rem auto;
+  max-width: 1100px;
+  background: var(--cs-bg);
+  box-shadow: 0 2px 16px rgba(26,58,92,0.06);
+  z-index: 1;
+}
+
+/* Inner border (double-line drawing sheet effect) */
+.cs-sheet-border::before {
+  content: '';
+  position: absolute;
+  top: 8px; left: 8px; right: 8px; bottom: 8px;
+  border: 1px solid var(--cs-border-light);
+  pointer-events: none;
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.cs-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1.75rem 2.25rem;
+  border-bottom: 2px solid var(--cs-border);
+  background: var(--cs-surface);
+  position: relative;
+  z-index: 1;
+}
+.cs-header-left h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--cs-border);
+  margin-bottom: 0.3rem;
+  letter-spacing: -0.01em;
+}
+.cs-header-sub {
+  font-family: var(--cs-font-mono);
+  font-size: 0.7rem;
+  color: var(--cs-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.cs-header-right {
+  text-align: right;
+  font-family: var(--cs-font-mono);
+  font-size: 0.65rem;
+  color: var(--cs-text-muted);
+}
+.cs-header-engine {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--cs-accent);
+  margin-bottom: 0.25rem;
+}
+
+/* ============================================================
+   NAVIGATION (Calculator cross-links)
+   ============================================================ */
+.cs-nav {
+  display: flex;
+  gap: 0;
+  background: var(--cs-accent);
+  padding: 0 2.25rem;
+  position: relative;
+  z-index: 1;
+  flex-wrap: wrap;
+}
+.cs-nav a,
+.cs-nav span {
+  color: #FFFFFF;
+  text-decoration: none;
+  font-family: var(--cs-font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.7rem 1.1rem;
+  border-right: 1px solid rgba(255,255,255,0.15);
+  transition: background 0.2s;
+  cursor: pointer;
+}
+.cs-nav a:hover { background: rgba(255,255,255,0.1); }
+.cs-nav a:first-child { border-left: 1px solid rgba(255,255,255,0.15); }
+.cs-nav .cs-nav-active {
+  background: rgba(255,255,255,0.15);
+  font-weight: 600;
+}
+
+/* ============================================================
+   VERDICT BANNER
+   ============================================================ */
+.cs-verdict {
+  padding: 1rem 2.25rem;
+  font-family: var(--cs-font-mono);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+  z-index: 1;
+}
+.cs-verdict-pass {
+  background: rgba(0,150,57,0.08);
+  border-left: 4px solid var(--cs-iso-green);
+  color: var(--cs-iso-green);
+}
+.cs-verdict-warn {
+  background: rgba(249,168,0,0.08);
+  border-left: 4px solid var(--cs-iso-yellow);
+  color: var(--cs-iso-orange);
+}
+.cs-verdict-fail {
+  background: rgba(200,16,46,0.08);
+  border-left: 4px solid var(--cs-iso-red);
+  color: var(--cs-iso-red);
+}
+
+/* ============================================================
+   MAIN LAYOUT: Inputs | Results
+   ============================================================ */
+.cs-main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  position: relative;
+  z-index: 1;
+}
+.cs-inputs-panel {
+  padding: 2rem 2.25rem;
+  border-right: 1px solid var(--cs-border-light);
+}
+.cs-results-panel {
+  padding: 2rem 2.25rem;
+  background: var(--cs-surface);
+}
+
+/* ============================================================
+   SECTION HEADERS
+   ============================================================ */
+.cs-section-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--cs-border-light);
+}
+.cs-section-header h2 {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--cs-accent);
+  font-weight: 600;
+  white-space: nowrap;
+}
+.cs-section-line {
+  flex: 1;
+  height: 1px;
+  background: var(--cs-border-light);
+}
+.cs-section-dwg {
+  font-family: var(--cs-font-mono);
+  font-size: 0.65rem;
+  color: var(--cs-text-muted);
+  white-space: nowrap;
+}
+
+/* ============================================================
+   REFERENCE BOX
+   ============================================================ */
+.cs-ref-box {
+  background: #FFF8E7;
+  border: 1px solid var(--cs-iso-yellow);
+  border-left: 3px solid var(--cs-iso-yellow);
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.8rem;
+  color: var(--cs-text);
+}
+.cs-ref-box::before {
+  content: 'REF: ';
+  font-weight: 700;
+  color: var(--cs-iso-orange);
+  font-family: var(--cs-font-mono);
+  font-size: 0.7rem;
+}
+
+/* ============================================================
+   INPUT GROUPS (Technical Drawing Callout Style)
+   ============================================================ */
+.cs-input-group {
+  position: relative;
+  margin: 1.25rem 0;
+  padding: 1.25rem;
+  border: 1px solid var(--cs-border-light);
+  background: var(--cs-surface);
+  transition: border-color 0.2s;
+}
+.cs-input-group:hover { border-color: var(--cs-border); }
+.cs-input-group::before {
+  content: attr(data-index);
+  position: absolute;
+  top: -0.7rem;
+  left: 1rem;
+  background: var(--cs-accent);
+  color: #FFF;
+  width: 1.4rem;
+  height: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-family: var(--cs-font-mono);
+  border-radius: 50%;
+  font-weight: 700;
+}
+.cs-input-group label {
+  display: block;
+  font-family: var(--cs-font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--cs-accent);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+.cs-input-group input,
+.cs-input-group select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--cs-border-light);
+  background: var(--cs-bg);
+  font-family: var(--cs-font-mono);
+  font-size: 0.9rem;
+  color: var(--cs-text);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.cs-input-group input:focus,
+.cs-input-group select:focus {
+  outline: none;
+  border-color: var(--cs-accent);
+  box-shadow: 0 0 0 3px rgba(26,58,92,0.08);
+}
+.cs-input-group .cs-input-ref {
+  font-size: 0.7rem;
+  color: var(--cs-text-muted);
+  margin-top: 0.35rem;
+  font-family: var(--cs-font-sans);
+}
+
+/* ============================================================
+   WARNING / NOTE BLOCKS
+   ============================================================ */
+.cs-warning {
+  border-left: 4px solid var(--cs-iso-yellow);
+  background: #FFF8E7;
+  padding: 1rem 1.25rem;
+  margin: 1rem 0;
+  font-size: 0.85rem;
+  color: var(--cs-text);
+}
+.cs-warning::before {
+  content: '⚠ WARNING';
+  display: block;
+  font-family: var(--cs-font-mono);
+  font-size: 0.65rem;
+  color: var(--cs-iso-orange);
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+}
+.cs-note {
+  border-left: 4px solid var(--cs-iso-blue);
+  background: #E8F1FA;
+  padding: 1rem 1.25rem;
+  margin: 1rem 0;
+  font-size: 0.85rem;
+  color: var(--cs-text);
+}
+.cs-note::before {
+  content: 'ⓘ NOTE';
+  display: block;
+  font-family: var(--cs-font-mono);
+  font-size: 0.65rem;
+  color: var(--cs-iso-blue);
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+}
+
+/* ============================================================
+   RESULT CARDS
+   ============================================================ */
+.cs-result-card {
+  border: 1px solid var(--cs-border-light);
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+  background: var(--cs-bg);
+  position: relative;
+}
+.cs-result-card::before {
+  content: attr(data-method);
+  position: absolute;
+  top: -0.6rem;
+  left: 1rem;
+  background: var(--cs-accent);
+  color: #FFF;
+  font-size: 0.55rem;
+  padding: 0.15rem 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-family: var(--cs-font-mono);
+  font-weight: 600;
+}
+.cs-result-value {
+  font-family: var(--cs-font-mono);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--cs-accent);
+  margin: 0.5rem 0;
+}
+.cs-result-unit {
+  font-size: 0.75rem;
+  color: var(--cs-text-muted);
+}
+.cs-result-desc {
+  font-size: 0.8rem;
+  color: var(--cs-text-muted);
+  line-height: 1.5;
+  margin-top: 0.5rem;
+}
+
+/* ============================================================
+   HISTOGRAM
+   ============================================================ */
+.cs-histogram {
+  border: 1px solid var(--cs-border-light);
+  padding: 1.5rem;
+  background: var(--cs-bg);
+  margin-bottom: 1rem;
+  text-align: center;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.cs-histogram-label {
+  font-family: var(--cs-font-mono);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--cs-accent);
+  margin-bottom: 1rem;
+}
+.cs-histogram-placeholder {
+  width: 100%;
+  height: 120px;
+  background: linear-gradient(to top, rgba(26,58,92,0.05) 0%, transparent 100%);
+  border-bottom: 2px solid var(--cs-accent);
+  position: relative;
+}
+.cs-histogram-placeholder::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  height: 100%;
+  background: var(--cs-iso-red);
+  opacity: 0.5;
+}
+
+/* ============================================================
+   CPK GAUGE
+   ============================================================ */
+.cs-cpk-gauge {
+  border: 1px solid var(--cs-border-light);
+  padding: 1.5rem;
+  background: var(--cs-bg);
+  text-align: center;
+}
+.cs-cpk-value {
+  font-family: var(--cs-font-mono);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--cs-accent);
+}
+.cs-cpk-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--cs-text-muted);
+  margin-top: 0.5rem;
+}
+.cs-cpk-scale {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  font-size: 0.6rem;
+  color: #AAA;
+  font-family: var(--cs-font-mono);
+}
+
+/* ============================================================
+   PARETO TABLE
+   ============================================================ */
+.cs-pareto {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--cs-font-mono);
+  font-size: 0.75rem;
+  margin-top: 1rem;
+}
+.cs-pareto th {
+  text-align: left;
+  padding: 0.5rem;
+  border-bottom: 2px solid var(--cs-border);
+  color: var(--cs-accent);
+  text-transform: uppercase;
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+}
+.cs-pareto td {
+  padding: 0.5rem;
+  border-bottom: 1px solid var(--cs-border-light);
+}
+.cs-pareto-bar {
+  height: 6px;
+  background: var(--cs-accent);
+  border-radius: 3px;
+  margin-top: 0.25rem;
+}
+
+/* ============================================================
+   FORMULA BLOCKS
+   ============================================================ */
+.cs-formula-block {
+  background: var(--cs-surface);
+  border: 1px solid var(--cs-border-light);
+  border-left: 4px solid var(--cs-accent);
+  padding: 1.25rem 1.5rem;
+  margin: 1.5rem 0;
+  font-family: var(--cs-font-mono);
+  position: relative;
+}
+.cs-formula-block::before {
+  content: 'FORMULA';
+  position: absolute;
+  top: -0.6rem;
+  left: 1rem;
+  background: var(--cs-accent);
+  color: #FFF;
+  font-size: 0.6rem;
+  padding: 0.15rem 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-weight: 600;
+}
+.cs-formula {
+  font-size: 1.1rem;
+  color: var(--cs-accent);
+  margin-bottom: 0.5rem;
+  font-style: italic;
+}
+.cs-formula-desc {
+  font-size: 0.8rem;
+  color: var(--cs-text-muted);
+  font-family: var(--cs-font-sans);
+  line-height: 1.5;
+}
+
+/* ============================================================
+   ASSUMPTIONS
+   ============================================================ */
+.cs-assumptions {
+  padding: 2rem 2.25rem;
+  border-top: 1px solid var(--cs-border-light);
+  background: var(--cs-surface);
+  position: relative;
+  z-index: 1;
+}
+.cs-assumptions h3 {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--cs-accent);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+.cs-assumptions ul {
+  list-style: none;
+  font-size: 0.85rem;
+  color: var(--cs-text);
+}
+.cs-assumptions li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--cs-border-light);
+  padding-left: 1.5rem;
+  position: relative;
+}
+.cs-assumptions li:last-child { border-bottom: none; }
+.cs-assumptions li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--cs-accent);
+  font-weight: 700;
+}
+
+/* ============================================================
+   AUDIT TRAIL FOOTER
+   ============================================================ */
+.cs-audit {
+  background: #F0F2F5;
+  border-top: 2px solid var(--cs-border);
+  padding: 1.5rem 2.25rem;
+  font-family: var(--cs-font-mono);
+  font-size: 0.7rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  position: relative;
+  z-index: 1;
+}
+.cs-audit-item {
+  border: 1px solid var(--cs-border-light);
+  padding: 0.5rem 0.75rem;
+  background: var(--cs-bg);
+}
+.cs-audit-label {
+  text-transform: uppercase;
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  color: var(--cs-text-muted);
+  margin-bottom: 0.25rem;
+}
+.cs-audit-value {
+  color: var(--cs-accent);
+  font-weight: 600;
+}
+
+/* ============================================================
+   TITLE BLOCK (Bottom Right — Drawing Sheet Style)
+   ============================================================ */
+.cs-title-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border-top: 2px solid var(--cs-border);
+  font-family: var(--cs-font-mono);
+  font-size: 0.7rem;
+  background: var(--cs-bg);
+}
+.cs-title-block-cell {
+  border-right: 1px solid var(--cs-border-light);
+  border-bottom: 1px solid var(--cs-border-light);
+  padding: 0.6rem 0.9rem;
+}
+.cs-title-block-cell:nth-child(2n) { border-right: none; }
+.cs-title-block-label {
+  font-size: 0.55rem;
+  text-transform: uppercase;
+  color: var(--cs-text-muted);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.2rem;
+}
+.cs-title-block-value {
+  font-weight: 600;
+  color: var(--cs-text);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 900px) {
+  .cs-main { grid-template-columns: 1fr; }
+  .cs-inputs-panel { border-right: none; border-bottom: 1px solid var(--cs-border-light); }
+  .cs-nav a { padding: 0.6rem 0.8rem; font-size: 0.65rem; }
+}
+@media (max-width: 640px) {
+  .cs-header { flex-direction: column; gap: 1rem; }
+  .cs-header-right { text-align: left; }
+  .cs-sheet-border { margin: 0.75rem; }
+  .cs-audit { grid-template-columns: 1fr; }
+  .cs-title-block { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   PRINT
+   ============================================================ */
+@media print {
+  .calc-sheet { background: #FFFFFF !important; color: #000000 !important; }
+  .calc-sheet::before { display: none; }
+  .cs-nav { display: none; }
+}

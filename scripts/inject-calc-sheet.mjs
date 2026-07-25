@@ -9,11 +9,16 @@ import { join } from 'node:path';
 
 const ROOT = process.cwd();
 const CSS_HREF = '/sc-calc-sheet.css?v=1';
+const CSS_HREF_ISOLATED = '/css/calculation-sheet.css?v=1';
 const LINK = `<link rel="stylesheet" href="${CSS_HREF}">`;
+const LINK_ISOLATED = `<link rel="stylesheet" href="${CSS_HREF_ISOLATED}">`;
 const START = '<!--SC-CALC-SHEET-START-->';
 const END = '<!--SC-CALC-SHEET-END-->';
 const TB_START = '<!--SC-CALC-SHEET-TB-START-->';
 const TB_END = '<!--SC-CALC-SHEET-TB-END-->';
+
+/** SC-008 uses isolated cs-prefix theme (sectorcalc-calc-sheet-theme pack). */
+const ISOLATED_CALC_PAGES = new Set(['sc008-pro.html']);
 
 const TOOL_DWG = Object.freeze({
   'sc008-pro.html': 'SC-008-001',
@@ -50,28 +55,40 @@ function stripMarkers(html, start, end) {
   return html.replace(re, '');
 }
 
-function ensureCssLink(html) {
-  let out = html.replace(/<link[^>]+sc-calc-sheet\.css[^>]*>\s*/gi, '');
-  if (out.includes(CSS_HREF)) return out;
+function ensureCssLink(html, { isolated = false } = {}) {
+  let out = html
+    .replace(/<link[^>]+sc-calc-sheet\.css[^>]*>\s*/gi, '')
+    .replace(/<link[^>]+calculation-sheet\.css[^>]*>\s*/gi, '');
+  const href = isolated ? CSS_HREF_ISOLATED : CSS_HREF;
+  const link = isolated ? LINK_ISOLATED : LINK;
+  if (out.includes(href)) return out;
   if (/<\/head>/i.test(out)) {
-    return out.replace(/<\/head>/i, `  ${LINK}\n</head>`);
+    return out.replace(/<\/head>/i, `  ${link}\n</head>`);
   }
   return out;
 }
 
-function setBodyTheme(html, themeClass) {
+function setBodyTheme(html, themeClass, { isolated = false } = {}) {
+  const addClasses = themeClass.split(/\s+/).filter(Boolean);
   return html.replace(/<body([^>]*)>/i, (full, attrs) => {
     let a = attrs || '';
     a = a.replace(/\sclass=(["'])([\s\S]*?)\1/i, (m, q, cls) => {
       const cleaned = cls
         .split(/\s+/)
         .filter(Boolean)
-        .filter((c) => !/^theme-(calc-sheet|drawing-index|bom|blueprint)$/.test(c));
-      cleaned.push(themeClass);
-      return ` class=${q}${cleaned.join(' ')}${q}`;
+        .filter((c) => !/^theme-(calc-sheet|drawing-index|bom|blueprint)$/.test(c))
+        .filter((c) => c !== 'calc-sheet' && c !== 'has-grid');
+      if (isolated) {
+        cleaned.push('calc-sheet', 'has-grid');
+      } else {
+        cleaned.push(...addClasses);
+      }
+      return ` class=${q}${[...new Set(cleaned)].join(' ')}${q}`;
     });
     if (!/\sclass=/i.test(a)) {
-      a = `${a} class="${themeClass}"`;
+      a = isolated
+        ? `${a} class="calc-sheet has-grid"`
+        : `${a} class="${themeClass}"`;
     }
     return `<body${a}>`;
   });
@@ -106,19 +123,24 @@ function processPage(file, themeClass, dwg, kind) {
   if (file === 'index.html') {
     throw new Error('inject-calc-sheet refused to touch index.html');
   }
+  const isolated = ISOLATED_CALC_PAGES.has(file);
+  const markerTheme = isolated ? 'calc-sheet has-grid (isolated)' : themeClass;
   let html = readFileSync(path, 'utf8');
   const before = html;
   html = stripMarkers(html, START, END);
-  html = ensureCssLink(html);
-  html = setBodyTheme(html, themeClass);
+  html = ensureCssLink(html, { isolated });
+  html = setBodyTheme(html, themeClass, { isolated });
   html = injectTitleBlock(html, dwg, kind);
   // mark applied (comment only — CSS already linked)
   if (!html.includes(START)) {
-    html = html.replace(/<\/head>/i, `  ${START}\n  <!-- calc-sheet theme: ${themeClass} -->\n  ${END}\n</head>`);
+    html = html.replace(
+      /<\/head>/i,
+      `  ${START}\n  <!-- calc-sheet theme: ${markerTheme} -->\n  ${END}\n</head>`
+    );
   }
   if (html !== before) {
     writeFileSync(path, html);
-    console.log(`[OK] calc-sheet → ${file} (${themeClass})`);
+    console.log(`[OK] calc-sheet → ${file} (${markerTheme})`);
     return true;
   }
   console.log(`[SKIP] ${file} already themed`);
@@ -128,7 +150,13 @@ function processPage(file, themeClass, dwg, kind) {
 function assertHomepageUntouched() {
   const indexPath = join(ROOT, 'index.html');
   const html = readFileSync(indexPath, 'utf8');
-  if (html.includes('sc-calc-sheet.css') || html.includes('theme-calc-sheet') || html.includes('theme-blueprint')) {
+  if (
+    html.includes('sc-calc-sheet.css') ||
+    html.includes('calculation-sheet.css') ||
+    html.includes('theme-calc-sheet') ||
+    html.includes('theme-blueprint') ||
+    /\bclass=["'][^"']*\bcalc-sheet\b/.test(html)
+  ) {
     throw new Error('GUARD: index.html must not receive calc-sheet / blueprint theme');
   }
   if (!html.includes('sc-hero-cell')) {
