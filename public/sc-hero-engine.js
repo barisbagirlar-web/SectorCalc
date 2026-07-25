@@ -1,6 +1,5 @@
-/* sc-hero-engine.js — SectorCalc Live Deck v27
-   Cinematic auto-live SC-008 deck.
-   Soft analytical scrub · full MC only on settle · no histogram explode.
+/* sc-hero-engine.js — SectorCalc Live Deck v28
+   Sweep-second pace: continuous 60s sine crawl · analytical scrub · settle at extrema.
 */
 (function () {
   'use strict';
@@ -381,28 +380,19 @@
     calm = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
   } catch (e) {}
 
-  // Cinematic one-way scenes — long ease, long hold, no scrub/rewind pulse.
-  var SCENES = [
-    { name: 'TIGHT FIT', from: 50, to: 20, ms: 5600, hold: 3400 },
-    { name: 'NOMINAL ISO-m', from: 20, to: 50, ms: 6200, hold: 3800 },
-    { name: 'PROCESS DRIFT', from: 50, to: 85, ms: 7200, hold: 3200 },
-    { name: 'SPEC RISK', from: 85, to: 100, ms: 4800, hold: 4000 },
-    { name: 'CORRECTIVE', from: 100, to: 50, ms: 7800, hold: 4200 }
-  ];
-  if (calm) {
-    SCENES = [
-      { name: 'TIGHT FIT', from: 50, to: 25, ms: 7000, hold: 4500 },
-      { name: 'NOMINAL ISO-m', from: 25, to: 50, ms: 7000, hold: 4500 },
-      { name: 'SPEC RISK', from: 50, to: 95, ms: 8000, hold: 4500 },
-      { name: 'CORRECTIVE', from: 95, to: 50, ms: 8000, hold: 4500 }
-    ];
-  }
-
-  var sceneIdx = 0;
-  var sceneT0 = 0;
-  var scenePhase = 'move'; // move | hold
+  // Sweep-second pace: one full tight↔loose cycle ≈ 60s (90s if reduced-motion).
+  var PERIOD_MS = calm ? 90000 : 60000;
+  var sweepT0 = 0;
   var lastPreviewSnap = -1;
-  var activeScene = null;
+  var lastSettlePole = null; // 'hi' | 'lo'
+  var lastZone = '';
+
+  function zoneName(v) {
+    if (v < 32) return 'TIGHT FIT';
+    if (v < 58) return 'NOMINAL ISO-m';
+    if (v < 82) return 'PROCESS DRIFT';
+    return 'SPEC RISK';
+  }
 
   function setSceneLabel(name, live) {
     if (sceneEl) sceneEl.textContent = name;
@@ -410,13 +400,6 @@
       liveDot.dataset.on = live ? '1' : '0';
       liveDot.textContent = live ? 'AUTO-LIVE' : 'PAUSED';
     }
-  }
-
-  function easeInOut(p) {
-    // Smoother cinematic ease (quintic)
-    return p < 0.5
-      ? 16 * p * p * p * p * p
-      : 1 - Math.pow(-2 * p + 2, 5) / 2;
   }
 
   function pinUser() {
@@ -431,66 +414,63 @@
     }, calm ? 16000 : 12000);
   }
 
+  /** Continuous sweep like a flowing clock second — no stop/hold scrubbing. */
   function autoTick(now) {
     autoRaf = null;
     if (userPinned || document.hidden) return;
-    var sc = activeScene || SCENES[sceneIdx % SCENES.length];
-    setSceneLabel(sc.name, true);
 
-    if (scenePhase === 'move') {
-      var p = Math.min(1, (now - sceneT0) / sc.ms);
-      var e = easeInOut(p);
-      var v = sc.from + (sc.to - sc.from) * e;
-      var snap = Math.round(v / 5) * 5;
-      if (oTol) oTol.textContent = '±' + (v / 1000).toFixed(3) + ' mm';
-      if (snap !== lastPreviewSnap) {
-        lastPreviewSnap = snap;
-        previewTol(v);
-      } else if (inTol) {
-        inTol.value = String(snap);
-      }
+    var phase = ((now - sweepT0) % PERIOD_MS) / PERIOD_MS; // 0..1
+    // Smooth sine: 10 ↔ 100 µm, never jumps, never rewinds abruptly.
+    var s = Math.sin(phase * Math.PI * 2);
+    var v = 55 + 45 * s;
+    var snap = Math.round(v / 5) * 5;
+    snap = Math.max(10, Math.min(100, snap));
 
-      if (p >= 1) {
-        scenePhase = 'hold';
-        sceneT0 = now;
-        lastPreviewSnap = -1;
-        if (inTol) inTol.value = String(sc.to);
-        recalc({ tween: true, histo: true });
-      }
-    } else if (now - sceneT0 >= sc.hold) {
-      sceneIdx = (sceneIdx + 1) % SCENES.length;
-      var next = SCENES[sceneIdx];
-      var cur = inTol ? +inTol.value : next.from;
-      activeScene = {
-        name: next.name,
-        from: cur,
-        to: next.to,
-        ms: Math.max(next.ms, Math.abs(next.to - cur) * 90),
-        hold: next.hold
-      };
-      scenePhase = 'move';
-      sceneT0 = now;
-      lastPreviewSnap = -1;
+    var zone = zoneName(v);
+    if (zone !== lastZone) {
+      lastZone = zone;
+      setSceneLabel(zone, true);
+    } else {
+      setSceneLabel(zone, true);
     }
+
+    if (oTol) oTol.textContent = '±' + (v / 1000).toFixed(3) + ' mm';
+    if (snap !== lastPreviewSnap) {
+      lastPreviewSnap = snap;
+      previewTol(v);
+    } else if (inTol) {
+      inTol.value = String(snap);
+    }
+
+    // Soft MC settle only at extrema (second at 12 / 6) — motion never pauses.
+    var pole = s > 0.97 ? 'hi' : (s < -0.97 ? 'lo' : null);
+    if (pole && pole !== lastSettlePole) {
+      lastSettlePole = pole;
+      if (inTol) inTol.value = String(snap);
+      recalc({ tween: true, histo: true });
+    } else if (!pole) {
+      lastSettlePole = null;
+    }
+
     autoRaf = requestAnimationFrame(autoTick);
   }
 
   function startAuto() {
     if (userPinned) return;
     if (autoRaf) cancelAnimationFrame(autoRaf);
-    var base = SCENES[sceneIdx % SCENES.length];
-    var cur = inTol ? +inTol.value : base.from;
-    activeScene = {
-      name: base.name,
-      from: cur,
-      to: base.to,
-      ms: Math.max(base.ms, Math.abs(base.to - cur) * 90),
-      hold: base.hold
-    };
-    scenePhase = 'move';
-    sceneT0 = performance.now();
+    // Phase-match current slider so resume doesn't jump.
+    var cur = inTol ? +inTol.value : 50;
+    var clamped = Math.max(10, Math.min(100, cur));
+    var s0 = (clamped - 55) / 45;
+    s0 = Math.max(-1, Math.min(1, s0));
+    var ang = Math.asin(s0); // -π/2..π/2
+    // Prefer continuing in the rising or falling half based on last pole
+    var phase0 = (ang / (Math.PI * 2) + 1) % 1;
+    sweepT0 = performance.now() - phase0 * PERIOD_MS;
     lastPreviewSnap = -1;
-    setSceneLabel(activeScene.name, true);
+    lastSettlePole = null;
+    lastZone = '';
+    setSceneLabel(zoneName(clamped), true);
     autoRaf = requestAnimationFrame(autoTick);
   }
 
@@ -550,7 +530,7 @@
   recalc({ tween: false, histo: true });
   setTimeout(function () {
     if (!userPinned) startAuto();
-  }, 1600);
+  }, 1200);
   document.addEventListener('sectorcalc-theme', function () {
     if (current && current.samples) build(current.samples);
   });
