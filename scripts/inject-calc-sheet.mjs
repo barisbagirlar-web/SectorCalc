@@ -159,11 +159,11 @@ function assertHomepageUntouched() {
   ) {
     throw new Error('GUARD: index.html must not receive calc-sheet / blueprint theme');
   }
-  if (!html.includes('sc-hero-cell-v22.js') && !html.includes('sc-hero-cell')) {
+  if (!html.includes('sc-hero-cell-v23.js') && !html.includes('sc-hero-cell')) {
     throw new Error('GUARD: index.html missing sc-hero-cell — abort');
   }
-  if (!html.includes('sc-hero-cell-v22.js')) {
-    throw new Error('GUARD: index.html must reference immutable sc-hero-cell-v22.js');
+  if (!html.includes('sc-hero-cell-v23.js')) {
+    throw new Error('GUARD: index.html must reference immutable sc-hero-cell-v23.js');
   }
 }
 
