@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Image sitemap — real hosted assets only (OG + Academic Oversight portrait) -->
+<!-- Image sitemap — real hosted assets only (OG + Live Cell poster + Academic Oversight portrait) -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
@@ -23,6 +23,10 @@
     <image:image>
       <image:loc>https://sectorcalc.com/icon-512.png</image:loc>
       <image:title>PWA icon</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://sectorcalc.com/assets/images/hero-cell-poster.png</image:loc>
+      <image:title>Live Cell hero poster — CNC turning + inspect</image:title>
     </image:image>
   </url>
   <url>
