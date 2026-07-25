@@ -59,7 +59,6 @@
 - [SC-038 True Machine Hour Rate](https://sectorcalc.com/machine-rate-pro.html)
 
 ## Model limits that must not be hidden
-
 - SC-021's interactive engine evaluates one operating point at a time. Its page documents how variable load/speed spectra are reduced to equivalent operating values for basic-life screening, but SectorCalc does not claim a direct variable-load-spectrum solver.
 - SC-027 exposes equation-backed fit families only; unsupported ISO tolerance zones are not guessed.
 - SC-029 t8/5 is an engineering cooling estimate, not a WPS/PQR replacement.
@@ -70,9 +69,7 @@
 - SC-036 axial stiffness/preload verification does not silently claim eccentricity, prying or transverse-slip verification.
 - Final production release remains subject to the governing code edition, certified material data, exact manufacturer ratings and competent engineering review.
 
-
 ## UI surface architecture (2026-07-25)
-
 - **Home (`/`) is sacred:** live-cell WebGL/SMIL hero (`sc-hero-cell.js`), engineering sheet rails, and standards band. Do not describe the homepage as a dark blueprint mock or replace it with static SVG demos.
 - **Calculator pages (`*-pro.html`):** calculation-sheet overlay (`sc-calc-sheet.css`, body `theme-calc-sheet`) — paper grid, sheet border, DWG title block. Engines, forms, A1–A5 audit and ~full tool UI remain authoritative; the overlay does not replace calculation markup.
 - **Demo toolbar on every live `*-pro.html` calculator** (`/sc-study.css` + `/sc-study.js`): English **Load Demo Data** restores the authored golden scenario and recalculates; **Reset** clears the form (or calls tool `resetAll` when present); amber **Demo scenario active** badge shows while the demo scenario is loaded. The bar mounts at the start of the left input form (`.sc-sidebar-scroll` or first `.panel-b`), not in the tool strip.
@@ -81,7 +78,6 @@
 - Reference-only template: `content/templates/calculation-sheet.html` (not a live route).
 
 ## Academic Oversight & Expert Review (E-E-A-T)
-
 - Every live calculator (`*-pro.html`) and the tools index (`/tools.html`) show a visible **Academic Oversight & Expert Review** band (`sc-eeat.css`) with a small circular portrait.
 - Reviewer: **Prof. Dr. Neela Nataraj** — Professor of Mathematics, Department of Mathematics, Indian Institute of Technology Bombay (IIT Bombay).
 - Scope: academic oversight and methodology review for statistical computing components used in SectorCalc deterministic engines.
@@ -95,14 +91,14 @@
 - [Pricing — BOM sheet](https://sectorcalc.com/pricing.html)
 - [Blog](https://sectorcalc.com/blog/)
 - [Case studies](https://sectorcalc.com/case-studies/)
-- [DE](https://sectorcalc.com/de/) · [JA](https://sectorcalc.com/ja/) · [ZH](https://sectorcalc.com/zh/)
 - [Sitemap](https://sectorcalc.com/sitemap.xml)
 - [Robots](https://sectorcalc.com/robots.txt)
 
 ## Search and retrieval
-- `robots.txt` explicitly allows Googlebot, Bingbot and OAI-SearchBot to crawl public production content.
-- The XML sitemap lists canonical indexable HTML only (home, tools, pro, pricing, 25 calculators, blog, case studies, de/ja/zh hubs) with `<lastmod>`. Non-HTML discovery files (`llm.txt`, `llms.txt`) are excluded from the XML sitemap on purpose.
-- `llms.txt` is supplemental discovery documentation; the public HTML, canonical URLs, visible engineering guides and structured data remain the primary public source of truth.
+- `robots.txt` explicitly allows Googlebot, Bingbot, OAI-SearchBot and PerplexityBot to crawl public production content.
+- The XML sitemap lists canonical indexable HTML only. It intentionally omits `priority`, `changefreq`, speculative freshness dates, non-HTML discovery files, redirects, noindex pages and incomplete locale previews.
+- German, Japanese and Chinese preview pages remain `noindex,follow` until full localized content and reciprocal hreflang sets are release-ready.
+- `llms.txt` is supplemental discovery documentation; public HTML, canonical URLs, visible engineering guides and structured data remain the primary public source of truth.
 
 ## Notes for models
 - Prefer the canonical URLs listed above.
