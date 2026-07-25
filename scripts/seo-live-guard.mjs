@@ -65,7 +65,11 @@ if (!/(application|text)\/xml/i.test(sitemap.res.headers.get('content-type') || 
 if (!/<urlset\b[^>]*xmlns=["']http:\/\/www\.sitemaps\.org\/schemas\/sitemap\/0\.9["']/i.test(sitemap.text)) fail('sitemap missing valid urlset namespace');
 if (/<priority>|<changefreq>|<lastmod>/i.test(sitemap.text)) fail('sitemap contains priority/changefreq/lastmod');
 if (/https:\/\/www\.sectorcalc\.com/i.test(sitemap.text)) fail('sitemap contains www URL');
-for (const lang of ['de', 'ja', 'zh']) if (sitemap.text.includes(`<loc>${CANONICAL_HOST}/${lang}/</loc>`)) fail(`sitemap contains quarantined locale ${lang}`);
+for (const lang of ['de', 'ja', 'zh']) {
+  if (sitemap.text.includes(`<loc>${CANONICAL_HOST}/${lang}/</loc>`) || sitemap.text.includes(`<loc>${CANONICAL_HOST}/${lang}</loc>`)) {
+    fail(`sitemap contains quarantined locale ${lang}`);
+  }
+}
 
 const locs = [...sitemap.text.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
 if (locs.length !== 32) fail(`sitemap expected 32 canonical HTML URLs, got ${locs.length}`);
@@ -80,7 +84,8 @@ for (const canonicalUrl of locs) {
   const { res, text } = await get(remote(`${parsed.pathname}${parsed.search}`), { redirect: 'manual' });
   if (res.status !== 200) { fail(`${canonicalUrl} HTTP ${res.status}; sitemap URLs must not redirect`); continue; }
   if (!/text\/html/i.test(res.headers.get('content-type') || '')) fail(`${canonicalUrl} non-HTML content-type ${res.headers.get('content-type') || 'missing'}`);
-  if (/noindex/i.test(res.headers.get('x-robots-tag') || '')) fail(`${canonicalUrl} X-Robots-Tag contains noindex`);
+  // Firebase preview channels always inject X-Robots-Tag: noindex — only enforce on live.
+  if (MODE === 'live' && /noindex/i.test(res.headers.get('x-robots-tag') || '')) fail(`${canonicalUrl} X-Robots-Tag contains noindex`);
   if (/<meta[^>]+name=["']robots["'][^>]+content=["'][^"']*noindex/i.test(text)) fail(`${canonicalUrl} meta robots contains noindex`);
   const canonical = canonicalOf(text);
   if (canonical !== canonicalUrl) fail(`${canonicalUrl} canonical mismatch: ${canonical || 'missing'}`);
@@ -93,12 +98,15 @@ if (!/(application|text)\/xml/i.test(imageSitemap.res.headers.get('content-type'
 const imageParents = [...imageSitemap.text.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
 for (const parent of imageParents) if (!locs.includes(parent)) fail(`image sitemap parent is not canonical/indexable: ${parent}`);
 
-for (const path of ['/de/', '/ja/', '/zh/']) {
+// trailingSlash:false → use /de not /de/ (slash form 301s).
+for (const path of ['/de', '/ja', '/zh']) {
   const { res, text } = await get(remote(path), { redirect: 'manual' });
-  if (res.status !== 200) fail(`${path} preview HTTP ${res.status}`);
-  if (!/<meta[^>]+name=["']robots["'][^>]+content=["'][^"']*noindex[^"']*follow/i.test(text)) fail(`${path} preview missing noindex,follow`);
-  if (/hreflang=/i.test(text)) fail(`${path} preview publishes hreflang before full localization`);
-  if (sitemap.text.includes(`<loc>${CANONICAL_HOST}${path}</loc>`)) fail(`${path} noindex preview leaked into sitemap`);
+  if (res.status !== 200) fail(`${path} locale preview HTTP ${res.status}`);
+  if (!/<meta[^>]+name=["']robots["'][^>]+content=["'][^"']*noindex[^"']*follow/i.test(text)) fail(`${path} locale preview missing noindex,follow`);
+  if (/hreflang=/i.test(text)) fail(`${path} locale preview publishes hreflang before full localization`);
+  if (sitemap.text.includes(`<loc>${CANONICAL_HOST}${path}/</loc>`) || sitemap.text.includes(`<loc>${CANONICAL_HOST}${path}</loc>`)) {
+    fail(`${path} noindex locale leaked into sitemap`);
+  }
 }
 
 for (const legacy of ['/categories', '/developer-showcase', '/seo/construction-cost-calculators', '/guides/how-to-calculate-manufacturing-cost']) {
