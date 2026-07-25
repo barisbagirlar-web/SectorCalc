@@ -55,7 +55,33 @@ for (const junk of ['llm.txt', 'llms.txt', 'site.webmanifest', 'robots.txt', 'ai
   }
 }
 if (/hreflang="(de|ja|zh)"/.test(sm)) {
-  fail('sitemap claims hreflang locales without localized pages');
+  for (const lang of ['de', 'ja', 'zh']) {
+    if (new RegExp(`hreflang="${lang}"`).test(sm) && !existsSync(join(ROOT, `public/${lang}/index.html`))) {
+      fail(`sitemap claims hreflang=${lang} without public/${lang}/index.html`);
+    }
+  }
+}
+
+// Content hubs from sert-yenileme pack
+for (const hub of [
+  'public/blog/index.html',
+  'public/blog/tolerance-stack-up-rss-vs-monte-carlo.html',
+  'public/case-studies/index.html',
+  'public/de/index.html',
+  'public/ja/index.html',
+  'public/zh/index.html'
+]) {
+  if (!existsSync(join(ROOT, hub))) fail(`missing hub ${hub}`);
+}
+for (const loc of [
+  `${HOST}/blog/`,
+  `${HOST}/blog/tolerance-stack-up-rss-vs-monte-carlo.html`,
+  `${HOST}/case-studies/`,
+  `${HOST}/de/`,
+  `${HOST}/ja/`,
+  `${HOST}/zh/`
+]) {
+  if (!sm.includes(`<loc>${loc}</loc>`)) fail(`sitemap missing hub ${loc}`);
 }
 
 const sv = readFileSync(join(ROOT, 'public/sitemap-videos.xml'), 'utf8');
