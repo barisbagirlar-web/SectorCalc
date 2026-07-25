@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/** SectorCalc release SEO guard — fail closed on crawl/index/discovery regressions. */
+/** SectorCalc release SEO guard — fail closed on crawl/index/discovery/release regressions. */
 import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 
@@ -39,6 +39,7 @@ for (const bot of ['Googlebot', 'Bingbot', 'OAI-SearchBot', 'PerplexityBot']) {
 }
 
 const sm = read('public/sitemap.xml');
+if (!/<urlset\b[^>]*xmlns=["']http:\/\/www\.sitemaps\.org\/schemas\/sitemap\/0\.9["']/i.test(sm)) fail('sitemap missing sitemaps.org urlset namespace');
 if (/<priority>|<changefreq>|<lastmod>/i.test(sm)) fail('sitemap contains ignored or untrusted freshness hints');
 if (/https:\/\/www\.sectorcalc\.com/i.test(sm)) fail('sitemap contains www URL');
 for (const junk of ['llm.txt', 'llms.txt', 'robots.txt', 'ai-robots.txt', 'site.webmanifest', '404.html']) {
@@ -55,7 +56,11 @@ for (const loc of requiredLocs) if (!sm.includes(`<loc>${loc}</loc>`)) fail(`sit
 const locs = [...sm.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
 if (new Set(locs).size !== locs.length) fail('sitemap contains duplicate loc entries');
 if (locs.length !== requiredLocs.length) fail(`sitemap URL count drift: expected ${requiredLocs.length}, got ${locs.length}`);
-for (const loc of locs) if (!requiredLocs.includes(loc)) fail(`sitemap contains unregistered URL ${loc}`);
+for (const loc of locs) {
+  if (!requiredLocs.includes(loc)) fail(`sitemap contains unregistered URL ${loc}`);
+  if (!loc.startsWith(`${HOST}/`)) fail(`sitemap contains off-host URL ${loc}`);
+  if (/[?#]/.test(loc)) fail(`sitemap URL contains query or fragment ${loc}`);
+}
 
 for (const lang of localePreviews) {
   const t = read(`public/${lang}/index.html`);
@@ -67,11 +72,13 @@ for (const lang of localePreviews) {
 const llm = read('public/llm.txt');
 const llms = read('public/llms.txt');
 if (llm !== llms) fail('llm.txt and llms.txt drift; they must be byte-identical');
-for (const lang of localePreviews) if (llms.includes(`https://sectorcalc.com/${lang}/`)) fail(`llms.txt advertises noindex locale ${lang}`);
+for (const lang of localePreviews) if (llms.includes(`${HOST}/${lang}/`)) fail(`llms.txt advertises noindex locale ${lang}`);
 for (const bot of ['Googlebot', 'Bingbot', 'OAI-SearchBot', 'PerplexityBot']) if (!llms.includes(bot)) fail(`llms.txt missing crawler declaration ${bot}`);
 
 const simg = read('public/sitemap-images.xml');
-if (!simg.includes(`${HOST}/tools.html`)) fail('image sitemap missing tools.html entry');
+const imageParents = [...simg.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
+if (!imageParents.includes(`${HOST}/tools.html`)) fail('image sitemap missing tools.html entry');
+for (const parent of imageParents) if (!requiredLocs.includes(parent)) fail(`image sitemap parent is not canonical/indexable: ${parent}`);
 
 for (const page of pages) {
   const t = read(page);
@@ -92,15 +99,31 @@ for (const page of pages) {
   }
 }
 
+for (const [route, file] of contentRoutes) {
+  const t = read(file);
+  const canonical = `${HOST}${route}`;
+  if (/noindex/i.test(t)) fail(`${file} has noindex`);
+  if (!t.includes(`rel="canonical" href="${canonical}"`)) fail(`${file} canonical mismatch; expected ${canonical}`);
+  if (!/name=["']description["']/.test(t)) fail(`${file} missing meta description`);
+  if (!/<h1[\s>]/i.test(t)) fail(`${file} missing h1`);
+}
+
 const fj = JSON.parse(read('firebase.json'));
 if ((fj.hosting?.rewrites || []).some((r) => r.destination === '/index.html')) fail('firebase SPA catch-all would create soft 404s');
 
 const deploy = read('.github/workflows/deploy.yml');
 if (!/branches:\s*\[main\]/.test(deploy)) fail('production deploy must be main-only');
-if (!deploy.includes('seo-live-guard.mjs')) fail('production deploy missing post-deploy live SEO guard');
+if (!deploy.includes('hosting:channel:deploy')) fail('production release must deploy a Firebase preview candidate first');
+if (!deploy.includes('SEO_GUARD_MODE: preview')) fail('production release must validate preview candidate before promotion');
+if (!deploy.includes('hosting:clone')) fail('production release must promote the exact validated Firebase version');
+if (!deploy.includes('sectorcalc-prod:live')) fail('Firebase clone target must be the live channel');
+if (!deploy.includes('SEO_GUARD_MODE: live')) fail('production release must verify custom-domain live state after promotion');
+if (!deploy.includes('seo-live-guard.mjs')) fail('production release missing remote SEO guard');
+if (/firebase-tools@14\s+deploy\s+--only\s+hosting/.test(deploy)) fail('direct unvalidated Firebase live deploy is forbidden; use preview + clone');
+if (/cancel-in-progress:\s*true/.test(deploy)) fail('production promotion workflow must not be cancelled mid-release');
 
 if (errors.length) {
   console.error('[FAIL] SEO release guard:\n' + errors.map((e) => `  - ${e}`).join('\n'));
   process.exit(1);
 }
-console.log(`[PASS] SEO release guard: ${requiredLocs.length} canonical URLs, ${toolPages.length} tools, locale previews quarantined, discovery synchronized`);
+console.log(`[PASS] SEO release guard: ${requiredLocs.length} canonical URLs, ${toolPages.length} tools, locale previews quarantined, discovery synchronized, preview-before-live promotion enforced`);
