@@ -1,0 +1,51 @@
+/* SectorCalc related-tools mesh — theme-aware, used on *-pro.html */
+.related-tools-section{
+  margin: 2rem auto 3rem;
+  max-width: 1100px;
+  padding: 0 1.25rem 1.5rem;
+}
+.related-tools-section h2{
+  font-family: var(--f-mono, ui-monospace, monospace);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0 0 1rem;
+  color: var(--sheet-text, #1A1A1A);
+}
+html[data-theme="dark"] .related-tools-section h2{ color: #E8EAEC; }
+
+.related-tools-section .related-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.85rem;
+}
+.related-tools-section .related-card{
+  display: block;
+  padding: 1rem 1.05rem;
+  border: 1.5px solid var(--sheet-line, #C5C5BE);
+  background: var(--sheet-paper, #fff);
+  text-decoration: none;
+  color: var(--sheet-text, #1A1A1A);
+  transition: border-color .15s, color .15s;
+}
+html[data-theme="dark"] .related-tools-section .related-card{
+  border-color: var(--sheet-line, #3A4046);
+  background: var(--sheet-paper, #1B1F23);
+  color: #E8EAEC;
+}
+.related-tools-section .related-card:hover{
+  border-color: var(--iso-blue, #0055A4);
+  color: var(--iso-blue, #0055A4);
+}
+.related-tools-section .related-card .rt-title{
+  font-weight: 700;
+  font-size: 0.92rem;
+  margin-bottom: 0.3rem;
+}
+.related-tools-section .related-card .rt-desc{
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: var(--sheet-text-2, #4A4A4A);
+}
+html[data-theme="dark"] .related-tools-section .related-card .rt-desc{ color: #A8B0B8; }

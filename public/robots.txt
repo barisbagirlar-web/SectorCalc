@@ -1,20 +1,82 @@
-# SectorCalc search/retrieval crawler policy
-# Public production content is crawlable. Training-crawler policy is not changed here.
+# SectorCalc — robots.txt (production)
+# Canonical host: https://sectorcalc.com (Firebase primary; www redirects here)
+# Google indexing: Allow all public HTML tools. No noindex headers on indexable pages.
+
+User-agent: *
+Allow: /
+Allow: /sitemap.xml
+Allow: /sitemap-images.xml
+Allow: /sitemap-videos.xml
+Allow: /llm.txt
+Allow: /llms.txt
+Allow: /site.webmanifest
+Allow: /assets/
+
+# Non-content / waste paths
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /draft/
+Disallow: /staging/
+Disallow: /admin/
+Disallow: /api/
+Disallow: /internal/
+Disallow: /assets/cache/
 
 User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
 Allow: /
 
 User-agent: Bingbot
 Allow: /
 
-User-agent: OAI-SearchBot
+# AI search crawlers (discovery allowed)
+User-agent: Google-Extended
 Allow: /
 
-User-agent: *
+User-agent: ChatGPT-User
 Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+# Training-oriented crawlers (search allowed above; training blocked)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: FacebookBot
+Disallow: /
+
+User-agent: ia_archiver
+Allow: /
+
+User-agent: AhrefsBot
+Allow: /
+Crawl-delay: 2
+
+User-agent: SemrushBot
+Allow: /
+Crawl-delay: 2
 
 Sitemap: https://sectorcalc.com/sitemap.xml
+Sitemap: https://sectorcalc.com/sitemap-images.xml
+Sitemap: https://sectorcalc.com/sitemap-videos.xml
 
-# Supplemental AI discovery indexes
-# https://sectorcalc.com/llms.txt
-# https://sectorcalc.com/llm.txt
+# AI crawler policy mirror (search vs training split)
+# See also: https://sectorcalc.com/ai-robots.txt

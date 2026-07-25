@@ -1,11 +1,37 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
+<!--SC-SEO-HOST-->
+<!-- Canonical host is https://sectorcalc.com — Firebase Hosting 301s www → apex. No client reverse-redirect. -->
+<!--SC-SEO-HOST-END-->
+<!--SC-SEO-SECURITY-START-->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: https://cdnjs.cloudflare.com https://www.googletagmanager.com https://www.google-analytics.com; worker-src 'self' blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://www.googletagmanager.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=(), interest-cohort=()">
+<link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
+<meta name="DC.title" content="SectorCalc — Deterministic Industrial Engineering Calculators">
+<meta name="DC.creator" content="SectorCalc Inc.">
+<meta name="DC.subject" content="Engineering Calculators, Tolerance Analysis, Monte Carlo Simulation">
+<meta name="DC.description" content="Deterministic industrial calculators with ISO audit trails">
+<meta name="DC.publisher" content="SectorCalc Inc.">
+<meta name="DC.date" content="2026-07-25">
+<meta name="DC.type" content="Text">
+<meta name="DC.format" content="text/html">
+<meta name="DC.language" content="en">
+<meta name="DC.coverage" content="Global">
+<meta name="DC.rights" content="2024-2026 SectorCalc Inc.">
+<!--SC-SEO-SECURITY-END-->
 <script>(function(){try{var k='sectorcalc-theme';var t=localStorage.getItem(k);if(t!=='dark'&&t!=='light')t=(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';document.documentElement.setAttribute('data-theme',t);document.documentElement.style.colorScheme=t;}catch(e){}})();</script>
 <meta charset="UTF-8">
+<link rel="icon" href="./favicon.ico?v=20260724c" sizes="any">
+<link rel="icon" type="image/svg+xml" href="./favicon.svg?v=20260724c">
+<link rel="icon" type="image/png" sizes="32x32" href="./favicon-32.png?v=20260724c">
+<link rel="icon" type="image/png" sizes="192x192" href="./icon-192.png?v=20260724c">
+<link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png?v=20260724c">
+<link rel="manifest" href="./site.webmanifest?v=20260724c">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SectorCalc Pro — Industrial Engineering Calculators</title>
-<meta name="description" content="Deterministic industrial engineering calculators with per-field universal units, reference values and full audit trails.">
+<meta name="description" content="SectorCalc Pro calculators for shop-floor engineers: CNC feeds & speeds, bearing life, tolerance stack-up and more — deterministic SI engines with audit trails.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
@@ -122,16 +148,169 @@ html[data-theme="dark"] .toolcard h2{color:var(--ink)}
 .toolcard .tags{margin-top:10px;display:flex;gap:6px;flex-wrap:wrap}
 .toolcard .tag{font-size:10.5px;background:var(--thead);color:var(--steel);padding:3px 9px;border-radius:12px;font-weight:600}
 </style>
-<link rel="stylesheet" href="./sc-theme.css?v=8">
-<script src="./sc-theme.js?v=8" defer></script>
-<link rel="stylesheet" href="./sc-site-nav.css?v=1">
-<script src="./sc-site-nav.js?v=1" defer></script>
-<link rel="stylesheet" href="./sc-form-fields.css?v=4">
+<link rel="stylesheet" href="./sc-theme.css?v=12">
+<script src="./sc-theme.js?v=12" defer></script>
+<link rel="stylesheet" href="./sc-site-nav.css?v=4">
+<script src="./sc-site-nav.js?v=2" defer></script>
+<link rel="stylesheet" href="./sc-form-fields.css?v=5">
+<!--SC-SEO-META-START-->
+<link rel="canonical" href="https://sectorcalc.com/pro.html">
+<link rel="alternate" hreflang="x-default" href="https://sectorcalc.com/pro.html">
+<link rel="alternate" hreflang="en" href="https://sectorcalc.com/pro.html">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="googlebot" content="index, follow">
+<meta name="bingbot" content="index, follow">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="website">
+<meta property="og:title" content="SectorCalc Pro — Industrial Engineering Calculators">
+<meta property="og:description" content="SectorCalc Pro calculators for shop-floor engineers: CNC feeds &amp; speeds, bearing life, tolerance stack-up and more — deterministic SI engines with audit trails.">
+<meta property="og:url" content="https://sectorcalc.com/pro.html">
+<meta property="og:site_name" content="SectorCalc">
+<meta property="og:image" content="https://sectorcalc.com/assets/images/og-pro-1200x630.jpg">
+<meta property="og:image:secure_url" content="https://sectorcalc.com/assets/images/og-pro-1200x630.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:alt" content="SectorCalc Pro — Industrial Engineering Calculators">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SectorCalc Pro — Industrial Engineering Calculators">
+<meta name="twitter:description" content="SectorCalc Pro calculators for shop-floor engineers: CNC feeds &amp; speeds, bearing life, tolerance stack-up and more — deterministic SI engines with audit trails.">
+<meta name="twitter:image" content="https://sectorcalc.com/assets/images/og-pro-1200x630.jpg">
+<meta name="twitter:image:alt" content="SectorCalc Pro — Industrial Engineering Calculators">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="author" content="SectorCalc Engineering Team">
+<meta name="theme-color" content="#0055A4">
+<meta name="format-detection" content="telephone=no">
+<!--SC-SEO-META-END-->
+<!--SC-SEO-SCHEMA-START-->
+<script type="application/ld+json" id="sc-schema-global">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://sectorcalc.com/#organization",
+      "name": "SectorCalc",
+      "alternateName": [
+        "SectorCalc Engineering Calculators"
+      ],
+      "url": "https://sectorcalc.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://sectorcalc.com/#logo",
+        "url": "https://sectorcalc.com/assets/images/sectorcalc-logo-512x512.png",
+        "width": 512,
+        "height": 512,
+        "caption": "SectorCalc"
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://sectorcalc.com/assets/images/sectorcalc-og-1200x630.jpg",
+        "width": 1200,
+        "height": 630
+      },
+      "description": "Deterministic industrial engineering calculators with visible formulas, ISO-standard audit trails, and full-precision decimal arithmetic. Client-side only.",
+      "slogan": "Stop Guessing. Start Defending Your Numbers.",
+      "foundingDate": "2024",
+      "sameAs": [
+        "https://github.com/barisbagirlar-web/SectorCalc"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "email": "support@sectorcalc.com",
+        "availableLanguage": [
+          "English"
+        ]
+      },
+      "knowsAbout": [
+        "Tolerance Stack-Up Analysis",
+        "Monte Carlo Simulation",
+        "ISO 286 Tolerancing",
+        "CNC Machining Feeds and Speeds",
+        "Bearing Life Calculation ISO 281",
+        "Welding Engineering",
+        "Manufacturing Cost Estimation"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://sectorcalc.com/#person-neela-nataraj",
+      "name": "Prof. Dr. Neela Nataraj",
+      "givenName": "Neela",
+      "familyName": "Nataraj",
+      "honorificPrefix": "Prof. Dr.",
+      "jobTitle": "Professor of Mathematics",
+      "worksFor": {
+        "@id": "https://sectorcalc.com/#educational-organization-iitb"
+      },
+      "affiliation": {
+        "@id": "https://sectorcalc.com/#educational-organization-iitb"
+      },
+      "knowsAbout": [
+        "Numerical Analysis",
+        "Finite Element Methods",
+        "Statistical Computing",
+        "Engineering Mathematics",
+        "Monte Carlo Methods"
+      ],
+      "sameAs": [
+        "https://www.math.iitb.ac.in/"
+      ]
+    },
+    {
+      "@type": "EducationalOrganization",
+      "@id": "https://sectorcalc.com/#educational-organization-iitb",
+      "name": "Indian Institute of Technology Bombay",
+      "alternateName": [
+        "IIT Bombay",
+        "IITB"
+      ],
+      "url": "https://www.iitb.ac.in",
+      "sameAs": [
+        "https://www.iitb.ac.in",
+        "https://en.wikipedia.org/wiki/IIT_Bombay"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Mumbai",
+        "addressRegion": "Maharashtra",
+        "addressCountry": "IN"
+      },
+      "member": {
+        "@id": "https://sectorcalc.com/#person-neela-nataraj"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://sectorcalc.com/#website",
+      "url": "https://sectorcalc.com/",
+      "name": "SectorCalc",
+      "publisher": {
+        "@id": "https://sectorcalc.com/#organization"
+      },
+      "inLanguage": [
+        "en",
+        "en-US"
+      ],
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://sectorcalc.com/tools.html?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    }
+  ]
+}
+</script>
+<!--SC-SEO-SCHEMA-END-->
 </head>
 <body>
 <!--SC-SITE-NAV-START-->
 <header class="site-header" id="siteHeader" role="banner">
-  <a href="/" class="brand" aria-label="SectorCalc Home"><span class="brand-mark"><img class="logo-light" src="/sectorcalc-logo.png" alt="SectorCalc" width="183" height="48"><img class="logo-dark" src="/sectorcalc-logo-dark.png?v=2" alt="" width="183" height="48" aria-hidden="true"></span></a>
+  <a href="/" class="brand" aria-label="SectorCalc Home"><span class="brand-mark"><img class="logo-light" src="/sectorcalc-logo-214.w.png" srcset="/sectorcalc-logo-214.w.png 214w, /sectorcalc-logo-428.w.png 428w" sizes="183px" width="183" height="48" alt="SectorCalc" decoding="async"><img class="logo-dark" src="/sectorcalc-logo-dark-214.w.png" srcset="/sectorcalc-logo-dark-214.w.png 214w, /sectorcalc-logo-dark-428.w.png 428w" sizes="183px" width="183" height="48" alt="" aria-hidden="true" decoding="async"></span></a>
   <nav class="main-nav" role="navigation" aria-label="Main navigation">
     <ul>
       <li><a href="/tools.html" data-nav="tools">Tools</a></li>
@@ -142,6 +321,10 @@ html[data-theme="dark"] .toolcard h2{color:var(--ink)}
     <span class="sc-nav-tool" aria-hidden="true"></span>
     <a href="/sc008-pro.html" class="btn btn-primary">Run a Calculation</a>
   </nav>
+  <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme" aria-pressed="false" title="Toggle light / dark theme">
+    <svg data-theme-icon="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    <svg data-theme-icon="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+  </button>
   <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
     <span></span><span></span><span></span>
   </button>
@@ -154,6 +337,37 @@ html[data-theme="dark"] .toolcard h2{color:var(--ink)}
   <a href="/sc008-pro.html" class="btn-primary">Run a Calculation</a>
 </div>
 <!--SC-SITE-NAV-END-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--SC-SEO-BREADCRUMB-START-->
+<nav aria-label="Breadcrumb" class="sc-breadcrumb">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="https://sectorcalc.com/"><span itemprop="name">Home</span></a><meta itemprop="position" content="1"></li>
+    <li aria-current="page" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><span itemprop="name">Pro Tools</span><meta itemprop="position" content="2"></li>
+  </ol>
+</nav>
+<!--SC-SEO-BREADCRUMB-END-->
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -307,10 +521,13 @@ html[data-theme="dark"] .toolcard h2{color:var(--ink)}
       <div class="tags"><span class="tag">Full cost build-up</span><span class="tag">Utilization curve</span><span class="tag">Audit trail</span><span class="tag">kW / hp</span></div>
     </a>
   </div>
-  <button id="themeToggle" class="btn3" title="Toggle light/dark (saved locally)">◐ Theme</button>
   <footer>SectorCalc Pro · Reference-grade engineering estimates — verify against manufacturer data before production release.</footer>
 </div>
 <script>
 </script>
+<!--SC-SEO-CVW-->
+<script src="/assets/js/sc-ga4-id.js"></script>
+<script src="/assets/js/cvw-monitor.js" defer></script>
+
 </body>
 </html>

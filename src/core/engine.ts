@@ -36,11 +36,8 @@ export class CalcError extends Error {
   }
 }
 
-/** Safely build a Decimal. Every failure path throws CalcError (structured).
- * The optional label also accepts a numeric Array.map index so D can be used
- * directly as a mapper without weakening strict TypeScript checks.
- */
-export function D(value: Decimal.Value | null | undefined, label: string | number = 'value'): Decimal {
+/** Safely build a Decimal. Every failure path throws CalcError (structured). */
+export function D(value: Decimal.Value | null | undefined, label = 'value'): Decimal {
   if (value === null || value === undefined || value === '') {
     throw new CalcError('E_INVALID_INPUT', `[engine] ${label} is empty`);
   }
@@ -51,7 +48,7 @@ export function D(value: Decimal.Value | null | undefined, label: string | numbe
     }
     return d;
   } catch (e: unknown) {
-    if (e instanceof CalcError) throw e;
+    if (e instanceof CalcError) throw e; // re-throw our finite-check error
     throw new CalcError('E_INVALID_INPUT', `[engine] ${label} is not a number`);
   }
 }

@@ -61,6 +61,15 @@ function loadPreset(key) {
   validateAndCalc();
 }
 function resetAll() { loadPreset('struct'); }
+function startBlankStudy() {
+  FIELDS.forEach(f => { if ($(f)) $(f).value = ''; });
+  if ($('jointType')) $('jointType').selectedIndex = 0;
+  document.querySelectorAll('.sc-preset').forEach(b => b.classList.remove('active'));
+  calcData = null;
+  if ($('liveResult')) $('liveResult').textContent = '—';
+  if ($('liveSub')) $('liveSub').innerHTML = '';
+  if ($('reportArea')) $('reportArea').innerHTML = '';
+}
 function loadFromURL() {
   const s = new URLSearchParams(location.search).get('s'); if (!s) return;
   try { const o = JSON.parse(decodeURIComponent(s)); FIELDS.forEach(f => { if (o[f] !== undefined) $(f).value = o[f]; }); if (o.jointType) $('jointType').value = o.jointType; } catch (e) {}
@@ -194,6 +203,13 @@ window.shareReport = shareReport;
 window.loadPreset = loadPreset;
 window.resetAll = resetAll;
 window.validateAndCalc = validateAndCalc;
+if (window.SCStudy) {
+  window.SCStudy.register('SC-001', {
+    loadSample() { loadPreset('struct'); },
+    startBlank() { startBlankStudy(); }
+  });
+  window.SCStudy.resnapshot();
+}
 
 loadFromURL();
 validateAndCalc();

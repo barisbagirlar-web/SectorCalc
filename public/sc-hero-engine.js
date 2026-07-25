@@ -15,10 +15,11 @@ function runEngine(t1){
 }
 const canvas=document.getElementById('histo');
 if(!canvas) return;
-const ctx=canvas.getContext('2d');
+const ctx=canvas.getContext('2d',{alpha:false});
 let dots=[],animStart=0,raf=null,current=null;
 function sizeC(){const r=canvas.getBoundingClientRect(),d=Math.min(devicePixelRatio,2);
-  canvas.width=r.width*d;canvas.height=104*d;ctx.setTransform(d,0,0,d,0,0);return{w:r.width,h:104};}
+  const w=Math.max(1,r.width),h=104;
+  canvas.width=w*d;canvas.height=h*d;ctx.setTransform(d,0,0,d,0,0);return{w,h};}
 function build(samples){
   const{w,h}=sizeC(),B=64,R=0.15,bins=new Array(B).fill(0);
   for(let i=0;i<N;i++){let b=Math.floor((samples[i]+R)/(2*R)*B);bins[Math.max(0,Math.min(B-1,b))]++;}
@@ -31,13 +32,16 @@ function build(samples){
   animStart=performance.now();if(raf)cancelAnimationFrame(raf);raf=requestAnimationFrame(draw);
 }
 function draw(now){
-  const{w,h}=sizeC();ctx.clearRect(0,0,w,h);
+  const{w,h}=sizeC();
+  const dark=document.documentElement.getAttribute('data-theme')==='dark';
+  ctx.fillStyle=dark?'#1B1F23':'#F8F8F4';
+  ctx.fillRect(0,0,w,h);
   const t=now-animStart;ctx.fillStyle='#0055A4';
   for(const d of dots){const p=(t-d.delay)/360;if(p<=0)continue;
     const e=p>=1?1:1-Math.pow(1-p,3);ctx.globalAlpha=0.25+0.75*e;
     ctx.fillRect(d.x-1,-8+(d.y+8)*e-1,2,2);}
   ctx.globalAlpha=1;
-  if(current){ctx.beginPath();ctx.strokeStyle='rgba(26,26,26,.5)';ctx.lineWidth=1.3;
+  if(current){ctx.beginPath();ctx.strokeStyle=dark?'rgba(232,234,236,.55)':'rgba(26,26,26,.5)';ctx.lineWidth=1.3;
     const s=current.mc/3;
     for(let px=0;px<=w;px+=3){const xv=(px/w-0.5)*0.3,yv=Math.exp(-xv*xv/(2*s*s));
       const y=h-5-yv*(h-20)*0.98;px===0?ctx.moveTo(px,y):ctx.lineTo(px,y);}
@@ -70,7 +74,12 @@ function recalc(){
 let deb=null;
 inTol.addEventListener('input',()=>{clearTimeout(deb);deb=setTimeout(recalc,180);});
 addEventListener('resize',()=>{if(current)build(current.samples);});
+if(typeof ResizeObserver!=='undefined'){
+  const ro=new ResizeObserver(()=>{if(current)build(current.samples);});
+  ro.observe(canvas.parentElement||canvas);
+}
 recalc();
 /* Re-measure engine time after 3D init load settles */
 setTimeout(recalc,2000);
+document.addEventListener('sectorcalc-theme',()=>{if(current)build(current.samples);});
 })();

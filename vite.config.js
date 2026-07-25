@@ -1,12 +1,8 @@
 import { defineConfig } from 'vite';
-import { unifiedToolHtmlPlugin } from './scripts/unified-tool-html.mjs';
-import { catalogLiveCleanupPlugin } from './scripts/catalog-live-cleanup.mjs';
-import { seoHtmlPlugin } from './scripts/seo-html.mjs';
 
 export default defineConfig({
   root: '.',
   base: './', // Firebase Hosting subdirectory compatibility
-  plugins: [catalogLiveCleanupPlugin(), unifiedToolHtmlPlugin(), seoHtmlPlugin()],
 
   build: {
     outDir: 'dist',
@@ -55,18 +51,18 @@ export default defineConfig({
 
   server: {
     port: 5173,
-    strictPort: true,
+    strictPort: true, // do not silently switch ports if 5173 is taken
     open: false
   },
 
   test: {
-    environment: 'node',
+    environment: 'node', // core tests use no DOM; crypto.subtle is global in Node 20
     globals: true,
     include: ['src/**/*.test.ts', 'tests/**/*.test.ts'],
     coverage: {
       provider: 'v8',
-      all: false,
-      include: ['src/core/**', 'src/tools/**', 'src/components/**', 'src/lib/**'],
+      all: false, // lock behavior; do not rely on version defaults
+      include: ['src/core/**', 'src/tools/**', 'src/components/**', 'src/lib/**'], // scope to tested code; widen as modules land
       exclude: ['**/*.test.ts', 'node_modules/**', 'dist/**'],
       reporter: ['text', 'html', 'lcov'],
       thresholds: {
