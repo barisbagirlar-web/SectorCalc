@@ -158,7 +158,7 @@ test('tools.html uses shared site header', async ({ page }) => {
 
 test('tools.html search finds CNC feeds even after category click', async ({ page }) => {
   await page.goto('/tools.html');
-  await expect(page.locator('#stLive')).toHaveText('6');
+  await expect(page.locator('#stLive')).toHaveText('25');
   await page.locator('.tile[data-cat="costing"]').click();
   await page.locator('#q').fill('cnc');
   await expect(page.locator('#suggest')).toBeVisible();
