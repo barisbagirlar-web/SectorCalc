@@ -3,6 +3,10 @@
  * stddev is the SAMPLE estimator (n-1); population variant is out of scope.
  * percentile uses R type-7 / Excel PERCENTILE.INC linear interpolation.
  * Invariant locked: when mu is centered, Cpk == Cp.
+ *
+ * CHANGELOG v1.1.0:
+ * - Added stddevPopulation() for Monte Carlo simulated populations.
+ * - stddev() remains SAMPLE estimator (n-1) for empirical data.
  */
 import { D, Decimal } from './engine.js';
 import { CalcError } from './guards.js';
@@ -18,6 +22,7 @@ export function mean(values: Decimal.Value[]): Decimal {
   return sum.div(xs.length);
 }
 
+/** Sample standard deviation (n-1 denominator). Use for empirical measured data. */
 export function stddev(values: Decimal.Value[]): Decimal {
   const xs = asDecimals(values, 'values');
   if (xs.length < 2) throw new CalcError('E_INVALID_INPUT', 'stddev needs >= 2 values (sample, n-1)');
@@ -26,11 +31,19 @@ export function stddev(values: Decimal.Value[]): Decimal {
   return sq.div(xs.length - 1).sqrt();
 }
 
+/** Population standard deviation (n denominator). Use for Monte Carlo simulated populations. */
+export function stddevPopulation(values: Decimal.Value[]): Decimal {
+  const xs = asDecimals(values, 'values');
+  if (xs.length < 1) throw new CalcError('E_INVALID_INPUT', 'stddevPopulation needs >= 1 value');
+  const mu = mean(values);
+  const sq = xs.reduce((acc, v) => acc.plus(v.minus(mu).pow(2)), D(0));
+  return sq.div(xs.length).sqrt();
+}
+
 export function percentile(values: Decimal.Value[], p: Decimal.Value): Decimal {
   const xs = asDecimals(values, 'values').slice().sort((a, b) => a.cmp(b));
   const pf = D(p, 'p');
   if (pf.lt(0) || pf.gt(1)) throw new CalcError('E_OUT_OF_RANGE', `p must be in [0,1], got ${pf.toString()}`);
-  // Length >= 1 from asDecimals; ! satisfies noUncheckedIndexedAccess.
   if (xs.length === 1) return xs[0]!;
   const h = D(xs.length - 1).times(pf);
   const lo = Math.floor(h.toNumber());
