@@ -75,6 +75,7 @@
 
 - **Home (`/`) is sacred:** live-cell WebGL/SMIL hero (`sc-hero-cell.js`), engineering sheet rails, and standards band. Do not describe the homepage as a dark blueprint mock or replace it with static SVG demos.
 - **Calculator pages (`*-pro.html`):** calculation-sheet overlay (`sc-calc-sheet.css`, body `theme-calc-sheet`) — paper grid, sheet border, DWG title block. Engines, forms, A1–A5 audit and ~full tool UI remain authoritative; the overlay does not replace calculation markup.
+- **Demo toolbar on every live `*-pro.html` calculator** (`/sc-study.css` + `/sc-study.js`): English **Load Demo Data** restores the authored golden scenario and recalculates; **Reset** clears the form (or calls tool `resetAll` when present); amber **Demo scenario active** badge shows while the demo scenario is loaded. The bar mounts at the start of the left input form (`.sc-sidebar-scroll` or first `.panel-b`), not in the tool strip.
 - **Tools index (`/tools.html`):** drawing-index format (`theme-drawing-index`) — DWG-style catalog framing for the 25 live tools.
 - **Pricing (`/pricing.html`):** BOM sheet format (`theme-bom`) — itemized credit packs framed as a bill of materials.
 - Reference-only template: `content/templates/calculation-sheet.html` (not a live route).

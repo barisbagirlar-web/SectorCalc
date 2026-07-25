@@ -1,14 +1,15 @@
 /**
  * SectorCalc demo toolbar — English "Load Demo Data" + "Reset" + "Demo scenario active".
  * Same control pattern as the reference demo toolbar (Load Demo Data / Reset / Demo scenario active).
- * Mounts on every *-pro calculator. Tools may override via window.SCStudy.register().
- * Default adapter: snapshot page-load form values as golden demo; Reset clears inputs.
+ * Mounts at the start of each calculator form (left input panel). Tools may override via
+ * window.SCStudy.register(). Default adapter: snapshot page-load values as golden demo.
  */
 (function () {
   const handlers = Object.create(null);
   let sampleSnapshot = null;
   let mode = 'demo'; // 'demo' | 'blank'
   let editWired = false;
+  let suppressing = false;
 
   const ICON_PLAY =
     '<svg class="sc-study-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 5.14v13.72L19 12 8 5.14z" fill="currentColor"/></svg>';
@@ -21,6 +22,15 @@
     return t.content.firstElementChild;
   }
 
+  function withSuppress(fn) {
+    suppressing = true;
+    try {
+      fn();
+    } finally {
+      suppressing = false;
+    }
+  }
+
   function toolMeta() {
     const guide = document.querySelector('#sc-guide, .sc-guide');
     return {
@@ -29,16 +39,23 @@
     };
   }
 
+  /** Left input column / main form root — never the whole page. */
   function formRoot() {
-    const calcBtn = document.getElementById('calcBtn');
-    if (calcBtn) {
-      const panel = calcBtn.closest('.panel, .sc-sidebar, form, .wrap');
-      if (panel) return panel;
-    }
+    const sidebarScroll = document.querySelector('.sc-sidebar-scroll');
+    if (sidebarScroll) return sidebarScroll;
+
     const sidebar = document.querySelector('.sc-sidebar');
     if (sidebar) return sidebar;
-    const firstPanel = document.querySelector('.wrap .panel, .sc-layout .sc-sidebar');
+
+    const calcBtn = document.getElementById('calcBtn');
+    if (calcBtn) {
+      const panel = calcBtn.closest('.panel, form');
+      if (panel) return panel;
+    }
+
+    const firstPanel = document.querySelector('.wrap .grid > .panel, .wrap > .grid > .panel, .wrap .panel');
     if (firstPanel) return firstPanel;
+
     return document.querySelector('.wrap') || document.body;
   }
 
@@ -63,6 +80,11 @@
     return out;
   }
 
+  function fireField(node) {
+    node.dispatchEvent(new Event('input', { bubbles: true }));
+    node.dispatchEvent(new Event('change', { bubbles: true }));
+  }
+
   function applySnapshot(snap) {
     const root = formRoot();
     const byId = new Map();
@@ -71,31 +93,33 @@
       byId.set(key, node);
       if (node.id) byId.set('#' + node.id, node);
     });
-    snap.forEach((item) => {
-      const node = (item.id && document.getElementById(item.id)) || byId.get(item.key);
-      if (!node) return;
-      if (item.type === 'checkbox' || item.type === 'radio') {
-        node.checked = !!item.checked;
-      } else {
-        node.value = item.value;
-      }
-      node.dispatchEvent(new Event('input', { bubbles: true }));
-      node.dispatchEvent(new Event('change', { bubbles: true }));
+    withSuppress(() => {
+      snap.forEach((item) => {
+        const node = (item.id && document.getElementById(item.id)) || byId.get(item.key);
+        if (!node) return;
+        if (item.type === 'checkbox' || item.type === 'radio') {
+          node.checked = !!item.checked;
+        } else {
+          node.value = item.value;
+        }
+        fireField(node);
+      });
     });
   }
 
   function clearForm() {
     const root = formRoot();
-    controls(root).forEach((node) => {
-      if (node.tagName === 'SELECT') {
-        if (node.options.length) node.selectedIndex = 0;
-      } else if (node.type === 'checkbox' || node.type === 'radio') {
-        node.checked = false;
-      } else {
-        node.value = '';
-      }
-      node.dispatchEvent(new Event('input', { bubbles: true }));
-      node.dispatchEvent(new Event('change', { bubbles: true }));
+    withSuppress(() => {
+      controls(root).forEach((node) => {
+        if (node.tagName === 'SELECT') {
+          if (node.options.length) node.selectedIndex = 0;
+        } else if (node.type === 'checkbox' || node.type === 'radio') {
+          node.checked = false;
+        } else {
+          node.value = '';
+        }
+        fireField(node);
+      });
     });
   }
 
@@ -105,22 +129,38 @@
     if (live) live.textContent = '—';
     if (sub) sub.innerHTML = '';
     const report = document.getElementById('reportArea');
-    if (report) report.innerHTML = '';
-    const kpis = document.querySelectorAll('.kpi .v, .verdict, #verdictBanner, #auditBox');
-    kpis.forEach((n) => {
+    if (report && !report.querySelector('.sc-empty')) {
+      report.innerHTML = '';
+    }
+    document.querySelectorAll('.kpi .v, .verdict, #verdictBanner, #auditBox').forEach((n) => {
       if (n.id === 'auditBox' || n.classList.contains('verdict')) n.innerHTML = '';
     });
   }
 
   function runCalc() {
     if (typeof window.calculate === 'function') {
-      try { window.calculate(); return; } catch (e) { console.warn(e); }
+      try {
+        window.calculate();
+        return;
+      } catch (e) {
+        console.warn(e);
+      }
     }
     if (typeof window.validateAndCalc === 'function') {
-      try { window.validateAndCalc(); return; } catch (e) { console.warn(e); }
+      try {
+        window.validateAndCalc();
+        return;
+      } catch (e) {
+        console.warn(e);
+      }
     }
     if (typeof window.compute === 'function') {
-      try { window.compute(); return; } catch (e) { console.warn(e); }
+      try {
+        window.compute();
+        return;
+      } catch (e) {
+        console.warn(e);
+      }
     }
     const btn = document.getElementById('calcBtn') || document.getElementById('genReport');
     if (btn) btn.click();
@@ -139,6 +179,7 @@
   }
 
   function markEdited() {
+    if (suppressing) return;
     if (mode === 'demo') setMode('blank');
   }
 
@@ -165,14 +206,26 @@
   }
 
   function defaultLoadSample() {
-    if (!sampleSnapshot) sampleSnapshot = snapshotValues(formRoot());
+    if (!sampleSnapshot || !sampleSnapshot.length) {
+      sampleSnapshot = snapshotValues(formRoot());
+    }
     applySnapshot(sampleSnapshot);
     runCalc();
   }
 
   function defaultStartBlank() {
-    clearForm();
-    clearResults();
+    if (typeof window.resetAll === 'function') {
+      try {
+        withSuppress(() => window.resetAll());
+      } catch (e) {
+        console.warn(e);
+        clearForm();
+        clearResults();
+      }
+    } else {
+      clearForm();
+      clearResults();
+    }
   }
 
   function loadSample() {
@@ -193,21 +246,43 @@
     if (custom && typeof custom.afterApply === 'function') custom.afterApply('blank');
   }
 
+  /**
+   * Mount at the START of the calculation form (left input column),
+   * matching degerlet placement above the parameter fields.
+   */
   function ensureMount() {
     let host = document.querySelector('[data-sc-study-slot]');
     if (host) return host;
 
     host = el('<div class="sc-study-bar" data-sc-study-slot aria-label="Demo controls"></div>');
 
-    const strip = document.querySelector('.sc-tool-strip');
-    if (strip) {
-      strip.appendChild(host);
+    const sidebarScroll = document.querySelector('.sc-sidebar-scroll');
+    if (sidebarScroll) {
+      sidebarScroll.insertBefore(host, sidebarScroll.firstChild);
+      return host;
+    }
+
+    const panelBody = document.querySelector('.wrap .grid > .panel .panel-b, .wrap .panel .panel-b');
+    if (panelBody) {
+      panelBody.insertBefore(host, panelBody.firstChild);
+      return host;
+    }
+
+    const panel = document.querySelector('.wrap .grid > .panel, .wrap .panel');
+    if (panel) {
+      const heading = panel.querySelector('.panel-h');
+      if (heading && heading.nextSibling) {
+        panel.insertBefore(host, heading.nextSibling);
+      } else {
+        panel.insertBefore(host, panel.firstChild);
+      }
       return host;
     }
 
     const head = document.querySelector('.wrap > .head, .wrap .head');
     if (head && head.parentElement) {
-      head.parentElement.insertBefore(host, head);
+      if (head.nextSibling) head.parentElement.insertBefore(host, head.nextSibling);
+      else head.parentElement.appendChild(host);
       return host;
     }
 
@@ -242,7 +317,7 @@
   }
 
   function boot() {
-    if (!/-pro\.html(?:$|\?)/.test(location.pathname) && !document.querySelector('.sc-tool-strip, #calcBtn, .sc-sidebar')) {
+    if (!/-pro\.html(?:$|\?)/.test(location.pathname) && !document.querySelector('.sc-tool-strip, #calcBtn, .sc-sidebar, .wrap .panel')) {
       return;
     }
     // Capture golden demo from authored HTML defaults before user edits.
