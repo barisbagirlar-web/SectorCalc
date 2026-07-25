@@ -1,5 +1,5 @@
-/* sc-hero-engine.js — SectorCalc Live Deck v28
-   Sweep-second pace: continuous 60s sine crawl · analytical scrub · settle at extrema.
+/* sc-hero-engine.js — SectorCalc Live Deck v29
+   Seiko sweep-second: constant velocity, never stops, never eases at ends.
 */
 (function () {
   'use strict';
@@ -330,13 +330,12 @@
     paintStack(t1, r);
   }
 
-  /** Soft live preview — no Monte Carlo, no histogram restart (prevents "explode"). */
+  /** Soft live preview — no Monte Carlo, no histogram restart (prevents hitch). */
   function previewTol(tMicron) {
     var t1 = Math.max(0.01, Math.min(0.1, tMicron / 1000));
     if (inTol) inTol.value = String(Math.round(tMicron / 5) * 5);
     var r = analytical(t1);
     if (current && current.samples) {
-      // Keep settled samples; only move the PDF overlay sigma.
       current = {
         wc: r.wc,
         rss: r.rss,
@@ -349,12 +348,7 @@
       current = r;
     }
     applyReadout(t1, r, { tween: false });
-    // Gentle curve re-draw without particle rain restart
-    if (raf) cancelAnimationFrame(raf);
-    raf = requestAnimationFrame(function (now) {
-      animStart = now - 2000; // skip rain; draw settled frame
-      draw(now);
-    });
+    // Intentionally no histo redraw here — Seiko sweep must not stutter.
   }
 
   /** Full commit — seeded MC + one cinematic histogram settle. */
@@ -380,11 +374,17 @@
     calm = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
   } catch (e) {}
 
-  // Sweep-second pace: one full tight↔loose cycle ≈ 60s (90s if reduced-motion).
+  // Seiko akar saniye: CONSTANT angular/linear speed, never pauses, never eases.
+  // Full round-trip 10→100→10 in 60s ⇒ |dv/dt| = 3 µm/s (same cadence as 6°/s second hand).
+  var MIN_V = 10;
+  var MAX_V = 100;
+  var SPAN = MAX_V - MIN_V;
   var PERIOD_MS = calm ? 90000 : 60000;
+  var HALF_MS = PERIOD_MS / 2;
   var sweepT0 = 0;
+  var sweepDir = 1; // +1 rising, -1 falling — used only for resume phase match
   var lastPreviewSnap = -1;
-  var lastSettlePole = null; // 'hi' | 'lo'
+  var lastSettleAt = 0;
   var lastZone = '';
 
   function zoneName(v) {
@@ -402,6 +402,13 @@
     }
   }
 
+  /** Triangle wave at constant |speed| — Seiko sweep, not sine (sine slows at ends). */
+  function valueAtElapsed(elapsed) {
+    var t = ((elapsed % PERIOD_MS) + PERIOD_MS) % PERIOD_MS;
+    if (t <= HALF_MS) return MIN_V + SPAN * (t / HALF_MS);
+    return MAX_V - SPAN * ((t - HALF_MS) / HALF_MS);
+  }
+
   function pinUser() {
     userPinned = true;
     if (autoRaf) cancelAnimationFrame(autoRaf);
@@ -414,42 +421,31 @@
     }, calm ? 16000 : 12000);
   }
 
-  /** Continuous sweep like a flowing clock second — no stop/hold scrubbing. */
   function autoTick(now) {
     autoRaf = null;
     if (userPinned || document.hidden) return;
 
-    var phase = ((now - sweepT0) % PERIOD_MS) / PERIOD_MS; // 0..1
-    // Smooth sine: 10 ↔ 100 µm, never jumps, never rewinds abruptly.
-    var s = Math.sin(phase * Math.PI * 2);
-    var v = 55 + 45 * s;
+    var v = valueAtElapsed(now - sweepT0);
     var snap = Math.round(v / 5) * 5;
-    snap = Math.max(10, Math.min(100, snap));
+    snap = Math.max(MIN_V, Math.min(MAX_V, snap));
 
     var zone = zoneName(v);
-    if (zone !== lastZone) {
-      lastZone = zone;
-      setSceneLabel(zone, true);
-    } else {
-      setSceneLabel(zone, true);
-    }
+    if (zone !== lastZone) lastZone = zone;
+    setSceneLabel(zone, true);
 
+    // Continuous readout every frame — flowing second, no stutter.
     if (oTol) oTol.textContent = '±' + (v / 1000).toFixed(3) + ' mm';
+    if (inTol) inTol.value = String(snap);
+
     if (snap !== lastPreviewSnap) {
       lastPreviewSnap = snap;
       previewTol(v);
-    } else if (inTol) {
-      inTol.value = String(snap);
     }
 
-    // Soft MC settle only at extrema (second at 12 / 6) — motion never pauses.
-    var pole = s > 0.97 ? 'hi' : (s < -0.97 ? 'lo' : null);
-    if (pole && pole !== lastSettlePole) {
-      lastSettlePole = pole;
-      if (inTol) inTol.value = String(snap);
-      recalc({ tween: true, histo: true });
-    } else if (!pole) {
-      lastSettlePole = null;
+    // Background settle every ~20s — never stops the hand.
+    if (now - lastSettleAt > 20000) {
+      lastSettleAt = now;
+      recalc({ tween: false, histo: true });
     }
 
     autoRaf = requestAnimationFrame(autoTick);
@@ -458,17 +454,16 @@
   function startAuto() {
     if (userPinned) return;
     if (autoRaf) cancelAnimationFrame(autoRaf);
-    // Phase-match current slider so resume doesn't jump.
-    var cur = inTol ? +inTol.value : 50;
-    var clamped = Math.max(10, Math.min(100, cur));
-    var s0 = (clamped - 55) / 45;
-    s0 = Math.max(-1, Math.min(1, s0));
-    var ang = Math.asin(s0); // -π/2..π/2
-    // Prefer continuing in the rising or falling half based on last pole
-    var phase0 = (ang / (Math.PI * 2) + 1) % 1;
-    sweepT0 = performance.now() - phase0 * PERIOD_MS;
+    var cur = inTol ? +inTol.value : 55;
+    var clamped = Math.max(MIN_V, Math.min(MAX_V, cur));
+    // Place on rising half by default (Seiko keeps going forward).
+    var riseT = ((clamped - MIN_V) / SPAN) * HALF_MS;
+    if (sweepDir < 0) {
+      riseT = HALF_MS + ((MAX_V - clamped) / SPAN) * HALF_MS;
+    }
+    sweepT0 = performance.now() - riseT;
     lastPreviewSnap = -1;
-    lastSettlePole = null;
+    lastSettleAt = 0;
     lastZone = '';
     setSceneLabel(zoneName(clamped), true);
     autoRaf = requestAnimationFrame(autoTick);
