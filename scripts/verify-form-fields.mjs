@@ -47,25 +47,17 @@ function findClipRisks(css, page) {
 function checkProPage(page) {
   const path = join(ROOT, page);
   const html = readFileSync(path, 'utf8');
-  const isUnifiedRuntime =
-    /src=["']\/src\/industrial-tool\.ts["']/.test(html) ||
-    /data-tool-code=["']SC-\d+["']/.test(html);
 
-  // Unified runtime shells get sc-form-fields.css from the Vite HTML transform;
-  // source pages may only declare the engineering theme until transform runs.
-  if (!isUnifiedRuntime && !/<link[^>]+sc-form-fields\.css/i.test(html)) {
+  if (!/<link[^>]+sc-form-fields\.css/i.test(html)) {
     issues.push(`${page}: missing <link> to ${FORM_CSS_NAME} (run inject:nav)`);
   }
 
   // Must have at least one recognized value+unit wrap pattern OR a number field
-  // OR a unified industrial-tool mount point (#fields) for schema-driven inputs.
   const hasForm =
     html.includes('class="uwrap"') ||
     html.includes("class='uwrap'") ||
     html.includes('sc-input-wrap') ||
-    /type=["']number["']/.test(html) ||
-    (isUnifiedRuntime && html.includes('id="fields"')) ||
-    (isUnifiedRuntime && html.includes('theme-input-mount'));
+    /type=["']number["']/.test(html);
   if (!hasForm) {
     issues.push(`${page}: no calculator inputs found (expected .uwrap / .sc-input-wrap / type=number)`);
   }
@@ -101,12 +93,13 @@ const proPages = listProPages();
 if (!proPages.length) issues.push('no *-pro.html calculator pages at repo root');
 for (const page of proPages) checkProPage(page);
 
-// Shared theme must pull form fields so theme-only pages still get the layout
+// Form fields are linked explicitly on pages — theme must NOT @import them
+// (duplicate render-blocking CSS was a Lighthouse regression).
 const themePath = join(ROOT, 'public', 'sc-theme.css');
 if (existsSync(themePath)) {
   const theme = readFileSync(themePath, 'utf8');
-  if (!theme.includes(FORM_CSS_NAME)) {
-    issues.push(`public/sc-theme.css: must @import ${FORM_CSS_NAME}`);
+  if (/@import\s+url\(['"]?\.\/sc-form-fields\.css['"]?\)/i.test(theme)) {
+    issues.push(`public/sc-theme.css: must not @import ${FORM_CSS_NAME} (link it from HTML only)`);
   }
 }
 

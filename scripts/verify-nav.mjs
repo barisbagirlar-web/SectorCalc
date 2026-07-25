@@ -134,6 +134,25 @@ function checkPage(page) {
     if (!html.includes('sc-site-nav.js')) issues.push(`${page}: missing sc-site-nav.js`);
     if (!html.includes('id="siteHeader"')) issues.push(`${page}: missing shared #siteHeader`);
     if (!/<link[^>]+sc-form-fields\.css/i.test(html)) issues.push(`${page}: missing sc-form-fields.css`);
+    // 4-tile brand favicon set (cache-busted)
+    if (!/<link[^>]+rel=["']icon["'][^>]+favicon\.ico/i.test(html)) {
+      issues.push(`${page}: missing favicon.ico link`);
+    }
+    if (!/<link[^>]+rel=["']icon["'][^>]+favicon\.svg/i.test(html)) {
+      issues.push(`${page}: missing favicon.svg link`);
+    }
+    if (!/<link[^>]+rel=["']apple-touch-icon["']/i.test(html)) {
+      issues.push(`${page}: missing apple-touch-icon link`);
+    }
+    if (!/<link[^>]+rel=["']manifest["'][^>]+site\.webmanifest/i.test(html)) {
+      issues.push(`${page}: missing site.webmanifest link`);
+    }
+  }
+
+  // Live calculators must ship the English study toolbar assets
+  if (page.endsWith('-pro.html')) {
+    if (!html.includes('sc-study.css')) issues.push(`${page}: missing sc-study.css`);
+    if (!html.includes('sc-study.js')) issues.push(`${page}: missing sc-study.js`);
   }
 }
 
@@ -162,8 +181,31 @@ if (!index.includes('id="main-content"')) {
   issues.push('index.html: skip-link target #main-content missing');
 }
 
-const discovery = ['robots.txt', 'sitemap.xml', 'llms.txt', 'llm.txt'];
+const discovery = [
+  'robots.txt',
+  'sitemap.xml',
+  'sitemap-images.xml',
+  'sitemap-videos.xml',
+  'llms.txt',
+  'llm.txt',
+  'site.webmanifest',
+  '404.html',
+  'assets/js/cvw-monitor.js',
+  'assets/images/sectorcalc-og-1200x630.jpg'
+];
 for (const f of discovery) {
+  if (!existsSync(join(ROOT, 'public', f))) issues.push(`public/${f}: FILE MISSING`);
+}
+const brandIcons = [
+  'favicon.ico',
+  'favicon.svg',
+  'favicon-32.png',
+  'icon-192.png',
+  'icon-512.png',
+  'apple-touch-icon.png',
+  'sectorcalc-mark.png'
+];
+for (const f of brandIcons) {
   if (!existsSync(join(ROOT, 'public', f))) issues.push(`public/${f}: FILE MISSING`);
 }
 
@@ -192,12 +234,24 @@ if (existsSync(dist)) {
     }
   }
   for (const asset of [
-    'vendor/three/three.module.js',
+    'vendor/three/three.module.min.js',
     'vendor/three/RoomEnvironment.js',
     'sc-hero-cell.js'
   ]) {
     if (!existsSync(join(dist, asset))) {
       console.error('[FAIL] dist missing hero asset: ' + asset);
+      process.exit(1);
+    }
+  }
+  for (const asset of brandIcons) {
+    if (!existsSync(join(dist, asset))) {
+      console.error('[FAIL] dist missing brand icon: ' + asset);
+      process.exit(1);
+    }
+  }
+  for (const asset of ['sc-study.js', 'sc-study.css']) {
+    if (!existsSync(join(dist, asset))) {
+      console.error('[FAIL] dist missing study toolbar asset: ' + asset);
       process.exit(1);
     }
   }

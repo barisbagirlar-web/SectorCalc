@@ -1,11 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!--SC-SEO-HOST-->
+<!-- Canonical host is https://sectorcalc.com — Firebase Hosting 301s www → apex. No client reverse-redirect. -->
+<!--SC-SEO-HOST-END-->
+<!--SC-SEO-SECURITY-START-->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: https://cdnjs.cloudflare.com https://www.googletagmanager.com https://www.google-analytics.com; worker-src 'self' blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://www.googletagmanager.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=(), interest-cohort=()">
+<link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
+<meta name="DC.title" content="SectorCalc — Deterministic Industrial Engineering Calculators">
+<meta name="DC.creator" content="SectorCalc Inc.">
+<meta name="DC.subject" content="Engineering Calculators, Tolerance Analysis, Monte Carlo Simulation">
+<meta name="DC.description" content="Deterministic industrial calculators with ISO audit trails">
+<meta name="DC.publisher" content="SectorCalc Inc.">
+<meta name="DC.date" content="2026-07-25">
+<meta name="DC.type" content="Text">
+<meta name="DC.format" content="text/html">
+<meta name="DC.language" content="en">
+<meta name="DC.coverage" content="Global">
+<meta name="DC.rights" content="2024-2026 SectorCalc Inc.">
+<!--SC-SEO-SECURITY-END-->
 <script>(function(){try{var k='sectorcalc-theme';var t=localStorage.getItem(k);if(t!=='dark'&&t!=='light')t=(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';document.documentElement.setAttribute('data-theme',t);document.documentElement.style.colorScheme=t;var raw=localStorage.getItem('sectorcalc-theme-pos');if(raw){var p=JSON.parse(raw);if(p&&typeof p.leftPct==='number'&&typeof p.topPct==='number'){var s=document.createElement('style');s.id='sc-theme-pos-boot';var w=Math.max(0,(window.innerWidth||0)-48);var h=Math.max(0,(window.innerHeight||0)-48);var L=Math.min(w,Math.max(0,(p.leftPct/100)*w));var T=Math.min(h,Math.max(0,(p.topPct/100)*h));s.textContent='#themeToggle{left:'+L+'px!important;top:'+T+'px!important;right:auto!important;bottom:auto!important}';document.documentElement.appendChild(s);document.documentElement.setAttribute('data-sc-pos-boot','1');}}}catch(e){}})();</script>
 <meta charset="UTF-8">
+<link rel="icon" href="./favicon.ico?v=20260724c" sizes="any">
+<link rel="icon" type="image/svg+xml" href="./favicon.svg?v=20260724c">
+<link rel="icon" type="image/png" sizes="32x32" href="./favicon-32.png?v=20260724c">
+<link rel="icon" type="image/png" sizes="192x192" href="./icon-192.png?v=20260724c">
+<link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png?v=20260724c">
+<link rel="manifest" href="./site.webmanifest?v=20260724c">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>SC-008 - Tolerance Stack-Up (Predicted) | SectorCalc</title>
-<link rel="stylesheet" href="./sectorcalc-engineering.css">
+<meta name="description" content="Deterministic 1D linear tolerance stack-up with worst-case, RSS, and seeded Monte Carlo. Client-side Decimal.js engine with audit-ready reports.">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <style>
@@ -20,7 +46,7 @@
   .sc-header-title{font-family:var(--font-display);font-size:15px;font-weight:800;letter-spacing:0.01em;text-transform:uppercase;color:var(--text-primary)}
   .sc-header-sub{font-size:10px;font-weight:500;color:var(--text-muted);font-family:var(--font-mono)}
   .sc-badge{font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:1px;padding:4px 10px;border-radius:var(--radius-sm);font-family:var(--font-mono);border:1px solid rgba(232,119,34,0.2);background:rgba(232,119,34,0.08);color:var(--accent-amber)}
-  .sc-layout{display:grid;grid-template-columns:380px 1fr;min-height:100vh;padding-top:0}
+  .sc-layout{display:grid;grid-template-columns:380px 1fr;min-height:100vh;padding-top:56px}
   .sc-sidebar{background:var(--bg-1);border-right:1px solid var(--border-subtle);display:flex;flex-direction:column;height:calc(100vh - 56px);position:sticky;top:56px;overflow:hidden}
   .sc-sidebar-scroll{flex:1;overflow-y:auto;padding-bottom:80px}
   .sc-section-hd{padding:14px 20px 10px;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:var(--text-muted)}
@@ -128,18 +154,417 @@
   .sc-footer{text-align:center;padding:24px;color:var(--text-dim);font-size:10px;font-family:var(--font-mono);border-top:1px solid var(--border-subtle);margin-top:20px}
   @media(max-width:768px){.sc-layout{grid-template-columns:1fr}.sc-sidebar{position:relative;top:0;height:auto;border-right:none;border-bottom:1px solid var(--border-subtle)}.sc-cards,.sc-whatif{grid-template-columns:1fr}.sc-header-sub{display:none}}
 </style>
-<link rel="stylesheet" href="./sc-theme.css?v=8">
-<script src="./sc-theme.js?v=8" defer></script>
+<link rel="stylesheet" href="./sc-theme.css?v=12">
+<script src="./sc-theme.js?v=12" defer></script>
 <link rel="stylesheet" href="./sc-tool-guide.css?v=3">
+<link rel="stylesheet" href="./sc-eeat.css?v=1">
+<link rel="stylesheet" href="./sc-study.css?v=2">
 <script src="./sc-tool-guide.js?v=3" defer></script>
-<link rel="stylesheet" href="./sc-site-nav.css?v=1">
-<script src="./sc-site-nav.js?v=1" defer></script>
-<link rel="stylesheet" href="./sc-form-fields.css?v=4">
+<script src="./sc-study.js?v=2" defer></script>
+<link rel="stylesheet" href="./sc-site-nav.css?v=4">
+<script src="./sc-site-nav.js?v=2" defer></script>
+<link rel="stylesheet" href="./sc-form-fields.css?v=5">
+<!--SC-SEO-META-START-->
+<link rel="canonical" href="https://sectorcalc.com/sc008-pro.html">
+<link rel="alternate" hreflang="x-default" href="https://sectorcalc.com/sc008-pro.html">
+<link rel="alternate" hreflang="en" href="https://sectorcalc.com/sc008-pro.html">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="googlebot" content="index, follow">
+<meta name="bingbot" content="index, follow">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="website">
+<meta property="og:title" content="SC-008 - Tolerance Stack-Up (Predicted) | SectorCalc">
+<meta property="og:description" content="Deterministic 1D linear tolerance stack-up with worst-case, RSS, and seeded Monte Carlo. Client-side Decimal.js engine with audit-ready reports.">
+<meta property="og:url" content="https://sectorcalc.com/sc008-pro.html">
+<meta property="og:site_name" content="SectorCalc">
+<meta property="og:image" content="https://sectorcalc.com/assets/images/og-sc008-pro-1200x630.jpg">
+<meta property="og:image:secure_url" content="https://sectorcalc.com/assets/images/og-sc008-pro-1200x630.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:alt" content="SC-008 - Tolerance Stack-Up (Predicted) | SectorCalc">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SC-008 - Tolerance Stack-Up (Predicted) | SectorCalc">
+<meta name="twitter:description" content="Deterministic 1D linear tolerance stack-up with worst-case, RSS, and seeded Monte Carlo. Client-side Decimal.js engine with audit-ready reports.">
+<meta name="twitter:image" content="https://sectorcalc.com/assets/images/og-sc008-pro-1200x630.jpg">
+<meta name="twitter:image:alt" content="SC-008 - Tolerance Stack-Up (Predicted) | SectorCalc">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="author" content="SectorCalc Engineering Team">
+<meta name="theme-color" content="#0055A4">
+<meta name="format-detection" content="telephone=no">
+<!--SC-SEO-META-END-->
+<!--SC-SEO-SCHEMA-START-->
+<script type="application/ld+json" id="sc-schema-global">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://sectorcalc.com/#organization",
+      "name": "SectorCalc",
+      "alternateName": [
+        "SectorCalc Engineering Calculators"
+      ],
+      "url": "https://sectorcalc.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://sectorcalc.com/#logo",
+        "url": "https://sectorcalc.com/assets/images/sectorcalc-logo-512x512.png",
+        "width": 512,
+        "height": 512,
+        "caption": "SectorCalc"
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://sectorcalc.com/assets/images/sectorcalc-og-1200x630.jpg",
+        "width": 1200,
+        "height": 630
+      },
+      "description": "Deterministic industrial engineering calculators with visible formulas, ISO-standard audit trails, and full-precision decimal arithmetic. Client-side only.",
+      "slogan": "Stop Guessing. Start Defending Your Numbers.",
+      "foundingDate": "2024",
+      "sameAs": [
+        "https://github.com/barisbagirlar-web/SectorCalc"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "email": "support@sectorcalc.com",
+        "availableLanguage": [
+          "English"
+        ]
+      },
+      "knowsAbout": [
+        "Tolerance Stack-Up Analysis",
+        "Monte Carlo Simulation",
+        "ISO 286 Tolerancing",
+        "CNC Machining Feeds and Speeds",
+        "Bearing Life Calculation ISO 281",
+        "Welding Engineering",
+        "Manufacturing Cost Estimation"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://sectorcalc.com/#person-neela-nataraj",
+      "name": "Prof. Dr. Neela Nataraj",
+      "givenName": "Neela",
+      "familyName": "Nataraj",
+      "honorificPrefix": "Prof. Dr.",
+      "jobTitle": "Professor of Mathematics",
+      "worksFor": {
+        "@id": "https://sectorcalc.com/#educational-organization-iitb"
+      },
+      "affiliation": {
+        "@id": "https://sectorcalc.com/#educational-organization-iitb"
+      },
+      "knowsAbout": [
+        "Numerical Analysis",
+        "Finite Element Methods",
+        "Statistical Computing",
+        "Engineering Mathematics",
+        "Monte Carlo Methods"
+      ],
+      "sameAs": [
+        "https://www.math.iitb.ac.in/"
+      ]
+    },
+    {
+      "@type": "EducationalOrganization",
+      "@id": "https://sectorcalc.com/#educational-organization-iitb",
+      "name": "Indian Institute of Technology Bombay",
+      "alternateName": [
+        "IIT Bombay",
+        "IITB"
+      ],
+      "url": "https://www.iitb.ac.in",
+      "sameAs": [
+        "https://www.iitb.ac.in",
+        "https://en.wikipedia.org/wiki/IIT_Bombay"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Mumbai",
+        "addressRegion": "Maharashtra",
+        "addressCountry": "IN"
+      },
+      "member": {
+        "@id": "https://sectorcalc.com/#person-neela-nataraj"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://sectorcalc.com/#website",
+      "url": "https://sectorcalc.com/",
+      "name": "SectorCalc",
+      "publisher": {
+        "@id": "https://sectorcalc.com/#organization"
+      },
+      "inLanguage": [
+        "en",
+        "en-US"
+      ],
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://sectorcalc.com/tools.html?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json" id="sc-schema-tool-sc008-pro">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://sectorcalc.com/sc008-pro.html#software",
+      "name": "SC-008 Tolerance Stack-Up",
+      "applicationCategory": "EngineeringApplication",
+      "applicationSubCategory": "Tolerance Analysis",
+      "operatingSystem": "Any (Client-side Browser)",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://sectorcalc.com/sc008-pro.html",
+        "seller": {
+          "@id": "https://sectorcalc.com/#organization"
+        }
+      },
+      "description": "Deterministic 1D linear tolerance stack-up with worst-case, RSS, and seeded Monte Carlo. Client-side Decimal.js engine with audit-ready reports.",
+      "featureList": [
+        "Deterministic engine — same inputs, same result",
+        "Full-precision decimal / SI core arithmetic",
+        "Visible formulas, assumptions, and warnings",
+        "Client-side only — zero calculation upload",
+        "Audit trail / PDF export where provided"
+      ],
+      "softwareVersion": "1.0.0",
+      "provider": {
+        "@id": "https://sectorcalc.com/#organization"
+      },
+      "author": {
+        "@id": "https://sectorcalc.com/#organization"
+      },
+      "reviewedBy": {
+        "@id": "https://sectorcalc.com/#person-neela-nataraj"
+      },
+      "screenshot": {
+        "@type": "ImageObject",
+        "url": "https://sectorcalc.com/assets/images/og-sc008-pro-1200x630.jpg",
+        "width": 1200,
+        "height": 630
+      },
+      "inLanguage": [
+        "en"
+      ],
+      "dateModified": "2026-07-24",
+      "isPartOf": {
+        "@id": "https://sectorcalc.com/#website"
+      }
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://sectorcalc.com/sc008-pro.html#howto",
+      "name": "How to run Tolerance Stack-Up on SectorCalc",
+      "description": "Open the calculator, enter inputs with units, then calculate and review the audit trail for SC-008 Tolerance Stack-Up.",
+      "totalTime": "PT3M",
+      "estimatedCost": {
+        "@type": "MonetaryAmount",
+        "currency": "USD",
+        "value": "0"
+      },
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "SC-008 Tolerance Stack-Up"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Open the tool",
+          "text": "Go to https://sectorcalc.com/sc008-pro.html and optionally Load Demo Data to inspect a complete working model.",
+          "url": "https://sectorcalc.com/sc008-pro.html"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Enter inputs",
+          "text": "Fill each field using the selectable units. Check reference hints and validation banners before running.",
+          "url": "https://sectorcalc.com/sc008-pro.html"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Calculate and audit",
+          "text": "Run Calculate & Audit / Generate Report. Review formulas, warnings, engine version, and export if needed.",
+          "url": "https://sectorcalc.com/sc008-pro.html"
+        }
+      ],
+      "isPartOf": {
+        "@id": "https://sectorcalc.com/sc008-pro.html#software"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://sectorcalc.com/sc008-pro.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://sectorcalc.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "All Calculators",
+          "item": "https://sectorcalc.com/tools.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Tolerance & Quality",
+          "item": "https://sectorcalc.com/tools.html#tolerance"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "SC-008 Tolerance Stack-Up",
+          "item": "https://sectorcalc.com/sc008-pro.html"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<script type="application/ld+json" id="sc-schema-dataset-sc008-pro">
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "@id": "https://sectorcalc.com/sc008-pro.html#dataset",
+  "name": "SC-008 Tolerance Stack-Up — Audit Report Dataset",
+  "description": "Deterministic calculation audit trail including inputs, formulas, assumptions, warnings, and engine version. Exported as hash-verified PDF.",
+  "creator": {
+    "@id": "https://sectorcalc.com/#organization"
+  },
+  "publisher": {
+    "@id": "https://sectorcalc.com/#organization"
+  },
+  "reviewedBy": {
+    "@id": "https://sectorcalc.com/#person-neela-nataraj"
+  },
+  "license": "https://sectorcalc.com/terms.html",
+  "isAccessibleForFree": true,
+  "distribution": {
+    "@type": "DataDownload",
+    "encodingFormat": "application/pdf",
+    "contentUrl": "https://sectorcalc.com/sc008-pro.html?export=pdf"
+  },
+  "variableMeasured": [
+    "Tolerance Stack-Up Spread",
+    "Predicted Cpk",
+    "Predicted PPM",
+    "Monte Carlo Seed",
+    "Engine Version Hash"
+  ],
+  "temporalCoverage": "2024-01-15/2026-07-25",
+  "spatialCoverage": {
+    "@type": "Place",
+    "name": "Global"
+  },
+  "inLanguage": [
+    "en",
+    "en-US",
+    "en-GB"
+  ],
+  "datePublished": "2024-01-15",
+  "dateModified": "2026-07-25",
+  "isPartOf": {
+    "@id": "https://sectorcalc.com/sc008-pro.html#software"
+  }
+}
+</script>
+<script type="application/ld+json" id="sc-schema-speakable">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://sectorcalc.com/sc008-pro.html#speakable",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".sc-header-title",
+          ".sc-guide-lede",
+          "h1"
+        ]
+      },
+      "headline": "SC-008 Tolerance Stack-Up",
+      "description": "Deterministic 1D linear tolerance stack-up with worst-case, RSS, and seeded Monte Carlo. Client-side Decimal.js engine with audit-ready reports.",
+      "url": "https://sectorcalc.com/sc008-pro.html",
+      "inLanguage": "en-US"
+    }
+  ]
+}
+</script>
+<!--SC-SEO-SCHEMA-END-->
+<!--SC-SCHEMA-VIDEO-START-->
+<script type="application/ld+json" id="sc-schema-video">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "VideoObject",
+      "@id": "https://sectorcalc.com/sc008-pro.html#video-demo",
+      "name": "SC-008 Tolerance Stack-Up Calculator — Full Walkthrough",
+      "description": "Complete demonstration of the SC-008 deterministic tolerance stack-up calculator. Covers worst-case, RSS, and Monte Carlo methods with ISO compliance.",
+      "thumbnailUrl": [
+        "https://sectorcalc.com/assets/images/og-sc008-pro-1200x630.jpg"
+      ],
+      "uploadDate": "2026-07-25",
+      "duration": "PT3M30S",
+      "contentUrl": "https://www.youtube.com/watch?v=REPLACE_WITH_YOUTUBE_ID",
+      "embedUrl": "https://www.youtube.com/embed/REPLACE_WITH_YOUTUBE_ID",
+      "author": { "@id": "https://sectorcalc.com/#organization" },
+      "publisher": { "@id": "https://sectorcalc.com/#organization" },
+      "inLanguage": "en",
+      "isPartOf": { "@id": "https://sectorcalc.com/sc008-pro.html#software" }
+    },
+    {
+      "@type": "Clip",
+      "@id": "https://sectorcalc.com/sc008-pro.html#clip-worst-case",
+      "name": "Worst-case method explanation",
+      "startOffset": 45,
+      "endOffset": 90,
+      "isPartOf": { "@id": "https://sectorcalc.com/sc008-pro.html#video-demo" }
+    },
+    {
+      "@type": "Clip",
+      "@id": "https://sectorcalc.com/sc008-pro.html#clip-monte-carlo",
+      "name": "Monte Carlo histogram demonstration",
+      "startOffset": 120,
+      "endOffset": 180,
+      "isPartOf": { "@id": "https://sectorcalc.com/sc008-pro.html#video-demo" }
+    }
+  ]
+}
+</script>
+<!--SC-SCHEMA-VIDEO-END-->
+<link rel="stylesheet" href="/sc-related-tools.css?v=1">
 </head>
 <body data-tool-badge="SC-008 · Tolerance Stack-Up">
 <!--SC-SITE-NAV-START-->
 <header class="site-header" id="siteHeader" role="banner">
-  <a href="/" class="brand" aria-label="SectorCalc Home"><span class="brand-mark"><img class="logo-light" src="/sectorcalc-logo.png" alt="SectorCalc" width="183" height="48"><img class="logo-dark" src="/sectorcalc-logo-dark.png?v=2" alt="" width="183" height="48" aria-hidden="true"></span></a>
+  <a href="/" class="brand" aria-label="SectorCalc Home"><span class="brand-mark"><img class="logo-light" src="/sectorcalc-logo-214.w.png" srcset="/sectorcalc-logo-214.w.png 214w, /sectorcalc-logo-428.w.png 428w" sizes="183px" width="183" height="48" alt="SectorCalc" decoding="async"><img class="logo-dark" src="/sectorcalc-logo-dark-214.w.png" srcset="/sectorcalc-logo-dark-214.w.png 214w, /sectorcalc-logo-dark-428.w.png 428w" sizes="183px" width="183" height="48" alt="" aria-hidden="true" decoding="async"></span></a>
   <nav class="main-nav" role="navigation" aria-label="Main navigation">
     <ul>
       <li><a href="/tools.html" data-nav="tools">Tools</a></li>
@@ -150,6 +575,10 @@
     <span class="sc-nav-tool" aria-hidden="true"></span>
     <a href="/sc008-pro.html" class="btn btn-primary">Run a Calculation</a>
   </nav>
+  <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme" aria-pressed="false" title="Toggle light / dark theme">
+    <svg data-theme-icon="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    <svg data-theme-icon="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+  </button>
   <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
     <span></span><span></span><span></span>
   </button>
@@ -167,15 +596,27 @@
 
 
 
-<div class="cs-stamp" style="display:flex;flex-wrap:wrap;gap:.5rem;padding:10px 24px;margin-top:56px;background:#FAFBFC;border-bottom:2px solid #1A3A5C;font-family:ui-monospace,monospace;font-size:11px">
-  <span style="border:1px solid #1A3A5C;padding:3px 8px;color:#1A3A5C">DWG NO: SC-008-001</span>
-  <span style="border:1px solid #1A3A5C;padding:3px 8px;color:#1A3A5C">SCALE: NTS</span>
-  <span style="border:1px solid #1A3A5C;padding:3px 8px;color:#1A3A5C">REV: A</span>
-  <span style="border:1px solid #1A3A5C;padding:3px 8px;color:#1A3A5C">ENGINE VERSION: SC-008-ENGINE v1.1.0</span>
-  <span style="border:1px solid #1A3A5C;padding:3px 8px;color:#1A3A5C">ISO 3864</span>
-  <span style="border:1px solid #1A3A5C;padding:3px 8px;color:#1A3A5C">Audit Trail A1–A5</span>
-  <span style="border:1px solid #1A3A5C;padding:3px 8px;color:#1A3A5C">Deterministic</span>
-</div>
+
+
+
+
+
+
+
+
+
+
+
+<!--SC-SEO-BREADCRUMB-START-->
+<nav aria-label="Breadcrumb" class="sc-breadcrumb">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="https://sectorcalc.com/"><span itemprop="name">Home</span></a><meta itemprop="position" content="1"></li>
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="https://sectorcalc.com/tools.html"><span itemprop="name">All Calculators</span></a><meta itemprop="position" content="2"></li>
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="https://sectorcalc.com/tools.html#tolerance"><span itemprop="name">Tolerance &amp; Quality</span></a><meta itemprop="position" content="3"></li>
+    <li aria-current="page" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><span itemprop="name">SC-008 Tolerance Stack-Up</span><meta itemprop="position" content="4"></li>
+  </ol>
+</nav>
+<!--SC-SEO-BREADCRUMB-END-->
 
 
 
@@ -191,14 +632,21 @@
 
 
 
-<button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme" aria-pressed="false" title="Dark mode - drag to move, double-click to reset">
-  <svg data-theme-icon="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-  <svg data-theme-icon="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
-</button>
+
+
+
+
+
+
+
+
+
+
+
 
 
 <div class="sc-header">
-  <div class="sc-header-left"><a href="/" class="sc-logo" title="SectorCalc home" aria-label="SectorCalc home"><img class="logo-light" src="/sectorcalc-logo.png" alt="SectorCalc" width="160" height="42"><img class="logo-dark" src="/sectorcalc-logo-dark.png?v=2" alt="" width="160" height="42" aria-hidden="true"></a><div><div class="sc-header-title">SC-008 - Tolerance Stack-Up</div><div class="sc-header-sub">DWG NO SC-008-001 · SCALE NTS · REV A · ENGINE VERSION v1.1.0 · ISO 3864 · Audit Trail · Deterministic · engineering preview</div></div></div>
+  <div class="sc-header-left"><a href="/" class="sc-logo" title="SectorCalc home" aria-label="SectorCalc home"><img class="logo-light" src="/sectorcalc-logo.png" alt="SectorCalc" width="160" height="42"><img class="logo-dark" src="/sectorcalc-logo-dark.png?v=2" alt="" width="160" height="42" aria-hidden="true"></a><div><h1 class="sc-header-title">SC-008 - Tolerance Stack-Up</h1><div class="sc-header-sub">Engineering preview · 1D linear stack-up · per-component distribution · client-side · not for production approval</div></div></div>
   <div style="display:flex;align-items:center;gap:10px"><a href="/" class="sc-btn sc-btn-ghost" style="text-decoration:none">All tools</a><a href="/pricing.html" class="sc-btn sc-btn-ghost" style="margin-right:10px;text-decoration:none">Pricing</a><div class="sc-badge">Preview</div></div>
 </div>
 <div class="sc-layout">
@@ -232,6 +680,34 @@
     <div class="sc-empty"><div class="sc-empty-title">Predicted Analysis Ready</div><div class="sc-empty-desc">Configure the stack and choose a distribution per dimension. Values update live from the deterministic Decimal engine. Predicted, drawing-based - verify with measured process data before any release.</div><div class="sc-preview-tag">Engineering preview - not for production approval</div></div>
   </div></div>
 </div>
+<!--SC-EEAT-START-->
+<section class="sc-eeat-shell" aria-label="Academic oversight and expert review">
+  <div class="sc-eeat">
+    <aside class="sc-eeat-card" itemscope itemtype="https://schema.org/Person" itemid="https://sectorcalc.com/#person-neela-nataraj">
+      <div class="sc-eeat-mark" aria-hidden="true">IITB</div>
+      <div>
+        <span class="sc-eeat-kicker">Academic Oversight &amp; Expert Review</span>
+        <h2>Methodology review</h2>
+        <p class="sc-eeat-name" itemprop="name">Prof. Dr. Neela Nataraj</p>
+        <p class="sc-eeat-role">
+          <span itemprop="jobTitle">Professor of Mathematics</span>
+          · Department of Mathematics ·
+          <span itemprop="worksFor" itemscope itemtype="https://schema.org/CollegeOrUniversity" itemid="https://sectorcalc.com/#educational-organization-iitb">
+            <a href="https://www.iitb.ac.in" itemprop="name" rel="noopener noreferrer">Indian Institute of Technology Bombay (IIT Bombay)</a>
+            <link itemprop="url" href="https://www.iitb.ac.in">
+          </span>
+        </p>
+        <p class="sc-eeat-note">
+          Provides academic oversight and methodology review for statistical computing components used in SectorCalc deterministic engines.
+          Calculator outputs remain engineering previews — not a substitute for measured data or a licensed engineer's sign-off.
+        </p>
+        <meta itemprop="honorificPrefix" content="Prof. Dr.">
+      </div>
+    </aside>
+  </div>
+</section>
+<!--SC-EEAT-END-->
+
 <!--SC-GUIDE-START-->
 <div class="sc-guide-shell">
 <section class="sc-guide" id="sc-guide" data-tool-id="SC-008" data-tool-name="Tolerance Stack-Up Calculator (SC-008)" data-tool-url="https://sectorcalc.com/sc008-pro.html" itemscope itemtype="https://schema.org/FAQPage">
@@ -559,5 +1035,32 @@
 </div>
 <!--SC-GUIDE-END-->
 <script type="module" src="/src/sc008-pro.ts"></script>
+<!--SC-SEO-CVW-->
+<script src="/assets/js/sc-ga4-id.js"></script>
+<script src="/assets/js/cvw-monitor.js" defer></script>
+
+<!--SC-RELATED-TOOLS-START-->
+<section class="related-tools-section" aria-labelledby="related-tools-heading">
+  <h2 id="related-tools-heading">Related Calculators</h2>
+  <div class="related-grid">
+    <a href="/machining-pro.html" class="related-card">
+      <div class="rt-title">SC-020 Feeds & Speeds</div>
+      <div class="rt-desc">Tolerance inputs from machining capability data</div>
+    </a>
+    <a href="/bearing-pro.html" class="related-card">
+      <div class="rt-title">SC-021 Bearing Life</div>
+      <div class="rt-desc">Validate fit assumptions after stack closure</div>
+    </a>
+    <a href="/fits-pro.html" class="related-card">
+      <div class="rt-title">SC-027 Fits & Clearances</div>
+      <div class="rt-desc">ISO 286 hole/shaft fit selection</div>
+    </a>
+    <a href="/surface-finish-pro.html" class="related-card">
+      <div class="rt-title">SC-028 Surface Finish</div>
+      <div class="rt-desc">Ra, Rz capability for stack surfaces</div>
+    </a>
+  </div>
+</section>
+<!--SC-RELATED-TOOLS-END-->
 </body>
 </html>

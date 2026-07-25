@@ -85,6 +85,15 @@ function loadPreset(key) {
   validateAndCalc();
 }
 function resetAll() { loadPreset('small'); }
+function startBlankStudy() {
+  FIELDS.forEach(f => { if ($(f)) $(f).value = ''; });
+  if ($('payFrequency')) $('payFrequency').selectedIndex = 0;
+  document.querySelectorAll('.sc-preset').forEach(b => b.classList.remove('active'));
+  calcData = null;
+  if ($('liveResult')) $('liveResult').textContent = '—';
+  if ($('liveSub')) $('liveSub').innerHTML = '';
+  if ($('reportArea')) $('reportArea').innerHTML = '';
+}
 
 function loadFromURL() {
   const s = new URLSearchParams(location.search).get('s');
@@ -264,4 +273,11 @@ window.shareReport = shareReport;
 window.loadPreset = loadPreset;
 window.resetAll = resetAll;
 window.validateAndCalc = validateAndCalc;
+if (window.SCStudy) {
+  window.SCStudy.register('SC-010', {
+    loadSample() { loadPreset('small'); },
+    startBlank() { startBlankStudy(); }
+  });
+  window.SCStudy.resnapshot();
+}
 

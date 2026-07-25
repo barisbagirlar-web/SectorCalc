@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tolerance Stack-Up: When RSS Fails and Monte Carlo Saves the Design | SectorCalc</title>
+<meta name="description" content="Why root-sum-square breaks down with non-normal distributions. How seeded Monte Carlo with 10,000 iterations gives defensible Cpk predictions. ISO 286-1, ASME Y14.5.">
+<meta name="keywords" content="tolerance stack-up, RSS failure, Monte Carlo simulation, non-normal distribution, predicted Cpk, ISO 286, ASME Y14.5, engineering statistics">
+
+<link rel="canonical" href="https://sectorcalc.com/blog/tolerance-stack-up-rss-vs-monte-carlo.html">
+<link rel="alternate" hreflang="x-default" href="https://sectorcalc.com/blog/tolerance-stack-up-rss-vs-monte-carlo.html">
+<link rel="alternate" hreflang="en" href="https://sectorcalc.com/blog/tolerance-stack-up-rss-vs-monte-carlo.html">
+
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tolerance Stack-Up: When RSS Fails and Monte Carlo Saves the Design">
+<meta property="og:description" content="Why RSS breaks down with non-normal distributions. How Monte Carlo gives defensible predictions.">
+<meta property="og:url" content="https://sectorcalc.com/blog/tolerance-stack-up-rss-vs-monte-carlo.html">
+<meta property="og:site_name" content="SectorCalc">
+<meta property="og:image" content="https://sectorcalc.com/assets/images/og-blog-rss-monte-carlo-1200x630.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="article:published_time" content="2026-07-24">
+<meta property="article:modified_time" content="2026-07-24">
+<meta property="article:author" content="https://sectorcalc.com/#person-neela-nataraj">
+<meta property="article:section" content="Tolerance Analysis">
+<meta property="article:tag" content="RSS,Monte Carlo,tolerance stack-up,ISO 286,ASME Y14.5">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@sectorcalc">
+<meta name="twitter:title" content="When RSS Fails and Monte Carlo Saves the Design">
+<meta name="twitter:description" content="Non-normal distributions break RSS. Here's the fix.">
+<meta name="twitter:image" content="https://sectorcalc.com/assets/images/og-blog-rss-monte-carlo-1200x630.jpg">
+
+<meta name="theme-color" content="#0A1628">
+<link rel="preconnect" href="https://sectorcalc.com">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+
+<!-- SCHEMA: TechArticle + ClaimReview + Breadcrumb + FAQ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "@id": "https://sectorcalc.com/blog/tolerance-stack-up-rss-vs-monte-carlo.html#article",
+      "headline": "Tolerance Stack-Up: When RSS Fails and Monte Carlo Saves the Design",
+      "description": "Why root-sum-square breaks down with non-normal distributions, and how seeded Monte Carlo with 10,000 iterations gives defensible Cpk predictions.",
+      "author": { "@id": "https://sectorcalc.com/#organization" },
+      "reviewedBy": { "@id": "https://sectorcalc.com/#person-neela-nataraj" },
+      "publisher": { "@id": "https://sectorcalc.com/#organization" },
+      "datePublished": "2026-07-24",
+      "dateModified": "2026-07-24",
+      "proficiencyLevel": "Expert",
+      "dependencies": "ISO 286-1, ASME Y14.5, Decimal.js",
+      "articleSection": "Tolerance Analysis",
+      "wordCount": 2500,
+      "inLanguage": "en",
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://sectorcalc.com/blog/tolerance-stack-up-rss-vs-monte-carlo.html" },
+      "isPartOf": { "@id": "https://sectorcalc.com/blog/#blog" }
+    },
+    {
+      "@type": "ClaimReview",
+      "@id": "https://sectorcalc.com/blog/tolerance-stack-up-rss-vs-monte-carlo.html#claim-1",
+      "claimReviewed": "RSS is always sufficient for tolerance stack-up analysis",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "2",
+        "bestRating": "5",
+        "worstRating": "1",
+        "alternateName": "False"
+      },
+      "itemReviewed": {
+        "@type": "Claim",
+        "author": { "@type": "Organization", "name": "Common Engineering Practice" },
+        "datePublished": "2020-01-01",
+        "appearance": { "@type": "CreativeWork", "name": "Engineering textbooks and CAD tolerance advisors" }
+      },
+      "author": { "@id": "https://sectorcalc.com/#organization" },
+      "reviewBody": "RSS assumes independent normal distributions with ±3σ tolerances. When contributors are uniform, triangular, or truncated-normal, RSS underestimates tail risk. Monte Carlo with correct distribution assignments is required for accurate PPM and Cpk predictions.",
+      "datePublished": "2026-07-24",
+      "url": "https://sectorcalc.com/blog/tolerance-stack-up-rss-vs-monte-carlo.html"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sectorcalc.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://sectorcalc.com/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "When RSS Fails and Monte Carlo Saves the Design", "item": "https://sectorcalc.com/blog/tolerance-stack-up-rss-vs-monte-carlo.html" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "When should I use Monte Carlo instead of RSS?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Use Monte Carlo when any contributor is not well-approximated by a normal distribution: uniform (uncontrolled processes), triangular (expert-elicited ranges), or truncated-normal (100% screened parts). RSS underestimates tail risk for non-normal distributions." } },
+        { "@type": "Question", "name": "How many Monte Carlo iterations are enough?",
+          "acceptedAnswer": { "@type": "Answer", "text": "For engineering tolerance stack-up, 10,000 iterations with a fixed seed provides stable PPM estimates with tight 95% confidence intervals. SectorCalc uses Decimal.js to eliminate floating-point drift across iterations." } }
+      ]
+    }
+  ]
+}
+</script>
+
+<style>
+:root { --bg: #0A1628; --text: #e2e8f0; --muted: #94a3b8; --blue: #0055A4; --orange: #E87722; --code-bg: rgba(255,255,255,0.05); }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; font-size: 1.0625rem; }
+.container { max-width: 800px; margin: 0 auto; padding: 2rem; }
+
+.breadcrumb { font-size: 0.875rem; color: var(--muted); margin-bottom: 2rem; }
+.breadcrumb a { color: var(--blue); text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+
+header { margin-bottom: 3rem; }
+header .tag { display: inline-block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--orange); margin-bottom: 1rem; }
+header h1 { font-size: 2.25rem; font-weight: 800; line-height: 1.2; margin-bottom: 1rem; }
+header .meta { color: var(--muted); font-size: 0.875rem; }
+header .meta span { margin-right: 1.5rem; }
+
+article h2 { font-size: 1.5rem; font-weight: 700; margin: 2.5rem 0 1rem; color: #f8fafc; }
+article h3 { font-size: 1.25rem; font-weight: 600; margin: 2rem 0 0.75rem; }
+article p { margin-bottom: 1.25rem; }
+article ul, article ol { margin: 1rem 0 1.5rem 1.5rem; }
+article li { margin-bottom: 0.5rem; }
+article code { background: var(--code-bg); padding: 0.15rem 0.4rem; border-radius: 0.25rem; font-family: 'SF Mono', Monaco, monospace; font-size: 0.9em; }
+article pre { background: var(--code-bg); padding: 1rem; border-radius: 0.5rem; overflow-x: auto; margin: 1.5rem 0; }
+article blockquote { border-left: 3px solid var(--blue); padding-left: 1rem; margin: 1.5rem 0; color: var(--muted); font-style: italic; }
+article a { color: var(--blue); text-decoration: none; }
+article a:hover { text-decoration: underline; }
+
+.cta-box { background: rgba(0,85,164,0.1); border: 1px solid rgba(0,85,164,0.2); border-radius: 0.75rem; padding: 1.5rem; margin: 2rem 0; }
+.cta-box h4 { font-size: 1.125rem; margin-bottom: 0.5rem; }
+.cta-box p { color: var(--muted); margin-bottom: 1rem; }
+.cta-box a { display: inline-block; padding: 0.625rem 1.25rem; background: var(--blue); color: white; text-decoration: none; border-radius: 0.375rem; font-weight: 500; }
+
+.related-tools { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.06); }
+.related-tools h3 { font-size: 1.125rem; margin-bottom: 1rem; }
+.related-tools ul { list-style: none; margin: 0; }
+.related-tools li { margin-bottom: 0.75rem; }
+.related-tools a { color: var(--blue); text-decoration: none; }
+.related-tools a:hover { text-decoration: underline; }
+
+.author-box { display: flex; gap: 1rem; align-items: flex-start; margin-top: 3rem; padding: 1.5rem; background: rgba(255,255,255,0.03); border-radius: 0.75rem; }
+.author-box .avatar { width: 48px; height: 48px; border-radius: 50%; background: var(--blue); display: flex; align-items: center; center; justify-content: center; font-weight: 700; flex-shrink: 0; }
+.author-box .info h4 { font-size: 1rem; margin-bottom: 0.25rem; }
+.author-box .info p { color: var(--muted); font-size: 0.875rem; margin: 0; }
+
+@media (max-width: 640px) { .container { padding: 1rem; } header h1 { font-size: 1.75rem; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="https://sectorcalc.com/">Home</a> / <a href="https://sectorcalc.com/blog/">Blog</a> / <span aria-current="page">RSS vs Monte Carlo</span>
+  </nav>
+
+  <header>
+    <span class="tag">Tolerance Analysis</span>
+    <h1>Tolerance Stack-Up: When RSS Fails and Monte Carlo Saves the Design</h1>
+    <div class="meta">
+      <span>Jul 24, 2026</span>
+      <span>8 min read</span>
+      <span>By SectorCalc Engineering Team</span>
+      <span>Reviewed by Prof. Dr. Neela Nataraj, IIT Bombay</span>
+    </div>
+  </header>
+
+  <article>
+    <p>Every mechanical engineer learns root-sum-square in school. Square the tolerances, add them, take the square root. Elegant, fast, and — in many cases — <strong>dangerously wrong</strong>.</p>
+
+    <p>RSS assumes every contributor is independent, centered, and normally distributed with the stated tolerance representing ±3σ. That assumption collapses the moment a single component deviates from normality. And in real manufacturing, they almost always do.</p>
+
+    <h2>Why RSS Works (When It Works)</h2>
+    <p>RSS is derived from the central limit theorem. When you sum many independent random variables, the distribution of the sum approaches normal — regardless of the individual distributions. The variance of the sum equals the sum of the variances:</p>
+
+    <pre>σ_stack² = σ₁² + σ₂² + ... + σₙ²</pre>
+
+    <p>If every tolerance ti represents ±3σi, then the RSS spread is:</p>
+
+    <pre>T_RSS = √(t₁² + t₂² + ... + tₙ²)</pre>
+
+    <p>This works beautifully when:</p>
+    <ul>
+      <li>All processes are capable (Cpk ≥ 1.33) and centered</li>
+      <li>Variations are truly independent</li>
+      <li>Sample sizes are large enough for the CLT to dominate</li>
+      <li>No contributor has hard physical limits (truncation)</li>
+    </ul>
+
+    <h2>Where RSS Breaks Down</h2>
+    <p>The problems start when any contributor violates the normality assumption. Here are the four most common failure modes:</p>
+
+    <h3>1. Uniform Distribution — No Central Tendency</h3>
+    <p>A rough casting wall thickness, an uncontrolled shim pack, or a legacy ± tolerance block without capability data often behaves uniformly. Every value between nominal − t and nominal + t is equally likely. RSS treats this as ±3σ normal, but uniform has <strong>heavier tails</strong> than normal at the same total spread. The result: RSS underestimates the true 99.7% envelope.</p>
+
+    <h3>2. Truncated Normal — 100% Screening</h3>
+    <p>When inspection physically rejects out-of-limit parts, the distribution is not normal — it's truncated. The tails are cut off. RSS cannot model this because it assumes the full ±3σ spread is always present. Truncated normal reduces effective variance, but RSS doesn't know that.</p>
+
+    <h3>3. Triangular — Expert Elicitation</h3>
+    <p>When you know the minimum, maximum, and most likely value but lack sample data, triangular is the pragmatic choice. More conservative than normal at the tails, less conservative than uniform. RSS has no concept of triangular shape.</p>
+
+    <h3>4. Mixed Distributions — The Real World</h3>
+    <p>Most stacks contain a mix: a turned shaft (normal), a cast housing (uniform), a shim pack (triangular), and a screened bearing (truncated normal). RSS forces everything into a single normal model, losing the shape information that drives tail risk.</p>
+
+    <h2>Monte Carlo: The Distribution-Agnostic Solution</h2>
+    <p>Monte Carlo simulation doesn't assume a closed-form solution. It draws random samples from each contributor's assigned distribution, sums them, and builds an empirical histogram. With 10,000 iterations, you get:</p>
+
+    <ul>
+      <li>The full empirical distribution of the stack</li>
+      <li>Exact P0.13 and P99.87 percentiles (the 99.7% envelope)</li>
+      <li>Predicted PPM outside specification limits</li>
+      <li>95% confidence interval on the defect rate</li>
+      <li>Contributor Pareto — which part drives the most variation</li>
+    </ul>
+
+    <p>Crucially, Monte Carlo lets you assign the <strong>correct distribution per contributor</strong>. Normal for the lathe, uniform for the casting, triangular for the shim, truncated-normal for the screened bearing. The simulation respects each shape.</p>
+
+    <h2>Determinism: The Engineering Requirement</h2>
+    <p>Monte Carlo has a reputation for being "random" and therefore non-reproducible. That reputation is earned by tools that don't fix the seed. <a href="https://sectorcalc.com/sc008-pro.html">SC-008</a> uses a seeded linear congruential generator with Decimal arithmetic: identical inputs, seed, and engine version produce identical histograms, PPM values, and report hashes.</p>
+
+    <p>This matters for:</p>
+    <ul>
+      <li>Customer audit — "Show me the exact calculation that produced this PPM."</li>
+      <li>Regression testing — "Did the v2.1 engine change affect this stack?"</li>
+      <li>Design review — "Engineer A and Engineer B must get the same answer."</li>
+    </ul>
+
+    <div class="cta-box">
+      <h4>Run the Calculation</h4>
+      <p>Compare Worst-case, RSS, and Monte Carlo on the same stack. See the contributor Pareto and predicted Cpk with your own tolerances.</p>
+      <a href="https://sectorcalc.com/sc008-pro.html">Open SC-008 Tolerance Stack-Up →</a>
+    </div>
+
+    <h2>Practical Decision Framework</h2>
+    <table style="width:100%;border-collapse:collapse;margin:1.5rem 0;font-size:0.9375rem;">
+      <thead>
+        <tr style="border-bottom:2px solid rgba(255,255,255,0.1);">
+          <th style="text-align:left;padding:0.75rem;">Scenario</th>
+          <th style="text-align:left;padding:0.75rem;">Method</th>
+          <th style="text-align:left;padding:0.75rem;">Rationale</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+          <td style="padding:0.75rem;">All normal, capable, independent</td>
+          <td style="padding:0.75rem;">RSS</td>
+          <td style="padding:0.75rem;">Fast, conservative enough</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+          <td style="padding:0.75rem;">Any non-normal contributor</td>
+          <td style="padding:0.75rem;">Monte Carlo</td>
+          <td style="padding:0.75rem;">Shape matters for tail risk</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+          <td style="padding:0.75rem;">Safety-critical, single failure path</td>
+          <td style="padding:0.75rem;">Worst-case</td>
+          <td style="padding:0.75rem;">Guaranteed closure at extremes</td>
+        </tr>
+        <tr>
+          <td style="padding:0.75rem;">Mixed distributions, cost optimization</td>
+          <td style="padding:0.75rem;">Monte Carlo</td>
+          <td style="padding:0.75rem;">Quantify tolerance relief potential</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Conclusion</h2>
+    <p>RSS is not wrong — it's just incomplete. It answers a specific question under specific assumptions. When those assumptions break, Monte Carlo is the only method that preserves the engineering truth of your stack. The cost is computation time (milliseconds for 10,000 iterations), but the benefit is a defensible, reproducible prediction that survives audit.</p>
+
+    <blockquote>
+      "The best stack-up analyst runs all three methods. If WC fails, the design is not robust. If RSS and Monte Carlo disagree, your distribution assumptions need work. If all three agree, you have a story worth telling the customer."
+    </blockquote>
+  </article>
+
+  <div class="related-tools">
+    <h3>Related Tools</h3>
+    <ul>
+      <li><a href="https://sectorcalc.com/sc008-pro.html">SC-008 Tolerance Stack-Up</a> — Worst-case, RSS, Monte Carlo with predicted Cpk</li>
+      <li><a href="https://sectorcalc.com/machining-pro.html">SC-020 Feeds & Speeds</a> — Tolerance inputs from machining capability</li>
+      <li><a href="https://sectorcalc.com/bearing-pro.html">SC-010 Bearing Life</a> — Validate fit assumptions after stack closure</li>
+    </ul>
+  </div>
+
+  <div class="author-box">
+    <div class="avatar">SC</div>
+    <div class="info">
+      <h4>SectorCalc Engineering Team</h4>
+      <p>Deterministic industrial calculators with visible formulas and ISO-standard audit trails. Methodology reviewed by Prof. Dr. Neela Nataraj, Department of Mathematics, IIT Bombay.</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>

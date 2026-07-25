@@ -2,9 +2,9 @@
  * SectorCalc site-wide theme engine.
  * - Persists: localStorage key "sectorcalc-theme" ("light" | "dark")
  * - Attribute: <html data-theme="light|dark">
- * - Toggle #themeToggle: click = theme; drag = reposition; double-click = reset position
- * - Position key: "sectorcalc-theme-pos" ({ leftPct, topPct } of available viewport)
- * - Pair with early head boot snippet (theme + optional position) to limit FOUC
+ * - Toggle #themeToggle: click = theme
+ * - Docked in .site-header (no floating drag — that was clipping the CTA / sheet border)
+ * - Pair with early head boot snippet to limit FOUC
  */
 (function (global) {
   'use strict';
@@ -143,8 +143,12 @@
     btn.style.bottom = '';
   }
 
+  function isDocked(btn) {
+    return !!(btn && btn.closest && btn.closest('.site-header'));
+  }
+
   function applyStoredPosition(btn) {
-    if (!btn) return false;
+    if (!btn || isDocked(btn)) return false;
     var pos = readPos();
     if (!pos) return false;
     var size = buttonSize(btn);
@@ -176,6 +180,7 @@
     if (!t || !t.closest) return;
     var btn = t.closest('#themeToggle');
     if (!btn) return;
+    if (isDocked(btn)) return; // header-docked: click only, no drag
     if (ev.type === 'mousedown' && ev.button !== 0) return;
 
     var pt = pointerXY(ev);
@@ -333,6 +338,15 @@
   function bootButton() {
     var btn = document.getElementById('themeToggle');
     syncUi(read());
+    if (isDocked(btn)) {
+      // Drop legacy floating coords that used to clip the header CTA / sheet edge
+      try {
+        localStorage.removeItem(POS_KEY);
+      } catch (e) {}
+      clearInlinePosition(btn);
+      removePosBootStyle();
+      return;
+    }
     applyStoredPosition(btn);
     removePosBootStyle();
   }

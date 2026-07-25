@@ -22,7 +22,9 @@ const STRICT = process.argv.includes('--strict');
 const IGNORE_DIRS = new Set([
   'node_modules', 'dist', 'build', '.git', '.firebase',
   'coverage', 'playwright-report', 'test-results', '.cache',
-  'kimi-hero', 'kimi-hiz', 'vendor'
+  'kimi-hero', 'kimi-hiz', 'vendor',
+  // Intentional multilingual landing hubs (de/ja/zh)
+  'de', 'ja', 'zh'
 ]);
 
 // Files never scanned (generated, binary, or self).

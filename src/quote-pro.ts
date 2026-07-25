@@ -96,6 +96,14 @@ function loadPreset(key) {
   validateAndCalc();
 }
 function resetAll() { loadPreset('job'); }
+function startBlankStudy() {
+  FIELDS.forEach(f => { if ($(f)) $(f).value = ''; });
+  document.querySelectorAll('.sc-preset').forEach(b => b.classList.remove('active'));
+  calcData = null;
+  if ($('liveResult')) $('liveResult').textContent = '—';
+  if ($('liveSub')) $('liveSub').innerHTML = '';
+  if ($('reportArea')) $('reportArea').innerHTML = '';
+}
 function loadFromURL() {
   const s = new URLSearchParams(location.search).get('s'); if (!s) return;
   try { const o = JSON.parse(decodeURIComponent(s)); FIELDS.forEach(f => { if (o[f] !== undefined) $(f).value = o[f]; }); } catch (e) {}
@@ -241,6 +249,13 @@ window.exportPDF = exportPDF;
 window.exportPDFGraphic = exportPDFGraphic;
 window.shareReport = shareReport;
 window.loadPreset = loadPreset;
+if (window.SCStudy) {
+  window.SCStudy.register('SC-012', {
+    loadSample() { loadPreset('job'); },
+    startBlank() { startBlankStudy(); }
+  });
+  window.SCStudy.resnapshot();
+}
 window.resetAll = resetAll;
 window.validateAndCalc = validateAndCalc;
 

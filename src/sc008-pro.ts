@@ -137,6 +137,17 @@ function loadPreset(key){
   document.querySelectorAll('.sc-preset').forEach(b=>b.classList.toggle('active',b.dataset.preset===key));
   renderDims(); compute();
 }
+function startBlankStudy(){
+  $('specUpper').value=''; $('specLower').value=''; $('cpkTarget').value=''; $('mcSeed').value='12345';
+  $('unitSpec').value='mm'; $('unitSpec2').value='mm'; currentUnit='mm';
+  dimensions=[{name:'',nominal:0,tolerance:0,dist:'normal'}];
+  document.querySelectorAll('.sc-preset').forEach(b=>b.classList.remove('active'));
+  calcData=null;
+  renderDims();
+  if($('liveResult')) $('liveResult').textContent='—';
+  if($('liveSub')) $('liveSub').innerHTML='';
+  if($('reportArea')) $('reportArea').innerHTML='';
+}
 function convertUnits(){
   const nu=$('unitSpec').value; if(nu===currentUnit)return;
   const r=unitConv[currentUnit].toMm*unitConv[nu].fromMm;
@@ -329,3 +340,12 @@ $('loadBtn').addEventListener('click', () => { const names = listProjects(); if 
 $('csvBtn').addEventListener('click', () => $('csvFile').click());
 $('csvFile').addEventListener('change', (e) => { const f = e.target.files?.[0]; if (!f) return; const rd = new FileReader(); rd.onload = () => { const rows = parseCSV(String(rd.result)); if (!rows.length) { alert('No valid rows in CSV'); return; } dimensions = rows.map(d => ({ name:d.name, nominal:d.nominal, tolerance:d.tol ?? d.tolerance, dist:d.dist||'normal' })); renderDims(); compute(); }; rd.readAsText(f); });
 loadFromURL(); renderDims(); compute();
+window.loadPreset = loadPreset;
+window.compute = compute;
+if (window.SCStudy) {
+  window.SCStudy.register('SC-008', {
+    loadSample() { loadPreset('standard'); },
+    startBlank() { startBlankStudy(); }
+  });
+  window.SCStudy.resnapshot();
+}

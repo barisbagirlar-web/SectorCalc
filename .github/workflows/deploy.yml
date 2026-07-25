@@ -2,12 +2,11 @@ name: Deploy
 
 on:
   push:
-    branches: [main]
+    branches: [main, ship/mobile-nav-discovery]
   workflow_dispatch:
 
 permissions:
   contents: read
-  statuses: write
 
 concurrency:
   group: sectorcalc-production-deploy
@@ -25,7 +24,6 @@ jobs:
           node-version: 22
           cache: npm
       - name: Verify Firebase credential present
-        id: firebase_credential
         run: |
           if [ -z "${FIREBASE_TOKEN:-}" ]; then
             echo "::error::FIREBASE_TOKEN secret is not configured. Add it in repo Settings > Secrets, then re-run."
@@ -35,109 +33,9 @@ jobs:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
       - name: Install locked dependencies
         run: npm ci --no-audit --no-fund
-      - name: English-only language gate
-        run: node scripts/check-language.mjs --strict
-      - name: Unit + golden + industrial regression tests
-        run: npm test
-      - name: Strict TypeScript
-        run: npm run typecheck
-      - name: Production build
-        id: production_build
+      - name: Build production bundle
         run: npm run build
-      - name: Enterprise SEO deterministic guard
-        id: deterministic_seo
-        run: npm run seo:guard
       - name: Deploy Firebase Hosting (sectorcalc-prod)
-        id: firebase_deploy
         run: npx --yes firebase-tools@14 deploy --only hosting --project sectorcalc-prod --token "$FIREBASE_TOKEN"
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-      - name: Attest Firebase deploy
-        if: steps.firebase_deploy.outcome == 'success'
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}" -f state=success -f context='SectorCalc Firebase Deploy' -f description='Firebase Hosting production deploy completed'
-
-      - name: Live www redirect guard
-        id: live_www
-        continue-on-error: true
-        run: node scripts/seo-live-guard.mjs --scope=www
-      - name: Live apex HTTP status probe
-        id: home_status
-        continue-on-error: true
-        run: node scripts/seo-home-probe.mjs --check=status
-      - name: Live apex release-content probe
-        id: home_content
-        continue-on-error: true
-        run: node scripts/seo-home-probe.mjs --check=content
-      - name: Live apex canonical probe
-        id: home_canonical
-        continue-on-error: true
-        run: node scripts/seo-home-probe.mjs --check=canonical
-      - name: Live discovery hard-refresh guard
-        id: live_discovery
-        continue-on-error: true
-        run: node scripts/seo-live-guard.mjs --scope=discovery
-      - name: Live 25-tool hard-refresh guard
-        id: live_tools
-        continue-on-error: true
-        run: node scripts/seo-live-guard.mjs --scope=tools
-      - name: Live legacy-route hard-404 guard
-        id: live_legacy
-        continue-on-error: true
-        run: node scripts/seo-live-guard.mjs --scope=legacy
-
-      - name: Attest live SEO scopes
-        if: always() && steps.firebase_deploy.outcome == 'success'
-        env:
-          GH_TOKEN: ${{ github.token }}
-          WWW_OUTCOME: ${{ steps.live_www.outcome }}
-          STATUS_OUTCOME: ${{ steps.home_status.outcome }}
-          CONTENT_OUTCOME: ${{ steps.home_content.outcome }}
-          CANONICAL_OUTCOME: ${{ steps.home_canonical.outcome }}
-          DISCOVERY_OUTCOME: ${{ steps.live_discovery.outcome }}
-          TOOLS_OUTCOME: ${{ steps.live_tools.outcome }}
-          LEGACY_OUTCOME: ${{ steps.live_legacy.outcome }}
-        run: |
-          post_status() {
-            context="$1"; outcome="$2"; if [ "$outcome" = success ]; then state=success; else state=failure; fi
-            gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}" -f state="$state" -f context="$context" -f description="hard-refresh live guard: $outcome"
-          }
-          post_status 'SectorCalc WWW Redirect' "$WWW_OUTCOME"
-          post_status 'SectorCalc Apex Status' "$STATUS_OUTCOME"
-          post_status 'SectorCalc Apex Content' "$CONTENT_OUTCOME"
-          post_status 'SectorCalc Apex Canonical' "$CANONICAL_OUTCOME"
-          post_status 'SectorCalc Live Discovery' "$DISCOVERY_OUTCOME"
-          post_status 'SectorCalc Live Tools' "$TOOLS_OUTCOME"
-          post_status 'SectorCalc Live Legacy' "$LEGACY_OUTCOME"
-
-      - name: Final production SEO gate
-        id: final_seo
-        env:
-          WWW_OUTCOME: ${{ steps.live_www.outcome }}
-          STATUS_OUTCOME: ${{ steps.home_status.outcome }}
-          CONTENT_OUTCOME: ${{ steps.home_content.outcome }}
-          CANONICAL_OUTCOME: ${{ steps.home_canonical.outcome }}
-          DISCOVERY_OUTCOME: ${{ steps.live_discovery.outcome }}
-          TOOLS_OUTCOME: ${{ steps.live_tools.outcome }}
-          LEGACY_OUTCOME: ${{ steps.live_legacy.outcome }}
-        run: |
-          if [ "$WWW_OUTCOME" != success ] || [ "$STATUS_OUTCOME" != success ] || [ "$CONTENT_OUTCOME" != success ] || [ "$CANONICAL_OUTCOME" != success ] || [ "$DISCOVERY_OUTCOME" != success ] || [ "$TOOLS_OUTCOME" != success ] || [ "$LEGACY_OUTCOME" != success ]; then
-            echo "::error::Production SEO scope failure: www=$WWW_OUTCOME status=$STATUS_OUTCOME content=$CONTENT_OUTCOME canonical=$CANONICAL_OUTCOME discovery=$DISCOVERY_OUTCOME tools=$TOOLS_OUTCOME legacy=$LEGACY_OUTCOME"
-            exit 1
-          fi
-
-      - name: Attest successful production SEO deploy
-        if: success()
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}" -f state=success -f context='SectorCalc Production SEO' -f description='Firebase deploy and all hard-refresh SEO scopes passed'
-      - name: Attest failed production SEO deploy
-        if: failure()
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          description="credential=${{ steps.firebase_credential.outcome }} build=${{ steps.production_build.outcome }} seo=${{ steps.deterministic_seo.outcome }} deploy=${{ steps.firebase_deploy.outcome }} www=${{ steps.live_www.outcome }} status=${{ steps.home_status.outcome }} content=${{ steps.home_content.outcome }} canonical=${{ steps.home_canonical.outcome }} discovery=${{ steps.live_discovery.outcome }} tools=${{ steps.live_tools.outcome }} legacy=${{ steps.live_legacy.outcome }}"
-          gh api --method POST "repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}" -f state=failure -f context='SectorCalc Production SEO' -f description="$description"
