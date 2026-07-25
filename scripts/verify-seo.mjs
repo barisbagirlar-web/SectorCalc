@@ -136,8 +136,13 @@ for (const page of pages) {
     if (!t.includes('sc-eeat.css')) fail(`${page} missing sc-eeat.css`);
     if (!t.includes('Academic Oversight')) fail(`${page} missing Academic Oversight label`);
     if (!t.includes('assets/images/neela-nataraj.jpg')) fail(`${page} missing Neela portrait image`);
+    if (!t.includes('<!--SC-EEAT-START-->') || !t.includes('<!--SC-EEAT-END-->')) {
+      fail(`${page} missing SC-EEAT inject markers (band will vanish on HTML overwrites)`);
+    }
     if (!/"reviewedBy"/.test(t)) fail(`${page} missing reviewedBy entity link`);
-    if (page === 'sc008-pro.html') {
+    if (!t.includes('sc-schema-global') || !t.includes('#person-neela-nataraj')) {
+      fail(`${page} missing schema mesh Person entity #person-neela-nataraj`);
+    }    if (page === 'sc008-pro.html') {
       if (!t.includes('calculation-sheet.css')) fail(`${page} missing isolated /css/calculation-sheet.css`);
       if (!/\bcalc-sheet\b/.test(t)) fail(`${page} missing calc-sheet body class`);
       if (t.includes('theme-blueprint')) fail(`${page} must not use blueprint theme`);
