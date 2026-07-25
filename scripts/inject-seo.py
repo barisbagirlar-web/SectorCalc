@@ -327,6 +327,7 @@ def schema_global() -> str:
                 "familyName": "Nataraj",
                 "honorificPrefix": "Prof. Dr.",
                 "jobTitle": "Professor of Mathematics",
+                "image": f"{HOST}/assets/images/neela-nataraj.jpg",
                 "worksFor": {"@id": f"{HOST}/#educational-organization-iitb"},
                 "affiliation": {"@id": f"{HOST}/#educational-organization-iitb"},
                 "knowsAbout": [
@@ -336,7 +337,10 @@ def schema_global() -> str:
                     "Engineering Mathematics",
                     "Monte Carlo Methods",
                 ],
-                "sameAs": ["https://www.math.iitb.ac.in/"],
+                "sameAs": [
+                    "https://www.math.iitb.ac.in/",
+                    "https://www.math.iitb.ac.in/~neela/",
+                ],
             },
             {
                 "@type": "EducationalOrganization",

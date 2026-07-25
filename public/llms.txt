@@ -70,6 +70,7 @@
 - SC-036 axial stiffness/preload verification does not silently claim eccentricity, prying or transverse-slip verification.
 - Final production release remains subject to the governing code edition, certified material data, exact manufacturer ratings and competent engineering review.
 
+
 ## UI surface architecture (2026-07-25)
 
 - **Home (`/`) is sacred:** live-cell WebGL/SMIL hero (`sc-hero-cell.js`), engineering sheet rails, and standards band. Do not describe the homepage as a dark blueprint mock or replace it with static SVG demos.
@@ -88,7 +89,6 @@
 - [DE](https://sectorcalc.com/de/) · [JA](https://sectorcalc.com/ja/) · [ZH](https://sectorcalc.com/zh/)
 - [Sitemap](https://sectorcalc.com/sitemap.xml)
 - [Robots](https://sectorcalc.com/robots.txt)
-- [AI robots](https://sectorcalc.com/ai-robots.txt)
 
 ## Search and retrieval
 - `robots.txt` explicitly allows Googlebot, Bingbot and OAI-SearchBot to crawl public production content.

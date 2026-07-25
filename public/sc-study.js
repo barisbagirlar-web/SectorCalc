@@ -1,6 +1,6 @@
 /**
  * SectorCalc demo toolbar — English "Load Demo Data" + "Reset" + "Demo scenario active".
- * Same control pattern as degerlet (Load Demo Data / Reset / Demo scenario active).
+ * Same control pattern as the reference demo toolbar (Load Demo Data / Reset / Demo scenario active).
  * Mounts on every *-pro calculator. Tools may override via window.SCStudy.register().
  * Default adapter: snapshot page-load form values as golden demo; Reset clears inputs.
  */

@@ -110,11 +110,15 @@ for (const page of pages) {
     if (!t.includes('Prof. Dr. Neela Nataraj')) fail(`${page} missing visible E-E-A-T academic oversight`);
     if (!t.includes('sc-eeat.css')) fail(`${page} missing sc-eeat.css`);
     if (!t.includes('Academic Oversight')) fail(`${page} missing Academic Oversight label`);
+    if (!t.includes('assets/images/neela-nataraj.jpg')) fail(`${page} missing Neela portrait image`);
     if (!/"reviewedBy"/.test(t)) fail(`${page} missing reviewedBy entity link`);
     if (!t.includes('sc-calc-sheet.css')) fail(`${page} missing calculation-sheet CSS`);
     if (!t.includes('theme-calc-sheet')) fail(`${page} missing theme-calc-sheet body class`);
   }
   if (page === 'tools.html') {
+    if (!t.includes('Prof. Dr. Neela Nataraj')) fail(`${page} missing visible E-E-A-T academic oversight`);
+    if (!t.includes('sc-eeat.css')) fail(`${page} missing sc-eeat.css`);
+    if (!t.includes('assets/images/neela-nataraj.jpg')) fail(`${page} missing Neela portrait image`);
     if (!t.includes('sc-calc-sheet.css')) fail(`${page} missing drawing-index CSS`);
     if (!t.includes('theme-drawing-index')) fail(`${page} missing theme-drawing-index`);
   }

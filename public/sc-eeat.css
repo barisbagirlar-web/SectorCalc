@@ -40,22 +40,21 @@ html[data-theme="dark"] .sc-eeat-shell {
 }
 @media (max-width: 640px) {
   .sc-eeat-card { grid-template-columns: 1fr; }
+  .sc-eeat-photo {
+    width: 96px;
+    height: 96px;
+  }
 }
-.sc-eeat-mark {
-  width: 56px;
-  height: 56px;
-  border: 1.5px solid var(--eeat-blue);
+.sc-eeat-photo {
+  width: 112px;
+  height: 112px;
   border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: "Barlow Condensed", Inter, sans-serif;
-  font-weight: 800;
-  font-size: 18px;
-  letter-spacing: 0.04em;
-  color: var(--eeat-blue);
-  background: transparent;
+  object-fit: cover;
+  object-position: center top;
+  border: 1.5px solid var(--eeat-blue);
   flex-shrink: 0;
+  background: var(--eeat-bg);
+  display: block;
 }
 .sc-eeat-kicker {
   display: block;
