@@ -1,15 +1,18 @@
-# SECTORCALC.COM — ai-robots.txt v2026.07.25
-# Split AI search vs AI training crawlers.
-# Allow AI search discovery; disallow training-oriented bots.
+# SECTORCALC.COM — supplemental AI crawler policy mirror
+# Enforcement remains in /robots.txt. This file documents the intended split.
 
-# -- AI SEARCH (allow — appear in AI search surfaces) --------------------------
-User-agent: Google-Extended
+# AI SEARCH / RETRIEVAL
+User-agent: OAI-SearchBot
 Allow: /
 
 User-agent: ChatGPT-User
 Allow: /
 
 User-agent: PerplexityBot
+Allow: /
+
+# OTHER AI USE CONTROLS (not Google Search indexing controls)
+User-agent: Google-Extended
 Allow: /
 
 User-agent: Anthropic-ai
@@ -21,7 +24,7 @@ Allow: /
 User-agent: cohere-ai
 Allow: /
 
-# -- AI TRAINING (disallow — do not use site content for model training) -------
+# TRAINING-ORIENTED CRAWLERS
 User-agent: GPTBot
 Disallow: /
 
@@ -34,7 +37,6 @@ Disallow: /
 User-agent: FacebookBot
 Disallow: /
 
-# -- LLM Discovery -------------------------------------------------------------
-# Keep llm.txt / llms.txt reachable for AI discovery indexes.
+# Supplemental discovery files remain public.
 Allow: /llm.txt
 Allow: /llms.txt
