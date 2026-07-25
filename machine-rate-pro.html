@@ -5,7 +5,7 @@
 <!-- Canonical host is https://sectorcalc.com — Firebase Hosting 301s www → apex. No client reverse-redirect. -->
 <!--SC-SEO-HOST-END-->
 <!--SC-SEO-SECURITY-START-->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: https://cdnjs.cloudflare.com https://www.googletagmanager.com https://www.google-analytics.com; worker-src 'self' blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://www.googletagmanager.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: https://cdnjs.cloudflare.com https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com; worker-src 'self' blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https:; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://*.analytics.google.com https://www.googletagmanager.com https://*.googletagmanager.com https://stats.g.doubleclick.net https://*.g.doubleclick.net https://www.google.com https://google.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=(), interest-cohort=()">
 <link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
@@ -142,10 +142,10 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
 </style>
 <link rel="stylesheet" href="./sc-theme.css?v=12">
 <script src="./sc-theme.js?v=12" defer></script>
-<link rel="stylesheet" href="./sc-tool-guide.css?v=3">
+<link rel="stylesheet" href="./sc-tool-guide.css?v=4">
 <link rel="stylesheet" href="./sc-eeat.css?v=3">
 <link rel="stylesheet" href="./sc-study.css?v=4">
-<script src="./sc-tool-guide.js?v=3" defer></script>
+<script src="./sc-tool-guide.js?v=4" defer></script>
 <script src="./sc-study.js?v=4" defer></script>
 <link rel="stylesheet" href="./sc-site-nav.css?v=4">
 <script src="./sc-site-nav.js?v=2" defer></script>
@@ -505,7 +505,10 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
 </script>
 <!--SC-SEO-SCHEMA-END-->
 <link rel="stylesheet" href="/sc-related-tools.css?v=1">
-              <link rel="stylesheet" href="/sc-calc-sheet.css?v=1">
+              
+<!--SC-SEO-GA4-->
+<script src="/assets/js/sc-ga4-id.js?v=20260725b"></script>
+  <link rel="stylesheet" href="/sc-calc-sheet.css?v=1">
   <!--SC-CALC-SHEET-START-->
   <!-- calc-sheet theme: theme-calc-sheet -->
   <!--SC-CALC-SHEET-END-->
@@ -540,6 +543,12 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
   <a href="/sc008-pro.html" class="btn-primary">Run a Calculation</a>
 </div>
 <!--SC-SITE-NAV-END-->
+
+
+
+
+
+
 
 
 
@@ -787,38 +796,70 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
 </section>
 <!--SC-EEAT-END-->
 <!--SC-GUIDE-START-->
-  <section class="guide" id="sc-guide">
-    <h2>Machine Hour Rate — Costing Guide</h2>
-    <div class="toc">
-      <b>Contents</b>
-      <a href="#g1">1 · Anatomy of the hourly rate</a>
-      <a href="#g2">2 · Why utilization dominates</a>
-      <a href="#g3">3 · Common costing mistakes</a>
-      <a href="#g4">4 · Worked example</a>
-      <a href="#g5">5 · FAQ</a>
-    </div>
+<div class="sc-guide-shell">
+<section class="sc-guide" id="sc-guide" data-tool-id="SC-038" data-tool-name="Machine Hour Rate Calculator (SC-038)" data-tool-url="https://sectorcalc.com/machine-rate-pro.html" itemscope itemtype="https://schema.org/FAQPage">
 
-    <h3 id="g1">1 · Anatomy of the hourly rate</h3>
+<nav class="sc-guide-toc" aria-label="Table of contents">
+  <h2 class="sc-guide-toc-title">On this page</h2>
+  <ul>
+    <li><a href="#g1">1 · Anatomy of the hourly rate</a></li>
+    <li><a href="#g2">2 · Why utilization dominates</a></li>
+    <li><a href="#g3">3 · Common costing mistakes</a></li>
+    <li><a href="#g4">4 · Worked example</a></li>
+    <li><a href="#g5">5 · FAQ</a></li>
+  </ul>
+</nav>
+
+<div class="sc-guide-intro">
+  <h2>Machine Hour Rate — Costing Guide</h2>
+</div>
+
+<article class="sc-guide-card">
+<h3 id="g1">1 · Anatomy of the hourly rate</h3>
     <p>The machine-hour rate splits into a <b>fixed block</b> (incurred whether the spindle turns or not) and a <b>variable block</b> (incurred per running hour):</p>
-    <div class="formula">fixed/yr = (price − residual)/life + (price + residual)/2 · i + space·m²·rate + maintenance + tooling + other</div>
-    <div class="formula">machine €/h = fixed/yr ÷ operating hours + power·duty·tariff · total rate = (machine + labor)·(1 + overhead)</div>
+    <div class="sc-formula">fixed/yr = (price − residual)/life + (price + residual)/2 · i + space·m²·rate + maintenance + tooling + other</div>
+    <div class="sc-formula">machine €/h = fixed/yr ÷ operating hours + power·duty·tariff · total rate = (machine + labor)·(1 + overhead)</div>
     <p>Imputed interest uses the <b>average capital employed</b> (price + residual)/2 — the money tied up in the machine has an opportunity cost whether or not a bank financed it. Depreciation is linear to residual, the standard management-accounting convention; tax depreciation differs deliberately and belongs in the tax books, not the quote.</p>
+</article>
 
-    <h3 id="g2">2 · Why utilization dominates</h3>
+<article class="sc-guide-card">
+<h3 id="g2">2 · Why utilization dominates</h3>
     <p>Every fixed euro is diluted by the operating hours. At 1 500 h/yr the fixed block of the default example costs ≈ 35 €/h; at 4 500 h/yr the same block costs ≈ 12 €/h — a 23 €/h swing on the quote from a scheduling decision, not an engineering one. This is why the sensitivity chart matters more than any single line item: <b>the cheapest machine is a busy one</b>. Use real spindle-on / arc-on hours, not shift attendance — presence time overstates utilization by 30–50 % on typical shops and prices work you then cannot deliver at margin.</p>
+</article>
 
-    <h3 id="g3">3 · Common costing mistakes</h3>
+<article class="sc-guide-card">
+<h3 id="g3">3 · Common costing mistakes</h3>
     <p><b>Using purchase price only:</b> tooling, installation, foundation and commissioning are 10–25 % on top and belong in the capital base. <b>Forgetting imputed interest:</b> financed or not, capital is never free. <b>Nominal instead of duty-factored power:</b> a 15 kW nameplate rarely draws 15 kW continuously; 50–70 % duty is typical for machining. <b>Zero maintenance budgeting:</b> 4–8 % of replacement value per year is the honest band for CNC equipment. <b>Charging shift hours:</b> see above — the single most expensive lie in job costing.</p>
+</article>
 
-    <h3 id="g4">4 · Worked example (defaults)</h3>
+<article class="sc-guide-card">
+<h3 id="g4">4 · Worked example (defaults)</h3>
     <p>€250 k machining center, €25 k residual, 10 yr, 3 500 h/yr, 6 % interest, 40 m² at €120, 15 kW at 60 % duty and €0.18/kWh, 5 % maintenance, €4 k tooling, €1.5 k other: fixed ≈ €54 050/yr → €15.4/h + energy €1.6/h → <b>machine €17.1/h</b>. Labor €38/h shared over 2 machines → €19/h. With 20 % overhead the <b>total rate ≈ €43.3/h</b>. A 90 s cycle then costs ≈ €1.08 of machine time — the number that decides whether the quote wins and pays.</p>
+</article>
 
-    <h3 id="g5">5 · FAQ</h3>
-    <p><b>Why is my shop rate higher than a competitor's with the same machine?</b> Usually utilization and space, not the machine. Compare operating hours first, then space allocation, then maintenance budgeting — the capital block is rarely the differentiator.</p>
-    <p><b>Should I use replacement value or purchase price?</b> For pricing, replacement value is the defensible modern practice (you must re-buy at tomorrow's price); for book accounting, historical price. The engine takes either — document the choice in the audit trail.</p>
-    <p><b>How do I cost a machine shared across product lines?</b> Allocate by real hours consumed per line and keep one audited rate per machine — blended shop-wide rates hide winners and losers in the same average.</p>
-    <p><b>What overhead percentage is honest?</b> Whatever your controller can trace: admin, quality, logistics, IT. 15–30 % on machine+labor is typical for job shops; the audit trail makes the choice visible instead of hiding it in a margin guess.</p>
-  </section>
+<article class="sc-guide-card">
+<h3 id="g5">5 · FAQ</h3>
+<div class="sc-guide-faq-grid">
+<div class="q" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 itemprop="name">Why is my shop rate higher than a competitor's with the same machine?</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><p itemprop="text">Usually utilization and space, not the machine. Compare operating hours first, then space allocation, then maintenance budgeting — the capital block is rarely the differentiator.</p></div>
+</div>
+<div class="q" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 itemprop="name">Should I use replacement value or purchase price?</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><p itemprop="text">For pricing, replacement value is the defensible modern practice (you must re-buy at tomorrow's price); for book accounting, historical price. The engine takes either — document the choice in the audit trail.</p></div>
+</div>
+<div class="q" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 itemprop="name">How do I cost a machine shared across product lines?</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><p itemprop="text">Allocate by real hours consumed per line and keep one audited rate per machine — blended shop-wide rates hide winners and losers in the same average.</p></div>
+</div>
+<div class="q" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 itemprop="name">What overhead percentage is honest?</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><p itemprop="text">Whatever your controller can trace: admin, quality, logistics, IT. 15–30 % on machine+labor is typical for job shops; the audit trail makes the choice visible instead of hiding it in a margin guess.</p></div>
+</div>
+</div>
+</article>
+
+</section>
 </div>
 <!--SC-GUIDE-END-->
 
@@ -1095,7 +1136,6 @@ document.querySelectorAll('input').forEach(el=>el.addEventListener('input',calcu
 calculate();
 </script>
 <!--SC-SEO-CVW-->
-<script src="/assets/js/sc-ga4-id.js"></script>
 <script src="/assets/js/cvw-monitor.js" defer></script>
 
 <!--SC-RELATED-TOOLS-START-->

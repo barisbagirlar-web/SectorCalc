@@ -167,6 +167,18 @@ for (const page of pages) {
       fail('index.html must not carry calc-sheet / blueprint theme (live-cell hero sacred)');
     }
     if (!t.includes('sc-hero-cell')) fail('index.html missing sc-hero-cell');
+    try {
+      const heroJs = readFileSync(join(ROOT, 'public/sc-hero-cell.js'), 'utf8');
+      if (!heroJs.includes('3D env map skipped') || !heroJs.includes('hasEnv')) {
+        fail('sc-hero-cell.js must keep RoomEnvironment optional (env-map fail must not kill WebGL)');
+      }
+      if (/if\s*\(\s*reducedMotion\s*\(\s*\)\s*\)\s*return/.test(heroJs)) {
+        fail('sc-hero-cell.js must not skip WebGL when prefers-reduced-motion is set');
+      }
+    } catch (e) {
+      if (String(e.message || e).includes('must ')) throw e;
+      fail('public/sc-hero-cell.js missing');
+    }
   }
   if (['tools.html', 'pricing.html', 'pro.html'].includes(page) && !t.includes('sc-breadcrumb')) {
     fail(`${page} missing breadcrumb nav`);

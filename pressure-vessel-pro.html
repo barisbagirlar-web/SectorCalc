@@ -5,7 +5,7 @@
 <!-- Canonical host is https://sectorcalc.com — Firebase Hosting 301s www → apex. No client reverse-redirect. -->
 <!--SC-SEO-HOST-END-->
 <!--SC-SEO-SECURITY-START-->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: https://cdnjs.cloudflare.com https://www.googletagmanager.com https://www.google-analytics.com; worker-src 'self' blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://www.googletagmanager.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: https://cdnjs.cloudflare.com https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com; worker-src 'self' blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https:; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://*.analytics.google.com https://www.googletagmanager.com https://*.googletagmanager.com https://stats.g.doubleclick.net https://*.g.doubleclick.net https://www.google.com https://google.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=(), interest-cohort=()">
 <link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
@@ -142,10 +142,10 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
 </style>
 <link rel="stylesheet" href="./sc-theme.css?v=12">
 <script src="./sc-theme.js?v=12" defer></script>
-<link rel="stylesheet" href="./sc-tool-guide.css?v=3">
+<link rel="stylesheet" href="./sc-tool-guide.css?v=4">
 <link rel="stylesheet" href="./sc-eeat.css?v=3">
 <link rel="stylesheet" href="./sc-study.css?v=4">
-<script src="./sc-tool-guide.js?v=3" defer></script>
+<script src="./sc-tool-guide.js?v=4" defer></script>
 <script src="./sc-study.js?v=4" defer></script>
 <link rel="stylesheet" href="./sc-site-nav.css?v=4">
 <script src="./sc-site-nav.js?v=2" defer></script>
@@ -505,7 +505,10 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
 </script>
 <!--SC-SEO-SCHEMA-END-->
 <link rel="stylesheet" href="/sc-related-tools.css?v=1">
-              <link rel="stylesheet" href="/sc-calc-sheet.css?v=1">
+              
+<!--SC-SEO-GA4-->
+<script src="/assets/js/sc-ga4-id.js?v=20260725b"></script>
+  <link rel="stylesheet" href="/sc-calc-sheet.css?v=1">
   <!--SC-CALC-SHEET-START-->
   <!-- calc-sheet theme: theme-calc-sheet -->
   <!--SC-CALC-SHEET-END-->
@@ -540,6 +543,12 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
   <a href="/sc008-pro.html" class="btn-primary">Run a Calculation</a>
 </div>
 <!--SC-SITE-NAV-END-->
+
+
+
+
+
+
 
 
 
@@ -1106,7 +1115,6 @@ document.querySelectorAll('input').forEach(el=>el.addEventListener('input',calcu
 calculate();
 </script>
 <!--SC-SEO-CVW-->
-<script src="/assets/js/sc-ga4-id.js"></script>
 <script src="/assets/js/cvw-monitor.js" defer></script>
 
 <!--SC-RELATED-TOOLS-START-->

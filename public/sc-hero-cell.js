@@ -94,7 +94,7 @@ function startPosterAnimator() {
   let i = 0;
   let spinX = 0;
   let dir = 1;
-  const stepMs = reducedMotion() ? 1800 : 1100;
+  const stepMs = reducedMotion() ? 1400 : 700;
 
   function paint() {
     if (threeReady) return;
@@ -110,8 +110,8 @@ function startPosterAnimator() {
         s.nom + ' <tspan fill="#E87722">' + sign + s.off.toFixed(3) + '</tspan>';
     }
     if (spin && !reducedMotion()) {
-      spinX += 3 * dir;
-      if (spinX > 14 || spinX < 0) dir *= -1;
+      spinX += 8 * dir;
+      if (spinX > 28 || spinX < 0) dir *= -1;
       spin.setAttribute('transform', 'translate(' + spinX + ' 0)');
     }
     i += 1;
@@ -161,18 +161,21 @@ function waitUntilVisible(el) {
 }
 
 async function loadThree() {
+  async function loadPair(threeUrl, roomUrl) {
+    const threeMod = await import(threeUrl);
+    let RoomEnvironment = null;
+    try {
+      const roomMod = await import(roomUrl);
+      RoomEnvironment = roomMod.RoomEnvironment || null;
+    } catch (eRoom) {
+      console.warn('RoomEnvironment import skipped:', eRoom && eRoom.message ? eRoom.message : eRoom);
+    }
+    return { THREE: threeMod, RoomEnvironment };
+  }
   try {
-    const [threeMod, roomMod] = await Promise.all([
-      import('three'),
-      import('three/addons/environments/RoomEnvironment.js')
-    ]);
-    return { THREE: threeMod, RoomEnvironment: roomMod.RoomEnvironment };
+    return await loadPair('three', 'three/addons/environments/RoomEnvironment.js');
   } catch (e1) {
-    const [threeMod, roomMod] = await Promise.all([
-      import('/vendor/three/three.module.min.js'),
-      import('/vendor/three/RoomEnvironment.js')
-    ]);
-    return { THREE: threeMod, RoomEnvironment: roomMod.RoomEnvironment };
+    return await loadPair('/vendor/three/three.module.min.js', '/vendor/three/RoomEnvironment.js');
   }
 }
 
@@ -185,8 +188,9 @@ async function boot() {
 
   await waitUntilVisible(heroRoot);
 
-  // Still try WebGL upgrade (skip only if user prefers reduced motion for 3D).
-  if (reducedMotion()) return;
+  // Always attempt WebGL. prefers-reduced-motion only slows the loop — never
+  // leaves the flat SVG poster as the primary hero (that looked "broken").
+  const preferCalm = reducedMotion();
 
   let THREE;
   let RoomEnvironment;
@@ -214,25 +218,71 @@ async function boot() {
     }
     renderer.setPixelRatio(Math.min(devicePixelRatio, 1.5));
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 0.92;
+    renderer.toneMappingExposure = 1.05;
+    if ('outputColorSpace' in renderer && THREE.SRGBColorSpace) {
+      renderer.outputColorSpace = THREE.SRGBColorSpace;
+    }
     const scene = new THREE.Scene();
-    const pmrem = new THREE.PMREMGenerator(renderer);
-    scene.environment = pmrem.fromScene(new RoomEnvironment(renderer), 0.04).texture;
 
+    // RoomEnvironment/PMREM is optional. If it throws (Safari / weak GPU),
+    // keep WebGL alive — never fall back to the flat SVG poster for this alone.
+    let hasEnv = false;
+    try {
+      if (typeof RoomEnvironment === 'function') {
+        const pmrem = new THREE.PMREMGenerator(renderer);
+        const envScene = new RoomEnvironment(renderer);
+        scene.environment = pmrem.fromScene(envScene, 0.04).texture;
+        hasEnv = true;
+        try {
+          pmrem.dispose();
+        } catch (eDispose) {
+          /* ignore */
+        }
+      }
+    } catch (eEnv) {
+      console.warn('3D env map skipped:', eEnv && eEnv.message ? eEnv.message : eEnv);
+      scene.environment = null;
+      hasEnv = false;
+    }
+
+    // Camera angled enough that the lathe never reads as a flat side elevation.
     const camera = new THREE.PerspectiveCamera(38, 2, 0.1, 100);
-    camera.position.set(0.4, 1.5, 5.4);
-    camera.lookAt(0, 0.15, 0);
+    camera.position.set(1.15, 1.85, 5.15);
+    camera.lookAt(0.05, 0.1, 0);
 
-    scene.add(new THREE.AmbientLight(0xf0f2f5, 0.35));
-    const key = new THREE.DirectionalLight(0xffffff, 2.6);
-    key.position.set(3, 4, 5);
+    // Lights must carry the scene when env map is missing (metalness 1 + no env = black slabs).
+    scene.add(new THREE.AmbientLight(0xf0f2f5, hasEnv ? 0.4 : 0.75));
+    const hemi = new THREE.HemisphereLight(0xffffff, 0xb0b8c0, hasEnv ? 0.55 : 1.15);
+    scene.add(hemi);
+    const key = new THREE.DirectionalLight(0xffffff, hasEnv ? 2.4 : 3.2);
+    key.position.set(3.2, 4.2, 5.2);
     scene.add(key);
-    const rim = new THREE.DirectionalLight(0x9cc4e8, 1.2);
-    rim.position.set(-4, 2, -3);
+    const rim = new THREE.DirectionalLight(0x9cc4e8, hasEnv ? 1.1 : 1.8);
+    rim.position.set(-4, 2.2, -3);
     scene.add(rim);
-    const warm = new THREE.PointLight(0xe87722, 7, 12);
-    warm.position.set(0, -1.6, 2.2);
+    const fill = new THREE.DirectionalLight(0xffffff, hasEnv ? 0.6 : 1.25);
+    fill.position.set(-1.5, 0.4, 4);
+    scene.add(fill);
+    const warm = new THREE.PointLight(0xe87722, hasEnv ? 6 : 10, 14);
+    warm.position.set(0.2, -1.4, 2.4);
     scene.add(warm);
+
+    // Materials tuned to look metallic WITH or WITHOUT an env map.
+    const steel = new THREE.MeshStandardMaterial({
+      color: 0xa8b0b8,
+      metalness: hasEnv ? 0.85 : 0.45,
+      roughness: hasEnv ? 0.32 : 0.42
+    });
+    const steelDark = new THREE.MeshStandardMaterial({
+      color: 0x3a4048,
+      metalness: hasEnv ? 0.8 : 0.4,
+      roughness: hasEnv ? 0.45 : 0.5
+    });
+    const steelMid = new THREE.MeshStandardMaterial({
+      color: 0x6a727c,
+      metalness: hasEnv ? 0.85 : 0.45,
+      roughness: hasEnv ? 0.38 : 0.45
+    });
 
     const profile = [
       [0.001, 0],
@@ -249,35 +299,41 @@ async function boot() {
       [0.001, 3.8]
     ].map((p) => new THREE.Vector2(p[0], p[1]));
     const shaftGeo = new THREE.LatheGeometry(profile, 96);
-    const steel = new THREE.MeshStandardMaterial({ color: 0x9ba2ab, metalness: 1.0, roughness: 0.3 });
     const shaft = new THREE.Mesh(shaftGeo, steel);
     shaft.rotation.z = -Math.PI / 2;
     shaft.position.x = -1.9;
 
-    const ring = new THREE.Mesh(
-      new THREE.TorusGeometry(0.56, 0.15, 20, 64),
-      new THREE.MeshStandardMaterial({ color: 0x8a9098, metalness: 1, roughness: 0.35 })
+    // High-contrast stripe so spindle rotation is obvious even on axisymmetric steel.
+    const stripe = new THREE.Mesh(
+      new THREE.BoxGeometry(3.6, 0.04, 0.08),
+      new THREE.MeshStandardMaterial({
+        color: 0xe87722,
+        metalness: 0.35,
+        roughness: 0.45,
+        emissive: 0xe87722,
+        emissiveIntensity: 0.25
+      })
     );
+    stripe.position.set(-0.1, 0.34, 0);
+
+    const ring = new THREE.Mesh(new THREE.TorusGeometry(0.56, 0.15, 20, 64), steelMid);
     ring.rotation.y = Math.PI / 2;
     ring.position.x = 0.55;
 
-    const chuckMat = new THREE.MeshStandardMaterial({ color: 0x2e3338, metalness: 0.9, roughness: 0.5 });
-    const chuck = new THREE.Mesh(new THREE.CylinderGeometry(0.62, 0.62, 0.5, 32), chuckMat);
+    const chuck = new THREE.Mesh(new THREE.CylinderGeometry(0.62, 0.62, 0.5, 32), steelDark);
     chuck.rotation.z = Math.PI / 2;
     chuck.position.x = -2.15;
     const jaws = new THREE.Group();
     for (let i = 0; i < 3; i++) {
-      const j = new THREE.Mesh(
-        new THREE.BoxGeometry(0.3, 0.22, 0.24),
-        new THREE.MeshStandardMaterial({ color: 0x4a5058, metalness: 0.9, roughness: 0.4 })
-      );
+      const j = new THREE.Mesh(new THREE.BoxGeometry(0.3, 0.22, 0.24), steelMid);
       const a = (i * Math.PI * 2) / 3;
-      j.position.set(-1.92, Math.cos(a) * 0.42, Math.sin(a) * 0.42);
+      // Sit jaws on the chuck face so they read as spinning clamps, not buried geometry.
+      j.position.set(-1.88, Math.cos(a) * 0.48, Math.sin(a) * 0.48);
       j.rotation.x = -a;
       jaws.add(j);
     }
     const spin = new THREE.Group();
-    spin.add(shaft, ring, chuck, jaws);
+    spin.add(shaft, stripe, ring, chuck, jaws);
     scene.add(spin);
 
     const grid = new THREE.GridHelper(14, 28, 0x8fb6d9, 0xc9d2da);
@@ -289,7 +345,7 @@ async function boot() {
     const probe = new THREE.Group();
     const pBody = new THREE.Mesh(
       new THREE.CylinderGeometry(0.045, 0.045, 0.85, 16),
-      new THREE.MeshStandardMaterial({ color: 0x4a5058, metalness: 0.9, roughness: 0.35 })
+      steelMid
     );
     pBody.position.y = 0.45;
     const pTip = new THREE.Mesh(
@@ -298,13 +354,19 @@ async function boot() {
         color: 0xe8536b,
         emissive: 0xe8536b,
         emissiveIntensity: 0.9,
-        metalness: 0.4,
-        roughness: 0.3
+        metalness: 0.25,
+        roughness: 0.35
       })
     );
     const pCollar = new THREE.Mesh(
       new THREE.CylinderGeometry(0.1, 0.1, 0.1, 16),
-      new THREE.MeshStandardMaterial({ color: 0x0055a4, metalness: 0.9, roughness: 0.3 })
+      new THREE.MeshStandardMaterial({
+        color: 0x0055a4,
+        metalness: hasEnv ? 0.7 : 0.35,
+        roughness: 0.35,
+        emissive: 0x0055a4,
+        emissiveIntensity: 0.15
+      })
     );
     pCollar.position.y = 0.88;
     probe.add(pBody, pTip, pCollar);
@@ -428,15 +490,22 @@ async function boot() {
     let raf = 0;
     const visIO = new IntersectionObserver(
       (entries) => {
-        running = entries.some((e) => e.isIntersecting) && !document.hidden;
+        const onScreen = entries.some((e) => e.isIntersecting);
+        running = onScreen && !document.hidden;
         if (running && !raf) raf = requestAnimationFrame(loop);
       },
-      { threshold: 0.05 }
+      { threshold: 0.01, rootMargin: '80px 0px' }
     );
     visIO.observe(heroRoot);
     document.addEventListener('visibilitychange', () => {
-      running = !document.hidden;
-      if (running && !raf) raf = requestAnimationFrame(loop);
+      // Never force-run when the hero is off-screen; IO callback owns that.
+      if (document.hidden) {
+        running = false;
+        return;
+      }
+      // Kick a frame; IO will set running accurately on next observe pass.
+      if (!raf) raf = requestAnimationFrame(loop);
+      running = true;
     });
 
     function loop(now) {
@@ -445,23 +514,24 @@ async function boot() {
       raf = requestAnimationFrame(loop);
       const dt = Math.min((now - last) / 1000, 0.05);
       last = now;
-      spin.rotation.x += dt * 2.2;
-      spin.rotation.y += (mx * 0.3 - spin.rotation.y) * 0.04;
-      scene.rotation.x += (my * 0.12 - scene.rotation.x) * 0.04;
+      const motion = preferCalm ? 0.45 : 1;
+      spin.rotation.x += dt * 2.8 * motion;
+      spin.rotation.y += (mx * 0.35 - spin.rotation.y) * 0.05;
+      scene.rotation.x += (my * 0.14 - scene.rotation.x) * 0.05;
       dust.rotation.y += dt * 0.02;
 
-      phaseT += dt;
+      phaseT += dt * motion;
       const st = stations[stIdx];
       if (phase === 'move') {
-        px += (st.x - px) * Math.min(1, dt * 4);
-        py += (1.7 - py) * Math.min(1, dt * 4);
+        px += (st.x - px) * Math.min(1, dt * 4 * motion);
+        py += (1.7 - py) * Math.min(1, dt * 4 * motion);
         if (tProbe) tProbe.textContent = 'MOVE';
         if (Math.abs(px - st.x) < 0.01 && phaseT > 0.6) {
           phase = 'down';
           phaseT = 0;
         }
       } else if (phase === 'down') {
-        py += (st.r + 0.06 - py) * Math.min(1, dt * 6);
+        py += (st.r + 0.06 - py) * Math.min(1, dt * 6 * motion);
         if (tProbe) tProbe.textContent = 'PROBE';
         if (py < st.r + 0.09) {
           phase = 'touch';
@@ -477,7 +547,7 @@ async function boot() {
           phaseT = 0;
         }
       } else if (phase === 'up') {
-        py += (1.7 - py) * Math.min(1, dt * 4);
+        py += (1.7 - py) * Math.min(1, dt * 4 * motion);
         if (tProbe) tProbe.textContent = 'RETRACT';
         if (py > 1.6) {
           phase = 'move';

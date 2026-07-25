@@ -1,5 +1,5 @@
 /* SectorCalc — tool guide layout (balanced, page-aligned, mobile-safe)
-   v2: two-column sticky TOC + section cards — not a long single-column wall. */
+   v4: legacy .guide/.toc/.formula aliased to premium sc-guide; softer formulas; titleblock clearance. */
 
 .sc-guide-shell{
   width:100%;
@@ -12,28 +12,35 @@
 .wrap > .sc-guide-shell,
 .wrap + .sc-guide-shell{margin-top:0}
 
-.sc-guide{
+.sc-guide,
+section.guide,
+#sc-guide.guide{
   --sg-ink:#1c2733; --sg-mut:#5d6b7a; --sg-line:#d9e0e8; --sg-panel:#ffffff;
   --sg-bg:#f4f6f9; --sg-blue:#0055A4; --sg-navy:#0f2744; --sg-accent:#E87722;
-  --sg-formula:#fff8e6; --sg-tip:#eef4ff; --sg-tip-line:#c5d4f0;
+  --sg-formula:#fff8e6; --sg-formula-line:#e8d9a8; --sg-tip:#eef4ff; --sg-tip-line:#c5d4f0;
   --sg-radius:14px; --sg-gap:20px;
   max-width:min(1180px, 100%);
   margin:0 auto;
-  padding:40px 24px 64px;
+  padding:40px 24px 120px;
   color:var(--sg-ink);
   font-family:Inter,system-ui,sans-serif;
-  line-height:1.6;
+  line-height:1.65;
   background:transparent;
   border-top:none;
   overflow-x:clip;
+  letter-spacing:0;
 }
-html[data-theme="dark"] .sc-guide{
+html[data-theme="dark"] .sc-guide,
+html[data-theme="dark"] section.guide,
+html[data-theme="dark"] #sc-guide.guide{
   --sg-ink:#e6ecf3; --sg-mut:#93a3b5; --sg-line:#2a3646; --sg-panel:#161d27;
   --sg-bg:#0e131a; --sg-blue:#4c9be8; --sg-navy:#e6ecf3;
-  --sg-formula:#2a2414; --sg-tip:#14273a; --sg-tip-line:#1e4a6e;
+  --sg-formula:#2a2414; --sg-formula-line:#4a3f24; --sg-tip:#14273a; --sg-tip-line:#1e4a6e;
 }
 html[data-theme="dark"] .sc-guide-shell{background:var(--sg-bg); border-top-color:var(--sg-line)}
-.sc-guide *{box-sizing:border-box}
+.sc-guide *,
+section.guide *,
+#sc-guide.guide *{box-sizing:border-box}
 
 /* ---- Engagement: compact header strip ---- */
 .sc-engage{
@@ -159,30 +166,50 @@ html[data-theme="dark"] .sc-engage-form-host .sc-engage{
   gap:28px 36px;
   align-items:start;
 }
-.sc-guide-toc{
+.sc-guide-toc,
+section.guide > .toc,
+#sc-guide > .toc{
   position:sticky;
   top:72px;
-  margin:0;
+  margin:0 0 20px;
   padding:16px;
   background:var(--sg-panel);
   border:1px solid var(--sg-line);
   border-radius:var(--sg-radius);
   max-height:calc(100vh - 96px);
   overflow:auto;
+  display:flex;
+  flex-direction:column;
+  gap:4px;
 }
 .sc-guide-toc .t,
-.sc-guide-toc-title{
+.sc-guide-toc-title,
+section.guide > .toc > b,
+#sc-guide > .toc > b{
   font-family:'Barlow Condensed',Inter,sans-serif;
   font-size:15px; font-weight:700; color:var(--sg-navy);
   margin:0 0 10px; letter-spacing:.3px; text-transform:uppercase;
+  display:block;
 }
 .sc-guide-toc ul,
 .sc-guide-toc ol{list-style:none; margin:0; padding:0}
 .sc-guide-toc li{margin:0}
-.sc-guide-toc a{
-  display:block; padding:7px 10px; margin:0 0 2px; border-radius:7px;
-  font-size:13px; line-height:1.35; font-weight:500; color:var(--sg-mut);
+section.guide > .toc > a,
+#sc-guide > .toc > a{
+  display:block; padding:8px 12px; margin:0 0 4px; border-radius:8px;
+  font-size:13.5px; line-height:1.4; font-weight:500; color:var(--sg-mut) !important;
   text-decoration:none; border-left:2px solid transparent;
+  transition:color .15s, background .15s, border-color .15s;
+}
+section.guide > .toc > a:hover,
+#sc-guide > .toc > a:hover{
+  color:var(--sg-blue) !important; background:rgba(0,85,164,.06); border-left-color:var(--sg-blue);
+}
+.sc-guide-toc a{
+  display:block; padding:8px 12px; margin:0 0 4px; border-radius:8px;
+  font-size:13.5px; line-height:1.4; font-weight:500; color:var(--sg-mut);
+  text-decoration:none; border-left:2px solid transparent;
+  transition:color .15s, background .15s, border-color .15s;
 }
 .sc-guide-toc a:hover,
 .sc-guide-toc a:focus-visible{
@@ -197,34 +224,51 @@ html[data-theme="dark"] .sc-engage-form-host .sc-engage{
   background:var(--sg-panel);
   border:1px solid var(--sg-line);
   border-radius:var(--sg-radius);
-  padding:22px 24px 20px;
+  padding:24px 26px 22px;
   box-shadow:0 1px 2px rgba(15,39,68,.03);
 }
 .sc-guide-lede{
-  font-size:15.5px; margin:0; color:var(--sg-ink); line-height:1.65;
+  font-size:15.5px; margin:0; color:var(--sg-ink); line-height:1.7;
 }
-.sc-guide h2{
+.sc-guide h2,
+section.guide > h2,
+#sc-guide > h2{
   font-family:'Barlow Condensed',Inter,sans-serif;
   font-size:clamp(22px,2.4vw,28px); font-weight:700; color:var(--sg-navy);
-  letter-spacing:.3px; margin:0 0 12px; line-height:1.2; scroll-margin-top:80px;
+  letter-spacing:.2px; margin:0 0 14px; line-height:1.25; scroll-margin-top:80px;
 }
-.sc-guide-card > h2:first-child{margin-top:0}
-.sc-guide h3{
+.sc-guide-card > h2:first-child,
+.sc-guide-card > h3:first-child{margin-top:0}
+.sc-guide h3,
+section.guide h3{
   font-family:'Barlow Condensed',Inter,sans-serif; font-size:19px; font-weight:700;
-  color:var(--sg-navy); margin:18px 0 8px; line-height:1.25;
+  color:var(--sg-navy); margin:18px 0 10px; line-height:1.3; scroll-margin-top:80px;
 }
-.sc-guide p{margin:0 0 12px; font-size:15px; color:var(--sg-ink)}
-.sc-guide p:last-child{margin-bottom:0}
-.sc-guide p b,.sc-guide li b,.sc-guide strong{font-weight:700}
+.sc-guide p,
+section.guide p{margin:0 0 12px; font-size:15px; color:var(--sg-ink); line-height:1.7}
+.sc-guide p:last-child,
+section.guide p:last-child{margin-bottom:0}
+.sc-guide p b,.sc-guide li b,.sc-guide strong,
+section.guide b{font-weight:600}
 .sc-guide ol,.sc-guide ul{margin:0 0 12px; padding-left:20px}
 .sc-guide li{margin:0 0 6px; font-size:15px}
-.sc-guide a{color:var(--sg-blue); text-decoration:underline; text-underline-offset:3px; font-weight:600}
-.sc-guide a:hover{color:var(--sg-accent)}
+.sc-guide a,
+section.guide a{color:var(--sg-blue); text-decoration:none; font-weight:600}
+.sc-guide a:hover,
+section.guide a:hover{color:var(--sg-blue); text-decoration:underline; text-underline-offset:3px}
 
-.sc-formula{
-  font-family:'JetBrains Mono',Consolas,monospace; font-size:13.5px; line-height:1.55;
-  background:var(--sg-formula); color:var(--sg-ink); padding:12px 14px; margin:10px 0 14px;
-  border-radius:8px; overflow-x:auto; white-space:pre-wrap;
+/* Cream formula panes — override page-level navy .formula inside guides */
+.sc-formula,
+.sc-guide .formula,
+section.guide .formula,
+#sc-guide .formula{
+  font-family:'JetBrains Mono',Consolas,monospace; font-size:13.5px; line-height:1.6;
+  background:var(--sg-formula, #fff8e6) !important;
+  color:var(--sg-ink, #1c2733) !important;
+  padding:14px 16px; margin:12px 0 16px;
+  border:1px solid var(--sg-formula-line, #e8d9a8);
+  border-radius:10px; overflow-x:auto; white-space:pre-wrap;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.55);
 }
 .sc-tip{
   display:flex; gap:12px; align-items:flex-start; background:var(--sg-tip);
@@ -307,7 +351,13 @@ html[data-theme="dark"] .sc-guide tr:nth-child(even) td{background:rgba(255,255,
   .sc-guide-card{padding:18px 16px}
 }
 
-@media (max-width:520px){
-  .sc-engage-btn{flex:1 1 100%}
-  .sc-guide table{min-width:440px; font-size:12.5px}
+/* Keep guide copy clear of the fixed DWG stamp */
+@media (min-width: 721px) {
+  body.theme-calc-sheet .sc-guide,
+  body.theme-calc-sheet #sc-guide {
+    padding-right: max(24px, 11rem);
+  }
+}
+body.theme-calc-sheet .sc-calc-sheet-titleblock {
+  opacity: 0.78;
 }
