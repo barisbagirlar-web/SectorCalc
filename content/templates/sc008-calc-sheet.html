@@ -1,0 +1,257 @@
+<!-- REFERENCE ONLY — do not deploy as live sc008-pro.html. Live page uses calculation-sheet.css via minimal class migration. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SC-008 · Statistical Tolerance Stack-Up — SectorCalc</title>
+<meta name="description" content="Worst-case, RSS, and seeded Monte Carlo tolerance stack-up with predicted Cpk. ISO 286-1 / ASME Y14.5 / AIAG SPC referenced. Audit-ready.">
+<link rel="stylesheet" href="/css/calculation-sheet.css">
+<!-- Existing calculator engine scripts stay here — do not overwrite -->
+<script src="/js/sc008-engine.js" defer></script>
+<script src="/js/decimal.min.js" defer></script>
+</head>
+<body class="calc-sheet has-grid">
+
+<div class="cs-sheet-border">
+
+  <!-- HEADER -->
+  <header class="cs-header">
+    <div class="cs-header-left">
+      <h1>SC-008 · Statistical Tolerance Stack-Up</h1>
+      <div class="cs-header-sub">Engineering preview · Decimal engine · Not for production approval</div>
+    </div>
+    <div class="cs-header-right">
+      <div class="cs-header-engine">SC-008-ENGINE v1.0.0</div>
+      <div>DWG NO: SC-008-001</div>
+      <div>SCALE: NTS · REV: A</div>
+      <div>DATE: 2026-07-25</div>
+    </div>
+  </header>
+
+  <!-- NAVIGATION -->
+  <nav class="cs-nav">
+    <a href="/">← Home</a>
+    <a href="/tools.html">Tools Index</a>
+    <span class="cs-nav-active">SC-008</span>
+    <a href="/sc020-pro.html">SC-020</a>
+    <a href="/sc010-pro.html">SC-010</a>
+    <a href="/sc001-pro.html">SC-001</a>
+    <a href="/pricing.html">Pricing</a>
+  </nav>
+
+  <!-- VERDICT -->
+  <div class="cs-verdict cs-verdict-pass" id="verdict-banner">
+    <span style="font-size: 1.2rem;">✓</span>
+    <span id="verdict-text">Predicted in spec — verify with measured data before release</span>
+  </div>
+
+  <!-- MAIN: Inputs | Results -->
+  <div class="cs-main">
+
+    <!-- INPUTS PANEL -->
+    <div class="cs-inputs-panel">
+      <div class="cs-section-header">
+        <h2>Inputs</h2>
+        <span class="cs-section-line"></span>
+        <span class="cs-section-dwg">DWG: SC-008-SEC-A</span>
+      </div>
+
+      <div class="cs-ref-box">
+        Reference: ISO 2768-m (medium) general tolerances for machined parts. Enter values in mm.
+      </div>
+
+      <!-- Existing form structure is preserved — classes only -->
+      <div class="cs-inputs-grid" id="input-form">
+        <div class="cs-input-group" data-index="1">
+          <label for="part-name">Part Name</label>
+          <input type="text" id="part-name" name="partName" value="Spacer" placeholder="e.g. Spacer, Housing, Shaft">
+          <div class="cs-input-ref">Ref: Common spacer width</div>
+        </div>
+
+        <div class="cs-input-group" data-index="2">
+          <label for="nominal-dim">Nominal Dimension</label>
+          <input type="number" id="nominal-dim" name="nominal" value="25.000" step="0.001" min="0">
+          <div class="cs-input-ref">Ref: 25.000 mm — typical spacer</div>
+        </div>
+
+        <div class="cs-input-group" data-index="3">
+          <label for="tolerance">Tolerance (±)</label>
+          <input type="number" id="tolerance" name="tolerance" value="0.050" step="0.001" min="0">
+          <div class="cs-input-ref">Ref: ISO 2768-m for 18–30 mm range</div>
+        </div>
+
+        <div class="cs-input-group" data-index="4">
+          <label for="distribution">Distribution</label>
+          <select id="distribution" name="distribution">
+            <option value="normal" selected>Normal (±3σ)</option>
+            <option value="uniform">Uniform</option>
+            <option value="triangular">Triangular</option>
+            <option value="truncated-normal">Truncated Normal</option>
+          </select>
+          <div class="cs-input-ref">Ref: Most common in machined parts</div>
+        </div>
+
+        <div class="cs-input-group" data-index="5">
+          <label for="contributors">Stack Contributors</label>
+          <input type="number" id="contributors" name="contributors" value="3" min="1" max="50">
+          <div class="cs-input-ref">Ref: Linear 1D stack</div>
+        </div>
+
+        <div class="cs-input-group" data-index="6">
+          <label for="iterations">Monte Carlo Iterations</label>
+          <input type="number" id="iterations" name="iterations" value="10000" min="1000" max="100000" step="1000">
+          <div class="cs-input-ref">Ref: Seeded & reproducible</div>
+        </div>
+
+        <div class="cs-input-group" data-index="7">
+          <label for="seed">Random Seed</label>
+          <input type="text" id="seed" name="seed" value="0x7A3F1C9E" placeholder="e.g. 0x7A3F1C9E">
+          <div class="cs-input-ref">Ref: Deterministic sequence</div>
+        </div>
+      </div>
+
+      <div class="cs-warning" id="warning-block">
+        Results are predicted from drawing tolerances and chosen distributions — an engineering preview, not a substitute for measured SPC or a licensed engineer's sign-off.
+      </div>
+    </div>
+
+    <!-- RESULTS PANEL -->
+    <div class="cs-results-panel">
+      <div class="cs-section-header">
+        <h2>Results</h2>
+        <span class="cs-section-line"></span>
+        <span class="cs-section-dwg">DWG: SC-008-SEC-B</span>
+      </div>
+
+      <div class="cs-result-card" data-method="Worst-Case">
+        <div class="cs-result-value" id="worst-case">±0.1150</div>
+        <div class="cs-result-unit">mm</div>
+        <div class="cs-result-desc">Arithmetic sum of all tolerances. Guarantees assembly feasibility under simultaneous extremes. Conservative — may over-design.</div>
+      </div>
+
+      <div class="cs-result-card" data-method="RSS">
+        <div class="cs-result-value" id="rss">±0.0687</div>
+        <div class="cs-result-unit">mm</div>
+        <div class="cs-result-desc">Root-sum-square assumes independent normal ±3σ. Predicts ~99.73% envelope under ideal conditions.</div>
+      </div>
+
+      <div class="cs-result-card" data-method="Monte Carlo">
+        <div class="cs-result-value" id="monte-carlo">±0.0671</div>
+        <div class="cs-result-unit">mm · n=10,000 · seeded</div>
+        <div class="cs-result-desc">Empirical histogram from 10,000 seeded iterations. P0.13 to P99.87 spread with 95% CI on defect rate.</div>
+      </div>
+
+      <!-- Histogram (filled by engine) -->
+      <div class="cs-histogram" id="histogram-container">
+        <div class="cs-histogram-label">Monte Carlo Distribution — n=10,000 · Seeded & Reproducible</div>
+        <div class="cs-histogram-placeholder" id="histogram-canvas"></div>
+        <div style="font-family: var(--cs-font-mono); font-size: 0.6rem; color: #AAA; margin-top: 0.5rem;">
+          USL: <span id="usl">+0.150</span> mm · LSL: <span id="lsl">-0.150</span> mm · Mean: <span id="mean">0.000</span> mm · σ: <span id="sigma">0.0224</span> mm
+        </div>
+      </div>
+
+      <!-- Cpk Gauge -->
+      <div class="cs-cpk-gauge">
+        <div class="cs-cpk-value" id="cpk-value">2.18</div>
+        <div class="cs-cpk-label">Predicted Cpk</div>
+        <div class="cs-cpk-scale">
+          <span>0</span><span>0.67</span><span>1.0</span><span>1.33</span><span>1.67</span><span>2.0</span><span>2.5</span>
+        </div>
+      </div>
+
+      <!-- Pareto -->
+      <div style="margin-top: 1.5rem;">
+        <div style="font-family: var(--cs-font-mono); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--cs-accent); margin-bottom: 0.75rem;">
+          Top Contributors (Pareto)
+        </div>
+        <table class="cs-pareto" id="pareto-table">
+          <thead><tr><th>Contributor</th><th>Tolerance</th><th>%</th></tr></thead>
+          <tbody>
+            <tr><td>Spacer Width</td><td>±0.050 mm</td><td>53%<div class="cs-pareto-bar" style="width: 53%;"></div></td></tr>
+            <tr><td>Housing Bore</td><td>±0.030 mm</td><td>28%<div class="cs-pareto-bar" style="width: 28%;"></div></td></tr>
+            <tr><td>Shaft Length</td><td>±0.025 mm</td><td>19%<div class="cs-pareto-bar" style="width: 19%;"></div></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- FORMULAS -->
+  <div class="cs-formula-section" style="padding: 2rem 2.25rem; border-top: 1px solid var(--cs-border-light); background: var(--cs-bg); position: relative; z-index: 1;">
+    <div class="cs-section-header">
+      <h2>Formulas</h2>
+      <span class="cs-section-line"></span>
+      <span class="cs-section-dwg">DWG: SC-008-SEC-C</span>
+    </div>
+
+    <div class="cs-formula-block">
+      <div class="cs-formula">T<sub>WC</sub> = Σ t<sub>i</sub></div>
+      <div class="cs-formula-desc">Worst-case: arithmetic sum of all individual tolerances. Guarantees assembly under simultaneous extremes.</div>
+    </div>
+
+    <div class="cs-formula-block">
+      <div class="cs-formula">T<sub>RSS</sub> = √(Σ t<sub>i</sub>²)</div>
+      <div class="cs-formula-desc">Root-sum-square: variances add; standard deviations do not. Assumes independent normal ±3σ per contributor.</div>
+    </div>
+
+    <div class="cs-formula-block">
+      <div class="cs-formula">Cpk = min[(USL − μ) / 3σ , (μ − LSL) / 3σ]</div>
+      <div class="cs-formula-desc">Process capability index. Model-derived from tolerance inputs and distribution choices — not measured SPC.</div>
+    </div>
+
+    <div class="cs-formula-block">
+      <div class="cs-formula">PPM<sub>predicted</sub> = Φ(−3·Cpk) × 1,000,000</div>
+      <div class="cs-formula-desc">Predicted parts per million outside specification. 95% confidence interval from bootstrap on Monte Carlo output.</div>
+    </div>
+  </div>
+
+  <!-- ASSUMPTIONS -->
+  <div class="cs-assumptions">
+    <h3>Assumptions & Warnings</h3>
+    <ul>
+      <li>1D linear stacks only; no correlation model between dimensions yet.</li>
+      <li>Per-part sigma is derived from tolerance, not a measured-process input.</li>
+      <li>Normal distribution: tolerance = ±3σ centered on nominal.</li>
+      <li>Uniform distribution: tolerance = hard half-range.</li>
+      <li>Results are predicted from drawing tolerances — verify with measured SPC before production approval.</li>
+      <li>Seeded LCG with Decimal arithmetic ensures reproducibility across identical inputs.</li>
+    </ul>
+  </div>
+
+  <!-- AUDIT TRAIL -->
+  <div class="cs-audit" id="audit-trail">
+    <div class="cs-audit-item"><div class="cs-audit-label">Calc ID</div><div class="cs-audit-value" id="calc-id">SC008-7A3F1C9E</div></div>
+    <div class="cs-audit-item"><div class="cs-audit-label">Input Hash</div><div class="cs-audit-value" id="input-hash">7a3f1c9e</div></div>
+    <div class="cs-audit-item"><div class="cs-audit-label">Output Hash</div><div class="cs-audit-value" id="output-hash">4d8b2e61</div></div>
+    <div class="cs-audit-item"><div class="cs-audit-label">Engine Version</div><div class="cs-audit-value" id="engine-version">v1.0.0+dist</div></div>
+    <div class="cs-audit-item"><div class="cs-audit-label">Method</div><div class="cs-audit-value">WC + RSS + MC</div></div>
+    <div class="cs-audit-item"><div class="cs-audit-label">Timestamp</div><div class="cs-audit-value" id="timestamp">2026-07-25T12:53:00Z</div></div>
+    <div class="cs-audit-item"><div class="cs-audit-label">Seed</div><div class="cs-audit-value" id="audit-seed">0x7A3F1C9E</div></div>
+    <div class="cs-audit-item"><div class="cs-audit-label">Iterations</div><div class="cs-audit-value" id="audit-iter">10,000</div></div>
+  </div>
+
+  <!-- TITLE BLOCK -->
+  <div class="cs-title-block">
+    <div class="cs-title-block-cell"><div class="cs-title-block-label">DWG NO</div><div class="cs-title-block-value">SC-008-001</div></div>
+    <div class="cs-title-block-cell"><div class="cs-title-block-label">SCALE</div><div class="cs-title-block-value">NTS</div></div>
+    <div class="cs-title-block-cell"><div class="cs-title-block-label">REV</div><div class="cs-title-block-value">A</div></div>
+    <div class="cs-title-block-cell"><div class="cs-title-block-label">DATE</div><div class="cs-title-block-value">2026-07-25</div></div>
+    <div class="cs-title-block-cell"><div class="cs-title-block-label">ENGINE</div><div class="cs-title-block-value">v2.0.0</div></div>
+    <div class="cs-title-block-cell"><div class="cs-title-block-label">SHEET</div><div class="cs-title-block-value">1 OF 1</div></div>
+  </div>
+
+</div><!-- /cs-sheet-border -->
+
+<!-- Your live engine scripts inject here — this template is HTML/CSS scaffolding only -->
+<script>
+// Placeholder: live SC-008 engine runs here
+// All ids must stay compatible with the live page:
+//   input-form, worst-case, rss, monte-carlo, cpk-value,
+//   histogram-canvas, pareto-table, audit-trail, verdict-banner
+// Engine fills these elements automatically.
+console.log('SC-008 Calculation Sheet loaded. Engine inject ready.');
+</script>
+
+</body>
+</html>
