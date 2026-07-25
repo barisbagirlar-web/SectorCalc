@@ -11,7 +11,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "node scripts/inject-guides.mjs && node scripts/inject-site-nav.mjs && node scripts/inject-related-tools.mjs && python3 scripts/inject-seo.py && node scripts/verify-form-fields.mjs && tsc --noEmit && vite build && node scripts/verify-nav.mjs && node scripts/verify-form-fields.mjs && node scripts/verify-seo.mjs",
+    "build": "node scripts/inject-guides.mjs && node scripts/inject-site-nav.mjs && node scripts/inject-related-tools.mjs && node scripts/inject-calc-sheet.mjs && python3 scripts/inject-seo.py && node scripts/verify-form-fields.mjs && tsc --noEmit && vite build && node scripts/verify-nav.mjs && node scripts/verify-form-fields.mjs && node scripts/verify-seo.mjs",
     "verify:seo": "node scripts/verify-seo.mjs",
     "inject:guides": "node scripts/inject-guides.mjs",
     "inject:nav": "node scripts/inject-site-nav.mjs",
@@ -30,7 +30,8 @@
     "format:check": "prettier --check \"src/**/*.{js,json,css,html}\"",
     "schema:validate": "node scripts/validate-schemas.js",
     "check:lang": "node scripts/check-language.mjs --strict",
-    "check": "npm run format:check && npm run lint && npm run test"
+    "check": "npm run format:check && npm run lint && npm run test",
+    "inject:calc-sheet": "node scripts/inject-calc-sheet.mjs"
   },
   "dependencies": {
     "ajv": "8.12.0",
