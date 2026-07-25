@@ -12,9 +12,9 @@ const read = (p) => readFileSync(join(ROOT, p), 'utf8');
 const toolPages = readdirSync(ROOT).filter((f) => f.endsWith('-pro.html')).sort();
 const pages = ['index.html', 'tools.html', 'pro.html', 'pricing.html', ...toolPages];
 const contentRoutes = [
-  ['/blog/', 'public/blog/index.html'],
+  ['/blog', 'public/blog/index.html'],
   ['/blog/tolerance-stack-up-rss-vs-monte-carlo.html', 'public/blog/tolerance-stack-up-rss-vs-monte-carlo.html'],
-  ['/case-studies/', 'public/case-studies/index.html'],
+  ['/case-studies', 'public/case-studies/index.html'],
 ];
 const localePreviews = ['de', 'ja', 'zh'];
 
