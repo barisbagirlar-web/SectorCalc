@@ -10,11 +10,11 @@ permissions:
 
 concurrency:
   group: sectorcalc-production-deploy
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   deploy-production:
-    name: Firebase production deploy + live SEO guard
+    name: Validate preview → promote exact Firebase version → verify live
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
@@ -23,27 +23,72 @@ jobs:
         with:
           node-version: 22
           cache: npm
+
       - name: Verify Firebase credential present
         run: |
           if [ -z "${FIREBASE_TOKEN:-}" ]; then
-            echo "::error::FIREBASE_TOKEN secret is not configured. Add it in repo Settings > Secrets, then re-run."
+            echo "::error::FIREBASE_TOKEN secret is not configured."
             exit 1
           fi
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+
       - name: Install locked dependencies
         run: npm ci --no-audit --no-fund
+
       - name: Production quality gate
         run: |
           npm test
           npm run typecheck
           npm run build
           npm run verify:seo
-      - name: Deploy Firebase Hosting (sectorcalc-prod)
-        run: npx --yes firebase-tools@14 deploy --only hosting --project sectorcalc-prod --token "$FIREBASE_TOKEN"
+
+      - name: Deploy immutable candidate to Firebase preview channel
+        id: preview
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-      - name: Wait for edge propagation
-        run: sleep 12
-      - name: Post-deploy hard-refresh SEO guard
+        run: |
+          set -euo pipefail
+          CHANNEL_ID="release-${GITHUB_SHA::12}"
+          LOG_FILE="$(mktemp)"
+          echo "channel_id=$CHANNEL_ID" >> "$GITHUB_OUTPUT"
+          npx --yes firebase-tools@14 hosting:channel:deploy "$CHANNEL_ID" \
+            --expires 1d \
+            --project sectorcalc-prod \
+            --token "$FIREBASE_TOKEN" \
+            --non-interactive | tee "$LOG_FILE"
+          PREVIEW_URL="$(grep -Eo 'https://[-A-Za-z0-9.]+\.web\.app' "$LOG_FILE" | tail -1 || true)"
+          if [ -z "$PREVIEW_URL" ]; then
+            echo "::error::Firebase preview URL could not be resolved from CLI output."
+            exit 1
+          fi
+          echo "preview_url=$PREVIEW_URL" >> "$GITHUB_OUTPUT"
+          echo "Preview candidate: $PREVIEW_URL"
+
+      - name: Hard-refresh SEO guard on preview candidate
+        env:
+          SEO_GUARD_HOST: ${{ steps.preview.outputs.preview_url }}
+          SEO_GUARD_MODE: preview
+        run: node scripts/seo-live-guard.mjs
+
+      - name: Promote the exact validated Firebase version to live
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          CHANNEL_ID: ${{ steps.preview.outputs.channel_id }}
+        run: |
+          set -euo pipefail
+          npx --yes firebase-tools@14 hosting:clone \
+            "sectorcalc-prod:${CHANNEL_ID}" \
+            "sectorcalc-prod:live" \
+            --project sectorcalc-prod \
+            --token "$FIREBASE_TOKEN" \
+            --non-interactive
+
+      - name: Wait for custom-domain edge propagation
+        run: sleep 15
+
+      - name: Post-promotion hard-refresh SEO guard on production
+        env:
+          SEO_GUARD_HOST: https://sectorcalc.com
+          SEO_GUARD_MODE: live
         run: node scripts/seo-live-guard.mjs
