@@ -5,6 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>SC-008 - Tolerance Stack-Up (Predicted) | SectorCalc</title>
+<link rel="stylesheet" href="./sectorcalc-engineering.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <style>
@@ -19,7 +20,7 @@
   .sc-header-title{font-family:var(--font-display);font-size:15px;font-weight:800;letter-spacing:0.01em;text-transform:uppercase;color:var(--text-primary)}
   .sc-header-sub{font-size:10px;font-weight:500;color:var(--text-muted);font-family:var(--font-mono)}
   .sc-badge{font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:1px;padding:4px 10px;border-radius:var(--radius-sm);font-family:var(--font-mono);border:1px solid rgba(232,119,34,0.2);background:rgba(232,119,34,0.08);color:var(--accent-amber)}
-  .sc-layout{display:grid;grid-template-columns:380px 1fr;min-height:100vh;padding-top:56px}
+  .sc-layout{display:grid;grid-template-columns:380px 1fr;min-height:100vh;padding-top:0}
   .sc-sidebar{background:var(--bg-1);border-right:1px solid var(--border-subtle);display:flex;flex-direction:column;height:calc(100vh - 56px);position:sticky;top:56px;overflow:hidden}
   .sc-sidebar-scroll{flex:1;overflow-y:auto;padding-bottom:80px}
   .sc-section-hd{padding:14px 20px 10px;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:var(--text-muted)}
@@ -166,6 +167,20 @@
 
 
 
+<div class="cs-stamp" style="display:flex;flex-wrap:wrap;gap:.5rem;padding:10px 24px;margin-top:56px;background:#FAFBFC;border-bottom:2px solid #1A3A5C;font-family:ui-monospace,monospace;font-size:11px">
+  <span style="border:1px solid #1A3A5C;padding:3px 8px;color:#1A3A5C">DWG NO: SC-008-001</span>
+  <span style="border:1px solid #1A3A5C;padding:3px 8px;color:#1A3A5C">SCALE: NTS</span>
+  <span style="border:1px solid #1A3A5C;padding:3px 8px;color:#1A3A5C">REV: A</span>
+  <span style="border:1px solid #1A3A5C;padding:3px 8px;color:#1A3A5C">ENGINE VERSION: SC-008-ENGINE v1.1.0</span>
+  <span style="border:1px solid #1A3A5C;padding:3px 8px;color:#1A3A5C">ISO 3864</span>
+  <span style="border:1px solid #1A3A5C;padding:3px 8px;color:#1A3A5C">Audit Trail A1–A5</span>
+  <span style="border:1px solid #1A3A5C;padding:3px 8px;color:#1A3A5C">Deterministic</span>
+</div>
+
+
+
+
+
 
 
 
@@ -183,7 +198,7 @@
 
 
 <div class="sc-header">
-  <div class="sc-header-left"><a href="/" class="sc-logo" title="SectorCalc home" aria-label="SectorCalc home"><img class="logo-light" src="/sectorcalc-logo.png" alt="SectorCalc" width="160" height="42"><img class="logo-dark" src="/sectorcalc-logo-dark.png?v=2" alt="" width="160" height="42" aria-hidden="true"></a><div><div class="sc-header-title">SC-008 - Tolerance Stack-Up</div><div class="sc-header-sub">Engineering preview · 1D linear stack-up · per-component distribution · client-side · not for production approval</div></div></div>
+  <div class="sc-header-left"><a href="/" class="sc-logo" title="SectorCalc home" aria-label="SectorCalc home"><img class="logo-light" src="/sectorcalc-logo.png" alt="SectorCalc" width="160" height="42"><img class="logo-dark" src="/sectorcalc-logo-dark.png?v=2" alt="" width="160" height="42" aria-hidden="true"></a><div><div class="sc-header-title">SC-008 - Tolerance Stack-Up</div><div class="sc-header-sub">DWG NO SC-008-001 · SCALE NTS · REV A · ENGINE VERSION v1.1.0 · ISO 3864 · Audit Trail · Deterministic · engineering preview</div></div></div>
   <div style="display:flex;align-items:center;gap:10px"><a href="/" class="sc-btn sc-btn-ghost" style="text-decoration:none">All tools</a><a href="/pricing.html" class="sc-btn sc-btn-ghost" style="margin-right:10px;text-decoration:none">Pricing</a><div class="sc-badge">Preview</div></div>
 </div>
 <div class="sc-layout">
@@ -219,7 +234,7 @@
 </div>
 <!--SC-GUIDE-START-->
 <div class="sc-guide-shell">
-<section class="sc-guide" id="sc-guide" data-tool-id="SC-008" data-tool-name="Tolerance Stack-Up Calculator (SC-008)" data-tool-url="https://www.sectorcalc.com/sc008-pro.html" itemscope itemtype="https://schema.org/FAQPage">
+<section class="sc-guide" id="sc-guide" data-tool-id="SC-008" data-tool-name="Tolerance Stack-Up Calculator (SC-008)" data-tool-url="https://sectorcalc.com/sc008-pro.html" itemscope itemtype="https://schema.org/FAQPage">
 
 <nav class="sc-guide-toc" aria-label="Table of contents">
   <h2 class="sc-guide-toc-title">Contents</h2>
