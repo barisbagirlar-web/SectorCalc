@@ -1,27 +1,26 @@
-name: Update Sitemap Lastmod
+name: Verify Sitemap Integrity
+
 on:
   push:
-    branches: [main, ship/mobile-nav-discovery]
+    branches: [main]
+  pull_request:
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
-  update:
+  verify:
+    name: Sitemap integrity
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
-      - name: Refresh sitemap lastmod from git
-        run: node scripts/update-sitemap-lastmod.js
-      - name: Commit if changed
-        run: |
-          git config user.name "github-actions"
-          git config user.email "actions@github.com"
-          git add public/sitemap.xml
-          git diff --cached --quiet || git commit -m "chore: auto-update sitemap lastmod [skip ci]"
-          git push
+          node-version: '22'
+          cache: npm
+      - name: Install locked dependencies
+        run: npm ci --no-audit --no-fund
+      - name: Verify canonical sitemap and SEO invariants
+        run: npm run verify:seo

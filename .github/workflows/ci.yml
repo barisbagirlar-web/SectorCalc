@@ -31,7 +31,9 @@ jobs:
       - run: node scripts/verify-nav.mjs
 
   e2e:
-    runs-on: ubuntu-latest
+    # Playwright 1.42.x dependency installer is compatible with Ubuntu 22.04;
+    # ubuntu-latest currently resolves to 24.04 and fails before tests start.
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
