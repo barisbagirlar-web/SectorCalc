@@ -1,18 +1,9 @@
 # SectorCalc — robots.txt (production)
-# Canonical host: https://sectorcalc.com (Firebase primary; www redirects here)
-# Google indexing: Allow all public HTML tools. No noindex headers on indexable pages.
+# Canonical host: https://sectorcalc.com (www redirects to apex)
+# Public search/retrieval crawlers are allowed. Training crawlers are governed separately.
 
 User-agent: *
 Allow: /
-Allow: /sitemap.xml
-Allow: /sitemap-images.xml
-Allow: /sitemap-videos.xml
-Allow: /llm.txt
-Allow: /llms.txt
-Allow: /site.webmanifest
-Allow: /assets/
-
-# Non-content / waste paths
 Disallow: /cgi-bin/
 Disallow: /tmp/
 Disallow: /draft/
@@ -22,6 +13,7 @@ Disallow: /api/
 Disallow: /internal/
 Disallow: /assets/cache/
 
+# Search crawlers
 User-agent: Googlebot
 Allow: /
 
@@ -31,14 +23,18 @@ Allow: /
 User-agent: Bingbot
 Allow: /
 
-# AI search crawlers (discovery allowed)
-User-agent: Google-Extended
+# AI search / retrieval crawlers
+User-agent: OAI-SearchBot
 Allow: /
 
 User-agent: ChatGPT-User
 Allow: /
 
 User-agent: PerplexityBot
+Allow: /
+
+# AI-use controls that are not Google Search indexing controls
+User-agent: Google-Extended
 Allow: /
 
 User-agent: Anthropic-ai
@@ -50,7 +46,7 @@ Allow: /
 User-agent: cohere-ai
 Allow: /
 
-# Training-oriented crawlers (search allowed above; training blocked)
+# Training-oriented crawlers
 User-agent: GPTBot
 Disallow: /
 
@@ -76,7 +72,7 @@ Crawl-delay: 2
 
 Sitemap: https://sectorcalc.com/sitemap.xml
 Sitemap: https://sectorcalc.com/sitemap-images.xml
-Sitemap: https://sectorcalc.com/sitemap-videos.xml
 
-# AI crawler policy mirror (search vs training split)
+# Supplemental policy/discovery files are intentionally not XML sitemap entries.
 # See also: https://sectorcalc.com/ai-robots.txt
+# See also: https://sectorcalc.com/llms.txt
