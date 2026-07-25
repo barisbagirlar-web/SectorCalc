@@ -11,7 +11,7 @@ const ROOT = process.cwd();
 const PARTIAL = readFileSync(join(ROOT, 'content/partials/site-header.html'), 'utf8').trim();
 
 const FORM_FIELDS_VERSION = 5;
-const STUDY_VERSION = 2;
+const STUDY_VERSION = 4;
 const THEME_VERSION = 12;
 const NAV_VERSION = 4;
 const NAV_ASSETS = `

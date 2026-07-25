@@ -1,5 +1,5 @@
 /* SectorCalc demo toolbar — Load Demo Data / Reset / Demo scenario active
-   Mirrors degerlet control row (Load Demo Data / Reset / Demo scenario active). */
+   Mirrors degerlet control row. Mounted at the start of each calculator form. */
 
 .sc-study-bar{
   display:flex;
@@ -8,19 +8,20 @@
   justify-content:flex-start;
   gap:8px 10px;
   margin:0 0 14px;
-  padding:0;
-  border:0;
-  background:transparent;
+  padding:10px 12px;
+  border:1px solid #E2E8F0;
+  border-radius:10px;
+  background:#F8FAFC;
   font-family:var(--f-body, 'Inter', system-ui, sans-serif);
 }
 
-body.has-site-header .sc-tool-strip .sc-study-bar{
-  margin:0;
-  padding:0;
-  border:0;
-  background:transparent;
-  flex:1 1 auto;
-  justify-content:flex-end;
+.sc-sidebar-scroll > .sc-study-bar{
+  margin:12px 16px 8px;
+}
+
+.panel-b > .sc-study-bar,
+.panel > .sc-study-bar{
+  margin:0 0 14px;
 }
 
 .sc-study-bar__actions{
@@ -28,6 +29,7 @@ body.has-site-header .sc-tool-strip .sc-study-bar{
   flex-wrap:wrap;
   align-items:center;
   gap:8px;
+  width:100%;
 }
 
 .sc-study-btn{
@@ -69,6 +71,11 @@ body.has-site-header .sc-tool-strip .sc-study-bar{
 .sc-study-btn--ghost:hover{
   background:#F8FAFC;
   border-color:#CBD5E1;
+}
+
+html[data-theme="dark"] .sc-study-bar{
+  background:rgba(148,163,184,0.08);
+  border-color:#334155;
 }
 
 html[data-theme="dark"] .sc-study-btn--ghost{
