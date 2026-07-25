@@ -7,8 +7,8 @@ import { readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 
 const ROOT = process.cwd();
-const HERO = 'sc-hero-cell-v23.js';
-const BUILD = 'v23';
+const HERO = 'sc-hero-cell-v24.js';
+const BUILD = 'v24';
 const errors = [];
 const fail = (m) => errors.push(m);
 
@@ -24,7 +24,7 @@ const hero = readFileSync(heroSrc, 'utf8');
 
 if (!index.includes(HERO)) fail(`index.html must load /${HERO} (immutable cache-bust name)`);
 if (/sc-hero-cell\.js\?v=1[0-8]/.test(index)) fail('index.html still references obsolete sc-hero-cell.js?v=1x');
-if (/sc-hero-cell-v22\.js/.test(index)) fail('index.html still references obsolete sc-hero-cell-v22.js — bump to v23');
+if (/sc-hero-cell-v2[23]\.js/.test(index)) fail('index.html still references obsolete sc-hero-cell-v22/v23.js — bump to v24');
 if (index.includes('theme-calc-sheet') || index.includes('theme-blueprint') || index.includes('sc-calc-sheet.css')) {
   fail('index.html contaminated with calc-sheet/blueprint theme');
 }
@@ -37,6 +37,9 @@ if (!hero.includes('frameToFit')) fail('hero JS missing frameToFit (auto-framing
 if (!hero.includes('orbit.azim')) fail('hero JS missing 360° orbit');
 if (!hero.includes('AdditiveBlending') || !hero.includes('makeSparkMaterial')) {
   fail('hero JS missing cinematic spark shader (AdditiveBlending + makeSparkMaterial)');
+}
+if (hero.includes('CircleGeometry(5.') || hero.includes("name = 'ground'") || /name:\s*'bay'|Industrial bay/.test(hero)) {
+  fail('hero JS must not include oval ground disc or rear metal bay (blocks 360° view)');
 }
 if (/if\s*\(\s*reducedMotion\s*\(\s*\)\s*\)\s*return/.test(hero)) {
   fail('hero JS must not skip WebGL under prefers-reduced-motion');
@@ -55,4 +58,4 @@ if (errors.length) {
   console.error('[FAIL] Sacred live-cell hero guard:\n' + errors.map((e) => '  - ' + e).join('\n'));
   process.exit(1);
 }
-console.log(`[PASS] Sacred live-cell hero guard: ${BUILD} immutable asset, orbit+frameToFit, spark shader, premium poster, no theme contamination`);
+console.log(`[PASS] Sacred live-cell hero guard: ${BUILD} immutable asset, clear 360° orbit, spark trails, premium poster, no theme contamination`);
