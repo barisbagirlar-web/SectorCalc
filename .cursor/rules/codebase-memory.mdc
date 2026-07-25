@@ -1,0 +1,38 @@
+---
+description: Codebase Memory graph-first repository intelligence policy
+globs: **/*
+alwaysApply: true
+---
+# Codebase Memory MCP Policy
+
+Codebase Memory is an advisory repository-intelligence layer. Source code, schemas, tests, DECISIONS.md, AGENTS.md, and existing project rules remain authoritative.
+
+## Mandatory workflow
+
+For architecture discovery, dependency tracing, blast-radius analysis, or any change that can affect multiple files:
+
+1. Use Codebase Memory first when the MCP server is available.
+2. Establish current architecture with `get_architecture` when the session lacks fresh repository context.
+3. Locate symbols and relationships with `search_graph` and `trace_path` instead of broad repeated file reads.
+4. Before editing, determine the affected surface and read the actual source files that will be changed.
+5. Never treat graph output as authorization to violate `.cursorrules`, `DECISIONS.md`, `AGENTS.md`, sealed boundaries, or user scope.
+6. After editing, run `detect_changes` to inspect blast radius when Codebase Memory is available.
+7. Run the repository's existing verification gates from `AGENTS.md` and `.cursorrules`. Graph analysis never replaces schema validation, tests, checks, builds, or language validation.
+
+## Failure behavior
+
+- If the graph is missing, stale, degraded, or lacks coverage for a relevant path, fall back to direct source search/read and continue safely.
+- Dynamic behavior not represented in the graph must be verified from source and tests.
+- A clean graph result means only that no relationship was recorded; it is not proof that no dependency exists.
+- Never modify code solely from graph summaries without reading the target implementation.
+
+## Persistence
+
+- `auto_index=true` is recommended.
+- `auto_watch=true` is recommended.
+- Do not commit `.codebase-memory/graph.db.zst` or any generated graph artifact unless the user explicitly requests a team-shared graph snapshot.
+
+## Invariant
+
+SOURCE + PROJECT RULES + TESTS = SSOT.
+CODEBASE MEMORY = DERIVED NAVIGATION AND IMPACT INTELLIGENCE ONLY.
