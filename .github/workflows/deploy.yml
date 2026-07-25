@@ -2,7 +2,7 @@ name: Deploy
 
 on:
   push:
-    branches: [main, ship/mobile-nav-discovery]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -14,7 +14,7 @@ concurrency:
 
 jobs:
   deploy-production:
-    name: Firebase production deploy
+    name: Firebase production deploy + live SEO guard
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
@@ -33,9 +33,17 @@ jobs:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
       - name: Install locked dependencies
         run: npm ci --no-audit --no-fund
-      - name: Build production bundle
-        run: npm run build
+      - name: Production quality gate
+        run: |
+          npm test
+          npm run typecheck
+          npm run build
+          npm run verify:seo
       - name: Deploy Firebase Hosting (sectorcalc-prod)
         run: npx --yes firebase-tools@14 deploy --only hosting --project sectorcalc-prod --token "$FIREBASE_TOKEN"
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+      - name: Wait for edge propagation
+        run: sleep 12
+      - name: Post-deploy hard-refresh SEO guard
+        run: node scripts/seo-live-guard.mjs
