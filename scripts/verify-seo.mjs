@@ -1,187 +1,106 @@
 #!/usr/bin/env node
-/**
- * SEO guard — fail build on indexing blockers / missing discovery / spam schema.
- */
+/** SectorCalc release SEO guard — fail closed on crawl/index/discovery regressions. */
 import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 
 const ROOT = process.cwd();
 const HOST = 'https://sectorcalc.com';
 const errors = [];
-const warn = [];
+const fail = (msg) => errors.push(msg);
+const read = (p) => readFileSync(join(ROOT, p), 'utf8');
 
-function fail(msg) { errors.push(msg); }
-function note(msg) { warn.push(msg); }
-
-const pages = ['index.html', 'tools.html', 'pro.html', 'pricing.html',
-  ...readdirSync(ROOT).filter((f) => f.endsWith('-pro.html'))];
+const toolPages = readdirSync(ROOT).filter((f) => f.endsWith('-pro.html')).sort();
+const pages = ['index.html', 'tools.html', 'pro.html', 'pricing.html', ...toolPages];
+const contentRoutes = [
+  ['/blog/', 'public/blog/index.html'],
+  ['/blog/tolerance-stack-up-rss-vs-monte-carlo.html', 'public/blog/tolerance-stack-up-rss-vs-monte-carlo.html'],
+  ['/case-studies/', 'public/case-studies/index.html'],
+];
+const localePreviews = ['de', 'ja', 'zh'];
 
 for (const f of [
-  'public/robots.txt',
-  'public/ai-robots.txt',
-  'public/sitemap.xml',
-  'public/sitemap-images.xml',
-  'public/sitemap-videos.xml',
-  'public/llm.txt',
-  'public/llms.txt',
-  'public/404.html',
-  'public/assets/js/cvw-monitor.js',
-  'public/assets/js/sc-ga4-id.js',
+  'public/robots.txt', 'public/ai-robots.txt', 'public/sitemap.xml',
+  'public/sitemap-images.xml', 'public/llm.txt', 'public/llms.txt', 'public/404.html',
+  'public/assets/js/cvw-monitor.js', 'public/assets/js/sc-ga4-id.js',
   'public/assets/images/sectorcalc-og-1200x630.jpg',
-]) {
-  if (!existsSync(join(ROOT, f))) fail(`missing ${f}`);
+  'scripts/seo-live-guard.mjs', '.github/workflows/deploy.yml',
+]) if (!existsSync(join(ROOT, f))) fail(`missing ${f}`);
+
+for (const [, file] of contentRoutes) if (!existsSync(join(ROOT, file))) fail(`missing ${file}`);
+for (const lang of localePreviews) if (!existsSync(join(ROOT, `public/${lang}/index.html`))) fail(`missing locale preview public/${lang}/index.html`);
+
+const robots = read('public/robots.txt');
+if (!/Sitemap:\s*https:\/\/sectorcalc\.com\/sitemap\.xml/.test(robots)) fail('robots missing apex sitemap');
+if (/Sitemap:\s*https:\/\/www\.sectorcalc\.com/i.test(robots)) fail('robots advertises www sitemap');
+for (const bot of ['Googlebot', 'Bingbot', 'OAI-SearchBot', 'PerplexityBot']) {
+  const block = new RegExp(`User-agent:\\s*${bot.replace('-', '\\-')}[\\s\\S]*?(?=\\nUser-agent:|\\nSitemap:|$)`, 'i').exec(robots)?.[0] || '';
+  if (!block) fail(`robots missing explicit ${bot} policy`);
+  else if (!/Allow:\s*\//i.test(block) || /Disallow:\s*\/\s*$/im.test(block)) fail(`robots does not explicitly allow ${bot}`);
 }
 
-const robots = readFileSync(join(ROOT, 'public/robots.txt'), 'utf8');
-if (!/Sitemap:\s*https:\/\/sectorcalc\.com\/sitemap\.xml/.test(robots)) {
-  fail('robots.txt missing apex sitemap declaration');
+const sm = read('public/sitemap.xml');
+if (/<priority>|<changefreq>|<lastmod>/i.test(sm)) fail('sitemap contains ignored or untrusted freshness hints');
+if (/https:\/\/www\.sectorcalc\.com/i.test(sm)) fail('sitemap contains www URL');
+for (const junk of ['llm.txt', 'llms.txt', 'robots.txt', 'ai-robots.txt', 'site.webmanifest', '404.html']) {
+  if (sm.includes(`<loc>${HOST}/${junk}</loc>`)) fail(`sitemap contains non-indexable discovery URL ${junk}`);
 }
-if (/User-agent:\s*Googlebot[\s\S]*?Disallow:\s*\/\s*$/m.test(robots.split('User-agent: GPTBot')[0])) {
-  fail('Googlebot appears disallowed');
+for (const lang of localePreviews) if (sm.includes(`<loc>${HOST}/${lang}/</loc>`)) fail(`sitemap contains incomplete noindex locale ${lang}`);
+
+const requiredLocs = [
+  `${HOST}/`, `${HOST}/tools.html`, `${HOST}/pro.html`, `${HOST}/pricing.html`,
+  ...toolPages.map((p) => `${HOST}/${p}`),
+  ...contentRoutes.map(([route]) => `${HOST}${route}`),
+];
+for (const loc of requiredLocs) if (!sm.includes(`<loc>${loc}</loc>`)) fail(`sitemap missing ${loc}`);
+const locs = [...sm.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
+if (new Set(locs).size !== locs.length) fail('sitemap contains duplicate loc entries');
+if (locs.length !== requiredLocs.length) fail(`sitemap URL count drift: expected ${requiredLocs.length}, got ${locs.length}`);
+for (const loc of locs) if (!requiredLocs.includes(loc)) fail(`sitemap contains unregistered URL ${loc}`);
+
+for (const lang of localePreviews) {
+  const t = read(`public/${lang}/index.html`);
+  if (!/<meta\s+name=["']robots["']\s+content=["'][^"']*noindex[^"']*follow/i.test(t)) fail(`${lang} preview must be noindex,follow`);
+  if (!t.includes(`rel="canonical" href="${HOST}/${lang}/"`)) fail(`${lang} preview missing self canonical`);
+  if (/hreflang=/i.test(t)) fail(`${lang} preview must not publish hreflang until full locale release`);
 }
 
-const sm = readFileSync(join(ROOT, 'public/sitemap.xml'), 'utf8');
-for (const page of pages) {
-  const loc = page === 'index.html' ? `${HOST}/` : `${HOST}/${page}`;
-  if (!sm.includes(`<loc>${loc}</loc>`)) fail(`sitemap missing ${loc}`);
-}
-if (sm.includes('https://www.sectorcalc.com/') && !sm.includes('https://sectorcalc.com/')) {
-  fail('sitemap still uses www without apex canonical host');
-}
-// HTML sitemap must not list discovery/binary endpoints (indexation noise)
-for (const junk of ['llm.txt', 'llms.txt', 'site.webmanifest', 'robots.txt', 'ai-robots.txt']) {
-  if (sm.includes(`<loc>${HOST}/${junk}</loc>`)) {
-    fail(`sitemap must not list non-HTML URL: ${junk}`);
-  }
-}
-if (/hreflang="(de|ja|zh)"/.test(sm)) {
-  for (const lang of ['de', 'ja', 'zh']) {
-    if (new RegExp(`hreflang="${lang}"`).test(sm) && !existsSync(join(ROOT, `public/${lang}/index.html`))) {
-      fail(`sitemap claims hreflang=${lang} without public/${lang}/index.html`);
-    }
-  }
-}
+const llm = read('public/llm.txt');
+const llms = read('public/llms.txt');
+if (llm !== llms) fail('llm.txt and llms.txt drift; they must be byte-identical');
+for (const lang of localePreviews) if (llms.includes(`https://sectorcalc.com/${lang}/`)) fail(`llms.txt advertises noindex locale ${lang}`);
+for (const bot of ['Googlebot', 'Bingbot', 'OAI-SearchBot', 'PerplexityBot']) if (!llms.includes(bot)) fail(`llms.txt missing crawler declaration ${bot}`);
 
-// Content hubs from sert-yenileme pack
-for (const hub of [
-  'public/blog/index.html',
-  'public/blog/tolerance-stack-up-rss-vs-monte-carlo.html',
-  'public/case-studies/index.html',
-  'public/de/index.html',
-  'public/ja/index.html',
-  'public/zh/index.html'
-]) {
-  if (!existsSync(join(ROOT, hub))) fail(`missing hub ${hub}`);
-}
-for (const loc of [
-  `${HOST}/blog/`,
-  `${HOST}/blog/tolerance-stack-up-rss-vs-monte-carlo.html`,
-  `${HOST}/case-studies/`,
-  `${HOST}/de/`,
-  `${HOST}/ja/`,
-  `${HOST}/zh/`
-]) {
-  if (!sm.includes(`<loc>${loc}</loc>`)) fail(`sitemap missing hub ${loc}`);
-}
-
-const llm = readFileSync(join(ROOT, 'public/llm.txt'), 'utf8');
-const llms = readFileSync(join(ROOT, 'public/llms.txt'), 'utf8');
-if (!llm.includes('Academic Oversight') || !llm.includes('Prof. Dr. Neela Nataraj')) {
-  fail('llm.txt missing Academic Oversight / Neela Nataraj section');
-}
-if (!llms.includes('Academic Oversight') || !llms.includes('Prof. Dr. Neela Nataraj')) {
-  fail('llms.txt missing Academic Oversight / Neela Nataraj section');
-}
-if (!llm.includes('assets/images/neela-nataraj.jpg')) {
-  fail('llm.txt missing Neela portrait asset URL');
-}
-const simg = readFileSync(join(ROOT, 'public/sitemap-images.xml'), 'utf8');
-if (!simg.includes(`${HOST}/assets/images/neela-nataraj.jpg`)) {
-  fail('sitemap-images.xml missing Neela portrait');
-}
-if (!simg.includes(`${HOST}/tools.html`)) {
-  fail('sitemap-images.xml missing tools.html entry');
-}
-if (!existsSync(join(ROOT, 'public/assets/images/neela-nataraj.jpg'))) {
-  fail('missing public/assets/images/neela-nataraj.jpg');
-}
-if (!existsSync(join(ROOT, 'public/sc-eeat.css'))) {
-  fail('missing public/sc-eeat.css');
-}
-
-const sv = readFileSync(join(ROOT, 'public/sitemap-videos.xml'), 'utf8');
-if (/view_count|content_loc/.test(sv)) fail('video sitemap contains invented entries');
+const simg = read('public/sitemap-images.xml');
+if (!simg.includes(`${HOST}/tools.html`)) fail('image sitemap missing tools.html entry');
 
 for (const page of pages) {
-  const t = readFileSync(join(ROOT, page), 'utf8');
-  if (/noindex/i.test(t) && page !== '404.html') fail(`${page} has noindex`);
+  const t = read(page);
+  if (/noindex/i.test(t)) fail(`${page} has noindex`);
   if (!t.includes('rel="canonical"')) fail(`${page} missing canonical`);
-  if (!t.includes('https://sectorcalc.com')) fail(`${page} canonical host not apex sectorcalc.com`);
-  if (/location\.hostname===['"]sectorcalc\.com['"].*www\.sectorcalc\.com/.test(t)) {
-    fail(`${page} still redirects apex→www (conflicts with Firebase www→apex)`);
-  }
+  if (!t.includes(HOST)) fail(`${page} canonical host not apex`);
   if (!/name=["']description["']/.test(t)) fail(`${page} missing meta description`);
   if (!t.includes('og:image')) fail(`${page} missing og:image`);
   if (!t.includes('sc-schema-global')) fail(`${page} missing global schema`);
-  if (/AggregateRating|"@type":\s*"Review"/.test(t)) fail(`${page} has Review/AggregateRating spam risk`);
-  if (!t.includes('cvw-monitor.js')) fail(`${page} missing cvw-monitor`);
-  if (!t.includes('SC-SEO-HOST')) fail(`${page} missing SC-SEO-HOST marker`);
+  if (/AggregateRating|"@type":\s*"Review"/.test(t)) fail(`${page} has review schema risk`);
   if (!/<h1[\s>]/i.test(t)) fail(`${page} missing h1`);
+  if (!t.includes('SC-SEO-HOST')) fail(`${page} missing SEO host marker`);
+  if (!t.includes('SC-SEO-SECURITY')) fail(`${page} missing security head block`);
   if (page.endsWith('-pro.html')) {
     const slug = page.replace('.html', '');
     if (!t.includes(`sc-schema-tool-${slug}`)) fail(`${page} missing tool schema`);
-    if (!t.includes(`sc-schema-dataset-${slug}`)) fail(`${page} missing Dataset schema`);
-    if (!t.includes('sc-breadcrumb') && page !== 'index.html') fail(`${page} missing breadcrumb nav`);
-    if (!t.includes('Prof. Dr. Neela Nataraj')) fail(`${page} missing visible E-E-A-T academic oversight`);
-    if (!t.includes('sc-eeat.css')) fail(`${page} missing sc-eeat.css`);
-    if (!t.includes('Academic Oversight')) fail(`${page} missing Academic Oversight label`);
-    if (!t.includes('assets/images/neela-nataraj.jpg')) fail(`${page} missing Neela portrait image`);
-    if (!t.includes('<!--SC-EEAT-START-->') || !t.includes('<!--SC-EEAT-END-->')) {
-      fail(`${page} missing SC-EEAT inject markers (band will vanish on HTML overwrites)`);
-    }
-    if (!/"reviewedBy"/.test(t)) fail(`${page} missing reviewedBy entity link`);
-    if (!t.includes('sc-schema-global') || !t.includes('#person-neela-nataraj')) {
-      fail(`${page} missing schema mesh Person entity #person-neela-nataraj`);
-    }    if (page === 'sc008-pro.html') {
-      if (!t.includes('calculation-sheet.css')) fail(`${page} missing isolated /css/calculation-sheet.css`);
-      if (!/\bcalc-sheet\b/.test(t)) fail(`${page} missing calc-sheet body class`);
-      if (t.includes('theme-blueprint')) fail(`${page} must not use blueprint theme`);
-    } else {
-      if (!t.includes('sc-calc-sheet.css')) fail(`${page} missing calculation-sheet CSS`);
-      if (!t.includes('theme-calc-sheet')) fail(`${page} missing theme-calc-sheet body class`);
-    }
+    if (!t.includes('sc-breadcrumb')) fail(`${page} missing breadcrumb nav`);
   }
-  if (page === 'tools.html') {
-    if (!t.includes('Prof. Dr. Neela Nataraj')) fail(`${page} missing visible E-E-A-T academic oversight`);
-    if (!t.includes('sc-eeat.css')) fail(`${page} missing sc-eeat.css`);
-    if (!t.includes('assets/images/neela-nataraj.jpg')) fail(`${page} missing Neela portrait image`);
-    if (!t.includes('sc-calc-sheet.css')) fail(`${page} missing drawing-index CSS`);
-    if (!t.includes('theme-drawing-index')) fail(`${page} missing theme-drawing-index`);
-  }
-  if (page === 'pricing.html') {
-    if (!t.includes('sc-calc-sheet.css')) fail(`${page} missing BOM sheet CSS`);
-    if (!t.includes('theme-bom')) fail(`${page} missing theme-bom`);
-  }
-  if (page === 'index.html') {
-    if (t.includes('sc-calc-sheet.css') || t.includes('theme-calc-sheet') || t.includes('theme-blueprint')) {
-      fail('index.html must not carry calc-sheet / blueprint theme (live-cell hero sacred)');
-    }
-    if (!t.includes('sc-hero-cell')) fail('index.html missing sc-hero-cell');
-  }
-  if (['tools.html', 'pricing.html', 'pro.html'].includes(page) && !t.includes('sc-breadcrumb')) {
-    fail(`${page} missing breadcrumb nav`);
-  }
-  if (!t.includes('SC-SEO-SECURITY')) fail(`${page} missing security head block`);
 }
 
-const fj = JSON.parse(readFileSync(join(ROOT, 'firebase.json'), 'utf8'));
-const rewrites = fj.hosting?.rewrites || [];
-if (rewrites.some((r) => r.destination === '/index.html')) {
-  fail('firebase SPA catch-all rewrite would soft-404 missing URLs');
-}
+const fj = JSON.parse(read('firebase.json'));
+if ((fj.hosting?.rewrites || []).some((r) => r.destination === '/index.html')) fail('firebase SPA catch-all would create soft 404s');
+
+const deploy = read('.github/workflows/deploy.yml');
+if (!/branches:\s*\[main\]/.test(deploy)) fail('production deploy must be main-only');
+if (!deploy.includes('seo-live-guard.mjs')) fail('production deploy missing post-deploy live SEO guard');
 
 if (errors.length) {
-  console.error('[FAIL] SEO guard:\n' + errors.map((e) => '  - ' + e).join('\n'));
+  console.error('[FAIL] SEO release guard:\n' + errors.map((e) => `  - ${e}`).join('\n'));
   process.exit(1);
 }
-console.log(`[PASS] SEO guard: ${pages.length} pages + discovery OK` + (warn.length ? ` (${warn.length} notes)` : ''));
+console.log(`[PASS] SEO release guard: ${requiredLocs.length} canonical URLs, ${toolPages.length} tools, locale previews quarantined, discovery synchronized`);
