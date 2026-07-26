@@ -11,11 +11,9 @@
   },
   "scripts": {
     "dev": "vite",
-    "seo:export-registry": "node scripts/export-seo-registry.mjs",
-    "seo:generate-sitemap": "node scripts/generate-sitemap.mjs",
-    "seo:generate-llm": "node scripts/generate-llm-discovery.mjs",
-    "seo:generate": "npm run seo:export-registry && npm run seo:generate-sitemap && npm run seo:generate-llm",
-    "build": "npm run seo:generate && node scripts/inject-guides.mjs && node scripts/inject-eeat.mjs && node scripts/inject-site-nav.mjs && node scripts/inject-related-tools.mjs && node scripts/inject-calc-sheet.mjs && python3 scripts/inject-seo.py && node scripts/verify-form-fields.mjs && tsc --noEmit && vite build && node scripts/verify-nav.mjs && node scripts/verify-form-fields.mjs && npm run verify:seo:enterprise",
+    "build": "node scripts/assert-production-env.mjs && node scripts/inject-guides.mjs && node scripts/inject-eeat.mjs && node scripts/inject-site-nav.mjs && node scripts/inject-related-tools.mjs && node scripts/inject-calc-sheet.mjs && python3 scripts/inject-seo.py && node scripts/verify-form-fields.mjs && tsc --noEmit && vite build && node scripts/verify-nav.mjs && node scripts/verify-form-fields.mjs && node scripts/verify-seo.mjs && node scripts/verify-hero-sacred.mjs && node scripts/verify-production-bundle.mjs",
+    "smoke:prod-env": "node scripts/assert-production-env.mjs",
+    "smoke:paddle": "node scripts/smoke-paddle-sandbox.mjs",
     "verify:seo": "node scripts/verify-seo.mjs",
     "verify:seo:registry": "node scripts/export-seo-registry.mjs",
     "verify:seo:llms": "node scripts/generate-llm-discovery.mjs && node scripts/verify-seo.mjs",
@@ -52,6 +50,7 @@
     "chart.js": "4.4.1",
     "decimal.js": "10.4.3",
     "dexie": "3.2.7",
+    "firebase": "^10.14.1",
     "html2canvas": "1.4.1",
     "jspdf": "2.5.1",
     "lit": "3.1.2"

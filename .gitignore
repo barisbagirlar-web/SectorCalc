@@ -27,11 +27,12 @@ Thumbs.db
 !.vscode/extensions.json
 !.vscode/settings.json
 
-# Env (ASLA commit etme)
+# Env — keep secrets local; allow committed public client production env
 .env
 .env.local
-.env.production
+.env.production.local
 .env.*.local
+!.env.production
 
 # Test artifacts
 coverage/
