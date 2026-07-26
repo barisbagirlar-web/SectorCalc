@@ -1,40 +1,41 @@
 /**
- * SectorCalc account workspace — global-grade engineer control surface.
+ * Premium SectorCalc account workspace.
  */
 import {
   authReady,
   watchAuth,
   signOutUser,
   readUserProfile,
-  friendlyAuthError
+  friendlyAuthError,
+  listCloudPurchases,
+  mergePurchases,
+  readLocalPurchases,
+  readPrefs,
+  writePrefs,
+  syncPrefsToCloud,
+  listSessions,
+  revokeSession,
+  touchSession,
+  type PurchaseRecord,
+  type DeviceSession,
+  type AccountPrefs
 } from './auth/index.js';
 import { readCredits } from './payments/paddle/credits.js';
 import type { User } from 'firebase/auth';
 
 const TAB_META: Record<string, { title: string; sub: string }> = {
-  overview: {
-    title: 'Overview',
-    sub: 'Balance, identity, and shortcuts for your SectorCalc workspace.'
-  },
-  credits: {
-    title: 'Credits',
-    sub: 'Pay-per-use balance, validity, and how cloud sync works on this device.'
-  },
-  workspace: {
-    title: 'Workspace',
-    sub: 'Jump into live calculators and the credit store.'
-  },
-  security: {
-    title: 'Security',
-    sub: 'Identity plate, providers, and session controls.'
-  },
-  support: {
-    title: 'Support',
-    sub: 'What to include when you need help with credits or engines.'
-  }
+  overview: { title: 'Overview', sub: 'Balance, receipts, and session posture for your SectorCalc identity.' },
+  billing: { title: 'Billing', sub: 'Purchase receipts from Paddle checkout (browser + cloud).' },
+  credits: { title: 'Credits', sub: 'Balance breakdown and entitlement policy.' },
+  security: { title: 'Security', sub: 'Identity plate and registered device sessions.' },
+  preferences: { title: 'Preferences', sub: 'Notification and workspace density settings.' },
+  workspace: { title: 'Workspace', sub: 'Jump into calculators and the credit store.' }
 };
 
 let activeTab = 'overview';
+let current: User | null = null;
+let purchases: PurchaseRecord[] = [];
+let sessions: DeviceSession[] = [];
 
 function $(id: string): HTMLElement | null {
   return document.getElementById(id);
@@ -45,22 +46,22 @@ function setText(id: string, text: string): void {
   if (el) el.textContent = text;
 }
 
+function toast(text: string, kind: '' | 'ok' | 'err' = ''): void {
+  const el = $('acc-toast');
+  if (!el) return;
+  el.textContent = text;
+  el.dataset.kind = kind;
+}
+
 function providerLabel(raw: string): string {
   if (raw === 'password') return 'Email / password';
   if (raw === 'google.com') return 'Google';
   return raw || 'Email / password';
 }
 
-function formatSince(user: User): string {
-  const ms = user.metadata?.creationTime ? Date.parse(user.metadata.creationTime) : NaN;
-  if (!Number.isFinite(ms)) return '—';
-  return new Date(ms).toISOString().slice(0, 10);
-}
-
-function formatLastSignIn(user: User): string {
-  const ms = user.metadata?.lastSignInTime ? Date.parse(user.metadata.lastSignInTime) : NaN;
-  if (!Number.isFinite(ms)) return '—';
-  return new Date(ms).toISOString().replace('T', ' ').slice(0, 19) + 'Z';
+function fmtDate(iso: string): string {
+  if (!iso) return '—';
+  return iso.replace('T', ' ').slice(0, 19);
 }
 
 function initialsFor(user: User): string {
@@ -68,6 +69,11 @@ function initialsFor(user: User): string {
   const parts = base.split(/[\s@._-]+/).filter(Boolean);
   if (parts.length >= 2) return (parts[0]![0]! + parts[1]![0]!).toUpperCase();
   return base.slice(0, 2).toUpperCase();
+}
+
+function setLoading(on: boolean): void {
+  const load = $('acc-loading');
+  if (load) load.hidden = !on;
 }
 
 function setTab(tab: string): void {
@@ -110,20 +116,104 @@ function paintAvatar(user: User): void {
   apply('acc-photo-lg', 'acc-initials-lg');
 }
 
+function renderBilling(): void {
+  const tbody = $('billing-tbody');
+  const empty = $('billing-empty');
+  if (!tbody) return;
+  if (!purchases.length) {
+    tbody.innerHTML = '';
+    if (empty) empty.hidden = false;
+    return;
+  }
+  if (empty) empty.hidden = true;
+  tbody.innerHTML = purchases
+    .map(
+      (p) => `<tr>
+      <td class="mono">${fmtDate(p.at)}</td>
+      <td class="mono">${p.credits}</td>
+      <td class="mono">${p.amountLabel}</td>
+      <td><code class="mono">${p.txnId}</code></td>
+      <td>${p.source}</td>
+    </tr>`
+    )
+    .join('');
+}
+
+function renderDevices(): void {
+  const list = $('device-list');
+  if (!list) return;
+  if (!sessions.length) {
+    list.innerHTML = '<li class="acc-muted">No registered devices yet.</li>';
+    return;
+  }
+  list.innerHTML = sessions
+    .map((s) => {
+      const badge = s.current ? '<span class="acc-chip">This device</span>' : '';
+      const action = s.current
+        ? ''
+        : `<button type="button" class="acc-btn acc-btn-ghost acc-btn-sm" data-revoke="${s.id}">Revoke</button>`;
+      return `<li class="acc-device">
+        <div><strong>${s.label}</strong> ${badge}<br><span class="mono acc-muted">${fmtDate(s.lastSeenAt)}</span></div>
+        ${action}
+      </li>`;
+    })
+    .join('');
+}
+
+function fillPrefs(prefs: AccountPrefs): void {
+  const a = $('pref-email-product') as HTMLInputElement | null;
+  const b = $('pref-email-receipts') as HTMLInputElement | null;
+  const c = $('pref-compact') as HTMLInputElement | null;
+  if (a) a.checked = prefs.emailProduct;
+  if (b) b.checked = prefs.emailReceipts;
+  if (c) c.checked = prefs.compactWorkspace;
+  document.documentElement.dataset.accCompact = prefs.compactWorkspace ? '1' : '0';
+}
+
+async function loadPremiumData(user: User): Promise<void> {
+  let cloudPurchases: PurchaseRecord[] = [];
+  try {
+    cloudPurchases = await listCloudPurchases(user.uid);
+  } catch {
+    cloudPurchases = [];
+  }
+  purchases = mergePurchases(cloudPurchases, readLocalPurchases());
+  try {
+    await touchSession(user);
+    sessions = await listSessions(user.uid);
+  } catch {
+    sessions = [];
+  }
+  fillPrefs(readPrefs());
+  renderBilling();
+  renderDevices();
+}
+
 async function render(user: User): Promise<void> {
+  current = user;
+  setLoading(true);
   const guest = readCredits().balance;
   let cloud = guest;
   try {
     const profile = await readUserProfile(user.uid);
     if (profile) cloud = profile.credits;
   } catch {
-    /* keep local */
+    /* keep */
   }
   const display = Math.max(cloud, guest);
+  await loadPremiumData(user);
+
+  const lifetime = purchases.reduce((n, p) => n + p.credits, 0);
   const providers = user.providerData.map((p) => providerLabel(p.providerId));
   const providerText = providers.length ? providers.join(' · ') : 'Email / password';
   const name = user.displayName || 'SectorCalc engineer';
   const email = user.email || 'No email on file';
+  const last = user.metadata?.lastSignInTime
+    ? new Date(user.metadata.lastSignInTime).toISOString().replace('T', ' ').slice(0, 19) + 'Z'
+    : '—';
+  const since = user.metadata?.creationTime
+    ? new Date(user.metadata.creationTime).toISOString().slice(0, 10)
+    : '—';
 
   setText('acc-name', name);
   setText('acc-name-side', name);
@@ -133,41 +223,31 @@ async function render(user: User): Promise<void> {
   setText('acc-uid', user.uid);
   setText('acc-credits', String(display));
   setText('acc-credits-hero', String(display));
-  setText('acc-credits-detail', String(display));
-  setText('acc-local-credits', String(guest));
-  setText('acc-local-detail', String(guest));
+  setText('acc-lifetime', String(lifetime));
+  setText('acc-device-count', String(sessions.length));
   setText('acc-cloud-detail', String(cloud));
+  setText('acc-local-detail', String(guest));
   setText('acc-display-detail', String(display));
-  setText('acc-provider', providerText);
   setText('acc-provider-spec', providerText);
-  setText('acc-since', formatSince(user));
-  setText('acc-last-signin', formatLastSignIn(user));
+  setText('acc-since', since);
+  setText('acc-last-signin', last);
   setText(
     'acc-session',
-    user.emailVerified ? 'Verified session' : 'Session active · email not verified'
+    user.emailVerified ? 'Verified session · premium workspace' : 'Session active · email not verified'
   );
-  setText(
-    'acc-verified',
-    user.emailVerified ? 'Email verified' : 'Email not verified yet'
-  );
-  setText(
-    'acc-verified-spec',
-    user.emailVerified ? 'Yes' : 'No — complete provider verification if prompted'
-  );
+  setText('acc-verified-spec', user.emailVerified ? 'Yes' : 'No');
   setText(
     'acc-next-copy',
     display < 1
-      ? 'You have no credits available. Load a pack to unlock paid report runs, or keep exploring free tool previews.'
-      : 'You have credits ready. Open a calculator and generate an auditable report when you need a formal deliverable.'
+      ? 'You have zero credits. Buy a pack to unlock paid report runs, or continue with free exploratory use.'
+      : `You have ${display} credit${display === 1 ? '' : 's'} ready. Generate an auditable report when you need a formal deliverable.`
   );
 
   paintAvatar(user);
-  const out = $('signed-out');
-  const inn = $('signed-in');
-  if (out) out.hidden = true;
-  if (inn) inn.hidden = false;
-  setText('acc-status', '');
+  $('signed-out')!.hidden = true;
+  $('signed-in')!.hidden = false;
   setTab(activeTab);
+  setLoading(false);
 }
 
 async function doSignOut(): Promise<void> {
@@ -181,33 +261,67 @@ function bind(): void {
   });
   $('sign-out')?.addEventListener('click', () => void doSignOut());
   $('sign-out-sec')?.addEventListener('click', () => void doSignOut());
+  $('billing-refresh')?.addEventListener('click', async () => {
+    if (!current) return;
+    toast('Refreshing billing…');
+    await loadPremiumData(current);
+    toast('Billing updated.', 'ok');
+  });
   $('copy-uid')?.addEventListener('click', async () => {
     const uid = $('acc-uid')?.textContent?.trim();
-    if (!uid || uid === '—') return;
+    if (!uid) return;
     try {
       await navigator.clipboard.writeText(uid);
-      const btn = $('copy-uid');
-      if (btn) {
-        const prev = btn.textContent;
-        btn.textContent = 'Copied';
-        window.setTimeout(() => {
-          btn.textContent = prev || 'Copy';
-        }, 1200);
-      }
+      toast('User ID copied.', 'ok');
     } catch {
-      /* ignore */
+      toast('Clipboard unavailable.', 'err');
+    }
+  });
+  $('prefs-form')?.addEventListener('submit', async (ev) => {
+    ev.preventDefault();
+    const prefs: AccountPrefs = {
+      emailProduct: Boolean(($('pref-email-product') as HTMLInputElement)?.checked),
+      emailReceipts: Boolean(($('pref-email-receipts') as HTMLInputElement)?.checked),
+      compactWorkspace: Boolean(($('pref-compact') as HTMLInputElement)?.checked)
+    };
+    writePrefs(prefs);
+    document.documentElement.dataset.accCompact = prefs.compactWorkspace ? '1' : '0';
+    if (current) {
+      try {
+        await syncPrefsToCloud(current.uid, prefs);
+      } catch {
+        /* local still saved */
+      }
+    }
+    toast('Preferences saved.', 'ok');
+  });
+  document.addEventListener('click', async (ev) => {
+    const t = (ev.target as HTMLElement | null)?.closest<HTMLElement>('[data-revoke]');
+    if (!t?.dataset.revoke || !current) return;
+    try {
+      await revokeSession(current.uid, t.dataset.revoke);
+      sessions = await listSessions(current.uid);
+      renderDevices();
+      setText('acc-device-count', String(sessions.length));
+      toast('Device revoked.', 'ok');
+    } catch (err) {
+      toast(err instanceof Error ? err.message : 'Revoke failed', 'err');
     }
   });
 }
 
 function init(): void {
   bind();
+  setLoading(true);
   if (!authReady()) {
+    setLoading(false);
     setText('acc-status', 'Authentication is not configured (VITE_FIREBASE_* missing).');
     return;
   }
   watchAuth(async (user) => {
     if (!user) {
+      setLoading(false);
+      current = null;
       $('signed-in')!.hidden = true;
       $('signed-out')!.hidden = false;
       return;
@@ -215,6 +329,7 @@ function init(): void {
     try {
       await render(user);
     } catch (err) {
+      setLoading(false);
       setText('acc-status', friendlyAuthError(err));
       $('signed-out')!.hidden = false;
     }

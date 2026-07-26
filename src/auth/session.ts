@@ -14,11 +14,22 @@ import {
 import { getFirebaseAuth, isFirebaseConfigured } from './firebase-app.js';
 import { ensureUserProfile } from './profile.js';
 import { mergeGuestCreditsOnLogin } from './credit-bridge.js';
+import { touchSession } from './account-data.js';
 
 export type AuthListener = (user: User | null) => void;
 
 export function authReady(): boolean {
   return isFirebaseConfigured();
+}
+
+async function hydrateSignedIn(user: User): Promise<void> {
+  await ensureUserProfile(user);
+  await mergeGuestCreditsOnLogin(user.uid);
+  try {
+    await touchSession(user);
+  } catch {
+    /* session registry best-effort */
+  }
 }
 
 export function watchAuth(listener: AuthListener): () => void {
@@ -29,8 +40,7 @@ export function watchAuth(listener: AuthListener): () => void {
   return onAuthStateChanged(getFirebaseAuth(), async (user) => {
     if (user) {
       try {
-        await ensureUserProfile(user);
-        await mergeGuestCreditsOnLogin(user.uid);
+        await hydrateSignedIn(user);
       } catch {
         /* profile/credits best-effort */
       }
@@ -44,15 +54,13 @@ export async function signUpEmail(email: string, password: string, displayName?:
   if (displayName?.trim()) {
     await updateProfile(cred.user, { displayName: displayName.trim() });
   }
-  await ensureUserProfile(cred.user);
-  await mergeGuestCreditsOnLogin(cred.user.uid);
+  await hydrateSignedIn(cred.user);
   return cred.user;
 }
 
 export async function signInEmail(email: string, password: string): Promise<User> {
   const cred = await signInWithEmailAndPassword(getFirebaseAuth(), email.trim(), password);
-  await ensureUserProfile(cred.user);
-  await mergeGuestCreditsOnLogin(cred.user.uid);
+  await hydrateSignedIn(cred.user);
   return cred.user;
 }
 
@@ -60,8 +68,7 @@ export async function signInGoogle(): Promise<User> {
   const provider = new GoogleAuthProvider();
   provider.setCustomParameters({ prompt: 'select_account' });
   const cred = await signInWithPopup(getFirebaseAuth(), provider);
-  await ensureUserProfile(cred.user);
-  await mergeGuestCreditsOnLogin(cred.user.uid);
+  await hydrateSignedIn(cred.user);
   return cred.user;
 }
 

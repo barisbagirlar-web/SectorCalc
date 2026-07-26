@@ -7,7 +7,6 @@ service cloud.firestore {
     function isOwner(uid) {
       return signedIn() && request.auth.uid == uid;
     }
-    /** Ops console allowlist — must match VITE_OPS_ADMIN_EMAILS. */
     function isOpsAdmin() {
       return signedIn()
         && request.auth.token.email is string
@@ -32,6 +31,20 @@ service cloud.firestore {
           && request.resource.data.credits >= 0
         );
       allow delete: if false;
+
+      match /purchases/{id} {
+        allow read: if isOwner(uid) || isOpsAdmin();
+        allow create: if isOwner(uid)
+          && request.resource.data.credits is int
+          && request.resource.data.credits > 0;
+        allow update, delete: if false;
+      }
+
+      match /sessions/{id} {
+        allow read: if isOwner(uid) || isOpsAdmin();
+        allow create, update: if isOwner(uid);
+        allow delete: if isOwner(uid) || isOpsAdmin();
+      }
     }
 
     match /ops_audit/{id} {

@@ -15,13 +15,16 @@ import {
   getFirebasePublicConfig,
   listUserProfiles,
   listOpsAudit,
+  listAllPurchases,
+  estimateGmvUsd,
   writeOpsAudit,
   adminSetUserCredits,
   adminAdjustUserCredits,
   profilesToCsv,
   downloadTextFile,
   type UserProfile,
-  type OpsAuditEvent
+  type OpsAuditEvent,
+  type OpsPurchaseRow
 } from './auth/index.js';
 import { getPaddlePublicConfig } from './payments/paddle/index.js';
 import { PACKAGES } from './lib/pricing-packages.js';
@@ -31,9 +34,8 @@ import type { User } from 'firebase/auth';
 const PANEL_META: Record<string, { title: string; sub: string }> = {
   overview: {
     title: 'Overview',
-    sub: 'Operational health, registry counts, and operator checklist.'
-  },
-  users: {
+    sub: 'Revenue posture, registry health, and live operator activity.'
+  },  users: {
     title: 'Users & credits',
     sub: 'Firestore profiles, search, CSV export, and audited credit adjustments.'
   },
@@ -70,6 +72,7 @@ const PANEL_META: Record<string, { title: string; sub: string }> = {
 let currentUser: User | null = null;
 let profilesCache: UserProfile[] = [];
 let auditCache: OpsAuditEvent[] = [];
+let purchasesCache: OpsPurchaseRow[] = [];
 let activeTab = 'overview';
 let openLogged = false;
 
@@ -218,6 +221,48 @@ function renderAudit(): void {
     .join('');
 }
 
+function renderActivity(): void {
+  const list = $('ops-activity-list');
+  if (!list) return;
+  const rows = auditCache.slice(0, 8);
+  if (!rows.length) {
+    list.innerHTML = '<li class="ops-activity-empty">No audit events yet.</li>';
+    return;
+  }
+  list.innerHTML = rows
+    .map(
+      (ev) => `<li class="ops-activity-row">
+      <span class="mono ops-activity-when">${esc(fmtWhen(ev))}</span>
+      <strong class="mono">${esc(ev.action)}</strong>
+      <span>${esc(ev.actorEmail || ev.actorUid)}</span>
+      <span class="ops-activity-detail">${esc(ev.detail || ev.targetEmail || '—')}</span>
+    </li>`
+    )
+    .join('');
+}
+
+function renderReceipts(): void {
+  const tbody = $('ops-receipts-tbody');
+  if (!tbody) return;
+  if (!purchasesCache.length) {
+    tbody.innerHTML = '<tr><td colspan="6">No cloud purchase receipts yet.</td></tr>';
+    return;
+  }
+  tbody.innerHTML = purchasesCache
+    .slice(0, 40)
+    .map(
+      (p) => `<tr>
+      <td class="mono">${esc(p.at.replace('T', ' ').slice(0, 19))}</td>
+      <td>${esc(p.email || p.uid || '—')}</td>
+      <td class="mono">${esc(String(p.credits))}</td>
+      <td class="mono">${esc(p.amountLabel)}</td>
+      <td class="mono">${esc(p.txnId)}</td>
+      <td class="mono">${esc(p.source)}</td>
+    </tr>`
+    )
+    .join('');
+}
+
 function renderOverviewHealth(): void {
   const paddle = getPaddlePublicConfig();
   const fb = getFirebasePublicConfig();
@@ -249,16 +294,18 @@ function renderOverviewHealth(): void {
       )
       .join('');
   }
+  const gmv = estimateGmvUsd(purchasesCache);
   setMsg('kpi-users', String(profilesCache.length));
   setMsg('kpi-credits', String(profilesCache.reduce((n, p) => n + p.credits, 0)));
-  setMsg('kpi-tools', String(OPS_TOOL_CATALOG.length));
-  setMsg('kpi-packs', String(PACKAGES.length));
+  setMsg('kpi-receipts', String(purchasesCache.length));
+  setMsg('kpi-gmv', gmv > 0 ? `$${gmv.toFixed(2)}` : '$0.00');
 
   const paddleEnv = $('ops-paddle-env');
   const paddleTok = $('ops-paddle-token');
   if (paddleEnv) paddleEnv.textContent = paddle.environment || '—';
   if (paddleTok) paddleTok.textContent = paddle.clientToken ? `${paddle.clientToken.slice(0, 12)}…` : 'missing';
   setMsg('ops-chip-env', `paddle · ${paddle.environment || 'n/a'}`);
+  renderActivity();
 }
 
 function renderSecurity(user: User): void {
@@ -278,12 +325,25 @@ async function loadData(showStatus = false): Promise<void> {
   if (!currentUser) return;
   try {
     if (showStatus) setMsg('ops-desk-msg', 'Refreshing registry…', '');
-    profilesCache = await listUserProfiles();
-    auditCache = await listOpsAudit(150);
+    const [profiles, audit, purchases] = await Promise.all([
+      listUserProfiles(),
+      listOpsAudit(150),
+      listAllPurchases(200).catch(() => [] as OpsPurchaseRow[])
+    ]);
+    profilesCache = profiles;
+    auditCache = audit;
+    purchasesCache = purchases;
     renderUsersTable();
     renderAudit();
+    renderReceipts();
     renderOverviewHealth();
-    if (showStatus) setMsg('ops-desk-msg', `Synced · ${profilesCache.length} profiles · ${auditCache.length} audit rows`, 'ok');
+    if (showStatus) {
+      setMsg(
+        'ops-desk-msg',
+        `Synced · ${profilesCache.length} profiles · ${purchasesCache.length} receipts · ${auditCache.length} audit rows`,
+        'ok'
+      );
+    }
   } catch (err) {
     const msg = err instanceof Error ? err.message : 'Refresh failed';
     setMsg('ops-desk-msg', msg, 'err');

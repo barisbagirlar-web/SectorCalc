@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="./sc-theme.css?v=12">
 <script src="./sc-theme.js?v=12" defer></script>
 <link rel="stylesheet" href="/sc-auth.css?v=3">
-<link rel="stylesheet" href="/sc-ops.css?v=4">
+<link rel="stylesheet" href="/sc-ops.css?v=5">
 </head>
 <body class="ops-body">
 <main class="ops-shell">
@@ -100,8 +100,8 @@
         <div class="ops-kpi-grid" id="ops-kpi-grid">
           <article class="ops-kpi"><p class="ops-kpi-label">Registered profiles</p><p class="ops-kpi-value mono" id="kpi-users">—</p></article>
           <article class="ops-kpi"><p class="ops-kpi-label">Credits in ledger</p><p class="ops-kpi-value mono" id="kpi-credits">—</p></article>
-          <article class="ops-kpi"><p class="ops-kpi-label">Live calculators</p><p class="ops-kpi-value mono" id="kpi-tools">—</p></article>
-          <article class="ops-kpi"><p class="ops-kpi-label">Credit packs</p><p class="ops-kpi-value mono" id="kpi-packs">—</p></article>
+          <article class="ops-kpi"><p class="ops-kpi-label">Receipt volume</p><p class="ops-kpi-value mono" id="kpi-receipts">—</p></article>
+          <article class="ops-kpi"><p class="ops-kpi-label">Est. GMV (packs)</p><p class="ops-kpi-value mono" id="kpi-gmv">—</p></article>
         </div>
         <div class="ops-split">
           <article class="ops-card">
@@ -123,6 +123,15 @@
             </div>
           </article>
         </div>
+        <article class="ops-card ops-activity-card">
+          <div class="ops-toolbar ops-toolbar-tight">
+            <h2>Recent activity</h2>
+            <button type="button" class="ops-btn ops-btn-ghost" data-goto="audit">Full audit</button>
+          </div>
+          <ul class="ops-activity" id="ops-activity-list">
+            <li class="ops-activity-empty">No audit events yet.</li>
+          </ul>
+        </article>
       </div>
 
       <!-- USERS -->
@@ -208,6 +217,17 @@
               <li>Sandbox cards use 4242… for end-to-end checkout tests.</li>
             </ul>
           </article>
+        </div>
+        <h2 class="ops-section-title">Cloud purchase receipts</h2>
+        <div class="ops-table-wrap">
+          <table class="ops-table">
+            <thead>
+              <tr><th>When (UTC)</th><th>Email</th><th>Credits</th><th>Amount</th><th>Txn</th><th>Source</th></tr>
+            </thead>
+            <tbody id="ops-receipts-tbody">
+              <tr><td colspan="6">Loading…</td></tr>
+            </tbody>
+          </table>
         </div>
         <h2 class="ops-section-title">Credit pack catalog</h2>
         <div class="ops-table-wrap">

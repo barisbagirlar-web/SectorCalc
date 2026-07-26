@@ -25,6 +25,24 @@ export { ensureUserProfile, readUserProfile, setUserCredits, type UserProfile } 
 export { mergeGuestCreditsOnLogin, pushLocalCreditsToCloud } from './credit-bridge.js';
 
 export {
+  recordLocalPurchase,
+  recordCloudPurchase,
+  listCloudPurchases,
+  mergePurchases,
+  readLocalPurchases,
+  readPrefs,
+  writePrefs,
+  syncPrefsToCloud,
+  touchSession,
+  listSessions,
+  revokeSession,
+  DEFAULT_PREFS,
+  type PurchaseRecord,
+  type DeviceSession,
+  type AccountPrefs
+} from './account-data.js';
+
+export {
   getOpsAdminEmails,
   isOpsGateConfigured,
   isOpsUnlocked,
@@ -38,10 +56,13 @@ export {
 export {
   listUserProfiles,
   listOpsAudit,
+  listAllPurchases,
+  estimateGmvUsd,
   writeOpsAudit,
   adminSetUserCredits,
   adminAdjustUserCredits,
   profilesToCsv,
   downloadTextFile,
-  type OpsAuditEvent
+  type OpsAuditEvent,
+  type OpsPurchaseRow
 } from './ops-admin.js';
