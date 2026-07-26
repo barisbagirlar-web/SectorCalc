@@ -44,7 +44,10 @@ export default defineConfig({
         'oee-pro': 'oee-pro.html',
         'machine-rate-pro': 'machine-rate-pro.html',
         pro: 'pro.html',
-        tools: 'tools.html'
+        tools: 'tools.html',
+        login: 'login.html',
+        account: 'account.html',
+        'sc-ops': 'sc-ops.html'
       }
     }
   },

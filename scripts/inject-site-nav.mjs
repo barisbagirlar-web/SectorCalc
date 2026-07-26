@@ -37,6 +37,8 @@ const PAGES = [
   { page: 'tools.html', strip: 'topbar', badge: null },
   { page: 'pro.html', strip: 'topbar', badge: null },
   { page: 'pricing.html', strip: 'pricing', badge: null },
+  { page: 'login.html', strip: 'topbar', badge: null },
+  { page: 'account.html', strip: 'topbar', badge: null },
   { page: 'machining-pro.html', strip: 'topbar', badge: 'SC-020 · Feeds & Speeds' },
   { page: 'bearing-pro.html', strip: 'topbar', badge: 'SC-021 · Bearing Life L10' },
   { page: 'tap-thread-pro.html', strip: 'topbar', badge: 'SC-022 · Tap & Thread Milling' },
@@ -144,11 +146,10 @@ function ensureAssets(html, page = '') {
 function stripOldNav(html, mode) {
   html = html.replace(/<!--SC-SITE-NAV-START-->[\s\S]*?<!--SC-SITE-NAV-END-->\n?/g, '');
   html = html.replace(/<div class="sc-tool-strip">[\s\S]*?<\/div>\n?/g, '');
+  // Always drop leftover shared headers so inject cannot double-mount.
+  html = html.replace(/<header class="site-header"[\s\S]*?<\/header>\s*/i, '');
+  html = html.replace(/<div class="mobile-nav-overlay" id="mobileNav"[\s\S]*?<\/div>\s*/i, '');
 
-  if (mode === 'home') {
-    html = html.replace(/<header class="site-header"[\s\S]*?<\/header>\s*/i, '');
-    html = html.replace(/<div class="mobile-nav-overlay" id="mobileNav"[\s\S]*?<\/div>\s*/i, '');
-  }
   if (mode === 'topbar') {
     // Topbar contains nested .badge divs — close at the topbar that precedes .wrap
     html = html.replace(/<div class="topbar">[\s\S]*?<\/div>\s*(?=<div class="wrap")/i, '');
