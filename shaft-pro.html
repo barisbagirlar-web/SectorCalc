@@ -569,6 +569,7 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
 
 
 
+
 <!--SC-SEO-BREADCRUMB-START-->
 <nav aria-label="Breadcrumb" class="sc-breadcrumb">
   <ol itemscope itemtype="https://schema.org/BreadcrumbList">
@@ -874,7 +875,7 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
 
 <p>The static check uses the factored loads (K<sub>b</sub>, K<sub>t</sub>) so a single shock event cannot yield the shaft. Both safety factors are reported in the results table and the audit trail.</p>
 
-<div class="sc-tip"><span class="ico" aria-hidden="true">💡</span><div>A shaft passing stress checks still fails in service if its bearings are undersized. Hand the radial load and speed to <a href="/bearing-pro.html">SC-021 Bearing Life L10</a> for ISO 281 bearing verification, then close the fits with <a href="/sc008-pro.html">SC-008 Tolerance Stack-Up</a>.</div></div>
+<div class="sc-tip"><span class="ico" aria-hidden="true">💡</span><div>A shaft passing stress checks still fails in service if its bearings are undersized. Hand the radial load and speed to <a href="/calculator/bearing-life-l10">SC-021 Bearing Life L10</a> for ISO 281 bearing verification, then close the fits with <a href="/calculator/tolerance-stack-up">SC-008 Tolerance Stack-Up</a>.</div></div>
 
 <h2 id="deflection">Deflection and critical speed</h2>
 
@@ -934,10 +935,10 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
 <details class="related">
   <summary>Related calculators</summary>
   <ul>
-    <li><a href="/shaft-pro.html">SC-026 Shaft Design</a> — run the ASME / DE-Goodman engine with full audit trail</li>
-    <li><a href="/bearing-pro.html">SC-021 Bearing Life L10</a> — verify bearings carrying this shaft</li>
-    <li><a href="/bolt-pro.html">SC-035 Bolt Torque &amp; Preload</a> — coupling and flange connections</li>
-    <li><a href="/sc008-pro.html">SC-008 Tolerance Stack-Up</a> — shaft/housing fits and runout budget</li>
+    <li><a href="/calculator/shaft-design">SC-026 Shaft Design</a> — run the ASME / DE-Goodman engine with full audit trail</li>
+    <li><a href="/calculator/bearing-life-l10">SC-021 Bearing Life L10</a> — verify bearings carrying this shaft</li>
+    <li><a href="/calculator/bolt-torque-preload">SC-035 Bolt Torque &amp; Preload</a> — coupling and flange connections</li>
+    <li><a href="/calculator/tolerance-stack-up">SC-008 Tolerance Stack-Up</a> — shaft/housing fits and runout budget</li>
     <li><a href="/tools.html">All SectorCalc Tools</a> — full engineering calculator directory</li>
   </ul>
 </details>
@@ -1313,29 +1314,6 @@ calculate();
 <script src="/assets/js/sc-ga4-id.js"></script>
 <script src="/assets/js/cvw-monitor.js" defer></script>
 
-<!--SC-RELATED-TOOLS-START-->
-<section class="related-tools-section" aria-labelledby="related-tools-heading">
-  <h2 id="related-tools-heading">Related Calculators</h2>
-  <div class="related-grid">
-    <a href="/machining-pro.html" class="related-card">
-      <div class="rt-title">SC-020 Feeds & Speeds</div>
-      <div class="rt-desc">Tolerance inputs from machining capability data</div>
-    </a>
-    <a href="/bearing-pro.html" class="related-card">
-      <div class="rt-title">SC-021 Bearing Life</div>
-      <div class="rt-desc">Validate fit assumptions after stack closure</div>
-    </a>
-    <a href="/fits-pro.html" class="related-card">
-      <div class="rt-title">SC-027 Fits & Clearances</div>
-      <div class="rt-desc">ISO 286 hole/shaft fit selection</div>
-    </a>
-    <a href="/surface-finish-pro.html" class="related-card">
-      <div class="rt-title">SC-028 Surface Finish</div>
-      <div class="rt-desc">Ra, Rz capability for stack surfaces</div>
-    </a>
-  </div>
-</section>
-<!--SC-RELATED-TOOLS-END-->
 <!--SC-CALC-SHEET-TB-START-->
 <aside class="sc-calc-sheet-titleblock" aria-hidden="true">
   <div class="tb-row"><span class="tb-label">DWG</span><span class="tb-value">SC-026-001</span></div>
@@ -1344,5 +1322,28 @@ calculate();
   <div class="tb-row"><span class="tb-label">DATE</span><span class="tb-value">2026-07-26</span></div>
 </aside>
 <!--SC-CALC-SHEET-TB-END-->
+<!--SC-RELATED-TOOLS-START-->
+<section class="related-tools-section" aria-labelledby="related-tools-heading">
+  <h2 id="related-tools-heading">Related Calculators</h2>
+  <div class="related-grid">
+    <a href="/calculator/cnc-feeds-speeds" class="related-card">
+      <div class="rt-title">SC-020 Feeds & Speeds</div>
+      <div class="rt-desc">Tolerance inputs from machining capability data</div>
+    </a>
+    <a href="/calculator/bearing-life-l10" class="related-card">
+      <div class="rt-title">SC-021 Bearing Life</div>
+      <div class="rt-desc">Validate fit assumptions after stack closure</div>
+    </a>
+    <a href="/calculator/iso-286-fits" class="related-card">
+      <div class="rt-title">SC-027 Fits & Clearances</div>
+      <div class="rt-desc">ISO 286 hole/shaft fit selection</div>
+    </a>
+    <a href="/calculator/surface-finish" class="related-card">
+      <div class="rt-title">SC-028 Surface Finish</div>
+      <div class="rt-desc">Ra, Rz capability for stack surfaces</div>
+    </a>
+  </div>
+</section>
+<!--SC-RELATED-TOOLS-END-->
 </body>
 </html>

@@ -1,0 +1,29 @@
+{
+  "$schemaNote": "Public-safe E-E-A-T claim gate. Private contracts/emails must not be stored in this repository.",
+  "relationships": [
+    {
+      "id": "neela-nataraj-methodology-review",
+      "personName": "Prof. Dr. Neela Nataraj",
+      "organization": "Indian Institute of Technology Bombay",
+      "relationshipVerified": true,
+      "publicClaimAllowed": true,
+      "scope": "statistical computing methodology review",
+      "allowedPublicPhrases": [
+        "Academic oversight",
+        "Methodology review",
+        "statistical computing components"
+      ],
+      "forbiddenPublicPhrases": [
+        "certifies SectorCalc",
+        "approves shop-floor results",
+        "engineering sign-off",
+        "ASME reviewer",
+        "VDI reviewer",
+        "licensed engineering verification",
+        "PE stamp"
+      ],
+      "schemaPersonId": "https://sectorcalc.com/#person-neela-nataraj",
+      "notes": "Preserves PR #145 production claim scope. Do not widen beyond statistical computing methodology review without private evidence update outside this repo."
+    }
+  ]
+}

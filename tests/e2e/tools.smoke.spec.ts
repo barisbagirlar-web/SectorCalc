@@ -164,7 +164,7 @@ test('tools.html search finds CNC feeds even after category click', async ({ pag
   await expect(page.locator('#suggest')).toBeVisible();
   await expect(page.locator('#suggest')).toContainText(/CNC Feeds & Speeds/i);
   await expect(page.locator('#catalog')).toContainText(/CNC Feeds & Speeds/i);
-  await expect(page.locator('a[href="/machining-pro.html"]').first()).toBeVisible();
+  await expect(page.locator('a[href="/calculator/cnc-feeds-speeds"]').first()).toBeVisible();
   await expect(page.locator('#nores')).toBeHidden();
   await expect(page.locator('#catalog')).not.toContainText(/True Labor Cost/i);
 });
@@ -221,10 +221,11 @@ test('discovery surface matches canonical SEO release policy', async ({ request 
   const sitemap = await request.get('/sitemap.xml');
   expect(sitemap.ok()).toBeTruthy();
   const sm = await sitemap.text();
-  expect(sm).toContain('sc008-pro.html');
-  expect(sm).toContain('machining-pro.html');
-  expect(sm).toContain('bearing-pro.html');
+  expect(sm).toContain('/calculator/tolerance-stack-up');
+  expect(sm).toContain('/calculator/cnc-feeds-speeds');
+  expect(sm).toContain('/calculator/bearing-life-l10');
   expect(sm).toContain('tools.html');
+  expect(sm).not.toMatch(/\/[a-z0-9-]+-pro\.html/i);
   expect(sm).not.toMatch(/<priority>|<changefreq>|<lastmod>/i);
   expect(sm).not.toContain('https://sectorcalc.com/de/');
   expect(sm).not.toContain('https://sectorcalc.com/ja/');
@@ -238,8 +239,12 @@ test('discovery surface matches canonical SEO release policy', async ({ request 
   const llmText = await llm.text();
   expect(llmText).toBe(llmsText);
   expect(llmsText).toContain('SC-008');
+  expect(llmsText).toContain('/calculator/tolerance-stack-up');
+  expect(llmsText).toContain('## Live tools — 25');
+  expect(llmsText).toContain('**78**');
   expect(llmsText).toContain('OAI-SearchBot');
   expect(llmsText).toContain('PerplexityBot');
+  expect(llmsText).not.toMatch(/https:\/\/sectorcalc\.com\/[a-z0-9-]+-pro\.html/i);
   expect(llmsText).not.toContain('https://sectorcalc.com/de/');
   expect(llmsText).not.toContain('https://sectorcalc.com/ja/');
   expect(llmsText).not.toContain('https://sectorcalc.com/zh/');

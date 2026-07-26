@@ -629,6 +629,7 @@
 
 
 
+
 <!--SC-SEO-BREADCRUMB-START-->
 <nav aria-label="Breadcrumb" class="sc-breadcrumb">
   <ol itemscope itemtype="https://schema.org/BreadcrumbList">
@@ -776,7 +777,7 @@
 
 <p>SC-008 operates strictly in one dimension. It does not resolve two-dimensional position tolerances, profile variations, or form errors that require a full GD&amp;T datum reference frame. Treat it as the first-pass arithmetic check that every stack-up analyst performs before moving to more complex tolerance analysis software or physical build-and-measure validation.</p>
 
-<div class="sc-tip"><span class="ico" aria-hidden="true">💡</span><div>Stack contributors often come from machined features whose process capability you already model elsewhere. Cross-check nominal and tolerance inputs against <a href="/machining-pro.html">SC-020 Feeds &amp; Speeds</a> and your shop's capability studies before accepting a predicted Cpk.</div></div>
+<div class="sc-tip"><span class="ico" aria-hidden="true">💡</span><div>Stack contributors often come from machined features whose process capability you already model elsewhere. Cross-check nominal and tolerance inputs against <a href="/calculator/cnc-feeds-speeds">SC-020 Feeds &amp; Speeds</a> and your shop's capability studies before accepting a predicted Cpk.</div></div>
 
 <h2 id="three-methods">Worst-case, RSS, and Monte Carlo</h2>
 
@@ -804,7 +805,7 @@
 
 <p>Compare all three methods side by side. If RSS and Monte Carlo agree closely, your distribution assumptions are self-consistent. A large gap between RSS and Monte Carlo signals that at least one contributor is not well approximated by the ±3σ normal model — revisit distribution assignments before trusting predicted Cpk.</p>
 
-<div class="sc-tip"><span class="ico" aria-hidden="true">💡</span><div>Bearing fits and housing bores in a stack often interact with life calculations. After closing the stack, validate load and clearance assumptions in the <a href="/bearing-pro.html">SC-010 Bearing Life</a> calculator using the predicted gap range.</div></div>
+<div class="sc-tip"><span class="ico" aria-hidden="true">💡</span><div>Bearing fits and housing bores in a stack often interact with life calculations. After closing the stack, validate load and clearance assumptions in the <a href="/calculator/bearing-life-l10">SC-010 Bearing Life</a> calculator using the predicted gap range.</div></div>
 
 <h2 id="distribution-choices">Distribution choices per component</h2>
 
@@ -840,7 +841,7 @@
 
 <p>Do not cite SC-008 predicted Cpk on a PPAP cover sheet or customer capability report. Use it to prioritize which contributors to tighten, which processes to capability-study first, and whether the stack has margin before cutting steel. When production data arrives, replace assumed distributions with empirical histograms or fitted parameters and re-run.</p>
 
-<div class="sc-tip"><span class="ico" aria-hidden="true">💡</span><div>Welded sub-assemblies introduce shrinkage and distortion not captured in a 1D part stack. For joint-level sizing that feeds stack nominal values, see <a href="/weld-pro.html">SC-001 Weld Thickness</a>.</div></div>
+<div class="sc-tip"><span class="ico" aria-hidden="true">💡</span><div>Welded sub-assemblies introduce shrinkage and distortion not captured in a 1D part stack. For joint-level sizing that feeds stack nominal values, see <a href="/calculator/weld-thickness">SC-001 Weld Thickness</a>.</div></div>
 
 <h2 id="iso-286">ISO 286 and drawing tolerances</h2>
 
@@ -1006,10 +1007,10 @@
 <details class="related">
   <summary>Related calculators</summary>
   <ul>
-    <li><a href="/sc008-pro.html">SC-008 Tolerance Stack-Up</a> — run worst-case, RSS, and Monte Carlo on your stack</li>
-    <li><a href="/machining-pro.html">SC-020 Feeds &amp; Speeds</a> — process planning for stack contributors</li>
-    <li><a href="/bearing-pro.html">SC-010 Bearing Life L10</a> — validate fits after clearance stack closes</li>
-    <li><a href="/weld-pro.html">SC-001 Weld Thickness</a> — joint sizing for welded assembly inputs</li>
+    <li><a href="/calculator/tolerance-stack-up">SC-008 Tolerance Stack-Up</a> — run worst-case, RSS, and Monte Carlo on your stack</li>
+    <li><a href="/calculator/cnc-feeds-speeds">SC-020 Feeds &amp; Speeds</a> — process planning for stack contributors</li>
+    <li><a href="/calculator/bearing-life-l10">SC-010 Bearing Life L10</a> — validate fits after clearance stack closes</li>
+    <li><a href="/calculator/weld-thickness">SC-001 Weld Thickness</a> — joint sizing for welded assembly inputs</li>
     <li><a href="/tools.html">All SectorCalc Tools</a> — full engineering calculator directory</li>
   </ul>
 </details>
@@ -1071,29 +1072,6 @@
 <script src="/assets/js/sc-ga4-id.js"></script>
 <script src="/assets/js/cvw-monitor.js" defer></script>
 
-<!--SC-RELATED-TOOLS-START-->
-<section class="related-tools-section" aria-labelledby="related-tools-heading">
-  <h2 id="related-tools-heading">Related Calculators</h2>
-  <div class="related-grid">
-    <a href="/machining-pro.html" class="related-card">
-      <div class="rt-title">SC-020 Feeds & Speeds</div>
-      <div class="rt-desc">Tolerance inputs from machining capability data</div>
-    </a>
-    <a href="/bearing-pro.html" class="related-card">
-      <div class="rt-title">SC-021 Bearing Life</div>
-      <div class="rt-desc">Validate fit assumptions after stack closure</div>
-    </a>
-    <a href="/fits-pro.html" class="related-card">
-      <div class="rt-title">SC-027 Fits & Clearances</div>
-      <div class="rt-desc">ISO 286 hole/shaft fit selection</div>
-    </a>
-    <a href="/surface-finish-pro.html" class="related-card">
-      <div class="rt-title">SC-028 Surface Finish</div>
-      <div class="rt-desc">Ra, Rz capability for stack surfaces</div>
-    </a>
-  </div>
-</section>
-<!--SC-RELATED-TOOLS-END-->
 <!--SC-CALC-SHEET-TB-START-->
 <aside class="sc-calc-sheet-titleblock" aria-hidden="true">
   <div class="tb-row"><span class="tb-label">DWG</span><span class="tb-value">SC-008-001</span></div>
@@ -1102,5 +1080,28 @@
   <div class="tb-row"><span class="tb-label">DATE</span><span class="tb-value">2026-07-26</span></div>
 </aside>
 <!--SC-CALC-SHEET-TB-END-->
+<!--SC-RELATED-TOOLS-START-->
+<section class="related-tools-section" aria-labelledby="related-tools-heading">
+  <h2 id="related-tools-heading">Related Calculators</h2>
+  <div class="related-grid">
+    <a href="/calculator/cnc-feeds-speeds" class="related-card">
+      <div class="rt-title">SC-020 Feeds & Speeds</div>
+      <div class="rt-desc">Tolerance inputs from machining capability data</div>
+    </a>
+    <a href="/calculator/bearing-life-l10" class="related-card">
+      <div class="rt-title">SC-021 Bearing Life</div>
+      <div class="rt-desc">Validate fit assumptions after stack closure</div>
+    </a>
+    <a href="/calculator/iso-286-fits" class="related-card">
+      <div class="rt-title">SC-027 Fits & Clearances</div>
+      <div class="rt-desc">ISO 286 hole/shaft fit selection</div>
+    </a>
+    <a href="/calculator/surface-finish" class="related-card">
+      <div class="rt-title">SC-028 Surface Finish</div>
+      <div class="rt-desc">Ra, Rz capability for stack surfaces</div>
+    </a>
+  </div>
+</section>
+<!--SC-RELATED-TOOLS-END-->
 </body>
 </html>

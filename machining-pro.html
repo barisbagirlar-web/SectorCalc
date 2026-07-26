@@ -570,6 +570,7 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
 
 
 
+
 <!--SC-SEO-BREADCRUMB-START-->
 <nav aria-label="Breadcrumb" class="sc-breadcrumb">
   <ol itemscope itemtype="https://schema.org/BreadcrumbList">
@@ -1034,9 +1035,9 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
   <span class="ico" aria-hidden="true">💡</span>
   <div>
     <b>Related SectorCalc tools</b> — Pair machining parameters with downstream checks:
-    <a href="/bearing-pro.html">Bearing Life L10 (ISO 281)</a> for spindle bearing duty from n and load;
-    <a href="/sc008-pro.html">Tolerance Stack-Up (SC-008)</a> when deflection-driven size drift affects assembly fit;
-    <a href="/quote-pro.html">Quote Pricing (SC-012)</a> to roll cycle time and tool cost into sell price;
+    <a href="/calculator/bearing-life-l10">Bearing Life L10 (ISO 281)</a> for spindle bearing duty from n and load;
+    <a href="/calculator/tolerance-stack-up">Tolerance Stack-Up (SC-008)</a> when deflection-driven size drift affects assembly fit;
+    <a href="/calculator/quote-pricing">Quote Pricing (SC-012)</a> to roll cycle time and tool cost into sell price;
     browse all tools on the <a href="/tools.html">SectorCalc catalog</a>.
   </div>
 </div>
@@ -1091,10 +1092,10 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
 <details class="related">
   <summary>Related calculators</summary>
   <ul>
-    <li><a href="/machining-pro.html">SC-020 — CNC Feeds &amp; Speeds + Tool Life</a> (this tool)</li>
-    <li><a href="/bearing-pro.html">SC-021 — Bearing Life L10 (ISO 281)</a></li>
-    <li><a href="/sc008-pro.html">SC-008 — Tolerance Stack-Up</a></li>
-    <li><a href="/quote-pro.html">SC-012 — Quote Pricing</a></li>
+    <li><a href="/calculator/cnc-feeds-speeds">SC-020 — CNC Feeds &amp; Speeds + Tool Life</a> (this tool)</li>
+    <li><a href="/calculator/bearing-life-l10">SC-021 — Bearing Life L10 (ISO 281)</a></li>
+    <li><a href="/calculator/tolerance-stack-up">SC-008 — Tolerance Stack-Up</a></li>
+    <li><a href="/calculator/quote-pricing">SC-012 — Quote Pricing</a></li>
     <li><a href="/tools.html">Full SectorCalc tool catalog</a></li>
   </ul>
 </details>
@@ -1539,29 +1540,6 @@ calculate();
 <script src="/assets/js/sc-ga4-id.js"></script>
 <script src="/assets/js/cvw-monitor.js" defer></script>
 
-<!--SC-RELATED-TOOLS-START-->
-<section class="related-tools-section" aria-labelledby="related-tools-heading">
-  <h2 id="related-tools-heading">Related Calculators</h2>
-  <div class="related-grid">
-    <a href="/sc008-pro.html" class="related-card">
-      <div class="rt-title">SC-008 Tolerance Stack-Up</div>
-      <div class="rt-desc">Close the loop from capability to stack</div>
-    </a>
-    <a href="/bearing-pro.html" class="related-card">
-      <div class="rt-title">SC-021 Bearing Life</div>
-      <div class="rt-desc">Life check after spindle loads</div>
-    </a>
-    <a href="/machine-rate-pro.html" class="related-card">
-      <div class="rt-title">SC-038 Machine Hour Rate</div>
-      <div class="rt-desc">Cost the cut after feeds & speeds</div>
-    </a>
-    <a href="/oee-pro.html" class="related-card">
-      <div class="rt-title">SC-037 OEE</div>
-      <div class="rt-desc">Availability and performance of the cell</div>
-    </a>
-  </div>
-</section>
-<!--SC-RELATED-TOOLS-END-->
 <!--SC-CALC-SHEET-TB-START-->
 <aside class="sc-calc-sheet-titleblock" aria-hidden="true">
   <div class="tb-row"><span class="tb-label">DWG</span><span class="tb-value">SC-020-001</span></div>
@@ -1570,5 +1548,28 @@ calculate();
   <div class="tb-row"><span class="tb-label">DATE</span><span class="tb-value">2026-07-26</span></div>
 </aside>
 <!--SC-CALC-SHEET-TB-END-->
+<!--SC-RELATED-TOOLS-START-->
+<section class="related-tools-section" aria-labelledby="related-tools-heading">
+  <h2 id="related-tools-heading">Related Calculators</h2>
+  <div class="related-grid">
+    <a href="/calculator/tolerance-stack-up" class="related-card">
+      <div class="rt-title">SC-008 Tolerance Stack-Up</div>
+      <div class="rt-desc">Close the loop from capability to stack</div>
+    </a>
+    <a href="/calculator/bearing-life-l10" class="related-card">
+      <div class="rt-title">SC-021 Bearing Life</div>
+      <div class="rt-desc">Life check after spindle loads</div>
+    </a>
+    <a href="/calculator/machine-hour-rate" class="related-card">
+      <div class="rt-title">SC-038 Machine Hour Rate</div>
+      <div class="rt-desc">Cost the cut after feeds & speeds</div>
+    </a>
+    <a href="/calculator/oee-teep" class="related-card">
+      <div class="rt-title">SC-037 OEE</div>
+      <div class="rt-desc">Availability and performance of the cell</div>
+    </a>
+  </div>
+</section>
+<!--SC-RELATED-TOOLS-END-->
 </body>
 </html>

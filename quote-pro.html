@@ -590,6 +590,7 @@
 
 
 
+
 <!--SC-SEO-BREADCRUMB-START-->
 <nav aria-label="Breadcrumb" class="sc-breadcrumb">
   <ol itemscope itemtype="https://schema.org/BreadcrumbList">
@@ -744,7 +745,7 @@
 
 <p>Non-uniform scrap (one expensive setup piece vs recurring runner loss) is not modeled per-part in v1.0.0. For highly asymmetric scrap, increase material cost or add a contingency line before margin.</p>
 
-<div class="sc-tip"><span class="ico" aria-hidden="true">💡</span><div>Pair material yield with process risk from <a href="/machining-pro.html">SC-020 CNC Feeds &amp; Speeds</a> (tool breakage, roughing scrap) and <a href="/weld-pro.html">SC-001 Weld Thickness</a> (weld repair loops). Tighter tolerances from <a href="/sc008-pro.html">SC-008</a> often increase scrap and inspection labor — reflect that in scrap rate or overhead.</div></div>
+<div class="sc-tip"><span class="ico" aria-hidden="true">💡</span><div>Pair material yield with process risk from <a href="/calculator/cnc-feeds-speeds">SC-020 CNC Feeds &amp; Speeds</a> (tool breakage, roughing scrap) and <a href="/calculator/weld-thickness">SC-001 Weld Thickness</a> (weld repair loops). Tighter tolerances from <a href="/calculator/tolerance-stack-up">SC-008</a> often increase scrap and inspection labor — reflect that in scrap rate or overhead.</div></div>
 
 <h2 id="labor-machine">Labor, machine, and setup</h2>
 
@@ -824,7 +825,7 @@ profitPerUnit = profit / quantity</div>
 
 <h2 id="sc010-rates">When to use SC-010 loaded labor rates</h2>
 
-<p>Always use <b>true hourly cost</b> from <a href="/labor-pro.html">SC-010 True Labor Cost</a> as SC-012's <b>laborHourlyCost</b> when labor is shop employees on payroll. SC-010 grosses net pay, adds employer SS/unemployment, benefits, severance accrual, overtime, and recruitment — the same dollars payroll actually spends.</p>
+<p>Always use <b>true hourly cost</b> from <a href="/calculator/true-labor-cost">SC-010 True Labor Cost</a> as SC-012's <b>laborHourlyCost</b> when labor is shop employees on payroll. SC-010 grosses net pay, adds employer SS/unemployment, benefits, severance accrual, overtime, and recruitment — the same dollars payroll actually spends.</p>
 
 <p>Use cases:</p>
 
@@ -880,10 +881,10 @@ profitPerUnit = profit / quantity</div>
 <details class="related">
   <summary>Related calculators</summary>
   <ul>
-    <li><a href="/labor-pro.html">SC-010 True Labor Cost</a> — fully loaded hourly for labor input</li>
-    <li><a href="/machining-pro.html">SC-020 CNC Feeds &amp; Speeds</a> — cycle time and tool life for hour estimates</li>
-    <li><a href="/weld-pro.html">SC-001 Weld Thickness</a> — weld leg sizing for fab quotes</li>
-    <li><a href="/sc008-pro.html">SC-008 Tolerance Stack-Up</a> — fit risk driving scrap and rework</li>
+    <li><a href="/calculator/true-labor-cost">SC-010 True Labor Cost</a> — fully loaded hourly for labor input</li>
+    <li><a href="/calculator/cnc-feeds-speeds">SC-020 CNC Feeds &amp; Speeds</a> — cycle time and tool life for hour estimates</li>
+    <li><a href="/calculator/weld-thickness">SC-001 Weld Thickness</a> — weld leg sizing for fab quotes</li>
+    <li><a href="/calculator/tolerance-stack-up">SC-008 Tolerance Stack-Up</a> — fit risk driving scrap and rework</li>
     <li><a href="/tools.html">All calculators</a></li>
   </ul>
 </details>
@@ -945,29 +946,6 @@ profitPerUnit = profit / quantity</div>
 <script src="/assets/js/sc-ga4-id.js"></script>
 <script src="/assets/js/cvw-monitor.js" defer></script>
 
-<!--SC-RELATED-TOOLS-START-->
-<section class="related-tools-section" aria-labelledby="related-tools-heading">
-  <h2 id="related-tools-heading">Related Calculators</h2>
-  <div class="related-grid">
-    <a href="/machining-pro.html" class="related-card">
-      <div class="rt-title">SC-020 Feeds & Speeds</div>
-      <div class="rt-desc">Tolerance inputs from machining capability data</div>
-    </a>
-    <a href="/bearing-pro.html" class="related-card">
-      <div class="rt-title">SC-021 Bearing Life</div>
-      <div class="rt-desc">Validate fit assumptions after stack closure</div>
-    </a>
-    <a href="/fits-pro.html" class="related-card">
-      <div class="rt-title">SC-027 Fits & Clearances</div>
-      <div class="rt-desc">ISO 286 hole/shaft fit selection</div>
-    </a>
-    <a href="/surface-finish-pro.html" class="related-card">
-      <div class="rt-title">SC-028 Surface Finish</div>
-      <div class="rt-desc">Ra, Rz capability for stack surfaces</div>
-    </a>
-  </div>
-</section>
-<!--SC-RELATED-TOOLS-END-->
 <!--SC-CALC-SHEET-TB-START-->
 <aside class="sc-calc-sheet-titleblock" aria-hidden="true">
   <div class="tb-row"><span class="tb-label">DWG</span><span class="tb-value">SC-012-001</span></div>
@@ -976,5 +954,28 @@ profitPerUnit = profit / quantity</div>
   <div class="tb-row"><span class="tb-label">DATE</span><span class="tb-value">2026-07-26</span></div>
 </aside>
 <!--SC-CALC-SHEET-TB-END-->
+<!--SC-RELATED-TOOLS-START-->
+<section class="related-tools-section" aria-labelledby="related-tools-heading">
+  <h2 id="related-tools-heading">Related Calculators</h2>
+  <div class="related-grid">
+    <a href="/calculator/cnc-feeds-speeds" class="related-card">
+      <div class="rt-title">SC-020 Feeds & Speeds</div>
+      <div class="rt-desc">Tolerance inputs from machining capability data</div>
+    </a>
+    <a href="/calculator/bearing-life-l10" class="related-card">
+      <div class="rt-title">SC-021 Bearing Life</div>
+      <div class="rt-desc">Validate fit assumptions after stack closure</div>
+    </a>
+    <a href="/calculator/iso-286-fits" class="related-card">
+      <div class="rt-title">SC-027 Fits & Clearances</div>
+      <div class="rt-desc">ISO 286 hole/shaft fit selection</div>
+    </a>
+    <a href="/calculator/surface-finish" class="related-card">
+      <div class="rt-title">SC-028 Surface Finish</div>
+      <div class="rt-desc">Ra, Rz capability for stack surfaces</div>
+    </a>
+  </div>
+</section>
+<!--SC-RELATED-TOOLS-END-->
 </body>
 </html>
