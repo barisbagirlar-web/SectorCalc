@@ -95,3 +95,11 @@ jobs:
           SEO_GUARD_HOST: https://sectorcalc.com
           SEO_GUARD_MODE: live
         run: node scripts/seo-live-guard.mjs
+
+      - name: Post-promotion host parity seal
+        run: npm run verify:host-parity
+
+      - name: Post-promotion legacy surface seal
+        env:
+          LEGACY_SURFACE_MODE: live
+        run: npm run verify:legacy-surface

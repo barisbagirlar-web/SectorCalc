@@ -10,6 +10,11 @@
     "trailingSlash": false,
     "redirects": [
       {
+        "source": "/tools",
+        "destination": "/tools.html",
+        "type": 301
+      },
+      {
         "source": "/calculator.html",
         "destination": "/calculator/true-labor-cost",
         "type": 301

@@ -23,6 +23,8 @@
     "verify:seo:identity": "node scripts/verify-tool-content-identity.mjs",
     "verify:seo:enterprise": "node scripts/verify-seo-enterprise.mjs",
     "verify:seo:money": "node scripts/verify-seo-money.mjs",
+    "verify:host-parity": "node scripts/verify-host-parity.mjs",
+    "verify:legacy-surface": "node scripts/verify-legacy-surface.mjs",
     "seo:money:generate": "npx vite-node scripts/generate-worked-examples.mjs && node scripts/inject-money-pages.mjs",
     "verify:hero": "node scripts/verify-hero-sacred.mjs",
     "inject:guides": "node scripts/inject-guides.mjs",

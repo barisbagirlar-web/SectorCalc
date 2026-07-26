@@ -1,0 +1,86 @@
+{
+  "$schemaNote": "Legacy platform surface inventory and disposition. Verified by scripts/verify-legacy-surface.mjs.",
+  "forbiddenPublicPhrases": [
+    "Academic Advisory Board",
+    "academic advisory board",
+    "Academic Advisory",
+    "1005 tools",
+    "964 active"
+  ],
+  "forbiddenPublicPhrasePatterns": [
+    "akademik\\s+dan[i\\u0131][s\\u015f]man(?:l[i\\u0131]k)?"
+  ],
+  "routes": [
+    {
+      "path": "/tr/about",
+      "family": "legacy-locale-next",
+      "decision": "gone",
+      "preferredStatus": [404, 410],
+      "reason": "No Turkish locale catalog; must not serve legacy advisory-board claims"
+    },
+    {
+      "path": "/tr",
+      "family": "legacy-locale-next",
+      "decision": "gone",
+      "preferredStatus": [404, 410],
+      "reason": "No /tr locale surface in canonical 25-tool catalog"
+    },
+    {
+      "path": "/en",
+      "family": "legacy-locale-next",
+      "decision": "gone",
+      "preferredStatus": [404, 410],
+      "reason": "English is apex root; /en locale tree retired"
+    },
+    {
+      "path": "/es",
+      "family": "legacy-locale-next",
+      "decision": "gone",
+      "preferredStatus": [404, 410],
+      "reason": "No Spanish locale surface in canonical catalog"
+    },
+    {
+      "path": "/categories",
+      "family": "legacy-platform",
+      "decision": "gone",
+      "preferredStatus": [404, 410],
+      "reason": "Legacy category browser; tools.html is the catalog"
+    },
+    {
+      "path": "/developer-showcase",
+      "family": "legacy-platform",
+      "decision": "gone",
+      "preferredStatus": [404, 410],
+      "reason": "Legacy showcase page; not in canonical sitemap"
+    },
+    {
+      "path": "/tools",
+      "family": "legacy-platform",
+      "decision": "redirect",
+      "status": [301, 308],
+      "destination": "/tools.html",
+      "reason": "Pretty tools index maps to canonical tools.html"
+    },
+    {
+      "path": "/tools/example-legacy-tool",
+      "family": "legacy-tools-tree",
+      "decision": "gone",
+      "preferredStatus": [404, 410],
+      "reason": "Legacy /tools/* Next routes have no 1:1 map; calculators live under /calculator/*"
+    },
+    {
+      "path": "/seo/construction-cost-calculators",
+      "family": "legacy-seo",
+      "decision": "gone",
+      "preferredStatus": [301, 308, 404, 410],
+      "reason": "Retired SEO landing; must not remain 200 indexable"
+    },
+    {
+      "path": "/guides/how-to-calculate-manufacturing-cost",
+      "family": "legacy-seo",
+      "decision": "gone",
+      "preferredStatus": [301, 308, 404, 410],
+      "reason": "Retired guide URL; must not remain 200 indexable"
+    }
+  ]
+}
