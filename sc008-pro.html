@@ -245,56 +245,6 @@
       ]
     },
     {
-      "@type": "Person",
-      "@id": "https://sectorcalc.com/#person-neela-nataraj",
-      "name": "Prof. Dr. Neela Nataraj",
-      "givenName": "Neela",
-      "familyName": "Nataraj",
-      "honorificPrefix": "Prof. Dr.",
-      "jobTitle": "Professor of Mathematics",
-      "image": "https://sectorcalc.com/assets/images/neela-nataraj.jpg",
-      "worksFor": {
-        "@id": "https://sectorcalc.com/#educational-organization-iitb"
-      },
-      "affiliation": {
-        "@id": "https://sectorcalc.com/#educational-organization-iitb"
-      },
-      "knowsAbout": [
-        "Numerical Analysis",
-        "Finite Element Methods",
-        "Statistical Computing",
-        "Engineering Mathematics",
-        "Monte Carlo Methods"
-      ],
-      "sameAs": [
-        "https://www.math.iitb.ac.in/",
-        "https://www.math.iitb.ac.in/~neela/"
-      ]
-    },
-    {
-      "@type": "EducationalOrganization",
-      "@id": "https://sectorcalc.com/#educational-organization-iitb",
-      "name": "Indian Institute of Technology Bombay",
-      "alternateName": [
-        "IIT Bombay",
-        "IITB"
-      ],
-      "url": "https://www.iitb.ac.in",
-      "sameAs": [
-        "https://www.iitb.ac.in",
-        "https://en.wikipedia.org/wiki/IIT_Bombay"
-      ],
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Mumbai",
-        "addressRegion": "Maharashtra",
-        "addressCountry": "IN"
-      },
-      "member": {
-        "@id": "https://sectorcalc.com/#person-neela-nataraj"
-      }
-    },
-    {
       "@type": "WebSite",
       "@id": "https://sectorcalc.com/#website",
       "url": "https://sectorcalc.com/",
@@ -353,9 +303,6 @@
       },
       "author": {
         "@id": "https://sectorcalc.com/#organization"
-      },
-      "reviewedBy": {
-        "@id": "https://sectorcalc.com/#person-neela-nataraj"
       },
       "screenshot": {
         "@type": "ImageObject",
@@ -460,9 +407,6 @@
   },
   "publisher": {
     "@id": "https://sectorcalc.com/#organization"
-  },
-  "reviewedBy": {
-    "@id": "https://sectorcalc.com/#person-neela-nataraj"
   },
   "license": "https://sectorcalc.com/terms.html",
   "isAccessibleForFree": true,
@@ -704,43 +648,6 @@
   </div></div>
 </div>
 
-<!--SC-EEAT-START-->
-<section class="sc-eeat-shell" aria-label="Academic oversight and expert review">
-  <div class="sc-eeat">
-    <aside class="sc-eeat-card" itemscope itemtype="https://schema.org/Person" itemid="https://sectorcalc.com/#person-neela-nataraj">
-      <img
-        class="sc-eeat-photo"
-        src="./assets/images/neela-nataraj.jpg"
-        width="64"
-        height="64"
-        alt="Prof. Dr. Neela Nataraj, Professor of Mathematics at IIT Bombay"
-        itemprop="image"
-        loading="lazy"
-        decoding="async"
-      >
-      <div>
-        <span class="sc-eeat-kicker">Academic Oversight &amp; Expert Review</span>
-        <h2>Methodology review</h2>
-        <p class="sc-eeat-name" itemprop="name">Prof. Dr. Neela Nataraj</p>
-        <p class="sc-eeat-role">
-          <span itemprop="jobTitle">Professor of Mathematics</span>
-          · Department of Mathematics ·
-          <span itemprop="worksFor" itemscope itemtype="https://schema.org/CollegeOrUniversity" itemid="https://sectorcalc.com/#educational-organization-iitb">
-            <a href="https://www.iitb.ac.in" itemprop="name" rel="noopener noreferrer">Indian Institute of Technology Bombay (IIT Bombay)</a>
-            <link itemprop="url" href="https://www.iitb.ac.in">
-          </span>
-        </p>
-        <p class="sc-eeat-note">
-          Provides academic oversight and methodology review for statistical computing components used in SectorCalc deterministic engines.
-          Calculator outputs remain engineering previews — not a substitute for measured data or a licensed engineer's sign-off.
-        </p>
-        <meta itemprop="honorificPrefix" content="Prof. Dr.">
-        <link itemprop="url" href="https://www.math.iitb.ac.in/~neela/">
-      </div>
-    </aside>
-  </div>
-</section>
-<!--SC-EEAT-END-->
 <!--SC-GUIDE-START-->
 <div class="sc-guide-shell">
 <section class="sc-guide" id="sc-guide" data-tool-id="SC-008" data-tool-name="Tolerance Stack-Up Calculator (SC-008)" data-tool-url="https://sectorcalc.com/sc008-pro.html" itemscope itemtype="https://schema.org/FAQPage">
@@ -805,7 +712,7 @@
 
 <p>Compare all three methods side by side. If RSS and Monte Carlo agree closely, your distribution assumptions are self-consistent. A large gap between RSS and Monte Carlo signals that at least one contributor is not well approximated by the ±3σ normal model — revisit distribution assignments before trusting predicted Cpk.</p>
 
-<div class="sc-tip"><span class="ico" aria-hidden="true">💡</span><div>Bearing fits and housing bores in a stack often interact with life calculations. After closing the stack, validate load and clearance assumptions in the <a href="/calculator/bearing-life-l10">SC-010 Bearing Life</a> calculator using the predicted gap range.</div></div>
+<div class="sc-tip"><span class="ico" aria-hidden="true">💡</span><div>Bearing fits and housing bores in a stack often interact with life calculations. After closing the stack, validate load and clearance assumptions in the <a href="/calculator/bearing-life-l10">SC-021 Bearing Life</a> calculator using the predicted gap range.</div></div>
 
 <h2 id="distribution-choices">Distribution choices per component</h2>
 
@@ -1009,7 +916,7 @@
   <ul>
     <li><a href="/calculator/tolerance-stack-up">SC-008 Tolerance Stack-Up</a> — run worst-case, RSS, and Monte Carlo on your stack</li>
     <li><a href="/calculator/cnc-feeds-speeds">SC-020 Feeds &amp; Speeds</a> — process planning for stack contributors</li>
-    <li><a href="/calculator/bearing-life-l10">SC-010 Bearing Life L10</a> — validate fits after clearance stack closes</li>
+    <li><a href="/calculator/bearing-life-l10">SC-021 Bearing Life L10</a> — validate fits after clearance stack closes</li>
     <li><a href="/calculator/weld-thickness">SC-001 Weld Thickness</a> — joint sizing for welded assembly inputs</li>
     <li><a href="/tools.html">All SectorCalc Tools</a> — full engineering calculator directory</li>
   </ul>

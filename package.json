@@ -21,6 +21,8 @@
     "verify:seo:llms": "node scripts/generate-llm-discovery.mjs && node scripts/verify-seo.mjs",
     "verify:seo:links": "node scripts/verify-internal-link-graph.mjs",
     "verify:seo:language": "node scripts/verify-language-integrity.mjs",
+    "verify:seo:schema": "node scripts/verify-schema.mjs",
+    "verify:seo:identity": "node scripts/verify-tool-content-identity.mjs",
     "verify:seo:enterprise": "node scripts/verify-seo-enterprise.mjs",
     "verify:hero": "node scripts/verify-hero-sacred.mjs",
     "inject:guides": "node scripts/inject-guides.mjs",

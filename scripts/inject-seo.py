@@ -51,6 +51,21 @@ if not _REGISTRY_PATH.exists():
 _REGISTRY = json.loads(_REGISTRY_PATH.read_text(encoding="utf-8"))
 TOOL_CANONICAL = dict(_REGISTRY["toolCanonicalBySlug"])
 TOOL_META = dict(_REGISTRY["toolMetaBySlug"])
+
+def eeat_claim_allowed() -> bool:
+    evidence = ROOT / "seo" / "evidence" / "expert-relationships.json"
+    if not evidence.exists():
+        return False
+    data = json.loads(evidence.read_text(encoding="utf-8"))
+    for rel in data.get("relationships") or []:
+        if (
+            rel.get("publicClaimAllowed") is True
+            and rel.get("relationshipVerified") is True
+            and rel.get("scopeVerified") is True
+        ):
+            return True
+    return False
+
 if len(TOOL_CANONICAL) != 25 or len(TOOL_META) != 25:
     raise SystemExit(
         f"[FAIL] registry tool map size unexpected: canonical={len(TOOL_CANONICAL)} meta={len(TOOL_META)}"
@@ -70,9 +85,7 @@ HTML_PAGES = (
 
 
 def schema_global() -> str:
-    data = {
-        "@context": "https://schema.org",
-        "@graph": [
+    graph = [
             {
                 "@type": "Organization",
                 "@id": f"{HOST}/#organization",
@@ -116,6 +129,24 @@ def schema_global() -> str:
                 ],
             },
             {
+                "@type": "WebSite",
+                "@id": f"{HOST}/#website",
+                "url": f"{HOST}/",
+                "name": "SectorCalc",
+                "publisher": {"@id": f"{HOST}/#organization"},
+                "inLanguage": ["en", "en-US"],
+                "potentialAction": {
+                    "@type": "SearchAction",
+                    "target": {
+                        "@type": "EntryPoint",
+                        "urlTemplate": f"{HOST}/tools.html?q={{search_term_string}}",
+                    },
+                    "query-input": "required name=search_term_string",
+                },
+            },
+    ]
+    if eeat_claim_allowed():
+        graph.insert(1, {
                 "@type": "Person",
                 "@id": f"{HOST}/#person-neela-nataraj",
                 "name": "Prof. Dr. Neela Nataraj",
@@ -137,8 +168,8 @@ def schema_global() -> str:
                     "https://www.math.iitb.ac.in/",
                     "https://www.math.iitb.ac.in/~neela/",
                 ],
-            },
-            {
+            })
+        graph.insert(2, {
                 "@type": "EducationalOrganization",
                 "@id": f"{HOST}/#educational-organization-iitb",
                 "name": "Indian Institute of Technology Bombay",
@@ -155,30 +186,14 @@ def schema_global() -> str:
                     "addressCountry": "IN",
                 },
                 "member": {"@id": f"{HOST}/#person-neela-nataraj"},
-            },
-            {
-                "@type": "WebSite",
-                "@id": f"{HOST}/#website",
-                "url": f"{HOST}/",
-                "name": "SectorCalc",
-                "publisher": {"@id": f"{HOST}/#organization"},
-                "inLanguage": ["en", "en-US"],
-                "potentialAction": {
-                    "@type": "SearchAction",
-                    "target": {
-                        "@type": "EntryPoint",
-                        "urlTemplate": f"{HOST}/tools.html?q={{search_term_string}}",
-                    },
-                    "query-input": "required name=search_term_string",
-                },
-            },
-        ],
-    }
+            })
+    data = {"@context": "https://schema.org", "@graph": graph}
     return (
         '<script type="application/ld+json" id="sc-schema-global">\n'
         + json.dumps(data, ensure_ascii=False, indent=2)
         + "\n</script>"
     )
+
 
 
 def schema_tool(slug: str, meta: dict) -> str:
@@ -212,8 +227,7 @@ def schema_tool(slug: str, meta: dict) -> str:
                 "softwareVersion": meta["version"],
                 "provider": {"@id": f"{HOST}/#organization"},
                 "author": {"@id": f"{HOST}/#organization"},
-                "reviewedBy": {"@id": f"{HOST}/#person-neela-nataraj"},
-                    "screenshot": {
+                                    "screenshot": {
                         "@type": "ImageObject",
                         "url": f"{HOST}/assets/images/og-{slug}-1200x630.jpg",
                         "width": 1200,
@@ -340,8 +354,7 @@ def schema_dataset(slug: str, meta: dict) -> str:
         ),
         "creator": {"@id": f"{HOST}/#organization"},
         "publisher": {"@id": f"{HOST}/#organization"},
-        "reviewedBy": {"@id": f"{HOST}/#person-neela-nataraj"},
-        "license": f"{HOST}/terms.html",
+                "license": f"{HOST}/terms.html",
         "isAccessibleForFree": True,
         "distribution": {
             "@type": "DataDownload",

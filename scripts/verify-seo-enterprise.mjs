@@ -7,6 +7,8 @@ const steps = [
   ['node', ['scripts/generate-sitemap.mjs']],
   ['node', ['scripts/generate-llm-discovery.mjs']],
   ['node', ['scripts/verify-seo.mjs']],
+  ['node', ['scripts/verify-schema.mjs']],
+  ['node', ['scripts/verify-tool-content-identity.mjs']],
   ['node', ['scripts/verify-language-integrity.mjs']],
   ['node', ['scripts/verify-internal-link-graph.mjs']],
   ['node', ['scripts/verify-hero-sacred.mjs']],

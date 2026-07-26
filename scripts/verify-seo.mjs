@@ -9,9 +9,11 @@ import {
   toolCanonicalBySourceFile,
   sitemapLocs,
   publishedCalculators,
+  llmEligibleCalculators,
   validateRegistryInvariants,
   absoluteUrl,
 } from '../seo/registry.mjs';
+
 
 const ROOT = process.cwd();
 const errors = [];
@@ -101,8 +103,9 @@ for (const lang of localePreviews) if (llms.includes(`${HOST}/${lang}/`)) fail(`
 for (const bot of ['Googlebot', 'Bingbot', 'OAI-SearchBot', 'PerplexityBot']) if (!llms.includes(bot)) fail(`llms.txt missing crawler declaration ${bot}`);
 
 // P0: LLM content must track registry — not merely be byte-identical to each other while both stale.
-const llmToolCount = publishedCalculators().length;
-if (!llms.includes(`## Live tools — ${llmToolCount}`)) fail(`llms.txt tool count must be ${llmToolCount}`);
+const llmCalcs = llmEligibleCalculators();
+const llmToolCount = llmCalcs.length;
+if (!llms.includes(`## Live tools — ${llmToolCount}`)) fail(`llms.txt tool count must be ${llmToolCount} (llmEligibleCalculators)`);
 if (/\*\*32\*\*\s+canonical indexable HTML URLs/i.test(llms)) fail('llms.txt still claims stale 32 sitemap URLs');
 if (!llms.includes(`**${requiredUnique.length}**`)) fail(`llms.txt must declare registry sitemap count ${requiredUnique.length}`);
 for (const page of toolPages) {
@@ -111,8 +114,14 @@ for (const page of toolPages) {
     fail(`llms.txt primary link uses legacy URL ${legacyAbs}`);
   }
 }
-for (const pretty of Object.values(TOOL_CANONICAL)) {
-  if (!llms.includes(absoluteUrl(pretty))) fail(`llms.txt missing canonical calculator ${pretty}`);
+for (const calc of llmCalcs) {
+  if (!llms.includes(absoluteUrl(calc.canonicalPath))) fail(`llms.txt missing llm-eligible canonical ${calc.canonicalPath}`);
+}
+// Unpublished / non-llmEligible calculators must not be required in llms
+for (const calc of publishedCalculators()) {
+  if (calc.llmEligible === false && llms.includes(absoluteUrl(calc.canonicalPath))) {
+    fail(`llms.txt includes llmEligible=false calculator ${calc.canonicalPath}`);
+  }
 }
 const legacyPrimary = [...llms.matchAll(/https:\/\/sectorcalc\.com\/[a-z0-9-]+-pro\.html/gi)];
 if (legacyPrimary.length) fail(`llms.txt contains ${legacyPrimary.length} legacy *-pro.html URL(s)`);

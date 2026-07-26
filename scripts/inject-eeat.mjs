@@ -1,27 +1,33 @@
 #!/usr/bin/env node
 /**
- * Inject visible Academic Oversight (E-E-A-T) band on every calculator + tools.
- * Idempotent via <!--SC-EEAT-START--> … <!--SC-EEAT-END-->.
- * Schema Person / reviewedBy mesh remains owned by scripts/inject-seo.py.
- * FORBIDDEN: index.html (homepage uses its own evidence band).
+ * Inject or strip Academic Oversight (E-E-A-T) band based on seo/evidence/expert-relationships.json.
+ * If publicClaimAllowed/relationshipVerified/scopeVerified are not all true, strip existing bands.
  */
 import { readFileSync, writeFileSync, existsSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 
 const ROOT = process.cwd();
 const PARTIAL = join(ROOT, 'content/partials/academic-oversight.html');
+const EVIDENCE = join(ROOT, 'seo/evidence/expert-relationships.json');
 const EEAT_CSS_V = 3;
 const CSS_LINK = `<link rel="stylesheet" href="./sc-eeat.css?v=${EEAT_CSS_V}">`;
 const START = '<!--SC-EEAT-START-->';
 const END = '<!--SC-EEAT-END-->';
 
+function claimAllowed() {
+  if (!existsSync(EVIDENCE)) return false;
+  const data = JSON.parse(readFileSync(EVIDENCE, 'utf8'));
+  return (data.relationships || []).some(
+    (r) => r.publicClaimAllowed === true && r.relationshipVerified === true && r.scopeVerified === true,
+  );
+}
+
 function stripBlock(html) {
   return html
     .replace(/<!--SC-EEAT-START-->[\s\S]*?<!--SC-EEAT-END-->\n?/g, '')
-    // legacy unwrapped shell if markers were lost
     .replace(
       /<section class="sc-eeat-shell"[\s\S]*?<\/section>\s*(?=(?:<!--SC-GUIDE|<!--SC-RELATED|<script type="module"|<aside class="sc-calc-sheet-titleblock"|<\/body>))/i,
-      ''
+      '',
     );
 }
 
@@ -37,7 +43,6 @@ function ensureCss(html) {
 
 function injectBlock(html, block) {
   html = stripBlock(html);
-  // Prefer before guide / related-tools / module script / titleblock / body end
   if (html.includes('<!--SC-GUIDE-START-->')) {
     return html.replace('<!--SC-GUIDE-START-->', `${block}\n<!--SC-GUIDE-START-->`);
   }
@@ -50,7 +55,7 @@ function injectBlock(html, block) {
   if (html.includes('sc-calc-sheet-titleblock')) {
     return html.replace(
       /<aside class="sc-calc-sheet-titleblock"/,
-      `${block}\n<aside class="sc-calc-sheet-titleblock"`
+      `${block}\n<aside class="sc-calc-sheet-titleblock"`,
     );
   }
   return html.replace(/<\/body>/i, `${block}\n</body>`);
@@ -62,6 +67,26 @@ function pages() {
 }
 
 function main() {
+  const allowed = claimAllowed();
+  let n = 0;
+
+  if (!allowed) {
+    for (const page of pages()) {
+      const path = join(ROOT, page);
+      if (!existsSync(path)) continue;
+      let html = readFileSync(path, 'utf8');
+      const before = html;
+      html = stripBlock(html);
+      if (html !== before) {
+        writeFileSync(path, html);
+        n += 1;
+        console.log(`[STRIP] eeat ← ${page} (evidence publicClaimAllowed=false)`);
+      }
+    }
+    console.log(`[PASS] E-E-A-T public claim disabled by evidence gate (${n} pages stripped)`);
+    return;
+  }
+
   if (!existsSync(PARTIAL)) {
     console.error('[FAIL] missing', PARTIAL);
     process.exit(1);
@@ -76,7 +101,6 @@ function main() {
     process.exit(1);
   }
 
-  let n = 0;
   for (const page of pages()) {
     if (page === 'index.html') continue;
     const path = join(ROOT, page);
@@ -89,8 +113,6 @@ function main() {
       writeFileSync(path, html);
       console.log(`[OK] eeat → ${page}`);
       n += 1;
-    } else {
-      console.log(`[SKIP] ${page}`);
     }
   }
   console.log(`[PASS] Academic Oversight injected (${n} writes this run)`);
