@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What is Sheet Metal K-Factor? | Engineering Glossary | SectorCalc</title>
+  <meta name="description" content="Sheet Metal K-Factor definition for engineers: a ratio that locates the neutral axis in a bend relative to the material thickness, used to calculate bend allowance.... Learn how it works, why it matters, and try the deterministic calculator at SectorCalc.">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+  <link rel="canonical" href="https://sectorcalc.com/glossary/sheet-metal-k-factor">
+  <link rel="stylesheet" href="/css/seo-content.css">
+  <link rel="stylesheet" href="/sc-theme.css">
+  <meta property="og:title" content="What is Sheet Metal K-Factor? | SectorCalc Glossary">
+  <meta property="og:description" content="Sheet Metal K-Factor definition for engineers. Try the deterministic calculator.">
+  <meta property="og:url" content="https://sectorcalc.com/glossary/sheet-metal-k-factor">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://sectorcalc.com/assets/images/og-glossary-sheet-metal-k-factor.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://sectorcalc.com/#organization",
+        "name": "SectorCalc",
+        "url": "https://sectorcalc.com/"
+      },
+      {
+        "@type": "Article",
+        "@id": "https://sectorcalc.com/glossary/sheet-metal-k-factor#article",
+        "url": "https://sectorcalc.com/glossary/sheet-metal-k-factor",
+        "headline": "What is Sheet Metal K-Factor?",
+        "description": "Sheet Metal K-Factor definition for engineers.",
+        "isPartOf": { "@id": "https://sectorcalc.com/#website" },
+        "datePublished": "2026-07-26",
+        "dateModified": "2026-07-26",
+        "author": { "@id": "https://sectorcalc.com/#person-neela-nataraj" },
+        "about": { "@type": "DefinedTerm", "name": "Sheet Metal K-Factor", "description": "The ratio locating the neutral bend axis inside the material thickness, used to compute bend allowance and flat pattern length." }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sectorcalc.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Glossary", "item": "https://sectorcalc.com/glossary/" },
+          { "@type": "ListItem", "position": 3, "name": "Sheet Metal K-Factor", "item": "https://sectorcalc.com/glossary/sheet-metal-k-factor" }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="theme-calc-sheet">
+  <header class="sc-header">
+    <a href="/" class="sc-logo">SectorCalc</a>
+    <nav class="sc-nav">
+      <a href="/tools.html">Tools</a>
+      <a href="/pro.html">Pro</a>
+      <a href="/pricing.html">Pricing</a>
+      <a href="/blog/">Blog</a>
+      <a href="/glossary/">Glossary</a>
+    </nav>
+  </header>
+  <main class="sc-glossary-page">
+    <nav class="sc-breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/glossary/">Glossary</a></li>
+        <li aria-current="page">Sheet Metal K-Factor</li>
+      </ol>
+    </nav>
+    <article class="sc-glossary-hero">
+      <h1>What is <span class="term-highlight">Sheet Metal K-Factor</span>?</h1>
+      <div class="definition-box" id="definition">
+        <p class="lead-definition">
+          <strong>Sheet Metal K-Factor</strong> is a ratio that locates the neutral axis in a bend relative to the material thickness, used to calculate bend allowance.
+          In engineering practice, it is used to create accurate flat patterns for sheet metal parts before bending.
+        </p>
+      </div>
+      <table class="sc-facts-table">
+        <tr><th>Property</th><th>Value</th></tr>
+        <tr><td>Standard</td><td>None (empirical)</td></tr>
+        <tr><td>Formula</td><td><code>BA = (pi/180) * A * (R + K*T)</code></td></tr>
+        <tr><td>Units</td><td>mm, inch</td></tr>
+        <tr><td>Used In</td><td>Sheet metal fabrication, CNC press brake programming</td></tr>
+      </table>
+    </article>
+    <section class="sc-content-section">
+      <h2>How Sheet Metal K-Factor Works</h2>
+      <p>Bend allowance depends on thickness, inside radius, bend angle, and K-factor. Wrong K-factor creates wrong flat blanks.</p>
+      <p>K-factor is calibrated by material, tooling, and process; handbook defaults are only a starting point.</p>
+      <h3>Key Variables</h3>
+      <ul class="sc-variable-list">
+        <li><strong>K:</strong> Neutral axis location as a fraction of thickness.</li>
+        <li><strong>BA:</strong> Bend allowance added to flat pattern.</li>
+        <li><strong>IR:</strong> Inside bend radius.</li>
+      </ul>
+      <h3>Common Mistakes</h3>
+      <ul class="sc-warning-list">
+        <li>Using one K-factor for every material and radius — blanks become systematically long or short.</li>
+        <li>Forgetting to convert bend angle conventions (included vs complementary) before applying BA formulas.</li>
+      </ul>
+    </section>
+    <section class="sc-cta-panel">
+      <h2>Calculate Sheet Metal K-Factor Deterministically</h2>
+      <p>Do not guess. Use the deterministic engine with visible formulas, reference values, and an A1-A5 audit trail.</p>
+      <div class="sc-cta-buttons">
+        <a href="/calculator/sheet-metal-bend" class="sc-btn-primary">Open SC-030 Sheet Metal Bend -></a>
+        <a href="/guides/" class="sc-btn-secondary">Read Full Guide</a>
+      </div>
+      <p class="sc-cta-note">Free preview. Full audit report unlocks with credits. No subscription.</p>
+    </section>
+    <section class="sc-related-terms">
+      <h2>Related Engineering Terms</h2>
+      <div class="sc-term-grid">
+        <a href="/glossary/punching-force" class="sc-term-card">Punching Force</a>
+        <a href="/glossary/weld-throat" class="sc-term-card">Weld Throat</a>
+        <a href="/glossary/cnc-feeds-and-speeds" class="sc-term-card">CNC Feeds and Speeds</a>
+      </div>
+    </section>
+    <section class="sc-faq-section">
+      <h2>Frequently Asked Questions</h2>
+      <details class="sc-faq-item">
+        <summary>What is the difference between Sheet Metal K-Factor and Punching Force?</summary>
+        <p>Sheet Metal K-Factor focuses on a ratio that locates the neutral axis in a bend relative to ..., while Punching Force addresses a different aspect of engineering analysis.</p>
+      </details>
+      <details class="sc-faq-item">
+        <summary>When should I use Sheet Metal K-Factor instead of Weld Throat?</summary>
+        <p>Use Sheet Metal K-Factor when is used to create accurate flat patterns for sheet metal parts before bending... Weld Throat is more appropriate for specialized scenarios.</p>
+      </details>
+      <details class="sc-faq-item">
+        <summary>Can I calculate Sheet Metal K-Factor deterministically with SectorCalc?</summary>
+        <p>Yes. SectorCalc SC-030 Sheet Metal Bend uses a deterministic Decimal engine with visible formulas, reference values, and an A1-A5 audit trail. Same inputs always produce identical outputs.</p>
+      </details>
+    </section>
+  </main>
+  <footer class="sc-footer">
+    <p>Copyright 2026 SectorCalc. Deterministic industrial engineering calculators.</p>
+    <nav>
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy/">Privacy</a>
+      <a href="/terms/">Terms</a>
+    </nav>
+  </footer>
+</body>
+</html>

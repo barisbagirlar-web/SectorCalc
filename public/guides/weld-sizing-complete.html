@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Complete Guide to Weld Sizing | SectorCalc Engineering</title>
+  <meta name="description" content="A complete engineering guide to Weld Sizing: methodology, standards, formulas, common mistakes, and a deterministic calculator with full audit trail.">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+  <link rel="canonical" href="https://sectorcalc.com/guides/weld-sizing-complete">
+  <link rel="stylesheet" href="/css/seo-content.css">
+  <link rel="stylesheet" href="/sc-theme.css">
+  <meta property="og:title" content="Complete Guide to Weld Sizing | SectorCalc">
+  <meta property="og:description" content="Engineering methodology, standards, and deterministic calculator.">
+  <meta property="og:url" content="https://sectorcalc.com/guides/weld-sizing-complete">
+  <meta property="og:type" content="article">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://sectorcalc.com/#organization",
+        "name": "SectorCalc",
+        "url": "https://sectorcalc.com/"
+      },
+      {
+        "@type": "Article",
+        "@id": "https://sectorcalc.com/guides/weld-sizing-complete#article",
+        "url": "https://sectorcalc.com/guides/weld-sizing-complete",
+        "headline": "Complete Guide to Weld Sizing",
+        "description": "Engineering guide to Weld Sizing with methodology and calculator.",
+        "datePublished": "2026-07-26",
+        "dateModified": "2026-07-26",
+        "author": { "@id": "https://sectorcalc.com/#person-neela-nataraj" },
+        "wordCount": 2500
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sectorcalc.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://sectorcalc.com/guides/" },
+          { "@type": "ListItem", "position": 3, "name": "Weld Sizing", "item": "https://sectorcalc.com/guides/weld-sizing-complete" }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="theme-calc-sheet">
+  <header class="sc-header">
+    <a href="/" class="sc-logo">SectorCalc</a>
+    <nav class="sc-nav">
+      <a href="/tools.html">Tools</a>
+      <a href="/pro.html">Pro</a>
+      <a href="/pricing.html">Pricing</a>
+      <a href="/blog/">Blog</a>
+    </nav>
+  </header>
+  <main class="sc-guide-page">
+    <nav class="sc-breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/guides/">Guides</a></li>
+        <li aria-current="page">Weld Sizing</li>
+      </ol>
+    </nav>
+    <article>
+      <h1>Complete Guide to <span class="highlight">Weld Sizing</span></h1>
+      <p class="lead">Weld sizing determines the throat dimension, leg length, and strength of fillet welds per AWS D1.1 and ISO standards. This guide covers the 0.707 rule, penetration, and heat input control.</p>
+      <div class="sc-guide-toc">
+        <h2>Table of Contents</h2>
+        <ol>
+          <li><a href="#what-is">What is Weld Sizing?</a></li>
+          <li><a href="#standards">Applicable Standards</a></li>
+          <li><a href="#methodology">Methodology & Formulas</a></li>
+          <li><a href="#calculator">Using the Deterministic Calculator</a></li>
+          <li><a href="#common-mistakes">Common Mistakes & How to Avoid Them</a></li>
+          <li><a href="#case-study">Real-World Case Study</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ol>
+      </div>
+      <section id="what-is">
+        <h2>1. What is Weld Sizing?</h2>
+        <p>Weld sizing is the process of determining adequate weld dimensions to carry design loads while minimizing distortion and residual stress. It bridges structural requirements with fabrication practicality.</p>
+        <p>The 0.707 rule assumes a 45 degree equal-leg fillet. Real throat dimensions depend on penetration, convexity, and inspection method. Heat input controls microstructure and hardness in the heat-affected zone.</p>
+        <p>Undersized welds fail structurally. Oversized welds waste material, increase distortion, and may introduce brittle microstructures. The deterministic calculator balances these constraints with visible formulas.</p>
+      </section>
+      <section id="standards">
+        <h2>2. Applicable Standards</h2>
+        <ul class="sc-standards-list">
+          <li><strong>AWS D1.1:</strong> Structural welding code requirements for fillet sizing, inspection, and allowable stresses in steel construction.</li>
+          <li><strong>ISO 5817:</strong> Quality levels for imperfections in fusion-welded joints used in fabrication acceptance.</li>
+          <li><strong>EN 1011-2:</strong> European guidance for arc welding of ferritic steels, including heat-input and hydrogen control practice.</li>
+        </ul>
+      </section>
+      <section id="methodology">
+        <h2>3. Methodology & Formulas</h2>
+        <p>This guide explains fillet weld throat calculation, leg length sizing, and heat input control. The deterministic engine shows every formula and flags when the 0.707 rule is insufficient.</p>
+        <h3>3.1 Fillet Weld Throat</h3>
+        <div class="sc-formula-block">
+          <code>t = 0.707 * a (for 45 deg leg)</code>
+          <p>Converts an equal-leg fillet geometry into effective throat used for strength screening.</p>
+        </div>
+        <h3>3.2 Weld Strength</h3>
+        <div class="sc-formula-block">
+          <code>F_w = 0.6 * F_EXX * t * L</code>
+          <p>Approximate allowable fillet weld force from electrode classification strength, throat, and length.</p>
+        </div>
+        <h3>3.3 Heat Input</h3>
+        <div class="sc-formula-block">
+          <code>Q = (60 * U * I) / (1000 * v)</code>
+          <p>Arc energy per unit length used when checking heat input and t8/5 cooling behavior.</p>
+        </div>
+      </section>
+      <section id="calculator">
+        <h2>4. Using the Deterministic Calculator</h2>
+        <p>Open the SC-001 calculator and enter your joint geometry and load requirements.</p>
+        <ol class="sc-step-list">
+          <li><strong>Step 1:</strong> Select weld type (fillet, butt, slot) and electrode classification.</li>
+          <li><strong>Step 2:</strong> Enter leg length or required throat dimension.</li>
+          <li><strong>Step 3:</strong> Input design load and safety factor.</li>
+          <li><strong>Step 4:</strong> Review throat adequacy, weld strength, and recommended electrode size.</li>
+          <li><strong>Step 5:</strong> Export the A1-A5 audit report with joint geometry, load case, and safety verification.</li>
+        </ol>
+        <div class="sc-cta-inline">
+          <a href="/calculator/weld-thickness" class="sc-btn-primary">Open SC-001 Weld Thickness -></a>
+        </div>
+      </section>
+      <section id="common-mistakes">
+        <h2>5. Common Mistakes & How to Avoid Them</h2>
+        <div class="sc-mistake-card">
+          <h3>Mistake 1: Assuming 0.707 for all fillet types</h3>
+          <p>The 0.707 rule applies only to 45 degree equal-leg fillets. Convex fillets have larger throat; concave fillets may have smaller effective throat.</p>
+          <p><strong>Fix:</strong> Measure actual throat with ultrasonic or fillet gauge. Enter measured value, not theoretical.</p>
+        </div>
+        <div class="sc-mistake-card">
+          <h3>Mistake 2: Ignoring penetration in strength calc</h3>
+          <p>AWS D1.1 allows credit for penetration only when demonstrated by procedure qualification. Assuming penetration without PQR is unsafe.</p>
+          <p><strong>Fix:</strong> Use nominal throat (0.707 * leg) for design. Add penetration bonus only with qualified WPS/PQR.</p>
+        </div>
+        <div class="sc-mistake-card">
+          <h3>Mistake 3: Excessive heat input on high-strength steel</h3>
+          <p>High heat input (>2.0 kJ/mm) on Q&T steels softens the HAZ and reduces fatigue life.</p>
+          <p><strong>Fix:</strong> Use SC-029 to check t8/5 cooling time. Limit heat input per EN 1011-2 recommendations for steel grade.</p>
+        </div>
+      </section>
+      <section id="case-study">
+        <h2>6. Real-World Case Study</h2>
+        <p><strong>Industry:</strong> Offshore Fabrication</p>
+        <p><strong>Problem:</strong> An offshore platform fabricator was experiencing HAZ cracking in high-strength steel joints. WPS heat input limits were based on rule-of-thumb, not calculation.</p>
+        <p><strong>Solution:</strong> Using SC-001 and SC-029 together, the fabricator linked throat sizing to heat input limits. t8/5 calculations ensured cooling rates above the martensite start threshold.</p>
+        <p><strong>Result:</strong> Zero HAZ cracking in 18 months. WPS revision accepted by classification society. Welding cost reduced 8 percent through optimized leg length.</p>
+      </section>
+      <section id="faq" class="sc-faq-section">
+        <h2>7. Frequently Asked Questions</h2>
+        <details class="sc-faq-item"><summary>What is the most common mistake when calculating Weld Sizing?</summary><p>The most common mistake is assuming 0.707 for all fillet types. Measure actual throat with ultrasonic or fillet gauge. Enter measured value, not theoretical.</p></details>
+        <details class="sc-faq-item"><summary>Which standard governs Weld Sizing in international practice?</summary><p>AWS D1.1 is the primary international standard. ISO 5817 provides additional guidance for specific applications.</p></details>
+        <details class="sc-faq-item"><summary>Can SectorCalc replace manual Weld Sizing calculations entirely?</summary><p>SectorCalc provides deterministic, audit-ready calculations with visible formulas. However, final production release remains subject to the governing code edition, certified material data, and competent engineering review.</p></details>
+        <details class="sc-faq-item"><summary>How do I calibrate the calculator for my specific shop conditions?</summary><p>Use the A4 assumptions section to document your shop-specific parameters. The deterministic engine ensures that once calibrated, all future calculations use the same basis.</p></details>
+        <details class="sc-faq-item"><summary>Is the audit report accepted for customer review?</summary><p>The A1-A5 audit trail includes engine identity, inputs, formulas, assumptions, and warnings. It is designed for engineering review and customer audit. It does not replace a licensed engineer sign-off.</p></details>
+      </section>
+      <section class="sc-cta-panel">
+        <h2>Calculate Weld Sizing Deterministically</h2>
+        <p>Free preview. Full A1-A5 audit report unlocks with credits. No subscription.</p>
+        <a href="/calculator/weld-thickness" class="sc-btn-primary">Open SC-001 Weld Thickness -></a>
+      </section>
+    </article>
+  </main>
+  <footer class="sc-footer">
+    <p>Copyright 2026 SectorCalc. Deterministic industrial engineering calculators.</p>
+  </footer>
+</body>
+</html>

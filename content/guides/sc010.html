@@ -55,7 +55,7 @@ employerUnemployment = gross × employerUnempRate</div>
   <tbody>
     <tr><td>Employer social security</td><td>Gross wages</td><td>Often capped annually (e.g. SS wage base in US)</td></tr>
     <tr><td>Employer unemployment</td><td>Gross wages (partial)</td><td>FUTA capped; SUTA varies by state and experience</td></tr>
-    <tr><td>Workers' compensation</td><td>Not in SC-010 v1.0.0</td><td>Add manually via benefits or overhead in <a href="/quote-pro.html">SC-012 Quote Pricing</a></td></tr>
+    <tr><td>Workers' compensation</td><td>Not in SC-010 v1.0.0</td><td>Add manually via benefits or overhead in <a href="/calculator/quote-pricing">SC-012 Quote Pricing</a></td></tr>
   </tbody>
 </table>
 
@@ -67,7 +67,7 @@ employerUnemployment = gross × employerUnempRate</div>
 
 <p>Health insurance, meal vouchers, and commuting allowances are common in EU and Turkish shops; US shops often add employer health premiums separately from gross. Bonus accrual smooths a lump-sum payment into monthly job cost — useful for quoting even when bonus is discretionary.</p>
 
-<div class="sc-tip"><span class="ico" aria-hidden="true">💡</span><div>After SC-010 gives you <b>trueHourlyCost</b>, paste it into the labor rate field in <a href="/quote-pro.html">SC-012 Quote Pricing</a> — do not re-use net hourly pay. For machine burden (depreciation, maintenance, floor space), use a separate machine hourly rate or shop overhead in SC-012.</div></div>
+<div class="sc-tip"><span class="ico" aria-hidden="true">💡</span><div>After SC-010 gives you <b>trueHourlyCost</b>, paste it into the labor rate field in <a href="/calculator/quote-pricing">SC-012 Quote Pricing</a> — do not re-use net hourly pay. For machine burden (depreciation, maintenance, floor space), use a separate machine hourly rate or shop overhead in SC-012.</div></div>
 
 <h2 id="severance">Severance accrual</h2>
 
@@ -118,9 +118,9 @@ hiddenCostPct = (trueMonthlyCost − netMonthly) / netMonthly × 100</div>
 
 <ol>
   <li>Run SC-010 for each trade or use a blended shop rate (weighted average of true hourly costs).</li>
-  <li>Copy <b>trueHourlyCost</b> into <a href="/quote-pro.html">SC-012</a> as <b>laborHourlyCost</b>.</li>
+  <li>Copy <b>trueHourlyCost</b> into <a href="/calculator/quote-pricing">SC-012</a> as <b>laborHourlyCost</b>.</li>
   <li>Add machine hours at machine burden, material with scrap yield, shop overhead rate, and target margin on sell price.</li>
-  <li>For tolerance-sensitive or weld-critical jobs, cross-check process assumptions with <a href="/sc008-pro.html">SC-008 Tolerance Stack-Up</a> and <a href="/weld-pro.html">SC-001 Weld Thickness</a>.</li>
+  <li>For tolerance-sensitive or weld-critical jobs, cross-check process assumptions with <a href="/calculator/tolerance-stack-up">SC-008 Tolerance Stack-Up</a> and <a href="/calculator/weld-thickness">SC-001 Weld Thickness</a>.</li>
 </ol>
 
 <p>Never mix net pay in SC-012 and loaded pay in overhead — that double-counts or under-counts depending on how overhead was calibrated. Pick one labor philosophy per quote and stay consistent.</p>
@@ -167,10 +167,10 @@ hiddenCostPct = (trueMonthlyCost − netMonthly) / netMonthly × 100</div>
 <details class="related">
   <summary>Related calculators</summary>
   <ul>
-    <li><a href="/quote-pro.html">SC-012 Quote Pricing</a> — full absorption quoting with margin on sell price</li>
-    <li><a href="/machining-pro.html">SC-020 CNC Feeds &amp; Speeds</a> — cycle time for labor hours input</li>
-    <li><a href="/weld-pro.html">SC-001 Weld Thickness</a> — weld sizing for fabrication quotes</li>
-    <li><a href="/sc008-pro.html">SC-008 Tolerance Stack-Up</a> — predicted fit risk on tight assemblies</li>
+    <li><a href="/calculator/quote-pricing">SC-012 Quote Pricing</a> — full absorption quoting with margin on sell price</li>
+    <li><a href="/calculator/cnc-feeds-speeds">SC-020 CNC Feeds &amp; Speeds</a> — cycle time for labor hours input</li>
+    <li><a href="/calculator/weld-thickness">SC-001 Weld Thickness</a> — weld sizing for fabrication quotes</li>
+    <li><a href="/calculator/tolerance-stack-up">SC-008 Tolerance Stack-Up</a> — predicted fit risk on tight assemblies</li>
     <li><a href="/tools.html">All calculators</a></li>
   </ul>
 </details>
