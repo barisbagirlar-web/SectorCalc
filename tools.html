@@ -5,9 +5,9 @@
 <!-- Canonical host is https://sectorcalc.com — Firebase Hosting 301s www → apex. No client reverse-redirect. -->
 <!--SC-SEO-HOST-END-->
 <!--SC-SEO-SECURITY-START-->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: https://cdnjs.cloudflare.com https://www.googletagmanager.com https://www.google-analytics.com; worker-src 'self' blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://www.googletagmanager.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: https://cdnjs.cloudflare.com https://www.googletagmanager.com https://www.google-analytics.com https://cdn.paddle.com; worker-src 'self' blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://*.paddle.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://www.googletagmanager.com https://*.paddle.com; frame-src 'self' https://*.paddle.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://*.paddle.com; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=(), interest-cohort=()">
+<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=*, usb=(), magnetometer=(), gyroscope=(), accelerometer=(), interest-cohort=()">
 <link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
 <meta name="DC.title" content="SectorCalc — Deterministic Industrial Engineering Calculators">
 <meta name="DC.creator" content="SectorCalc Inc.">
@@ -381,7 +381,7 @@ html[data-theme="dark"] .tlist a{color:#7fb3e8}
 }
 </script>
 <!--SC-SEO-SCHEMA-END-->
-              <link rel="stylesheet" href="/sc-calc-sheet.css?v=1">
+                      <link rel="stylesheet" href="/sc-calc-sheet.css?v=1">
   <!--SC-CALC-SHEET-START-->
   <!-- calc-sheet theme: theme-drawing-index -->
   <!--SC-CALC-SHEET-END-->
@@ -393,12 +393,13 @@ html[data-theme="dark"] .tlist a{color:#7fb3e8}
   <nav class="main-nav" role="navigation" aria-label="Main navigation">
     <ul>
       <li><a href="/tools.html" data-nav="tools">Tools</a></li>
-      <li><a href="/#method" data-nav="method" data-nav-home="#method">Method</a></li>
-      <li><a href="/#standards" data-nav="standards" data-nav-home="#standards">Standards</a></li>
+      <li><a href="/glossary" data-nav="glossary">Glossary</a></li>
+      <li><a href="/guides" data-nav="guides">Guides</a></li>
+      <li><a href="/compare" data-nav="compare">Compare</a></li>
       <li><a href="/pricing.html" data-nav="pricing">Pricing</a></li>
     </ul>
     <span class="sc-nav-tool" aria-hidden="true"></span>
-    <a href="/sc008-pro.html" class="btn btn-primary">Run a Calculation</a>
+    <a href="/calculator/tolerance-stack-up" class="btn btn-primary">Run a Calculation</a>
   </nav>
   <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme" aria-pressed="false" title="Toggle light / dark theme">
     <svg data-theme-icon="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
@@ -410,12 +411,18 @@ html[data-theme="dark"] .tlist a{color:#7fb3e8}
 </header>
 <div class="mobile-nav-overlay" id="mobileNav" role="dialog" aria-label="Mobile menu" aria-hidden="true">
   <a href="/tools.html" data-nav="tools">All Tools</a>
-  <a href="/#method" data-nav-home="#method">Method</a>
-  <a href="/#standards" data-nav-home="#standards">Standards</a>
+  <a href="/glossary" data-nav="glossary">Glossary</a>
+  <a href="/guides" data-nav="guides">Guides</a>
+  <a href="/compare" data-nav="compare">Compare</a>
   <a href="/pricing.html" data-nav="pricing">Pricing</a>
-  <a href="/sc008-pro.html" class="btn-primary">Run a Calculation</a>
+  <a href="/calculator/tolerance-stack-up" class="btn-primary">Run a Calculation</a>
 </div>
 <!--SC-SITE-NAV-END-->
+
+
+
+
+
 
 
 
@@ -786,12 +793,23 @@ window.pickCat=pickCat;
 <script src="/assets/js/sc-ga4-id.js"></script>
 <script src="/assets/js/cvw-monitor.js" defer></script>
 
+<!--SC-SEO-SPRINT-LINKS-START-->
+<section class="sc-seo-sprint-links" aria-label="Engineering resources">
+  <h2>Engineering Resources</h2>
+  <p>Glossary, comparison pages, and complete guides for shop-floor decision making.</p>
+  <ul>
+    <li><a href="/glossary">Engineering Glossary</a></li>
+    <li><a href="/compare">SectorCalc vs Alternatives</a></li>
+    <li><a href="/guides">Complete Engineering Guides</a></li>
+  </ul>
+</section>
+<!--SC-SEO-SPRINT-LINKS-END-->
 <!--SC-CALC-SHEET-TB-START-->
 <aside class="sc-calc-sheet-titleblock" aria-hidden="true">
   <div class="tb-row"><span class="tb-label">DWG</span><span class="tb-value">SC-TOOLS-001</span></div>
   <div class="tb-row"><span class="tb-label">FMT</span><span class="tb-value">DRAWING INDEX</span></div>
   <div class="tb-row"><span class="tb-label">REV</span><span class="tb-value">A</span></div>
-  <div class="tb-row"><span class="tb-label">DATE</span><span class="tb-value">2026-07-25</span></div>
+  <div class="tb-row"><span class="tb-label">DATE</span><span class="tb-value">2026-07-26</span></div>
 </aside>
 <!--SC-CALC-SHEET-TB-END-->
 </body>

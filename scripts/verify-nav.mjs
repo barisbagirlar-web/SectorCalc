@@ -25,14 +25,17 @@ const PAGES = [...BASE_PAGES, ...PRO_PAGES];
 const EXPECTED = {
   'index.html': {
     mustInclude: [
-      '/sc008-pro.html',
-      '/quote-pro.html',
-      '/labor-pro.html',
-      '/weld-pro.html',
-      '/machining-pro.html',
-      '/bearing-pro.html',
+      '/calculator/tolerance-stack-up',
+      '/calculator/quote-pricing',
+      '/calculator/true-labor-cost',
+      '/calculator/weld-thickness',
+      '/calculator/cnc-feeds-speeds',
+      '/calculator/bearing-life-l10',
       '/tools.html',
       '/pricing.html',
+      '/glossary',
+      '/compare',
+      '/guides',
       '#decide',
       '#method',
       '#standards',
@@ -55,18 +58,66 @@ const EXPECTED = {
     ]
   },
   'pricing.html': {
-    mustInclude: ['/', '/sc008-pro.html', '/quote-pro.html', '/labor-pro.html', '/weld-pro.html', '/machining-pro.html', '/bearing-pro.html', '/tools.html']
+    mustInclude: ['/', '/calculator/tolerance-stack-up', '/tools.html', '/glossary', '/guides', '/compare']
   },
   'pro.html': {
-    mustInclude: ['/', '/pricing.html', '/tools.html', '/machining-pro.html', '/bearing-pro.html']
+    mustInclude: ['/', '/pricing.html', '/tools.html', '/glossary', '/guides', '/compare']
   },
   'tools.html': {
-    mustInclude: ['/', '/pricing.html', '/machining-pro.html', '/bearing-pro.html', '/sc008-pro.html']
+    mustInclude: ['/', '/pricing.html', '/glossary', '/compare', '/guides', '/sc008-pro.html']
   }
 };
 
 const issues = [];
 
+// Firebase hosting rewrites: pretty URL -> physical file (see firebase.json).
+const REWRITE_TARGETS = {
+  'calculator/tolerance-stack-up': 'sc008-pro.html',
+  'calculator/cnc-feeds-speeds': 'machining-pro.html',
+  'calculator/tap-thread-milling': 'tap-thread-pro.html',
+  'calculator/cycle-time-cost': 'cycle-cost-pro.html',
+  'calculator/bearing-life-l10': 'bearing-pro.html',
+  'calculator/bearing-frequencies': 'bearing-freq-pro.html',
+  'calculator/belt-chain-drive': 'belt-chain-pro.html',
+  'calculator/shaft-design': 'shaft-pro.html',
+  'calculator/iso-286-fits': 'fits-pro.html',
+  'calculator/surface-finish': 'surface-finish-pro.html',
+  'calculator/weld-thickness': 'weld-pro.html',
+  'calculator/weld-heat-input': 'heat-input-pro.html',
+  'calculator/sheet-metal-bend': 'bend-pro.html',
+  'calculator/punching-force': 'punching-pro.html',
+  'calculator/sling-capacity': 'sling-pro.html',
+  'calculator/shackle-eyebolt': 'shackle-eyebolt-pro.html',
+  'calculator/pressure-vessel-shell': 'pressure-vessel-pro.html',
+  'calculator/pipe-wall-thickness': 'pipe-wall-pro.html',
+  'calculator/hydraulic-cylinder': 'hydraulic-pro.html',
+  'calculator/bolt-torque-preload': 'bolt-pro.html',
+  'calculator/bolted-joint': 'bolted-joint-pro.html',
+  'calculator/true-labor-cost': 'labor-pro.html',
+  'calculator/quote-pricing': 'quote-pro.html',
+  'calculator/oee-teep': 'oee-pro.html',
+  'calculator/machine-hour-rate': 'machine-rate-pro.html',
+  glossary: 'public/glossary/index.html',
+  compare: 'public/compare/index.html',
+  guides: 'public/guides/index.html',
+  blog: 'public/blog/index.html',
+  'case-studies': 'public/case-studies/index.html',
+};
+
+function resolveTarget(target) {
+  if (REWRITE_TARGETS[target]) return REWRITE_TARGETS[target];
+  // /glossary/slug -> public/glossary/slug.html
+  for (const folder of ['glossary', 'compare', 'guides', 'blog', 'case-studies']) {
+    if (target === folder || target.startsWith(`${folder}/`)) {
+      if (target === folder) return `public/${folder}/index.html`;
+      const rest = target.slice(folder.length + 1).replace(/\/$/, '');
+      if (!rest) return `public/${folder}/index.html`;
+      if (rest.endsWith('.html')) return `public/${target}`;
+      return `public/${folder}/${rest}.html`;
+    }
+  }
+  return target;
+}
 function anchorsIn(html) {
   const ids = new Set();
   for (const m of html.matchAll(/\bid=["']([^"']+)["']/g)) ids.add(m[1]);
@@ -96,9 +147,11 @@ function checkPage(page) {
     if (target === '/' || target === '') target = 'index.html';
     if (target.startsWith('/')) target = target.slice(1);
     if (!target) continue;
+    target = resolveTarget(target);
     const atRoot = existsSync(join(ROOT, target));
     const atPublic = existsSync(join(ROOT, 'public', target));
-    if (!atRoot && !atPublic) issues.push(`${page}: dead link ${href} -> ${target}`);
+    const atResolved = existsSync(join(ROOT, target));
+    if (!atRoot && !atPublic && !atResolved) issues.push(`${page}: dead link ${href} -> ${target}`);
   }
 
   const req = EXPECTED[page];

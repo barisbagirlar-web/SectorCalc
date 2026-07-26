@@ -20,24 +20,55 @@ HOST = "https://sectorcalc.com"
 OG_DEFAULT = f"{HOST}/assets/images/og-default-1200x630.jpg"
 OG_HOME = f"{HOST}/assets/images/sectorcalc-og-1200x630.jpg"
 
-# CSP must allow existing CDN / fonts / optional GA4 (do not tighten blindly).
+# CSP must allow existing CDN / fonts / optional GA4 / Paddle checkout (do not tighten blindly).
 CSP_CONTENT = (
     "default-src 'self'; "
     "script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: https://cdnjs.cloudflare.com "
-    "https://www.googletagmanager.com https://www.google-analytics.com; "
+    "https://www.googletagmanager.com https://www.google-analytics.com https://cdn.paddle.com; "
     "worker-src 'self' blob:; "
-    "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; "
+    "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://*.paddle.com; "
     "font-src 'self' https://fonts.gstatic.com data:; "
     "img-src 'self' data: blob: https:; "
     "connect-src 'self' https://www.google-analytics.com https://analytics.google.com "
-    "https://region1.google-analytics.com https://www.googletagmanager.com; "
-    "frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests"
+    "https://region1.google-analytics.com https://www.googletagmanager.com https://*.paddle.com; "
+    "frame-src 'self' https://*.paddle.com; "
+    "frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://*.paddle.com; "
+    "upgrade-insecure-requests"
 )
 
 PERMISSIONS_POLICY = (
-    "camera=(), microphone=(), geolocation=(), payment=(), usb=(), "
+    "camera=(), microphone=(), geolocation=(), payment=*, usb=(), "
     "magnetometer=(), gyroscope=(), accelerometer=(), interest-cohort=()"
 )
+
+# Pretty URL map from SEO sprint (Firebase rewrite serves *-pro.html at these paths).
+TOOL_CANONICAL = {
+    "sc008-pro": "calculator/tolerance-stack-up",
+    "machining-pro": "calculator/cnc-feeds-speeds",
+    "tap-thread-pro": "calculator/tap-thread-milling",
+    "cycle-cost-pro": "calculator/cycle-time-cost",
+    "bearing-pro": "calculator/bearing-life-l10",
+    "bearing-freq-pro": "calculator/bearing-frequencies",
+    "belt-chain-pro": "calculator/belt-chain-drive",
+    "shaft-pro": "calculator/shaft-design",
+    "fits-pro": "calculator/iso-286-fits",
+    "surface-finish-pro": "calculator/surface-finish",
+    "weld-pro": "calculator/weld-thickness",
+    "heat-input-pro": "calculator/weld-heat-input",
+    "bend-pro": "calculator/sheet-metal-bend",
+    "punching-pro": "calculator/punching-force",
+    "sling-pro": "calculator/sling-capacity",
+    "shackle-eyebolt-pro": "calculator/shackle-eyebolt",
+    "pressure-vessel-pro": "calculator/pressure-vessel-shell",
+    "pipe-wall-pro": "calculator/pipe-wall-thickness",
+    "hydraulic-pro": "calculator/hydraulic-cylinder",
+    "bolt-pro": "calculator/bolt-torque-preload",
+    "bolted-joint-pro": "calculator/bolted-joint",
+    "labor-pro": "calculator/true-labor-cost",
+    "quote-pro": "calculator/quote-pricing",
+    "oee-pro": "calculator/oee-teep",
+    "machine-rate-pro": "calculator/machine-hour-rate",
+}
 
 TOOL_META = {
     "sc008-pro": {
@@ -46,7 +77,7 @@ TOOL_META = {
         "category": "Tolerance & Quality",
         "anchor": "tolerance",
         "sub": "Tolerance Analysis",
-        "desc": "Deterministic 1D linear tolerance stack-up with worst-case, RSS, and seeded Monte Carlo. Client-side Decimal.js engine with audit-ready reports.",
+        "desc": "Deterministic 1D tolerance stack-up with worst-case, RSS, and seeded Monte Carlo (10,000 iterations). Predicted Cpk, PPM, and full A1-A5 audit trail. Client-side only.",
         "version": "1.0.0",
     },
     "machining-pro": {
@@ -55,7 +86,7 @@ TOOL_META = {
         "category": "Machining",
         "anchor": "machining",
         "sub": "CNC Machining",
-        "desc": "Taylor tool life, chip thinning, Kienzle force, spindle power and torque checks with FS-ENGINE deterministic SI core.",
+        "desc": "Calculate cutting speed, feed rate, and Taylor tool life with chip thinning and deterministic Decimal engine. Full audit trail. Client-side only.",
         "version": "2.1.0",
     },
     "bearing-pro": {
@@ -64,7 +95,7 @@ TOOL_META = {
         "category": "Bearings & Shafts",
         "anchor": "bearings",
         "sub": "Rolling Bearings",
-        "desc": "ISO 281:2007 basic and modified rating life with aISO, contamination, and viscosity ratio models.",
+        "desc": "ISO 281 bearing life calculator with aISO adjustment, viscosity ratio kappa, and contamination factor eC. Deterministic audit trail.",
         "version": "1.0.0",
     },
     "bearing-freq-pro": {
@@ -73,7 +104,7 @@ TOOL_META = {
         "category": "Bearings & Shafts",
         "anchor": "bearings",
         "sub": "Condition Monitoring",
-        "desc": "Bearing defect frequency calculator for BPFO, BPFI, BSF and FTF from geometry and shaft speed.",
+        "desc": "Calculate bearing defect frequencies for vibration analysis. BPFO, BPFI, BSF, FTF with deterministic formulas.",
         "version": "1.0.0",
     },
     "belt-chain-pro": {
@@ -82,7 +113,7 @@ TOOL_META = {
         "category": "Power Transmission",
         "anchor": "drives",
         "sub": "Drive Design",
-        "desc": "V-belt and chain drive sizing with ratio, center distance, and power rating checks.",
+        "desc": "Belt and chain drive sizing with speed ratio, center distance, and tension calculations. Deterministic engine.",
         "version": "1.0.0",
     },
     "bend-pro": {
@@ -91,7 +122,7 @@ TOOL_META = {
         "category": "Welding & Fabrication",
         "anchor": "fabrication",
         "sub": "Sheet Metal",
-        "desc": "Bend allowance and flat-pattern development from K-factor, radius, and thickness.",
+        "desc": "Sheet metal bend allowance, K-factor, and flat pattern calculation with material database.",
         "version": "1.0.0",
     },
     "bolt-pro": {
@@ -100,7 +131,7 @@ TOOL_META = {
         "category": "Bolted Joints",
         "anchor": "fasteners",
         "sub": "Fastener Assembly",
-        "desc": "VDI 2230 assembly torque and preload calculation with scatter band and nut factor.",
+        "desc": "VDI 2230 bolt torque and preload calculator with friction coefficients and tightening factor.",
         "version": "1.0.0",
     },
     "bolted-joint-pro": {
@@ -109,7 +140,7 @@ TOOL_META = {
         "category": "Bolted Joints",
         "anchor": "fasteners",
         "sub": "Joint Verification",
-        "desc": "VDI 2230 bolted-joint verification for preload, embedding, and fatigue safety.",
+        "desc": "Bolted joint verification with axial stiffness, preload, and clamping force analysis per VDI 2230.",
         "version": "1.0.0",
     },
     "cycle-cost-pro": {
@@ -118,7 +149,7 @@ TOOL_META = {
         "category": "Manufacturing Economics",
         "anchor": "costing",
         "sub": "Machining Economics",
-        "desc": "Multi-operation cycle build-up with setup amortization and cost per part.",
+        "desc": "Calculate true cycle time, setup burden, and cost per good part with scrap rate and deterministic engine.",
         "version": "1.0.0",
     },
     "fits-pro": {
@@ -127,7 +158,7 @@ TOOL_META = {
         "category": "Tolerance & Quality",
         "anchor": "tolerance",
         "sub": "Limits & Fits",
-        "desc": "ISO 286-1 hole/shaft fit calculator with tolerance grades and fundamental deviations.",
+        "desc": "ISO 286 fit and clearance calculator with H7/g6, deviation tables, and interference/shrink fit analysis.",
         "version": "1.0.0",
     },
     "heat-input-pro": {
@@ -136,7 +167,7 @@ TOOL_META = {
         "category": "Welding & Fabrication",
         "anchor": "welding",
         "sub": "Welding Thermal",
-        "desc": "Welding heat input and t8/5 cooling-rate estimation for procedure control.",
+        "desc": "Calculate welding heat input and cooling time t8/5 for WPS/PQR screening. Deterministic engine.",
         "version": "1.0.0",
     },
     "hydraulic-pro": {
@@ -145,7 +176,7 @@ TOOL_META = {
         "category": "Hydraulics",
         "anchor": "hydraulics",
         "sub": "Fluid Power",
-        "desc": "Bore, rod, flow and buckling checks for hydraulic cylinder sizing.",
+        "desc": "Hydraulic cylinder bore, rod, and pressure sizing with force, velocity, and flow calculations.",
         "version": "1.0.0",
     },
     "labor-pro": {
@@ -154,7 +185,7 @@ TOOL_META = {
         "category": "Manufacturing Economics",
         "anchor": "costing",
         "sub": "Labor Burden",
-        "desc": "Loaded labor cost from net salary, taxes, benefits, and shop overhead.",
+        "desc": "True loaded labor cost with statutory burden, benefits, overhead, and indirect time. Deterministic.",
         "version": "1.0.0",
     },
     "machine-rate-pro": {
@@ -163,7 +194,7 @@ TOOL_META = {
         "category": "Manufacturing Economics",
         "anchor": "costing",
         "sub": "Machine Costing",
-        "desc": "Machine hour rate from depreciation, occupancy, energy, and utilization.",
+        "desc": "True machine hour rate with depreciation, maintenance, power, and overhead allocation. Deterministic.",
         "version": "1.0.0",
     },
     "oee-pro": {
@@ -172,7 +203,7 @@ TOOL_META = {
         "category": "Manufacturing Economics",
         "anchor": "costing",
         "sub": "Equipment Effectiveness",
-        "desc": "Availability × performance × quality OEE calculator for production cells.",
+        "desc": "Overall Equipment Effectiveness, TEEP, and capacity loss breakdown with availability, performance, and quality.",
         "version": "1.0.0",
     },
     "pipe-wall-pro": {
@@ -181,7 +212,7 @@ TOOL_META = {
         "category": "Pressure Equipment",
         "anchor": "pressure",
         "sub": "Piping Design",
-        "desc": "ASME B31.3 pressure design thickness with mill tolerance and corrosion allowance.",
+        "desc": "ASME B31.3 pipe wall thickness and MAWP calculator with corrosion allowance and mill tolerance.",
         "version": "1.0.0",
     },
     "pressure-vessel-pro": {
@@ -190,7 +221,7 @@ TOOL_META = {
         "category": "Pressure Equipment",
         "anchor": "pressure",
         "sub": "Vessel Design",
-        "desc": "ASME VIII UG-27/UG-32 shell and head sizing with MAWP and hydrotest checks.",
+        "desc": "ASME Section VIII Division 1 internal pressure shell thickness calculator. Deterministic audit trail.",
         "version": "1.0.0",
     },
     "punching-pro": {
@@ -199,7 +230,7 @@ TOOL_META = {
         "category": "Machining",
         "anchor": "machining",
         "sub": "Sheet Punching",
-        "desc": "Punching force, stripping load, and die clearance by material and thickness.",
+        "desc": "Punching force, stripping force, and die clearance for sheet metal operations. Deterministic.",
         "version": "1.0.0",
     },
     "quote-pro": {
@@ -208,7 +239,7 @@ TOOL_META = {
         "category": "Manufacturing Economics",
         "anchor": "costing",
         "sub": "Job Quoting",
-        "desc": "Material, labor, scrap, and margin into sell price with cost breakdown.",
+        "desc": "Quote pricing with material, labor, overhead, markup, and margin analysis. Deterministic audit trail.",
         "version": "1.0.0",
     },
     "shackle-eyebolt-pro": {
@@ -217,7 +248,7 @@ TOOL_META = {
         "category": "Lifting & Rigging",
         "anchor": "lifting",
         "sub": "Lifting Points",
-        "desc": "Shackle WLL and DIN 580 eye-bolt direction derating checks.",
+        "desc": "Shackle and eye-bolt working load limit verification with angle derating and safety factors.",
         "version": "1.0.0",
     },
     "shaft-pro": {
@@ -226,7 +257,7 @@ TOOL_META = {
         "category": "Bearings & Shafts",
         "anchor": "bearings",
         "sub": "Shaft Sizing",
-        "desc": "ASME / DE-Goodman shaft diameter from torsion, bending, and fatigue factors.",
+        "desc": "Shaft design with combined torsion and bending stress, fatigue factor, and safety margin. Deterministic audit trail.",
         "version": "1.0.0",
     },
     "sling-pro": {
@@ -235,7 +266,7 @@ TOOL_META = {
         "category": "Lifting & Rigging",
         "anchor": "lifting",
         "sub": "Rigging",
-        "desc": "Multi-leg sling tension and WLL checks from load and hitch angle.",
+        "desc": "Sling capacity reduction at angles, multi-leg load sharing, and safe working load verification.",
         "version": "1.0.0",
     },
     "surface-finish-pro": {
@@ -244,7 +275,7 @@ TOOL_META = {
         "category": "Tolerance & Quality",
         "anchor": "tolerance",
         "sub": "Surface Texture",
-        "desc": "Ra / Rz / Rq / N-grade surface texture conversion for drawings and specs.",
+        "desc": "Convert between Ra, Rz, Rmax, and other surface finish parameters. Deterministic reference values.",
         "version": "1.0.0",
     },
     "tap-thread-pro": {
@@ -253,7 +284,7 @@ TOOL_META = {
         "category": "Machining",
         "anchor": "machining",
         "sub": "Thread Machining",
-        "desc": "Tap drill, speed, torque, and thread-mill table feed calculator.",
+        "desc": "Thread milling and tapping parameters with pitch, lead angle, and torque estimation. Deterministic engine with visible formulas.",
         "version": "1.0.0",
     },
     "weld-pro": {
@@ -262,10 +293,17 @@ TOOL_META = {
         "category": "Welding & Fabrication",
         "anchor": "welding",
         "sub": "Weld Sizing",
-        "desc": "Fillet weld leg, throat, and utilization against design load and code minimums.",
+        "desc": "Fillet weld throat and leg sizing per AWS D1.1 and ISO standards. Deterministic formula visibility.",
         "version": "1.0.0",
     },
 }
+
+
+def tool_url(slug: str) -> str:
+    pretty = TOOL_CANONICAL.get(slug)
+    if pretty:
+        return f"{HOST}/{pretty}"
+    return f"{HOST}/{slug}.html"
 
 HTML_PAGES = (
     ["index.html", "tools.html", "pro.html", "pricing.html"]
@@ -386,7 +424,7 @@ def schema_global() -> str:
 
 
 def schema_tool(slug: str, meta: dict) -> str:
-    url = f"{HOST}/{slug}.html"
+    url = tool_url(slug)
     data = {
         "@context": "https://schema.org",
         "@graph": [
@@ -485,7 +523,7 @@ def schema_tool(slug: str, meta: dict) -> str:
 
 
 def schema_dataset(slug: str, meta: dict) -> str:
-    url = f"{HOST}/{slug}.html"
+    url = tool_url(slug)
     measured = {
         "sc008-pro": [
             "Tolerance Stack-Up Spread",
@@ -669,7 +707,13 @@ def page_meta_block(page: str, title: str, description: str) -> str:
     og_type = "website"
     og_img = og_image_for(page)
 
-    canonical = f"{HOST}/" if page == "index.html" else f"{HOST}/{page_path}"
+    slug = page.replace(".html", "")
+    if page == "index.html":
+        canonical = f"{HOST}/"
+    elif slug in TOOL_CANONICAL:
+        canonical = f"{HOST}/{TOOL_CANONICAL[slug]}"
+    else:
+        canonical = f"{HOST}/{page_path}"
     safe_title = html.escape(title, quote=True)
     safe_desc = html.escape((description or title)[:300], quote=True)
     safe_alt = html.escape(title[:120], quote=True)

@@ -11,11 +11,47 @@ const read = (p) => readFileSync(join(ROOT, p), 'utf8');
 
 const toolPages = readdirSync(ROOT).filter((f) => f.endsWith('-pro.html')).sort();
 const pages = ['index.html', 'tools.html', 'pro.html', 'pricing.html', ...toolPages];
+const TOOL_CANONICAL = {
+  'sc008-pro.html': '/calculator/tolerance-stack-up',
+  'machining-pro.html': '/calculator/cnc-feeds-speeds',
+  'tap-thread-pro.html': '/calculator/tap-thread-milling',
+  'cycle-cost-pro.html': '/calculator/cycle-time-cost',
+  'bearing-pro.html': '/calculator/bearing-life-l10',
+  'bearing-freq-pro.html': '/calculator/bearing-frequencies',
+  'belt-chain-pro.html': '/calculator/belt-chain-drive',
+  'shaft-pro.html': '/calculator/shaft-design',
+  'fits-pro.html': '/calculator/iso-286-fits',
+  'surface-finish-pro.html': '/calculator/surface-finish',
+  'weld-pro.html': '/calculator/weld-thickness',
+  'heat-input-pro.html': '/calculator/weld-heat-input',
+  'bend-pro.html': '/calculator/sheet-metal-bend',
+  'punching-pro.html': '/calculator/punching-force',
+  'sling-pro.html': '/calculator/sling-capacity',
+  'shackle-eyebolt-pro.html': '/calculator/shackle-eyebolt',
+  'pressure-vessel-pro.html': '/calculator/pressure-vessel-shell',
+  'pipe-wall-pro.html': '/calculator/pipe-wall-thickness',
+  'hydraulic-pro.html': '/calculator/hydraulic-cylinder',
+  'bolt-pro.html': '/calculator/bolt-torque-preload',
+  'bolted-joint-pro.html': '/calculator/bolted-joint',
+  'labor-pro.html': '/calculator/true-labor-cost',
+  'quote-pro.html': '/calculator/quote-pricing',
+  'oee-pro.html': '/calculator/oee-teep',
+  'machine-rate-pro.html': '/calculator/machine-hour-rate',
+};
 const contentRoutes = [
   ['/blog', 'public/blog/index.html'],
   ['/blog/tolerance-stack-up-rss-vs-monte-carlo.html', 'public/blog/tolerance-stack-up-rss-vs-monte-carlo.html'],
   ['/case-studies', 'public/case-studies/index.html'],
 ];
+for (const folder of ['glossary', 'compare', 'guides']) {
+  const dir = join(ROOT, 'public', folder);
+  if (!existsSync(dir)) continue;
+  contentRoutes.push([`/${folder}`, `public/${folder}/index.html`]);
+  for (const name of readdirSync(dir).filter((f) => f.endsWith('.html') && f !== 'index.html').sort()) {
+    const slug = name.replace(/\.html$/, '');
+    contentRoutes.push([`/${folder}/${slug}`, `public/${folder}/${name}`]);
+  }
+}
 const localePreviews = ['de', 'ja', 'zh'];
 
 for (const f of [
@@ -49,17 +85,21 @@ for (const lang of localePreviews) if (sm.includes(`<loc>${HOST}/${lang}/</loc>`
 
 const requiredLocs = [
   `${HOST}/`, `${HOST}/tools.html`, `${HOST}/pro.html`, `${HOST}/pricing.html`,
-  ...toolPages.map((p) => `${HOST}/${p}`),
+  // Pretty calculator URLs are canonical; legacy *-pro.html 301s and must not appear in sitemap.
+  ...toolPages.map((p) => TOOL_CANONICAL[p]).filter(Boolean).map((route) => `${HOST}${route}`),
   ...contentRoutes.map(([route]) => `${HOST}${route}`),
 ];
-for (const loc of requiredLocs) if (!sm.includes(`<loc>${loc}</loc>`)) fail(`sitemap missing ${loc}`);
+// Dedupe while preserving order.
+const requiredUnique = [...new Set(requiredLocs)];
+for (const loc of requiredUnique) if (!sm.includes(`<loc>${loc}</loc>`)) fail(`sitemap missing ${loc}`);
 const locs = [...sm.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
 if (new Set(locs).size !== locs.length) fail('sitemap contains duplicate loc entries');
-if (locs.length !== requiredLocs.length) fail(`sitemap URL count drift: expected ${requiredLocs.length}, got ${locs.length}`);
+if (locs.length !== requiredUnique.length) fail(`sitemap URL count drift: expected ${requiredUnique.length}, got ${locs.length}`);
 for (const loc of locs) {
-  if (!requiredLocs.includes(loc)) fail(`sitemap contains unregistered URL ${loc}`);
+  if (!requiredUnique.includes(loc)) fail(`sitemap contains unregistered URL ${loc}`);
   if (!loc.startsWith(`${HOST}/`)) fail(`sitemap contains off-host URL ${loc}`);
   if (/[?#]/.test(loc)) fail(`sitemap URL contains query or fragment ${loc}`);
+  if (/\/[a-z0-9-]+-pro\.html$/i.test(loc)) fail(`sitemap must not list legacy calculator file URL ${loc}`);
 }
 
 for (const lang of localePreviews) {
@@ -78,7 +118,7 @@ for (const bot of ['Googlebot', 'Bingbot', 'OAI-SearchBot', 'PerplexityBot']) if
 const simg = read('public/sitemap-images.xml');
 const imageParents = [...simg.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
 if (!imageParents.includes(`${HOST}/tools.html`)) fail('image sitemap missing tools.html entry');
-for (const parent of imageParents) if (!requiredLocs.includes(parent)) fail(`image sitemap parent is not canonical/indexable: ${parent}`);
+for (const parent of imageParents) if (!requiredUnique.includes(parent)) fail(`image sitemap parent is not canonical/indexable: ${parent}`);
 
 for (const page of pages) {
   const t = read(page);
@@ -96,6 +136,10 @@ for (const page of pages) {
     const slug = page.replace('.html', '');
     if (!t.includes(`sc-schema-tool-${slug}`)) fail(`${page} missing tool schema`);
     if (!t.includes('sc-breadcrumb')) fail(`${page} missing breadcrumb nav`);
+    const pretty = TOOL_CANONICAL[page];
+    if (pretty && !t.includes(`rel="canonical" href="${HOST}${pretty}"`)) {
+      fail(`${page} canonical must point to pretty URL ${pretty}`);
+    }
   }
 }
 
@@ -110,6 +154,12 @@ for (const [route, file] of contentRoutes) {
 
 const fj = JSON.parse(read('firebase.json'));
 if ((fj.hosting?.rewrites || []).some((r) => r.destination === '/index.html')) fail('firebase SPA catch-all would create soft 404s');
+for (const [oldFile, pretty] of Object.entries(TOOL_CANONICAL)) {
+  const hasRewrite = (fj.hosting?.rewrites || []).some((r) => r.source === pretty && r.destination === `/${oldFile}`);
+  if (!hasRewrite) fail(`firebase missing rewrite ${pretty} -> /${oldFile}`);
+  const hasRedirect = (fj.hosting?.redirects || []).some((r) => r.source === `/${oldFile}` && r.destination === pretty && Number(r.type) === 301);
+  if (!hasRedirect) fail(`firebase missing 301 ${oldFile} -> ${pretty}`);
+}
 
 const deploy = read('.github/workflows/deploy.yml');
 if (!/branches:\s*\[main\]/.test(deploy)) fail('production deploy must be main-only');
@@ -126,4 +176,4 @@ if (errors.length) {
   console.error('[FAIL] SEO release guard:\n' + errors.map((e) => `  - ${e}`).join('\n'));
   process.exit(1);
 }
-console.log(`[PASS] SEO release guard: ${requiredLocs.length} canonical URLs, ${toolPages.length} tools, locale previews quarantined, discovery synchronized, preview-before-live promotion enforced`);
+console.log(`[PASS] SEO release guard: ${requiredUnique.length} canonical URLs, ${toolPages.length} tools, locale previews quarantined, discovery synchronized, preview-before-live promotion enforced`);

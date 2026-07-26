@@ -1,59 +1,524 @@
 {
   "hosting": {
     "public": "dist",
-    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
     "cleanUrls": false,
     "trailingSlash": false,
     "redirects": [
-      { "source": "/calculator.html", "destination": "/labor-pro.html", "type": 301 },
-      { "source": "/calculator2.html", "destination": "/quote-pro.html", "type": 301 },
-      { "source": "/calculator3.html", "destination": "/weld-pro.html", "type": 301 },
-      { "source": "/calculator4.html", "destination": "/machining-pro.html", "type": 301 }
+      {
+        "source": "/calculator.html",
+        "destination": "/labor-pro.html",
+        "type": 301
+      },
+      {
+        "source": "/calculator2.html",
+        "destination": "/quote-pro.html",
+        "type": 301
+      },
+      {
+        "source": "/calculator3.html",
+        "destination": "/weld-pro.html",
+        "type": 301
+      },
+      {
+        "source": "/calculator4.html",
+        "destination": "/machining-pro.html",
+        "type": 301
+      },
+      {
+        "source": "/sc008-pro.html",
+        "destination": "/calculator/tolerance-stack-up",
+        "type": 301
+      },
+      {
+        "source": "/machining-pro.html",
+        "destination": "/calculator/cnc-feeds-speeds",
+        "type": 301
+      },
+      {
+        "source": "/tap-thread-pro.html",
+        "destination": "/calculator/tap-thread-milling",
+        "type": 301
+      },
+      {
+        "source": "/cycle-cost-pro.html",
+        "destination": "/calculator/cycle-time-cost",
+        "type": 301
+      },
+      {
+        "source": "/bearing-pro.html",
+        "destination": "/calculator/bearing-life-l10",
+        "type": 301
+      },
+      {
+        "source": "/bearing-freq-pro.html",
+        "destination": "/calculator/bearing-frequencies",
+        "type": 301
+      },
+      {
+        "source": "/belt-chain-pro.html",
+        "destination": "/calculator/belt-chain-drive",
+        "type": 301
+      },
+      {
+        "source": "/shaft-pro.html",
+        "destination": "/calculator/shaft-design",
+        "type": 301
+      },
+      {
+        "source": "/fits-pro.html",
+        "destination": "/calculator/iso-286-fits",
+        "type": 301
+      },
+      {
+        "source": "/surface-finish-pro.html",
+        "destination": "/calculator/surface-finish",
+        "type": 301
+      },
+      {
+        "source": "/weld-pro.html",
+        "destination": "/calculator/weld-thickness",
+        "type": 301
+      },
+      {
+        "source": "/heat-input-pro.html",
+        "destination": "/calculator/weld-heat-input",
+        "type": 301
+      },
+      {
+        "source": "/bend-pro.html",
+        "destination": "/calculator/sheet-metal-bend",
+        "type": 301
+      },
+      {
+        "source": "/punching-pro.html",
+        "destination": "/calculator/punching-force",
+        "type": 301
+      },
+      {
+        "source": "/sling-pro.html",
+        "destination": "/calculator/sling-capacity",
+        "type": 301
+      },
+      {
+        "source": "/shackle-eyebolt-pro.html",
+        "destination": "/calculator/shackle-eyebolt",
+        "type": 301
+      },
+      {
+        "source": "/pressure-vessel-pro.html",
+        "destination": "/calculator/pressure-vessel-shell",
+        "type": 301
+      },
+      {
+        "source": "/pipe-wall-pro.html",
+        "destination": "/calculator/pipe-wall-thickness",
+        "type": 301
+      },
+      {
+        "source": "/hydraulic-pro.html",
+        "destination": "/calculator/hydraulic-cylinder",
+        "type": 301
+      },
+      {
+        "source": "/bolt-pro.html",
+        "destination": "/calculator/bolt-torque-preload",
+        "type": 301
+      },
+      {
+        "source": "/bolted-joint-pro.html",
+        "destination": "/calculator/bolted-joint",
+        "type": 301
+      },
+      {
+        "source": "/labor-pro.html",
+        "destination": "/calculator/true-labor-cost",
+        "type": 301
+      },
+      {
+        "source": "/quote-pro.html",
+        "destination": "/calculator/quote-pricing",
+        "type": 301
+      },
+      {
+        "source": "/oee-pro.html",
+        "destination": "/calculator/oee-teep",
+        "type": 301
+      },
+      {
+        "source": "/machine-rate-pro.html",
+        "destination": "/calculator/machine-hour-rate",
+        "type": 301
+      }
     ],
     "headers": [
       {
         "source": "**",
         "headers": [
-          { "key": "X-Content-Type-Options", "value": "nosniff" },
-          { "key": "X-Frame-Options", "value": "DENY" },
-          { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
-          { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=(), interest-cohort=()" },
-          { "key": "Content-Security-Policy", "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: https://cdnjs.cloudflare.com https://www.googletagmanager.com https://www.google-analytics.com; worker-src 'self' blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://www.googletagmanager.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests" }
+          {
+            "key": "X-Content-Type-Options",
+            "value": "nosniff"
+          },
+          {
+            "key": "X-Frame-Options",
+            "value": "DENY"
+          },
+          {
+            "key": "Referrer-Policy",
+            "value": "strict-origin-when-cross-origin"
+          },
+          {
+            "key": "Permissions-Policy",
+            "value": "camera=(), microphone=(), geolocation=(), payment=*, usb=(), magnetometer=(), gyroscope=(), accelerometer=(), interest-cohort=()"
+          },
+          {
+            "key": "Content-Security-Policy",
+            "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: https://cdnjs.cloudflare.com https://www.googletagmanager.com https://www.google-analytics.com https://cdn.paddle.com; worker-src 'self' blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://*.paddle.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://www.googletagmanager.com https://*.paddle.com; frame-src 'self' https://*.paddle.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://*.paddle.com; upgrade-insecure-requests"
+          }
         ]
       },
       {
         "source": "**/*.@(js|css|woff2|png|svg|webmanifest)",
-        "headers": [{ "key": "Cache-Control", "value": "public, max-age=604800" }]
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=604800"
+          }
+        ]
       },
       {
         "source": "/favicon.ico",
-        "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400" }]
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=86400"
+          }
+        ]
       },
       {
         "source": "/assets/**",
-        "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=31536000, immutable"
+          }
+        ]
       },
       {
         "source": "/vendor/**",
-        "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=31536000, immutable"
+          }
+        ]
       },
       {
         "source": "/sectorcalc-logo*.png",
-        "headers": [{ "key": "Cache-Control", "value": "public, max-age=2592000" }]
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=2592000"
+          }
+        ]
       },
       {
         "source": "**/*.html",
-        "headers": [{ "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate" }]
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache, no-store, must-revalidate"
+          }
+        ]
       },
       {
         "source": "/",
-        "headers": [{ "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate" }]
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache, no-store, must-revalidate"
+          }
+        ]
       },
       {
         "source": "**/*.@(txt|xml)",
-        "headers": [{ "key": "Cache-Control", "value": "public, max-age=3600" }]
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=3600"
+          }
+        ]
       }
     ],
-    "rewrites": []
+    "rewrites": [
+      {
+        "source": "/calculator/tolerance-stack-up",
+        "destination": "/sc008-pro.html"
+      },
+      {
+        "source": "/calculator/cnc-feeds-speeds",
+        "destination": "/machining-pro.html"
+      },
+      {
+        "source": "/calculator/tap-thread-milling",
+        "destination": "/tap-thread-pro.html"
+      },
+      {
+        "source": "/calculator/cycle-time-cost",
+        "destination": "/cycle-cost-pro.html"
+      },
+      {
+        "source": "/calculator/bearing-life-l10",
+        "destination": "/bearing-pro.html"
+      },
+      {
+        "source": "/calculator/bearing-frequencies",
+        "destination": "/bearing-freq-pro.html"
+      },
+      {
+        "source": "/calculator/belt-chain-drive",
+        "destination": "/belt-chain-pro.html"
+      },
+      {
+        "source": "/calculator/shaft-design",
+        "destination": "/shaft-pro.html"
+      },
+      {
+        "source": "/calculator/iso-286-fits",
+        "destination": "/fits-pro.html"
+      },
+      {
+        "source": "/calculator/surface-finish",
+        "destination": "/surface-finish-pro.html"
+      },
+      {
+        "source": "/calculator/weld-thickness",
+        "destination": "/weld-pro.html"
+      },
+      {
+        "source": "/calculator/weld-heat-input",
+        "destination": "/heat-input-pro.html"
+      },
+      {
+        "source": "/calculator/sheet-metal-bend",
+        "destination": "/bend-pro.html"
+      },
+      {
+        "source": "/calculator/punching-force",
+        "destination": "/punching-pro.html"
+      },
+      {
+        "source": "/calculator/sling-capacity",
+        "destination": "/sling-pro.html"
+      },
+      {
+        "source": "/calculator/shackle-eyebolt",
+        "destination": "/shackle-eyebolt-pro.html"
+      },
+      {
+        "source": "/calculator/pressure-vessel-shell",
+        "destination": "/pressure-vessel-pro.html"
+      },
+      {
+        "source": "/calculator/pipe-wall-thickness",
+        "destination": "/pipe-wall-pro.html"
+      },
+      {
+        "source": "/calculator/hydraulic-cylinder",
+        "destination": "/hydraulic-pro.html"
+      },
+      {
+        "source": "/calculator/bolt-torque-preload",
+        "destination": "/bolt-pro.html"
+      },
+      {
+        "source": "/calculator/bolted-joint",
+        "destination": "/bolted-joint-pro.html"
+      },
+      {
+        "source": "/calculator/true-labor-cost",
+        "destination": "/labor-pro.html"
+      },
+      {
+        "source": "/calculator/quote-pricing",
+        "destination": "/quote-pro.html"
+      },
+      {
+        "source": "/calculator/oee-teep",
+        "destination": "/oee-pro.html"
+      },
+      {
+        "source": "/calculator/machine-hour-rate",
+        "destination": "/machine-rate-pro.html"
+      },
+      {
+        "source": "/glossary/asme-b31-pipe-wall",
+        "destination": "/glossary/asme-b31-pipe-wall.html"
+      },
+      {
+        "source": "/glossary/asme-viii-pressure-vessel",
+        "destination": "/glossary/asme-viii-pressure-vessel.html"
+      },
+      {
+        "source": "/glossary/asme-y14-5",
+        "destination": "/glossary/asme-y14-5.html"
+      },
+      {
+        "source": "/glossary/bearing-l10-life",
+        "destination": "/glossary/bearing-l10-life.html"
+      },
+      {
+        "source": "/glossary/bolt-preload",
+        "destination": "/glossary/bolt-preload.html"
+      },
+      {
+        "source": "/glossary/chip-thinning",
+        "destination": "/glossary/chip-thinning.html"
+      },
+      {
+        "source": "/glossary/cnc-feeds-and-speeds",
+        "destination": "/glossary/cnc-feeds-and-speeds.html"
+      },
+      {
+        "source": "/glossary/deterministic-engine",
+        "destination": "/glossary/deterministic-engine.html"
+      },
+      {
+        "source": "/glossary/heat-input-t85",
+        "destination": "/glossary/heat-input-t85.html"
+      },
+      {
+        "source": "/glossary/iso-281",
+        "destination": "/glossary/iso-281.html"
+      },
+      {
+        "source": "/glossary/iso-286-fits",
+        "destination": "/glossary/iso-286-fits.html"
+      },
+      {
+        "source": "/glossary/labor-burden-rate",
+        "destination": "/glossary/labor-burden-rate.html"
+      },
+      {
+        "source": "/glossary/machine-hour-rate",
+        "destination": "/glossary/machine-hour-rate.html"
+      },
+      {
+        "source": "/glossary/monte-carlo-simulation",
+        "destination": "/glossary/monte-carlo-simulation.html"
+      },
+      {
+        "source": "/glossary/oee-overall-equipment-effectiveness",
+        "destination": "/glossary/oee-overall-equipment-effectiveness.html"
+      },
+      {
+        "source": "/glossary/process-capability-cpk",
+        "destination": "/glossary/process-capability-cpk.html"
+      },
+      {
+        "source": "/glossary/rss-tolerance",
+        "destination": "/glossary/rss-tolerance.html"
+      },
+      {
+        "source": "/glossary/sheet-metal-k-factor",
+        "destination": "/glossary/sheet-metal-k-factor.html"
+      },
+      {
+        "source": "/glossary/sling-angle-factor",
+        "destination": "/glossary/sling-angle-factor.html"
+      },
+      {
+        "source": "/glossary/surface-finish-ra-rz",
+        "destination": "/glossary/surface-finish-ra-rz.html"
+      },
+      {
+        "source": "/glossary/taylor-tool-life",
+        "destination": "/glossary/taylor-tool-life.html"
+      },
+      {
+        "source": "/glossary/tolerance-stack-up",
+        "destination": "/glossary/tolerance-stack-up.html"
+      },
+      {
+        "source": "/glossary/vdi-2230-bolted-joint",
+        "destination": "/glossary/vdi-2230-bolted-joint.html"
+      },
+      {
+        "source": "/glossary/weld-throat",
+        "destination": "/glossary/weld-throat.html"
+      },
+      {
+        "source": "/glossary/worst-case-analysis",
+        "destination": "/glossary/worst-case-analysis.html"
+      },
+      {
+        "source": "/glossary",
+        "destination": "/glossary/index.html"
+      },
+      {
+        "source": "/glossary/",
+        "destination": "/glossary/index.html"
+      },
+      {
+        "source": "/compare/sectorcalc-vs-catia",
+        "destination": "/compare/sectorcalc-vs-catia.html"
+      },
+      {
+        "source": "/compare/sectorcalc-vs-excel-tolerance",
+        "destination": "/compare/sectorcalc-vs-excel-tolerance.html"
+      },
+      {
+        "source": "/compare/sectorcalc-vs-machinist-calculator",
+        "destination": "/compare/sectorcalc-vs-machinist-calculator.html"
+      },
+      {
+        "source": "/compare/sectorcalc-vs-minitab",
+        "destination": "/compare/sectorcalc-vs-minitab.html"
+      },
+      {
+        "source": "/compare/sectorcalc-vs-solidworks",
+        "destination": "/compare/sectorcalc-vs-solidworks.html"
+      },
+      {
+        "source": "/compare",
+        "destination": "/compare/index.html"
+      },
+      {
+        "source": "/compare/",
+        "destination": "/compare/index.html"
+      },
+      {
+        "source": "/guides/bearing-life-complete",
+        "destination": "/guides/bearing-life-complete.html"
+      },
+      {
+        "source": "/guides/cnc-optimization-complete",
+        "destination": "/guides/cnc-optimization-complete.html"
+      },
+      {
+        "source": "/guides/labor-costing-complete",
+        "destination": "/guides/labor-costing-complete.html"
+      },
+      {
+        "source": "/guides/tolerance-stack-up-complete",
+        "destination": "/guides/tolerance-stack-up-complete.html"
+      },
+      {
+        "source": "/guides/weld-sizing-complete",
+        "destination": "/guides/weld-sizing-complete.html"
+      },
+      {
+        "source": "/guides",
+        "destination": "/guides/index.html"
+      },
+      {
+        "source": "/guides/",
+        "destination": "/guides/index.html"
+      }
+    ]
   }
 }

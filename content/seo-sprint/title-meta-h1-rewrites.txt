@@ -1,0 +1,128 @@
+=== TITLE / META / H1 REWRITE LIST (25 Calculators) ===
+# Copy-paste these into each calculator page's <head> and <h1>
+
+<!-- sc008-pro.html -->
+<title>SC-008 Tolerance Stack-Up Calculator | Deterministic Monte Carlo | SectorCalc</title>
+<meta name="description" content="Deterministic 1D tolerance stack-up with worst-case, RSS, and seeded Monte Carlo (10,000 iterations). Predicted Cpk, PPM, and full A1-A5 audit trail. Client-side only.">
+<h1>SC-008 Tolerance Stack-Up Calculator: Worst-Case, RSS, and Seeded Monte Carlo</h1>
+
+<!-- machining-pro.html -->
+<title>SC-020 CNC Feeds & Speeds + Tool Life Calculator | SectorCalc</title>
+<meta name="description" content="Calculate cutting speed, feed rate, and Taylor tool life with chip thinning and deterministic Decimal engine. Full audit trail. Client-side only.">
+<h1>CNC Feeds & Speeds + Tool Life Calculator</h1>
+
+<!-- tap-thread-pro.html -->
+<title>SC-022 Tap & Thread Milling Calculator | SectorCalc</title>
+<meta name="description" content="Thread milling and tapping parameters with pitch, lead angle, and torque estimation. Deterministic engine with visible formulas.">
+<h1>Tap & Thread Milling Calculator</h1>
+
+<!-- cycle-cost-pro.html -->
+<title>SC-023 Cycle Time & Cost per Part Calculator | SectorCalc</title>
+<meta name="description" content="Calculate true cycle time, setup burden, and cost per good part with scrap rate and deterministic engine.">
+<h1>Cycle Time & Cost per Part Calculator</h1>
+
+<!-- bearing-pro.html -->
+<title>SC-021 Bearing Life L10 / Lnm Calculator (ISO 281) | SectorCalc</title>
+<meta name="description" content="ISO 281 bearing life calculator with aISO adjustment, viscosity ratio kappa, and contamination factor eC. Deterministic audit trail.">
+<h1>Bearing Life L10 / Lnm Calculator (ISO 281)</h1>
+
+<!-- bearing-freq-pro.html -->
+<title>SC-024 Bearing Defect Frequencies (BPFO/BPFI/BSF/FTF) | SectorCalc</title>
+<meta name="description" content="Calculate bearing defect frequencies for vibration analysis. BPFO, BPFI, BSF, FTF with deterministic formulas.">
+<h1>Bearing Defect Frequencies Calculator</h1>
+
+<!-- belt-chain-pro.html -->
+<title>SC-025 Belt & Chain Drive Sizing Calculator | SectorCalc</title>
+<meta name="description" content="Belt and chain drive sizing with speed ratio, center distance, and tension calculations. Deterministic engine.">
+<h1>Belt & Chain Drive Sizing Calculator</h1>
+
+<!-- shaft-pro.html -->
+<title>SC-026 Shaft Design Calculator (Torsion + Bending) | SectorCalc</title>
+<meta name="description" content="Shaft design with combined torsion and bending stress, fatigue factor, and safety margin. Deterministic audit trail.">
+<h1>Shaft Design Calculator (Torsion + Bending)</h1>
+
+<!-- fits-pro.html -->
+<title>SC-027 ISO 286 Fits & Clearances Calculator | SectorCalc</title>
+<meta name="description" content="ISO 286 fit and clearance calculator with H7/g6, deviation tables, and interference/shrink fit analysis.">
+<h1>ISO 286 Fits & Clearances Calculator</h1>
+
+<!-- surface-finish-pro.html -->
+<title>SC-028 Surface Finish Converter (Ra / Rz / Rmax) | SectorCalc</title>
+<meta name="description" content="Convert between Ra, Rz, Rmax, and other surface finish parameters. Deterministic reference values.">
+<h1>Surface Finish Converter (Ra / Rz)</h1>
+
+<!-- weld-pro.html -->
+<title>SC-001 Weld Thickness Calculator | SectorCalc</title>
+<meta name="description" content="Fillet weld throat and leg sizing per AWS D1.1 and ISO standards. Deterministic formula visibility.">
+<h1>Weld Thickness Calculator</h1>
+
+<!-- heat-input-pro.html -->
+<title>SC-029 Weld Heat Input & t8/5 Calculator | SectorCalc</title>
+<meta name="description" content="Calculate welding heat input and cooling time t8/5 for WPS/PQR screening. Deterministic engine.">
+<h1>Weld Heat Input & t8/5 Calculator</h1>
+
+<!-- bend-pro.html -->
+<title>SC-030 Sheet Metal Bend & K-Factor Calculator | SectorCalc</title>
+<meta name="description" content="Sheet metal bend allowance, K-factor, and flat pattern calculation with material database.">
+<h1>Sheet Metal Bend & K-Factor Calculator</h1>
+
+<!-- punching-pro.html -->
+<title>SC-039 Punching Force & Die Clearance Calculator | SectorCalc</title>
+<meta name="description" content="Punching force, stripping force, and die clearance for sheet metal operations. Deterministic.">
+<h1>Punching Force & Die Clearance Calculator</h1>
+
+<!-- sling-pro.html -->
+<title>SC-031 Sling Capacity & Angle Verification Calculator | SectorCalc</title>
+<meta name="description" content="Sling capacity reduction at angles, multi-leg load sharing, and safe working load verification.">
+<h1>Sling Capacity & Angle Calculator</h1>
+
+<!-- shackle-eyebolt-pro.html -->
+<title>SC-032 Shackle & Eye-Bolt Verification Calculator | SectorCalc</title>
+<meta name="description" content="Shackle and eye-bolt working load limit verification with angle derating and safety factors.">
+<h1>Shackle & Eye-Bolt Verification Calculator</h1>
+
+<!-- pressure-vessel-pro.html -->
+<title>SC-033 ASME VIII Pressure Vessel Shell Calculator | SectorCalc</title>
+<meta name="description" content="ASME Section VIII Division 1 internal pressure shell thickness calculator. Deterministic audit trail.">
+<h1>ASME VIII Pressure Vessel Shell Calculator</h1>
+
+<!-- pipe-wall-pro.html -->
+<title>SC-034 ASME B31.3 Pipe Wall / MAWP Calculator | SectorCalc</title>
+<meta name="description" content="ASME B31.3 pipe wall thickness and MAWP calculator with corrosion allowance and mill tolerance.">
+<h1>ASME B31.3 Pipe Wall / MAWP Calculator</h1>
+
+<!-- hydraulic-pro.html -->
+<title>SC-040 Hydraulic Cylinder Sizing Calculator | SectorCalc</title>
+<meta name="description" content="Hydraulic cylinder bore, rod, and pressure sizing with force, velocity, and flow calculations.">
+<h1>Hydraulic Cylinder Sizing Calculator</h1>
+
+<!-- bolt-pro.html -->
+<title>SC-035 Bolt Torque & Preload Calculator (VDI 2230) | SectorCalc</title>
+<meta name="description" content="VDI 2230 bolt torque and preload calculator with friction coefficients and tightening factor.">
+<h1>Bolt Torque & Preload Calculator (VDI 2230)</h1>
+
+<!-- bolted-joint-pro.html -->
+<title>SC-036 Bolted Joint Verification (VDI 2230) | SectorCalc</title>
+<meta name="description" content="Bolted joint verification with axial stiffness, preload, and clamping force analysis per VDI 2230.">
+<h1>Bolted Joint Verification Calculator</h1>
+
+<!-- labor-pro.html -->
+<title>SC-010 True Labor Cost Calculator | SectorCalc</title>
+<meta name="description" content="True loaded labor cost with statutory burden, benefits, overhead, and indirect time. Deterministic.">
+<h1>True Labor Cost Calculator</h1>
+
+<!-- quote-pro.html -->
+<title>SC-012 Quote Pricing / Full-Cost Margin Calculator | SectorCalc</title>
+<meta name="description" content="Quote pricing with material, labor, overhead, markup, and margin analysis. Deterministic audit trail.">
+<h1>Quote Pricing / Full-Cost Margin Calculator</h1>
+
+<!-- oee-pro.html -->
+<title>SC-037 OEE / TEEP / Capacity Loss Calculator | SectorCalc</title>
+<meta name="description" content="Overall Equipment Effectiveness, TEEP, and capacity loss breakdown with availability, performance, and quality.">
+<h1>OEE / TEEP / Capacity Loss Calculator</h1>
+
+<!-- machine-rate-pro.html -->
+<title>SC-038 True Machine Hour Rate Calculator | SectorCalc</title>
+<meta name="description" content="True machine hour rate with depreciation, maintenance, power, and overhead allocation. Deterministic.">
+<h1>True Machine Hour Rate Calculator</h1>
+

@@ -1,0 +1,51 @@
+/* SectorCalc SEO content pages — glossary / compare / guides */
+:root {
+  --bg: #0A1628;
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --blue: #0055A4;
+  --orange: #E87722;
+  --green: #22c55e;
+  --card: rgba(255,255,255,0.03);
+  --border: rgba(255,255,255,0.08);
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
+  background: radial-gradient(1200px 600px at 10% -10%, #12305a 0%, var(--bg) 55%);
+  color: var(--text);
+  line-height: 1.65;
+}
+a { color: #7dd3fc; text-decoration: none; }
+a:hover { text-decoration: underline; }
+.sc-header, .sc-footer {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  padding: 1rem 1.5rem; border-bottom: 1px solid var(--border);
+}
+.sc-footer { border-top: 1px solid var(--border); border-bottom: 0; margin-top: 3rem; flex-wrap: wrap; }
+.sc-logo { font-weight: 800; color: #fff; letter-spacing: 0.02em; }
+.sc-nav { display: flex; flex-wrap: wrap; gap: 0.9rem; }
+.sc-glossary-page, .sc-compare-page, .sc-guide-page, .sc-content-page {
+  max-width: 920px; margin: 0 auto; padding: 1.5rem;
+}
+.sc-breadcrumb ol { display: flex; flex-wrap: wrap; gap: 0.4rem; list-style: none; padding: 0; margin: 0 0 1.25rem; color: var(--muted); font-size: 0.9rem; }
+.sc-breadcrumb li:not(:last-child)::after { content: "/"; margin-left: 0.4rem; color: #64748b; }
+h1 { font-size: clamp(1.6rem, 3vw, 2.2rem); line-height: 1.2; margin: 0 0 1rem; }
+h2 { margin-top: 2rem; }
+.term-highlight { color: var(--orange); }
+.definition-box, .sc-cta-panel, .sc-facts-table, .sc-term-card, .compare-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.1rem 1.25rem;
+}
+.sc-facts-table { width: 100%; border-collapse: collapse; }
+.sc-facts-table th, .sc-facts-table td { text-align: left; padding: 0.55rem 0.4rem; border-bottom: 1px solid var(--border); }
+.sc-cta-buttons { display: flex; flex-wrap: wrap; gap: 0.75rem; margin: 1rem 0; }
+.sc-btn-primary, .sc-btn-secondary {
+  display: inline-block; padding: 0.7rem 1rem; border-radius: 8px; font-weight: 700;
+}
+.sc-btn-primary { background: var(--orange); color: #111; }
+.sc-btn-secondary { border: 1px solid var(--border); color: var(--text); }
+.sc-term-grid, .compare-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.75rem; }
+.sc-faq-item { border: 1px solid var(--border); border-radius: 8px; padding: 0.75rem 1rem; margin: 0.6rem 0; background: var(--card); }
+.sc-cta-note, .lead-definition { color: var(--muted); }
+code { color: #fde68a; }
