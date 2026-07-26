@@ -88,9 +88,9 @@
       <section id="standards">
         <h2>2. Applicable Standards</h2>
         <ul class="sc-standards-list">
-          <li><strong>ASME Y14.5-2018: Dimensioning and Tolerancing:</strong> ASME Y14.5-2018: Dimensioning and Tolerancing_DESC</li>
-          <li><strong>ISO 286-1: ISO Tolerance System:</strong> ISO 286-1: ISO Tolerance System_DESC</li>
-          <li><strong>AIAG PPAP 4th Edition:</strong> AIAG PPAP 4th Edition_DESC</li>
+          <li><strong>ASME Y14.5-2018: Dimensioning and Tolerancing:</strong> Defines drawing language, datums, and GD&T so stack contributors are interpreted consistently.</li>
+          <li><strong>ISO 286-1: ISO Tolerance System:</strong> Provides standardized hole/shaft tolerance grades used as contributor bands in linear stacks.</li>
+          <li><strong>AIAG PPAP 4th Edition:</strong> Customer PPAP reviews often require evidence that critical dimensions remain capable after tolerance allocation.</li>
         </ul>
       </section>
       <section id="methodology">
@@ -99,17 +99,17 @@
         <h3>3.1 Worst-Case Accumulation</h3>
         <div class="sc-formula-block">
           <code>T_WC = sum(t_i)</code>
-          <p>T_WC = sum(t_i)_EXPLANATION</p>
+          <p>Worst-case stack tolerance sums every contributor band. It guarantees fit under the 1D model but is often too conservative for high-volume work.</p>
         </div>
         <h3>3.2 RSS Statistical Tolerancing</h3>
         <div class="sc-formula-block">
           <code>T_RSS = sqrt(sum(t_i^2))</code>
-          <p>T_RSS = sqrt(sum(t_i^2))_EXPLANATION</p>
+          <p>RSS combines independent tolerances statistically. Use it when processes are capable and contributors are not strongly correlated.</p>
         </div>
         <h3>3.3 Monte Carlo Simulation</h3>
         <div class="sc-formula-block">
           <code>Empirical histogram from N iterations</code>
-          <p>Empirical histogram from N iterations_EXPLANATION</p>
+          <p>Monte Carlo samples each distribution repeatedly to estimate yield, Cpk, and PPM for mixed or non-normal contributors.</p>
         </div>
       </section>
       <section id="calculator">

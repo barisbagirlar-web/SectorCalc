@@ -34,7 +34,7 @@
         "datePublished": "2026-07-26",
         "dateModified": "2026-07-26",
         "author": { "@id": "https://sectorcalc.com/#person-neela-nataraj" },
-        "about": { "@type": "DefinedTerm", "name": "Monte Carlo Simulation", "description": "TERM_DEFINITION" }
+        "about": { "@type": "DefinedTerm", "name": "Monte Carlo Simulation", "description": "A numerical method that samples each contributor from a chosen distribution many times to build an empirical histogram of the closed dimension." }
       },
       {
         "@type": "BreadcrumbList",
@@ -85,18 +85,18 @@
     </article>
     <section class="sc-content-section">
       <h2>How Monte Carlo Simulation Works</h2>
-      <p>EXPLANATION_PARAGRAPH_1</p>
-      <p>EXPLANATION_PARAGRAPH_2</p>
+      <p>Monte Carlo handles mixed distributions (normal, truncated normal, uniform, triangular) that RSS cannot represent cleanly.</p>
+      <p>Deterministic engines fix the random seed so the same inputs always produce the same histogram — required for audit and customer review.</p>
       <h3>Key Variables</h3>
       <ul class="sc-variable-list">
-        <li><strong>VAR_1:</strong> DESCRIPTION_1</li>
-        <li><strong>VAR_2:</strong> DESCRIPTION_2</li>
-        <li><strong>VAR_3:</strong> DESCRIPTION_3</li>
+        <li><strong>N:</strong> Number of iterations (commonly 10,000 for stack-up screening).</li>
+        <li><strong>Distribution:</strong> Probability model assigned to each contributor.</li>
+        <li><strong>Seed:</strong> Fixed starting state for reproducible random sampling.</li>
       </ul>
       <h3>Common Mistakes</h3>
       <ul class="sc-warning-list">
-        <li>MISTAKE_1 and why it leads to ERROR_1.</li>
-        <li>MISTAKE_2 and why it leads to ERROR_2.</li>
+        <li>Using an unseeded random stream — two runs with identical inputs disagree and fail audit.</li>
+        <li>Too few iterations for rare tail events — PPM predictions become unstable.</li>
       </ul>
     </section>
     <section class="sc-cta-panel">
@@ -111,9 +111,9 @@
     <section class="sc-related-terms">
       <h2>Related Engineering Terms</h2>
       <div class="sc-term-grid">
-        <a href="/glossary/tolerance-stack-up" class="sc-term-card">tolerance-stack-up_NAME</a>
-        <a href="/glossary/rss-tolerance" class="sc-term-card">rss-tolerance_NAME</a>
-        <a href="/glossary/worst-case-analysis" class="sc-term-card">worst-case-analysis_NAME</a>
+        <a href="/glossary/tolerance-stack-up" class="sc-term-card">Tolerance Stack-Up</a>
+        <a href="/glossary/rss-tolerance" class="sc-term-card">RSS Tolerance</a>
+        <a href="/glossary/worst-case-analysis" class="sc-term-card">Worst-Case Analysis</a>
       </div>
     </section>
     <section class="sc-faq-section">

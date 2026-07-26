@@ -88,9 +88,9 @@
       <section id="standards">
         <h2>2. Applicable Standards</h2>
         <ul class="sc-standards-list">
-          <li><strong>Taylor (1907):</strong> Taylor (1907)_DESC</li>
-          <li><strong>ISO 3685:</strong> ISO 3685_DESC</li>
-          <li><strong>VDI 3321:</strong> VDI 3321_DESC</li>
+          <li><strong>Taylor (1907):</strong> Classic tool-life model relating cutting speed to tool life for cost and productivity trade-offs.</li>
+          <li><strong>ISO 3685:</strong> Tool-life testing framework used to generate comparable wear data for turning tools.</li>
+          <li><strong>VDI 3321:</strong> Guidance on cutting data selection and economic machining parameters for production planning.</li>
         </ul>
       </section>
       <section id="methodology">
@@ -99,17 +99,17 @@
         <h3>3.1 Taylor Tool Life</h3>
         <div class="sc-formula-block">
           <code>V * T^n = C</code>
-          <p>V * T^n = C_EXPLANATION</p>
+          <p>Taylor tool life: raising cutting speed shortens life by the exponent n. Calibrate C and n to the tool–workpiece pair.</p>
         </div>
         <h3>3.2 Chip Thinning Factor</h3>
         <div class="sc-formula-block">
           <code>ae/D < 0.5 -> fz_effective = fz / (2 * sqrt(ae/D - (ae/D)^2))</code>
-          <p>ae/D < 0.5 -> fz_effective = fz / (2 * sqrt(ae/D - (ae/D)^2))_EXPLANATION</p>
+          <p>Radial chip-thinning compensation restores intended chip thickness when width of cut is less than full slot.</p>
         </div>
         <h3>3.3 Spindle Power Check</h3>
         <div class="sc-formula-block">
           <code>P = (MRR * kc) / (60 * eta)</code>
-          <p>P = (MRR * kc) / (60 * eta)_EXPLANATION</p>
+          <p>Spindle power estimate from material removal rate, specific cutting force, and machine efficiency.</p>
         </div>
       </section>
       <section id="calculator">

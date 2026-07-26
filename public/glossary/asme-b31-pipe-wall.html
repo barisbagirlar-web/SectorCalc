@@ -34,7 +34,7 @@
         "datePublished": "2026-07-26",
         "dateModified": "2026-07-26",
         "author": { "@id": "https://sectorcalc.com/#person-neela-nataraj" },
-        "about": { "@type": "DefinedTerm", "name": "ASME B31 Pipe Wall", "description": "TERM_DEFINITION" }
+        "about": { "@type": "DefinedTerm", "name": "ASME B31 Pipe Wall", "description": "Pressure design thickness rules for process piping under ASME B31.3 (and related B31 sections) including corrosion and mill tolerance." }
       },
       {
         "@type": "BreadcrumbList",
@@ -85,18 +85,18 @@
     </article>
     <section class="sc-content-section">
       <h2>How ASME B31 Pipe Wall Works</h2>
-      <p>EXPLANATION_PARAGRAPH_1</p>
-      <p>EXPLANATION_PARAGRAPH_2</p>
+      <p>Wall thickness must resist internal pressure while leaving allowance for corrosion, mechanical strength, and manufacturing undertolerance.</p>
+      <p>MAWP checks reverse the thickness formula to confirm a selected schedule is adequate.</p>
       <h3>Key Variables</h3>
       <ul class="sc-variable-list">
-        <li><strong>VAR_1:</strong> DESCRIPTION_1</li>
-        <li><strong>VAR_2:</strong> DESCRIPTION_2</li>
-        <li><strong>VAR_3:</strong> DESCRIPTION_3</li>
+        <li><strong>t:</strong> Pressure design thickness.</li>
+        <li><strong>S:</strong> Allowable stress at design temperature.</li>
+        <li><strong>c:</strong> Corrosion / mechanical allowance.</li>
       </ul>
       <h3>Common Mistakes</h3>
       <ul class="sc-warning-list">
-        <li>MISTAKE_1 and why it leads to ERROR_1.</li>
-        <li>MISTAKE_2 and why it leads to ERROR_2.</li>
+        <li>Selecting pipe schedule from pressure alone without temperature-dependent allowable stress.</li>
+        <li>Forgetting mill tolerance when converting minimum wall to nominal ordered wall.</li>
       </ul>
     </section>
     <section class="sc-cta-panel">
@@ -111,9 +111,9 @@
     <section class="sc-related-terms">
       <h2>Related Engineering Terms</h2>
       <div class="sc-term-grid">
-        <a href="/glossary/asme-viii-pressure-vessel" class="sc-term-card">asme-viii-pressure-vessel_NAME</a>
-        <a href="/glossary/hydraulic-cylinder" class="sc-term-card">hydraulic-cylinder_NAME</a>
-        <a href="/glossary/weld-throat" class="sc-term-card">weld-throat_NAME</a>
+        <a href="/glossary/asme-viii-pressure-vessel" class="sc-term-card">ASME VIII Pressure Vessel</a>
+        <a href="/glossary/hydraulic-cylinder" class="sc-term-card">Hydraulic Cylinder</a>
+        <a href="/glossary/weld-throat" class="sc-term-card">Weld Throat</a>
       </div>
     </section>
     <section class="sc-faq-section">

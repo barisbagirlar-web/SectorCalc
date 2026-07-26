@@ -88,9 +88,9 @@
       <section id="standards">
         <h2>2. Applicable Standards</h2>
         <ul class="sc-standards-list">
-          <li><strong>ISO 281:2007:</strong> ISO 281:2007_DESC</li>
-          <li><strong>ISO 4406:</strong> ISO 4406_DESC</li>
-          <li><strong>DIN 51825:</strong> DIN 51825_DESC</li>
+          <li><strong>ISO 281:2007:</strong> Dynamic load ratings and rating life calculation for rolling bearings, including modified life factors.</li>
+          <li><strong>ISO 4406:</strong> Contamination coding for lubricating oil cleanliness that feeds eC contamination factors.</li>
+          <li><strong>DIN 51825:</strong> Lubricating grease specifications affecting viscosity and film formation in bearing service.</li>
         </ul>
       </section>
       <section id="methodology">
@@ -99,17 +99,17 @@
         <h3>3.1 Basic Rating Life L10</h3>
         <div class="sc-formula-block">
           <code>L10 = (C/P)^p</code>
-          <p>L10 = (C/P)^p_EXPLANATION</p>
+          <p>Basic rating life from dynamic capacity and equivalent load. Exponent p is 3 for ball bearings and 10/3 for roller bearings.</p>
         </div>
         <h3>3.2 Viscosity Ratio kappa</h3>
         <div class="sc-formula-block">
           <code>kappa = nu / nu1</code>
-          <p>kappa = nu / nu1_EXPLANATION</p>
+          <p>Viscosity ratio comparing actual lubricant viscosity to the required viscosity for adequate film thickness.</p>
         </div>
         <h3>3.3 Life Adjustment Factor aISO</h3>
         <div class="sc-formula-block">
           <code>aISO = f(kappa, eC, Cu/P)</code>
-          <p>aISO = f(kappa, eC, Cu/P)_EXPLANATION</p>
+          <p>Life modification factor combining lubrication quality, contamination, and fatigue load limit ratio.</p>
         </div>
       </section>
       <section id="calculator">

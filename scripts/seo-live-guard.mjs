@@ -72,7 +72,7 @@ for (const lang of ['de', 'ja', 'zh']) {
 }
 
 const locs = [...sitemap.text.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
-if (locs.length !== 74) fail(`sitemap expected 74 canonical HTML URLs, got ${locs.length}`);
+if (locs.length !== 78) fail(`sitemap expected 78 canonical HTML URLs, got ${locs.length}`);
 if (new Set(locs).size !== locs.length) fail('sitemap has duplicate locs');
 for (const url of locs) {
   if (!url.startsWith(`${CANONICAL_HOST}/`)) fail(`sitemap URL is off canonical host: ${url}`);

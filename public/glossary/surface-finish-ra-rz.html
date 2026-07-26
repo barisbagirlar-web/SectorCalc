@@ -34,7 +34,7 @@
         "datePublished": "2026-07-26",
         "dateModified": "2026-07-26",
         "author": { "@id": "https://sectorcalc.com/#person-neela-nataraj" },
-        "about": { "@type": "DefinedTerm", "name": "Surface Finish (Ra / Rz)", "description": "TERM_DEFINITION" }
+        "about": { "@type": "DefinedTerm", "name": "Surface Finish (Ra / Rz)", "description": "Common roughness parameters: Ra is arithmetic average roughness; Rz is average peak-to-valley height over sampling lengths." }
       },
       {
         "@type": "BreadcrumbList",
@@ -85,18 +85,18 @@
     </article>
     <section class="sc-content-section">
       <h2>How Surface Finish (Ra / Rz) Works</h2>
-      <p>EXPLANATION_PARAGRAPH_1</p>
-      <p>EXPLANATION_PARAGRAPH_2</p>
+      <p>Drawings specify finish to control sealing, fatigue, appearance, and bearing performance.</p>
+      <p>Converters map between Ra, Rz, and related parameters using reference correlations — not exact physics identities.</p>
       <h3>Key Variables</h3>
       <ul class="sc-variable-list">
-        <li><strong>VAR_1:</strong> DESCRIPTION_1</li>
-        <li><strong>VAR_2:</strong> DESCRIPTION_2</li>
-        <li><strong>VAR_3:</strong> DESCRIPTION_3</li>
+        <li><strong>Ra:</strong> Arithmetic mean deviation of the profile.</li>
+        <li><strong>Rz:</strong> Average maximum height of the profile.</li>
+        <li><strong>Cutoff:</strong> Sampling length used during measurement.</li>
       </ul>
       <h3>Common Mistakes</h3>
       <ul class="sc-warning-list">
-        <li>MISTAKE_1 and why it leads to ERROR_1.</li>
-        <li>MISTAKE_2 and why it leads to ERROR_2.</li>
+        <li>Treating Ra↔Rz conversion factors as exact for every process — correlations are approximate.</li>
+        <li>Specifying ultra-fine finishes that the process cannot hold, inflating cycle time without function gain.</li>
       </ul>
     </section>
     <section class="sc-cta-panel">
@@ -111,9 +111,9 @@
     <section class="sc-related-terms">
       <h2>Related Engineering Terms</h2>
       <div class="sc-term-grid">
-        <a href="/glossary/cnc-feeds-and-speeds" class="sc-term-card">cnc-feeds-and-speeds_NAME</a>
-        <a href="/glossary/iso-286-fits" class="sc-term-card">iso-286-fits_NAME</a>
-        <a href="/glossary/bearing-l10-life" class="sc-term-card">bearing-l10-life_NAME</a>
+        <a href="/glossary/cnc-feeds-and-speeds" class="sc-term-card">CNC Feeds and Speeds</a>
+        <a href="/glossary/iso-286-fits" class="sc-term-card">ISO 286 Fits</a>
+        <a href="/glossary/bearing-l10-life" class="sc-term-card">Bearing L10 Life</a>
       </div>
     </section>
     <section class="sc-faq-section">

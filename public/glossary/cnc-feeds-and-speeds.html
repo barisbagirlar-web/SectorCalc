@@ -34,7 +34,7 @@
         "datePublished": "2026-07-26",
         "dateModified": "2026-07-26",
         "author": { "@id": "https://sectorcalc.com/#person-neela-nataraj" },
-        "about": { "@type": "DefinedTerm", "name": "CNC Feeds and Speeds", "description": "TERM_DEFINITION" }
+        "about": { "@type": "DefinedTerm", "name": "CNC Feeds and Speeds", "description": "The cutting speed and feed parameters that set spindle RPM, table feed, chip load, and resulting tool engagement." }
       },
       {
         "@type": "BreadcrumbList",
@@ -85,18 +85,18 @@
     </article>
     <section class="sc-content-section">
       <h2>How CNC Feeds and Speeds Works</h2>
-      <p>EXPLANATION_PARAGRAPH_1</p>
-      <p>EXPLANATION_PARAGRAPH_2</p>
+      <p>Correct feeds and speeds balance metal removal rate, tool life, surface finish, and spindle power limits.</p>
+      <p>Chip thinning corrections adjust programmed feed when radial engagement is reduced in milling.</p>
       <h3>Key Variables</h3>
       <ul class="sc-variable-list">
-        <li><strong>VAR_1:</strong> DESCRIPTION_1</li>
-        <li><strong>VAR_2:</strong> DESCRIPTION_2</li>
-        <li><strong>VAR_3:</strong> DESCRIPTION_3</li>
+        <li><strong>Vc:</strong> Cutting speed.</li>
+        <li><strong>fz:</strong> Feed per tooth.</li>
+        <li><strong>n:</strong> Spindle speed derived from Vc and diameter.</li>
       </ul>
       <h3>Common Mistakes</h3>
       <ul class="sc-warning-list">
-        <li>MISTAKE_1 and why it leads to ERROR_1.</li>
-        <li>MISTAKE_2 and why it leads to ERROR_2.</li>
+        <li>Copying speeds from a different tool diameter or material without recalculating RPM and chip load.</li>
+        <li>Ignoring chip thinning in light radial cuts — tool rubs and wears prematurely.</li>
       </ul>
     </section>
     <section class="sc-cta-panel">
@@ -111,9 +111,9 @@
     <section class="sc-related-terms">
       <h2>Related Engineering Terms</h2>
       <div class="sc-term-grid">
-        <a href="/glossary/taylor-tool-life" class="sc-term-card">taylor-tool-life_NAME</a>
-        <a href="/glossary/chip-thinning" class="sc-term-card">chip-thinning_NAME</a>
-        <a href="/glossary/machine-hour-rate" class="sc-term-card">machine-hour-rate_NAME</a>
+        <a href="/glossary/taylor-tool-life" class="sc-term-card">Taylor Tool Life</a>
+        <a href="/glossary/chip-thinning" class="sc-term-card">Chip Thinning</a>
+        <a href="/glossary/machine-hour-rate" class="sc-term-card">Machine Hour Rate</a>
       </div>
     </section>
     <section class="sc-faq-section">

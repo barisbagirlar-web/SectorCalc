@@ -34,7 +34,7 @@
         "datePublished": "2026-07-26",
         "dateModified": "2026-07-26",
         "author": { "@id": "https://sectorcalc.com/#person-neela-nataraj" },
-        "about": { "@type": "DefinedTerm", "name": "Sheet Metal K-Factor", "description": "TERM_DEFINITION" }
+        "about": { "@type": "DefinedTerm", "name": "Sheet Metal K-Factor", "description": "The ratio locating the neutral bend axis inside the material thickness, used to compute bend allowance and flat pattern length." }
       },
       {
         "@type": "BreadcrumbList",
@@ -85,18 +85,18 @@
     </article>
     <section class="sc-content-section">
       <h2>How Sheet Metal K-Factor Works</h2>
-      <p>EXPLANATION_PARAGRAPH_1</p>
-      <p>EXPLANATION_PARAGRAPH_2</p>
+      <p>Bend allowance depends on thickness, inside radius, bend angle, and K-factor. Wrong K-factor creates wrong flat blanks.</p>
+      <p>K-factor is calibrated by material, tooling, and process; handbook defaults are only a starting point.</p>
       <h3>Key Variables</h3>
       <ul class="sc-variable-list">
-        <li><strong>VAR_1:</strong> DESCRIPTION_1</li>
-        <li><strong>VAR_2:</strong> DESCRIPTION_2</li>
-        <li><strong>VAR_3:</strong> DESCRIPTION_3</li>
+        <li><strong>K:</strong> Neutral axis location as a fraction of thickness.</li>
+        <li><strong>BA:</strong> Bend allowance added to flat pattern.</li>
+        <li><strong>IR:</strong> Inside bend radius.</li>
       </ul>
       <h3>Common Mistakes</h3>
       <ul class="sc-warning-list">
-        <li>MISTAKE_1 and why it leads to ERROR_1.</li>
-        <li>MISTAKE_2 and why it leads to ERROR_2.</li>
+        <li>Using one K-factor for every material and radius — blanks become systematically long or short.</li>
+        <li>Forgetting to convert bend angle conventions (included vs complementary) before applying BA formulas.</li>
       </ul>
     </section>
     <section class="sc-cta-panel">
@@ -111,9 +111,9 @@
     <section class="sc-related-terms">
       <h2>Related Engineering Terms</h2>
       <div class="sc-term-grid">
-        <a href="/glossary/punching-force" class="sc-term-card">punching-force_NAME</a>
-        <a href="/glossary/weld-throat" class="sc-term-card">weld-throat_NAME</a>
-        <a href="/glossary/cnc-feeds-and-speeds" class="sc-term-card">cnc-feeds-and-speeds_NAME</a>
+        <a href="/glossary/punching-force" class="sc-term-card">Punching Force</a>
+        <a href="/glossary/weld-throat" class="sc-term-card">Weld Throat</a>
+        <a href="/glossary/cnc-feeds-and-speeds" class="sc-term-card">CNC Feeds and Speeds</a>
       </div>
     </section>
     <section class="sc-faq-section">

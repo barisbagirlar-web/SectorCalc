@@ -85,13 +85,13 @@
       <section class="sc-compare-deep">
         <h2>1. Formula Transparency</h2>
         <p>SectorCalc shows every formula used in the calculation, including unit conversions, reference values, and engine version. The A3 section of the audit trail lists applied formulas exactly as executed by the Decimal engine.</p>
-        <p>Hidden formulas in cells; no audit trail_EXPLANATION</p>
+        <p>Excel stores formulas inside cells. Reviewers cannot see a structured A3 formula list unless someone rebuilds the sheet by hand, so auditability depends on the author’s discipline.</p>
         <h2>2. Audit Trail & Compliance</h2>
         <p>SectorCalc generates an A1-A5 audit module with every report: A1 engine identity/version, A2 entered and canonical inputs, A3 applied formulas, A4 assumptions and model boundaries, A5 warnings and limit checks. The report includes deterministic input and output hashes.</p>
-        <p>No structured audit trail_EXPLANATION</p>
+        <p>Spreadsheets rarely emit engine version, input hashes, warning lists, or assumption registers. SectorCalc’s A1–A5 modules exist specifically for customer and QA review.</p>
         <h2>3. Data Privacy</h2>
         <p>All SectorCalc calculations run client-side in the browser. No part dimensions, process data, or results are transmitted to any server. This is critical for ITAR-controlled, proprietary, or competitive-sensitive designs.</p>
-        <p>Data stored locally but no encryption guarantee_EXPLANATION</p>
+        <p>Desktop files can be emailed, synced to cloud drives, or left on shared machines. SectorCalc keeps calculation inputs in the browser session unless the user exports a report.</p>
         <h2>4. When to Choose Which</h2>
         <div class="sc-choice-box">
           <div class="sc-choice-sectorcalc">

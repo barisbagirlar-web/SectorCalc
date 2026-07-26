@@ -43,7 +43,7 @@ const contentRoutes = [
   ['/blog/tolerance-stack-up-rss-vs-monte-carlo.html', 'public/blog/tolerance-stack-up-rss-vs-monte-carlo.html'],
   ['/case-studies', 'public/case-studies/index.html'],
 ];
-for (const folder of ['glossary', 'compare', 'guides', 'about', 'contact', 'privacy', 'terms']) {
+for (const folder of ['glossary', 'compare', 'guides', 'about', 'contact', 'privacy', 'terms', 'resources']) {
   const dir = join(ROOT, 'public', folder);
   if (!existsSync(dir)) continue;
   contentRoutes.push([`/${folder}`, `public/${folder}/index.html`]);

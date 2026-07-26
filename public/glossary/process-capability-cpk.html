@@ -34,7 +34,7 @@
         "datePublished": "2026-07-26",
         "dateModified": "2026-07-26",
         "author": { "@id": "https://sectorcalc.com/#person-neela-nataraj" },
-        "about": { "@type": "DefinedTerm", "name": "Process Capability Cpk", "description": "TERM_DEFINITION" }
+        "about": { "@type": "DefinedTerm", "name": "Process Capability Cpk", "description": "A capability index that measures how centered and tight a process is relative to specification limits." }
       },
       {
         "@type": "BreadcrumbList",
@@ -85,18 +85,18 @@
     </article>
     <section class="sc-content-section">
       <h2>How Process Capability Cpk Works</h2>
-      <p>EXPLANATION_PARAGRAPH_1</p>
-      <p>EXPLANATION_PARAGRAPH_2</p>
+      <p>Cpk combines mean location and process spread. A higher Cpk means more of the distribution sits inside the specification.</p>
+      <p>Stack-up tools often report predicted Cpk or PPM from Monte Carlo results so manufacturing can judge whether the design is producible.</p>
       <h3>Key Variables</h3>
       <ul class="sc-variable-list">
-        <li><strong>VAR_1:</strong> DESCRIPTION_1</li>
-        <li><strong>VAR_2:</strong> DESCRIPTION_2</li>
-        <li><strong>VAR_3:</strong> DESCRIPTION_3</li>
+        <li><strong>USL / LSL:</strong> Upper and lower specification limits.</li>
+        <li><strong>σ:</strong> Estimated process standard deviation.</li>
+        <li><strong>Cpk:</strong> min((USL−μ)/(3σ), (μ−LSL)/(3σ)).</li>
       </ul>
       <h3>Common Mistakes</h3>
       <ul class="sc-warning-list">
-        <li>MISTAKE_1 and why it leads to ERROR_1.</li>
-        <li>MISTAKE_2 and why it leads to ERROR_2.</li>
+        <li>Computing Cpk from non-stable process data — the index becomes meaningless during special-cause variation.</li>
+        <li>Treating Cpk alone as proof of customer quality without distribution shape checks.</li>
       </ul>
     </section>
     <section class="sc-cta-panel">
@@ -111,9 +111,9 @@
     <section class="sc-related-terms">
       <h2>Related Engineering Terms</h2>
       <div class="sc-term-grid">
-        <a href="/glossary/tolerance-stack-up" class="sc-term-card">tolerance-stack-up_NAME</a>
-        <a href="/glossary/iso-286-fits" class="sc-term-card">iso-286-fits_NAME</a>
-        <a href="/glossary/rss-tolerance" class="sc-term-card">rss-tolerance_NAME</a>
+        <a href="/glossary/tolerance-stack-up" class="sc-term-card">Tolerance Stack-Up</a>
+        <a href="/glossary/iso-286-fits" class="sc-term-card">ISO 286 Fits</a>
+        <a href="/glossary/rss-tolerance" class="sc-term-card">RSS Tolerance</a>
       </div>
     </section>
     <section class="sc-faq-section">

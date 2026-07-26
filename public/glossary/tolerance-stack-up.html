@@ -34,7 +34,7 @@
         "datePublished": "2026-07-26",
         "dateModified": "2026-07-26",
         "author": { "@id": "https://sectorcalc.com/#person-neela-nataraj" },
-        "about": { "@type": "DefinedTerm", "name": "Tolerance Stack-Up", "description": "TERM_DEFINITION" }
+        "about": { "@type": "DefinedTerm", "name": "Tolerance Stack-Up", "description": "A 1D linear analysis that sums independent dimensional contributors to predict whether an assembly gap or interference stays within specification." }
       },
       {
         "@type": "BreadcrumbList",
@@ -85,18 +85,18 @@
     </article>
     <section class="sc-content-section">
       <h2>How Tolerance Stack-Up Works</h2>
-      <p>EXPLANATION_PARAGRAPH_1</p>
-      <p>EXPLANATION_PARAGRAPH_2</p>
+      <p>Each contributor is entered as a nominal value, a tolerance band, and a sign. The stack predicts the resulting gap, interference, or overall length before tooling is cut.</p>
+      <p>Three accumulation philosophies are common: worst-case (guaranteed but conservative), RSS (statistical shortcut for capable processes), and Monte Carlo (empirical simulation for mixed distributions).</p>
       <h3>Key Variables</h3>
       <ul class="sc-variable-list">
-        <li><strong>VAR_1:</strong> DESCRIPTION_1</li>
-        <li><strong>VAR_2:</strong> DESCRIPTION_2</li>
-        <li><strong>VAR_3:</strong> DESCRIPTION_3</li>
+        <li><strong>Nominal (n_i):</strong> Centered dimension of each contributor in the chain.</li>
+        <li><strong>Tolerance (t_i):</strong> Plus/minus or bilateral band assigned to that contributor.</li>
+        <li><strong>Sign (+/−):</strong> Whether the contributor adds to or subtracts from the closed dimension.</li>
       </ul>
       <h3>Common Mistakes</h3>
       <ul class="sc-warning-list">
-        <li>MISTAKE_1 and why it leads to ERROR_1.</li>
-        <li>MISTAKE_2 and why it leads to ERROR_2.</li>
+        <li>Treating every contributor as independent when machining and fixtures share common datums — this understates correlated variation and can hide scrap risk.</li>
+        <li>Using worst-case alone for high-volume production — it drives unnecessary cost when process capability supports RSS or Monte Carlo.</li>
       </ul>
     </section>
     <section class="sc-cta-panel">
@@ -111,20 +111,20 @@
     <section class="sc-related-terms">
       <h2>Related Engineering Terms</h2>
       <div class="sc-term-grid">
-        <a href="/glossary/rss-tolerance" class="sc-term-card">rss-tolerance_NAME</a>
-        <a href="/glossary/monte-carlo-simulation" class="sc-term-card">monte-carlo-simulation_NAME</a>
-        <a href="/glossary/worst-case-analysis" class="sc-term-card">worst-case-analysis_NAME</a>
+        <a href="/glossary/rss-tolerance" class="sc-term-card">RSS Tolerance</a>
+        <a href="/glossary/monte-carlo-simulation" class="sc-term-card">Monte Carlo Simulation</a>
+        <a href="/glossary/worst-case-analysis" class="sc-term-card">Worst-Case Analysis</a>
       </div>
     </section>
     <section class="sc-faq-section">
       <h2>Frequently Asked Questions</h2>
       <details class="sc-faq-item">
         <summary>What is the difference between Tolerance Stack-Up and RSS Tolerance?</summary>
-        <p>Tolerance Stack-Up focuses on a 1D linear analysis method that sums independent dimensiona..., while RSS Tolerance addresses a different aspect of engineering analysis.</p>
+        <p>Tolerance stack-up is the overall method (worst-case, RSS, or Monte Carlo). RSS is one statistical accumulation option inside that method.</p>
       </details>
       <details class="sc-faq-item">
         <summary>When should I use Tolerance Stack-Up instead of Monte Carlo Simulation?</summary>
-        <p>Use Tolerance Stack-Up when is used in mechanical design to validate critical functional dimensions such as ... Monte Carlo Simulation is more appropriate for specialized scenarios.</p>
+        <p>Use worst-case or RSS first for quick screening. Switch to Monte Carlo when distributions differ, tails matter, or you need predicted PPM/Cpk.</p>
       </details>
       <details class="sc-faq-item">
         <summary>Can I calculate Tolerance Stack-Up deterministically with SectorCalc?</summary>
