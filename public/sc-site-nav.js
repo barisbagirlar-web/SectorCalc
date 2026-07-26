@@ -22,6 +22,9 @@
       let on = false;
       if (key === 'tools' && /tools\.html$/.test(path)) on = true;
       if (key === 'pricing' && /pricing\.html$/.test(path)) on = true;
+      if (key === 'glossary' && /\/glossary(\/|$)/.test(path)) on = true;
+      if (key === 'guides' && /\/guides(\/|$)/.test(path)) on = true;
+      if (key === 'compare' && /\/compare(\/|$)/.test(path)) on = true;
       if (key === 'home' && isHome()) on = true;
       if (on) a.setAttribute('aria-current', 'page');
     });

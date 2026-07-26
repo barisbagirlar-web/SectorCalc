@@ -72,7 +72,7 @@ for (const lang of ['de', 'ja', 'zh']) {
 }
 
 const locs = [...sitemap.text.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
-if (locs.length !== 32) fail(`sitemap expected 32 canonical HTML URLs, got ${locs.length}`);
+if (locs.length !== 78) fail(`sitemap expected 78 canonical HTML URLs, got ${locs.length}`);
 if (new Set(locs).size !== locs.length) fail('sitemap has duplicate locs');
 for (const url of locs) {
   if (!url.startsWith(`${CANONICAL_HOST}/`)) fail(`sitemap URL is off canonical host: ${url}`);
@@ -112,6 +112,29 @@ for (const path of ['/de', '/ja', '/zh']) {
 for (const legacy of ['/categories', '/developer-showcase', '/seo/construction-cost-calculators', '/guides/how-to-calculate-manufacturing-cost']) {
   const { res } = await get(remote(legacy), { redirect: 'manual' });
   if (![301, 308, 404, 410].includes(res.status)) fail(`legacy ${legacy} returns ${res.status}; expected exact redirect or 404/410`);
+}
+
+// Legacy calculator URLs and content .html twins must 301 to clean canonicals (no duplicate 200).
+const mustRedirect = [
+  ['/sc008-pro.html', '/calculator/tolerance-stack-up'],
+  ['/machining-pro.html', '/calculator/cnc-feeds-speeds'],
+  ['/glossary/tolerance-stack-up.html', '/glossary/tolerance-stack-up'],
+  ['/guides/tolerance-stack-up-complete.html', '/guides/tolerance-stack-up-complete'],
+  ['/compare/sectorcalc-vs-excel-tolerance.html', '/compare/sectorcalc-vs-excel-tolerance'],
+  ['/resources/iso-286-quick-reference.html', '/resources/iso-286-quick-reference'],
+  ['/about/index.html', '/about'],
+  ['/blog/index.html', '/blog'],
+];
+for (const [from, to] of mustRedirect) {
+  const { res } = await get(remote(from), { redirect: 'manual' });
+  if (![301, 308].includes(res.status)) {
+    fail(`${from} returns ${res.status}; expected 301/308 to ${to}`);
+    continue;
+  }
+  const location = (res.headers.get('location') || '').split('?')[0];
+  if (location !== to && location !== `${CANONICAL_HOST}${to}`) {
+    fail(`${from} Location=${location || 'missing'}; expected ${to}`);
+  }
 }
 
 const llm = await get(remote('/llm.txt'));

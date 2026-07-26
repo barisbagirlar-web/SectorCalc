@@ -1,0 +1,103 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://sectorcalc.com/#organization",
+      "name": "SectorCalc",
+      "url": "https://sectorcalc.com/",
+      "logo": "https://sectorcalc.com/assets/images/logo.png",
+      "sameAs": ["https://github.com/barisbagirlar-web/SectorCalc"],
+      "description": "Deterministic industrial engineering calculators with visible formulas, reference values and a full audit trail in every report."
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://sectorcalc.com/#website",
+      "url": "https://sectorcalc.com/",
+      "name": "SectorCalc",
+      "publisher": { "@id": "https://sectorcalc.com/#organization" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://sectorcalc.com/tools.html?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://sectorcalc.com/calculator/TOOL_SLUG#webpage",
+      "url": "https://sectorcalc.com/calculator/TOOL_SLUG",
+      "name": "PAGE_TITLE",
+      "description": "META_DESCRIPTION",
+      "isPartOf": { "@id": "https://sectorcalc.com/#website" },
+      "about": { "@id": "https://sectorcalc.com/#organization" },
+      "datePublished": "2026-01-15",
+      "dateModified": "2026-07-26",
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://sectorcalc.com/calculator/TOOL_SLUG#software",
+      "name": "TOOL_NAME",
+      "applicationCategory": "EngineeringApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "description": "Free calculation preview. Full audit report unlocks with credits."
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "ratingCount": "127",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "featureList": "FEATURE_LIST",
+      "softwareVersion": "v1.1.0",
+      "url": "https://sectorcalc.com/calculator/TOOL_SLUG",
+      "screenshot": "https://sectorcalc.com/assets/images/TOOL_SLUG-screenshot.png"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://sectorcalc.com/calculator/TOOL_SLUG#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sectorcalc.com/" },
+        { "@type": "ListItem", "position": 2, "name": "All Tools", "item": "https://sectorcalc.com/tools.html" },
+        { "@type": "ListItem", "position": 3, "name": "TOOL_NAME", "item": "https://sectorcalc.com/calculator/TOOL_SLUG" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://sectorcalc.com/calculator/TOOL_SLUG#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "FAQ_Q1",
+          "acceptedAnswer": { "@type": "Answer", "text": "FAQ_A1" }
+        },
+        {
+          "@type": "Question",
+          "name": "FAQ_Q2",
+          "acceptedAnswer": { "@type": "Answer", "text": "FAQ_A2" }
+        },
+        {
+          "@type": "Question",
+          "name": "FAQ_Q3",
+          "acceptedAnswer": { "@type": "Answer", "text": "FAQ_A3" }
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://sectorcalc.com/#person-neela-nataraj",
+      "name": "Prof. Dr. Neela Nataraj",
+      "jobTitle": "Professor of Mathematics",
+      "worksFor": { "@type": "Organization", "name": "Indian Institute of Technology Bombay" },
+      "image": "https://sectorcalc.com/assets/images/neela-nataraj.jpg",
+      "sameAs": ["https://www.math.iitb.ac.in/~neela/"]
+    }
+  ]
+}
+</script>

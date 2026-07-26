@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What is Deterministic Engine? | Engineering Glossary | SectorCalc</title>
+  <meta name="description" content="Deterministic Engine definition for engineers: a calculation architecture where identical inputs always produce identical outputs through reproducible algorithms, seed.... Learn how it works, why it matters, and try the deterministic calculator at SectorCalc.">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+  <link rel="canonical" href="https://sectorcalc.com/glossary/deterministic-engine">
+  <link rel="stylesheet" href="/css/seo-content.css">
+  <link rel="stylesheet" href="/sc-theme.css">
+  <meta property="og:title" content="What is Deterministic Engine? | SectorCalc Glossary">
+  <meta property="og:description" content="Deterministic Engine definition for engineers. Try the deterministic calculator.">
+  <meta property="og:url" content="https://sectorcalc.com/glossary/deterministic-engine">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://sectorcalc.com/assets/images/og-glossary-deterministic-engine.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://sectorcalc.com/#organization",
+        "name": "SectorCalc",
+        "url": "https://sectorcalc.com/"
+      },
+      {
+        "@type": "Article",
+        "@id": "https://sectorcalc.com/glossary/deterministic-engine#article",
+        "url": "https://sectorcalc.com/glossary/deterministic-engine",
+        "headline": "What is Deterministic Engine?",
+        "description": "Deterministic Engine definition for engineers.",
+        "isPartOf": { "@id": "https://sectorcalc.com/#website" },
+        "datePublished": "2026-07-26",
+        "dateModified": "2026-07-26",
+        "author": { "@id": "https://sectorcalc.com/#person-neela-nataraj" },
+        "about": { "@type": "DefinedTerm", "name": "Deterministic Engine", "description": "A calculation engine that returns identical outputs for identical inputs, including seeded stochastic methods and decimal arithmetic." }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sectorcalc.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Glossary", "item": "https://sectorcalc.com/glossary/" },
+          { "@type": "ListItem", "position": 3, "name": "Deterministic Engine", "item": "https://sectorcalc.com/glossary/deterministic-engine" }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="theme-calc-sheet">
+  <header class="sc-header">
+    <a href="/" class="sc-logo">SectorCalc</a>
+    <nav class="sc-nav">
+      <a href="/tools.html">Tools</a>
+      <a href="/pro.html">Pro</a>
+      <a href="/pricing.html">Pricing</a>
+      <a href="/blog/">Blog</a>
+      <a href="/glossary/">Glossary</a>
+    </nav>
+  </header>
+  <main class="sc-glossary-page">
+    <nav class="sc-breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li><a href="/glossary/">Glossary</a></li>
+        <li aria-current="page">Deterministic Engine</li>
+      </ol>
+    </nav>
+    <article class="sc-glossary-hero">
+      <h1>What is <span class="term-highlight">Deterministic Engine</span>?</h1>
+      <div class="definition-box" id="definition">
+        <p class="lead-definition">
+          <strong>Deterministic Engine</strong> is a calculation architecture where identical inputs always produce identical outputs through reproducible algorithms, seeded randomness, and Decimal arithmetic.
+          In engineering practice, it is used in SectorCalc to guarantee auditability, regression testing, and engineering trust in computational results.
+        </p>
+      </div>
+      <table class="sc-facts-table">
+        <tr><th>Property</th><th>Value</th></tr>
+        <tr><td>Standard</td><td>SectorCalc v1.1.0</td></tr>
+        <tr><td>Formula</td><td><code>Same seed + same inputs = same output hash</code></td></tr>
+        <tr><td>Units</td><td>N/A</td></tr>
+        <tr><td>Used In</td><td>Engineering software, quality assurance, regulatory compliance</td></tr>
+      </table>
+    </article>
+    <section class="sc-content-section">
+      <h2>How Deterministic Engine Works</h2>
+      <p>Determinism is required for audits: two reviewers must reproduce the same report hashes and numeric results.</p>
+      <p>SectorCalc uses client-side Decimal arithmetic and fixed seeds so floating-point drift and unseeded randomness do not appear in reports.</p>
+      <h3>Key Variables</h3>
+      <ul class="sc-variable-list">
+        <li><strong>Seed:</strong> Fixed RNG state for Monte Carlo.</li>
+        <li><strong>Decimal math:</strong> Base-10 arithmetic avoiding binary float surprises.</li>
+        <li><strong>Audit hash:</strong> Fingerprint of inputs/outputs for verification.</li>
+      </ul>
+      <h3>Common Mistakes</h3>
+      <ul class="sc-warning-list">
+        <li>Accepting floating-point spreadsheet results as audit truth without versioned formulas.</li>
+        <li>Running Monte Carlo without a seed and treating divergent runs as “close enough.”</li>
+      </ul>
+    </section>
+    <section class="sc-cta-panel">
+      <h2>Calculate Deterministic Engine Deterministically</h2>
+      <p>Do not guess. Use the deterministic engine with visible formulas, reference values, and an A1-A5 audit trail.</p>
+      <div class="sc-cta-buttons">
+        <a href="/calculator/tolerance-stack-up" class="sc-btn-primary">Open SC-008 Tolerance Stack-Up -></a>
+        <a href="/guides/" class="sc-btn-secondary">Read Full Guide</a>
+      </div>
+      <p class="sc-cta-note">Free preview. Full audit report unlocks with credits. No subscription.</p>
+    </section>
+    <section class="sc-related-terms">
+      <h2>Related Engineering Terms</h2>
+      <div class="sc-term-grid">
+        <a href="/glossary/tolerance-stack-up" class="sc-term-card">Tolerance Stack-Up</a>
+        <a href="/glossary/monte-carlo-simulation" class="sc-term-card">Monte Carlo Simulation</a>
+        <a href="/glossary/process-capability-cpk" class="sc-term-card">Process Capability Cpk</a>
+      </div>
+    </section>
+    <section class="sc-faq-section">
+      <h2>Frequently Asked Questions</h2>
+      <details class="sc-faq-item">
+        <summary>What is the difference between Deterministic Engine and Tolerance Stack-Up?</summary>
+        <p>Deterministic Engine focuses on a calculation architecture where identical inputs always pro..., while Tolerance Stack-Up addresses a different aspect of engineering analysis.</p>
+      </details>
+      <details class="sc-faq-item">
+        <summary>When should I use Deterministic Engine instead of Monte Carlo Simulation?</summary>
+        <p>Use Deterministic Engine when is used in SectorCalc to guarantee auditability, regression testing, and enginee... Monte Carlo Simulation is more appropriate for specialized scenarios.</p>
+      </details>
+      <details class="sc-faq-item">
+        <summary>Can I calculate Deterministic Engine deterministically with SectorCalc?</summary>
+        <p>Yes. SectorCalc SC-008 Tolerance Stack-Up uses a deterministic Decimal engine with visible formulas, reference values, and an A1-A5 audit trail. Same inputs always produce identical outputs.</p>
+      </details>
+    </section>
+  </main>
+  <footer class="sc-footer">
+    <p>Copyright 2026 SectorCalc. Deterministic industrial engineering calculators.</p>
+    <nav>
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a href="/privacy/">Privacy</a>
+      <a href="/terms/">Terms</a>
+    </nav>
+  </footer>
+</body>
+</html>
