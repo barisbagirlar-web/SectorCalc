@@ -1,0 +1,16 @@
+{
+  "toolId": "SC-029",
+  "primaryEntity": "weld-heat-input",
+  "engineSource": "heat-input-pro.html arc energy core (extracted pure)",
+  "title": "GMAW pass heat input",
+  "narrative": "Arc energy from voltage, current, and travel speed with process efficiency. This does not replace WPS/PQR qualification or cooling-time metallurgy checks.",
+  "inputs": {
+    "V": 24,
+    "I": 180,
+    "travel": 280,
+    "eta": 0.8
+  },
+  "outputs": {
+    "heatInputKJperMm": 0.7406
+  }
+}

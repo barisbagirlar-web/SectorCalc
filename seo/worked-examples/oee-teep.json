@@ -1,0 +1,20 @@
+{
+  "toolId": "SC-037",
+  "primaryEntity": "oee-teep",
+  "engineSource": "src/tools/SC-014-oee/v1.0.0/formula.ts",
+  "title": "One-shift cell OEE with scrap",
+  "narrative": "Availability, performance, and quality multiply to OEE. The production engine (SC-014 formula module used by SC-037 UI) does not clamp rates above 100%.",
+  "inputs": {
+    "plannedProductionTime": "480",
+    "runTime": "420",
+    "idealCycleTime": "1.2",
+    "totalCount": "300",
+    "goodCount": "291"
+  },
+  "outputs": {
+    "oeePct": "72.8",
+    "availabilityPct": "87.5",
+    "performancePct": "85.7",
+    "qualityPct": "97.0"
+  }
+}

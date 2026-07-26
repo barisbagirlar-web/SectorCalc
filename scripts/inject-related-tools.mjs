@@ -2,14 +2,16 @@
 /**
  * Inject related-tools mesh before </body> on every *-pro.html (idempotent).
  * Hrefs use SEO registry pretty canonical paths (/calculator/*), never legacy *-pro.html.
+ * Prefers registry relatedRoutes; falls back to a safe default mesh.
  */
 import { readFileSync, writeFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
-import { toolCanonicalBySourceFile, calculators } from '../seo/registry.mjs';
+import { toolCanonicalBySourceFile, calculators, publishedCalculators } from '../seo/registry.mjs';
 
 const ROOT = process.cwd();
 const CSS_HREF = '/sc-related-tools.css?v=1';
 const CANON = toolCanonicalBySourceFile();
+const BY_PATH = new Map(publishedCalculators().map((p) => [p.canonicalPath, p]));
 
 function pretty(file) {
   const path = CANON[file];
@@ -24,39 +26,21 @@ const DEFAULT = [
   ['surface-finish-pro.html', 'SC-028 Surface Finish', 'Ra, Rz capability for stack surfaces'],
 ];
 
-const MATRIX = {
-  'sc008-pro.html': DEFAULT,
-  'machining-pro.html': [
-    ['sc008-pro.html', 'SC-008 Tolerance Stack-Up', 'Close the loop from capability to stack'],
-    ['bearing-pro.html', 'SC-021 Bearing Life', 'Life check after spindle loads'],
-    ['machine-rate-pro.html', 'SC-038 Machine Hour Rate', 'Cost the cut after feeds & speeds'],
-    ['oee-pro.html', 'SC-037 OEE', 'Availability and performance of the cell'],
-  ],
-  'bearing-pro.html': [
-    ['sc008-pro.html', 'SC-008 Tolerance Stack-Up', 'Stack the fit before L10'],
-    ['machining-pro.html', 'SC-020 Feeds & Speeds', 'Machine the raceway correctly'],
-    ['bearing-freq-pro.html', 'SC-024 Bearing Frequencies', 'BPFO/BPFI after life sizing'],
-    ['fits-pro.html', 'SC-027 Fits & Clearances', 'ISO 286 seat selection'],
-  ],
-  'weld-pro.html': [
-    ['heat-input-pro.html', 'SC-029 Weld Heat Input', 't8/5 and heat input from parameters'],
-    ['bend-pro.html', 'SC-030 Bend & K-Factor', 'Form after weld allowance'],
-    ['sling-pro.html', 'SC-031 Sling Capacity', 'Lift the fabricated assembly'],
-    ['pressure-vessel-pro.html', 'SC-033 Pressure Vessel', 'Shell thickness after weld design'],
-  ],
-  'machine-rate-pro.html': [
-    ['machining-pro.html', 'SC-020 Feeds & Speeds', 'Cycle inputs for rate build-up'],
-    ['oee-pro.html', 'SC-037 OEE', 'Effective hours in the rate'],
-    ['cycle-cost-pro.html', 'SC-023 Cycle Time & Cost', 'Part cost from rate × time'],
-    ['quote-pro.html', 'SC-012 Quote Pricing', 'Sell price from true cost'],
-  ],
-  'oee-pro.html': [
-    ['machine-rate-pro.html', 'SC-038 Machine Hour Rate', 'Convert OEE into $/hr'],
-    ['cycle-cost-pro.html', 'SC-023 Cycle Time & Cost', 'Cost at realized OEE'],
-    ['labor-pro.html', 'SC-010 True Labor Cost', 'Labor burden in the cell'],
-    ['quote-pro.html', 'SC-012 Quote Pricing', 'Margin after OEE reality'],
-  ],
-};
+function linksFor(page) {
+  const calc = publishedCalculators().find((p) => p.sourceFile === page);
+  if (!calc?.relatedRoutes?.length) return DEFAULT;
+  const out = [];
+  for (const route of calc.relatedRoutes) {
+    const other = BY_PATH.get(route);
+    if (!other) continue;
+    out.push([
+      other.sourceFile,
+      `${other.id} ${other.short || other.name}`,
+      (other.description || other.short || '').slice(0, 96),
+    ]);
+  }
+  return out.length ? out : DEFAULT;
+}
 
 function card([file, title, desc]) {
   const href = pretty(file);
@@ -67,7 +51,7 @@ function card([file, title, desc]) {
 }
 
 function block(page) {
-  const links = MATRIX[page] || DEFAULT;
+  const links = linksFor(page);
   return `<!--SC-RELATED-TOOLS-START-->
 <section class="related-tools-section" aria-labelledby="related-tools-heading">
   <h2 id="related-tools-heading">Related Calculators</h2>
@@ -103,4 +87,4 @@ for (const page of pages) {
   n++;
   console.log(`[OK] related-tools → ${page} (${CANON[page]})`);
 }
-console.log(`[PASS] Related tools injected on ${n}/${calculators().length} calculator pages with pretty canonical hrefs`);
+console.log(`[PASS] Related tools injected on ${n}/${calculators().length} calculator pages with registry relatedRoutes`);

@@ -1,0 +1,20 @@
+{
+  "toolId": "SC-021",
+  "primaryEntity": "bearing-life-l10",
+  "engineSource": "bearing-pro.html ISO 281 core (extracted pure; aISO supplied)",
+  "title": "Deep-groove ball bearing L10 / Lnm",
+  "narrative": "Basic rating life from dynamic capacity and equivalent load, then modified life with the supplied aISO factor. Manufacturer catalog values remain authoritative for contract selection.",
+  "inputs": {
+    "C": 62000,
+    "P": 8500,
+    "n": 1800,
+    "bearingType": "ball",
+    "aISO": 1.2
+  },
+  "outputs": {
+    "L10h": 3593.31,
+    "Lnmh": 4311.97,
+    "lifeRatio": 7.2941,
+    "exponent": 3
+  }
+}

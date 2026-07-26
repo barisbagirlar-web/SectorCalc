@@ -1,0 +1,18 @@
+{
+  "toolId": "SC-036",
+  "primaryEntity": "bolted-joint",
+  "engineSource": "bolted-joint-pro.html load-factor core (extracted pure)",
+  "title": "Eccentric joint load factor screening",
+  "narrative": "Force ratio Φ splits external load between bolt and clamped parts. Outputs max/min bolt force under working load for first-pass VDI-style screening.",
+  "inputs": {
+    "Ck": 210000,
+    "Cp": 840000,
+    "Fpre": 28000,
+    "Fext": 9000
+  },
+  "outputs": {
+    "loadFactor": 0.2,
+    "FmaxN": 29800,
+    "FminN": 20800
+  }
+}

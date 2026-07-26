@@ -12,6 +12,7 @@ const steps = [
   ['node', ['scripts/verify-language-integrity.mjs']],
   ['node', ['scripts/verify-internal-link-graph.mjs']],
   ['node', ['scripts/verify-hero-sacred.mjs']],
+  ['node', ['scripts/verify-seo-money.mjs']],
 ];
 
 for (const [cmd, args] of steps) {

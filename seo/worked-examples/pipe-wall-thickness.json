@@ -1,0 +1,20 @@
+{
+  "toolId": "SC-034",
+  "primaryEntity": "pipe-wall-thickness",
+  "engineSource": "pipe-wall-pro.html B31.3 internal-pressure core (extracted pure)",
+  "title": "DN150 process line internal pressure",
+  "narrative": "Basic B31.3 internal-pressure thickness plus corrosion allowance. External pressure, branch reinforcement, and material certificates are out of scope.",
+  "inputs": {
+    "P": 2500000,
+    "D": 0.1683,
+    "S": 137900000,
+    "E": 1,
+    "W": 1,
+    "Y": 0.4,
+    "CA": 0.0015
+  },
+  "outputs": {
+    "tDesignMm": 1.515,
+    "tMinMm": 3.015
+  }
+}
