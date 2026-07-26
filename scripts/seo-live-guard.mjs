@@ -17,9 +17,17 @@ const nonce = () => `${Date.now()}-${Math.random().toString(36).slice(2)}`;
 if (!['preview', 'live'].includes(MODE)) throw new Error(`Unsupported SEO_GUARD_MODE: ${MODE}`);
 if (!/^https:\/\//.test(FETCH_HOST)) throw new Error(`SEO_GUARD_HOST must be an https origin: ${FETCH_HOST}`);
 
+function shouldRetry(res, text) {
+  if (res.status >= 500) return true;
+  // Firebase / CDN edge can briefly 404 with an HTML shell right after channel deploy.
+  if (res.status === 404 && /text\/html/i.test(res.headers.get('content-type') || '')) return true;
+  if (res.status === 404 && /<!doctype html/i.test(text || '')) return true;
+  return false;
+}
+
 async function get(url, options = {}) {
   let lastError;
-  for (let attempt = 1; attempt <= 4; attempt += 1) {
+  for (let attempt = 1; attempt <= 6; attempt += 1) {
     try {
       const res = await fetch(url, {
         redirect: options.redirect || 'follow',
@@ -27,11 +35,11 @@ async function get(url, options = {}) {
         signal: AbortSignal.timeout(15000),
       });
       const text = await res.text();
-      if (res.status < 500 || attempt === 4) return { res, text };
+      if (!shouldRetry(res, text) || attempt === 6) return { res, text };
       lastError = new Error(`HTTP ${res.status}`);
     } catch (error) {
       lastError = error;
-      if (attempt === 4) throw error;
+      if (attempt === 6) throw error;
     }
     await sleep(attempt * 2500);
   }
