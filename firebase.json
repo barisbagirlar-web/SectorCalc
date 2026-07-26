@@ -11,22 +11,22 @@
     "redirects": [
       {
         "source": "/calculator.html",
-        "destination": "/labor-pro.html",
+        "destination": "/calculator/true-labor-cost",
         "type": 301
       },
       {
         "source": "/calculator2.html",
-        "destination": "/quote-pro.html",
+        "destination": "/calculator/quote-pricing",
         "type": 301
       },
       {
         "source": "/calculator3.html",
-        "destination": "/weld-pro.html",
+        "destination": "/calculator/weld-thickness",
         "type": 301
       },
       {
         "source": "/calculator4.html",
-        "destination": "/machining-pro.html",
+        "destination": "/calculator/cnc-feeds-speeds",
         "type": 301
       },
       {
@@ -152,6 +152,246 @@
       {
         "source": "/machine-rate-pro.html",
         "destination": "/calculator/machine-hour-rate",
+        "type": 301
+      },
+      {
+        "source": "/glossary/asme-b31-pipe-wall.html",
+        "destination": "/glossary/asme-b31-pipe-wall",
+        "type": 301
+      },
+      {
+        "source": "/glossary/asme-viii-pressure-vessel.html",
+        "destination": "/glossary/asme-viii-pressure-vessel",
+        "type": 301
+      },
+      {
+        "source": "/glossary/asme-y14-5.html",
+        "destination": "/glossary/asme-y14-5",
+        "type": 301
+      },
+      {
+        "source": "/glossary/bearing-l10-life.html",
+        "destination": "/glossary/bearing-l10-life",
+        "type": 301
+      },
+      {
+        "source": "/glossary/bolt-preload.html",
+        "destination": "/glossary/bolt-preload",
+        "type": 301
+      },
+      {
+        "source": "/glossary/chip-thinning.html",
+        "destination": "/glossary/chip-thinning",
+        "type": 301
+      },
+      {
+        "source": "/glossary/cnc-feeds-and-speeds.html",
+        "destination": "/glossary/cnc-feeds-and-speeds",
+        "type": 301
+      },
+      {
+        "source": "/glossary/deterministic-engine.html",
+        "destination": "/glossary/deterministic-engine",
+        "type": 301
+      },
+      {
+        "source": "/glossary/heat-input-t85.html",
+        "destination": "/glossary/heat-input-t85",
+        "type": 301
+      },
+      {
+        "source": "/glossary/iso-281.html",
+        "destination": "/glossary/iso-281",
+        "type": 301
+      },
+      {
+        "source": "/glossary/iso-286-fits.html",
+        "destination": "/glossary/iso-286-fits",
+        "type": 301
+      },
+      {
+        "source": "/glossary/labor-burden-rate.html",
+        "destination": "/glossary/labor-burden-rate",
+        "type": 301
+      },
+      {
+        "source": "/glossary/machine-hour-rate.html",
+        "destination": "/glossary/machine-hour-rate",
+        "type": 301
+      },
+      {
+        "source": "/glossary/monte-carlo-simulation.html",
+        "destination": "/glossary/monte-carlo-simulation",
+        "type": 301
+      },
+      {
+        "source": "/glossary/oee-overall-equipment-effectiveness.html",
+        "destination": "/glossary/oee-overall-equipment-effectiveness",
+        "type": 301
+      },
+      {
+        "source": "/glossary/process-capability-cpk.html",
+        "destination": "/glossary/process-capability-cpk",
+        "type": 301
+      },
+      {
+        "source": "/glossary/rss-tolerance.html",
+        "destination": "/glossary/rss-tolerance",
+        "type": 301
+      },
+      {
+        "source": "/glossary/sheet-metal-k-factor.html",
+        "destination": "/glossary/sheet-metal-k-factor",
+        "type": 301
+      },
+      {
+        "source": "/glossary/sling-angle-factor.html",
+        "destination": "/glossary/sling-angle-factor",
+        "type": 301
+      },
+      {
+        "source": "/glossary/surface-finish-ra-rz.html",
+        "destination": "/glossary/surface-finish-ra-rz",
+        "type": 301
+      },
+      {
+        "source": "/glossary/taylor-tool-life.html",
+        "destination": "/glossary/taylor-tool-life",
+        "type": 301
+      },
+      {
+        "source": "/glossary/tolerance-stack-up.html",
+        "destination": "/glossary/tolerance-stack-up",
+        "type": 301
+      },
+      {
+        "source": "/glossary/vdi-2230-bolted-joint.html",
+        "destination": "/glossary/vdi-2230-bolted-joint",
+        "type": 301
+      },
+      {
+        "source": "/glossary/weld-throat.html",
+        "destination": "/glossary/weld-throat",
+        "type": 301
+      },
+      {
+        "source": "/glossary/worst-case-analysis.html",
+        "destination": "/glossary/worst-case-analysis",
+        "type": 301
+      },
+      {
+        "source": "/glossary/index.html",
+        "destination": "/glossary",
+        "type": 301
+      },
+      {
+        "source": "/compare/sectorcalc-vs-catia.html",
+        "destination": "/compare/sectorcalc-vs-catia",
+        "type": 301
+      },
+      {
+        "source": "/compare/sectorcalc-vs-excel-tolerance.html",
+        "destination": "/compare/sectorcalc-vs-excel-tolerance",
+        "type": 301
+      },
+      {
+        "source": "/compare/sectorcalc-vs-machinist-calculator.html",
+        "destination": "/compare/sectorcalc-vs-machinist-calculator",
+        "type": 301
+      },
+      {
+        "source": "/compare/sectorcalc-vs-minitab.html",
+        "destination": "/compare/sectorcalc-vs-minitab",
+        "type": 301
+      },
+      {
+        "source": "/compare/sectorcalc-vs-solidworks.html",
+        "destination": "/compare/sectorcalc-vs-solidworks",
+        "type": 301
+      },
+      {
+        "source": "/compare/index.html",
+        "destination": "/compare",
+        "type": 301
+      },
+      {
+        "source": "/guides/bearing-life-complete.html",
+        "destination": "/guides/bearing-life-complete",
+        "type": 301
+      },
+      {
+        "source": "/guides/cnc-optimization-complete.html",
+        "destination": "/guides/cnc-optimization-complete",
+        "type": 301
+      },
+      {
+        "source": "/guides/labor-costing-complete.html",
+        "destination": "/guides/labor-costing-complete",
+        "type": 301
+      },
+      {
+        "source": "/guides/tolerance-stack-up-complete.html",
+        "destination": "/guides/tolerance-stack-up-complete",
+        "type": 301
+      },
+      {
+        "source": "/guides/weld-sizing-complete.html",
+        "destination": "/guides/weld-sizing-complete",
+        "type": 301
+      },
+      {
+        "source": "/guides/index.html",
+        "destination": "/guides",
+        "type": 301
+      },
+      {
+        "source": "/about/index.html",
+        "destination": "/about",
+        "type": 301
+      },
+      {
+        "source": "/contact/index.html",
+        "destination": "/contact",
+        "type": 301
+      },
+      {
+        "source": "/privacy/index.html",
+        "destination": "/privacy",
+        "type": 301
+      },
+      {
+        "source": "/terms/index.html",
+        "destination": "/terms",
+        "type": 301
+      },
+      {
+        "source": "/resources/excel-to-sectorcalc-migration.html",
+        "destination": "/resources/excel-to-sectorcalc-migration",
+        "type": 301
+      },
+      {
+        "source": "/resources/iso-286-quick-reference.html",
+        "destination": "/resources/iso-286-quick-reference",
+        "type": 301
+      },
+      {
+        "source": "/resources/tolerance-stackup-audit-template.html",
+        "destination": "/resources/tolerance-stackup-audit-template",
+        "type": 301
+      },
+      {
+        "source": "/resources/index.html",
+        "destination": "/resources",
+        "type": 301
+      },
+      {
+        "source": "/blog/index.html",
+        "destination": "/blog",
+        "type": 301
+      },
+      {
+        "source": "/case-studies/index.html",
+        "destination": "/case-studies",
         "type": 301
       }
     ],

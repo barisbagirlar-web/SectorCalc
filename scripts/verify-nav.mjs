@@ -64,7 +64,7 @@ const EXPECTED = {
     mustInclude: ['/', '/pricing.html', '/tools.html', '/glossary', '/guides', '/compare']
   },
   'tools.html': {
-    mustInclude: ['/', '/pricing.html', '/glossary', '/compare', '/guides', '/sc008-pro.html']
+    mustInclude: ['/', '/pricing.html', '/glossary', '/compare', '/guides', '/calculator/tolerance-stack-up']
   }
 };
 const issues = [];
@@ -218,13 +218,13 @@ for (const page of PAGES) checkPage(page);
 // Category map on homepage (role cards)
 const index = readFileSync(join(ROOT, 'index.html'), 'utf8');
 const roleMap = [
-  ['Engineering', '/sc008-pro.html'],
-  ['Estimating', '/quote-pro.html'],
-  ['Costing', '/labor-pro.html'],
-  ['Fabrication', '/weld-pro.html'],
-  ['Machining', '/machining-pro.html'],
-  ['Bearings', '/bearing-pro.html'],
-  ['Quality', '/sc008-pro.html']
+  ['Engineering', '/calculator/tolerance-stack-up'],
+  ['Estimating', '/calculator/quote-pricing'],
+  ['Costing', '/calculator/true-labor-cost'],
+  ['Fabrication', '/calculator/weld-thickness'],
+  ['Machining', '/calculator/cnc-feeds-speeds'],
+  ['Bearings', '/calculator/bearing-life-l10'],
+  ['Quality', '/calculator/tolerance-stack-up']
 ];
 for (const [role, href] of roleMap) {
   const re = new RegExp(`href="${href.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}"[^>]*>[\\s\\S]{0,400}?${role}`);
