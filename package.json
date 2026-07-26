@@ -11,7 +11,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "node scripts/inject-guides.mjs && node scripts/inject-eeat.mjs && node scripts/inject-site-nav.mjs && node scripts/inject-related-tools.mjs && node scripts/inject-calc-sheet.mjs && python3 scripts/inject-seo.py && node scripts/verify-form-fields.mjs && tsc --noEmit && vite build && node scripts/verify-nav.mjs && node scripts/verify-form-fields.mjs && node scripts/verify-seo.mjs && node scripts/verify-hero-sacred.mjs",
+    "build": "node scripts/inject-guides.mjs && node scripts/inject-eeat.mjs && node scripts/inject-site-nav.mjs && node scripts/inject-related-tools.mjs && node scripts/inject-calc-sheet.mjs && python3 scripts/inject-seo.py && node scripts/verify-form-fields.mjs && tsc --noEmit && vite build && node scripts/verify-nav.mjs && node scripts/verify-form-fields.mjs && node scripts/verify-seo.mjs && node scripts/verify-hero-sacred.mjs && node scripts/finalize-legacy-redirects.mjs && node scripts/verify-seo.mjs",
     "verify:seo": "node scripts/verify-seo.mjs",
     "verify:hero": "node scripts/verify-hero-sacred.mjs",
     "inject:guides": "node scripts/inject-guides.mjs",

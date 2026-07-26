@@ -120,8 +120,18 @@ if (existsSync(join(ROOT, 'dist'))) {
   }
   for (const page of proPages) {
     const distPage = join(ROOT, 'dist', page);
-    if (!existsSync(distPage)) continue;
-    const html = readFileSync(distPage, 'utf8');
+    const enginePage = join(ROOT, 'dist', page.replace(/\.html$/, '.engine.html'));
+    const target = existsSync(enginePage) ? enginePage : distPage;
+    if (!existsSync(target)) continue;
+    const html = readFileSync(target, 'utf8');
+    // Legacy redirect stubs intentionally lack form CSS — validate engine body instead.
+    if (/Moved Permanently|noindex,\s*follow/i.test(html) && existsSync(enginePage)) {
+      const engineHtml = readFileSync(enginePage, 'utf8');
+      if (!/<link[^>]+sc-form-fields\.css/i.test(engineHtml)) {
+        issues.push(`dist/${page.replace(/\.html$/, '.engine.html')}: missing ${FORM_CSS_NAME} link`);
+      }
+      continue;
+    }
     if (!/<link[^>]+sc-form-fields\.css/i.test(html)) {
       issues.push(`dist/${page}: missing ${FORM_CSS_NAME} link`);
     }

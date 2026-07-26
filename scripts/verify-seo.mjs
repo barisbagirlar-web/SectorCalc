@@ -155,8 +155,13 @@ for (const [route, file] of contentRoutes) {
 const fj = JSON.parse(read('firebase.json'));
 if ((fj.hosting?.rewrites || []).some((r) => r.destination === '/index.html')) fail('firebase SPA catch-all would create soft 404s');
 for (const [oldFile, pretty] of Object.entries(TOOL_CANONICAL)) {
-  const hasRewrite = (fj.hosting?.rewrites || []).some((r) => r.source === pretty && r.destination === `/${oldFile}`);
-  if (!hasRewrite) fail(`firebase missing rewrite ${pretty} -> /${oldFile}`);
+  const engine = oldFile.replace(/\.html$/, '.engine.html');
+  const hasRewrite = (fj.hosting?.rewrites || []).some(
+    (r) =>
+      r.source === pretty &&
+      (r.destination === `/${oldFile}` || r.destination === `/${engine}`),
+  );
+  if (!hasRewrite) fail(`firebase missing rewrite ${pretty} -> /${oldFile} or /${engine}`);
   const hasRedirect = (fj.hosting?.redirects || []).some((r) => r.source === `/${oldFile}` && r.destination === pretty && Number(r.type) === 301);
   if (!hasRedirect) fail(`firebase missing 301 ${oldFile} -> ${pretty}`);
 }

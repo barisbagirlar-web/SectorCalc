@@ -137,6 +137,17 @@ for (const [from, to] of mustRedirect) {
   }
 }
 
+// Static schema must be in raw <head> (not JS-hydrated).
+{
+  const { res, text } = await get(remote('/calculator/tolerance-stack-up'), { redirect: 'manual' });
+  if (res.status !== 200) fail(`/calculator/tolerance-stack-up HTTP ${res.status}`);
+  const head = text.match(/<head[^>]*>([\s\S]*?)<\/head>/i)?.[1] || '';
+  for (const id of ['sc-schema-global', 'sc-schema-tool-sc008-pro', 'sc-schema-dataset-sc008-pro']) {
+    if (!head.includes(`id="${id}"`)) fail(`schema ${id} missing from static <head>`);
+  }
+  if (!/type=["']application\/ld\+json["']/i.test(head)) fail('no application/ld+json in static <head>');
+}
+
 const llm = await get(remote('/llm.txt'));
 const llms = await get(remote('/llms.txt'));
 if (llm.res.status !== 200 || llms.res.status !== 200) fail('LLM discovery files not HTTP 200');
