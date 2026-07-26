@@ -1,0 +1,33 @@
+{
+  "toolId": "SC-012",
+  "primaryEntity": "quote-pricing",
+  "engineSource": "src/tools/SC-012-quote-pricing/v1.0.0/formula.ts",
+  "title": "50-piece job quote at 25% target margin",
+  "narrative": "SC-012 builds full cost (material with scrap, labor, machine, setup, overhead, finance) then marks up to the target margin. Outputs are production-engine sell and unit prices.",
+  "inputs": {
+    "materialCost": "42",
+    "scrapRate": "0.05",
+    "laborHours": "1.2",
+    "laborHourlyCost": "48",
+    "machineHours": "0.8",
+    "machineHourlyCost": "85",
+    "setupMinutes": "30",
+    "setupHourlyCost": "95",
+    "overheadRate": "0.18",
+    "energyCost": "4.5",
+    "consumablesCost": "6",
+    "shippingCost": "12",
+    "paymentDays": "45",
+    "monthlyInterestRate": "0.01",
+    "targetMargin": "0.25",
+    "quantity": "50",
+    "currency": "EUR"
+  },
+  "outputs": {
+    "sellPrice": "382.96",
+    "unitPrice": "7.66",
+    "totalCost": "287.22",
+    "profit": "95.74",
+    "currency": "EUR"
+  }
+}

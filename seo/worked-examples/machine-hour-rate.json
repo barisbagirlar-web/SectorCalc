@@ -1,0 +1,35 @@
+{
+  "toolId": "SC-038",
+  "primaryEntity": "machine-hour-rate",
+  "engineSource": "machine-rate-pro.html#calculate (extracted pure)",
+  "title": "CNC cell fully loaded €/h",
+  "narrative": "Ownership, space, maintenance, energy, attended labor, and overhead dilute into a total hourly rate and optional cost/part at the stated cycle time.",
+  "inputs": {
+    "price": 185000,
+    "resid": 25000,
+    "life": 10,
+    "hours": 3200,
+    "interest": 6,
+    "space": 18,
+    "spaceRate": 95,
+    "powerKW": 22,
+    "duty": 55,
+    "tariff": 0.18,
+    "maintPct": 5,
+    "tools": 4200,
+    "other": 1800,
+    "wage": 42,
+    "share": 1.5,
+    "oh": 18,
+    "cycleS": 95
+  },
+  "outputs": {
+    "dep": 16000,
+    "interest": 6300,
+    "fixedYr": 39260,
+    "machineH": 14.4468,
+    "laborH": 28,
+    "totalH": 50.0872,
+    "costPart": 1.321745
+  }
+}

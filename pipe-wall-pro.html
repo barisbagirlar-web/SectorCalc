@@ -449,12 +449,13 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
 </script>
 <!--SC-SEO-SCHEMA-END-->
 <link rel="stylesheet" href="/sc-related-tools.css?v=1">
-                        <link rel="stylesheet" href="/sc-calc-sheet.css?v=1">
+                        <link rel="stylesheet" href="/sc-money.css?v=1">
+  <link rel="stylesheet" href="/sc-calc-sheet.css?v=1">
   <!--SC-CALC-SHEET-START-->
   <!-- calc-sheet theme: theme-calc-sheet -->
   <!--SC-CALC-SHEET-END-->
 </head>
-<body data-tool-badge="SC-034 · Pipe Wall (ASME B31.3)" class="theme-calc-sheet">
+<body data-tool-badge="SC-034 · Pipe Wall (ASME B31.3)" class="theme-calc-sheet" data-sc-tool-id="SC-034" data-sc-primary-entity="pipe-wall-thickness" data-sc-canonical="/calculator/pipe-wall-thickness" data-sc-query-cluster="pipe-wall-thickness" data-sc-revenue-tier="A">
 <!--SC-SITE-NAV-START-->
 <header class="site-header" id="siteHeader" role="banner">
   <a href="/" class="brand" aria-label="SectorCalc Home"><span class="brand-mark"><img class="logo-light" src="/sectorcalc-logo-214.w.png" srcset="/sectorcalc-logo-214.w.png 214w, /sectorcalc-logo-428.w.png 428w" sizes="183px" width="183" height="48" alt="SectorCalc" decoding="async"><img class="logo-dark" src="/sectorcalc-logo-dark-214.w.png" srcset="/sectorcalc-logo-dark-214.w.png 214w, /sectorcalc-logo-dark-428.w.png 428w" sizes="183px" width="183" height="48" alt="" aria-hidden="true" decoding="async"></span></a>
@@ -518,6 +519,7 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
 
 
 
+
 <!--SC-SEO-BREADCRUMB-START-->
 <nav aria-label="Breadcrumb" class="sc-breadcrumb">
   <ol itemscope itemtype="https://schema.org/BreadcrumbList">
@@ -546,6 +548,7 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
   <div class="head">
     <div>
       <h1>Pipe Wall Thickness Calculator — ASME B31.3 (SC-034)</h1>
+<p class="sc-direct-answer" data-money-block="01" data-tool-id="SC-034">ASME B31.3 pipe wall thickness sizing estimates the design thickness for a straight pipe under internal pressure from design pressure, diameter, allowable stress, quality factors, and the Y coefficient, then adds corrosion allowance before schedule selection.</p>
       <p>Piping design engine for process and piping engineers: pressure design per <b>B31.3 §304.1.2</b> — t = P·D/(2(S·E·W + P·Y)) — with joint factors, Y-coefficient, corrosion allowance, <b>12.5 % mill undertolerance</b> screening, automatic NPS/schedule selection from the dimensional database, and <b>MAWP back-calculation</b> on the selected schedule. Allowable stress presets for A106/A53/TP304 with temperature derating. Every input with <b>selectable universal units</b>, every report with the full audit trail.</p>
     </div>
     <div>
@@ -1047,31 +1050,37 @@ calculate();
 </script>
 <!--SC-SEO-CVW-->
 <script src="/assets/js/sc-ga4-id.js"></script>
+<script src="/assets/js/sc-funnel-analytics.js" defer></script>
 <script src="/assets/js/cvw-monitor.js" defer></script>
 
-<!--SC-RELATED-TOOLS-START-->
-<section class="related-tools-section" aria-labelledby="related-tools-heading">
-  <h2 id="related-tools-heading">Related Calculators</h2>
-  <div class="related-grid">
-    <a href="/calculator/cnc-feeds-speeds" class="related-card">
-      <div class="rt-title">SC-020 Feeds & Speeds</div>
-      <div class="rt-desc">Tolerance inputs from machining capability data</div>
-    </a>
-    <a href="/calculator/bearing-life-l10" class="related-card">
-      <div class="rt-title">SC-021 Bearing Life</div>
-      <div class="rt-desc">Validate fit assumptions after stack closure</div>
-    </a>
-    <a href="/calculator/iso-286-fits" class="related-card">
-      <div class="rt-title">SC-027 Fits & Clearances</div>
-      <div class="rt-desc">ISO 286 hole/shaft fit selection</div>
-    </a>
-    <a href="/calculator/surface-finish" class="related-card">
-      <div class="rt-title">SC-028 Surface Finish</div>
-      <div class="rt-desc">Ra, Rz capability for stack surfaces</div>
-    </a>
-  </div>
+<!--SC-MONEY-START-->
+<aside class="sc-money-contract" data-money-contract="tier-a" data-tool-id="SC-034" data-primary-entity="pipe-wall-thickness" data-query-cluster="pipe-wall-thickness" data-primary-query="asme b31.3 pipe wall thickness calculator" data-canonical="/calculator/pipe-wall-thickness">
+<section class="sc-money-block" data-money-block="03"><h2>Decision this supports</h2><p>Choose a schedule or order thickness that meets pressure design before branch reinforcement and flexibility analysis.</p></section>
+<section class="sc-money-block" data-money-block="04"><h2>Required inputs</h2><p>Design pressure, diameter basis, allowable stress, E/W quality factors, Y, corrosion/mechanical allowances.</p></section>
+<section class="sc-money-block" data-money-block="05"><h2>Formula / method</h2><p>t = P·D / (2·(S·E·W + P·Y)); tmin = t + allowances (straight pipe, internal pressure).</p></section>
+<section class="sc-money-block" data-money-block="06" id="money-worked-example">
+  <h2>Worked example</h2>
+  <p class="sc-money-lede">DN150 process line internal pressure. Basic B31.3 internal-pressure thickness plus corrosion allowance. External pressure, branch reinforcement, and material certificates are out of scope.</p>
+  <p class="sc-money-engine" data-worked-provenance="engine-generated">Engine source: <code>pipe-wall-pro.html B31.3 internal-pressure core (extracted pure)</code> · tool <code>SC-034</code></p>
+  <h3>Golden inputs</h3>
+  <table class="sc-money-table"><tbody><tr><th scope="row">P</th><td><code>2500000</code></td></tr><tr><th scope="row">D</th><td><code>0.1683</code></td></tr><tr><th scope="row">S</th><td><code>137900000</code></td></tr><tr><th scope="row">E</th><td><code>1</code></td></tr><tr><th scope="row">W</th><td><code>1</code></td></tr><tr><th scope="row">Y</th><td><code>0.4</code></td></tr><tr><th scope="row">CA</th><td><code>0.0015</code></td></tr></tbody></table>
+  <h3>Verified engine outputs</h3>
+  <table class="sc-money-table"><tbody><tr><th scope="row">tDesignMm</th><td><code>1.515</code></td></tr><tr><th scope="row">tMinMm</th><td><code>3.015</code></td></tr></tbody></table>
 </section>
-<!--SC-RELATED-TOOLS-END-->
+<section class="sc-money-block" data-money-block="07"><h2>What the result means</h2><p>tmin is a pressure-design floor, not an automatic purchase thickness. Mill tolerance and manufacturer minimums still apply.</p></section>
+<section class="sc-money-block" data-money-block="08"><h2>What moves the result</h2><p>Pressure and diameter dominate. Allowable stress and E weld factor move t next. Y matters more as P approaches S bands.</p></section>
+<section class="sc-money-block" data-money-block="09"><h2>Assumptions</h2><p>Straight pipe under internal pressure. Factors match the selected B31.3 path in the UI.</p></section>
+<section class="sc-money-block" data-money-block="10"><h2>Model boundaries</h2><p>Does not cover external pressure, Occasional loads, branch reinforcement, or material certificate substitution. Not a licensed piping engineer stamp.</p></section>
+<section class="sc-money-block" data-money-block="11"><h2>Common engineering mistakes</h2><p>Using OD vs ID inconsistently; forgetting corrosion allowance; treating calculator output as hydrotest pressure.</p></section>
+<section class="sc-money-block" data-money-block="12"><h2>Standard / reference scope</h2><p>Implements ASME B31.3 internal-pressure thickness equations in the stated UI scope/edition notes. Not full B31.3 code compliance for an entire piping system.</p></section>
+<section class="sc-money-block" data-money-block="13"><h2>A1–A5 audit trail</h2><p>A1–A5 capture pressure basis, factors, allowances, and out-of-scope warnings.</p></section>
+<section class="sc-money-block" data-money-block="14"><h2>Related glossary</h2><ul><li><a href="/glossary/asme-b31-pipe-wall">/glossary/asme-b31-pipe-wall</a></li><li><a href="/glossary/asme-viii-pressure-vessel">/glossary/asme-viii-pressure-vessel</a></li></ul></section>
+<section class="sc-money-block" data-money-block="15"><h2>Related guide &amp; calculators</h2><p><a href="/guides/weld-sizing-complete">/guides/weld-sizing-complete</a></p><ul><li><a href="/calculator/hydraulic-cylinder">/calculator/hydraulic-cylinder</a></li><li><a href="/calculator/pressure-vessel-shell">/calculator/pressure-vessel-shell</a></li></ul></section>
+<section class="sc-money-block sc-money-cta" data-money-block="16"><h2>Commercial next step</h2><p>Carry the thickness audit into fabrication packages when clients ask which code equation produced tmin.</p>
+<p class="sc-money-cta-actions"><a class="sc-money-link" href="/pricing.html" data-sc-funnel="pricing">View pricing</a>
+<a class="sc-money-link" href="/pro.html">Pro hub</a></p></section>
+</aside>
+<!--SC-MONEY-END-->
 <!--SC-CALC-SHEET-TB-START-->
 <aside class="sc-calc-sheet-titleblock" aria-hidden="true">
   <div class="tb-row"><span class="tb-label">DWG</span><span class="tb-value">SC-034-001</span></div>
@@ -1080,5 +1089,20 @@ calculate();
   <div class="tb-row"><span class="tb-label">DATE</span><span class="tb-value">2026-07-26</span></div>
 </aside>
 <!--SC-CALC-SHEET-TB-END-->
+<!--SC-RELATED-TOOLS-START-->
+<section class="related-tools-section" aria-labelledby="related-tools-heading">
+  <h2 id="related-tools-heading">Related Calculators</h2>
+  <div class="related-grid">
+    <a href="/calculator/hydraulic-cylinder" class="related-card">
+      <div class="rt-title">SC-040 Hydraulic Cylinder</div>
+      <div class="rt-desc">Hydraulic cylinder bore, rod, and pressure sizing with force, velocity, and flow calculations.</div>
+    </a>
+    <a href="/calculator/pressure-vessel-shell" class="related-card">
+      <div class="rt-title">SC-033 Pressure Vessel</div>
+      <div class="rt-desc">ASME Section VIII Division 1 internal pressure shell thickness calculator. Deterministic audit t</div>
+    </a>
+  </div>
+</section>
+<!--SC-RELATED-TOOLS-END-->
 </body>
 </html>

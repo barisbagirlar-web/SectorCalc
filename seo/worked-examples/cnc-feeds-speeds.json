@@ -1,0 +1,33 @@
+{
+  "toolId": "SC-020",
+  "primaryEntity": "cnc-feeds-speeds",
+  "engineSource": "src/tools/SC-020-feeds-speeds/v1.0.0/formula.ts",
+  "title": "Ø12 mm 4-flute end mill in ISO P1 steel",
+  "narrative": "Production SC-020 returns spindle speed, table feed, chip thickness, power/torque demand, and a release verdict from the FS-ENGINE core.",
+  "inputs": {
+    "materialId": "P1",
+    "diameterMm": "12",
+    "teeth": "4",
+    "vcMPerMin": "180",
+    "fzMm": "0.08",
+    "apMm": "8",
+    "aeMm": "3",
+    "spindleKw": "11",
+    "spindleTorqueNm": "80",
+    "stickOutMm": "40",
+    "noseRadiusMm": "0.4",
+    "efficiency": "0.85",
+    "coolant": "emulsion",
+    "interruption": "continuous",
+    "toolCost": "85",
+    "machineCostPerMin": "1.4",
+    "currency": "EUR"
+  },
+  "outputs": {
+    "nRpm": "4774.65",
+    "vfMmMin": "1527.89",
+    "hmMm": "0.0400",
+    "materialName": "Low-carbon steel (C < 0.25%)",
+    "verdict": "DO NOT RUN"
+  }
+}

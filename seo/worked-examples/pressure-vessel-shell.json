@@ -1,0 +1,16 @@
+{
+  "toolId": "SC-033",
+  "primaryEntity": "pressure-vessel-shell",
+  "engineSource": "pressure-vessel-pro.html VIII Div.1 circ. core (extracted pure)",
+  "title": "Cylindrical shell under internal pressure",
+  "narrative": "Circumferential stress screening thickness for a cylindrical shell. Heads, nozzles, wind/seismic, and external pressure procedures are not included.",
+  "inputs": {
+    "P": 1200000,
+    "R": 0.6,
+    "S": 137900000,
+    "E": 1
+  },
+  "outputs": {
+    "tShellMm": 5.249
+  }
+}

@@ -558,6 +558,7 @@ def upsert_cvw(text: str) -> str:
     block = (
         f"{marker}\n"
         '<script src="/assets/js/sc-ga4-id.js"></script>\n'
+        '<script src="/assets/js/sc-funnel-analytics.js" defer></script>\n'
         '<script src="/assets/js/cvw-monitor.js" defer></script>'
     )
     if marker in text:
