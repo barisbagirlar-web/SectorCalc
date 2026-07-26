@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Account — SectorCalc</title>
+<meta name="description" content="SectorCalc engineer account: credit balance, identity, and workspace access for deterministic industrial calculators.">
+<meta name="robots" content="noindex, follow">
+<link rel="icon" href="./favicon.ico?v=20260724c" sizes="any">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./sc-theme.css?v=12">
+<script src="./sc-theme.js?v=12" defer></script>
+<link rel="stylesheet" href="./sc-site-nav.css?v=4">
+<script src="./sc-site-nav.js?v=2" defer></script>
+<link rel="stylesheet" href="/sc-account.css?v=3">
+<link rel="stylesheet" href="./sc-form-fields.css?v=5">
+</head>
+<body>
+<!--SC-SITE-NAV-START-->
+<header class="site-header" id="siteHeader" role="banner">
+  <a href="/" class="brand" aria-label="SectorCalc Home"><span class="brand-mark"><img class="logo-light" src="/sectorcalc-logo-214.w.png" srcset="/sectorcalc-logo-214.w.png 214w, /sectorcalc-logo-428.w.png 428w" sizes="183px" width="183" height="48" alt="SectorCalc" decoding="async"><img class="logo-dark" src="/sectorcalc-logo-dark-214.w.png" srcset="/sectorcalc-logo-dark-214.w.png 214w, /sectorcalc-logo-dark-428.w.png 428w" sizes="183px" width="183" height="48" alt="" aria-hidden="true" decoding="async"></span></a>
+  <nav class="main-nav" role="navigation" aria-label="Main navigation">
+    <ul>
+      <li><a href="/tools.html" data-nav="tools">Tools</a></li>
+      <li><a href="/glossary" data-nav="glossary">Glossary</a></li>
+      <li><a href="/guides" data-nav="guides">Guides</a></li>
+      <li><a href="/compare" data-nav="compare">Compare</a></li>
+      <li><a href="/pricing.html" data-nav="pricing">Pricing</a></li>
+      <li><a href="/account.html" data-nav="account">Account</a></li>
+    </ul>
+    <span class="sc-nav-tool" aria-hidden="true"></span>
+    <a href="/login.html" class="btn btn-primary" data-nav="login">Sign in</a>
+  </nav>
+  <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme" aria-pressed="false" title="Toggle light / dark theme">
+    <svg data-theme-icon="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    <svg data-theme-icon="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+  </button>
+  <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+<div class="mobile-nav-overlay" id="mobileNav" role="dialog" aria-label="Mobile menu" aria-hidden="true">
+  <a href="/tools.html" data-nav="tools">All Tools</a>
+  <a href="/glossary" data-nav="glossary">Glossary</a>
+  <a href="/guides" data-nav="guides">Guides</a>
+  <a href="/compare" data-nav="compare">Compare</a>
+  <a href="/pricing.html" data-nav="pricing">Pricing</a>
+  <a href="/account.html" data-nav="account">Account</a>
+  <a href="/login.html" class="btn-primary" data-nav="login">Sign in</a>
+</div>
+<!--SC-SITE-NAV-END-->
+
+
+
+
+
+
+
+
+
+<main class="acc-page" id="acc-root">
+  <!-- Signed out -->
+  <section id="signed-out" class="acc-gate" aria-labelledby="gate-title">
+    <div class="acc-gate-plate">
+      <p class="acc-kicker">Identity required</p>
+      <h1 id="gate-title">Engineer account</h1>
+      <p class="acc-lede">
+        Sign in to keep credit balance, purchase history, and workspace preferences
+        aligned across devices. Calculation engines stay client-side either way.
+      </p>
+      <p id="acc-status" class="acc-status" role="status" aria-live="polite"></p>
+      <div class="acc-gate-actions">
+        <a class="acc-btn acc-btn-primary" href="/login.html?next=/account.html">Sign in</a>
+        <a class="acc-btn acc-btn-ghost" href="/login.html?mode=signup&amp;next=/account.html">Create account</a>
+      </div>
+      <p class="acc-footnote">No subscription. Credits are pay-per-use and valid 12 months.</p>
+    </div>
+  </section>
+
+  <!-- Signed in -->
+  <section id="signed-in" class="acc-workspace" hidden aria-labelledby="acc-name">
+    <header class="acc-hero">
+      <div class="acc-hero-copy">
+        <p class="acc-kicker">SectorCalc · engineer workspace</p>
+        <div class="acc-identity">
+          <div class="acc-avatar" id="acc-avatar" aria-hidden="true">
+            <img id="acc-photo" alt="" width="72" height="72" hidden>
+            <span id="acc-initials" class="acc-initials">SC</span>
+          </div>
+          <div>
+            <h1 id="acc-name">Member</h1>
+            <p id="acc-email" class="acc-email"></p>
+            <p id="acc-session" class="acc-session mono"></p>
+          </div>
+        </div>
+      </div>
+      <div class="acc-hero-actions">
+        <a class="acc-btn acc-btn-primary" href="/pricing.html">Load credits</a>
+        <a class="acc-btn acc-btn-ghost" href="/tools.html">Open tools</a>
+        <button type="button" class="acc-btn acc-btn-quiet" id="sign-out">Sign out</button>
+      </div>
+    </header>
+
+    <div class="acc-metrics" role="group" aria-label="Account metrics">
+      <article class="acc-metric">
+        <p class="acc-metric-label">Credit balance</p>
+        <p class="acc-metric-value mono" id="acc-credits">—</p>
+        <p class="acc-metric-hint">Valid 12 months · syncs on this device</p>
+      </article>
+      <article class="acc-metric">
+        <p class="acc-metric-label">Auth method</p>
+        <p class="acc-metric-value mono" id="acc-provider">—</p>
+        <p class="acc-metric-hint" id="acc-verified">Identity status</p>
+      </article>
+      <article class="acc-metric">
+        <p class="acc-metric-label">Member since</p>
+        <p class="acc-metric-value mono" id="acc-since">—</p>
+        <p class="acc-metric-hint">UTC account creation</p>
+      </article>
+    </div>
+
+    <div class="acc-panels">
+      <section class="acc-panel" aria-labelledby="workspace-title">
+        <div class="acc-panel-head">
+          <h2 id="workspace-title">Workspace</h2>
+          <p>Deterministic calculators. Same inputs → identical outputs.</p>
+        </div>
+        <ul class="acc-links">
+          <li>
+            <a href="/tools.html">
+              <span class="acc-link-code mono">CATALOG</span>
+              <span class="acc-link-title">All engineering tools</span>
+              <span class="acc-link-desc">Tolerance, machining, quoting, weld, and more</span>
+            </a>
+          </li>
+          <li>
+            <a href="/pricing.html">
+              <span class="acc-link-code mono">CREDITS</span>
+              <span class="acc-link-title">Credit packs</span>
+              <span class="acc-link-desc">Pay per use via Paddle · no subscription lock-in</span>
+            </a>
+          </li>
+          <li>
+            <a href="/sc008-pro.html">
+              <span class="acc-link-code mono">SC-008</span>
+              <span class="acc-link-title">Tolerance stack-up</span>
+              <span class="acc-link-desc">Worst-case · RSS · seeded Monte Carlo</span>
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <section class="acc-panel" aria-labelledby="identity-title">
+        <div class="acc-panel-head">
+          <h2 id="identity-title">Identity plate</h2>
+          <p>Technical identifiers for support and audit trails.</p>
+        </div>
+        <dl class="acc-spec">
+          <div>
+            <dt>User ID</dt>
+            <dd>
+              <code id="acc-uid" class="mono">—</code>
+              <button type="button" class="acc-copy" id="copy-uid" title="Copy user ID">Copy</button>
+            </dd>
+          </div>
+          <div>
+            <dt>Email</dt>
+            <dd id="acc-email-spec" class="mono">—</dd>
+          </div>
+          <div>
+            <dt>Providers</dt>
+            <dd id="acc-provider-spec" class="mono">—</dd>
+          </div>
+        </dl>
+        <p class="acc-footnote">
+          Calculation data does not leave the browser. Account identity is used for credits and entitlements only.
+        </p>
+      </section>
+    </div>
+  </section>
+</main>
+
+<script type="module" src="/src/account.ts"></script>
+<script type="module" src="/src/auth-nav.ts"></script>
+</body>
+</html>

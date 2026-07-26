@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Administration — SectorCalc</title>
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="description" content="SectorCalc operations administration console.">
+<link rel="icon" href="./favicon.ico?v=20260724c" sizes="any">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./sc-theme.css?v=12">
+<script src="./sc-theme.js?v=12" defer></script>
+<link rel="stylesheet" href="/sc-auth.css?v=2">
+<link rel="stylesheet" href="/sc-ops.css?v=3">
+</head>
+<body class="ops-body">
+<main class="ops-shell">
+  <p id="ops-boot" class="ops-toast" role="status" hidden></p>
+
+  <!-- Setup -->
+  <section id="ops-setup" class="ops-gate-card" hidden>
+    <p class="ops-kicker">Configuration</p>
+    <h1>Ops setup required</h1>
+    <p id="ops-setup-msg" class="ops-lede"></p>
+  </section>
+
+  <!-- Passphrase gate -->
+  <section id="ops-gate" class="ops-gate-card" hidden>
+    <p class="ops-kicker">Restricted access</p>
+    <h1>Ops gate</h1>
+    <p class="ops-lede">Enter the administration passphrase for this browser session. Access also requires an allowlisted operator account.</p>
+    <form id="gate-form" class="ops-form">
+      <label for="gate-pass">Passphrase</label>
+      <input id="gate-pass" type="password" required autocomplete="current-password" spellcheck="false">
+      <button type="submit" class="ops-btn ops-btn-primary" id="gate-submit">Unlock console</button>
+    </form>
+    <p id="gate-msg" class="ops-toast" role="status"></p>
+  </section>
+
+  <!-- Auth required -->
+  <section id="ops-auth" class="ops-gate-card" hidden>
+    <p class="ops-kicker">Identity</p>
+    <h1>Operator sign-in</h1>
+    <p class="ops-lede">Gate is unlocked. Sign in with an allowlisted administrator email to open the control plane.</p>
+    <p id="ops-auth-msg" class="ops-toast" role="status"></p>
+    <div class="ops-btn-row">
+      <button type="button" class="ops-btn ops-btn-primary" id="ops-goto-login">Sign in</button>
+      <button type="button" class="ops-btn ops-btn-ghost" id="ops-lock-auth">Lock gate</button>
+    </div>
+  </section>
+
+  <!-- Full admin console -->
+  <section id="ops-desk" class="ops-console" hidden>
+    <aside class="ops-sidebar" aria-label="Administration navigation">
+      <div class="ops-brand">
+        <p class="ops-kicker">SectorCalc</p>
+        <strong>Administration</strong>
+        <span class="ops-brand-sub mono" id="ops-who-side">—</span>
+      </div>
+      <nav class="ops-nav" role="tablist" aria-orientation="vertical">
+        <button type="button" class="ops-nav-btn is-active" data-tab="overview" role="tab" aria-selected="true">Overview</button>
+        <button type="button" class="ops-nav-btn" data-tab="users" role="tab" aria-selected="false">Users &amp; credits</button>
+        <button type="button" class="ops-nav-btn" data-tab="commerce" role="tab" aria-selected="false">Commerce</button>
+        <button type="button" class="ops-nav-btn" data-tab="catalog" role="tab" aria-selected="false">Tool catalog</button>
+        <button type="button" class="ops-nav-btn" data-tab="security" role="tab" aria-selected="false">Security</button>
+        <button type="button" class="ops-nav-btn" data-tab="audit" role="tab" aria-selected="false">Audit log</button>
+        <button type="button" class="ops-nav-btn" data-tab="consoles" role="tab" aria-selected="false">External consoles</button>
+      </nav>
+      <div class="ops-sidebar-foot">
+        <button type="button" class="ops-btn ops-btn-ghost ops-btn-block" id="ops-refresh">Refresh data</button>
+        <button type="button" class="ops-btn ops-btn-ghost ops-btn-block" id="ops-lock">Lock gate</button>
+        <button type="button" class="ops-btn ops-btn-quiet ops-btn-block" id="ops-signout">Sign out</button>
+      </div>
+    </aside>
+
+    <div class="ops-main">
+      <header class="ops-topbar">
+        <div>
+          <h1 id="ops-panel-title">Overview</h1>
+          <p id="ops-panel-sub" class="ops-lede">Operational health, registry counts, and payment surface status.</p>
+        </div>
+        <div class="ops-topbar-meta">
+          <span class="ops-chip" id="ops-chip-env">env —</span>
+          <span class="ops-chip" id="ops-chip-role">operator</span>
+          <span class="ops-chip mono" id="ops-chip-clock">—</span>
+        </div>
+      </header>
+
+      <p id="ops-desk-msg" class="ops-toast" role="status" aria-live="polite"></p>
+
+      <!-- OVERVIEW -->
+      <div class="ops-panel is-active" id="panel-overview" role="tabpanel">
+        <div class="ops-kpi-grid" id="ops-kpi-grid">
+          <article class="ops-kpi"><p class="ops-kpi-label">Registered profiles</p><p class="ops-kpi-value mono" id="kpi-users">—</p></article>
+          <article class="ops-kpi"><p class="ops-kpi-label">Credits in ledger</p><p class="ops-kpi-value mono" id="kpi-credits">—</p></article>
+          <article class="ops-kpi"><p class="ops-kpi-label">Live calculators</p><p class="ops-kpi-value mono" id="kpi-tools">—</p></article>
+          <article class="ops-kpi"><p class="ops-kpi-label">Credit packs</p><p class="ops-kpi-value mono" id="kpi-packs">—</p></article>
+        </div>
+        <div class="ops-split">
+          <article class="ops-card">
+            <h2>System health</h2>
+            <ul class="ops-health" id="ops-health-list"></ul>
+          </article>
+          <article class="ops-card">
+            <h2>Quick actions</h2>
+            <div class="ops-btn-row">
+              <button type="button" class="ops-btn ops-btn-primary" data-goto="users">Manage users</button>
+              <button type="button" class="ops-btn ops-btn-ghost" data-goto="commerce">Commerce</button>
+              <button type="button" class="ops-btn ops-btn-ghost" data-goto="audit">Audit log</button>
+              <a class="ops-btn ops-btn-ghost" href="/pricing.html" target="_blank" rel="noopener">Open pricing</a>
+              <a class="ops-btn ops-btn-ghost" href="/" target="_blank" rel="noopener">Open site</a>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- USERS -->
+      <div class="ops-panel" id="panel-users" role="tabpanel" hidden>
+        <div class="ops-toolbar">
+          <label class="ops-search">
+            <span class="visually-hidden">Search users</span>
+            <input id="user-search" type="search" placeholder="Search email, name, or UID…" autocomplete="off">
+          </label>
+          <button type="button" class="ops-btn ops-btn-ghost" id="users-reload">Reload</button>
+          <button type="button" class="ops-btn ops-btn-ghost" id="users-export">Export CSV</button>
+        </div>
+        <div class="ops-table-wrap">
+          <table class="ops-table" id="users-table">
+            <thead>
+              <tr>
+                <th>Email</th>
+                <th>Name</th>
+                <th>Credits</th>
+                <th>UID</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="users-tbody">
+              <tr><td colspan="5">Loading…</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <article class="ops-card ops-credit-desk" id="credit-desk">
+          <h2>Credit adjustment</h2>
+          <p class="ops-lede">Set absolute balance or apply a signed delta. Every change writes an audit record.</p>
+          <form id="credit-form" class="ops-form ops-form-grid">
+            <label>Target UID
+              <input id="credit-uid" type="text" required class="mono" autocomplete="off" spellcheck="false">
+            </label>
+            <label>Target email (optional)
+              <input id="credit-email" type="email" readonly class="mono">
+            </label>
+            <label>Mode
+              <select id="credit-mode">
+                <option value="set">Set absolute</option>
+                <option value="delta">Apply delta (+/−)</option>
+              </select>
+            </label>
+            <label>Value
+              <input id="credit-value" type="number" required step="1" min="-999999">
+            </label>
+            <label class="ops-span-2">Reason
+              <input id="credit-reason" type="text" maxlength="200" placeholder="Support ticket / refund / promo…">
+            </label>
+            <div class="ops-span-2 ops-btn-row">
+              <button type="submit" class="ops-btn ops-btn-primary" id="credit-submit">Apply credit change</button>
+              <button type="button" class="ops-btn ops-btn-ghost" id="credit-clear">Clear</button>
+            </div>
+          </form>
+        </article>
+      </div>
+
+      <!-- COMMERCE -->
+      <div class="ops-panel" id="panel-commerce" role="tabpanel" hidden>
+        <div class="ops-split">
+          <article class="ops-card">
+            <h2>Paddle merchant surface</h2>
+            <dl class="ops-dl">
+              <div><dt>Environment</dt><dd id="ops-paddle-env" class="mono">—</dd></div>
+              <div><dt>Client token</dt><dd id="ops-paddle-token" class="mono">—</dd></div>
+              <div><dt>Checkout mode</dt><dd class="mono">Overlay (no successUrl)</dd></div>
+              <div><dt>Merchant of record</dt><dd>Paddle</dd></div>
+            </dl>
+            <div class="ops-btn-row">
+              <a class="ops-btn ops-btn-primary" href="https://vendors.paddle.com" target="_blank" rel="noopener">Paddle vendor</a>
+              <a class="ops-btn ops-btn-ghost" href="/pricing.html" target="_blank" rel="noopener">Live pricing page</a>
+              <button type="button" class="ops-btn ops-btn-ghost" id="copy-paddle-token">Copy token hint</button>
+            </div>
+          </article>
+          <article class="ops-card">
+            <h2>Policy</h2>
+            <ul class="ops-bullets">
+              <li>Credits are pay-per-use; no subscription lock-in.</li>
+              <li>Validity window: 12 months from purchase.</li>
+              <li>Free monthly allowance: 3–5 exploratory runs (product policy).</li>
+              <li>Sandbox cards use 4242… for end-to-end checkout tests.</li>
+            </ul>
+          </article>
+        </div>
+        <h2 class="ops-section-title">Credit pack catalog</h2>
+        <div class="ops-table-wrap">
+          <table class="ops-table">
+            <thead>
+              <tr><th>Credits</th><th>Price</th><th>Per credit</th><th>Badge</th><th>Paddle price ID</th><th></th></tr>
+            </thead>
+            <tbody id="ops-packs"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- CATALOG -->
+      <div class="ops-panel" id="panel-catalog" role="tabpanel" hidden>
+        <div class="ops-toolbar">
+          <p class="ops-lede" id="catalog-count">Live engineering calculators</p>
+          <a class="ops-btn ops-btn-ghost" href="/tools.html" target="_blank" rel="noopener">Open tools index</a>
+        </div>
+        <div class="ops-table-wrap">
+          <table class="ops-table">
+            <thead><tr><th>ID</th><th>Name</th><th>Status</th><th>Open</th></tr></thead>
+            <tbody id="ops-tools"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- SECURITY -->
+      <div class="ops-panel" id="panel-security" role="tabpanel" hidden>
+        <div class="ops-split">
+          <article class="ops-card">
+            <h2>Access control</h2>
+            <dl class="ops-dl">
+              <div><dt>Gate</dt><dd id="sec-gate" class="mono">unlocked</dd></div>
+              <div><dt>Allowlisted operators</dt><dd id="sec-allowlist" class="mono">—</dd></div>
+              <div><dt>Signed-in operator</dt><dd id="sec-operator" class="mono">—</dd></div>
+              <div><dt>Operator UID</dt><dd id="sec-uid" class="mono">—</dd></div>
+              <div><dt>Email verified</dt><dd id="sec-verified" class="mono">—</dd></div>
+              <div><dt>Firebase project</dt><dd id="sec-project" class="mono">—</dd></div>
+              <div><dt>Firestore DB</dt><dd id="sec-db" class="mono">—</dd></div>
+            </dl>
+            <div class="ops-btn-row">
+              <button type="button" class="ops-btn ops-btn-primary" id="sec-lock">Lock this session</button>
+              <button type="button" class="ops-btn ops-btn-ghost" id="sec-copy-uid">Copy operator UID</button>
+            </div>
+          </article>
+          <article class="ops-card">
+            <h2>Control model</h2>
+            <ol class="ops-ol">
+              <li>Obscure path (<code>/sc-ops.html</code>) — not linked in public nav.</li>
+              <li>Session passphrase gate (SHA-256 hashed; tab-scoped).</li>
+              <li>Firebase Auth identity + email allowlist.</li>
+              <li>Firestore rules enforce admin read/write server-side.</li>
+              <li>Mutating credit actions append immutable audit entries.</li>
+            </ol>
+          </article>
+        </div>
+      </div>
+
+      <!-- AUDIT -->
+      <div class="ops-panel" id="panel-audit" role="tabpanel" hidden>
+        <div class="ops-toolbar">
+          <button type="button" class="ops-btn ops-btn-ghost" id="audit-reload">Reload audit</button>
+          <button type="button" class="ops-btn ops-btn-ghost" id="audit-export">Export JSON</button>
+        </div>
+        <div class="ops-table-wrap">
+          <table class="ops-table">
+            <thead>
+              <tr><th>When (UTC)</th><th>Action</th><th>Actor</th><th>Target</th><th>Detail</th></tr>
+            </thead>
+            <tbody id="audit-tbody">
+              <tr><td colspan="5">No events yet.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- CONSOLES -->
+      <div class="ops-panel" id="panel-consoles" role="tabpanel" hidden>
+        <div class="ops-link-grid">
+          <a class="ops-link-card" href="https://console.firebase.google.com/project/sectorcalc-prod/overview" target="_blank" rel="noopener">
+            <strong>Firebase project</strong><span>sectorcalc-prod overview</span>
+          </a>
+          <a class="ops-link-card" href="https://console.firebase.google.com/project/sectorcalc-prod/authentication/users" target="_blank" rel="noopener">
+            <strong>Auth users</strong><span>Identity Toolkit directory</span>
+          </a>
+          <a class="ops-link-card" href="https://console.firebase.google.com/project/sectorcalc-prod/firestore/databases/sectorcalc-2/data" target="_blank" rel="noopener">
+            <strong>Firestore</strong><span>Named DB sectorcalc-2</span>
+          </a>
+          <a class="ops-link-card" href="https://console.firebase.google.com/project/sectorcalc-prod/hosting" target="_blank" rel="noopener">
+            <strong>Hosting</strong><span>Release history</span>
+          </a>
+          <a class="ops-link-card" href="https://vendors.paddle.com" target="_blank" rel="noopener">
+            <strong>Paddle</strong><span>Vendor / transactions</span>
+          </a>
+          <a class="ops-link-card" href="/account.html" target="_blank" rel="noopener">
+            <strong>Engineer account</strong><span>End-user workspace</span>
+          </a>
+          <a class="ops-link-card" href="/login.html" target="_blank" rel="noopener">
+            <strong>Sign-in</strong><span>Auth entry</span>
+          </a>
+          <a class="ops-link-card" href="/tools.html" target="_blank" rel="noopener">
+            <strong>Tools index</strong><span>Public calculator catalog</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<script type="module" src="/src/sc-ops.ts"></script>
+</body>
+</html>

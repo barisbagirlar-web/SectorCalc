@@ -5,7 +5,7 @@
 <!-- Canonical host is https://sectorcalc.com — Firebase Hosting 301s www → apex. No client reverse-redirect. -->
 <!--SC-SEO-HOST-END-->
 <!--SC-SEO-SECURITY-START-->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: https://cdnjs.cloudflare.com https://www.googletagmanager.com https://www.google-analytics.com https://cdn.paddle.com https://apis.google.com https://www.gstatic.com https://www.google.com; worker-src 'self' blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://*.paddle.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://www.googletagmanager.com https://*.paddle.com https://*.googleapis.com https://*.firebaseio.com https://*.cloudfunctions.net https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://firestore.googleapis.com https://www.googleapis.com; frame-src 'self' https://*.paddle.com https://*.firebaseapp.com https://accounts.google.com https://*.google.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://*.paddle.com https://accounts.google.com; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: https://cdnjs.cloudflare.com https://www.googletagmanager.com https://www.google-analytics.com https://cdn.paddle.com; worker-src 'self' blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://*.paddle.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://www.googletagmanager.com https://*.paddle.com; frame-src 'self' https://*.paddle.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://*.paddle.com; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=*, usb=(), magnetometer=(), gyroscope=(), accelerometer=(), interest-cohort=()">
 <link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
@@ -301,7 +301,7 @@
 }
 </script>
 <!--SC-SEO-SCHEMA-END-->
-                                  <link rel="stylesheet" href="/sc-calc-sheet.css?v=1">
+                                    <link rel="stylesheet" href="/sc-calc-sheet.css?v=1">
   <!--SC-CALC-SHEET-START-->
   <!-- calc-sheet theme: theme-bom -->
   <!--SC-CALC-SHEET-END-->
@@ -317,9 +317,10 @@
       <li><a href="/guides" data-nav="guides">Guides</a></li>
       <li><a href="/compare" data-nav="compare">Compare</a></li>
       <li><a href="/pricing.html" data-nav="pricing">Pricing</a></li>
+      <li><a href="/account.html" data-nav="account">Account</a></li>
     </ul>
     <span class="sc-nav-tool" aria-hidden="true"></span>
-    <a href="/calculator/tolerance-stack-up" class="btn btn-primary">Run a Calculation</a>
+    <a href="/login.html" class="btn btn-primary" data-nav="login">Sign in</a>
   </nav>
   <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme" aria-pressed="false" title="Toggle light / dark theme">
     <svg data-theme-icon="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
@@ -335,9 +336,12 @@
   <a href="/guides" data-nav="guides">Guides</a>
   <a href="/compare" data-nav="compare">Compare</a>
   <a href="/pricing.html" data-nav="pricing">Pricing</a>
-  <a href="/calculator/tolerance-stack-up" class="btn-primary">Run a Calculation</a>
+  <a href="/account.html" data-nav="account">Account</a>
+  <a href="/login.html" class="btn-primary" data-nav="login">Sign in</a>
 </div>
 <!--SC-SITE-NAV-END-->
+
+
 
 
 
