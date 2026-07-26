@@ -9,11 +9,50 @@
     radial-gradient(900px 400px at 100% 0%, rgba(232,119,34,0.08), transparent 55%),
     var(--bg, #F5F5F0);
 }
+.auth-layout{
+  width: min(920px, 100%);
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 28px;
+  align-items: stretch;
+}
+.auth-story{ padding: 18px 8px; }
+.auth-story h1{
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(34px, 4vw, 48px);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  line-height: 0.98;
+  margin: 0 0 12px;
+}
+.auth-points{
+  list-style: none;
+  margin: 20px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+.auth-points li{
+  position: relative;
+  padding-left: 18px;
+  color: var(--ink2, #4A4A4A);
+  font-size: 14.5px;
+}
+.auth-points li::before{
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 8px;
+  height: 8px;
+  background: #0055A4;
+}
 .auth-card{
-  width: min(440px, 100%);
+  width: 100%;
   background: var(--surface, #fff);
   border: 1.5px solid var(--border, #C5C5BE);
-  padding: 36px 28px;
+  padding: 32px 28px;
 }
 .auth-eyebrow{
   font-family: 'JetBrains Mono', monospace;
@@ -23,13 +62,17 @@
   color: var(--ink2, #4A4A4A);
   margin-bottom: 10px;
 }
-.auth-card h1{
+.auth-card h1,
+.auth-card h2{
   font-family: 'Barlow Condensed', sans-serif;
-  font-size: 34px;
+  font-size: 30px;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.01em;
   margin: 0 0 8px;
+}
+@media (max-width: 800px){
+  .auth-layout{ grid-template-columns: 1fr; }
 }
 .auth-lede{ color: var(--ink2, #4A4A4A); margin: 0 0 22px; line-height: 1.5; }
 .auth-google{

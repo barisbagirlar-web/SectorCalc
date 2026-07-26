@@ -31,14 +31,14 @@ import type { User } from 'firebase/auth';
 const PANEL_META: Record<string, { title: string; sub: string }> = {
   overview: {
     title: 'Overview',
-    sub: 'Operational health, registry counts, and payment surface status.'
+    sub: 'Operational health, registry counts, and operator checklist.'
   },
   users: {
     title: 'Users & credits',
     sub: 'Firestore profiles, search, CSV export, and audited credit adjustments.'
   },
   commerce: {
-    title: 'Commerce',
+    title: 'Payments & packs',
     sub: 'Paddle merchant surface and published credit pack catalog.'
   },
   catalog: {
@@ -49,9 +49,17 @@ const PANEL_META: Record<string, { title: string; sub: string }> = {
     title: 'Security',
     sub: 'Gate, allowlist, operator identity, and control-plane model.'
   },
+  diagnostics: {
+    title: 'Diagnostics',
+    sub: 'Runtime probes for Auth, Firestore, Paddle, gate, and registry.'
+  },
   audit: {
     title: 'Audit log',
     sub: 'Immutable operator actions recorded in Firestore ops_audit.'
+  },
+  help: {
+    title: 'Operator help',
+    sub: 'Runbooks for credit adjustments, checkout triage, and incidents.'
   },
   consoles: {
     title: 'External consoles',
@@ -232,6 +240,15 @@ function renderOverviewHealth(): void {
       )
       .join('');
   }
+  const diag = $('ops-diag-list');
+  if (diag) {
+    diag.innerHTML = items
+      .map(
+        (i) =>
+          `<li><span>${esc(i.label)}</span><span class="${i.ok ? 'ok' : 'bad'}">${i.ok ? 'PASS' : 'FAIL'} · ${esc(i.detail)}</span></li>`
+      )
+      .join('');
+  }
   setMsg('kpi-users', String(profilesCache.length));
   setMsg('kpi-credits', String(profilesCache.reduce((n, p) => n + p.credits, 0)));
   setMsg('kpi-tools', String(OPS_TOOL_CATALOG.length));
@@ -409,6 +426,17 @@ function bindEvents(): void {
   $('ops-refresh')?.addEventListener('click', () => void loadData(true));
   $('users-reload')?.addEventListener('click', () => void loadData(true));
   $('audit-reload')?.addEventListener('click', () => void loadData(true));
+  $('ops-run-diag')?.addEventListener('click', () => {
+    renderOverviewHealth();
+    setMsg('ops-desk-msg', 'Diagnostics refreshed.', 'ok');
+    setTab('diagnostics');
+  });
+  $('ops-copy-diag')?.addEventListener('click', () => {
+    const lines = Array.from(document.querySelectorAll('#ops-diag-list li')).map(
+      (li) => li.textContent?.trim() || ''
+    );
+    void copyText(lines.filter(Boolean).join('\n') || 'No diagnostics');
+  });
 
   $('user-search')?.addEventListener('input', () => renderUsersTable());
 
