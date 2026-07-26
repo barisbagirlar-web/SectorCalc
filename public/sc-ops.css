@@ -178,6 +178,18 @@
   word-break:break-all;
 }
 .ops-nav{ display:grid; gap:4px; }
+.ops-nav-group{
+  margin:12px 0 4px;
+  padding:0 12px;
+  font-family:var(--ops-mono);
+  font-size:10px;
+  font-weight:600;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--ops-muted);
+}
+.ops-nav-group:first-child{ margin-top:0; }
+.ops-card-stack{ display:grid; gap:12px; }
 .ops-nav-btn{
   text-align:left;
   border:1px solid transparent;

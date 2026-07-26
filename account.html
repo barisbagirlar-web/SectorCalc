@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Account — SectorCalc</title>
-<meta name="description" content="SectorCalc engineer account: credit balance, identity, and workspace access for deterministic industrial calculators.">
+<meta name="description" content="Manage your SectorCalc engineer account: credits, identity, security, and workspace shortcuts.">
 <meta name="robots" content="noindex, follow">
 <link rel="icon" href="./favicon.ico?v=20260724c" sizes="any">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -12,7 +12,7 @@
 <script src="./sc-theme.js?v=12" defer></script>
 <link rel="stylesheet" href="./sc-site-nav.css?v=4">
 <script src="./sc-site-nav.js?v=2" defer></script>
-<link rel="stylesheet" href="/sc-account.css?v=3">
+<link rel="stylesheet" href="/sc-account.css?v=4">
 <link rel="stylesheet" href="./sc-form-fields.css?v=5">
 </head>
 <body>
@@ -51,131 +51,250 @@
 <!--SC-SITE-NAV-END-->
 
 
-
-
-
-
-
-
-
 <main class="acc-page" id="acc-root">
   <!-- Signed out -->
   <section id="signed-out" class="acc-gate" aria-labelledby="gate-title">
-    <div class="acc-gate-plate">
-      <p class="acc-kicker">Identity required</p>
-      <h1 id="gate-title">Engineer account</h1>
-      <p class="acc-lede">
-        Sign in to keep credit balance, purchase history, and workspace preferences
-        aligned across devices. Calculation engines stay client-side either way.
-      </p>
-      <p id="acc-status" class="acc-status" role="status" aria-live="polite"></p>
-      <div class="acc-gate-actions">
-        <a class="acc-btn acc-btn-primary" href="/login.html?next=/account.html">Sign in</a>
-        <a class="acc-btn acc-btn-ghost" href="/login.html?mode=signup&amp;next=/account.html">Create account</a>
+    <div class="acc-gate-grid">
+      <div class="acc-gate-story">
+        <p class="acc-kicker">SectorCalc account</p>
+        <h1 id="gate-title">One identity for credits and workspace</h1>
+        <p class="acc-lede">
+          Sign in to sync credit balance across devices. Every calculator still runs
+          entirely in your browser — formulas, inputs, and reports never leave your machine.
+        </p>
+        <ul class="acc-gate-points">
+          <li>Pay-per-use credits · no subscription</li>
+          <li>12-month credit validity</li>
+          <li>Email or Google sign-in</li>
+        </ul>
       </div>
-      <p class="acc-footnote">No subscription. Credits are pay-per-use and valid 12 months.</p>
+      <div class="acc-gate-plate">
+        <p class="acc-kicker">Continue</p>
+        <h2 class="acc-gate-plate-title">Access your account</h2>
+        <p id="acc-status" class="acc-status" role="status" aria-live="polite"></p>
+        <div class="acc-gate-actions">
+          <a class="acc-btn acc-btn-primary" href="/login.html?next=/account.html">Sign in</a>
+          <a class="acc-btn acc-btn-ghost" href="/login.html?mode=signup&amp;next=/account.html">Create account</a>
+        </div>
+        <p class="acc-footnote">New here? Create an account in under a minute. You can explore tools without signing in.</p>
+        <a class="acc-text-link" href="/tools.html">Browse calculators without signing in →</a>
+      </div>
     </div>
   </section>
 
   <!-- Signed in -->
-  <section id="signed-in" class="acc-workspace" hidden aria-labelledby="acc-name">
-    <header class="acc-hero">
-      <div class="acc-hero-copy">
-        <p class="acc-kicker">SectorCalc · engineer workspace</p>
-        <div class="acc-identity">
-          <div class="acc-avatar" id="acc-avatar" aria-hidden="true">
-            <img id="acc-photo" alt="" width="72" height="72" hidden>
-            <span id="acc-initials" class="acc-initials">SC</span>
+  <section id="signed-in" class="acc-shell" hidden>
+    <aside class="acc-side" aria-label="Account sections">
+      <div class="acc-side-id">
+        <div class="acc-avatar acc-avatar-sm" id="acc-avatar" aria-hidden="true">
+          <img id="acc-photo" alt="" width="40" height="40" hidden>
+          <span id="acc-initials" class="acc-initials">SC</span>
+        </div>
+        <div class="acc-side-id-copy">
+          <strong id="acc-name-side">Member</strong>
+          <span id="acc-email-side" class="mono">—</span>
+        </div>
+      </div>
+      <nav class="acc-side-nav" role="tablist" aria-orientation="vertical">
+        <button type="button" class="acc-side-btn is-active" data-acc-tab="overview" role="tab" aria-selected="true">Overview</button>
+        <button type="button" class="acc-side-btn" data-acc-tab="credits" role="tab" aria-selected="false">Credits</button>
+        <button type="button" class="acc-side-btn" data-acc-tab="workspace" role="tab" aria-selected="false">Workspace</button>
+        <button type="button" class="acc-side-btn" data-acc-tab="security" role="tab" aria-selected="false">Security</button>
+        <button type="button" class="acc-side-btn" data-acc-tab="support" role="tab" aria-selected="false">Support</button>
+      </nav>
+      <div class="acc-side-foot">
+        <a class="acc-btn acc-btn-ghost acc-btn-block" href="/pricing.html">Load credits</a>
+        <button type="button" class="acc-btn acc-btn-quiet acc-btn-block" id="sign-out">Sign out</button>
+      </div>
+    </aside>
+
+    <div class="acc-main">
+      <header class="acc-main-head">
+        <div>
+          <p class="acc-kicker">Engineer account</p>
+          <h1 id="acc-panel-title">Overview</h1>
+          <p id="acc-panel-sub" class="acc-lede">Balance, identity, and shortcuts for your SectorCalc workspace.</p>
+        </div>
+        <div class="acc-main-actions">
+          <a class="acc-btn acc-btn-primary" href="/tools.html">Open tools</a>
+          <a class="acc-btn acc-btn-ghost" href="/pricing.html">Buy credits</a>
+        </div>
+      </header>
+
+      <!-- OVERVIEW -->
+      <div class="acc-tab is-active" id="acc-tab-overview" role="tabpanel">
+        <div class="acc-hero-card">
+          <div class="acc-hero-id">
+            <div class="acc-avatar" aria-hidden="true">
+              <img id="acc-photo-lg" alt="" width="72" height="72" hidden>
+              <span id="acc-initials-lg" class="acc-initials">SC</span>
+            </div>
+            <div>
+              <h2 id="acc-name">Member</h2>
+              <p id="acc-email" class="acc-email"></p>
+              <p id="acc-session" class="acc-session mono"></p>
+            </div>
           </div>
-          <div>
-            <h1 id="acc-name">Member</h1>
-            <p id="acc-email" class="acc-email"></p>
-            <p id="acc-session" class="acc-session mono"></p>
+          <div class="acc-balance-pill">
+            <span class="acc-balance-label">Available credits</span>
+            <strong class="mono" id="acc-credits-hero">—</strong>
+            <a href="/pricing.html">Top up →</a>
+          </div>
+        </div>
+
+        <div class="acc-stat-row" role="group" aria-label="Account snapshot">
+          <article class="acc-stat">
+            <p class="acc-stat-label">Credit balance</p>
+            <p class="acc-stat-value mono" id="acc-credits">—</p>
+            <p class="acc-stat-hint">Cloud + this browser (max)</p>
+          </article>
+          <article class="acc-stat">
+            <p class="acc-stat-label">Sign-in method</p>
+            <p class="acc-stat-value" id="acc-provider">—</p>
+            <p class="acc-stat-hint" id="acc-verified">Identity status</p>
+          </article>
+          <article class="acc-stat">
+            <p class="acc-stat-label">Member since</p>
+            <p class="acc-stat-value mono" id="acc-since">—</p>
+            <p class="acc-stat-hint">UTC account creation</p>
+          </article>
+          <article class="acc-stat">
+            <p class="acc-stat-label">Browser credits</p>
+            <p class="acc-stat-value mono" id="acc-local-credits">—</p>
+            <p class="acc-stat-hint">Guest ledger on this device</p>
+          </article>
+        </div>
+
+        <div class="acc-next">
+          <h3>Suggested next step</h3>
+          <p id="acc-next-copy">Load credits when you need production-grade report runs, or open the tool catalog to continue engineering work.</p>
+          <div class="acc-btn-row">
+            <a class="acc-btn acc-btn-primary" href="/calculator/tolerance-stack-up">Open SC-008 Tolerance Stack-Up</a>
+            <a class="acc-btn acc-btn-ghost" href="/tools.html">All calculators</a>
           </div>
         </div>
       </div>
-      <div class="acc-hero-actions">
-        <a class="acc-btn acc-btn-primary" href="/pricing.html">Load credits</a>
-        <a class="acc-btn acc-btn-ghost" href="/tools.html">Open tools</a>
-        <button type="button" class="acc-btn acc-btn-quiet" id="sign-out">Sign out</button>
+
+      <!-- CREDITS -->
+      <div class="acc-tab" id="acc-tab-credits" role="tabpanel" hidden>
+        <div class="acc-card-grid">
+          <article class="acc-card">
+            <h3>Balance</h3>
+            <p class="acc-big mono" id="acc-credits-detail">—</p>
+            <p class="acc-muted">Credits are pay-per-use and remain valid for 12 months from purchase.</p>
+            <a class="acc-btn acc-btn-primary" href="/pricing.html">View credit packs</a>
+          </article>
+          <article class="acc-card">
+            <h3>How credits work</h3>
+            <ul class="acc-bullets">
+              <li>No subscription — buy only what you need.</li>
+              <li>Checkout is handled by Paddle (merchant of record).</li>
+              <li>Signed-in balance syncs via your SectorCalc profile.</li>
+              <li>Calculations always run client-side; credits gate entitlement, not data upload.</li>
+            </ul>
+          </article>
+          <article class="acc-card">
+            <h3>This browser</h3>
+            <dl class="acc-dl">
+              <div><dt>Local ledger</dt><dd class="mono" id="acc-local-detail">—</dd></div>
+              <div><dt>Cloud profile</dt><dd class="mono" id="acc-cloud-detail">—</dd></div>
+              <div><dt>Displayed balance</dt><dd class="mono" id="acc-display-detail">—</dd></div>
+            </dl>
+            <p class="acc-muted">Displayed balance uses the higher of cloud profile and this browser’s guest ledger after sign-in merge.</p>
+          </article>
+        </div>
       </div>
-    </header>
 
-    <div class="acc-metrics" role="group" aria-label="Account metrics">
-      <article class="acc-metric">
-        <p class="acc-metric-label">Credit balance</p>
-        <p class="acc-metric-value mono" id="acc-credits">—</p>
-        <p class="acc-metric-hint">Valid 12 months · syncs on this device</p>
-      </article>
-      <article class="acc-metric">
-        <p class="acc-metric-label">Auth method</p>
-        <p class="acc-metric-value mono" id="acc-provider">—</p>
-        <p class="acc-metric-hint" id="acc-verified">Identity status</p>
-      </article>
-      <article class="acc-metric">
-        <p class="acc-metric-label">Member since</p>
-        <p class="acc-metric-value mono" id="acc-since">—</p>
-        <p class="acc-metric-hint">UTC account creation</p>
-      </article>
-    </div>
-
-    <div class="acc-panels">
-      <section class="acc-panel" aria-labelledby="workspace-title">
-        <div class="acc-panel-head">
-          <h2 id="workspace-title">Workspace</h2>
-          <p>Deterministic calculators. Same inputs → identical outputs.</p>
+      <!-- WORKSPACE -->
+      <div class="acc-tab" id="acc-tab-workspace" role="tabpanel" hidden>
+        <div class="acc-link-grid">
+          <a class="acc-tile" href="/tools.html">
+            <span class="mono">CATALOG</span>
+            <strong>All engineering tools</strong>
+            <em>25 live calculators · deterministic engines</em>
+          </a>
+          <a class="acc-tile" href="/calculator/tolerance-stack-up">
+            <span class="mono">SC-008</span>
+            <strong>Tolerance stack-up</strong>
+            <em>Worst-case · RSS · seeded Monte Carlo</em>
+          </a>
+          <a class="acc-tile" href="/calculator/cnc-feeds-speeds">
+            <span class="mono">SC-020</span>
+            <strong>CNC feeds &amp; speeds</strong>
+            <em>Cutting data + tool life</em>
+          </a>
+          <a class="acc-tile" href="/calculator/true-labor-cost">
+            <span class="mono">SC-010</span>
+            <strong>True labor cost</strong>
+            <em>Burdened shop-floor rates</em>
+          </a>
+          <a class="acc-tile" href="/calculator/quote-pricing">
+            <span class="mono">SC-012</span>
+            <strong>Quote pricing</strong>
+            <em>Job cost to sell price</em>
+          </a>
+          <a class="acc-tile" href="/pricing.html">
+            <span class="mono">BILLING</span>
+            <strong>Credit store</strong>
+            <em>Paddle checkout · sandbox or live</em>
+          </a>
         </div>
-        <ul class="acc-links">
-          <li>
-            <a href="/tools.html">
-              <span class="acc-link-code mono">CATALOG</span>
-              <span class="acc-link-title">All engineering tools</span>
-              <span class="acc-link-desc">Tolerance, machining, quoting, weld, and more</span>
-            </a>
-          </li>
-          <li>
-            <a href="/pricing.html">
-              <span class="acc-link-code mono">CREDITS</span>
-              <span class="acc-link-title">Credit packs</span>
-              <span class="acc-link-desc">Pay per use via Paddle · no subscription lock-in</span>
-            </a>
-          </li>
-          <li>
-            <a href="/sc008-pro.html">
-              <span class="acc-link-code mono">SC-008</span>
-              <span class="acc-link-title">Tolerance stack-up</span>
-              <span class="acc-link-desc">Worst-case · RSS · seeded Monte Carlo</span>
-            </a>
-          </li>
-        </ul>
-      </section>
+      </div>
 
-      <section class="acc-panel" aria-labelledby="identity-title">
-        <div class="acc-panel-head">
-          <h2 id="identity-title">Identity plate</h2>
-          <p>Technical identifiers for support and audit trails.</p>
+      <!-- SECURITY -->
+      <div class="acc-tab" id="acc-tab-security" role="tabpanel" hidden>
+        <div class="acc-card-grid">
+          <article class="acc-card">
+            <h3>Identity</h3>
+            <dl class="acc-dl">
+              <div>
+                <dt>User ID</dt>
+                <dd>
+                  <code id="acc-uid" class="mono">—</code>
+                  <button type="button" class="acc-copy" id="copy-uid">Copy</button>
+                </dd>
+              </div>
+              <div><dt>Email</dt><dd id="acc-email-spec" class="mono">—</dd></div>
+              <div><dt>Providers</dt><dd id="acc-provider-spec">—</dd></div>
+              <div><dt>Email verified</dt><dd id="acc-verified-spec">—</dd></div>
+              <div><dt>Last sign-in</dt><dd class="mono" id="acc-last-signin">—</dd></div>
+            </dl>
+          </article>
+          <article class="acc-card">
+            <h3>Session</h3>
+            <p class="acc-muted">Signing out clears this browser session. Credits on your cloud profile remain attached to your account.</p>
+            <button type="button" class="acc-btn acc-btn-ghost" id="sign-out-sec">Sign out of this device</button>
+          </article>
+          <article class="acc-card">
+            <h3>Privacy</h3>
+            <p class="acc-muted">Calculation inputs and reports stay in your browser. Account identity is used only for credits, entitlements, and support.</p>
+            <a class="acc-text-link" href="/privacy">Privacy policy →</a>
+          </article>
         </div>
-        <dl class="acc-spec">
-          <div>
-            <dt>User ID</dt>
-            <dd>
-              <code id="acc-uid" class="mono">—</code>
-              <button type="button" class="acc-copy" id="copy-uid" title="Copy user ID">Copy</button>
-            </dd>
-          </div>
-          <div>
-            <dt>Email</dt>
-            <dd id="acc-email-spec" class="mono">—</dd>
-          </div>
-          <div>
-            <dt>Providers</dt>
-            <dd id="acc-provider-spec" class="mono">—</dd>
-          </div>
-        </dl>
-        <p class="acc-footnote">
-          Calculation data does not leave the browser. Account identity is used for credits and entitlements only.
-        </p>
-      </section>
+      </div>
+
+      <!-- SUPPORT -->
+      <div class="acc-tab" id="acc-tab-support" role="tabpanel" hidden>
+        <div class="acc-card-grid">
+          <article class="acc-card">
+            <h3>Need help?</h3>
+            <ul class="acc-bullets">
+              <li>Include your User ID when contacting support about credits.</li>
+              <li>Checkout issues: note the Paddle transaction time and pack size.</li>
+              <li>Engine questions: cite tool ID (for example SC-008) and engine version from the report.</li>
+            </ul>
+            <a class="acc-btn acc-btn-ghost" href="/contact">Contact</a>
+          </article>
+          <article class="acc-card">
+            <h3>Documentation</h3>
+            <div class="acc-btn-row">
+              <a class="acc-btn acc-btn-ghost" href="/guides">Guides</a>
+              <a class="acc-btn acc-btn-ghost" href="/glossary">Glossary</a>
+              <a class="acc-btn acc-btn-ghost" href="/compare">Compare</a>
+            </div>
+          </article>
+        </div>
+      </div>
     </div>
   </section>
 </main>

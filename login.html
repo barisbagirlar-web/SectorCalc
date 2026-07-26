@@ -7,12 +7,12 @@
 <meta name="description" content="Sign in or create a SectorCalc engineer account to keep credits across devices.">
 <meta name="robots" content="noindex, follow">
 <link rel="icon" href="./favicon.ico?v=20260724c" sizes="any">
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./sc-theme.css?v=12">
 <script src="./sc-theme.js?v=12" defer></script>
 <link rel="stylesheet" href="./sc-site-nav.css?v=4">
 <script src="./sc-site-nav.js?v=2" defer></script>
-<link rel="stylesheet" href="/sc-auth.css?v=3">
+<link rel="stylesheet" href="/sc-auth.css?v=4">
 <link rel="stylesheet" href="./sc-form-fields.css?v=5">
 </head>
 <body>
@@ -51,36 +51,41 @@
 <!--SC-SITE-NAV-END-->
 
 
-
-
-
-
-
-
-
 <main class="auth-shell">
-  <section class="auth-card" aria-labelledby="auth-title">
-    <p class="auth-eyebrow">SectorCalc account</p>
-    <h1 id="auth-title">Sign in</h1>
-    <p id="auth-sub" class="auth-lede">Access your SectorCalc account and credit balance.</p>
+  <section class="auth-layout" aria-labelledby="auth-title">
+    <div class="auth-story">
+      <p class="auth-eyebrow">SectorCalc account</p>
+      <h1 id="auth-title-story">Credits that follow you</h1>
+      <p class="auth-lede">Sign in once. Your balance syncs across devices while every calculator stays client-side.</p>
+      <ul class="auth-points">
+        <li>Email or Google</li>
+        <li>No subscription lock-in</li>
+        <li>12-month credit validity</li>
+      </ul>
+    </div>
+    <div class="auth-card">
+      <p class="auth-eyebrow">Continue</p>
+      <h2 id="auth-title">Sign in</h2>
+      <p id="auth-sub" class="auth-lede">Access your SectorCalc account and credit balance.</p>
 
-    <button type="button" class="auth-google" id="google-btn">Continue with Google</button>
-    <div class="auth-or"><span>or email</span></div>
+      <button type="button" class="auth-google" id="google-btn">Continue with Google</button>
+      <div class="auth-or"><span>or email</span></div>
 
-    <form id="auth-form" class="auth-form" novalidate>
-      <div id="name-wrap" hidden>
-        <label for="displayName">Display name</label>
-        <input id="displayName" name="displayName" type="text" autocomplete="name" maxlength="80">
-      </div>
-      <label for="email">Email</label>
-      <input id="email" name="email" type="email" required autocomplete="email">
-      <label for="password">Password</label>
-      <input id="password" name="password" type="password" required minlength="6" autocomplete="current-password">
-      <button type="submit" class="auth-submit" id="auth-submit">Sign in</button>
-    </form>
+      <form id="auth-form" class="auth-form" novalidate>
+        <div id="name-wrap" hidden>
+          <label for="displayName">Display name</label>
+          <input id="displayName" name="displayName" type="text" autocomplete="name" maxlength="80">
+        </div>
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" required autocomplete="email">
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" required minlength="6" autocomplete="current-password">
+        <button type="submit" class="auth-submit" id="auth-submit">Sign in</button>
+      </form>
 
-    <p id="auth-msg" class="auth-msg" role="status" aria-live="polite"></p>
-    <p id="auth-toggle" class="auth-toggle"></p>
+      <p id="auth-msg" class="auth-msg" role="status" aria-live="polite"></p>
+      <p id="auth-toggle" class="auth-toggle"></p>
+    </div>
   </section>
 </main>
 
