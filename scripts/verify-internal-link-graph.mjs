@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /**
  * Internal link graph checks for indexable SEO surface.
+ * Fail-closed: collect all failures, report, exit 1. Never throw on missing files.
  */
 import { readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
@@ -12,36 +13,54 @@ const indexable = indexablePages();
 const indexableSet = new Set(indexable.map((p) => p.canonicalPath));
 const incoming = new Map([...indexableSet].map((p) => [p, 0]));
 incoming.set('/', 1);
+const fileCache = new Map();
 
+/** Normalize site-relative and absolute same-host hrefs to canonical pathname form. */
 function normalizeHref(href) {
   if (!href) return null;
   if (href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('javascript:')) return null;
   if (href.startsWith('#')) return null;
-  if (href.startsWith('http')) {
+  let path = null;
+  if (href.startsWith('http://') || href.startsWith('https://')) {
     if (!href.startsWith(HOST)) return null;
-    const u = new URL(href);
-    return u.pathname === '' ? '/' : u.pathname;
+    try {
+      path = new URL(href).pathname || '/';
+    } catch {
+      return null;
+    }
+  } else if (href.startsWith('/')) {
+    path = href.split('?')[0].split('#')[0];
+  } else {
+    return null;
   }
-  if (href.startsWith('/')) {
-    let p = href.split('?')[0].split('#')[0];
-    if (p.length > 1 && p.endsWith('/')) p = p.slice(0, -1);
-    return p || '/';
-  }
-  return null;
+  if (path === '/' || path === '') return '/';
+  if (path.length > 1 && path.endsWith('/')) path = path.slice(0, -1);
+  return path;
 }
 
-function sourceFile(record) {
-  return record.sourceFile.startsWith('public/') ? record.sourceFile : record.sourceFile;
+function readCached(relPath) {
+  if (fileCache.has(relPath)) return fileCache.get(relPath);
+  const abs = join(ROOT, relPath);
+  if (!existsSync(abs)) {
+    errors.push(`missing source file ${relPath}`);
+    fileCache.set(relPath, null);
+    return null;
+  }
+  try {
+    const html = readFileSync(abs, 'utf8');
+    fileCache.set(relPath, html);
+    return html;
+  } catch (err) {
+    errors.push(`unreadable source file ${relPath}: ${err.message}`);
+    fileCache.set(relPath, null);
+    return null;
+  }
 }
 
 for (const page of indexable) {
-  const file = sourceFile(page);
-  const abs = join(ROOT, file);
-  if (!existsSync(abs)) {
-    errors.push(`missing ${file}`);
-    continue;
-  }
-  const html = readFileSync(abs, 'utf8');
+  const file = page.sourceFile;
+  const html = readCached(file);
+  if (!html) continue;
   const hrefs = [...html.matchAll(/\bhref=["']([^"']+)["']/gi)].map((m) => m[1]);
   for (const raw of hrefs) {
     if (/\/[a-z0-9-]+-pro\.html(\b|$|\?|#)/i.test(raw)) {
@@ -53,14 +72,21 @@ for (const page of indexable) {
       incoming.set(norm, (incoming.get(norm) || 0) + 1);
     }
   }
-  // Parent hub credit
   if (page.parentHub && indexableSet.has(page.parentHub)) {
-    // ensure parent mentions child when parent is a listing hub
     const parent = indexable.find((p) => p.canonicalPath === page.parentHub);
     if (parent) {
-      const parentHtml = readFileSync(join(ROOT, sourceFile(parent)), 'utf8');
-      if (parentHtml.includes(page.canonicalPath) || parentHtml.includes(page.canonicalPath + '/')) {
-        incoming.set(page.canonicalPath, (incoming.get(page.canonicalPath) || 0) + 1);
+      const parentHtml = readCached(parent.sourceFile);
+      if (parentHtml) {
+        const child = page.canonicalPath;
+        if (
+          parentHtml.includes(`href="${child}"`)
+          || parentHtml.includes(`href='${child}'`)
+          || parentHtml.includes(`href="${child}/"`)
+          || parentHtml.includes(`"${HOST}${child}"`)
+          || parentHtml.includes(child)
+        ) {
+          incoming.set(page.canonicalPath, (incoming.get(page.canonicalPath) || 0) + 1);
+        }
       }
     }
   }
@@ -71,15 +97,15 @@ for (const [path, count] of incoming) {
   if (count === 0) errors.push(`orphan indexable page: ${path}`);
 }
 
-// Tier-A must appear on tools catalog HTML (pretty path or SC id)
-const toolsHtml = readFileSync(join(ROOT, 'tools.html'), 'utf8');
-for (const p of indexable.filter((x) => x.role === 'calculator' && x.revenueTier === 'A')) {
-  const idOk = p.id && toolsHtml.includes(p.id);
-  const pathOk = toolsHtml.includes(p.canonicalPath);
-  if (!idOk && !pathOk) errors.push(`Tier-A calculator not referenced from tools.html: ${p.canonicalPath}`);
+const toolsHtml = readCached('tools.html');
+if (toolsHtml) {
+  for (const p of indexable.filter((x) => x.role === 'calculator' && x.revenueTier === 'A')) {
+    const idOk = p.id && toolsHtml.includes(p.id);
+    const pathOk = toolsHtml.includes(p.canonicalPath);
+    if (!idOk && !pathOk) errors.push(`Tier-A calculator not referenced from tools.html: ${p.canonicalPath}`);
+  }
 }
 
-// Registry calculators must have canonical map entries
 const canon = toolCanonicalBySourceFile();
 for (const p of indexable.filter((x) => x.role === 'calculator')) {
   if (!canon[p.sourceFile]) errors.push(`canonical map missing ${p.sourceFile}`);

@@ -30,7 +30,6 @@ if (errors.length) {
 const payload = {
   generatedFrom: 'seo/registry.mjs',
   host: HOST,
-  generatedAt: new Date().toISOString(),
   pages: PAGES,
   toolCanonicalBySlug: toolCanonicalBySlug(),
   toolMetaBySlug: toolMetaBySlug(),

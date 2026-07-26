@@ -1,7 +1,6 @@
 {
   "generatedFrom": "seo/registry.mjs",
   "host": "https://sectorcalc.com",
-  "generatedAt": "2026-07-26T17:14:32.665Z",
   "pages": [
     {
       "id": "home",
@@ -365,7 +364,7 @@
       "name": "SC-030 Sheet Metal Bend & K-Factor",
       "short": "Bend Allowance",
       "category": "Welding & Fabrication",
-      "categoryAnchor": "fabrication",
+      "categoryAnchor": "welding",
       "subcategory": "Sheet Metal",
       "primaryIntent": "sheet metal bend allowance calculator",
       "queryCluster": "sheet-metal-bend",
@@ -1109,7 +1108,7 @@
       "name": "SC-039 Punching Force & Die Clearance",
       "short": "Punching Force",
       "category": "Machining",
-      "categoryAnchor": "machining",
+      "categoryAnchor": "welding",
       "subcategory": "Sheet Punching",
       "primaryIntent": "punching force calculator",
       "queryCluster": "punching-force",
@@ -3728,7 +3727,7 @@
       "name": "SC-030 Sheet Metal Bend & K-Factor",
       "short": "Bend Allowance",
       "category": "Welding & Fabrication",
-      "anchor": "fabrication",
+      "anchor": "welding",
       "sub": "Sheet Metal",
       "desc": "Sheet metal bend allowance, K-factor, and flat pattern calculation with material database.",
       "version": "1.0.0",
@@ -3871,7 +3870,7 @@
       "name": "SC-039 Punching Force & Die Clearance",
       "short": "Punching Force",
       "category": "Machining",
-      "anchor": "machining",
+      "anchor": "welding",
       "sub": "Sheet Punching",
       "desc": "Punching force, stripping force, and die clearance for sheet metal operations. Deterministic.",
       "version": "1.0.0",

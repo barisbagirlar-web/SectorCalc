@@ -16,6 +16,29 @@ const FORBIDDEN_STATUSES = new Set([
 ]);
 
 /**
+ * Parse robots indexDirective fail-closed.
+ * "noindex,follow".includes("index") === true — NEVER use substring includes("index").
+ *
+ * @param {unknown} directive
+ * @returns {{ allowsIndex: boolean, reason?: string }}
+ */
+export function parseIndexDirective(directive) {
+  if (directive == null || String(directive).trim() === '') {
+    return { allowsIndex: false, reason: 'empty-index-directive' };
+  }
+  const tokens = String(directive)
+    .toLowerCase()
+    .split(/[,\s]+/)
+    .map((t) => t.trim())
+    .filter(Boolean);
+  if (!tokens.length) return { allowsIndex: false, reason: 'empty-index-directive' };
+  if (tokens.includes('noindex')) return { allowsIndex: false, reason: 'robots-noindex' };
+  if (tokens.includes('none')) return { allowsIndex: false, reason: 'robots-none' };
+  if (tokens.includes('index')) return { allowsIndex: true };
+  return { allowsIndex: false, reason: 'unknown-index-directive' };
+}
+
+/**
  * @param {Record<string, any>} record
  * @returns {{ indexable: boolean, reasons: string[] }}
  */
@@ -36,7 +59,9 @@ export function evaluateSeoIndexable(record) {
   if (record.canonicalPath && /\/[a-z0-9-]+-pro\.html$/i.test(record.canonicalPath)) {
     reasons.push('legacy-source-url');
   }
-  if (!String(record.indexDirective || '').includes('index')) reasons.push('robots-not-index');
+
+  const dir = parseIndexDirective(record.indexDirective);
+  if (!dir.allowsIndex) reasons.push(dir.reason || 'robots-not-index');
 
   const q = record.quality || {};
   for (const key of [

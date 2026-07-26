@@ -5,15 +5,18 @@
       "id": "neela-nataraj-methodology-review",
       "personName": "Prof. Dr. Neela Nataraj",
       "organization": "Indian Institute of Technology Bombay",
-      "relationshipVerified": true,
-      "publicClaimAllowed": true,
+      "relationshipVerified": false,
+      "scopeVerified": false,
+      "publicClaimAllowed": false,
       "scope": "statistical computing methodology review",
       "allowedPublicPhrases": [
-        "Academic oversight",
-        "Methodology review",
+        "Academic sources and methodology references",
         "statistical computing components"
       ],
       "forbiddenPublicPhrases": [
+        "Academic adviser",
+        "Academic oversight",
+        "Expert Review",
         "certifies SectorCalc",
         "approves shop-floor results",
         "engineering sign-off",
@@ -23,7 +26,7 @@
         "PE stamp"
       ],
       "schemaPersonId": "https://sectorcalc.com/#person-neela-nataraj",
-      "notes": "Preserves PR #145 production claim scope. Do not widen beyond statistical computing methodology review without private evidence update outside this repo."
+      "notes": "Public named academic-oversight claim disabled until relationshipVerified+scopeVerified+publicClaimAllowed are all true with private evidence held outside this repo."
     }
   ]
 }
