@@ -27,7 +27,7 @@ const checks = [
   ['Paddle client token', /test_6380be7c84b551e3fcd08d55d7e|live_/],
   ['Ops gate hash', /2d0dad38ec6b68bb25fbb34817eeb1df2fff0ecbcf7d7794e7a2c630b4028dba/],
   ['Login page', /Sign in — SectorCalc|Create account/],
-  ['Account page', /Engineer account|One identity for credits|Available credits/],
+  ['Account page', /SectorCalc account|Available credits|Billing|Device session/],
   ['Ops page', /Administration|Ops gate|Operator help|Diagnostics|Users & credits/]
 ];
 

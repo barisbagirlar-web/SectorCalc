@@ -5,6 +5,7 @@ import {
   readCredits,
   getPaddlePublicConfig
 } from './payments/paddle/index.js';
+import { currentUser, recordLocalPurchase, recordCloudPurchase } from './auth/index.js';
 
 function renderBalance(): void {
   const el = document.querySelector('#credit-balance');
@@ -12,6 +13,19 @@ function renderBalance(): void {
   const balance = readCredits().balance;
   el.textContent =
     balance === 1 ? 'Balance: 1 credit (this browser)' : `Balance: ${balance} credits (this browser)`;
+}
+
+async function persistPurchase(detail: { granted?: number; txnId?: string; source?: string }): Promise<void> {
+  const credits = Number(detail.granted) || 0;
+  if (credits <= 0) return;
+  recordLocalPurchase({ credits, txnId: detail.txnId, source: detail.source });
+  const user = currentUser();
+  if (!user) return;
+  try {
+    await recordCloudPurchase(user, { credits, txnId: detail.txnId, source: detail.source });
+  } catch {
+    /* cloud purchase log best-effort */
+  }
 }
 
 function init(): void {
@@ -66,10 +80,15 @@ function init(): void {
   });
 
   renderBalance();
-  window.addEventListener('sectorcalc-credits', () => {
+  window.addEventListener('sectorcalc-credits', ((ev: CustomEvent) => {
     renderBalance();
-    if (status) status.textContent = 'Credits added to this browser.';
-  });
+    if (status) status.textContent = 'Credits added. Receipt saved to your account history.';
+    void persistPurchase({
+      granted: ev.detail?.granted,
+      txnId: ev.detail?.txnId,
+      source: ev.detail?.source
+    });
+  }) as EventListener);
   window.addEventListener('sectorcalc-checkout', ((ev: CustomEvent) => {
     if (!status) return;
     const name = ev.detail?.name;

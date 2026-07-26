@@ -5,6 +5,7 @@
 import {
   addDoc,
   collection,
+  collectionGroup,
   getDocs,
   limit,
   orderBy,
@@ -15,6 +16,12 @@ import {
 import type { User } from 'firebase/auth';
 import { getFirebaseDb } from './firebase-app.js';
 import { readUserProfile, setUserCredits, type UserProfile } from './profile.js';
+import type { PurchaseRecord } from './account-data.js';
+
+export interface OpsPurchaseRow extends PurchaseRecord {
+  uid: string;
+  email: string;
+}
 
 export interface OpsAuditEvent {
   id: string;
@@ -117,6 +124,38 @@ export async function adminAdjustUserCredits(
     throw new Error('Resulting credits must be a non-negative integer');
   }
   return adminSetUserCredits(actor, uid, next, reason || `delta ${delta >= 0 ? '+' : ''}${delta}`);
+}
+
+/** Collection-group scan of purchase receipts (ops admin only). */
+export async function listAllPurchases(max = 200): Promise<OpsPurchaseRow[]> {
+  const snap = await getDocs(collectionGroup(getFirebaseDb(), 'purchases'));
+  const rows: OpsPurchaseRow[] = [];
+  snap.forEach((docSnap) => {
+    const data = docSnap.data();
+    const at = data.at as Timestamp | undefined;
+    const parent = docSnap.ref.parent.parent;
+    rows.push({
+      id: docSnap.id,
+      uid: parent?.id || '',
+      email: String(data.email || ''),
+      credits: Number(data.credits) || 0,
+      amountLabel: String(data.amountLabel || '—'),
+      txnId: String(data.txnId || docSnap.id),
+      source: String(data.source || 'checkout'),
+      at: at && typeof at.toDate === 'function' ? at.toDate().toISOString() : new Date(0).toISOString()
+    });
+  });
+  rows.sort((a, b) => b.at.localeCompare(a.at));
+  return rows.slice(0, max);
+}
+
+export function estimateGmvUsd(rows: OpsPurchaseRow[]): number {
+  let sum = 0;
+  for (const row of rows) {
+    const m = String(row.amountLabel).replace(/,/g, '').match(/(\d+(?:\.\d+)?)/);
+    if (m) sum += Number(m[1]);
+  }
+  return Math.round(sum * 100) / 100;
 }
 
 export function profilesToCsv(rows: UserProfile[]): string {
