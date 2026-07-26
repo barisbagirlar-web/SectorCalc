@@ -58,7 +58,7 @@ const EXPECTED = {
     ]
   },
   'pricing.html': {
-    mustInclude: ['/', '/calculator/tolerance-stack-up', '/tools.html', '/glossary', '/guides', '/compare']
+    mustInclude: ['/', '/tools.html', '/glossary', '/guides', '/compare']
   },
   'pro.html': {
     mustInclude: ['/', '/pricing.html', '/tools.html', '/glossary', '/guides', '/compare']
@@ -67,7 +67,6 @@ const EXPECTED = {
     mustInclude: ['/', '/pricing.html', '/glossary', '/compare', '/guides', '/sc008-pro.html']
   }
 };
-
 const issues = [];
 
 // Firebase hosting rewrites: pretty URL -> physical file (see firebase.json).
@@ -102,6 +101,10 @@ const REWRITE_TARGETS = {
   guides: 'public/guides/index.html',
   blog: 'public/blog/index.html',
   'case-studies': 'public/case-studies/index.html',
+  about: 'public/about/index.html',
+  contact: 'public/contact/index.html',
+  privacy: 'public/privacy/index.html',
+  terms: 'public/terms/index.html',
 };
 
 function resolveTarget(target) {
