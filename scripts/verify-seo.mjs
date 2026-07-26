@@ -46,7 +46,7 @@ for (const e of validateRegistryInvariants()) fail(e);
 for (const f of [
   'public/robots.txt', 'public/ai-robots.txt', 'public/sitemap.xml',
   'public/sitemap-images.xml', 'public/llm.txt', 'public/llms.txt', 'public/404.html',
-  'public/assets/js/cvw-monitor.js', 'public/assets/js/sc-ga4-id.js',
+  'public/assets/js/cvw-monitor.js', 'public/assets/js/sc-ga4-id.js', 'public/assets/js/sc-funnel-analytics.js',
   'public/assets/images/sectorcalc-og-1200x630.jpg',
   'scripts/seo-live-guard.mjs', '.github/workflows/deploy.yml',
   'seo/registry.mjs', 'seo/registry-data.mjs',

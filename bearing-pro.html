@@ -449,12 +449,13 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
 </script>
 <!--SC-SEO-SCHEMA-END-->
 <link rel="stylesheet" href="/sc-related-tools.css?v=1">
-                        <link rel="stylesheet" href="/sc-calc-sheet.css?v=1">
+                        <link rel="stylesheet" href="/sc-money.css?v=1">
+  <link rel="stylesheet" href="/sc-calc-sheet.css?v=1">
   <!--SC-CALC-SHEET-START-->
   <!-- calc-sheet theme: theme-calc-sheet -->
   <!--SC-CALC-SHEET-END-->
 </head>
-<body data-tool-badge="SC-021 · Bearing Life L10" class="theme-calc-sheet">
+<body data-tool-badge="SC-021 · Bearing Life L10" class="theme-calc-sheet" data-sc-tool-id="SC-021" data-sc-primary-entity="bearing-life-l10" data-sc-canonical="/calculator/bearing-life-l10" data-sc-query-cluster="bearing-life-l10" data-sc-revenue-tier="A">
 <!--SC-SITE-NAV-START-->
 <header class="site-header" id="siteHeader" role="banner">
   <a href="/" class="brand" aria-label="SectorCalc Home"><span class="brand-mark"><img class="logo-light" src="/sectorcalc-logo-214.w.png" srcset="/sectorcalc-logo-214.w.png 214w, /sectorcalc-logo-428.w.png 428w" sizes="183px" width="183" height="48" alt="SectorCalc" decoding="async"><img class="logo-dark" src="/sectorcalc-logo-dark-214.w.png" srcset="/sectorcalc-logo-dark-214.w.png 214w, /sectorcalc-logo-dark-428.w.png 428w" sizes="183px" width="183" height="48" alt="" aria-hidden="true" decoding="async"></span></a>
@@ -488,6 +489,7 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
   <a href="/login.html" class="btn-primary" data-nav="login">Sign in</a>
 </div>
 <!--SC-SITE-NAV-END-->
+
 
 
 
@@ -561,6 +563,7 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
   <div class="head">
     <div>
       <h1>Bearing Life L10 — Modified Rating Life (ISO 281:2007)</h1>
+<p class="sc-direct-answer" data-money-block="01" data-tool-id="SC-021">Bearing L10 life estimates the millions of revolutions (or hours) at which 90% of a bearing population is expected to survive under a stated equivalent load, with optional aISO modification for lubrication and contamination conditions.</p>
       <p>Industrial bearing selection &amp; life-verification engine: basic rating life L<sub>10</sub>, modified rating life L<sub>nm</sub> with the <b>digitized ISO 281:2007 a<sub>ISO</sub> equations</b> (lubrication κ, contamination e<sub>C</sub>, fatigue load limit C<sub>u</sub>), ASTM D341/D2270 viscosity-temperature model, equivalent-load X/Y interpolation, static safety check — every input with <b>selectable universal units</b> and <b>reference-standard values</b>, every report with the full audit trail.</p>
     </div>
     <div>
@@ -1465,31 +1468,37 @@ calculate();
 </script>
 <!--SC-SEO-CVW-->
 <script src="/assets/js/sc-ga4-id.js"></script>
+<script src="/assets/js/sc-funnel-analytics.js" defer></script>
 <script src="/assets/js/cvw-monitor.js" defer></script>
 
-<!--SC-RELATED-TOOLS-START-->
-<section class="related-tools-section" aria-labelledby="related-tools-heading">
-  <h2 id="related-tools-heading">Related Calculators</h2>
-  <div class="related-grid">
-    <a href="/calculator/tolerance-stack-up" class="related-card">
-      <div class="rt-title">SC-008 Tolerance Stack-Up</div>
-      <div class="rt-desc">Stack the fit before L10</div>
-    </a>
-    <a href="/calculator/cnc-feeds-speeds" class="related-card">
-      <div class="rt-title">SC-020 Feeds & Speeds</div>
-      <div class="rt-desc">Machine the raceway correctly</div>
-    </a>
-    <a href="/calculator/bearing-frequencies" class="related-card">
-      <div class="rt-title">SC-024 Bearing Frequencies</div>
-      <div class="rt-desc">BPFO/BPFI after life sizing</div>
-    </a>
-    <a href="/calculator/iso-286-fits" class="related-card">
-      <div class="rt-title">SC-027 Fits & Clearances</div>
-      <div class="rt-desc">ISO 286 seat selection</div>
-    </a>
-  </div>
+<!--SC-MONEY-START-->
+<aside class="sc-money-contract" data-money-contract="tier-a" data-tool-id="SC-021" data-primary-entity="bearing-life-l10" data-query-cluster="bearing-life-l10" data-primary-query="bearing life calculator iso 281" data-canonical="/calculator/bearing-life-l10">
+<section class="sc-money-block" data-money-block="03"><h2>Decision this supports</h2><p>Screen whether a catalog bearing capacity is credible for speed and load before locking a housing design or greasing interval story.</p></section>
+<section class="sc-money-block" data-money-block="04"><h2>Required inputs</h2><p>Dynamic capacity C, equivalent load P, speed, bearing type exponent, and aISO (or factors used to form it).</p></section>
+<section class="sc-money-block" data-money-block="05"><h2>Formula / method</h2><p>L10 = (C/P)^p × 10⁶ revolutions; L10h = L10 / (60·n). Modified life multiplies by aISO when lubrication/contamination adjustment is applied.</p></section>
+<section class="sc-money-block" data-money-block="06" id="money-worked-example">
+  <h2>Worked example</h2>
+  <p class="sc-money-lede">Deep-groove ball bearing L10 / Lnm. Basic rating life from dynamic capacity and equivalent load, then modified life with the supplied aISO factor. Manufacturer catalog values remain authoritative for contract selection.</p>
+  <p class="sc-money-engine" data-worked-provenance="engine-generated">Engine source: <code>bearing-pro.html ISO 281 core (extracted pure; aISO supplied)</code> · tool <code>SC-021</code></p>
+  <h3>Golden inputs</h3>
+  <table class="sc-money-table"><tbody><tr><th scope="row">C</th><td><code>62000</code></td></tr><tr><th scope="row">P</th><td><code>8500</code></td></tr><tr><th scope="row">n</th><td><code>1800</code></td></tr><tr><th scope="row">bearingType</th><td><code>ball</code></td></tr><tr><th scope="row">aISO</th><td><code>1.2</code></td></tr></tbody></table>
+  <h3>Verified engine outputs</h3>
+  <table class="sc-money-table"><tbody><tr><th scope="row">L10h</th><td><code>3593.31</code></td></tr><tr><th scope="row">Lnmh</th><td><code>4311.97</code></td></tr><tr><th scope="row">lifeRatio</th><td><code>7.2941</code></td></tr><tr><th scope="row">exponent</th><td><code>3</code></td></tr></tbody></table>
 </section>
-<!--SC-RELATED-TOOLS-END-->
+<section class="sc-money-block" data-money-block="07"><h2>What the result means</h2><p>L10 is a reliability statistic, not a warranty clock. Short L10 under steady load means resize, derate, or fix lubrication — not “hope”.</p></section>
+<section class="sc-money-block" data-money-block="08"><h2>What moves the result</h2><p>Load ratio C/P dominates. Speed converts revolutions to hours. aISO can swing life by orders of magnitude when mis-set.</p></section>
+<section class="sc-money-block" data-money-block="09"><h2>Assumptions</h2><p>ISO 281 basic rating framework. Equivalent load already includes radial/axial combination per catalog method.</p></section>
+<section class="sc-money-block" data-money-block="10"><h2>Model boundaries</h2><p>Screening model. Manufacturer tables, clearance fits, misalignment, and grease life can govern. Not a substitute for supplier selection software on safety-critical spindles.</p></section>
+<section class="sc-money-block" data-money-block="11"><h2>Common engineering mistakes</h2><p>Using Fr as P without axial factors; confusing L10h with calendar maintenance intervals; setting aISO = 1 in dirty oil.</p></section>
+<section class="sc-money-block" data-money-block="12"><h2>Standard / reference scope</h2><p>Implements ISO 281 rating-life equations in the stated scope. Does not claim full ISO 281 annex coverage for every adjustment factor table.</p></section>
+<section class="sc-money-block" data-money-block="13"><h2>A1–A5 audit trail</h2><p>A1–A5 document capacity inputs, exponents, aISO, and warnings when life leaves credible bands.</p></section>
+<section class="sc-money-block" data-money-block="14"><h2>Related glossary</h2><ul><li><a href="/glossary/bearing-l10-life">/glossary/bearing-l10-life</a></li><li><a href="/glossary/iso-281">/glossary/iso-281</a></li></ul></section>
+<section class="sc-money-block" data-money-block="15"><h2>Related guide &amp; calculators</h2><p><a href="/guides/bearing-life-complete">/guides/bearing-life-complete</a></p><ul><li><a href="/calculator/bearing-frequencies">/calculator/bearing-frequencies</a></li><li><a href="/calculator/belt-chain-drive">/calculator/belt-chain-drive</a></li><li><a href="/calculator/shaft-design">/calculator/shaft-design</a></li></ul></section>
+<section class="sc-money-block sc-money-cta" data-money-block="16"><h2>Commercial next step</h2><p>Keep the life audit with the shaft design package when customers ask why a larger bearing was selected.</p>
+<p class="sc-money-cta-actions"><a class="sc-money-link" href="/pricing.html" data-sc-funnel="pricing">View pricing</a>
+<a class="sc-money-link" href="/pro.html">Pro hub</a></p></section>
+</aside>
+<!--SC-MONEY-END-->
 <!--SC-CALC-SHEET-TB-START-->
 <aside class="sc-calc-sheet-titleblock" aria-hidden="true">
   <div class="tb-row"><span class="tb-label">DWG</span><span class="tb-value">SC-021-001</span></div>
@@ -1498,5 +1507,24 @@ calculate();
   <div class="tb-row"><span class="tb-label">DATE</span><span class="tb-value">2026-07-26</span></div>
 </aside>
 <!--SC-CALC-SHEET-TB-END-->
+<!--SC-RELATED-TOOLS-START-->
+<section class="related-tools-section" aria-labelledby="related-tools-heading">
+  <h2 id="related-tools-heading">Related Calculators</h2>
+  <div class="related-grid">
+    <a href="/calculator/bearing-frequencies" class="related-card">
+      <div class="rt-title">SC-024 Bearing Frequencies</div>
+      <div class="rt-desc">Calculate bearing defect frequencies for vibration analysis. BPFO, BPFI, BSF, FTF with determini</div>
+    </a>
+    <a href="/calculator/belt-chain-drive" class="related-card">
+      <div class="rt-title">SC-025 Belt & Chain Drive</div>
+      <div class="rt-desc">Belt and chain drive sizing with speed ratio, center distance, and tension calculations. Determi</div>
+    </a>
+    <a href="/calculator/shaft-design" class="related-card">
+      <div class="rt-title">SC-026 Shaft Design</div>
+      <div class="rt-desc">Shaft design with combined torsion and bending stress, fatigue factor, and safety margin. Determ</div>
+    </a>
+  </div>
+</section>
+<!--SC-RELATED-TOOLS-END-->
 </body>
 </html>

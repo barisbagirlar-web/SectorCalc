@@ -468,12 +468,13 @@
 </script>
 <!--SC-SEO-SCHEMA-END-->
 <link rel="stylesheet" href="/sc-related-tools.css?v=1">
-                        <link rel="stylesheet" href="/sc-calc-sheet.css?v=1">
+                        <link rel="stylesheet" href="/sc-money.css?v=1">
+  <link rel="stylesheet" href="/sc-calc-sheet.css?v=1">
   <!--SC-CALC-SHEET-START-->
   <!-- calc-sheet theme: theme-calc-sheet -->
   <!--SC-CALC-SHEET-END-->
 </head>
-<body data-tool-badge="SC-010 · True Labor Cost" class="theme-calc-sheet">
+<body data-tool-badge="SC-010 · True Labor Cost" class="theme-calc-sheet" data-sc-tool-id="SC-010" data-sc-primary-entity="true-labor-cost" data-sc-canonical="/calculator/true-labor-cost" data-sc-query-cluster="labor-burden-cost" data-sc-revenue-tier="A">
 <!--SC-SITE-NAV-START-->
 <header class="site-header" id="siteHeader" role="banner">
   <a href="/" class="brand" aria-label="SectorCalc Home"><span class="brand-mark"><img class="logo-light" src="/sectorcalc-logo-214.w.png" srcset="/sectorcalc-logo-214.w.png 214w, /sectorcalc-logo-428.w.png 428w" sizes="183px" width="183" height="48" alt="SectorCalc" decoding="async"><img class="logo-dark" src="/sectorcalc-logo-dark-214.w.png" srcset="/sectorcalc-logo-dark-214.w.png 214w, /sectorcalc-logo-dark-428.w.png 428w" sizes="183px" width="183" height="48" alt="" aria-hidden="true" decoding="async"></span></a>
@@ -508,6 +509,7 @@
 </div>
 <!--SC-SITE-NAV-END-->
 <div class="sc-tool-strip"><b>SC-010 · True Labor Cost</b><span>Engineering preview · Decimal engine · Not for production approval</span></div>
+
 
 
 
@@ -581,6 +583,7 @@
     <a href="/" class="sc-logo" title="SectorCalc home" aria-label="SectorCalc home"><img class="logo-light" src="/sectorcalc-logo.png" alt="SectorCalc" width="160" height="42"><img class="logo-dark" src="/sectorcalc-logo-dark.png?v=2" alt="" width="160" height="42" aria-hidden="true"></a>
     <div class="sc-header-brand">
       <h1 class="sc-header-title">True Labor Cost Calculator</h1>
+<p class="sc-direct-answer" data-money-block="01" data-tool-id="SC-010">True labor cost is the fully loaded employer cost of an hour of work — grossed-up pay plus employer social charges, benefits, severance accrual, overtime, and amortized recruitment — not the net wage on the payslip.</p>
       <div class="sc-header-sub">Engineering preview · Client-side · Deterministic Decimal engine · Not for production approval</div>
     </div>
   </div>
@@ -860,31 +863,37 @@ hiddenCostPct = (trueMonthlyCost − netMonthly) / netMonthly × 100</div>
 <script type="module" src="/src/labor-pro.ts"></script>
 <!--SC-SEO-CVW-->
 <script src="/assets/js/sc-ga4-id.js"></script>
+<script src="/assets/js/sc-funnel-analytics.js" defer></script>
 <script src="/assets/js/cvw-monitor.js" defer></script>
 
-<!--SC-RELATED-TOOLS-START-->
-<section class="related-tools-section" aria-labelledby="related-tools-heading">
-  <h2 id="related-tools-heading">Related Calculators</h2>
-  <div class="related-grid">
-    <a href="/calculator/cnc-feeds-speeds" class="related-card">
-      <div class="rt-title">SC-020 Feeds & Speeds</div>
-      <div class="rt-desc">Tolerance inputs from machining capability data</div>
-    </a>
-    <a href="/calculator/bearing-life-l10" class="related-card">
-      <div class="rt-title">SC-021 Bearing Life</div>
-      <div class="rt-desc">Validate fit assumptions after stack closure</div>
-    </a>
-    <a href="/calculator/iso-286-fits" class="related-card">
-      <div class="rt-title">SC-027 Fits & Clearances</div>
-      <div class="rt-desc">ISO 286 hole/shaft fit selection</div>
-    </a>
-    <a href="/calculator/surface-finish" class="related-card">
-      <div class="rt-title">SC-028 Surface Finish</div>
-      <div class="rt-desc">Ra, Rz capability for stack surfaces</div>
-    </a>
-  </div>
+<!--SC-MONEY-START-->
+<aside class="sc-money-contract" data-money-contract="tier-a" data-tool-id="SC-010" data-primary-entity="true-labor-cost" data-query-cluster="labor-burden-cost" data-primary-query="true labor cost calculator" data-canonical="/calculator/true-labor-cost">
+<section class="sc-money-block" data-money-block="03"><h2>Decision this supports</h2><p>Price labor honestly into machine rates and quotes, compare country burden, and see the hidden cost percentage above net pay.</p></section>
+<section class="sc-money-block" data-money-block="04"><h2>Required inputs</h2><p>Country profile, net pay and frequency, hours/week, optional rate overrides, benefits, bonus, overtime, recruitment cost and tenure.</p></section>
+<section class="sc-money-block" data-money-block="05"><h2>Formula / method</h2><p>Normalize net → monthly, gross-up by employee rate, add employer charges and benefits, accrue severance, add overtime and amortized recruitment, then divide by paid hours.</p></section>
+<section class="sc-money-block" data-money-block="06" id="money-worked-example">
+  <h2>Worked example</h2>
+  <p class="sc-money-lede">German monthly net €3,200 fully loaded. Production SC-010 converts net pay into true employer cost including employer social charges, benefits, severance accrual, and amortized recruitment.</p>
+  <p class="sc-money-engine" data-worked-provenance="engine-generated">Engine source: <code>src/tools/SC-010-labor-cost/v1.0.0/formula.ts</code> · tool <code>SC-010</code></p>
+  <h3>Golden inputs</h3>
+  <table class="sc-money-table"><tbody><tr><th scope="row">country</th><td><code>DE</code></td></tr><tr><th scope="row">netSalary</th><td><code>3200</code></td></tr><tr><th scope="row">payFrequency</th><td><code>monthly</code></td></tr><tr><th scope="row">hoursPerWeek</th><td><code>40</code></td></tr><tr><th scope="row">healthMonthly</th><td><code>120</code></td></tr><tr><th scope="row">mealMonthly</th><td><code>80</code></td></tr><tr><th scope="row">transportMonthly</th><td><code>50</code></td></tr><tr><th scope="row">annualBonus</th><td><code>2400</code></td></tr><tr><th scope="row">recruitmentCost</th><td><code>4500</code></td></tr><tr><th scope="row">tenureYears</th><td><code>3</code></td></tr></tbody></table>
+  <h3>Verified engine outputs</h3>
+  <table class="sc-money-table"><tbody><tr><th scope="row">trueMonthlyCost</th><td><code>5425.00</code></td></tr><tr><th scope="row">trueHourlyCost</th><td><code>31.32</code></td></tr><tr><th scope="row">costMultiplier</th><td><code>1.70</code></td></tr><tr><th scope="row">hiddenCostPct</th><td><code>69.5</code></td></tr><tr><th scope="row">currency</th><td><code>EUR</code></td></tr></tbody></table>
 </section>
-<!--SC-RELATED-TOOLS-END-->
+<section class="sc-money-block" data-money-block="07"><h2>What the result means</h2><p>Cost multiplier &gt; 1.5 is common. If your quote uses net wage as labor €/h, you are understating cost by the hidden percentage the engine reports.</p></section>
+<section class="sc-money-block" data-money-block="08"><h2>What moves the result</h2><p>Employer social rates and net pay dominate. Recruitment amortization matters on short tenure. Overtime multiplies quickly.</p></section>
+<section class="sc-money-block" data-money-block="09"><h2>Assumptions</h2><p>Country defaults are reference profiles. Overrides replace defaults when provided. Tenure amortizes recruitment linearly.</p></section>
+<section class="sc-money-block" data-money-block="10"><h2>Model boundaries</h2><p>Not payroll, tax advice, or a CBA interpreter. Local statutory rules can differ from the screening profile.</p></section>
+<section class="sc-money-block" data-money-block="11"><h2>Common engineering mistakes</h2><p>Using net instead of true hourly cost in quotes; ignoring employer charges; setting tenure to zero.</p></section>
+<section class="sc-money-block" data-money-block="12"><h2>Standard / reference scope</h2><p>Cost-engineering labor burden model. Not a claim of full statutory payroll compliance for every jurisdiction.</p></section>
+<section class="sc-money-block" data-money-block="13"><h2>A1–A5 audit trail</h2><p>Steps and conservation lock provide the reproducible trail from net pay to true monthly/hourly cost.</p></section>
+<section class="sc-money-block" data-money-block="14"><h2>Related glossary</h2><ul><li><a href="/glossary/labor-burden-rate">/glossary/labor-burden-rate</a></li><li><a href="/glossary/machine-hour-rate">/glossary/machine-hour-rate</a></li></ul></section>
+<section class="sc-money-block" data-money-block="15"><h2>Related guide &amp; calculators</h2><p><a href="/guides/labor-costing-complete">/guides/labor-costing-complete</a></p><ul><li><a href="/calculator/machine-hour-rate">/calculator/machine-hour-rate</a></li><li><a href="/calculator/oee-teep">/calculator/oee-teep</a></li><li><a href="/calculator/quote-pricing">/calculator/quote-pricing</a></li></ul></section>
+<section class="sc-money-block sc-money-cta" data-money-block="16"><h2>Commercial next step</h2><p>Feed true hourly cost into machine-hour and quote tools, then keep the burden breakdown when finance asks why shop labor is not “just the wage”.</p>
+<p class="sc-money-cta-actions"><a class="sc-money-link" href="/pricing.html" data-sc-funnel="pricing">View pricing</a>
+<a class="sc-money-link" href="/pro.html">Pro hub</a></p></section>
+</aside>
+<!--SC-MONEY-END-->
 <!--SC-CALC-SHEET-TB-START-->
 <aside class="sc-calc-sheet-titleblock" aria-hidden="true">
   <div class="tb-row"><span class="tb-label">DWG</span><span class="tb-value">SC-010-001</span></div>
@@ -893,5 +902,24 @@ hiddenCostPct = (trueMonthlyCost − netMonthly) / netMonthly × 100</div>
   <div class="tb-row"><span class="tb-label">DATE</span><span class="tb-value">2026-07-26</span></div>
 </aside>
 <!--SC-CALC-SHEET-TB-END-->
+<!--SC-RELATED-TOOLS-START-->
+<section class="related-tools-section" aria-labelledby="related-tools-heading">
+  <h2 id="related-tools-heading">Related Calculators</h2>
+  <div class="related-grid">
+    <a href="/calculator/machine-hour-rate" class="related-card">
+      <div class="rt-title">SC-038 Machine Rate</div>
+      <div class="rt-desc">True machine hour rate with depreciation, maintenance, power, and overhead allocation. Determini</div>
+    </a>
+    <a href="/calculator/oee-teep" class="related-card">
+      <div class="rt-title">SC-037 OEE</div>
+      <div class="rt-desc">Overall Equipment Effectiveness, TEEP, and capacity loss breakdown with availability, performanc</div>
+    </a>
+    <a href="/calculator/quote-pricing" class="related-card">
+      <div class="rt-title">SC-012 Quote Pricing</div>
+      <div class="rt-desc">Quote pricing with material, labor, overhead, markup, and margin analysis. Deterministic audit t</div>
+    </a>
+  </div>
+</section>
+<!--SC-RELATED-TOOLS-END-->
 </body>
 </html>

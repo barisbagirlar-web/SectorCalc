@@ -1,0 +1,26 @@
+{
+  "toolId": "SC-010",
+  "primaryEntity": "true-labor-cost",
+  "engineSource": "src/tools/SC-010-labor-cost/v1.0.0/formula.ts",
+  "title": "German monthly net €3,200 fully loaded",
+  "narrative": "Production SC-010 converts net pay into true employer cost including employer social charges, benefits, severance accrual, and amortized recruitment.",
+  "inputs": {
+    "country": "DE",
+    "netSalary": "3200",
+    "payFrequency": "monthly",
+    "hoursPerWeek": "40",
+    "healthMonthly": "120",
+    "mealMonthly": "80",
+    "transportMonthly": "50",
+    "annualBonus": "2400",
+    "recruitmentCost": "4500",
+    "tenureYears": "3"
+  },
+  "outputs": {
+    "trueMonthlyCost": "5425.00",
+    "trueHourlyCost": "31.32",
+    "costMultiplier": "1.70",
+    "hiddenCostPct": "69.5",
+    "currency": "EUR"
+  }
+}

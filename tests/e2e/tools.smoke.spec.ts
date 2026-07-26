@@ -120,7 +120,11 @@ test('pricing page renders packages from source of truth', async ({ page }) => {
   await expect(page.locator('#packages .pack')).toHaveCount(5, { timeout: 8000 });
   await expect(page.locator('#packages .pack.pop, #packages .pack.featured').first()).toBeVisible();
   await page.locator('#packages button.load').first().click();
-  await expect(page.locator('#pay-status')).toContainText(/Checkout is not live yet/i);
+  // When Paddle client token is configured, Buy opens sandbox/live overlay.
+  // When missing, UI keeps the honest "not live yet" status.
+  await expect(page.locator('#pay-status')).toContainText(
+    /Opening Paddle (sandbox )?checkout|Checkout is not live yet/i,
+  );
 });
 
 test('homepage mobile nav hamburger opens links', async ({ page }) => {

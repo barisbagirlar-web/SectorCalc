@@ -82,7 +82,11 @@ function onPaddleEvent(event: PaddleCheckoutEvent): void {
   pendingCredits = 0;
   window.dispatchEvent(
     new CustomEvent('sectorcalc-checkout', {
-      detail: { name: event.name, ...result }
+      detail: {
+        name: event.name,
+        transactionId: result.txnId,
+        ...result
+      }
     })
   );
   if (result.granted > 0) {
@@ -152,6 +156,11 @@ export async function openCreditCheckout(priceId: string): Promise<void> {
     product: 'credit_pack',
     credits: String(pack.credits)
   };
+  window.dispatchEvent(
+    new CustomEvent('sectorcalc-checkout', {
+      detail: { name: 'checkout.open', priceId, credits: pack.credits }
+    })
+  );
   paddle.Checkout.open({
     items: [{ priceId, quantity: 1 }],
     settings: { displayMode: 'overlay', theme: 'light' },

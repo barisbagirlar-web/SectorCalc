@@ -1,0 +1,16 @@
+{
+  "toolId": "SC-035",
+  "primaryEntity": "bolt-torque-preload",
+  "engineSource": "bolt-pro.html assembly torque core (extracted pure)",
+  "title": "M10 assembly torque from target preload",
+  "narrative": "Assembly torque from nut factor K, target preload, and nominal diameter. Friction scatter dominates — treat as screening, not a substitute for VDI 2230 joint design.",
+  "inputs": {
+    "K": 0.18,
+    "F": 32000,
+    "d": 0.01
+  },
+  "outputs": {
+    "torqueNm": 57.6,
+    "meanStressMPa": 407436654.32
+  }
+}
