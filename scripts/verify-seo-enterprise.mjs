@@ -1,0 +1,23 @@
+#!/usr/bin/env node
+/** Enterprise SEO master gate — registry + discovery + language + links + core verify-seo. */
+import { spawnSync } from 'node:child_process';
+
+const steps = [
+  ['node', ['scripts/export-seo-registry.mjs']],
+  ['node', ['scripts/generate-sitemap.mjs']],
+  ['node', ['scripts/generate-llm-discovery.mjs']],
+  ['node', ['scripts/verify-seo.mjs']],
+  ['node', ['scripts/verify-language-integrity.mjs']],
+  ['node', ['scripts/verify-internal-link-graph.mjs']],
+  ['node', ['scripts/verify-hero-sacred.mjs']],
+];
+
+for (const [cmd, args] of steps) {
+  console.log(`\n$ ${cmd} ${args.join(' ')}`);
+  const res = spawnSync(cmd, args, { stdio: 'inherit' });
+  if (res.status !== 0) {
+    console.error(`[FAIL] verify:seo:enterprise stopped at ${args.join(' ')}`);
+    process.exit(res.status || 1);
+  }
+}
+console.log('\n[PASS] verify:seo:enterprise');

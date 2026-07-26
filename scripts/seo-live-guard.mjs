@@ -160,6 +160,18 @@ if (MODE === 'live') {
   if (!location.startsWith(CANONICAL_HOST)) fail(`www redirect target is not apex: ${location || 'missing'}`);
 }
 
+
+// LLM discovery must not advertise legacy *-pro.html primary URLs or stale sitemap counts.
+const llmLive = await get(remote('/llms.txt'));
+if (llmLive.res.status !== 200) fail(`llms.txt HTTP ${llmLive.res.status}`);
+const llmTxt = llmLive.text;
+const legacyLlm = [...llmTxt.matchAll(/https:\/\/sectorcalc\.com\/[a-z0-9-]+-pro\.html/gi)];
+if (legacyLlm.length) fail(`llms.txt contains ${legacyLlm.length} legacy *-pro.html URL(s)`);
+if (/\*\*32\*\*/.test(llmTxt)) fail('llms.txt still claims stale 32 sitemap URLs');
+if (!llmTxt.includes(`## Live tools — ${[...sitemap.text.matchAll(/<loc>[^<]*\/calculator\//g)].length}`) && !llmTxt.includes('## Live tools — 25')) {
+  fail('llms.txt live tools count missing/unexpected');
+}
+
 if (errors.length) {
   console.error(`[FAIL] ${MODE} SEO guard for ${FETCH_HOST}:\n` + errors.map((e) => `  - ${e}`).join('\n'));
   process.exit(1);

@@ -1,43 +1,27 @@
 #!/usr/bin/env node
-/** SectorCalc release SEO guard — fail closed on crawl/index/discovery/release regressions. */
+/** SectorCalc release SEO guard — fail closed on crawl/index/discovery/release regressions.
+ * Canonical maps come from seo/registry.mjs (SSOT). No parallel TOOL_CANONICAL.
+ */
 import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
+import {
+  HOST,
+  toolCanonicalBySourceFile,
+  sitemapLocs,
+  publishedCalculators,
+  validateRegistryInvariants,
+  absoluteUrl,
+} from '../seo/registry.mjs';
 
 const ROOT = process.cwd();
-const HOST = 'https://sectorcalc.com';
 const errors = [];
 const fail = (msg) => errors.push(msg);
 const read = (p) => readFileSync(join(ROOT, p), 'utf8');
 
+const TOOL_CANONICAL = toolCanonicalBySourceFile();
 const toolPages = readdirSync(ROOT).filter((f) => f.endsWith('-pro.html')).sort();
 const pages = ['index.html', 'tools.html', 'pro.html', 'pricing.html', ...toolPages];
-const TOOL_CANONICAL = {
-  'sc008-pro.html': '/calculator/tolerance-stack-up',
-  'machining-pro.html': '/calculator/cnc-feeds-speeds',
-  'tap-thread-pro.html': '/calculator/tap-thread-milling',
-  'cycle-cost-pro.html': '/calculator/cycle-time-cost',
-  'bearing-pro.html': '/calculator/bearing-life-l10',
-  'bearing-freq-pro.html': '/calculator/bearing-frequencies',
-  'belt-chain-pro.html': '/calculator/belt-chain-drive',
-  'shaft-pro.html': '/calculator/shaft-design',
-  'fits-pro.html': '/calculator/iso-286-fits',
-  'surface-finish-pro.html': '/calculator/surface-finish',
-  'weld-pro.html': '/calculator/weld-thickness',
-  'heat-input-pro.html': '/calculator/weld-heat-input',
-  'bend-pro.html': '/calculator/sheet-metal-bend',
-  'punching-pro.html': '/calculator/punching-force',
-  'sling-pro.html': '/calculator/sling-capacity',
-  'shackle-eyebolt-pro.html': '/calculator/shackle-eyebolt',
-  'pressure-vessel-pro.html': '/calculator/pressure-vessel-shell',
-  'pipe-wall-pro.html': '/calculator/pipe-wall-thickness',
-  'hydraulic-pro.html': '/calculator/hydraulic-cylinder',
-  'bolt-pro.html': '/calculator/bolt-torque-preload',
-  'bolted-joint-pro.html': '/calculator/bolted-joint',
-  'labor-pro.html': '/calculator/true-labor-cost',
-  'quote-pro.html': '/calculator/quote-pricing',
-  'oee-pro.html': '/calculator/oee-teep',
-  'machine-rate-pro.html': '/calculator/machine-hour-rate',
-};
+
 const contentRoutes = [
   ['/blog', 'public/blog/index.html'],
   ['/blog/tolerance-stack-up-rss-vs-monte-carlo.html', 'public/blog/tolerance-stack-up-rss-vs-monte-carlo.html'],
@@ -49,10 +33,13 @@ for (const folder of ['glossary', 'compare', 'guides', 'about', 'contact', 'priv
   contentRoutes.push([`/${folder}`, `public/${folder}/index.html`]);
   for (const name of readdirSync(dir).filter((f) => f.endsWith('.html') && f !== 'index.html').sort()) {
     const slug = name.replace(/\.html$/, '');
-    contentRoutes.push([`/${folder}/${slug}`, `public/${folder}/${name}`]);
+    const route = folder === 'blog' ? `/${folder}/${name}` : `/${folder}/${slug}`;
+    contentRoutes.push([route, `public/${folder}/${name}`]);
   }
 }
 const localePreviews = ['de', 'ja', 'zh'];
+
+for (const e of validateRegistryInvariants()) fail(e);
 
 for (const f of [
   'public/robots.txt', 'public/ai-robots.txt', 'public/sitemap.xml',
@@ -60,10 +47,15 @@ for (const f of [
   'public/assets/js/cvw-monitor.js', 'public/assets/js/sc-ga4-id.js',
   'public/assets/images/sectorcalc-og-1200x630.jpg',
   'scripts/seo-live-guard.mjs', '.github/workflows/deploy.yml',
+  'seo/registry.mjs', 'seo/registry-data.mjs',
 ]) if (!existsSync(join(ROOT, f))) fail(`missing ${f}`);
 
 for (const [, file] of contentRoutes) if (!existsSync(join(ROOT, file))) fail(`missing ${file}`);
 for (const lang of localePreviews) if (!existsSync(join(ROOT, `public/${lang}/index.html`))) fail(`missing locale preview public/${lang}/index.html`);
+
+for (const page of toolPages) {
+  if (!TOOL_CANONICAL[page]) fail(`registry missing calculator canonical for ${page}`);
+}
 
 const robots = read('public/robots.txt');
 if (!/Sitemap:\s*https:\/\/sectorcalc\.com\/sitemap\.xml/.test(robots)) fail('robots missing apex sitemap');
@@ -83,14 +75,7 @@ for (const junk of ['llm.txt', 'llms.txt', 'robots.txt', 'ai-robots.txt', 'site.
 }
 for (const lang of localePreviews) if (sm.includes(`<loc>${HOST}/${lang}/</loc>`)) fail(`sitemap contains incomplete noindex locale ${lang}`);
 
-const requiredLocs = [
-  `${HOST}/`, `${HOST}/tools.html`, `${HOST}/pro.html`, `${HOST}/pricing.html`,
-  // Pretty calculator URLs are canonical; legacy *-pro.html 301s and must not appear in sitemap.
-  ...toolPages.map((p) => TOOL_CANONICAL[p]).filter(Boolean).map((route) => `${HOST}${route}`),
-  ...contentRoutes.map(([route]) => `${HOST}${route}`),
-];
-// Dedupe while preserving order.
-const requiredUnique = [...new Set(requiredLocs)];
+const requiredUnique = [...new Set(sitemapLocs())];
 for (const loc of requiredUnique) if (!sm.includes(`<loc>${loc}</loc>`)) fail(`sitemap missing ${loc}`);
 const locs = [...sm.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
 if (new Set(locs).size !== locs.length) fail('sitemap contains duplicate loc entries');
@@ -114,6 +99,23 @@ const llms = read('public/llms.txt');
 if (llm !== llms) fail('llm.txt and llms.txt drift; they must be byte-identical');
 for (const lang of localePreviews) if (llms.includes(`${HOST}/${lang}/`)) fail(`llms.txt advertises noindex locale ${lang}`);
 for (const bot of ['Googlebot', 'Bingbot', 'OAI-SearchBot', 'PerplexityBot']) if (!llms.includes(bot)) fail(`llms.txt missing crawler declaration ${bot}`);
+
+// P0: LLM content must track registry — not merely be byte-identical to each other while both stale.
+const llmToolCount = publishedCalculators().length;
+if (!llms.includes(`## Live tools — ${llmToolCount}`)) fail(`llms.txt tool count must be ${llmToolCount}`);
+if (/\*\*32\*\*\s+canonical indexable HTML URLs/i.test(llms)) fail('llms.txt still claims stale 32 sitemap URLs');
+if (!llms.includes(`**${requiredUnique.length}**`)) fail(`llms.txt must declare registry sitemap count ${requiredUnique.length}`);
+for (const page of toolPages) {
+  const legacyAbs = `${HOST}/${page}`;
+  if (llms.includes(`](${legacyAbs})`) || llms.includes(`](${legacyAbs.replace('https://', 'http://')})`)) {
+    fail(`llms.txt primary link uses legacy URL ${legacyAbs}`);
+  }
+}
+for (const pretty of Object.values(TOOL_CANONICAL)) {
+  if (!llms.includes(absoluteUrl(pretty))) fail(`llms.txt missing canonical calculator ${pretty}`);
+}
+const legacyPrimary = [...llms.matchAll(/https:\/\/sectorcalc\.com\/[a-z0-9-]+-pro\.html/gi)];
+if (legacyPrimary.length) fail(`llms.txt contains ${legacyPrimary.length} legacy *-pro.html URL(s)`);
 
 const simg = read('public/sitemap-images.xml');
 const imageParents = [...simg.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
@@ -176,4 +178,4 @@ if (errors.length) {
   console.error('[FAIL] SEO release guard:\n' + errors.map((e) => `  - ${e}`).join('\n'));
   process.exit(1);
 }
-console.log(`[PASS] SEO release guard: ${requiredUnique.length} canonical URLs, ${toolPages.length} tools, locale previews quarantined, discovery synchronized, preview-before-live promotion enforced`);
+console.log(`[PASS] SEO release guard: ${requiredUnique.length} canonical URLs, ${toolPages.length} tools, registry SSOT, llms/sitemap parity, locale previews quarantined, preview-before-live promotion enforced`);

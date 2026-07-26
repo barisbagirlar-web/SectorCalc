@@ -590,6 +590,7 @@
 
 
 
+
 <!--SC-SEO-BREADCRUMB-START-->
 <nav aria-label="Breadcrumb" class="sc-breadcrumb">
   <ol itemscope itemtype="https://schema.org/BreadcrumbList">
@@ -729,7 +730,7 @@
 
 <p>Example: if structural analysis demands 5.0 mm effective throat, leg ≈ 5.0 / 0.707 ≈ 7.07 mm → round up to shop practice (8 mm leg is common). SC-001 returns two decimal places; fabrication still requires rounding to available wire size, WPS limits, and access constraints.</p>
 
-<div class="sc-tip"><span class="ico" aria-hidden="true">💡</span><div>After sizing welds, estimate fab hours and feed <a href="/labor-pro.html">SC-010 True Labor Cost</a> welder rates into <a href="/quote-pro.html">SC-012 Quote Pricing</a>. For assembly fit risk on welded fixtures, review stack tolerances with <a href="/sc008-pro.html">SC-008 Tolerance Stack-Up</a>.</div></div>
+<div class="sc-tip"><span class="ico" aria-hidden="true">💡</span><div>After sizing welds, estimate fab hours and feed <a href="/calculator/true-labor-cost">SC-010 True Labor Cost</a> welder rates into <a href="/calculator/quote-pricing">SC-012 Quote Pricing</a>. For assembly fit risk on welded fixtures, review stack tolerances with <a href="/calculator/tolerance-stack-up">SC-008 Tolerance Stack-Up</a>.</div></div>
 
 <h2 id="strength">Strength check from design load</h2>
 
@@ -798,7 +799,7 @@ finalLeg = max(legFromLoad, minLegFromTable)</div>
 
 <p>Weld size drives deposition volume, passes, distortion control, and inspection scope — all hour drivers. Use SC-001 early in estimating to avoid under-specifying legs that fail code check or over-specifying legs that inflate wire and heat. Translate weld length × passes × travel speed into labor hours, then apply loaded welder cost from SC-010 in SC-012.</p>
 
-<p>For CNC-cut plate with tight fit-up, distortion may interact with tolerance stack — link weld sizing with <a href="/machining-pro.html">SC-020</a> plate prep time and <a href="/sc008-pro.html">SC-008</a> gap sensitivity. Browse <a href="/tools.html">all calculators</a> for the full SectorCalc toolkit.</p>
+<p>For CNC-cut plate with tight fit-up, distortion may interact with tolerance stack — link weld sizing with <a href="/calculator/cnc-feeds-speeds">SC-020</a> plate prep time and <a href="/calculator/tolerance-stack-up">SC-008</a> gap sensitivity. Browse <a href="/tools.html">all calculators</a> for the full SectorCalc toolkit.</p>
 
 <div class="sc-guide-faq" id="faq">
   <h2>Frequently asked questions</h2>
@@ -842,10 +843,10 @@ finalLeg = max(legFromLoad, minLegFromTable)</div>
 <details class="related">
   <summary>Related calculators</summary>
   <ul>
-    <li><a href="/quote-pro.html">SC-012 Quote Pricing</a> — fabrication quoting with labor and overhead</li>
-    <li><a href="/labor-pro.html">SC-010 True Labor Cost</a> — loaded welder hourly rate</li>
-    <li><a href="/sc008-pro.html">SC-008 Tolerance Stack-Up</a> — assembly fit and gap control</li>
-    <li><a href="/machining-pro.html">SC-020 CNC Feeds &amp; Speeds</a> — plate prep and machining time</li>
+    <li><a href="/calculator/quote-pricing">SC-012 Quote Pricing</a> — fabrication quoting with labor and overhead</li>
+    <li><a href="/calculator/true-labor-cost">SC-010 True Labor Cost</a> — loaded welder hourly rate</li>
+    <li><a href="/calculator/tolerance-stack-up">SC-008 Tolerance Stack-Up</a> — assembly fit and gap control</li>
+    <li><a href="/calculator/cnc-feeds-speeds">SC-020 CNC Feeds &amp; Speeds</a> — plate prep and machining time</li>
     <li><a href="/tools.html">All calculators</a></li>
   </ul>
 </details>
@@ -907,29 +908,6 @@ finalLeg = max(legFromLoad, minLegFromTable)</div>
 <script src="/assets/js/sc-ga4-id.js"></script>
 <script src="/assets/js/cvw-monitor.js" defer></script>
 
-<!--SC-RELATED-TOOLS-START-->
-<section class="related-tools-section" aria-labelledby="related-tools-heading">
-  <h2 id="related-tools-heading">Related Calculators</h2>
-  <div class="related-grid">
-    <a href="/heat-input-pro.html" class="related-card">
-      <div class="rt-title">SC-029 Weld Heat Input</div>
-      <div class="rt-desc">t8/5 and heat input from parameters</div>
-    </a>
-    <a href="/bend-pro.html" class="related-card">
-      <div class="rt-title">SC-030 Bend & K-Factor</div>
-      <div class="rt-desc">Form after weld allowance</div>
-    </a>
-    <a href="/sling-pro.html" class="related-card">
-      <div class="rt-title">SC-031 Sling Capacity</div>
-      <div class="rt-desc">Lift the fabricated assembly</div>
-    </a>
-    <a href="/pressure-vessel-pro.html" class="related-card">
-      <div class="rt-title">SC-033 Pressure Vessel</div>
-      <div class="rt-desc">Shell thickness after weld design</div>
-    </a>
-  </div>
-</section>
-<!--SC-RELATED-TOOLS-END-->
 <!--SC-CALC-SHEET-TB-START-->
 <aside class="sc-calc-sheet-titleblock" aria-hidden="true">
   <div class="tb-row"><span class="tb-label">DWG</span><span class="tb-value">SC-001-001</span></div>
@@ -938,5 +916,28 @@ finalLeg = max(legFromLoad, minLegFromTable)</div>
   <div class="tb-row"><span class="tb-label">DATE</span><span class="tb-value">2026-07-26</span></div>
 </aside>
 <!--SC-CALC-SHEET-TB-END-->
+<!--SC-RELATED-TOOLS-START-->
+<section class="related-tools-section" aria-labelledby="related-tools-heading">
+  <h2 id="related-tools-heading">Related Calculators</h2>
+  <div class="related-grid">
+    <a href="/calculator/weld-heat-input" class="related-card">
+      <div class="rt-title">SC-029 Weld Heat Input</div>
+      <div class="rt-desc">t8/5 and heat input from parameters</div>
+    </a>
+    <a href="/calculator/sheet-metal-bend" class="related-card">
+      <div class="rt-title">SC-030 Bend & K-Factor</div>
+      <div class="rt-desc">Form after weld allowance</div>
+    </a>
+    <a href="/calculator/sling-capacity" class="related-card">
+      <div class="rt-title">SC-031 Sling Capacity</div>
+      <div class="rt-desc">Lift the fabricated assembly</div>
+    </a>
+    <a href="/calculator/pressure-vessel-shell" class="related-card">
+      <div class="rt-title">SC-033 Pressure Vessel</div>
+      <div class="rt-desc">Shell thickness after weld design</div>
+    </a>
+  </div>
+</section>
+<!--SC-RELATED-TOOLS-END-->
 </body>
 </html>
