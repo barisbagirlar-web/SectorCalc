@@ -65,6 +65,9 @@ jobs:
           echo "preview_url=$PREVIEW_URL" >> "$GITHUB_OUTPUT"
           echo "Preview candidate: $PREVIEW_URL"
 
+      - name: Wait for preview-channel edge propagation
+        run: sleep 20
+
       - name: Hard-refresh SEO guard on preview candidate
         env:
           SEO_GUARD_HOST: ${{ steps.preview.outputs.preview_url }}
