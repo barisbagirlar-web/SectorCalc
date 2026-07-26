@@ -1,0 +1,31 @@
+{
+  "$schemaNote": "Single production hosting reality for SectorCalc custom domains. Verified by scripts/verify-host-parity.mjs.",
+  "repository": "barisbagirlar-web/SectorCalc",
+  "canonicalHost": "https://sectorcalc.com",
+  "wwwHost": "https://www.sectorcalc.com",
+  "dns": {
+    "nameservers": ["dahlia.ns.cloudflare.com", "apollo.ns.cloudflare.com"],
+    "apex": {
+      "records": ["A → 199.36.158.100 (Firebase Hosting edge)"],
+      "expectedTarget": "Firebase Hosting site sectorcalc-prod"
+    },
+    "www": {
+      "records": ["CNAME → sectorcalc-prod.web.app"],
+      "expectedTarget": "Firebase Hosting site sectorcalc-prod"
+    }
+  },
+  "firebase": {
+    "projectId": "sectorcalc-prod",
+    "hostingSiteId": "sectorcalc-prod",
+    "defaultUrl": "https://sectorcalc-prod.web.app",
+    "appHosting": false,
+    "customDomains": ["sectorcalc.com", "www.sectorcalc.com"],
+    "wwwPolicy": "Firebase custom-domain primary redirect: www → apex, path-preserving, single-hop 301/308"
+  },
+  "discoverySsot": {
+    "liveTools": 25,
+    "sitemapHtmlUrls": 78,
+    "calculatorCanonicalPrefix": "/calculator/",
+    "llmFiles": ["/llms.txt", "/llm.txt"]
+  }
+}

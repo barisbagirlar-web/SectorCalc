@@ -29,6 +29,10 @@ jobs:
       - run: npm run typecheck
       - run: npm run build
       - run: node scripts/verify-nav.mjs
+      - name: Legacy surface (local)
+        run: LEGACY_SURFACE_MODE=local npm run verify:legacy-surface
+      - name: Host parity (live)
+        run: npm run verify:host-parity
 
   e2e:
     # Playwright 1.42.x dependency installer is compatible with Ubuntu 22.04;
