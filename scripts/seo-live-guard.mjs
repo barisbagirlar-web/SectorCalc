@@ -6,6 +6,8 @@
  * canonical URLs. Live mode validates the custom-domain deployment after
  * atomic promotion.
  */
+import { CURRENT_INDEXABLE_BASELINE } from '../seo/registry.mjs';
+
 const CANONICAL_HOST = 'https://sectorcalc.com';
 const FETCH_HOST = (process.env.SEO_GUARD_HOST || CANONICAL_HOST).replace(/\/$/, '');
 const MODE = process.env.SEO_GUARD_MODE || (FETCH_HOST === CANONICAL_HOST ? 'live' : 'preview');
@@ -80,7 +82,9 @@ for (const lang of ['de', 'ja', 'zh']) {
 }
 
 const locs = [...sitemap.text.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
-if (locs.length !== 78) fail(`sitemap expected 78 canonical HTML URLs, got ${locs.length}`);
+if (locs.length !== CURRENT_INDEXABLE_BASELINE) {
+  fail(`sitemap expected ${CURRENT_INDEXABLE_BASELINE} canonical HTML URLs (registry baseline), got ${locs.length}`);
+}
 if (new Set(locs).size !== locs.length) fail('sitemap has duplicate locs');
 for (const url of locs) {
   if (!url.startsWith(`${CANONICAL_HOST}/`)) fail(`sitemap URL is off canonical host: ${url}`);
@@ -176,6 +180,12 @@ const llmTxt = llmLive.text;
 const legacyLlm = [...llmTxt.matchAll(/https:\/\/sectorcalc\.com\/[a-z0-9-]+-pro\.html/gi)];
 if (legacyLlm.length) fail(`llms.txt contains ${legacyLlm.length} legacy *-pro.html URL(s)`);
 if (/\*\*32\*\*/.test(llmTxt)) fail('llms.txt still claims stale 32 sitemap URLs');
+if (/\*\*78\*\*/.test(llmTxt) && CURRENT_INDEXABLE_BASELINE !== 78) {
+  fail(`llms.txt still claims stale 78 sitemap URLs (baseline is ${CURRENT_INDEXABLE_BASELINE})`);
+}
+if (!llmTxt.includes(`**${CURRENT_INDEXABLE_BASELINE}**`)) {
+  fail(`llms.txt missing sitemap count **${CURRENT_INDEXABLE_BASELINE}**`);
+}
 if (!llmTxt.includes(`## Live tools — ${[...sitemap.text.matchAll(/<loc>[^<]*\/calculator\//g)].length}`) && !llmTxt.includes('## Live tools — 25')) {
   fail('llms.txt live tools count missing/unexpected');
 }
