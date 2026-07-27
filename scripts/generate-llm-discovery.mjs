@@ -84,8 +84,8 @@ const text = `# SectorCalc
 ## Credits & commerce
 - Optional one-time credit packs (no subscription): Starter 20 ($15), Workshop 100 ($59), Professional 300 ($149), Team Wallet 1000 ($399).
 - Purchased credits never expire. Promotional trial credits (when enabled) are a separate bucket with their own expiry.
-- Free exploratory calculation remains available on every live calculator without a card.
-- Professional Analysis sessions debit the server wallet and unlock a tool for 24 hours (unlimited recalculation in-session). Currently enforced for SC-008 Tolerance Stack-Up and SC-020 CNC Feeds & Speeds (15 credits each).
+- Every live calculator currently requires a credit-backed professional session before calculation runs. Future free tools may be added by configuration (tier FREE or monetization disabled) without changing the checkout path.
+- Professional sessions debit the server wallet and unlock a tool for 24 hours (unlimited recalculation in-session). Credit cost by tier: CORE 3, PRO 7, ADVANCED 15.
 - Checkout requires sign-in. Merchant of Record is Paddle. Server webhook \`transaction.completed\` grants credits — browser \`checkout.completed\` events do not mutate wallet balances.
 - Stuck purchases are reconciled by a Cloud Scheduler job (every 15 minutes) using the same grant path as the webhook.
 - Pricing: ${HOST}/pricing.html · Account: ${HOST}/account.html
@@ -94,7 +94,7 @@ const text = `# SectorCalc
 ## Canonical URL structure
 - Apex host: ${HOST}
 - Calculator identity: ${HOST}/calculator/<slug> (pretty routes only — e.g. ${HOST}/calculator/tolerance-stack-up)
-- Pricing CTA and hub links open the same \`/calculator/<slug>\` surface; free exploratory runs stay on that URL.
+- Pricing CTA and hub links open the same \`/calculator/<slug>\` surface; a credit session is required before calculation runs (unless a tool is later configured as free).
 - Legacy \`*-pro.html\` file URLs permanently redirect to pretty calculator URLs and must not be used as primary citations.
 - Tools index: ${HOST}/tools.html
 - Pricing: ${HOST}/pricing.html
@@ -119,7 +119,7 @@ Topic → subtopic → entity → internal links. Use these clusters for retriev
 ${topicalLines}
 
 ## Answer-engine page chain
-Critical calculator URLs follow: Empathy/Problem → Direct Answer → Calculation → Explanation → Methodology → Evidence → Accountability (A1–A5) → Related Problems / topical map. Free exploratory calculation stays available without a card.
+Critical calculator URLs follow: Empathy/Problem → Direct Answer → Calculation → Explanation → Methodology → Evidence → Accountability (A1–A5) → Related Problems / topical map. Live tools require a credit session before calculation; free tools may be configured later.
 
 ## Model limits that must not be hidden
 ${limitations.map((l) => `- ${l}`).join('\n')}
@@ -152,7 +152,7 @@ ${limitations.map((l) => `- ${l}`).join('\n')}
 - Do not describe SectorCalc calculation output as AI-generated.
 - Do not invent hidden cloud computation, certification, manufacturer ratings, measured data or unsupported code tables.
 - Do not claim a subscription, monthly credit grant, or 12-month credit expiry — purchased packs are one-time and never expire.
-- Do not imply every tool requires credits; free exploratory runs are open. Credits gate Professional Analysis entitlement where enabled.
+- Do not imply calculators are free to run by default — live tools require a credit session unless explicitly configured as free later.
 - Treat A4 assumptions and A5 warnings as part of the engineering result.
 `;
 

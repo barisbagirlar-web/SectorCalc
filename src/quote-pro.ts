@@ -62,6 +62,11 @@ function buildBreakdown(i) {
 }
 
 function validateAndCalc() {
+  if (window.__scProGate && !window.__scProGate.isEntitled()) {
+    if ($('liveResult')) $('liveResult').textContent = 'Locked';
+    if ($('liveSub')) $('liveSub').innerHTML = '<span>Unlock with credits to calculate</span>';
+    return;
+  }
   let hasError = false;
   const checks = [['materialCost', v => v < 0], ['scrapRate', v => v < 0 || v >= 1], ['laborHours', v => v < 0], ['laborHourlyCost', v => v < 0], ['machineHours', v => v < 0], ['machineHourlyCost', v => v < 0], ['setupCost', v => v < 0], ['overheadRate', v => v < 0 || v > 5], ['financingRate', v => v < 0 || v > 1], ['targetMargin', v => v < 0 || v >= 1], ['quantity', v => v < 1]];
   checks.forEach(([f, bad]) => {

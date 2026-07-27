@@ -47,6 +47,11 @@ function buildBreakdown(input, gross) {
 }
 
 function validateAndCalc() {
+  if (window.__scProGate && !window.__scProGate.isEntitled()) {
+    if ($('liveResult')) $('liveResult').textContent = 'Locked';
+    if ($('liveSub')) $('liveSub').innerHTML = '<span>Unlock with credits to calculate</span>';
+    return;
+  }
   let hasError = false;
   const net = parseFloat($('netSalary').value);
   if (isNaN(net) || net < 0) { setFieldState('netSalary', false, 'X Net salary must be >= 0'); hasError = true; }

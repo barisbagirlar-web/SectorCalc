@@ -12,7 +12,6 @@ import {
   FS_ENGINE_BUILD_DATE
 } from './core/fs-engine.js';
 import { readThemePalette, exportSurfaceBg, onThemeChange } from './lib/theme-palette.js';
-import { mountProfessionalGate } from './billing/professional-ui.js';
 
 const ENGINE_LABEL = `${FS_ENGINE_ID} (${FS_ENGINE_BUILD_DATE})`;
 const $ = (id) => document.getElementById(id);
@@ -152,6 +151,11 @@ function toSi(d) {
 }
 
 function validateAndCalc() {
+  if (window.__scProGate && !window.__scProGate.isEntitled()) {
+    if ($('liveResult')) $('liveResult').textContent = 'Locked';
+    if ($('liveSub')) $('liveSub').innerHTML = '<span>Unlock with credits to calculate</span>';
+    return;
+  }
   fillMaterials();
   let hasError = false;
   const d = readDisplayInputs();
@@ -529,7 +533,7 @@ try {
 
 async function requirePro(action) {
   if (window.__scProGate && !(await window.__scProGate.ensureEntitled())) {
-    alert('Start a Professional Session (15 credits / 24h) for professional report / export.');
+    alert('Unlock this tool with credits for professional report / export.');
     document.getElementById('sc-pro-gate-root')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
     return;
   }
@@ -546,8 +550,4 @@ window.resetAll = resetAll;
 window.validateAndCalc = validateAndCalc;
 window.onMaterialChange = onMaterialChange;
 onThemeChange(syncReportIfOpen);
-
-const _proRoot = document.getElementById('sc-pro-gate-root');
-if (_proRoot) {
-  window.__scProGate = mountProfessionalGate({ toolId: 'SC-020', mount: _proRoot });
-}
+// Credit gate UI is mounted by auth-nav → bootToolCreditGate (universal).

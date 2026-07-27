@@ -4,7 +4,6 @@ import { lcg, sampleNormal, sampleUniform, sampleTruncatedNormal, sampleTriangul
 import { D } from './core/engine.js';
 import { parseCSV, saveProject, loadProject, listProjects, makeShareURL, parseShareURL, compareRevisions } from './lib/sc008-p4.js';
 import { readThemePalette, exportSurfaceBg, onThemeChange } from './lib/theme-palette.js';
-import { mountProfessionalGate } from './billing/professional-ui.js';
 
 // Sampling lives here (composed from monte-carlo.ts primitives); the MATH lives in
 // formula.ts calculate(). calculate() receives the samples, so UI/PDF/share all agree.
@@ -99,6 +98,11 @@ function validate(){
 }
 
 function compute(){
+  if (window.__scProGate && !window.__scProGate.isEntitled()) {
+    if ($('liveResult')) $('liveResult').textContent = 'Locked';
+    if ($('liveSub')) $('liveSub').innerHTML = '<span>Unlock with credits to calculate</span>';
+    return;
+  }
   if(!validate()){ $('liveResult').textContent='—'; $('liveSub').innerHTML=''; return; }
   const b = buildInput();
   let result, samplesNum, samples;
@@ -333,16 +337,13 @@ $('addDim').addEventListener('click',()=>{ dimensions.push({name:'Dim '+(dimensi
 $('resetAll').addEventListener('click',()=>loadPreset('standard'));
 $('genReport').addEventListener('click', async () => {
   if (window.__scProGate && !(await window.__scProGate.ensureEntitled())) {
-    alert('Start a Professional Session (15 credits / 24h) to generate the professional report.');
+    alert('Unlock this tool with credits to generate the professional report.');
     $('sc-pro-gate-root')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
     return;
   }
   generateReport();
 });
-const _proRoot = $('sc-pro-gate-root');
-if (_proRoot) {
-  window.__scProGate = mountProfessionalGate({ toolId: 'SC-008', mount: _proRoot });
-}
+// Credit gate UI is mounted by auth-nav → bootToolCreditGate (universal).
 onThemeChange(syncReportIfOpen);
 $('dimList').addEventListener('input',e=>{ const t=e.target; if(t.dataset.i!==undefined){ const i=+t.dataset.i,f=t.dataset.f; dimensions[i][f]= f==='name'?t.value:(f==='dist'?t.value:parseFloat(t.value)); compute(); }});
 $('dimList').addEventListener('change',e=>{ const t=e.target; if(t.dataset.f==='dist'){ dimensions[+t.dataset.i].dist=t.value; compute(); }});

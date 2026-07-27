@@ -390,8 +390,8 @@ async function render(user: User): Promise<void> {
     inspecting
       ? 'Use Credits for the customer statement. Return to ops to adjust balance.'
       : display < 1
-        ? 'You have zero credits. Buy a pack to unlock paid report runs, or continue with free exploratory use.'
-        : `You have ${display} credit${display === 1 ? '' : 's'} ready. Generate an auditable report when you need a formal deliverable.`
+        ? 'You have zero credits. Buy a pack on Pricing to unlock calculator sessions.'
+        : `You have ${display} credit${display === 1 ? '' : 's'} ready. Unlock a tool session when you need to calculate.`
   );
 
   // Keep operator avatar when inspecting; show customer initials in identity plate via name fields.
