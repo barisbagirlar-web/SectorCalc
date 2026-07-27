@@ -51,12 +51,29 @@ function init(): void {
 
   const grid = document.querySelector('#packages');
   if (grid) {
+    const specs: Record<string, string> = {
+      STARTER: 'Job ticket · few professional sessions',
+      WORKSHOP: 'Cell / bay · weekly release work',
+      PROFESSIONAL: 'Program stack · multi-tool weeks',
+      TEAM_WALLET: 'Shared rack · team wallet'
+    };
     grid.innerHTML = PACKAGES.map((p) => {
       const pop = p.featured ? ' pop' : '';
       const tag = p.badge ? `<span class="tag">${p.badge}</span>` : '';
-      const perLabel = `${p.perCredit} / credit`;
-      const label = isCheckoutConfigured() ? 'Buy credits' : 'Notify me';
-      return `<div class="pack${pop}">${tag}<div class="amt">${p.price}</div><div class="cred">${p.credits} credits</div><div class="per">${perLabel}</div><button class="load btn btn-ghost" style="margin-top:14px;width:100%;justify-content:center" data-package-id="${p.id}" data-credits="${p.credits}" data-price-id="${p.paddlePriceId}" type="button">${label}</button></div>`;
+      const label = isCheckoutConfigured() ? 'Load pack' : 'Notify me';
+      const spec = specs[p.id] || 'Credit stock pack';
+      return `<article class="pack${pop}" id="${p.id}">${tag}
+        <div class="pack-top"><span class="pack-id">${p.id}</span><span class="pack-rev">QTY ${p.credits}</span></div>
+        <div class="pack-mid">
+          <div class="amt">${p.price}</div>
+          <div class="cred">${p.credits} credits</div>
+          <div class="per">${p.perCredit} / credit</div>
+          <p class="pack-spec">${spec}</p>
+        </div>
+        <div class="pack-foot">
+          <button class="load btn btn-ghost" data-package-id="${p.id}" data-credits="${p.credits}" data-price-id="${p.paddlePriceId}" type="button">${label}</button>
+        </div>
+      </article>`;
     }).join('');
   }
 
