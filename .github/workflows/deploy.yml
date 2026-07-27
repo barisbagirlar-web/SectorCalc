@@ -54,7 +54,8 @@ jobs:
             --only functions,firestore:rules,firestore:indexes \
             --project sectorcalc-prod \
             --token "$FIREBASE_TOKEN" \
-            --non-interactive
+            --non-interactive \
+            --force
 
       - name: Deploy immutable candidate to Firebase preview channel
         id: preview
