@@ -2,6 +2,7 @@
 /**
  * Inject visible AEO empathy + topical problem map on hub pages (idempotent).
  * Does NOT modify the sacred homepage hero — inserts after </section> of .sc-hero.
+ * tools.html catalog DNA is sacred — problem map lives on / and /topics only.
  */
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
@@ -70,7 +71,7 @@ function inject(html) {
       );
     }
   }
-  // tools / pro / pricing: after first H1 block or site-header
+  // pro / pricing: after site nav (tools.html is intentionally excluded from TARGETS)
   if (/<!--SC-SITE-NAV-END-->/.test(html)) {
     return html.replace(/<!--SC-SITE-NAV-END-->/, `<!--SC-SITE-NAV-END-->\n${block}`);
   }
@@ -80,7 +81,7 @@ function inject(html) {
   return html.replace(/<body[^>]*>/i, (m) => `${m}\n${block}`);
 }
 
-const TARGETS = ['index.html', 'tools.html', 'pro.html', 'pricing.html'];
+const TARGETS = ['index.html', 'pro.html', 'pricing.html'];
 let n = 0;
 for (const page of TARGETS) {
   const path = join(ROOT, page);

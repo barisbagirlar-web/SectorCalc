@@ -1507,10 +1507,10 @@
       "indexDirective": "index,follow",
       "sitemapEligible": true,
       "llmEligible": true,
-      "title": "Engineering Topic Hubs — SectorCalc",
-      "description": "SectorCalc topical hubs for free shop-floor calculators and related decision tools.",
-      "h1": "Topic hubs",
-      "primaryIntent": "sectorcalc topic hubs",
+      "title": "Topic Hubs & Open Reference Bench — SectorCalc",
+      "description": "Open SectorCalc reference instruments and shop-floor problem hubs — five free calculators, then Tier-A credit sessions. Fits, sheet metal, tolerance, CNC, economics.",
+      "h1": "Prove the engine. Then name the shop problem.",
+      "primaryIntent": "sectorcalc topic hubs open reference bench",
       "queryCluster": "topics-hub",
       "primaryEntity": "topics",
       "topicalCluster": "site",
@@ -1520,7 +1520,8 @@
       "relatedRoutes": [
         "/topics/fits-and-finish",
         "/topics/sheet-metal-fabrication",
-        "/#free-calculators"
+        "/#free-calculators",
+        "/tools.html"
       ],
       "contentSources": ["/topics"],
       "schemaTypes": ["CollectionPage", "BreadcrumbList"],

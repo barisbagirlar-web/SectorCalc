@@ -39,6 +39,10 @@ test.describe('Navigation & redirects @nav @critical', () => {
     await page.goto('/tools.html');
     await expect(page.locator('#siteHeader')).toBeVisible();
     await expect(page.locator('#siteHeader a[href="/pricing.html"]')).toBeVisible();
+    await expect(page.locator('#q')).toBeVisible();
+    await expect(page.locator('h1')).toContainText(/What do you need to calculate today/i);
+    await expect(page.locator('#free-calculators')).toHaveCount(0);
+    await expect(page.locator('#problems-we-solve')).toHaveCount(0);
     await expect(page.locator('#stLive')).not.toHaveText('0');
   });
 });

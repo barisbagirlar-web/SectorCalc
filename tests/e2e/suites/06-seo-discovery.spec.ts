@@ -57,6 +57,7 @@ test.describe('SEO discovery @seo @critical', () => {
     expect(a).toContain('OAI-SearchBot');
     expect(a).toContain('PerplexityBot');
     expect(a).toMatch(/Five open reference instruments|Five free reference calculators/i);
+    expect(a).toContain('/topics');
     for (const id of catalog.freeToolIds) {
       expect(a).toContain(id);
     }

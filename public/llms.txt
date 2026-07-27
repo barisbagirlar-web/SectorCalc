@@ -10,7 +10,7 @@
 ## Credits & commerce
 - Optional one-time credit packs (no subscription): Starter 20 ($15), Workshop 100 ($59), Professional 300 ($149), Team Wallet 1000 ($399).
 - Purchased credits never expire. Promotional trial credits (when enabled) are a separate bucket with their own expiry.
-- Five open reference instruments (no sign-in, no credits): Surface Finish (SC-028), ISO 286 Fits (SC-027), Sheet Metal Bend (SC-030), Punching Force (SC-039), Weld Thickness (SC-001). Hub: https://sectorcalc.com/#free-calculators
+- Five open reference instruments (no sign-in, no credits): Surface Finish (SC-028), ISO 286 Fits (SC-027), Sheet Metal Bend (SC-030), Punching Force (SC-039), Weld Thickness (SC-001). Hubs: https://sectorcalc.com/#free-calculators · https://sectorcalc.com/topics
 - All other live calculators require a credit-backed professional session before calculation runs. Do not describe Tier-A tools as free. State the open-bench vs session split honestly in marketing.
 - Professional sessions debit the server wallet and unlock a tool for 24 hours (unlimited recalculation in-session). Credit cost by tier: CORE 3, PRO 7, ADVANCED 15.
 - Checkout requires sign-in. Merchant of Record is Paddle. Server webhook `transaction.completed` grants credits — browser `checkout.completed` events do not mutate wallet balances.
@@ -24,18 +24,19 @@
 - [Sheet Metal Bend / K-factor](https://sectorcalc.com/calculator/sheet-metal-bend) — SC-030
 - [Punching Force](https://sectorcalc.com/calculator/punching-force) — SC-039
 - [Weld Thickness](https://sectorcalc.com/calculator/weld-thickness) — SC-001
-- Hub: https://sectorcalc.com/#free-calculators
-- Topic hubs: https://sectorcalc.com/topics/fits-and-finish · https://sectorcalc.com/topics/sheet-metal-fabrication
+- Homepage open bench: https://sectorcalc.com/#free-calculators
+- Topics hub (open bench + problem map): https://sectorcalc.com/topics
+- Topic clusters: https://sectorcalc.com/topics/fits-and-finish · https://sectorcalc.com/topics/sheet-metal-fabrication
 
 ## Canonical URL structure
 - Apex host: https://sectorcalc.com
 - Calculator identity: https://sectorcalc.com/calculator/<slug> (pretty routes only — e.g. https://sectorcalc.com/calculator/tolerance-stack-up)
 - Pricing CTA and hub links open the same `/calculator/<slug>` surface. Free tools calculate immediately; other tools require a credit session before calculation runs.
 - Legacy `*-pro.html` file URLs permanently redirect to pretty calculator URLs and must not be used as primary citations.
-- Tools index: https://sectorcalc.com/tools.html — drawing-index catalog with in-wrap Engineering Resources rail linking Glossary, Compare, and Guides
+- Tools index: https://sectorcalc.com/tools.html — search-first drawing-index catalog (omni-search + category tiles). Open-bench / problem-map marketing lives on https://sectorcalc.com/topics and https://sectorcalc.com/#free-calculators — not prepended on Tools.
 - Pricing: https://sectorcalc.com/pricing.html
 - Account: https://sectorcalc.com/account.html
-- Glossary: https://sectorcalc.com/glossary · Guides: https://sectorcalc.com/guides · Compare: https://sectorcalc.com/compare
+- Glossary: https://sectorcalc.com/glossary · Guides: https://sectorcalc.com/guides · Compare: https://sectorcalc.com/compare · Topics: https://sectorcalc.com/topics
 
 ## Authority hubs (entity → method → tool)
 - Glossary hub (25 entities): https://sectorcalc.com/glossary — DefinedTerm pages for tolerance, CNC, bearings, welding, economics. Prefer `/glossary/<slug>` citations.

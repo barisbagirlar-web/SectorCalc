@@ -3,39 +3,215 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Engineering Topic Hubs | SectorCalc</title>
-<meta name="description" content="SectorCalc topical hubs for free shop-floor calculators: fits &amp; finish, sheet metal fabrication, and more.">
+<title>Topic Hubs &amp; Open Reference Bench | SectorCalc</title>
+<meta name="description" content="Open SectorCalc reference instruments and shop-floor problem hubs — five free calculators, then Tier-A credit sessions when the decision must survive review. Fits, sheet metal, tolerance, CNC, economics.">
 <link rel="canonical" href="https://sectorcalc.com/topics">
 <meta name="robots" content="index, follow">
-<meta property="og:title" content="Engineering Topic Hubs | SectorCalc">
-<meta property="og:description" content="Free calculator topic hubs for metrology and fabrication.">
+<meta property="og:title" content="Topic Hubs &amp; Open Reference Bench | SectorCalc">
+<meta property="og:description" content="Prove the engine on five open instruments, then route to the shop-floor problem that hurts.">
 <meta property="og:url" content="https://sectorcalc.com/topics">
 <meta property="og:image" content="https://sectorcalc.com/assets/images/og-default-1200x630.jpg">
 <link rel="stylesheet" href="/css/seo-content.css">
+<link rel="stylesheet" href="/sc-theme.css?v=12">
+<link rel="stylesheet" href="/sc-site-nav.css?v=5">
+<link rel="stylesheet" href="/css/sc-guides.css?v=2">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Sans:wght@400;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<script src="/sc-theme.js?v=12" defer></script>
+<script src="/sc-site-nav.js?v=2" defer></script>
+<script type="module" src="/src/auth-nav.ts"></script>
+<link rel="stylesheet" href="/sc-free-tools.css?v=2">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"SectorCalc topic hubs & open reference bench","url":"https://sectorcalc.com/topics","description":"Open reference instruments and problem-first topic maps for industrial shop-floor decisions.","isPartOf":{"@type":"WebSite","name":"SectorCalc","url":"https://sectorcalc.com"},"mainEntity":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"name":"Surface Finish (Ra / Rz)","url":"https://sectorcalc.com/calculator/surface-finish"},{"@type":"ListItem","position":2,"name":"ISO 286 Fits","url":"https://sectorcalc.com/calculator/iso-286-fits"},{"@type":"ListItem","position":3,"name":"Sheet Metal Bend / K-factor","url":"https://sectorcalc.com/calculator/sheet-metal-bend"},{"@type":"ListItem","position":4,"name":"Punching Force","url":"https://sectorcalc.com/calculator/punching-force"},{"@type":"ListItem","position":5,"name":"Weld Thickness","url":"https://sectorcalc.com/calculator/weld-thickness"},{"@type":"ListItem","position":6,"name":"Fits & surface finish","url":"https://sectorcalc.com/topics/fits-and-finish"},{"@type":"ListItem","position":7,"name":"Sheet metal fabrication","url":"https://sectorcalc.com/topics/sheet-metal-fabrication"}]}}</script>
 </head>
 <body>
-<header class="sc-header">
-  <a href="/" class="sc-logo">SectorCalc</a>
-  <nav class="sc-nav">
-    <a href="/#free-calculators">Free tools</a>
-    <a href="/tools.html">All tools</a>
+<!--SC-SITE-NAV-START-->
+<header class="site-header" id="siteHeader" role="banner">
+  <a href="/" class="brand" aria-label="SectorCalc Home"><span class="brand-mark"><img class="logo-light" src="/sectorcalc-logo-214.w.png" srcset="/sectorcalc-logo-214.w.png 214w, /sectorcalc-logo-428.w.png 428w" sizes="183px" width="183" height="48" alt="SectorCalc" decoding="async"><img class="logo-dark" src="/sectorcalc-logo-dark-214.w.png" srcset="/sectorcalc-logo-dark-214.w.png 214w, /sectorcalc-logo-dark-428.w.png 428w" sizes="183px" width="183" height="48" alt="" aria-hidden="true" decoding="async"></span></a>
+  <nav class="main-nav" role="navigation" aria-label="Main navigation">
+    <ul>
+      <li><a href="/tools.html" data-nav="tools">Tools</a></li>
+      <li><a href="/glossary" data-nav="glossary">Glossary</a></li>
+      <li><a href="/guides" data-nav="guides">Guides</a></li>
+      <li><a href="/compare" data-nav="compare">Compare</a></li>
+      <li><a href="/pricing.html" data-nav="pricing">Pricing</a></li>
+      <li><a href="/account.html" data-nav="account">Account</a></li>
+    </ul>
+    <span class="sc-nav-tool" aria-hidden="true"></span>
+    <a href="/login.html" class="btn btn-primary" data-nav="login">Sign in</a>
   </nav>
+  <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme" aria-pressed="false" title="Toggle light / dark theme">
+    <svg data-theme-icon="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    <svg data-theme-icon="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+  </button>
+  <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+    <span></span><span></span><span></span>
+  </button>
 </header>
-<main class="sc-content-page">
+<div class="mobile-nav-overlay" id="mobileNav" role="dialog" aria-label="Mobile menu" aria-hidden="true">
+  <a href="/tools.html" data-nav="tools">All Tools</a>
+  <a href="/glossary" data-nav="glossary">Glossary</a>
+  <a href="/guides" data-nav="guides">Guides</a>
+  <a href="/compare" data-nav="compare">Compare</a>
+  <a href="/pricing.html" data-nav="pricing">Pricing</a>
+  <a href="/account.html" data-nav="account">Account</a>
+  <a href="/login.html" class="btn-primary" data-nav="login">Sign in</a>
+</div>
+<!--SC-SITE-NAV-END-->
+<main class="sc-guides-hub" id="topics-hub">
   <nav class="sc-breadcrumb" aria-label="Breadcrumb">
     <ol>
       <li><a href="/">Home</a></li>
       <li aria-current="page">Topics</li>
     </ol>
   </nav>
-  <h1>Topic hubs</h1>
-  <p class="lead-definition">Crawlable topic maps that point to free calculators first, then credit-backed decision tools when the problem gets expensive.</p>
-  <ul>
-    <li><a href="/topics/fits-and-finish">Fits &amp; surface finish</a> — free ISO 286 + Ra/Rz</li>
-    <li><a href="/topics/sheet-metal-fabrication">Sheet metal fabrication</a> — free bend, punch, weld thickness</li>
-  </ul>
-  <p><a href="/#free-calculators">See all five free calculators →</a></p>
+
+  <header class="sc-guides-hero">
+    <p class="sc-guides-kicker">Open reference bench · problem-first routing</p>
+    <h1>Prove the engine. Then name the shop problem.</h1>
+    <p class="lead-definition">This hub carries the open-bench instruments and answer-engine problem map that must not crowd the <a href="/tools.html">calculators catalog</a>. Search and category tiles stay on Tools. Here you run five wallet-free instruments, then follow the decision that hurts into Tier-A credit sessions when a design review is on the line.</p>
+  </header>
+
+  <section class="sc-guides-section" id="free-calculators" aria-labelledby="topics-free-heading" data-aeo-hub="free">
+    <h2 id="topics-free-heading">Open reference bench · five instruments · wallet not required</h2>
+    <p>These five shop instruments calculate immediately — surface finish, ISO fits, bend allowance, punching force, weld thickness. No login. No debit. When the decision must survive a design review (tolerance stack-up, feeds &amp; speeds, quoting, OEE, pressure, heat input), unlock a Tier-A credit session from <a href="/pricing.html">pricing</a>.</p>
+    <div class="sc-guides-grid">
+<article class="sc-guide-card" data-free-tool="SC-028" data-entity="surface-finish">
+  <p class="sc-guide-badge" data-access="free">Open · no sign-in</p>
+  <h3>Surface Finish (Ra / Rz)</h3>
+  <p class="sc-guide-problem">Drawing calls out Ra — shop measures Rz. Which number do you release?</p>
+  <a class="sc-guide-cta" href="/calculator/surface-finish">Run this instrument →</a>
+</article>
+<article class="sc-guide-card" data-free-tool="SC-027" data-entity="iso-286-fits">
+  <p class="sc-guide-badge" data-access="free">Open · no sign-in</p>
+  <h3>ISO 286 Fits</h3>
+  <p class="sc-guide-problem">H7/g6 looks familiar — until someone asks for the actual limit deviations.</p>
+  <a class="sc-guide-cta" href="/calculator/iso-286-fits">Run this instrument →</a>
+</article>
+<article class="sc-guide-card" data-free-tool="SC-030" data-entity="sheet-metal-bend">
+  <p class="sc-guide-badge" data-access="free">Open · no sign-in</p>
+  <h3>Sheet Metal Bend / K-factor</h3>
+  <p class="sc-guide-problem">Flat pattern wrong by a few millimetres means the brake setup already failed.</p>
+  <a class="sc-guide-cta" href="/calculator/sheet-metal-bend">Run this instrument →</a>
+</article>
+<article class="sc-guide-card" data-free-tool="SC-039" data-entity="punching-force">
+  <p class="sc-guide-badge" data-access="free">Open · no sign-in</p>
+  <h3>Punching Force</h3>
+  <p class="sc-guide-problem">Press tonnage guessed from habit is how punches snap and frames ring.</p>
+  <a class="sc-guide-cta" href="/calculator/punching-force">Run this instrument →</a>
+</article>
+<article class="sc-guide-card" data-free-tool="SC-001" data-entity="weld-thickness">
+  <p class="sc-guide-badge" data-access="free">Open · no sign-in</p>
+  <h3>Weld Thickness</h3>
+  <p class="sc-guide-problem">Throat and leg look interchangeable until the drawing review rejects the callout.</p>
+  <a class="sc-guide-cta" href="/calculator/weld-thickness">Run this instrument →</a>
+</article>
+    </div>
+  </section>
+
+  <section class="sc-guides-section" id="problems-we-solve" aria-labelledby="topics-problems-heading" data-aeo-hub="problems">
+    <h2 id="topics-problems-heading">Touch the real shop-floor problem first</h2>
+    <p>SectorCalc pages open with the decision that hurts — then the calculator, then methodology, evidence, and related problems. No filler. No invented certifications. Use this map when you know the pain but not the tool code.</p>
+    <div class="sc-guides-grid">
+<article class="sc-guide-card" data-topic-id="tolerance-metrology">
+  <p class="sc-guide-badge">Problem first</p>
+  <h3>Tolerance &amp; metrology</h3>
+  <p class="sc-guide-problem">Will this assembly still close when every contributor sits at its worst legal extreme?</p>
+  <ul class="sc-guide-queries"><li>worst case tolerance stack up</li><li>rss tolerance stack calculator</li></ul>
+  <a class="sc-guide-cta" href="/calculator/tolerance-stack-up">Open the calculator →</a>
+</article>
+<article class="sc-guide-card" data-topic-id="cnc-machining">
+  <p class="sc-guide-badge">Problem first</p>
+  <h3>CNC machining</h3>
+  <p class="sc-guide-problem">Will this cut release on the spindle you actually own — or burn a tool and stall the machine?</p>
+  <ul class="sc-guide-queries"><li>cnc feeds and speeds calculator</li><li>chip thinning calculator</li></ul>
+  <a class="sc-guide-cta" href="/calculator/cnc-feeds-speeds">Open the calculator →</a>
+</article>
+<article class="sc-guide-card" data-topic-id="manufacturing-economics">
+  <p class="sc-guide-badge">Problem first</p>
+  <h3>Manufacturing economics</h3>
+  <p class="sc-guide-problem">Is the shop rate and sell price recovering true cost — or quietly quoting away the margin?</p>
+  <ul class="sc-guide-queries"><li>true labor cost calculator</li><li>machine hourly rate calculator</li></ul>
+  <a class="sc-guide-cta" href="/calculator/true-labor-cost">Open the calculator →</a>
+</article>
+<article class="sc-guide-card" data-topic-id="reliability">
+  <p class="sc-guide-badge">Problem first</p>
+  <h3>Reliability &amp; rotating equipment</h3>
+  <p class="sc-guide-problem">Is the L10 life honest for the load and lubrication you will actually run?</p>
+  <ul class="sc-guide-queries"><li>bearing life calculator iso 281</li><li>L10h bearing life</li></ul>
+  <a class="sc-guide-cta" href="/calculator/bearing-life-l10">Open the calculator →</a>
+</article>
+<article class="sc-guide-card" data-topic-id="fasteners">
+  <p class="sc-guide-badge">Problem first</p>
+  <h3>Fasteners &amp; joints</h3>
+  <p class="sc-guide-problem">Will preload survive service — or is the joint riding on friction and hope?</p>
+  <ul class="sc-guide-queries"><li>bolt torque preload calculator</li><li>vdi 2230 bolted joint calculator</li></ul>
+  <a class="sc-guide-cta" href="/calculator/bolt-torque-preload">Open the calculator →</a>
+</article>
+<article class="sc-guide-card" data-topic-id="pressure">
+  <p class="sc-guide-badge">Problem first</p>
+  <h3>Pressure equipment</h3>
+  <p class="sc-guide-problem">Is the wall thick enough under the code edition you claim — before steel is ordered?</p>
+  <ul class="sc-guide-queries"><li>asme b31.3 pipe wall thickness calculator</li><li>asme viii pressure vessel thickness calculator</li></ul>
+  <a class="sc-guide-cta" href="/calculator/pipe-wall-thickness">Open the calculator →</a>
+</article>
+<article class="sc-guide-card" data-topic-id="welding">
+  <p class="sc-guide-badge">Problem first</p>
+  <h3>Welding &amp; fabrication</h3>
+  <p class="sc-guide-problem">Is the throat and heat input inside the process window — or are you guessing from habit?</p>
+  <ul class="sc-guide-queries"><li>weld size calculator</li><li>welding heat input calculator</li></ul>
+  <a class="sc-guide-cta" href="/calculator/weld-thickness">Open the calculator →</a>
+</article>
+<article class="sc-guide-card" data-topic-id="lifting">
+  <p class="sc-guide-badge">Problem first</p>
+  <h3>Lifting &amp; rigging</h3>
+  <p class="sc-guide-problem">Does the sling and hardware rating survive the angle and shock you will actually apply?</p>
+  <ul class="sc-guide-queries"><li>sling angle capacity calculator</li><li>shackle working load limit</li></ul>
+  <a class="sc-guide-cta" href="/calculator/sling-capacity">Open the calculator →</a>
+</article>
+    </div>
+  </section>
+
+  <section class="sc-guides-section" aria-labelledby="topics-clusters">
+    <h2 id="topics-clusters">Crawlable topic clusters</h2>
+    <p>Dedicated topic pages keep free instruments adjacent to the related credit-backed decision tools without polluting the drawing-index catalog.</p>
+    <div class="sc-guides-grid">
+      <article class="sc-guide-card">
+        <p class="sc-guide-badge" data-access="free">Topic cluster</p>
+        <h3>Fits &amp; surface finish</h3>
+        <p class="sc-guide-problem">ISO 286 limit deviations and Ra/Rz release calls that must match what the CMM and the drawing actually say.</p>
+        <a class="sc-guide-cta" href="/topics/fits-and-finish">Open fits &amp; finish hub →</a>
+      </article>
+      <article class="sc-guide-card">
+        <p class="sc-guide-badge" data-access="free">Topic cluster</p>
+        <h3>Sheet metal fabrication</h3>
+        <p class="sc-guide-problem">Bend allowance, punching tonnage, and weld throat calls before the brake, press, and weld bay argue with the flat pattern.</p>
+        <a class="sc-guide-cta" href="/topics/sheet-metal-fabrication">Open sheet-metal hub →</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="sc-guides-section" aria-labelledby="topics-catalog">
+    <h2 id="topics-catalog">Where the catalog lives</h2>
+    <div class="sc-guides-prose">
+      <p>Need to search by task, standard, or machine? That DNA belongs exclusively on <a href="/tools.html">All Calculators</a> — omni-search, live/pipeline stats, and category tiles. Homepage keeps a short open-bench strip after the sacred hero for conversion. This Topics page is the long-form problem map and open-bench desk.</p>
+      <p>Production release still requires the governing code edition, certified material data, manufacturer ratings, and competent engineering review. Open instruments prove the engine; Tier-A sessions stamp the decision when the room demands an audit trail.</p>
+    </div>
+  </section>
+
+  <nav class="sc-guides-footer-links" aria-label="Related hubs">
+    <a href="/#free-calculators">Homepage open bench</a>
+    <a href="/tools.html">All calculators catalog</a>
+    <a href="/glossary">Glossary</a>
+    <a href="/guides">Guides</a>
+    <a href="/compare">Compare</a>
+    <a href="/pricing.html">Commission credits</a>
+    <a href="/llms.txt">llms.txt discovery</a>
+  </nav>
 </main>
-<footer class="sc-footer"><p><a href="/">Home</a> · <a href="/tools.html">Tools</a></p></footer>
+<footer class="sc-footer" style="max-width:1100px;margin:0 auto;padding:1.25rem;border-top:1px solid rgba(11,28,44,.12);display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between">
+  <p style="margin:0;color:#3d5366">© 2026 SectorCalc · Deterministic industrial calculators</p>
+  <p style="margin:0"><a href="/#free-calculators">Open bench</a> · <a href="/topics">Topics</a> · <a href="/tools.html">All tools</a> · <a href="/pricing.html">Pricing</a></p>
+</footer>
 </body>
 </html>
