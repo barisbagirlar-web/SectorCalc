@@ -154,8 +154,16 @@ export async function openCreditCheckout(priceId: string): Promise<void> {
   pendingCredits = pack.credits;
   const customData: Record<string, string> = {
     product: 'credit_pack',
-    credits: String(pack.credits)
+    credits: String(pack.credits),
+    packageId: pack.id
   };
+  try {
+    const { currentUser } = await import('../../auth/session.js');
+    const user = currentUser();
+    if (user?.uid) customData.accountId = user.uid;
+  } catch {
+    /* optional */
+  }
   window.dispatchEvent(
     new CustomEvent('sectorcalc-checkout', {
       detail: { name: 'checkout.open', priceId, credits: pack.credits }

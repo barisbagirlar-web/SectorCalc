@@ -19,11 +19,11 @@ service cloud.firestore {
         && request.resource.data.uid == uid
         && request.resource.data.credits is int
         && request.resource.data.credits >= 0;
+      // Owners cannot mutate credits; Cloud Functions (Admin SDK) own the ledger.
       allow update: if (
           isOwner(uid)
           && request.resource.data.uid == uid
-          && request.resource.data.credits is int
-          && request.resource.data.credits >= 0
+          && request.resource.data.credits == resource.data.credits
         ) || (
           isOpsAdmin()
           && request.resource.data.uid == uid
@@ -31,6 +31,21 @@ service cloud.firestore {
           && request.resource.data.credits >= 0
         );
       allow delete: if false;
+
+      match /wallet/{docId} {
+        allow read: if isOwner(uid) || isOpsAdmin();
+        allow write: if false;
+      }
+
+      match /creditTransactions/{id} {
+        allow read: if isOwner(uid) || isOpsAdmin();
+        allow write: if false;
+      }
+
+      match /calculationSessions/{id} {
+        allow read: if isOwner(uid) || isOpsAdmin();
+        allow write: if false;
+      }
 
       match /purchases/{id} {
         allow read: if isOwner(uid) || isOpsAdmin();
@@ -45,6 +60,11 @@ service cloud.firestore {
         allow create, update: if isOwner(uid);
         allow delete: if isOwner(uid) || isOpsAdmin();
       }
+    }
+
+    match /paymentEvents/{eventId} {
+      allow read: if isOpsAdmin();
+      allow write: if false;
     }
 
     match /ops_audit/{id} {

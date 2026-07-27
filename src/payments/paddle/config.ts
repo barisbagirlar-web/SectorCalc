@@ -2,7 +2,7 @@
  * Paddle sandbox configuration for SectorCalc test payments.
  * Secrets stay in env — never ship API keys in the browser bundle.
  */
-import { PACKAGES, type CreditPackage } from '../../lib/pricing-packages.js';
+import { PACKAGES, PADDLE_SANDBOX_PRICE_IDS, type CreditPackage } from '../../billing/credit-packages.js';
 
 export type PaddleEnvironment = 'sandbox' | 'production';
 
@@ -13,14 +13,7 @@ export interface PaddlePublicConfig {
   packages: CreditPackage[];
 }
 
-/** Sandbox catalog price IDs (Sectorcalc10 test). */
-export const PADDLE_SANDBOX_PRICE_IDS = {
-  tryOnce: 'pri_01kvv1wpnq508nkg37f9vy0aqy',
-  essentials: 'pri_01kvv20wppf64fht2tn82wq8wc',
-  popular: 'pri_01kvv24222vst09fyh7rxv3ck8',
-  teams: 'pri_01kvv27axkgbd5ddmd9c6gaaj9',
-  bestValue: 'pri_01kvv28x31xas1q8pdrqqa4hr7'
-} as const;
+export { PADDLE_SANDBOX_PRICE_IDS };
 
 function viteEnv(name: string): string {
   const env = (import.meta as ImportMeta & { env?: Record<string, string | undefined> }).env;
@@ -38,7 +31,7 @@ export function getPaddlePublicConfig(): PaddlePublicConfig {
   };
 }
 
-export function resolveSandboxPriceId(credits: 1 | 5 | 15 | 30 | 100): string {
+export function resolveSandboxPriceId(credits: 20 | 100 | 300 | 1000): string {
   const pack = PACKAGES.find((p) => p.credits === credits);
   if (!pack) throw new Error(`Unknown credit pack: ${credits}`);
   return pack.paddlePriceId;

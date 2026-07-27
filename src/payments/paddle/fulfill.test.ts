@@ -1,6 +1,7 @@
 import { describe, it, expect, beforeEach } from 'vitest';
 import { fulfillCheckoutCompleted } from './fulfill.js';
 import { readCredits, writeCredits } from './credits.js';
+import { PADDLE_SANDBOX_PRICE_IDS } from '../../billing/credit-packages.js';
 
 describe('fulfillCheckoutCompleted', () => {
   beforeEach(() => {
@@ -21,17 +22,17 @@ describe('fulfillCheckoutCompleted', () => {
     writeCredits({ balance: 0, updatedAt: new Date().toISOString() });
   });
 
-  it('grants from line-item price_id', () => {
+  it('grants from line-item price_id (workshop 100)', () => {
     const r = fulfillCheckoutCompleted({
       name: 'checkout.completed',
       data: {
         transaction_id: 'txn_items',
-        items: [{ price_id: 'pri_01kvv24222vst09fyh7rxv3ck8', quantity: 1 }]
+        items: [{ price_id: PADDLE_SANDBOX_PRICE_IDS.workshop, quantity: 1 }]
       }
     });
     expect(r.source).toBe('items');
-    expect(r.granted).toBe(15);
-    expect(readCredits().balance).toBe(15);
+    expect(r.granted).toBe(100);
+    expect(readCredits().balance).toBe(100);
   });
 
   it('falls back to custom_data.credits', () => {
@@ -39,12 +40,12 @@ describe('fulfillCheckoutCompleted', () => {
       name: 'checkout.completed',
       data: {
         id: 'txn_custom',
-        custom_data: { product: 'credit_pack', credits: '5' },
+        custom_data: { product: 'credit_pack', credits: '20' },
         items: []
       }
     });
     expect(r.source).toBe('custom_data');
-    expect(r.granted).toBe(5);
+    expect(r.granted).toBe(20);
   });
 
   it('falls back to pending credits', () => {
@@ -53,10 +54,10 @@ describe('fulfillCheckoutCompleted', () => {
         name: 'checkout.completed',
         data: { transaction_id: 'txn_pending', items: [] }
       },
-      30
+      300
     );
     expect(r.source).toBe('pending');
-    expect(r.granted).toBe(30);
+    expect(r.granted).toBe(300);
   });
 
   it('ignores non-completed events', () => {
@@ -70,16 +71,16 @@ describe('fulfillCheckoutCompleted', () => {
       name: 'checkout.completed',
       data: {
         transaction_id: 'txn_once',
-        custom_data: { credits: '1' }
+        custom_data: { credits: '20' }
       }
     });
     fulfillCheckoutCompleted({
       name: 'checkout.completed',
       data: {
         transaction_id: 'txn_once',
-        custom_data: { credits: '1' }
+        custom_data: { credits: '20' }
       }
     });
-    expect(readCredits().balance).toBe(1);
+    expect(readCredits().balance).toBe(20);
   });
 });

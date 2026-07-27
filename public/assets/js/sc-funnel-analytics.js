@@ -9,12 +9,21 @@
     calculator_view: 1,
     calculator_start: 1,
     calculator_complete: 1,
+    calculator_free_completed: 1,
     demo_load: 1,
     audit_open: 1,
     guide_click: 1,
     pricing_view: 1,
     checkout_start: 1,
+    checkout_started: 1,
     purchase: 1,
+    professional_report_clicked: 1,
+    insufficient_credit: 1,
+    credit_purchase_success: 1,
+    credit_purchase_failed: 1,
+    professional_session_started: 1,
+    professional_report_generated: 1,
+    credit_wallet_viewed: 1,
   };
 
   function ctx() {
