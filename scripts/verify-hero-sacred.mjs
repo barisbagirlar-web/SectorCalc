@@ -25,8 +25,17 @@ const hero = readFileSync(heroSrc, 'utf8');
 if (!index.includes(HERO)) fail(`index.html must load /${HERO} (immutable cache-bust name)`);
 if (/sc-hero-cell\.js\?v=1[0-8]/.test(index)) fail('index.html still references obsolete sc-hero-cell.js?v=1x');
 if (/sc-hero-cell-v2[23]\.js/.test(index)) fail('index.html still references obsolete sc-hero-cell-v22/v23.js — bump to v24');
-if (index.includes('theme-calc-sheet') || index.includes('theme-blueprint') || index.includes('sc-calc-sheet.css')) {
-  fail('index.html contaminated with calc-sheet/blueprint theme');
+if (index.includes('theme-calc-sheet') || index.includes('theme-blueprint')) {
+  fail('index.html contaminated with theme-calc-sheet / theme-blueprint (hero chrome forbidden)');
+}
+if (index.includes('sc-calc-sheet-titleblock')) {
+  fail('index.html must not carry calc-sheet titleblock');
+}
+if (!index.includes('sc-eng-paper')) {
+  fail('index.html must use body.sc-eng-paper for unified graph-paper background');
+}
+if (!/sc-calc-sheet\.css\?v=4/.test(index)) {
+  fail('index.html must load /sc-calc-sheet.css?v=4 (shared eng-paper SSOT)');
 }
 if (!index.includes('id="stage"') || !index.includes('class="sc-hero"')) fail('index.html missing live-cell stage markup');
 if (!index.includes('hero-cell-poster.png')) fail('index.html missing premium poster fallback image');

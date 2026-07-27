@@ -51,57 +51,12 @@
   min-height: 100vh;
 }
 
-/* Premium dual-scale engineering graph paper (Enterprise / Exclusive) */
-.calc-sheet.has-grid::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-color: #eef1f4;
-  background-image: radial-gradient(
-      circle at 18% 22%,
-      rgba(26, 58, 92, 0.018) 0.6px,
-      transparent 0.7px
-    ),
-    radial-gradient(circle at 72% 64%, rgba(26, 58, 92, 0.018) 0.55px, transparent 0.65px),
-    linear-gradient(var(--cs-grid-major-line) 1.5px, transparent 1.5px),
-    linear-gradient(90deg, var(--cs-grid-major-line) 1.5px, transparent 1.5px),
-    linear-gradient(var(--cs-grid) 1px, transparent 1px),
-    linear-gradient(90deg, var(--cs-grid) 1px, transparent 1px),
-    radial-gradient(120% 90% at 50% 0%, rgba(255, 255, 255, 0.55), transparent 58%),
-    linear-gradient(180deg, #f7f9fb 0%, #eef1f4 42%, #e8ecf1 100%);
-  background-size:
-    48px 48px,
-    56px 56px,
-    var(--cs-grid-major) var(--cs-grid-major),
-    var(--cs-grid-major) var(--cs-grid-major),
-    var(--cs-grid-minor) var(--cs-grid-minor),
-    var(--cs-grid-minor) var(--cs-grid-minor),
-    100% 100%,
-    100% 100%;
-  pointer-events: none;
-  z-index: 0;
-}
-
+/* Paper grid is painted by body.sc-eng-paper (sc-calc-sheet.css v4).
+   Do not fork a second grid here — keeps 8/40 rhythm identical site-wide. */
+.calc-sheet.has-grid::before,
 .calc-sheet.has-grid::after {
-  content: '';
-  position: fixed;
-  inset: 10px;
-  pointer-events: none;
-  z-index: 0;
-  background:
-    linear-gradient(rgba(26, 58, 92, 0.45), rgba(26, 58, 92, 0.45)) top left / 18px 1.5px no-repeat,
-    linear-gradient(rgba(26, 58, 92, 0.45), rgba(26, 58, 92, 0.45)) top left / 1.5px 18px no-repeat,
-    linear-gradient(rgba(26, 58, 92, 0.45), rgba(26, 58, 92, 0.45)) top right / 18px 1.5px no-repeat,
-    linear-gradient(rgba(26, 58, 92, 0.45), rgba(26, 58, 92, 0.45)) top right / 1.5px 18px no-repeat,
-    linear-gradient(rgba(26, 58, 92, 0.45), rgba(26, 58, 92, 0.45)) bottom left / 18px 1.5px
-      no-repeat,
-    linear-gradient(rgba(26, 58, 92, 0.45), rgba(26, 58, 92, 0.45)) bottom left / 1.5px 18px
-      no-repeat,
-    linear-gradient(rgba(26, 58, 92, 0.45), rgba(26, 58, 92, 0.45)) bottom right / 18px 1.5px
-      no-repeat,
-    linear-gradient(rgba(26, 58, 92, 0.45), rgba(26, 58, 92, 0.45)) bottom right / 1.5px 18px
-      no-repeat;
-  opacity: 0.55;
+  content: none !important;
+  display: none !important;
 }
 
 /* ============================================================

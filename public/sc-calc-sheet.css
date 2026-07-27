@@ -1,9 +1,10 @@
 /* ============================================================
-   SectorCalc Engineering Graph Paper v3 — Enterprise / Exclusive
-   Dual-scale drafting sheet (minor + major), registration marks,
-   title-block stamp. Safe accents for calculators / hubs / content.
-   NEVER load on index.html (live-cell hero is sacred).
-   No global resets. No opacity:0 reveal traps. No blueprint homepage.
+   SectorCalc Engineering Graph Paper v4 — ONE rhythm, ALL pages
+   SSOT class: body.sc-eng-paper
+   Dual-scale: 8px minor · 40px major (exact 1:5). Same grain, same
+   registration marks, same wash — homepage + tools + calculators.
+   Homepage may load this for BACKGROUND ONLY (no wrap/titleblock).
+   Never rewrite live-cell hero markup/scripts.
    ============================================================ */
 
 :root {
@@ -13,75 +14,68 @@
   --iso-orange: #e16a00;
   --iso-red: #c8102e;
 
-  /* Cool technical drafting paper — not cream, not purple wash */
+  /* Locked drafting paper — identical on every surface */
   --cs-bg: #eef1f4;
   --cs-paper: #fbfcfd;
   --cs-border: #1a3a5c;
   --cs-accent: #1a3a5c;
-  --cs-grid-minor: rgba(26, 58, 92, 0.055);
-  --cs-grid-major: rgba(26, 58, 92, 0.11);
+  --cs-grid-minor: rgba(26, 58, 92, 0.06);
+  --cs-grid-major: rgba(26, 58, 92, 0.125);
   --cs-grid-frame: rgba(26, 58, 92, 0.16);
-  --cs-grain: rgba(26, 58, 92, 0.018);
-  --cs-mark: rgba(26, 58, 92, 0.45);
+  --cs-grain: rgba(26, 58, 92, 0.022);
+  --cs-mark: rgba(26, 58, 92, 0.5);
+  --cs-vignette: rgba(255, 255, 255, 0.62);
 
-  --ds-bg: #eef1f4;
-  --ds-border: #2c3e50;
+  --ds-bg: var(--cs-bg);
+  --ds-border: var(--cs-border);
   --ds-accent: #0055a4;
-  --bom-bg: #eef1f4;
-  --bom-border: #2c3e50;
-  --bom-header: #1a3a5c;
+  --bom-bg: var(--cs-bg);
+  --bom-border: var(--cs-border);
+  --bom-header: var(--cs-accent);
 
   --sc-sheet-mono: 'JetBrains Mono', 'SF Mono', 'Fira Code', Consolas, monospace;
-  /* Millimeter-paper rhythm: 8px minor · 40px major (5×) */
+  /* Millimeter rhythm LOCKED — do not fork per page */
   --sc-sheet-minor: 8px;
   --sc-sheet-major: 40px;
   --sc-sheet-grid: var(--sc-sheet-minor);
+  --sc-sheet-mark: 18px;
+  --sc-sheet-frame-shadow: 0 0 0 1px rgba(255, 255, 255, 0.65) inset,
+    0 0 0 6px rgba(26, 58, 92, 0.04), 0 8px 28px rgba(26, 58, 92, 0.07);
 }
 
-/* ---------- Shared paper targets ---------- */
-body.theme-calc-sheet,
-body.theme-drawing-index,
-body.theme-bom,
-body.theme-eng-paper,
-body.calc-sheet.has-grid,
-body.sc-guides-shell {
+/* ---------- ONE paper layer (homepage + every other page) ---------- */
+body.sc-eng-paper {
   position: relative;
   isolation: isolate;
+  background: transparent !important;
 }
 
 /*
-  Layer stack (fixed, pointer-events none):
-  ::before  — dual-scale graph paper + cool paper wash + micro-grain
-  ::after   — ISO-style registration / crop marks at viewport corners
+  ::before — dual-scale graph paper + wash + micro-grain (identical everywhere)
+  ::after  — ISO registration marks (identical everywhere)
 */
-body.theme-calc-sheet::before,
-body.theme-drawing-index::before,
-body.theme-bom::before,
-body.theme-eng-paper::before,
-body.calc-sheet.has-grid::before,
-body.sc-guides-shell::before {
+body.sc-eng-paper::before {
   content: '';
   position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: 0;
   background-color: var(--cs-bg);
-  background-image:
-    /* micro fiber grain */
-    radial-gradient(circle at 18% 22%, var(--cs-grain) 0.6px, transparent 0.7px),
-    radial-gradient(circle at 72% 64%, var(--cs-grain) 0.55px, transparent 0.65px),
-    radial-gradient(circle at 44% 81%, var(--cs-grain) 0.5px, transparent 0.6px),
-    /* major grid */ linear-gradient(var(--cs-grid-major) 1.5px, transparent 1.5px),
+  background-image: radial-gradient(circle at 12% 18%, var(--cs-grain) 0.55px, transparent 0.65px),
+    radial-gradient(circle at 68% 42%, var(--cs-grain) 0.5px, transparent 0.6px),
+    radial-gradient(circle at 38% 78%, var(--cs-grain) 0.55px, transparent 0.65px),
+    radial-gradient(circle at 86% 88%, var(--cs-grain) 0.45px, transparent 0.55px),
+    linear-gradient(var(--cs-grid-major) 1.5px, transparent 1.5px),
     linear-gradient(90deg, var(--cs-grid-major) 1.5px, transparent 1.5px),
-    /* minor grid */ linear-gradient(var(--cs-grid-minor) 1px, transparent 1px),
+    linear-gradient(var(--cs-grid-minor) 1px, transparent 1px),
     linear-gradient(90deg, var(--cs-grid-minor) 1px, transparent 1px),
-    /* soft vignette so sheet reads as a drafting table */
-      radial-gradient(120% 90% at 50% 0%, rgba(255, 255, 255, 0.55), transparent 58%),
-    linear-gradient(180deg, #f7f9fb 0%, var(--cs-bg) 42%, #e8ecf1 100%);
+    radial-gradient(125% 95% at 50% -5%, var(--cs-vignette), transparent 55%),
+    linear-gradient(180deg, #f8fafc 0%, var(--cs-bg) 38%, #e6ebf0 100%);
   background-size:
-    48px 48px,
-    56px 56px,
     40px 40px,
+    48px 48px,
+    36px 36px,
+    52px 52px,
     var(--sc-sheet-major) var(--sc-sheet-major),
     var(--sc-sheet-major) var(--sc-sheet-major),
     var(--sc-sheet-minor) var(--sc-sheet-minor),
@@ -91,46 +85,34 @@ body.sc-guides-shell::before {
   background-position: 0 0;
 }
 
-/* Corner registration marks (Exclusive drafting detail) */
-body.theme-calc-sheet::after,
-body.theme-drawing-index::after,
-body.theme-bom::after,
-body.theme-eng-paper::after,
-body.calc-sheet.has-grid::after,
-body.sc-guides-shell::after {
+body.sc-eng-paper::after {
   content: '';
   position: fixed;
   inset: 10px;
   pointer-events: none;
   z-index: 0;
-  border: 1px solid transparent;
   background:
-    linear-gradient(var(--cs-mark), var(--cs-mark)) top left / 18px 1.5px no-repeat,
-    linear-gradient(var(--cs-mark), var(--cs-mark)) top left / 1.5px 18px no-repeat,
-    linear-gradient(var(--cs-mark), var(--cs-mark)) top right / 18px 1.5px no-repeat,
-    linear-gradient(var(--cs-mark), var(--cs-mark)) top right / 1.5px 18px no-repeat,
-    linear-gradient(var(--cs-mark), var(--cs-mark)) bottom left / 18px 1.5px no-repeat,
-    linear-gradient(var(--cs-mark), var(--cs-mark)) bottom left / 1.5px 18px no-repeat,
-    linear-gradient(var(--cs-mark), var(--cs-mark)) bottom right / 18px 1.5px no-repeat,
-    linear-gradient(var(--cs-mark), var(--cs-mark)) bottom right / 1.5px 18px no-repeat;
-  opacity: 0.55;
+    linear-gradient(var(--cs-mark), var(--cs-mark)) top left / var(--sc-sheet-mark) 1.5px no-repeat,
+    linear-gradient(var(--cs-mark), var(--cs-mark)) top left / 1.5px var(--sc-sheet-mark) no-repeat,
+    linear-gradient(var(--cs-mark), var(--cs-mark)) top right / var(--sc-sheet-mark) 1.5px no-repeat,
+    linear-gradient(var(--cs-mark), var(--cs-mark)) top right / 1.5px var(--sc-sheet-mark) no-repeat,
+    linear-gradient(var(--cs-mark), var(--cs-mark)) bottom left / var(--sc-sheet-mark) 1.5px
+      no-repeat,
+    linear-gradient(var(--cs-mark), var(--cs-mark)) bottom left / 1.5px var(--sc-sheet-mark)
+      no-repeat,
+    linear-gradient(var(--cs-mark), var(--cs-mark)) bottom right / var(--sc-sheet-mark) 1.5px
+      no-repeat,
+    linear-gradient(var(--cs-mark), var(--cs-mark)) bottom right / 1.5px var(--sc-sheet-mark)
+      no-repeat;
+  opacity: 0.58;
 }
 
-body.theme-calc-sheet > *:not(.sc-calc-sheet-titleblock),
-body.theme-drawing-index > *:not(.sc-calc-sheet-titleblock),
-body.theme-bom > *:not(.sc-calc-sheet-titleblock),
-body.theme-eng-paper > *:not(.sc-calc-sheet-titleblock),
-body.calc-sheet.has-grid > *:not(.sc-calc-sheet-titleblock):not(.cs-title-block),
-body.sc-guides-shell > *:not(.sc-calc-sheet-titleblock) {
+body.sc-eng-paper > *:not(.sc-calc-sheet-titleblock) {
   position: relative;
   z-index: 1;
 }
 
 /* ---------- Calculation sheet ( *-pro.html ) ---------- */
-body.theme-calc-sheet {
-  background: var(--cs-bg) !important;
-}
-
 body.theme-calc-sheet .wrap,
 body.theme-calc-sheet .sc-layout {
   max-width: 1440px;
@@ -138,14 +120,11 @@ body.theme-calc-sheet .sc-layout {
   margin-right: auto;
   background: var(--cs-paper);
   border: 2px solid var(--cs-border);
-  box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.65) inset,
-    0 0 0 6px rgba(26, 58, 92, 0.04),
-    0 8px 28px rgba(26, 58, 92, 0.07);
+  box-shadow: var(--sc-sheet-frame-shadow);
   position: relative;
 }
 
-/* Inner drawing border (double-line sheet) */
+/* Inner drawing border (double-line sheet) — same inset everywhere */
 body.theme-calc-sheet .wrap::before,
 body.theme-calc-sheet .sc-layout::before {
   content: '';
@@ -209,20 +188,13 @@ body.theme-calc-sheet .sc-sidebar {
 }
 
 /* ---------- Drawing index ( tools.html ) ---------- */
-body.theme-drawing-index {
-  background: var(--ds-bg) !important;
-}
-
 body.theme-drawing-index .wrap {
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
   background: var(--cs-paper);
-  border: 2px solid var(--ds-border);
-  box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.65) inset,
-    0 0 0 6px rgba(26, 58, 92, 0.04),
-    0 8px 28px rgba(26, 58, 92, 0.07);
+  border: 2px solid var(--cs-border);
+  box-shadow: var(--sc-sheet-frame-shadow);
   padding: 28px 32px 36px;
   position: relative;
 }
@@ -325,20 +297,13 @@ body.theme-drawing-index .catsec h2::before {
 }
 
 /* ---------- BOM ( pricing.html ) ---------- */
-body.theme-bom {
-  background: var(--bom-bg) !important;
-}
-
 body.theme-bom .wrap {
   max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
   background: var(--cs-paper);
-  border: 2px solid var(--bom-border);
-  box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.65) inset,
-    0 0 0 6px rgba(26, 58, 92, 0.04),
-    0 8px 28px rgba(26, 58, 92, 0.07);
+  border: 2px solid var(--cs-border);
+  box-shadow: var(--sc-sheet-frame-shadow);
   padding: 28px 32px 36px;
   position: relative;
 }
@@ -367,23 +332,14 @@ body.theme-bom .packs {
   font-variant-numeric: tabular-nums;
 }
 
-/* ---------- Content / account paper surfaces ---------- */
-body.theme-eng-paper {
-  background: var(--cs-bg) !important;
-}
+/* ---------- Content surfaces (glossary/compare/blog/account) ---------- */
+/* Paper comes only from body.sc-eng-paper — no per-theme forks. */
 
-/* Guides / hubs: keep shell transparent so ::before paper shows through */
-body.sc-guides-shell {
-  background: transparent !important;
-}
-
+/* Guides / hubs sheet frame — same border/shadow/inset as calculators */
 body.sc-guides-shell .sc-guides-main {
   background: var(--cs-paper);
-  border: 2px solid rgba(26, 58, 92, 0.28);
-  box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.65) inset,
-    0 0 0 6px rgba(26, 58, 92, 0.035),
-    0 10px 32px rgba(26, 58, 92, 0.06);
+  border: 2px solid var(--cs-border);
+  box-shadow: var(--sc-sheet-frame-shadow);
   position: relative;
 }
 
@@ -457,21 +413,18 @@ body.sc-guides-shell .sc-guides-main > * {
 }
 
 /* ---------- Dark theme ---------- */
-html[data-theme='dark'] body.theme-calc-sheet,
-html[data-theme='dark'] body.theme-drawing-index,
-html[data-theme='dark'] body.theme-bom,
-html[data-theme='dark'] body.theme-eng-paper,
-html[data-theme='dark'] body.calc-sheet.has-grid,
-html[data-theme='dark'] body.sc-guides-shell {
+html[data-theme='dark'] body.sc-eng-paper {
   --cs-bg: #0c1219;
   --cs-paper: #131a23;
-  --cs-grid-minor: rgba(127, 179, 232, 0.045);
-  --cs-grid-major: rgba(127, 179, 232, 0.1);
+  --cs-grid-minor: rgba(127, 179, 232, 0.05);
+  --cs-grid-major: rgba(127, 179, 232, 0.11);
   --cs-grid-frame: rgba(127, 179, 232, 0.18);
-  --cs-grain: rgba(127, 179, 232, 0.03);
-  --cs-mark: rgba(157, 184, 212, 0.4);
+  --cs-grain: rgba(127, 179, 232, 0.035);
+  --cs-mark: rgba(157, 184, 212, 0.45);
+  --cs-vignette: rgba(19, 26, 35, 0.35);
   --ds-bg: #0c1219;
   --bom-bg: #0c1219;
+  --sc-sheet-frame-shadow: none;
 }
 
 html[data-theme='dark'] body.theme-calc-sheet .wrap,
@@ -501,29 +454,14 @@ html[data-theme='dark'] .sc-calc-sheet-titleblock .tb-value {
 
 /* ---------- Reduced motion / print ---------- */
 @media (prefers-reduced-motion: reduce) {
-  body.theme-calc-sheet::before,
-  body.theme-drawing-index::before,
-  body.theme-bom::before,
-  body.theme-eng-paper::before,
-  body.calc-sheet.has-grid::before,
-  body.sc-guides-shell::before {
+  body.sc-eng-paper::before {
     background-attachment: scroll;
   }
 }
 
 @media print {
-  body.theme-calc-sheet::before,
-  body.theme-drawing-index::before,
-  body.theme-bom::before,
-  body.theme-eng-paper::before,
-  body.calc-sheet.has-grid::before,
-  body.sc-guides-shell::before,
-  body.theme-calc-sheet::after,
-  body.theme-drawing-index::after,
-  body.theme-bom::after,
-  body.theme-eng-paper::after,
-  body.calc-sheet.has-grid::after,
-  body.sc-guides-shell::after {
+  body.sc-eng-paper::before,
+  body.sc-eng-paper::after {
     display: none;
   }
 
@@ -550,12 +488,7 @@ html[data-theme='dark'] .sc-calc-sheet-titleblock .tb-value {
     box-shadow: none;
   }
 
-  body.theme-calc-sheet::after,
-  body.theme-drawing-index::after,
-  body.theme-bom::after,
-  body.theme-eng-paper::after,
-  body.calc-sheet.has-grid::after,
-  body.sc-guides-shell::after {
+  body.sc-eng-paper::after {
     inset: 6px;
     opacity: 0.35;
   }

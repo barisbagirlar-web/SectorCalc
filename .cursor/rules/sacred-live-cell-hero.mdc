@@ -16,8 +16,9 @@ The homepage `.sc-hero` 3D turning cell is a product-critical surface.
 4. **Never** early-return WebGL on `prefers-reduced-motion` — only slow motion.
 5. **Never** make RoomEnvironment/PMREM required — env map failure must not kill WebGL.
 6. **Never** reintroduce the oval ground disc / soft mirror plate or rear metal bay plate — they block clean 360° orbit.
-7. SEO injectors, EEAT, calc-sheet, and deploy scripts must not rewrite hero markup/scripts.
-8. After any `npm run build` / Firebase promote, run `node scripts/verify-hero-sacred.mjs` and confirm live loads `sc-hero-cell-v24.js` with canvas `.is-ready`.
+7. SEO injectors, EEAT, and deploy scripts must not rewrite hero markup/scripts.
+8. **Allowed:** `body.sc-eng-paper` + `/sc-calc-sheet.css?v=4` for the shared graph-paper BACKGROUND only. Forbidden on homepage: `theme-calc-sheet`, `theme-blueprint`, and `.sc-calc-sheet-titleblock`.
+9. After any `npm run build` / Firebase promote, run `node scripts/verify-hero-sacred.mjs` and confirm live loads `sc-hero-cell-v24.js` with canvas `.is-ready`.
 
 ## If you touch SEO/deploy
 
