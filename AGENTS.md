@@ -13,7 +13,7 @@ Read `DECISIONS.md` and `.cursorrules` before writing code.
 
 1. **UI** = Vanilla JS + Lit Web Components. Never React/Vue/Next/Angular.
 2. **Money** = `src/money` + Decimal.js. Amounts in JSON are **strings**. Never `Number`.
-3. **Payments** = Paddle (MoR). Never Stripe. **Paddle SDK install is a later phase.**
+3. **Payments** = Paddle (MoR). Never Stripe. Credit packs are one-time; server webhook grants wallet credits. Homepage + `/pricing.html` packs must match `src/lib/pricing-packages.ts` (guard: `npm run verify:home-credits`).
 4. **Schemas** = `schemas/*.json` with `$schema` Draft **2020-12** only.
 5. **Data** = JSON only. No protobuf / MessagePack / CBOR / custom binary.
 6. **Theme / report contrast** = use `public/sc-theme.css` tokens + `src/lib/theme-palette.ts` for SVG/canvas/html2canvas. Never hardcode light-theme ink (`#1A1714`) into report graphics. New `*-pro` tools must follow the same pattern and re-render open reports on `sectorcalc-theme`.

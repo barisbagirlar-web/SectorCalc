@@ -11,7 +11,8 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "node scripts/assert-production-env.mjs && node scripts/inject-guides.mjs && node scripts/inject-eeat.mjs && node scripts/inject-site-nav.mjs && node scripts/inject-related-tools.mjs && node scripts/inject-money-pages.mjs && node scripts/inject-calc-sheet.mjs && python3 scripts/inject-seo.py && node scripts/normalize-root-assets.mjs && node scripts/verify-form-fields.mjs && tsc --noEmit && vite build && node scripts/normalize-root-assets.mjs --dist && node scripts/normalize-root-assets.mjs --check --dist && node scripts/verify-nav.mjs && node scripts/verify-form-fields.mjs && node scripts/verify-seo.mjs && node scripts/verify-seo-money.mjs && node scripts/verify-hero-sacred.mjs && node scripts/verify-production-bundle.mjs",
+    "build": "node scripts/assert-production-env.mjs && node scripts/inject-guides.mjs && node scripts/inject-eeat.mjs && node scripts/inject-site-nav.mjs && node scripts/inject-related-tools.mjs && node scripts/inject-money-pages.mjs && node scripts/inject-calc-sheet.mjs && python3 scripts/inject-seo.py && node scripts/normalize-root-assets.mjs && node scripts/verify-form-fields.mjs && node scripts/verify-home-credit-packs.mjs && tsc --noEmit && vite build && node scripts/normalize-root-assets.mjs --dist && node scripts/normalize-root-assets.mjs --check --dist && node scripts/verify-nav.mjs && node scripts/verify-form-fields.mjs && node scripts/verify-seo.mjs && node scripts/verify-seo-money.mjs && node scripts/verify-hero-sacred.mjs && node scripts/verify-home-credit-packs.mjs && node scripts/verify-production-bundle.mjs",
+    "verify:home-credits": "node scripts/verify-home-credit-packs.mjs",
     "verify:root-assets": "node scripts/normalize-root-assets.mjs --check --dist",
     "smoke:prod-env": "node scripts/assert-production-env.mjs",
     "smoke:paddle": "node scripts/smoke-paddle-sandbox.mjs",
