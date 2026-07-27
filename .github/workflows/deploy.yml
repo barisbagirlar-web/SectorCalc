@@ -71,29 +71,7 @@ jobs:
           LOG_FILE="$(mktemp)"
           echo "channel_id=$CHANNEL_ID" >> "$GITHUB_OUTPUT"
           # Best-effort prune of leftover release-* SHA channels from prior deploys.
-          LIST_JSON="$(mktemp)"
-          if npx --yes firebase-tools@14 hosting:channel:list \
-            --project sectorcalc-prod \
-            --token "$FIREBASE_TOKEN" \
-            --json >"$LIST_JSON" 2>/dev/null; then
-            node -e '
-              const fs=require("fs");
-              const raw=fs.readFileSync(process.argv[1],"utf8");
-              let data; try { data=JSON.parse(raw); } catch { process.exit(0); }
-              const channels=(data.result||data.channels||data||[]);
-              const ids=channels
-                .map((c)=>c.name?.split("/").pop() || c.id || c.channelId)
-                .filter((id)=>id && id.startsWith("release-") && id!=="release-candidate");
-              for (const id of ids.slice(0, 40)) console.log(id);
-            ' "$LIST_JSON" | while read -r OLD_ID; do
-              echo "Pruning stale channel: $OLD_ID"
-              npx --yes firebase-tools@14 hosting:channel:delete "$OLD_ID" \
-                --project sectorcalc-prod \
-                --token "$FIREBASE_TOKEN" \
-                --force \
-                --non-interactive || true
-            done
-          fi
+          node scripts/prune-firebase-preview-channels.mjs || true
           npx --yes firebase-tools@14 hosting:channel:deploy "$CHANNEL_ID" \
             --expires 7d \
             --project sectorcalc-prod \
