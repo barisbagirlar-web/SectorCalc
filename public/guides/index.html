@@ -1,740 +1,397 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" data-theme="light">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Exclusive Engineering Guides | SectorCalc</title>
-    <meta
-      name="description"
-      content="Enterprise engineering guides with money-parity answer chains for tolerance, CNC, bearings, labor, weld, ISO fits, finish, bend, and punch — free and credit-backed calculators."
-    />
-    <link rel="canonical" href="https://sectorcalc.com/guides" />
-    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1" />
-    <meta property="og:title" content="Exclusive Engineering Guides | SectorCalc" />
-    <meta
-      property="og:description"
-      content="Problem → direct answer → methodology → evidence → A1–A5 → calculator. Not a thin slug list."
-    />
-    <meta property="og:url" content="https://sectorcalc.com/guides" />
-    <meta property="og:type" content="website" />
-    <meta
-      property="og:image"
-      content="https://sectorcalc.com/assets/images/og-default-1200x630.jpg"
-    />
-    <meta name="twitter:card" content="summary_large_image" />
-    <link rel="stylesheet" href="/css/seo-content.css" />
-    <link rel="stylesheet" href="/sc-theme.css?v=12" />
-    <link rel="stylesheet" href="/sc-site-nav.css?v=5" />
-    <link rel="stylesheet" href="/sc-tool-guide.css?v=3" />
-    <link rel="stylesheet" href="/css/sc-guides.css?v=3" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Sans:wght@400;600;700&family=JetBrains+Mono:wght@500;700&display=swap"
-      rel="stylesheet"
-    />
-    <script src="/sc-theme.js?v=12" defer></script>
-    <script src="/sc-site-nav.js?v=2" defer></script>
-    <script src="/sc-tool-guide.js?v=3" defer></script>
-    <script type="module" src="/src/auth-nav.ts"></script>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@graph": [
-          {
-            "@type": "CollectionPage",
-            "@id": "https://sectorcalc.com/guides#webpage",
-            "url": "https://sectorcalc.com/guides",
-            "name": "Exclusive Engineering Guides | SectorCalc",
-            "description": "Enterprise engineering guides with money-parity AEO chains: problem, direct answer, methodology, evidence, A1–A5 accountability, and calculator CTAs.",
-            "isPartOf": {
-              "@id": "https://sectorcalc.com/#website"
-            },
-            "publisher": {
-              "@id": "https://sectorcalc.com/#organization"
-            },
-            "inLanguage": "en-US",
-            "about": [
-              "ISO 286 Fits Complete Guide",
-              "Surface Finish (Ra / Rz) Complete Guide",
-              "Sheet Metal Bend & K-Factor Complete Guide",
-              "Punching Force Complete Guide",
-              "Tolerance Stack-Up Complete Guide",
-              "CNC Optimization Complete Guide",
-              "Bearing Life Complete Guide",
-              "Labor Costing Complete Guide",
-              "Weld Sizing Complete Guide"
-            ]
-          },
-          {
-            "@type": "ItemList",
-            "@id": "https://sectorcalc.com/guides#itemlist",
-            "name": "SectorCalc exclusive engineering guides",
-            "numberOfItems": 9,
-            "itemListElement": [
-              {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "ISO 286 Fits Complete Guide",
-                "url": "https://sectorcalc.com/guides/iso-286-fits-complete"
-              },
-              {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Surface Finish (Ra / Rz) Complete Guide",
-                "url": "https://sectorcalc.com/guides/surface-finish-complete"
-              },
-              {
-                "@type": "ListItem",
-                "position": 3,
-                "name": "Sheet Metal Bend & K-Factor Complete Guide",
-                "url": "https://sectorcalc.com/guides/sheet-metal-bend-complete"
-              },
-              {
-                "@type": "ListItem",
-                "position": 4,
-                "name": "Punching Force Complete Guide",
-                "url": "https://sectorcalc.com/guides/punching-force-complete"
-              },
-              {
-                "@type": "ListItem",
-                "position": 5,
-                "name": "Tolerance Stack-Up Complete Guide",
-                "url": "https://sectorcalc.com/guides/tolerance-stack-up-complete"
-              },
-              {
-                "@type": "ListItem",
-                "position": 6,
-                "name": "CNC Optimization Complete Guide",
-                "url": "https://sectorcalc.com/guides/cnc-optimization-complete"
-              },
-              {
-                "@type": "ListItem",
-                "position": 7,
-                "name": "Bearing Life Complete Guide",
-                "url": "https://sectorcalc.com/guides/bearing-life-complete"
-              },
-              {
-                "@type": "ListItem",
-                "position": 8,
-                "name": "Labor Costing Complete Guide",
-                "url": "https://sectorcalc.com/guides/labor-costing-complete"
-              },
-              {
-                "@type": "ListItem",
-                "position": 9,
-                "name": "Weld Sizing Complete Guide",
-                "url": "https://sectorcalc.com/guides/weld-sizing-complete"
-              }
-            ]
-          },
-          {
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-              {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://sectorcalc.com/"
-              },
-              {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Guides",
-                "item": "https://sectorcalc.com/guides"
-              }
-            ]
-          },
-          {
-            "@type": "FAQPage",
-            "@id": "https://sectorcalc.com/guides#faq",
-            "mainEntity": [
-              {
-                "@type": "Question",
-                "name": "What makes SectorCalc guides exclusive vs thin blog posts?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Each guide mirrors the Tier-A money-page contract: empathy, direct answer, decision, inputs, methodology, worked evidence when available, interpretation, sensitivity, assumptions, boundaries, mistakes, standards scope, A1–A5 accountability, and related entities — plus the deep methodology library used beside live calculators."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Are guides free to read?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Yes. Reading is free. Linked calculators are free for ISO fits, surface finish, bend, punching, and weld thickness. Tier-A decision calculators unlock with credits."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Do guides invent ROI or star ratings?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "No. No AggregateRating/Review schema and no fabricated customer ROI percentages. Worked examples come from deterministic engine fixtures when present."
-                }
-              }
-            ]
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exclusive Engineering Guides | SectorCalc</title>
+  <meta name="description" content="Enterprise engineering guides with money-parity answer chains for tolerance, CNC, bearings, labor, weld, ISO fits, finish, bend, and punch — free and credit-backed calculators.">
+  <link rel="canonical" href="https://sectorcalc.com/guides">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+  <meta property="og:title" content="Exclusive Engineering Guides | SectorCalc">
+  <meta property="og:description" content="Problem → direct answer → methodology → evidence → A1–A5 → calculator. Not a thin slug list.">
+  <meta property="og:url" content="https://sectorcalc.com/guides">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://sectorcalc.com/assets/images/og-default-1200x630.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="/css/seo-content.css">
+<link rel="stylesheet" href="/sc-theme.css?v=12">
+<link rel="stylesheet" href="/sc-site-nav.css?v=5">
+<link rel="stylesheet" href="/sc-tool-guide.css?v=3">
+<link rel="stylesheet" href="/css/sc-guides.css?v=3">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Sans:wght@400;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<script src="/sc-theme.js?v=12" defer></script>
+<script src="/sc-site-nav.js?v=2" defer></script>
+<script src="/sc-tool-guide.js?v=3" defer></script>
+<script type="module" src="/src/auth-nav.ts"></script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": "https://sectorcalc.com/guides#webpage",
+      "url": "https://sectorcalc.com/guides",
+      "name": "Exclusive Engineering Guides | SectorCalc",
+      "description": "Enterprise engineering guides with money-parity AEO chains: problem, direct answer, methodology, evidence, A1–A5 accountability, and calculator CTAs.",
+      "isPartOf": {
+        "@id": "https://sectorcalc.com/#website"
+      },
+      "publisher": {
+        "@id": "https://sectorcalc.com/#organization"
+      },
+      "inLanguage": "en-US",
+      "about": [
+        "ISO 286 Fits Complete Guide",
+        "Surface Finish (Ra / Rz) Complete Guide",
+        "Sheet Metal Bend & K-Factor Complete Guide",
+        "Punching Force Complete Guide",
+        "Tolerance Stack-Up Complete Guide",
+        "CNC Optimization Complete Guide",
+        "Bearing Life Complete Guide",
+        "Labor Costing Complete Guide",
+        "Weld Sizing Complete Guide"
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://sectorcalc.com/guides#itemlist",
+      "name": "SectorCalc exclusive engineering guides",
+      "numberOfItems": 9,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "ISO 286 Fits Complete Guide",
+          "url": "https://sectorcalc.com/guides/iso-286-fits-complete"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Surface Finish (Ra / Rz) Complete Guide",
+          "url": "https://sectorcalc.com/guides/surface-finish-complete"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Sheet Metal Bend & K-Factor Complete Guide",
+          "url": "https://sectorcalc.com/guides/sheet-metal-bend-complete"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Punching Force Complete Guide",
+          "url": "https://sectorcalc.com/guides/punching-force-complete"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "Tolerance Stack-Up Complete Guide",
+          "url": "https://sectorcalc.com/guides/tolerance-stack-up-complete"
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "name": "CNC Optimization Complete Guide",
+          "url": "https://sectorcalc.com/guides/cnc-optimization-complete"
+        },
+        {
+          "@type": "ListItem",
+          "position": 7,
+          "name": "Bearing Life Complete Guide",
+          "url": "https://sectorcalc.com/guides/bearing-life-complete"
+        },
+        {
+          "@type": "ListItem",
+          "position": 8,
+          "name": "Labor Costing Complete Guide",
+          "url": "https://sectorcalc.com/guides/labor-costing-complete"
+        },
+        {
+          "@type": "ListItem",
+          "position": 9,
+          "name": "Weld Sizing Complete Guide",
+          "url": "https://sectorcalc.com/guides/weld-sizing-complete"
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://sectorcalc.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://sectorcalc.com/guides"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://sectorcalc.com/guides#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What makes SectorCalc guides exclusive vs thin blog posts?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Each guide mirrors the Tier-A money-page contract: empathy, direct answer, decision, inputs, methodology, worked evidence when available, interpretation, sensitivity, assumptions, boundaries, mistakes, standards scope, A1–A5 accountability, and related entities — plus the deep methodology library used beside live calculators."
           }
-        ]
-      }
-    </script>
-  </head>
-  <body class="sc-guides-shell sc-guides-exclusive">
-    <!--SC-SITE-NAV-START-->
-    <header class="site-header" id="siteHeader" role="banner">
-      <a href="/" class="brand" aria-label="SectorCalc Home"
-        ><span class="brand-mark"
-          ><img
-            class="logo-light"
-            src="/sectorcalc-logo-214.w.png"
-            srcset="/sectorcalc-logo-214.w.png 214w, /sectorcalc-logo-428.w.png 428w"
-            sizes="183px"
-            width="183"
-            height="48"
-            alt="SectorCalc"
-            decoding="async" /><img
-            class="logo-dark"
-            src="/sectorcalc-logo-dark-214.w.png"
-            srcset="/sectorcalc-logo-dark-214.w.png 214w, /sectorcalc-logo-dark-428.w.png 428w"
-            sizes="183px"
-            width="183"
-            height="48"
-            alt=""
-            aria-hidden="true"
-            decoding="async" /></span
-      ></a>
-      <nav class="main-nav" role="navigation" aria-label="Main navigation">
-        <ul>
-          <li><a href="/tools.html" data-nav="tools">Tools</a></li>
-          <li><a href="/glossary" data-nav="glossary">Glossary</a></li>
-          <li><a href="/guides" data-nav="guides">Guides</a></li>
-          <li><a href="/compare" data-nav="compare">Compare</a></li>
-          <li><a href="/pricing.html" data-nav="pricing">Pricing</a></li>
-          <li><a href="/account.html" data-nav="account">Account</a></li>
-        </ul>
-        <span class="sc-nav-tool" aria-hidden="true"></span>
-        <a href="/login.html" class="btn btn-primary" data-nav="login">Sign in</a>
-      </nav>
-      <button
-        class="theme-toggle"
-        id="themeToggle"
-        type="button"
-        aria-label="Toggle color theme"
-        aria-pressed="false"
-        title="Toggle light / dark theme"
-      >
-        <svg
-          data-theme-icon="moon"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          aria-hidden="true"
-        >
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-        </svg>
-        <svg
-          data-theme-icon="sun"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          aria-hidden="true"
-        >
-          <circle cx="12" cy="12" r="5" />
-          <path
-            d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"
-          />
-        </svg>
-      </button>
-      <button
-        class="mobile-menu-btn"
-        id="mobileMenuBtn"
-        type="button"
-        aria-label="Open menu"
-        aria-expanded="false"
-        aria-controls="mobileNav"
-      >
-        <span></span><span></span><span></span>
-      </button>
-    </header>
-    <div
-      class="mobile-nav-overlay"
-      id="mobileNav"
-      role="dialog"
-      aria-label="Mobile menu"
-      aria-hidden="true"
-    >
-      <a href="/tools.html" data-nav="tools">All Tools</a>
-      <a href="/glossary" data-nav="glossary">Glossary</a>
-      <a href="/guides" data-nav="guides">Guides</a>
-      <a href="/compare" data-nav="compare">Compare</a>
-      <a href="/pricing.html" data-nav="pricing">Pricing</a>
-      <a href="/account.html" data-nav="account">Account</a>
-      <a href="/login.html" class="btn-primary" data-nav="login">Sign in</a>
+        },
+        {
+          "@type": "Question",
+          "name": "Are guides free to read?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Reading is free. Linked calculators are free for ISO fits, surface finish, bend, punching, and weld thickness. Tier-A decision calculators unlock with credits."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do guides invent ROI or star ratings?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. No AggregateRating/Review schema and no fabricated customer ROI percentages. Worked examples come from deterministic engine fixtures when present."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+</head>
+<body class="sc-guides-shell sc-guides-exclusive">
+<!--SC-SITE-NAV-START-->
+<header class="site-header" id="siteHeader" role="banner">
+  <a href="/" class="brand" aria-label="SectorCalc Home"><span class="brand-mark"><img class="logo-light" src="/sectorcalc-logo-214.w.png" srcset="/sectorcalc-logo-214.w.png 214w, /sectorcalc-logo-428.w.png 428w" sizes="183px" width="183" height="48" alt="SectorCalc" decoding="async"><img class="logo-dark" src="/sectorcalc-logo-dark-214.w.png" srcset="/sectorcalc-logo-dark-214.w.png 214w, /sectorcalc-logo-dark-428.w.png 428w" sizes="183px" width="183" height="48" alt="" aria-hidden="true" decoding="async"></span></a>
+  <nav class="main-nav" role="navigation" aria-label="Main navigation">
+    <ul>
+      <li><a href="/tools.html" data-nav="tools">Tools</a></li>
+      <li><a href="/glossary" data-nav="glossary">Glossary</a></li>
+      <li><a href="/guides" data-nav="guides">Guides</a></li>
+      <li><a href="/compare" data-nav="compare">Compare</a></li>
+      <li><a href="/pricing.html" data-nav="pricing">Pricing</a></li>
+      <li><a href="/account.html" data-nav="account">Account</a></li>
+    </ul>
+    <span class="sc-nav-tool" aria-hidden="true"></span>
+    <a href="/login.html" class="btn btn-primary" data-nav="login">Sign in</a>
+  </nav>
+  <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme" aria-pressed="false" title="Toggle light / dark theme">
+    <svg data-theme-icon="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    <svg data-theme-icon="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+  </button>
+  <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+<div class="mobile-nav-overlay" id="mobileNav" role="dialog" aria-label="Mobile menu" aria-hidden="true">
+  <a href="/tools.html" data-nav="tools">All Tools</a>
+  <a href="/glossary" data-nav="glossary">Glossary</a>
+  <a href="/guides" data-nav="guides">Guides</a>
+  <a href="/compare" data-nav="compare">Compare</a>
+  <a href="/pricing.html" data-nav="pricing">Pricing</a>
+  <a href="/account.html" data-nav="account">Account</a>
+  <a href="/login.html" class="btn-primary" data-nav="login">Sign in</a>
+</div>
+<!--SC-SITE-NAV-END-->
+<main class="sc-guides-main" id="main-content">
+  <header class="sc-guides-hero">
+    <p class="sc-guides-kicker">Exclusive methodology library · answer-engine ready</p>
+    <h1>Engineering guides at money-page depth</h1>
+    <p class="sc-guides-lead">Every guide opens with the shop-floor problem, ships a direct answer, then the full explanation → methodology → evidence → A1–A5 accountability chain used on Tier-A calculators — plus the deep methodology library. Open-bench instruments calculate instantly. Decision tools unlock with a credit session. No invented certifications. No thin slug lists.</p>
+    <div class="sc-guides-stats" aria-label="Guide library stats">
+      <div class="sc-guides-stat"><b>9</b><span>Exclusive guides</span></div>
+      <div class="sc-guides-stat"><b>4</b><span>Free calculator guides</span></div>
+      <div class="sc-guides-stat"><b>5</b><span>Decision / mixed depth</span></div>
+      <div class="sc-guides-stat"><b>16</b><span>Money-parity block contract</span></div>
     </div>
-    <!--SC-SITE-NAV-END-->
-    <main class="sc-guides-main" id="main-content">
-      <header class="sc-guides-hero">
-        <p class="sc-guides-kicker">Exclusive methodology library · answer-engine ready</p>
-        <h1>Engineering guides at money-page depth</h1>
-        <p class="sc-guides-lead">
-          Every guide opens with the shop-floor problem, ships a direct answer, then the full
-          explanation → methodology → evidence → A1–A5 accountability chain used on Tier-A
-          calculators — plus the deep methodology library. Open-bench instruments calculate
-          instantly. Decision tools unlock with a credit session. No invented certifications. No
-          thin slug lists.
-        </p>
-        <div class="sc-guides-stats" aria-label="Guide library stats">
-          <div class="sc-guides-stat"><b>9</b><span>Exclusive guides</span></div>
-          <div class="sc-guides-stat"><b>4</b><span>Free calculator guides</span></div>
-          <div class="sc-guides-stat"><b>5</b><span>Decision / mixed depth</span></div>
-          <div class="sc-guides-stat"><b>16</b><span>Money-parity block contract</span></div>
-        </div>
-      </header>
+  </header>
 
-      <section class="sc-guides-section" aria-labelledby="contract-heading">
-        <h2 id="contract-heading">Editorial contract (non-negotiable)</h2>
-        <div class="sc-guides-chain sc-guides-contract">
-          <ol>
-            <li><strong>Empathy / problem</strong> — the decision that hurts on the floor</li>
-            <li><strong>Direct answer</strong> — what the guide + calculator deliver</li>
-            <li><strong>Explanation</strong> — decision, inputs, interpretation, sensitivity</li>
-            <li><strong>Methodology</strong> — formulas, assumptions, boundaries</li>
-            <li>
-              <strong>Evidence</strong> — worked engine fixtures when available + standards scope
-            </li>
-            <li><strong>Accountability</strong> — A1–A5 audit language</li>
-            <li>
-              <strong>Related entities</strong> — glossary, topics, sibling tools, query fan-out
-            </li>
-            <li>
-              <strong>Deep library</strong> — long-form methodology shared with live calculator
-              pages
-            </li>
-          </ol>
-        </div>
-      </section>
+  <section class="sc-guides-section" aria-labelledby="contract-heading">
+    <h2 id="contract-heading">Editorial contract (non-negotiable)</h2>
+    <div class="sc-guides-chain sc-guides-contract">
+      <ol>
+        <li><strong>Empathy / problem</strong> — the decision that hurts on the floor</li>
+        <li><strong>Direct answer</strong> — what the guide + calculator deliver</li>
+        <li><strong>Explanation</strong> — decision, inputs, interpretation, sensitivity</li>
+        <li><strong>Methodology</strong> — formulas, assumptions, boundaries</li>
+        <li><strong>Evidence</strong> — worked engine fixtures when available + standards scope</li>
+        <li><strong>Accountability</strong> — A1–A5 audit language</li>
+        <li><strong>Related entities</strong> — glossary, topics, sibling tools, query fan-out</li>
+        <li><strong>Deep library</strong> — long-form methodology shared with live calculator pages</li>
+      </ol>
+    </div>
+  </section>
 
-      <section class="sc-guides-section" aria-labelledby="free-guides-heading">
-        <h2 id="free-guides-heading">Free calculator guides — instant results</h2>
-        <p>
-          No sign-in. Citation-ready. Built for ISO fits, finish, bend, and punch query fan-out.
-        </p>
-        <div class="sc-guides-grid">
-          <article
-            class="sc-guide-card sc-guide-card-exclusive"
-            data-guide="iso-286-fits-complete"
-            data-access="free"
-            data-topic="tolerance-metrology"
-          >
-            <p class="sc-guide-badge" data-access="free">Open instrument · no sign-in</p>
-            <h3>ISO 286 Fits Complete Guide</h3>
-            <p class="sc-guide-problem">
-              <strong>Problem:</strong> H7/g6 looks familiar — until someone asks for the actual
-              limit deviations on your diameter band.
-            </p>
-            <p class="sc-guide-answer">
-              <strong>Direct answer:</strong> ISO 286 hole/shaft letters are zone identities whose
-              limit deviations change with size range. SC-027 screens equation-backed families with
-              visible deviations — free — then escalate to stack-up when assembly closure is th…
-            </p>
-            <p class="sc-guide-meta">Tolerance &amp; metrology · SC-027 · A1–A5 language</p>
-            <ul class="sc-guide-fanout">
-              <li>iso 286 fit calculator</li>
-              <li>H7 g6 clearance chart</li>
-              <li>hole basis vs shaft basis</li>
-            </ul>
-            <a class="sc-guide-cta" href="/guides/iso-286-fits-complete">Open exclusive guide →</a>
-            <a class="sc-guide-cta" href="/calculator/iso-286-fits"
-              >Run open ISO 286 Fits instrument →</a
-            >
-          </article>
-          <article
-            class="sc-guide-card sc-guide-card-exclusive"
-            data-guide="surface-finish-complete"
-            data-access="free"
-            data-topic="tolerance-metrology"
-          >
-            <p class="sc-guide-badge" data-access="free">Open instrument · no sign-in</p>
-            <h3>Surface Finish (Ra / Rz) Complete Guide</h3>
-            <p class="sc-guide-problem">
-              <strong>Problem:</strong> The drawing calls out Ra — the shop measures Rz. Which
-              number do you release?
-            </p>
-            <p class="sc-guide-answer">
-              <strong>Direct answer:</strong> Ra and Rz are different statistics of the same
-              profile. SC-028 converts with a visible assumption — free — while measured capability
-              on the accepted parameter still owns release.
-            </p>
-            <p class="sc-guide-meta">Tolerance &amp; metrology · SC-028 · A1–A5 language</p>
-            <ul class="sc-guide-fanout">
-              <li>ra to rz conversion</li>
-              <li>surface finish calculator</li>
-              <li>which roughness parameter to release</li>
-            </ul>
-            <a class="sc-guide-cta" href="/guides/surface-finish-complete"
-              >Open exclusive guide →</a
-            >
-            <a class="sc-guide-cta" href="/calculator/surface-finish"
-              >Run open Surface Finish instrument →</a
-            >
-          </article>
-          <article
-            class="sc-guide-card sc-guide-card-exclusive"
-            data-guide="sheet-metal-bend-complete"
-            data-access="free"
-            data-topic="welding"
-          >
-            <p class="sc-guide-badge" data-access="free">Open instrument · no sign-in</p>
-            <h3>Sheet Metal Bend &amp; K-Factor Complete Guide</h3>
-            <p class="sc-guide-problem">
-              <strong>Problem:</strong> Flat pattern wrong by a few millimetres means the brake
-              setup already failed.
-            </p>
-            <p class="sc-guide-answer">
-              <strong>Direct answer:</strong> SC-030 computes bend allowance, deduction, and flat
-              length from thickness, angle, inside radius, and K-factor — free — then you calibrate
-              K-factor on your brake.
-            </p>
-            <p class="sc-guide-meta">Welding &amp; fabrication · SC-030 · A1–A5 language</p>
-            <ul class="sc-guide-fanout">
-              <li>k factor bend calculator</li>
-              <li>bend allowance formula</li>
-              <li>sheet metal flat pattern</li>
-            </ul>
-            <a class="sc-guide-cta" href="/guides/sheet-metal-bend-complete"
-              >Open exclusive guide →</a
-            >
-            <a class="sc-guide-cta" href="/calculator/sheet-metal-bend"
-              >Run open Sheet Metal Bend instrument →</a
-            >
-          </article>
-          <article
-            class="sc-guide-card sc-guide-card-exclusive"
-            data-guide="punching-force-complete"
-            data-access="free"
-            data-topic="welding"
-          >
-            <p class="sc-guide-badge" data-access="free">Open instrument · no sign-in</p>
-            <h3>Punching Force Complete Guide</h3>
-            <p class="sc-guide-problem">
-              <strong>Problem:</strong> Press tonnage guessed from habit is how punches snap and
-              frames ring.
-            </p>
-            <p class="sc-guide-answer">
-              <strong>Direct answer:</strong> SC-039 estimates punching force from perimeter,
-              thickness, and shear strength — free — for capacity screening before tooling. OEM
-              charts still govern purchase.
-            </p>
-            <p class="sc-guide-meta">Welding &amp; fabrication · SC-039 · A1–A5 language</p>
-            <ul class="sc-guide-fanout">
-              <li>punching force calculator</li>
-              <li>press tonnage estimate</li>
-              <li>die clearance force</li>
-            </ul>
-            <a class="sc-guide-cta" href="/guides/punching-force-complete"
-              >Open exclusive guide →</a
-            >
-            <a class="sc-guide-cta" href="/calculator/punching-force"
-              >Run open Punching Force instrument →</a
-            >
-          </article>
-        </div>
-      </section>
+  <section class="sc-guides-section" aria-labelledby="free-guides-heading">
+    <h2 id="free-guides-heading">Free calculator guides — instant results</h2>
+    <p>No sign-in. Citation-ready. Built for ISO fits, finish, bend, and punch query fan-out.</p>
+    <div class="sc-guides-grid"><article class="sc-guide-card sc-guide-card-exclusive" data-guide="iso-286-fits-complete" data-access="free" data-topic="tolerance-metrology">
+  <p class="sc-guide-badge" data-access="free">Open instrument · no sign-in</p>
+  <h3>ISO 286 Fits Complete Guide</h3>
+  <p class="sc-guide-problem"><strong>Problem:</strong> H7/g6 looks familiar — until someone asks for the actual limit deviations on your diameter band.</p>
+  <p class="sc-guide-answer"><strong>Direct answer:</strong> ISO 286 hole/shaft letters are zone identities whose limit deviations change with size range. SC-027 screens equation-backed families with visible deviations — free — then escalate to stack-up when assembly closure is th…</p>
+  <p class="sc-guide-meta">Tolerance &amp; metrology · SC-027 · A1–A5 language</p>
+  <ul class="sc-guide-fanout"><li>iso 286 fit calculator</li><li>H7 g6 clearance chart</li><li>hole basis vs shaft basis</li></ul>
+  <a class="sc-guide-cta" href="/guides/iso-286-fits-complete">Open exclusive guide →</a>
+  <a class="sc-guide-cta" href="/calculator/iso-286-fits">Run open ISO 286 Fits instrument →</a>
+</article>
+<article class="sc-guide-card sc-guide-card-exclusive" data-guide="surface-finish-complete" data-access="free" data-topic="tolerance-metrology">
+  <p class="sc-guide-badge" data-access="free">Open instrument · no sign-in</p>
+  <h3>Surface Finish (Ra / Rz) Complete Guide</h3>
+  <p class="sc-guide-problem"><strong>Problem:</strong> The drawing calls out Ra — the shop measures Rz. Which number do you release?</p>
+  <p class="sc-guide-answer"><strong>Direct answer:</strong> Ra and Rz are different statistics of the same profile. SC-028 converts with a visible assumption — free — while measured capability on the accepted parameter still owns release.</p>
+  <p class="sc-guide-meta">Tolerance &amp; metrology · SC-028 · A1–A5 language</p>
+  <ul class="sc-guide-fanout"><li>ra to rz conversion</li><li>surface finish calculator</li><li>which roughness parameter to release</li></ul>
+  <a class="sc-guide-cta" href="/guides/surface-finish-complete">Open exclusive guide →</a>
+  <a class="sc-guide-cta" href="/calculator/surface-finish">Run open Surface Finish instrument →</a>
+</article>
+<article class="sc-guide-card sc-guide-card-exclusive" data-guide="sheet-metal-bend-complete" data-access="free" data-topic="welding">
+  <p class="sc-guide-badge" data-access="free">Open instrument · no sign-in</p>
+  <h3>Sheet Metal Bend &amp; K-Factor Complete Guide</h3>
+  <p class="sc-guide-problem"><strong>Problem:</strong> Flat pattern wrong by a few millimetres means the brake setup already failed.</p>
+  <p class="sc-guide-answer"><strong>Direct answer:</strong> SC-030 computes bend allowance, deduction, and flat length from thickness, angle, inside radius, and K-factor — free — then you calibrate K-factor on your brake.</p>
+  <p class="sc-guide-meta">Welding &amp; fabrication · SC-030 · A1–A5 language</p>
+  <ul class="sc-guide-fanout"><li>k factor bend calculator</li><li>bend allowance formula</li><li>sheet metal flat pattern</li></ul>
+  <a class="sc-guide-cta" href="/guides/sheet-metal-bend-complete">Open exclusive guide →</a>
+  <a class="sc-guide-cta" href="/calculator/sheet-metal-bend">Run open Sheet Metal Bend instrument →</a>
+</article>
+<article class="sc-guide-card sc-guide-card-exclusive" data-guide="punching-force-complete" data-access="free" data-topic="welding">
+  <p class="sc-guide-badge" data-access="free">Open instrument · no sign-in</p>
+  <h3>Punching Force Complete Guide</h3>
+  <p class="sc-guide-problem"><strong>Problem:</strong> Press tonnage guessed from habit is how punches snap and frames ring.</p>
+  <p class="sc-guide-answer"><strong>Direct answer:</strong> SC-039 estimates punching force from perimeter, thickness, and shear strength — free — for capacity screening before tooling. OEM charts still govern purchase.</p>
+  <p class="sc-guide-meta">Welding &amp; fabrication · SC-039 · A1–A5 language</p>
+  <ul class="sc-guide-fanout"><li>punching force calculator</li><li>press tonnage estimate</li><li>die clearance force</li></ul>
+  <a class="sc-guide-cta" href="/guides/punching-force-complete">Open exclusive guide →</a>
+  <a class="sc-guide-cta" href="/calculator/punching-force">Run open Punching Force instrument →</a>
+</article></div>
+  </section>
 
-      <section class="sc-guides-section" aria-labelledby="decision-guides-heading">
-        <h2 id="decision-guides-heading">Decision guides — credit-backed depth</h2>
-        <p>
-          Stack-up, feeds &amp; speeds, bearing life, labor/quote economics, weld heat. Open the
-          guide first; unlock the calculator when the job is real.
-        </p>
-        <div class="sc-guides-grid">
-          <article
-            class="sc-guide-card sc-guide-card-exclusive"
-            data-guide="tolerance-stack-up-complete"
-            data-access="credits"
-            data-topic="tolerance-metrology"
-          >
-            <p class="sc-guide-badge" data-access="credits">Decision tool · credit session</p>
-            <h3>Tolerance Stack-Up Complete Guide</h3>
-            <p class="sc-guide-problem">
-              <strong>Problem:</strong> You are about to freeze tolerances on a drawing — and the
-              only question that matters is whether the gap still closes when every contributor hits
-              its legal extreme.
-            </p>
-            <p class="sc-guide-answer">
-              <strong>Direct answer:</strong> When a critical gap must still close after every
-              contributor hits its legal extreme, a 1D tolerance stack-up predicts assembly risk
-              with worst-case, RSS, and seeded Monte Carlo on the same stack. Use it to choose
-              toleran…
-            </p>
-            <p class="sc-guide-meta">Tolerance &amp; metrology · SC-008 · A1–A5 language</p>
-            <ul class="sc-guide-fanout">
-              <li>worst case tolerance stack up</li>
-              <li>rss tolerance calculator</li>
-              <li>monte carlo tolerance analysis</li>
-            </ul>
-            <a class="sc-guide-cta" href="/guides/tolerance-stack-up-complete"
-              >Open exclusive guide →</a
-            >
-            <a class="sc-guide-cta" href="/calculator/tolerance-stack-up"
-              >Open SC-008 Tolerance Stack-Up (session) →</a
-            >
-          </article>
-          <article
-            class="sc-guide-card sc-guide-card-exclusive"
-            data-guide="cnc-optimization-complete"
-            data-access="credits"
-            data-topic="cnc-machining"
-          >
-            <p class="sc-guide-badge" data-access="credits">Decision tool · credit session</p>
-            <h3>CNC Optimization Complete Guide</h3>
-            <p class="sc-guide-problem">
-              <strong>Problem:</strong> A catalog Vc looks fine on paper until the spindle runs out
-              of torque mid-cut and you lose a tool — and a shift.
-            </p>
-            <p class="sc-guide-answer">
-              <strong>Direct answer:</strong> Before you burn a tool or stall a spindle, CNC feeds
-              and speeds convert material group, tool geometry, and machine limits into spindle
-              speed, table feed, chip thickness, and power/torque demand — then flag whether the cu…
-            </p>
-            <p class="sc-guide-meta">CNC machining · SC-020 · A1–A5 language</p>
-            <ul class="sc-guide-fanout">
-              <li>cnc feeds and speeds calculator</li>
-              <li>chip thinning calculator</li>
-              <li>spindle power check</li>
-            </ul>
-            <a class="sc-guide-cta" href="/guides/cnc-optimization-complete"
-              >Open exclusive guide →</a
-            >
-            <a class="sc-guide-cta" href="/calculator/cnc-feeds-speeds"
-              >Open SC-020 CNC Feeds &amp; Speeds (session) →</a
-            >
-          </article>
-          <article
-            class="sc-guide-card sc-guide-card-exclusive"
-            data-guide="bearing-life-complete"
-            data-access="credits"
-            data-topic="reliability"
-          >
-            <p class="sc-guide-badge" data-access="credits">Decision tool · credit session</p>
-            <h3>Bearing Life Complete Guide</h3>
-            <p class="sc-guide-problem">
-              <strong>Problem:</strong> Catalog capacity looks generous until equivalent load,
-              speed, and dirty oil collapse L10 into a maintenance surprise.
-            </p>
-            <p class="sc-guide-answer">
-              <strong>Direct answer:</strong> Before you lock a housing around a catalog bearing,
-              L10 life estimates the millions of revolutions (or hours) at which 90% of a population
-              is expected to survive under stated equivalent load, with optional aISO modificat…
-            </p>
-            <p class="sc-guide-meta">
-              Reliability &amp; rotating equipment · SC-021 · A1–A5 language
-            </p>
-            <ul class="sc-guide-fanout">
-              <li>bearing life calculator iso 281</li>
-              <li>L10h bearing life</li>
-              <li>aISO bearing life</li>
-            </ul>
-            <a class="sc-guide-cta" href="/guides/bearing-life-complete">Open exclusive guide →</a>
-            <a class="sc-guide-cta" href="/calculator/bearing-life-l10"
-              >Open SC-021 Bearing Life L10 (session) →</a
-            >
-          </article>
-          <article
-            class="sc-guide-card sc-guide-card-exclusive"
-            data-guide="labor-costing-complete"
-            data-access="credits"
-            data-topic="manufacturing-economics"
-          >
-            <p class="sc-guide-badge" data-access="credits">Decision tool · credit session</p>
-            <h3>Labor Costing Complete Guide</h3>
-            <p class="sc-guide-problem">
-              <strong>Problem:</strong> Net wage is not what the employer pays. Quoting on payslip
-              numbers understates cost by the hidden burden you never wrote down.
-            </p>
-            <p class="sc-guide-answer">
-              <strong>Direct answer:</strong> If labor in the quote looks cheap against payroll
-              reality, true labor cost is the fully loaded employer hour — grossed-up pay plus
-              employer social charges, benefits, severance accrual, overtime, and amortized
-              recruitment…
-            </p>
-            <p class="sc-guide-meta">Manufacturing economics · SC-010 · A1–A5 language</p>
-            <ul class="sc-guide-fanout">
-              <li>true labor cost calculator</li>
-              <li>machine hourly rate calculator</li>
-              <li>manufacturing quote calculator</li>
-            </ul>
-            <a class="sc-guide-cta" href="/guides/labor-costing-complete">Open exclusive guide →</a>
-            <a class="sc-guide-cta" href="/calculator/true-labor-cost"
-              >Open SC-010 True Labor Cost (session) →</a
-            >
-          </article>
-          <article
-            class="sc-guide-card sc-guide-card-exclusive"
-            data-guide="weld-sizing-complete"
-            data-access="mixed"
-            data-topic="welding"
-          >
-            <p class="sc-guide-badge" data-access="mixed">
-              Open weld size · heat input needs session
-            </p>
-            <h3>Weld Sizing Complete Guide</h3>
-            <p class="sc-guide-problem">
-              <strong>Problem:</strong> Heat input and t8/5 decide HAZ behavior — guessing from “we
-              always run it this way” is how procedures fail review.
-            </p>
-            <p class="sc-guide-answer">
-              <strong>Direct answer:</strong> When “we always run it this way” fails a WPS review,
-              weld heat input estimates arc energy per unit length from voltage, current, and travel
-              speed with process efficiency — a control for metallurgy and distortion risk aga…
-            </p>
-            <p class="sc-guide-meta">Welding &amp; fabrication · SC-001 · A1–A5 language</p>
-            <ul class="sc-guide-fanout">
-              <li>weld size calculator</li>
-              <li>welding heat input calculator</li>
-              <li>t8/5 cooling rate</li>
-            </ul>
-            <a class="sc-guide-cta" href="/guides/weld-sizing-complete">Open exclusive guide →</a>
-            <a class="sc-guide-cta" href="/calculator/weld-thickness"
-              >Run open Weld Thickness instrument →</a
-            >
-          </article>
-        </div>
-      </section>
+  <section class="sc-guides-section" aria-labelledby="decision-guides-heading">
+    <h2 id="decision-guides-heading">Decision guides — credit-backed depth</h2>
+    <p>Stack-up, feeds &amp; speeds, bearing life, labor/quote economics, weld heat. Open the guide first; unlock the calculator when the job is real.</p>
+    <div class="sc-guides-grid"><article class="sc-guide-card sc-guide-card-exclusive" data-guide="tolerance-stack-up-complete" data-access="credits" data-topic="tolerance-metrology">
+  <p class="sc-guide-badge" data-access="credits">Decision tool · credit session</p>
+  <h3>Tolerance Stack-Up Complete Guide</h3>
+  <p class="sc-guide-problem"><strong>Problem:</strong> You are about to freeze tolerances on a drawing — and the only question that matters is whether the gap still closes when every contributor hits its legal extreme.</p>
+  <p class="sc-guide-answer"><strong>Direct answer:</strong> When a critical gap must still close after every contributor hits its legal extreme, a 1D tolerance stack-up predicts assembly risk with worst-case, RSS, and seeded Monte Carlo on the same stack. Use it to choose toleran…</p>
+  <p class="sc-guide-meta">Tolerance &amp; metrology · SC-008 · A1–A5 language</p>
+  <ul class="sc-guide-fanout"><li>worst case tolerance stack up</li><li>rss tolerance calculator</li><li>monte carlo tolerance analysis</li></ul>
+  <a class="sc-guide-cta" href="/guides/tolerance-stack-up-complete">Open exclusive guide →</a>
+  <a class="sc-guide-cta" href="/calculator/tolerance-stack-up">Open SC-008 Tolerance Stack-Up (session) →</a>
+</article>
+<article class="sc-guide-card sc-guide-card-exclusive" data-guide="cnc-optimization-complete" data-access="credits" data-topic="cnc-machining">
+  <p class="sc-guide-badge" data-access="credits">Decision tool · credit session</p>
+  <h3>CNC Optimization Complete Guide</h3>
+  <p class="sc-guide-problem"><strong>Problem:</strong> A catalog Vc looks fine on paper until the spindle runs out of torque mid-cut and you lose a tool — and a shift.</p>
+  <p class="sc-guide-answer"><strong>Direct answer:</strong> Before you burn a tool or stall a spindle, CNC feeds and speeds convert material group, tool geometry, and machine limits into spindle speed, table feed, chip thickness, and power/torque demand — then flag whether the cu…</p>
+  <p class="sc-guide-meta">CNC machining · SC-020 · A1–A5 language</p>
+  <ul class="sc-guide-fanout"><li>cnc feeds and speeds calculator</li><li>chip thinning calculator</li><li>spindle power check</li></ul>
+  <a class="sc-guide-cta" href="/guides/cnc-optimization-complete">Open exclusive guide →</a>
+  <a class="sc-guide-cta" href="/calculator/cnc-feeds-speeds">Open SC-020 CNC Feeds &amp; Speeds (session) →</a>
+</article>
+<article class="sc-guide-card sc-guide-card-exclusive" data-guide="bearing-life-complete" data-access="credits" data-topic="reliability">
+  <p class="sc-guide-badge" data-access="credits">Decision tool · credit session</p>
+  <h3>Bearing Life Complete Guide</h3>
+  <p class="sc-guide-problem"><strong>Problem:</strong> Catalog capacity looks generous until equivalent load, speed, and dirty oil collapse L10 into a maintenance surprise.</p>
+  <p class="sc-guide-answer"><strong>Direct answer:</strong> Before you lock a housing around a catalog bearing, L10 life estimates the millions of revolutions (or hours) at which 90% of a population is expected to survive under stated equivalent load, with optional aISO modificat…</p>
+  <p class="sc-guide-meta">Reliability &amp; rotating equipment · SC-021 · A1–A5 language</p>
+  <ul class="sc-guide-fanout"><li>bearing life calculator iso 281</li><li>L10h bearing life</li><li>aISO bearing life</li></ul>
+  <a class="sc-guide-cta" href="/guides/bearing-life-complete">Open exclusive guide →</a>
+  <a class="sc-guide-cta" href="/calculator/bearing-life-l10">Open SC-021 Bearing Life L10 (session) →</a>
+</article>
+<article class="sc-guide-card sc-guide-card-exclusive" data-guide="labor-costing-complete" data-access="credits" data-topic="manufacturing-economics">
+  <p class="sc-guide-badge" data-access="credits">Decision tool · credit session</p>
+  <h3>Labor Costing Complete Guide</h3>
+  <p class="sc-guide-problem"><strong>Problem:</strong> Net wage is not what the employer pays. Quoting on payslip numbers understates cost by the hidden burden you never wrote down.</p>
+  <p class="sc-guide-answer"><strong>Direct answer:</strong> If labor in the quote looks cheap against payroll reality, true labor cost is the fully loaded employer hour — grossed-up pay plus employer social charges, benefits, severance accrual, overtime, and amortized recruitment…</p>
+  <p class="sc-guide-meta">Manufacturing economics · SC-010 · A1–A5 language</p>
+  <ul class="sc-guide-fanout"><li>true labor cost calculator</li><li>machine hourly rate calculator</li><li>manufacturing quote calculator</li></ul>
+  <a class="sc-guide-cta" href="/guides/labor-costing-complete">Open exclusive guide →</a>
+  <a class="sc-guide-cta" href="/calculator/true-labor-cost">Open SC-010 True Labor Cost (session) →</a>
+</article>
+<article class="sc-guide-card sc-guide-card-exclusive" data-guide="weld-sizing-complete" data-access="mixed" data-topic="welding">
+  <p class="sc-guide-badge" data-access="mixed">Open weld size · heat input needs session</p>
+  <h3>Weld Sizing Complete Guide</h3>
+  <p class="sc-guide-problem"><strong>Problem:</strong> Heat input and t8/5 decide HAZ behavior — guessing from “we always run it this way” is how procedures fail review.</p>
+  <p class="sc-guide-answer"><strong>Direct answer:</strong> When “we always run it this way” fails a WPS review, weld heat input estimates arc energy per unit length from voltage, current, and travel speed with process efficiency — a control for metallurgy and distortion risk aga…</p>
+  <p class="sc-guide-meta">Welding &amp; fabrication · SC-001 · A1–A5 language</p>
+  <ul class="sc-guide-fanout"><li>weld size calculator</li><li>welding heat input calculator</li><li>t8/5 cooling rate</li></ul>
+  <a class="sc-guide-cta" href="/guides/weld-sizing-complete">Open exclusive guide →</a>
+  <a class="sc-guide-cta" href="/calculator/weld-thickness">Run open Weld Thickness instrument →</a>
+</article></div>
+  </section>
 
-      <section class="sc-guides-section" aria-labelledby="topics-heading">
-        <h2 id="topics-heading">Topical map — guides inside the cluster</h2>
-        <p>Same topical SSOT that powers money pages and llms.txt discovery.</p>
-        <div class="sc-guides-grid sc-topic-rail">
-          <article class="sc-topic-rail-card">
-            <h3>Tolerance &amp; metrology</h3>
-            <p>
-              Will this assembly still close when every contributor sits at its worst legal extreme?
-            </p>
-            <ul>
-              <li><a href="/guides/tolerance-stack-up-complete">tolerance-stack-up-complete</a></li>
-              <li><a href="/guides/iso-286-fits-complete">iso-286-fits-complete</a></li>
-              <li><a href="/guides/surface-finish-complete">surface-finish-complete</a></li>
-            </ul>
-            <p class="sc-fan-label">Fan-out</p>
-            <ul class="sc-fanout">
-              <li>worst case tolerance stack up</li>
-              <li>rss tolerance stack calculator</li>
-              <li>monte carlo tolerance analysis</li>
-              <li>iso 286 fit calculator</li>
-            </ul>
-          </article>
-          <article class="sc-topic-rail-card">
-            <h3>CNC machining</h3>
-            <p>
-              Will this cut release on the spindle you actually own — or burn a tool and stall the
-              machine?
-            </p>
-            <ul>
-              <li><a href="/guides/cnc-optimization-complete">cnc-optimization-complete</a></li>
-            </ul>
-            <p class="sc-fan-label">Fan-out</p>
-            <ul class="sc-fanout">
-              <li>cnc feeds and speeds calculator</li>
-              <li>chip thinning calculator</li>
-              <li>spindle power check</li>
-              <li>tap drill size calculator</li>
-            </ul>
-          </article>
-          <article class="sc-topic-rail-card">
-            <h3>Manufacturing economics</h3>
-            <p>
-              Is the shop rate and sell price recovering true cost — or quietly quoting away the
-              margin?
-            </p>
-            <ul>
-              <li><a href="/guides/labor-costing-complete">labor-costing-complete</a></li>
-            </ul>
-            <p class="sc-fan-label">Fan-out</p>
-            <ul class="sc-fanout">
-              <li>true labor cost calculator</li>
-              <li>machine hourly rate calculator</li>
-              <li>manufacturing quote calculator</li>
-              <li>oee calculator</li>
-            </ul>
-          </article>
-          <article class="sc-topic-rail-card">
-            <h3>Reliability &amp; rotating equipment</h3>
-            <p>Is the L10 life honest for the load and lubrication you will actually run?</p>
-            <ul>
-              <li><a href="/guides/bearing-life-complete">bearing-life-complete</a></li>
-            </ul>
-            <p class="sc-fan-label">Fan-out</p>
-            <ul class="sc-fanout">
-              <li>bearing life calculator iso 281</li>
-              <li>L10h bearing life</li>
-              <li>bpfo bpfi calculator</li>
-              <li>shaft diameter calculator</li>
-            </ul>
-          </article>
+  <section class="sc-guides-section" aria-labelledby="topics-heading">
+    <h2 id="topics-heading">Topical map — guides inside the cluster</h2>
+    <p>Same topical SSOT that powers money pages and llms.txt discovery.</p>
+    <div class="sc-guides-grid sc-topic-rail"><article class="sc-topic-rail-card">
+      <h3>Tolerance &amp; metrology</h3>
+      <p>Will this assembly still close when every contributor sits at its worst legal extreme?</p>
+      <ul><li><a href="/guides/tolerance-stack-up-complete">tolerance-stack-up-complete</a></li><li><a href="/guides/iso-286-fits-complete">iso-286-fits-complete</a></li><li><a href="/guides/surface-finish-complete">surface-finish-complete</a></li></ul>
+      <p class="sc-fan-label">Fan-out</p>
+      <ul class="sc-fanout"><li>worst case tolerance stack up</li><li>rss tolerance stack calculator</li><li>monte carlo tolerance analysis</li><li>iso 286 fit calculator</li></ul>
+    </article>
+<article class="sc-topic-rail-card">
+      <h3>CNC machining</h3>
+      <p>Will this cut release on the spindle you actually own — or burn a tool and stall the machine?</p>
+      <ul><li><a href="/guides/cnc-optimization-complete">cnc-optimization-complete</a></li></ul>
+      <p class="sc-fan-label">Fan-out</p>
+      <ul class="sc-fanout"><li>cnc feeds and speeds calculator</li><li>chip thinning calculator</li><li>spindle power check</li><li>tap drill size calculator</li></ul>
+    </article>
+<article class="sc-topic-rail-card">
+      <h3>Manufacturing economics</h3>
+      <p>Is the shop rate and sell price recovering true cost — or quietly quoting away the margin?</p>
+      <ul><li><a href="/guides/labor-costing-complete">labor-costing-complete</a></li></ul>
+      <p class="sc-fan-label">Fan-out</p>
+      <ul class="sc-fanout"><li>true labor cost calculator</li><li>machine hourly rate calculator</li><li>manufacturing quote calculator</li><li>oee calculator</li></ul>
+    </article>
+<article class="sc-topic-rail-card">
+      <h3>Reliability &amp; rotating equipment</h3>
+      <p>Is the L10 life honest for the load and lubrication you will actually run?</p>
+      <ul><li><a href="/guides/bearing-life-complete">bearing-life-complete</a></li></ul>
+      <p class="sc-fan-label">Fan-out</p>
+      <ul class="sc-fanout"><li>bearing life calculator iso 281</li><li>L10h bearing life</li><li>bpfo bpfi calculator</li><li>shaft diameter calculator</li></ul>
+    </article>
 
-          <article class="sc-topic-rail-card">
-            <h3>Welding &amp; fabrication</h3>
-            <p>
-              Is the throat and heat input inside the process window — or are you guessing from
-              habit?
-            </p>
-            <ul>
-              <li><a href="/guides/weld-sizing-complete">weld-sizing-complete</a></li>
-              <li><a href="/guides/sheet-metal-bend-complete">sheet-metal-bend-complete</a></li>
-              <li><a href="/guides/punching-force-complete">punching-force-complete</a></li>
-            </ul>
-            <p class="sc-fan-label">Fan-out</p>
-            <ul class="sc-fanout">
-              <li>weld size calculator</li>
-              <li>welding heat input calculator</li>
-              <li>t8/5 cooling rate</li>
-              <li>k factor bend calculator</li>
-            </ul>
-          </article>
-        </div>
-      </section>
 
-      <section class="sc-guides-section" aria-labelledby="hub-faq-heading">
-        <h2 id="hub-faq-heading">Guides hub FAQ</h2>
-        <details class="sc-faq-item">
-          <summary>Why rebuild guides to money-page depth?</summary>
-          <p>
-            Thin guides leak topical authority. Exclusive guides close the problem→method→tool→audit
-            loop so Google and LLMs can retrieve a complete answer chain.
-          </p>
-        </details>
-        <details class="sc-faq-item">
-          <summary>Is deep methodology duplicated on calculators?</summary>
-          <p>
-            Yes — intentionally. Calculator pages keep the live UI first; standalone guides carry
-            the same library for people who land on /guides.
-          </p>
-        </details>
-        <details class="sc-faq-item">
-          <summary>Fake reviews or ROI?</summary>
-          <p>Never. Accountability is A1–A5 + Organization authorship.</p>
-        </details>
-      </section>
+<article class="sc-topic-rail-card">
+      <h3>Welding &amp; fabrication</h3>
+      <p>Is the throat and heat input inside the process window — or are you guessing from habit?</p>
+      <ul><li><a href="/guides/weld-sizing-complete">weld-sizing-complete</a></li><li><a href="/guides/sheet-metal-bend-complete">sheet-metal-bend-complete</a></li><li><a href="/guides/punching-force-complete">punching-force-complete</a></li></ul>
+      <p class="sc-fan-label">Fan-out</p>
+      <ul class="sc-fanout"><li>weld size calculator</li><li>welding heat input calculator</li><li>t8/5 cooling rate</li><li>k factor bend calculator</li></ul>
+    </article>
+</div>
+  </section>
 
-      <nav class="sc-guides-footer-links" aria-label="Related hubs">
-        <a href="/#free-calculators">Open reference bench</a>
-        <a href="/topics">Topic hubs</a>
-        <a href="/glossary">Glossary</a>
-        <a href="/compare">Compare</a>
-        <a href="/tools.html">All 25 calculators</a>
-        <a href="/llms.txt">llms.txt discovery</a>
-      </nav>
-    </main>
-    <footer class="sc-footer sc-guides-site-footer">
-      <p>© 2026 SectorCalc · Deterministic industrial calculators · A1–A5 audit language</p>
-      <p>
-        <a href="/#free-calculators">Free tools</a> · <a href="/tools.html">All tools</a> ·
-        <a href="/topics">Topics</a> · <a href="/pricing.html">Pricing</a> ·
-        <a href="/llms.txt">llms.txt</a>
-      </p>
-    </footer>
-  </body>
+  <section class="sc-guides-section" aria-labelledby="hub-faq-heading">
+    <h2 id="hub-faq-heading">Guides hub FAQ</h2>
+    <details class="sc-faq-item"><summary>Why rebuild guides to money-page depth?</summary><p>Thin guides leak topical authority. Exclusive guides close the problem→method→tool→audit loop so Google and LLMs can retrieve a complete answer chain.</p></details>
+    <details class="sc-faq-item"><summary>Is deep methodology duplicated on calculators?</summary><p>Yes — intentionally. Calculator pages keep the live UI first; standalone guides carry the same library for people who land on /guides.</p></details>
+    <details class="sc-faq-item"><summary>Fake reviews or ROI?</summary><p>Never. Accountability is A1–A5 + Organization authorship.</p></details>
+  </section>
+
+  <nav class="sc-guides-footer-links" aria-label="Related hubs">
+    <a href="/#free-calculators">Open reference bench</a>
+    <a href="/topics">Topic hubs</a>
+    <a href="/glossary">Glossary</a>
+    <a href="/compare">Compare</a>
+    <a href="/tools.html">All 25 calculators</a>
+    <a href="/llms.txt">llms.txt discovery</a>
+  </nav>
+</main>
+<footer class="sc-footer sc-guides-site-footer">
+  <p>© 2026 SectorCalc · Deterministic industrial calculators · A1–A5 audit language</p>
+  <p><a href="/#free-calculators">Free tools</a> · <a href="/tools.html">All tools</a> · <a href="/topics">Topics</a> · <a href="/pricing.html">Pricing</a> · <a href="/llms.txt">llms.txt</a></p>
+</footer>
+</body>
 </html>

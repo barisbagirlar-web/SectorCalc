@@ -81,7 +81,10 @@
     "*.{js,jsx,ts,tsx}": [
       "prettier --write"
     ],
-    "*.{css,scss,html,json,md}": [
+    "*.{css,scss,json,md}": [
+      "prettier --write"
+    ],
+    "src/**/*.{html,css}": [
       "prettier --write"
     ]
   },

@@ -1,535 +1,313 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" data-theme="light">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Account — SectorCalc</title>
-    <meta
-      name="description"
-      content="Premium SectorCalc engineer account: credits, billing history, devices, and preferences."
-    />
-    <meta name="robots" content="noindex, follow" />
-    <link rel="icon" href="/favicon.ico?v=20260724c" sizes="any" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="/sc-theme.css?v=12" />
-    <script src="/sc-theme.js?v=12" defer></script>
-    <link rel="stylesheet" href="/sc-site-nav.css?v=5" />
-    <script src="/sc-site-nav.js?v=2" defer></script>
-    <script type="module" src="/src/auth-nav.ts"></script>
-    <link rel="stylesheet" href="/sc-account.css?v=7" />
-    <link rel="stylesheet" href="/sc-form-fields.css?v=5" />
-  </head>
-  <body>
-    <!--SC-SITE-NAV-START-->
-    <header class="site-header" id="siteHeader" role="banner">
-      <a href="/" class="brand" aria-label="SectorCalc Home"
-        ><span class="brand-mark"
-          ><img
-            class="logo-light"
-            src="/sectorcalc-logo-214.w.png"
-            srcset="/sectorcalc-logo-214.w.png 214w, /sectorcalc-logo-428.w.png 428w"
-            sizes="183px"
-            width="183"
-            height="48"
-            alt="SectorCalc"
-            decoding="async" /><img
-            class="logo-dark"
-            src="/sectorcalc-logo-dark-214.w.png"
-            srcset="/sectorcalc-logo-dark-214.w.png 214w, /sectorcalc-logo-dark-428.w.png 428w"
-            sizes="183px"
-            width="183"
-            height="48"
-            alt=""
-            aria-hidden="true"
-            decoding="async" /></span
-      ></a>
-      <nav class="main-nav" role="navigation" aria-label="Main navigation">
-        <ul>
-          <li><a href="/tools.html" data-nav="tools">Tools</a></li>
-          <li><a href="/glossary" data-nav="glossary">Glossary</a></li>
-          <li><a href="/guides" data-nav="guides">Guides</a></li>
-          <li><a href="/compare" data-nav="compare">Compare</a></li>
-          <li><a href="/pricing.html" data-nav="pricing">Pricing</a></li>
-          <li><a href="/account.html" data-nav="account">Account</a></li>
-        </ul>
-        <span class="sc-nav-tool" aria-hidden="true"></span>
-        <a href="/login.html" class="btn btn-primary" data-nav="login">Sign in</a>
-      </nav>
-      <button
-        class="theme-toggle"
-        id="themeToggle"
-        type="button"
-        aria-label="Toggle color theme"
-        aria-pressed="false"
-        title="Toggle light / dark theme"
-      >
-        <svg
-          data-theme-icon="moon"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          aria-hidden="true"
-        >
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-        </svg>
-        <svg
-          data-theme-icon="sun"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          aria-hidden="true"
-        >
-          <circle cx="12" cy="12" r="5" />
-          <path
-            d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"
-          />
-        </svg>
-      </button>
-      <button
-        class="mobile-menu-btn"
-        id="mobileMenuBtn"
-        type="button"
-        aria-label="Open menu"
-        aria-expanded="false"
-        aria-controls="mobileNav"
-      >
-        <span></span><span></span><span></span>
-      </button>
-    </header>
-    <div
-      class="mobile-nav-overlay"
-      id="mobileNav"
-      role="dialog"
-      aria-label="Mobile menu"
-      aria-hidden="true"
-    >
-      <a href="/tools.html" data-nav="tools">All Tools</a>
-      <a href="/glossary" data-nav="glossary">Glossary</a>
-      <a href="/guides" data-nav="guides">Guides</a>
-      <a href="/compare" data-nav="compare">Compare</a>
-      <a href="/pricing.html" data-nav="pricing">Pricing</a>
-      <a href="/account.html" data-nav="account">Account</a>
-      <a href="/login.html" class="btn-primary" data-nav="login">Sign in</a>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Account — SectorCalc</title>
+<meta name="description" content="Premium SectorCalc engineer account: credits, billing history, devices, and preferences.">
+<meta name="robots" content="noindex, follow">
+<link rel="icon" href="/favicon.ico?v=20260724c" sizes="any">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/sc-theme.css?v=12">
+<script src="/sc-theme.js?v=12" defer></script>
+<link rel="stylesheet" href="/sc-site-nav.css?v=5">
+<script src="/sc-site-nav.js?v=2" defer></script>
+<script type="module" src="/src/auth-nav.ts"></script>
+<link rel="stylesheet" href="/sc-account.css?v=7">
+<link rel="stylesheet" href="/sc-form-fields.css?v=5">
+</head>
+<body>
+<!--SC-SITE-NAV-START-->
+<header class="site-header" id="siteHeader" role="banner">
+  <a href="/" class="brand" aria-label="SectorCalc Home"><span class="brand-mark"><img class="logo-light" src="/sectorcalc-logo-214.w.png" srcset="/sectorcalc-logo-214.w.png 214w, /sectorcalc-logo-428.w.png 428w" sizes="183px" width="183" height="48" alt="SectorCalc" decoding="async"><img class="logo-dark" src="/sectorcalc-logo-dark-214.w.png" srcset="/sectorcalc-logo-dark-214.w.png 214w, /sectorcalc-logo-dark-428.w.png 428w" sizes="183px" width="183" height="48" alt="" aria-hidden="true" decoding="async"></span></a>
+  <nav class="main-nav" role="navigation" aria-label="Main navigation">
+    <ul>
+      <li><a href="/tools.html" data-nav="tools">Tools</a></li>
+      <li><a href="/glossary" data-nav="glossary">Glossary</a></li>
+      <li><a href="/guides" data-nav="guides">Guides</a></li>
+      <li><a href="/compare" data-nav="compare">Compare</a></li>
+      <li><a href="/pricing.html" data-nav="pricing">Pricing</a></li>
+      <li><a href="/account.html" data-nav="account">Account</a></li>
+    </ul>
+    <span class="sc-nav-tool" aria-hidden="true"></span>
+    <a href="/login.html" class="btn btn-primary" data-nav="login">Sign in</a>
+  </nav>
+  <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme" aria-pressed="false" title="Toggle light / dark theme">
+    <svg data-theme-icon="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    <svg data-theme-icon="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+  </button>
+  <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+<div class="mobile-nav-overlay" id="mobileNav" role="dialog" aria-label="Mobile menu" aria-hidden="true">
+  <a href="/tools.html" data-nav="tools">All Tools</a>
+  <a href="/glossary" data-nav="glossary">Glossary</a>
+  <a href="/guides" data-nav="guides">Guides</a>
+  <a href="/compare" data-nav="compare">Compare</a>
+  <a href="/pricing.html" data-nav="pricing">Pricing</a>
+  <a href="/account.html" data-nav="account">Account</a>
+  <a href="/login.html" class="btn-primary" data-nav="login">Sign in</a>
+</div>
+<!--SC-SITE-NAV-END-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<main class="acc-page" id="acc-root">
+  <div id="acc-inspect-banner" class="acc-inspect-banner" hidden>
+    <div>
+      <strong>Operator inspect mode</strong>
+      <span id="acc-inspect-copy">Viewing a customer cloud account. Changes that affect the customer are limited to read-only statement data.</span>
     </div>
-    <!--SC-SITE-NAV-END-->
+    <div class="acc-btn-row">
+      <a class="acc-btn acc-btn-ghost" href="/sc-ops.html">Back to ops</a>
+      <a class="acc-btn acc-btn-primary" id="acc-inspect-exit" href="/account.html">Exit inspect</a>
+    </div>
+  </div>
+  <div id="acc-loading" class="acc-loading" hidden>
+    <div class="acc-skel-side"></div>
+    <div class="acc-skel-main">
+      <div class="acc-skel-line w40"></div>
+      <div class="acc-skel-line w70"></div>
+      <div class="acc-skel-cards">
+        <div class="acc-skel-card"></div>
+        <div class="acc-skel-card"></div>
+        <div class="acc-skel-card"></div>
+        <div class="acc-skel-card"></div>
+      </div>
+    </div>
+  </div>
 
-    <main class="acc-page" id="acc-root">
-      <div id="acc-inspect-banner" class="acc-inspect-banner" hidden>
+  <section id="signed-out" class="acc-gate" aria-labelledby="gate-title">
+    <div class="acc-gate-grid">
+      <div class="acc-gate-story">
+        <p class="acc-kicker">SectorCalc account</p>
+        <h1 id="gate-title">Your engineering workspace identity</h1>
+        <p class="acc-lede">
+          A premium account keeps credits, receipts, and device sessions aligned —
+          while every calculation engine stays client-side.
+        </p>
+        <ul class="acc-gate-points">
+          <li>Synced credit balance + purchase receipts</li>
+          <li>Device session registry</li>
+          <li>No subscription lock-in</li>
+        </ul>
+      </div>
+      <div class="acc-gate-plate">
+        <p class="acc-kicker">Continue</p>
+        <h2 class="acc-gate-plate-title">Sign in to continue</h2>
+        <p id="acc-status" class="acc-status" role="status" aria-live="polite"></p>
+        <div class="acc-gate-actions">
+          <a class="acc-btn acc-btn-primary" href="/login.html?next=/account.html">Sign in</a>
+          <a class="acc-btn acc-btn-ghost" href="/login.html?mode=signup&amp;next=/account.html">Create account</a>
+        </div>
+        <a class="acc-text-link" href="/tools.html">Browse calculators without signing in →</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="signed-in" class="acc-shell" hidden>
+    <aside class="acc-side" aria-label="Account sections">
+      <div class="acc-side-id">
+        <div class="acc-avatar acc-avatar-sm" aria-hidden="true">
+          <img id="acc-photo" alt="" width="40" height="40" hidden>
+          <span id="acc-initials" class="acc-initials">SC</span>
+        </div>
+        <div class="acc-side-id-copy">
+          <strong id="acc-name-side">Member</strong>
+          <span id="acc-email-side" class="mono">—</span>
+        </div>
+      </div>
+      <nav class="acc-side-nav" role="tablist" aria-orientation="vertical">
+        <button type="button" class="acc-side-btn is-active" data-acc-tab="overview" role="tab" aria-selected="true">Overview</button>
+        <button type="button" class="acc-side-btn" data-acc-tab="billing" role="tab" aria-selected="false">Billing</button>
+        <button type="button" class="acc-side-btn" data-acc-tab="credits" role="tab" aria-selected="false">Credits</button>
+        <button type="button" class="acc-side-btn" data-acc-tab="security" role="tab" aria-selected="false">Security</button>
+        <button type="button" class="acc-side-btn" data-acc-tab="preferences" role="tab" aria-selected="false">Preferences</button>
+        <button type="button" class="acc-side-btn" data-acc-tab="workspace" role="tab" aria-selected="false">Workspace</button>
+      </nav>
+      <div class="acc-side-foot">
+        <a class="acc-btn acc-btn-primary acc-btn-block" href="/pricing.html">Buy credits</a>
+        <button type="button" class="acc-btn acc-btn-quiet acc-btn-block" id="sign-out">Sign out</button>
+      </div>
+    </aside>
+
+    <div class="acc-main">
+      <header class="acc-main-head">
         <div>
-          <strong>Operator inspect mode</strong>
-          <span id="acc-inspect-copy"
-            >Viewing a customer cloud account. Changes that affect the customer are limited to
-            read-only statement data.</span
-          >
+          <p class="acc-kicker">Premium engineer account</p>
+          <h1 id="acc-panel-title">Overview</h1>
+          <p id="acc-panel-sub" class="acc-lede">Balance, receipts, and session posture for your SectorCalc identity.</p>
         </div>
-        <div class="acc-btn-row">
-          <a class="acc-btn acc-btn-ghost" href="/sc-ops.html">Back to ops</a>
-          <a class="acc-btn acc-btn-primary" id="acc-inspect-exit" href="/account.html"
-            >Exit inspect</a
-          >
+        <div class="acc-main-actions">
+          <span class="acc-badge" id="acc-plan-badge">Pay-per-use</span>
+          <a class="acc-btn acc-btn-ghost" href="/tools.html">Open tools</a>
         </div>
-      </div>
-      <div id="acc-loading" class="acc-loading" hidden>
-        <div class="acc-skel-side"></div>
-        <div class="acc-skel-main">
-          <div class="acc-skel-line w40"></div>
-          <div class="acc-skel-line w70"></div>
-          <div class="acc-skel-cards">
-            <div class="acc-skel-card"></div>
-            <div class="acc-skel-card"></div>
-            <div class="acc-skel-card"></div>
-            <div class="acc-skel-card"></div>
-          </div>
-        </div>
-      </div>
+      </header>
+      <p id="acc-toast" class="acc-toast" role="status" aria-live="polite"></p>
 
-      <section id="signed-out" class="acc-gate" aria-labelledby="gate-title">
-        <div class="acc-gate-grid">
-          <div class="acc-gate-story">
-            <p class="acc-kicker">SectorCalc account</p>
-            <h1 id="gate-title">Your engineering workspace identity</h1>
-            <p class="acc-lede">
-              A premium account keeps credits, receipts, and device sessions aligned — while every
-              calculation engine stays client-side.
-            </p>
-            <ul class="acc-gate-points">
-              <li>Synced credit balance + purchase receipts</li>
-              <li>Device session registry</li>
-              <li>No subscription lock-in</li>
-            </ul>
-          </div>
-          <div class="acc-gate-plate">
-            <p class="acc-kicker">Continue</p>
-            <h2 class="acc-gate-plate-title">Sign in to continue</h2>
-            <p id="acc-status" class="acc-status" role="status" aria-live="polite"></p>
-            <div class="acc-gate-actions">
-              <a class="acc-btn acc-btn-primary" href="/login.html?next=/account.html">Sign in</a>
-              <a class="acc-btn acc-btn-ghost" href="/login.html?mode=signup&amp;next=/account.html"
-                >Create account</a
-              >
+      <div class="acc-tab is-active" id="acc-tab-overview" role="tabpanel">
+        <div class="acc-hero-card">
+          <div class="acc-hero-id">
+            <div class="acc-avatar" aria-hidden="true">
+              <img id="acc-photo-lg" alt="" width="72" height="72" hidden>
+              <span id="acc-initials-lg" class="acc-initials">SC</span>
             </div>
-            <a class="acc-text-link" href="/tools.html">Browse calculators without signing in →</a>
-          </div>
-        </div>
-      </section>
-
-      <section id="signed-in" class="acc-shell" hidden>
-        <aside class="acc-side" aria-label="Account sections">
-          <div class="acc-side-id">
-            <div class="acc-avatar acc-avatar-sm" aria-hidden="true">
-              <img id="acc-photo" alt="" width="40" height="40" hidden />
-              <span id="acc-initials" class="acc-initials">SC</span>
-            </div>
-            <div class="acc-side-id-copy">
-              <strong id="acc-name-side">Member</strong>
-              <span id="acc-email-side" class="mono">—</span>
-            </div>
-          </div>
-          <nav class="acc-side-nav" role="tablist" aria-orientation="vertical">
-            <button
-              type="button"
-              class="acc-side-btn is-active"
-              data-acc-tab="overview"
-              role="tab"
-              aria-selected="true"
-            >
-              Overview
-            </button>
-            <button
-              type="button"
-              class="acc-side-btn"
-              data-acc-tab="billing"
-              role="tab"
-              aria-selected="false"
-            >
-              Billing
-            </button>
-            <button
-              type="button"
-              class="acc-side-btn"
-              data-acc-tab="credits"
-              role="tab"
-              aria-selected="false"
-            >
-              Credits
-            </button>
-            <button
-              type="button"
-              class="acc-side-btn"
-              data-acc-tab="security"
-              role="tab"
-              aria-selected="false"
-            >
-              Security
-            </button>
-            <button
-              type="button"
-              class="acc-side-btn"
-              data-acc-tab="preferences"
-              role="tab"
-              aria-selected="false"
-            >
-              Preferences
-            </button>
-            <button
-              type="button"
-              class="acc-side-btn"
-              data-acc-tab="workspace"
-              role="tab"
-              aria-selected="false"
-            >
-              Workspace
-            </button>
-          </nav>
-          <div class="acc-side-foot">
-            <a class="acc-btn acc-btn-primary acc-btn-block" href="/pricing.html">Buy credits</a>
-            <button type="button" class="acc-btn acc-btn-quiet acc-btn-block" id="sign-out">
-              Sign out
-            </button>
-          </div>
-        </aside>
-
-        <div class="acc-main">
-          <header class="acc-main-head">
             <div>
-              <p class="acc-kicker">Premium engineer account</p>
-              <h1 id="acc-panel-title">Overview</h1>
-              <p id="acc-panel-sub" class="acc-lede">
-                Balance, receipts, and session posture for your SectorCalc identity.
-              </p>
-            </div>
-            <div class="acc-main-actions">
-              <span class="acc-badge" id="acc-plan-badge">Pay-per-use</span>
-              <a class="acc-btn acc-btn-ghost" href="/tools.html">Open tools</a>
-            </div>
-          </header>
-          <p id="acc-toast" class="acc-toast" role="status" aria-live="polite"></p>
-
-          <div class="acc-tab is-active" id="acc-tab-overview" role="tabpanel">
-            <div class="acc-hero-card">
-              <div class="acc-hero-id">
-                <div class="acc-avatar" aria-hidden="true">
-                  <img id="acc-photo-lg" alt="" width="72" height="72" hidden />
-                  <span id="acc-initials-lg" class="acc-initials">SC</span>
-                </div>
-                <div>
-                  <h2 id="acc-name">Member</h2>
-                  <p id="acc-email" class="acc-email"></p>
-                  <p id="acc-session" class="acc-session mono"></p>
-                </div>
-              </div>
-              <div class="acc-balance-pill">
-                <span class="acc-balance-label">Available credits</span>
-                <strong class="mono" id="acc-credits-hero">—</strong>
-                <a href="/pricing.html">Top up →</a>
-              </div>
-            </div>
-            <div class="acc-stat-row">
-              <article class="acc-stat">
-                <p class="acc-stat-label">Credits</p>
-                <p class="acc-stat-value mono" id="acc-credits">—</p>
-                <p class="acc-stat-hint">Displayed balance</p>
-              </article>
-              <article class="acc-stat">
-                <p class="acc-stat-label">Lifetime purchased</p>
-                <p class="acc-stat-value mono" id="acc-lifetime">—</p>
-                <p class="acc-stat-hint">From receipt history</p>
-              </article>
-              <article class="acc-stat">
-                <p class="acc-stat-label">Devices</p>
-                <p class="acc-stat-value mono" id="acc-device-count">—</p>
-                <p class="acc-stat-hint">Registered sessions</p>
-              </article>
-              <article class="acc-stat">
-                <p class="acc-stat-label">Member since</p>
-                <p class="acc-stat-value mono" id="acc-since">—</p>
-                <p class="acc-stat-hint">UTC</p>
-              </article>
-            </div>
-            <div class="acc-next">
-              <h3>Next best action</h3>
-              <p id="acc-next-copy">—</p>
-              <div class="acc-btn-row">
-                <a class="acc-btn acc-btn-primary" href="/pricing.html">Buy credits</a>
-                <a class="acc-btn acc-btn-ghost" href="/calculator/tolerance-stack-up"
-                  >Open SC-008</a
-                >
-              </div>
+              <h2 id="acc-name">Member</h2>
+              <p id="acc-email" class="acc-email"></p>
+              <p id="acc-session" class="acc-session mono"></p>
             </div>
           </div>
-
-          <div class="acc-tab" id="acc-tab-billing" role="tabpanel" hidden>
-            <div class="acc-toolbar">
-              <p class="acc-lede">
-                Purchase receipts from Paddle checkout (this browser + cloud profile).
-              </p>
-              <button type="button" class="acc-btn acc-btn-ghost" id="billing-refresh">
-                Refresh
-              </button>
-            </div>
-            <div class="acc-table-wrap">
-              <table class="acc-table">
-                <thead>
-                  <tr>
-                    <th>Date (UTC)</th>
-                    <th>Credits</th>
-                    <th>Amount</th>
-                    <th>Transaction</th>
-                    <th>Source</th>
-                  </tr>
-                </thead>
-                <tbody id="billing-tbody">
-                  <tr>
-                    <td colspan="5">Loading…</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <p class="acc-muted" id="billing-empty" hidden>
-              No purchases yet. Buy a credit pack to see receipts here.
-            </p>
-          </div>
-
-          <div class="acc-tab" id="acc-tab-credits" role="tabpanel" hidden>
-            <div class="acc-stat-row acc-ledger-kpis">
-              <article class="acc-stat">
-                <p class="acc-stat-label">Available</p>
-                <p class="acc-stat-value mono" id="acc-ledger-available">—</p>
-                <p class="acc-stat-hint">Current balance</p>
-              </article>
-              <article class="acc-stat">
-                <p class="acc-stat-label">Purchased</p>
-                <p class="acc-stat-value mono" id="acc-ledger-purchased">—</p>
-                <p class="acc-stat-hint">Lifetime credits in</p>
-              </article>
-              <article class="acc-stat">
-                <p class="acc-stat-label">Spent</p>
-                <p class="acc-stat-value mono" id="acc-ledger-spent">—</p>
-                <p class="acc-stat-hint">Lifetime credits out</p>
-              </article>
-              <article class="acc-stat">
-                <p class="acc-stat-label">Movements</p>
-                <p class="acc-stat-value mono" id="acc-ledger-count">—</p>
-                <p class="acc-stat-hint">Statement rows</p>
-              </article>
-            </div>
-            <div class="acc-toolbar">
-              <p class="acc-lede">
-                Credit statement — purchases, spends, and adjustments with date and time (UTC).
-              </p>
-              <button type="button" class="acc-btn acc-btn-ghost" id="ledger-refresh">
-                Refresh
-              </button>
-            </div>
-            <div class="acc-table-wrap">
-              <table class="acc-table acc-ledger-table">
-                <thead>
-                  <tr>
-                    <th>Date &amp; time (UTC)</th>
-                    <th>Type</th>
-                    <th>Description</th>
-                    <th>Amount</th>
-                    <th>Balance after</th>
-                    <th>Reference</th>
-                  </tr>
-                </thead>
-                <tbody id="ledger-tbody">
-                  <tr>
-                    <td colspan="6">Loading…</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <p class="acc-muted" id="ledger-empty" hidden>
-              No credit movements yet. Buy a pack or unlock a professional session to start the
-              statement.
-            </p>
-            <div class="acc-card-grid acc-card-grid-2" style="margin-top: 18px">
-              <article class="acc-card">
-                <h3>Balance sources</h3>
-                <dl class="acc-dl">
-                  <div>
-                    <dt>Cloud profile</dt>
-                    <dd class="mono" id="acc-cloud-detail">—</dd>
-                  </div>
-                  <div>
-                    <dt>This browser</dt>
-                    <dd class="mono" id="acc-local-detail">—</dd>
-                  </div>
-                  <div>
-                    <dt>Displayed</dt>
-                    <dd class="mono" id="acc-display-detail">—</dd>
-                  </div>
-                </dl>
-                <a class="acc-btn acc-btn-primary" href="/pricing.html">Buy credits</a>
-              </article>
-              <article class="acc-card">
-                <h3>Policy</h3>
-                <ul class="acc-bullets">
-                  <li>Pay-per-use · no subscription.</li>
-                  <li>Purchases and spends post here with UTC timestamps.</li>
-                  <li>Paddle is merchant of record for paid packs.</li>
-                  <li>Engines stay client-side; credits gate entitlement only.</li>
-                </ul>
-              </article>
-            </div>
-          </div>
-
-          <div class="acc-tab" id="acc-tab-security" role="tabpanel" hidden>
-            <div class="acc-card-grid acc-card-grid-2">
-              <article class="acc-card">
-                <h3>Identity</h3>
-                <dl class="acc-dl">
-                  <div>
-                    <dt>User ID</dt>
-                    <dd>
-                      <code id="acc-uid" class="mono">—</code>
-                      <button type="button" class="acc-copy" id="copy-uid">Copy</button>
-                    </dd>
-                  </div>
-                  <div>
-                    <dt>Email</dt>
-                    <dd id="acc-email-spec" class="mono">—</dd>
-                  </div>
-                  <div>
-                    <dt>Providers</dt>
-                    <dd id="acc-provider-spec">—</dd>
-                  </div>
-                  <div>
-                    <dt>Verified</dt>
-                    <dd id="acc-verified-spec">—</dd>
-                  </div>
-                  <div>
-                    <dt>Last sign-in</dt>
-                    <dd class="mono" id="acc-last-signin">—</dd>
-                  </div>
-                </dl>
-                <button type="button" class="acc-btn acc-btn-ghost" id="sign-out-sec">
-                  Sign out this device
-                </button>
-              </article>
-              <article class="acc-card">
-                <h3>Devices</h3>
-                <p class="acc-muted">
-                  Sessions registered when you sign in on a browser. Revoking removes the registry
-                  entry (force sign-out on other devices requires re-auth on next visit).
-                </p>
-                <ul class="acc-device-list" id="device-list">
-                  <li class="acc-muted">Loading…</li>
-                </ul>
-              </article>
-            </div>
-          </div>
-
-          <div class="acc-tab" id="acc-tab-preferences" role="tabpanel" hidden>
-            <article class="acc-card">
-              <h3>Notifications &amp; workspace</h3>
-              <form id="prefs-form" class="acc-prefs">
-                <label class="acc-check"
-                  ><input type="checkbox" id="pref-email-product" /> Product tips by email</label
-                >
-                <label class="acc-check"
-                  ><input type="checkbox" id="pref-email-receipts" /> Receipt emails (when provider
-                  supports)</label
-                >
-                <label class="acc-check"
-                  ><input type="checkbox" id="pref-compact" /> Compact workspace density</label
-                >
-                <div class="acc-btn-row">
-                  <button type="submit" class="acc-btn acc-btn-primary">Save preferences</button>
-                </div>
-              </form>
-            </article>
-          </div>
-
-          <div class="acc-tab" id="acc-tab-workspace" role="tabpanel" hidden>
-            <div class="acc-link-grid">
-              <a class="acc-tile" href="/tools.html"
-                ><span class="mono">CATALOG</span><strong>All tools</strong
-                ><em>25 live calculators</em></a
-              >
-              <a class="acc-tile" href="/calculator/tolerance-stack-up"
-                ><span class="mono">SC-008</span><strong>Tolerance stack-up</strong
-                ><em>RSS · Monte Carlo</em></a
-              >
-              <a class="acc-tile" href="/calculator/cnc-feeds-speeds"
-                ><span class="mono">SC-020</span><strong>Feeds &amp; speeds</strong
-                ><em>CNC cutting data</em></a
-              >
-              <a class="acc-tile" href="/pricing.html"
-                ><span class="mono">BILLING</span><strong>Credit store</strong
-                ><em>Paddle checkout</em></a
-              >
-            </div>
+          <div class="acc-balance-pill">
+            <span class="acc-balance-label">Available credits</span>
+            <strong class="mono" id="acc-credits-hero">—</strong>
+            <a href="/pricing.html">Top up →</a>
           </div>
         </div>
-      </section>
-    </main>
-    <script type="module" src="/src/account.ts"></script>
-  </body>
+        <div class="acc-stat-row">
+          <article class="acc-stat"><p class="acc-stat-label">Credits</p><p class="acc-stat-value mono" id="acc-credits">—</p><p class="acc-stat-hint">Displayed balance</p></article>
+          <article class="acc-stat"><p class="acc-stat-label">Lifetime purchased</p><p class="acc-stat-value mono" id="acc-lifetime">—</p><p class="acc-stat-hint">From receipt history</p></article>
+          <article class="acc-stat"><p class="acc-stat-label">Devices</p><p class="acc-stat-value mono" id="acc-device-count">—</p><p class="acc-stat-hint">Registered sessions</p></article>
+          <article class="acc-stat"><p class="acc-stat-label">Member since</p><p class="acc-stat-value mono" id="acc-since">—</p><p class="acc-stat-hint">UTC</p></article>
+        </div>
+        <div class="acc-next">
+          <h3>Next best action</h3>
+          <p id="acc-next-copy">—</p>
+          <div class="acc-btn-row">
+            <a class="acc-btn acc-btn-primary" href="/pricing.html">Buy credits</a>
+            <a class="acc-btn acc-btn-ghost" href="/calculator/tolerance-stack-up">Open SC-008</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-tab" id="acc-tab-billing" role="tabpanel" hidden>
+        <div class="acc-toolbar">
+          <p class="acc-lede">Purchase receipts from Paddle checkout (this browser + cloud profile).</p>
+          <button type="button" class="acc-btn acc-btn-ghost" id="billing-refresh">Refresh</button>
+        </div>
+        <div class="acc-table-wrap">
+          <table class="acc-table">
+            <thead><tr><th>Date (UTC)</th><th>Credits</th><th>Amount</th><th>Transaction</th><th>Source</th></tr></thead>
+            <tbody id="billing-tbody"><tr><td colspan="5">Loading…</td></tr></tbody>
+          </table>
+        </div>
+        <p class="acc-muted" id="billing-empty" hidden>No purchases yet. Buy a credit pack to see receipts here.</p>
+      </div>
+
+      <div class="acc-tab" id="acc-tab-credits" role="tabpanel" hidden>
+        <div class="acc-stat-row acc-ledger-kpis">
+          <article class="acc-stat"><p class="acc-stat-label">Available</p><p class="acc-stat-value mono" id="acc-ledger-available">—</p><p class="acc-stat-hint">Current balance</p></article>
+          <article class="acc-stat"><p class="acc-stat-label">Purchased</p><p class="acc-stat-value mono" id="acc-ledger-purchased">—</p><p class="acc-stat-hint">Lifetime credits in</p></article>
+          <article class="acc-stat"><p class="acc-stat-label">Spent</p><p class="acc-stat-value mono" id="acc-ledger-spent">—</p><p class="acc-stat-hint">Lifetime credits out</p></article>
+          <article class="acc-stat"><p class="acc-stat-label">Movements</p><p class="acc-stat-value mono" id="acc-ledger-count">—</p><p class="acc-stat-hint">Statement rows</p></article>
+        </div>
+        <div class="acc-toolbar">
+          <p class="acc-lede">Credit statement — purchases, spends, and adjustments with date and time (UTC).</p>
+          <button type="button" class="acc-btn acc-btn-ghost" id="ledger-refresh">Refresh</button>
+        </div>
+        <div class="acc-table-wrap">
+          <table class="acc-table acc-ledger-table">
+            <thead>
+              <tr>
+                <th>Date &amp; time (UTC)</th>
+                <th>Type</th>
+                <th>Description</th>
+                <th>Amount</th>
+                <th>Balance after</th>
+                <th>Reference</th>
+              </tr>
+            </thead>
+            <tbody id="ledger-tbody"><tr><td colspan="6">Loading…</td></tr></tbody>
+          </table>
+        </div>
+        <p class="acc-muted" id="ledger-empty" hidden>No credit movements yet. Buy a pack or unlock a professional session to start the statement.</p>
+        <div class="acc-card-grid acc-card-grid-2" style="margin-top:18px">
+          <article class="acc-card">
+            <h3>Balance sources</h3>
+            <dl class="acc-dl">
+              <div><dt>Cloud profile</dt><dd class="mono" id="acc-cloud-detail">—</dd></div>
+              <div><dt>This browser</dt><dd class="mono" id="acc-local-detail">—</dd></div>
+              <div><dt>Displayed</dt><dd class="mono" id="acc-display-detail">—</dd></div>
+            </dl>
+            <a class="acc-btn acc-btn-primary" href="/pricing.html">Buy credits</a>
+          </article>
+          <article class="acc-card">
+            <h3>Policy</h3>
+            <ul class="acc-bullets">
+              <li>Pay-per-use · no subscription.</li>
+              <li>Purchases and spends post here with UTC timestamps.</li>
+              <li>Paddle is merchant of record for paid packs.</li>
+              <li>Engines stay client-side; credits gate entitlement only.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+
+      <div class="acc-tab" id="acc-tab-security" role="tabpanel" hidden>
+        <div class="acc-card-grid acc-card-grid-2">
+          <article class="acc-card">
+            <h3>Identity</h3>
+            <dl class="acc-dl">
+              <div><dt>User ID</dt><dd><code id="acc-uid" class="mono">—</code> <button type="button" class="acc-copy" id="copy-uid">Copy</button></dd></div>
+              <div><dt>Email</dt><dd id="acc-email-spec" class="mono">—</dd></div>
+              <div><dt>Providers</dt><dd id="acc-provider-spec">—</dd></div>
+              <div><dt>Verified</dt><dd id="acc-verified-spec">—</dd></div>
+              <div><dt>Last sign-in</dt><dd class="mono" id="acc-last-signin">—</dd></div>
+            </dl>
+            <button type="button" class="acc-btn acc-btn-ghost" id="sign-out-sec">Sign out this device</button>
+          </article>
+          <article class="acc-card">
+            <h3>Devices</h3>
+            <p class="acc-muted">Sessions registered when you sign in on a browser. Revoking removes the registry entry (force sign-out on other devices requires re-auth on next visit).</p>
+            <ul class="acc-device-list" id="device-list"><li class="acc-muted">Loading…</li></ul>
+          </article>
+        </div>
+      </div>
+
+      <div class="acc-tab" id="acc-tab-preferences" role="tabpanel" hidden>
+        <article class="acc-card">
+          <h3>Notifications &amp; workspace</h3>
+          <form id="prefs-form" class="acc-prefs">
+            <label class="acc-check"><input type="checkbox" id="pref-email-product"> Product tips by email</label>
+            <label class="acc-check"><input type="checkbox" id="pref-email-receipts"> Receipt emails (when provider supports)</label>
+            <label class="acc-check"><input type="checkbox" id="pref-compact"> Compact workspace density</label>
+            <div class="acc-btn-row">
+              <button type="submit" class="acc-btn acc-btn-primary">Save preferences</button>
+            </div>
+          </form>
+        </article>
+      </div>
+
+      <div class="acc-tab" id="acc-tab-workspace" role="tabpanel" hidden>
+        <div class="acc-link-grid">
+          <a class="acc-tile" href="/tools.html"><span class="mono">CATALOG</span><strong>All tools</strong><em>25 live calculators</em></a>
+          <a class="acc-tile" href="/calculator/tolerance-stack-up"><span class="mono">SC-008</span><strong>Tolerance stack-up</strong><em>RSS · Monte Carlo</em></a>
+          <a class="acc-tile" href="/calculator/cnc-feeds-speeds"><span class="mono">SC-020</span><strong>Feeds &amp; speeds</strong><em>CNC cutting data</em></a>
+          <a class="acc-tile" href="/pricing.html"><span class="mono">BILLING</span><strong>Credit store</strong><em>Paddle checkout</em></a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<script type="module" src="/src/account.ts"></script>
+</body>
 </html>

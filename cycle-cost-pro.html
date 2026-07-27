@@ -1,2121 +1,1085 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" data-theme="light">
-  <head>
-    <!--SC-SEO-HOST-->
-    <!-- Canonical host is https://sectorcalc.com — Firebase Hosting 301s www → apex. No client reverse-redirect. -->
-    <!--SC-SEO-HOST-END-->
-    <!--SC-SEO-SECURITY-START-->
-    <meta
-      http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: https://cdnjs.cloudflare.com https://www.googletagmanager.com https://www.google-analytics.com https://cdn.paddle.com https://apis.google.com https://www.gstatic.com https://www.google.com; worker-src 'self' blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://*.paddle.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://www.googletagmanager.com https://*.paddle.com https://*.googleapis.com https://*.firebaseio.com wss://*.googleapis.com wss://*.firebaseio.com https://*.cloudfunctions.net https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://firestore.googleapis.com https://www.googleapis.com; frame-src 'self' https://*.paddle.com https://*.firebaseapp.com https://accounts.google.com https://*.google.com; base-uri 'self'; form-action 'self' https://*.paddle.com https://accounts.google.com; upgrade-insecure-requests"
-    />
-    <meta name="referrer" content="strict-origin-when-cross-origin" />
-    <meta
-      http-equiv="Permissions-Policy"
-      content="camera=(), microphone=(), geolocation=(), payment=*, usb=(), magnetometer=(), gyroscope=(), accelerometer=(), interest-cohort=()"
-    />
-    <link rel="schema.DC" href="http://purl.org/dc/elements/1.1/" />
-    <meta name="DC.title" content="SectorCalc — Deterministic Industrial Engineering Calculators" />
-    <meta name="DC.creator" content="SectorCalc Inc." />
-    <meta
-      name="DC.subject"
-      content="Engineering Calculators, Tolerance Analysis, Monte Carlo Simulation"
-    />
-    <meta
-      name="DC.description"
-      content="Deterministic industrial calculators with ISO audit trails"
-    />
-    <meta name="DC.publisher" content="SectorCalc Inc." />
-    <meta name="DC.date" content="2026-07-25" />
-    <meta name="DC.type" content="Text" />
-    <meta name="DC.format" content="text/html" />
-    <meta name="DC.language" content="en" />
-    <meta name="DC.coverage" content="Global" />
-    <meta name="DC.rights" content="2024-2026 SectorCalc Inc." />
-    <!--SC-SEO-SECURITY-END-->
-    <script>
-      (function () {
-        try {
-          var k = 'sectorcalc-theme';
-          var t = localStorage.getItem(k);
-          if (t !== 'dark' && t !== 'light')
-            t =
-              window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches
-                ? 'dark'
-                : 'light';
-          document.documentElement.setAttribute('data-theme', t);
-          document.documentElement.style.colorScheme = t;
-        } catch (e) {}
-      })();
-    </script>
-    <meta charset="UTF-8" />
-    <link rel="icon" href="/favicon.ico?v=20260724c" sizes="any" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=20260724c" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=20260724c" />
-    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png?v=20260724c" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=20260724c" />
-    <link rel="manifest" href="/site.webmanifest?v=20260724c" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SC-023 Cycle Time & Cost per Part Calculator | SectorCalc</title>
-    <meta
-      name="description"
-      content="Calculate true cycle time, setup burden, and cost per good part with scrap rate and deterministic engine."
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      :root {
-        --navy: #0f2744;
-        --steel: #1b3a5c;
-        --blue: #0055a4;
-        --accent: #e87722;
-        --panel2: #fbfcfe;
-        --thead: #eef2f7;
-        --bg: #f4f6f9;
-        --panel: #ffffff;
-        --line: #d9e0e8;
-        --ink: #1c2733;
-        --mut: #5d6b7a;
-        --ok: #1a7f4b;
-        --warn: #b26a00;
-        --err: #b3261e;
-        --mono: 'JetBrains Mono', 'Consolas', monospace;
-      }
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-      body {
-        font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
-        background: var(--bg);
-        color: var(--ink);
-        line-height: 1.5;
-      }
-      h1,
-      .logo,
-      .panel-h,
-      .btn,
-      .verdict .big {
-        font-family: 'Barlow Condensed', 'Inter', sans-serif;
-        letter-spacing: 0.4px;
-      }
-      .topbar {
-        background: var(--navy);
-        color: #fff;
-        padding: 14px 24px;
-        display: flex;
-        align-items: center;
-        gap: 14px;
-        flex-wrap: wrap;
-      }
-      .topbar .logo {
-        font-weight: 700;
-        font-size: 18px;
-        letter-spacing: 0.5px;
-      }
-      .topbar .logo span {
-        color: var(--accent);
-      }
-      .badge {
-        background: rgba(255, 255, 255, 0.12);
-        border: 1px solid rgba(255, 255, 255, 0.25);
-        font-size: 11px;
-        padding: 3px 10px;
-        border-radius: 20px;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-      }
-      .eng {
-        font-family: var(--mono);
-        font-size: 11px;
-        color: #9db8d4;
-        margin-left: auto;
-      }
-      .wrap {
-        max-width: 1320px;
-        margin: 0 auto;
-        padding: 24px;
-      }
-      .head {
-        display: flex;
-        justify-content: space-between;
-        gap: 20px;
-        flex-wrap: wrap;
-        align-items: flex-end;
-      }
-      .head h1 {
-        font-size: 26px;
-        color: var(--navy);
-        margin-bottom: 4px;
-      }
-      .head p {
-        color: var(--mut);
-        font-size: 14px;
-        max-width: 820px;
-      }
-      .grid {
-        display: grid;
-        grid-template-columns: minmax(380px, 540px) 1fr;
-        gap: 20px;
-        margin-top: 20px;
-        align-items: start;
-      }
-      @media (max-width: 1000px) {
-        .grid {
-          grid-template-columns: 1fr;
-        }
-      }
-      .panel {
-        background: var(--panel);
-        border: 1px solid var(--line);
-        border-radius: 10px;
-        overflow: hidden;
-      }
-      .panel-h {
-        background: linear-gradient(90deg, var(--steel), var(--navy));
-        color: #fff;
-        padding: 10px 16px;
-        font-size: 13px;
-        font-weight: 600;
-        letter-spacing: 0.6px;
-        text-transform: uppercase;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 8px;
-        flex-wrap: wrap;
-      }
-      .panel-b {
-        padding: 16px;
-      }
-      .fgroup {
-        margin-bottom: 18px;
-      }
-      .fgroup > label {
-        display: block;
-        font-size: 12px;
-        font-weight: 700;
-        color: var(--steel);
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        margin-bottom: 6px;
-        border-bottom: 1px solid var(--line);
-        padding-bottom: 4px;
-      }
-      .row {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
-      }
-      .row3 {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
-      }
-      @media (max-width: 560px) {
-        .row,
-        .row3 {
-          grid-template-columns: 1fr;
-        }
-      }
-      .field {
-        margin-bottom: 8px;
-      }
-      .field label {
-        display: block;
-        font-size: 11px;
-        color: var(--mut);
-        margin-bottom: 3px;
-      }
-      .field input,
-      .field select {
-        width: 100%;
-        padding: 8px 10px;
-        border: 1px solid var(--line);
-        border-radius: 6px;
-        font-size: 14px;
-        font-family: inherit;
-        background: var(--panel2);
-        transition: border-color 0.15s;
-      }
-      .field input:focus,
-      .field select:focus {
-        outline: none;
-        border-color: var(--blue);
-        background: #fff;
-      }
-      .uwrap {
-        display: flex;
-        gap: 6px;
-        align-items: stretch;
-        width: 100%;
-        min-width: 0;
-      }
-      .uwrap input {
-        flex: 1 1 auto;
-        min-width: 5.75rem;
-        width: auto;
-        padding: 8px 10px;
-        font-family: var(--mono);
-        font-variant-numeric: tabular-nums;
-        overflow-x: auto;
-        box-sizing: border-box;
-      }
-      .uwrap input[type='number'] {
-        -moz-appearance: textfield;
-        appearance: textfield;
-      }
-      .uwrap input[type='number']::-webkit-outer-spin-button,
-      .uwrap input[type='number']::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-      }
-      .uwrap select.units {
-        flex: 0 0 auto;
-        width: auto;
-        min-width: 3.75rem;
-        max-width: 5.5rem;
-        padding: 8px 6px;
-        font-size: 11px;
-        font-weight: 600;
-        color: var(--steel);
-        background: var(--thead);
-        box-sizing: border-box;
-      }
-      .ref {
-        font-size: 10px;
-        color: #8593a5;
-        margin-top: 2px;
-        font-style: italic;
-        line-height: 1.35;
-      }
-      .hint {
-        font-size: 10.5px;
-        color: var(--mut);
-        margin-top: 2px;
-      }
-      .btn {
-        display: inline-block;
-        background: var(--accent);
-        color: #fff;
-        border: none;
-        padding: 12px 26px;
-        font-size: 14px;
-        font-weight: 700;
-        border-radius: 7px;
-        cursor: pointer;
-        width: 100%;
-        letter-spacing: 0.5px;
-        transition: background 0.15s;
-      }
-      .btn:hover {
-        background: #cf621a;
-      }
-      .btn2 {
-        background: var(--steel);
-        font-size: 12px;
-        padding: 8px 14px;
-        width: auto;
-        border: none;
-        color: #fff;
-        border-radius: 6px;
-        cursor: pointer;
-        font-weight: 600;
-      }
-      .btn2:hover {
-        background: var(--navy);
-      }
-      .btn3 {
-        background: var(--panel);
-        color: var(--steel);
-        border: 1px solid var(--line);
-        font-size: 11px;
-        padding: 5px 10px;
-        border-radius: 6px;
-        cursor: pointer;
-        font-weight: 600;
-      }
-      .btn3:hover {
-        border-color: var(--blue);
-        color: var(--blue);
-      }
-      .seg {
-        display: flex;
-        border: 1px solid var(--line);
-        border-radius: 7px;
-        overflow: hidden;
-      }
-      .seg button {
-        flex: 1;
-        padding: 8px 0;
-        background: var(--panel);
-        border: none;
-        font-size: 12px;
-        font-weight: 700;
-        cursor: pointer;
-        color: var(--mut);
-      }
-      .seg button.on {
-        background: var(--navy);
-        color: #fff;
-      }
-      .kpis {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        gap: 12px;
-        margin-bottom: 16px;
-      }
-      .kpi {
-        background: var(--panel);
-        border: 1px solid var(--line);
-        border-left: 4px solid var(--blue);
-        border-radius: 8px;
-        padding: 12px 14px;
-      }
-      .kpi .v {
-        font-family: var(--mono);
-        font-size: 20px;
-        font-weight: 700;
-        color: var(--navy);
-      }
-      .kpi .l {
-        font-size: 11px;
-        color: var(--mut);
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-      }
-      .kpi .u {
-        font-size: 11px;
-        color: var(--mut);
-      }
-      .kpi.hot {
-        border-left-color: var(--accent);
-      }
-      .kpi.good {
-        border-left-color: var(--ok);
-      }
-      .verdict {
-        border-radius: 10px;
-        padding: 16px 20px;
-        margin-bottom: 16px;
-        color: #fff;
-        display: flex;
-        align-items: center;
-        gap: 18px;
-        flex-wrap: wrap;
-      }
-      .verdict.pass {
-        background: linear-gradient(90deg, #12572f, #1a7f4b);
-      }
-      .verdict.cond {
-        background: linear-gradient(90deg, #8a5100, #b26a00);
-      }
-      .verdict.fail {
-        background: linear-gradient(90deg, #7c1610, #b3261e);
-      }
-      .verdict .big {
-        font-size: 22px;
-        font-weight: 800;
-        letter-spacing: 1px;
-      }
-      .verdict .sub {
-        font-size: 12.5px;
-        opacity: 0.92;
-      }
-      .verdict .score {
-        margin-left: auto;
-        font-family: var(--mono);
-        font-size: 26px;
-        font-weight: 700;
-      }
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        font-size: 13px;
-      }
-      th,
-      td {
-        padding: 7px 10px;
-        border-bottom: 1px solid var(--line);
-        text-align: left;
-        vertical-align: top;
-      }
-      th {
-        background: var(--thead);
-        color: var(--steel);
-        font-size: 11px;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-      }
-      td.num {
-        font-family: var(--mono);
-        text-align: right;
-      }
-      .warnbox {
-        border-radius: 8px;
-        padding: 10px 14px;
-        margin-bottom: 10px;
-        font-size: 13px;
-      }
-      .warnbox.w {
-        background: #fff7e8;
-        border: 1px solid #f0c979;
-        color: var(--warn);
-      }
-      .warnbox.e {
-        background: #fdecea;
-        border: 1px solid #f1a9a4;
-        color: var(--err);
-      }
-      .warnbox.i {
-        background: #e9f4fd;
-        border: 1px solid #a9d2ef;
-        color: #12567f;
-      }
-      .warnbox b {
-        display: block;
-        font-size: 11px;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        margin-bottom: 2px;
-      }
-      .audit {
-        margin-top: 20px;
-      }
-      details {
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        margin-bottom: 10px;
-        background: var(--panel2);
-      }
-      summary {
-        cursor: pointer;
-        padding: 10px 14px;
-        font-weight: 700;
-        font-size: 13px;
-        color: var(--navy);
-        list-style: none;
-      }
-      summary::before {
-        content: '▸ ';
-        color: var(--accent);
-      }
-      details[open] summary::before {
-        content: '▾ ';
-      }
-      details .body {
-        padding: 0 14px 14px;
-        font-size: 12.5px;
-      }
-      .formula {
-        font-family: var(--mono);
-        background: #0f2744;
-        color: #cfe3f5;
-        padding: 10px 14px;
-        border-radius: 6px;
-        font-size: 12.5px;
-        margin: 6px 0;
-        overflow-x: auto;
-      }
-      .hash {
-        font-family: var(--mono);
-        font-size: 11px;
-        background: var(--thead);
-        padding: 6px 10px;
-        border-radius: 5px;
-        word-break: break-all;
-      }
-      .sig {
-        color: var(--ok);
-        font-weight: 700;
-      }
-      .charts {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 14px;
-      }
-      @media (max-width: 760px) {
-        .charts {
-          grid-template-columns: 1fr;
-        }
-      }
-      .chartbox {
-        border: 1px solid var(--line);
-        border-radius: 8px;
-        padding: 10px;
-        background: var(--panel2);
-      }
-      .chartbox .t {
-        font-size: 11px;
-        font-weight: 700;
-        color: var(--steel);
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        margin-bottom: 6px;
-      }
-      canvas {
-        width: 100%;
-        height: auto;
-        display: block;
-      }
-      .presets {
-        display: flex;
-        gap: 6px;
-        align-items: center;
-        font-size: 11px;
-        color: #cfe0f0;
-      }
-      footer {
-        margin-top: 28px;
-        padding: 18px;
-        text-align: center;
-        color: var(--mut);
-        font-size: 12px;
-        border-top: 1px solid var(--line);
-      }
-      html[data-theme='dark'] {
-        --bg: #0e131a;
-        --panel: #161d27;
-        --panel2: #1b2430;
-        --line: #2a3646;
-        --ink: #e6ecf3;
-        --mut: #93a3b5;
-        --thead: #212c3a;
-        --navy: #0a1626;
-        --steel: #12385e;
-        --blue: #4c9be8;
-        --accent: #e87722;
-        --ok: #3fbf7f;
-        --warn: #e8a33d;
-        --err: #f26d64;
-      }
-      html[data-theme='dark'] .warnbox.w {
-        background: #3a2e12;
-        border-color: #6b5418;
-        color: #e8a33d;
-      }
-      html[data-theme='dark'] .warnbox.e {
-        background: #3a1a17;
-        border-color: #6b2a25;
-        color: #f26d64;
-      }
-      html[data-theme='dark'] .warnbox.i {
-        background: #14273a;
-        border-color: #1e4a6e;
-        color: #7fb3e8;
-      }
-      html[data-theme='dark'] .field input,
-      html[data-theme='dark'] .field select {
-        background: #131a23;
-        color: var(--ink);
-      }
-      html[data-theme='dark'] .field input:focus,
-      html[data-theme='dark'] .field select:focus {
-        background: #0f151d;
-      }
-      html[data-theme='dark'] .kpi .v {
-        color: #e6ecf3;
-      }
-      html[data-theme='dark'] .verdict.pass {
-        background: linear-gradient(90deg, #0d3a20, #146039);
-      }
-      html[data-theme='dark'] .verdict.cond {
-        background: linear-gradient(90deg, #5e3900, #8a5a10);
-      }
-      html[data-theme='dark'] .verdict.fail {
-        background: linear-gradient(90deg, #5c100c, #8a1f18);
-      }
-      #themeToggle {
-        position: fixed;
-        right: 18px;
-        bottom: 18px;
-        z-index: 60;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
-      }
-      @media print {
-        #themeToggle {
-          display: none;
-        }
-      }
-      @media print {
-        .topbar .eng,
-        .btn,
-        .btn2,
-        .btn3,
-        .seg,
-        .presets {
-          display: none;
-        }
-        .grid {
-          grid-template-columns: 1fr;
-        }
-        details {
-          display: block;
-        }
-        details .body {
-          display: block;
-        }
-      }
-    </style>
-    <link rel="stylesheet" href="/sc-theme.css?v=12" />
-    <script src="/sc-theme.js?v=12" defer></script>
-    <link rel="stylesheet" href="/sc-tool-guide.css?v=3" />
-    <link rel="stylesheet" href="/sc-eeat.css?v=3" />
-    <link rel="stylesheet" href="/sc-study.css?v=4" />
-    <script src="/sc-tool-guide.js?v=3" defer></script>
-    <script src="/sc-study.js?v=4" defer></script>
-    <link rel="stylesheet" href="/sc-site-nav.css?v=5" />
-    <script src="/sc-site-nav.js?v=2" defer></script>
-    <script type="module" src="/src/auth-nav.ts"></script>
-    <link rel="stylesheet" href="/sc-form-fields.css?v=5" />
-    <!--SC-SEO-META-START-->
-    <link rel="canonical" href="https://sectorcalc.com/calculator/cycle-time-cost" />
-    <link
-      rel="alternate"
-      hreflang="x-default"
-      href="https://sectorcalc.com/calculator/cycle-time-cost"
-    />
-    <link rel="alternate" hreflang="en" href="https://sectorcalc.com/calculator/cycle-time-cost" />
-    <meta
-      name="robots"
-      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
-    />
-    <meta name="googlebot" content="index, follow" />
-    <meta name="bingbot" content="index, follow" />
-    <meta property="og:locale" content="en_US" />
-    <meta property="og:type" content="website" />
-    <meta
-      property="og:title"
-      content="SC-023 Cycle Time &amp; Cost per Part Calculator | SectorCalc"
-    />
-    <meta
-      property="og:description"
-      content="Calculate true cycle time, setup burden, and cost per good part with scrap rate and deterministic engine."
-    />
-    <meta property="og:url" content="https://sectorcalc.com/calculator/cycle-time-cost" />
-    <meta property="og:site_name" content="SectorCalc" />
-    <meta
-      property="og:image"
-      content="https://sectorcalc.com/assets/images/og-cycle-cost-pro-1200x630.jpg"
-    />
-    <meta
-      property="og:image:secure_url"
-      content="https://sectorcalc.com/assets/images/og-cycle-cost-pro-1200x630.jpg"
-    />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:type" content="image/jpeg" />
-    <meta
-      property="og:image:alt"
-      content="SC-023 Cycle Time &amp; Cost per Part Calculator | SectorCalc"
-    />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="SC-023 Cycle Time &amp; Cost per Part Calculator | SectorCalc"
-    />
-    <meta
-      name="twitter:description"
-      content="Calculate true cycle time, setup burden, and cost per good part with scrap rate and deterministic engine."
-    />
-    <meta
-      name="twitter:image"
-      content="https://sectorcalc.com/assets/images/og-cycle-cost-pro-1200x630.jpg"
-    />
-    <meta
-      name="twitter:image:alt"
-      content="SC-023 Cycle Time &amp; Cost per Part Calculator | SectorCalc"
-    />
-    <meta name="referrer" content="strict-origin-when-cross-origin" />
-    <meta name="author" content="SectorCalc Engineering Team" />
-    <meta name="theme-color" content="#0055A4" />
-    <meta name="format-detection" content="telephone=no" />
-    <!--SC-SEO-META-END-->
-    <!--SC-SEO-SCHEMA-START-->
-    <script type="application/ld+json" id="sc-schema-global">
-      {
-        "@context": "https://schema.org",
-        "@graph": [
-          {
-            "@type": "Organization",
-            "@id": "https://sectorcalc.com/#organization",
-            "name": "SectorCalc",
-            "alternateName": ["SectorCalc Engineering Calculators"],
-            "url": "https://sectorcalc.com/",
-            "logo": {
-              "@type": "ImageObject",
-              "@id": "https://sectorcalc.com/#logo",
-              "url": "https://sectorcalc.com/assets/images/sectorcalc-logo-512x512.png",
-              "width": 512,
-              "height": 512,
-              "caption": "SectorCalc"
-            },
-            "image": {
-              "@type": "ImageObject",
-              "url": "https://sectorcalc.com/assets/images/sectorcalc-og-1200x630.jpg",
-              "width": 1200,
-              "height": 630
-            },
-            "description": "Deterministic industrial engineering calculators with visible formulas, ISO-standard audit trails, and full-precision decimal arithmetic. Client-side only.",
-            "slogan": "Stop Guessing. Start Defending Your Numbers.",
-            "foundingDate": "2024",
-            "sameAs": [
-              "https://github.com/barisbagirlar-web/SectorCalc",
-              "https://sectorcalc.com",
-              "https://sectorcalc.com/about",
-              "https://sectorcalc.com/tools.html"
-            ],
-            "contactPoint": {
-              "@type": "ContactPoint",
-              "contactType": "customer support",
-              "email": "support@sectorcalc.com",
-              "availableLanguage": ["English"]
-            },
-            "knowsAbout": [
-              "Tolerance Stack-Up Analysis",
-              "Monte Carlo Simulation",
-              "ISO 286 Tolerancing",
-              "CNC Machining Feeds and Speeds",
-              "Bearing Life Calculation ISO 281",
-              "Welding Engineering",
-              "Manufacturing Cost Estimation"
-            ]
-          },
-          {
-            "@type": "WebSite",
-            "@id": "https://sectorcalc.com/#website",
-            "url": "https://sectorcalc.com/",
-            "name": "SectorCalc",
-            "publisher": {
-              "@id": "https://sectorcalc.com/#organization"
-            },
-            "inLanguage": ["en", "en-US"],
-            "potentialAction": {
-              "@type": "SearchAction",
-              "target": {
-                "@type": "EntryPoint",
-                "urlTemplate": "https://sectorcalc.com/tools.html?q={search_term_string}"
-              },
-              "query-input": "required name=search_term_string"
-            }
-          }
+<head>
+<!--SC-SEO-HOST-->
+<!-- Canonical host is https://sectorcalc.com — Firebase Hosting 301s www → apex. No client reverse-redirect. -->
+<!--SC-SEO-HOST-END-->
+<!--SC-SEO-SECURITY-START-->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: https://cdnjs.cloudflare.com https://www.googletagmanager.com https://www.google-analytics.com https://cdn.paddle.com https://apis.google.com https://www.gstatic.com https://www.google.com; worker-src 'self' blob:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://*.paddle.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://www.googletagmanager.com https://*.paddle.com https://*.googleapis.com https://*.firebaseio.com wss://*.googleapis.com wss://*.firebaseio.com https://*.cloudfunctions.net https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://firestore.googleapis.com https://www.googleapis.com; frame-src 'self' https://*.paddle.com https://*.firebaseapp.com https://accounts.google.com https://*.google.com; base-uri 'self'; form-action 'self' https://*.paddle.com https://accounts.google.com; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=*, usb=(), magnetometer=(), gyroscope=(), accelerometer=(), interest-cohort=()">
+<link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
+<meta name="DC.title" content="SectorCalc — Deterministic Industrial Engineering Calculators">
+<meta name="DC.creator" content="SectorCalc Inc.">
+<meta name="DC.subject" content="Engineering Calculators, Tolerance Analysis, Monte Carlo Simulation">
+<meta name="DC.description" content="Deterministic industrial calculators with ISO audit trails">
+<meta name="DC.publisher" content="SectorCalc Inc.">
+<meta name="DC.date" content="2026-07-25">
+<meta name="DC.type" content="Text">
+<meta name="DC.format" content="text/html">
+<meta name="DC.language" content="en">
+<meta name="DC.coverage" content="Global">
+<meta name="DC.rights" content="2024-2026 SectorCalc Inc.">
+<!--SC-SEO-SECURITY-END-->
+<script>(function(){try{var k='sectorcalc-theme';var t=localStorage.getItem(k);if(t!=='dark'&&t!=='light')t=(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';document.documentElement.setAttribute('data-theme',t);document.documentElement.style.colorScheme=t;}catch(e){}})();</script>
+<meta charset="UTF-8">
+<link rel="icon" href="/favicon.ico?v=20260724c" sizes="any">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=20260724c">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=20260724c">
+<link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png?v=20260724c">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=20260724c">
+<link rel="manifest" href="/site.webmanifest?v=20260724c">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SC-023 Cycle Time & Cost per Part Calculator | SectorCalc</title>
+<meta name="description" content="Calculate true cycle time, setup burden, and cost per good part with scrap rate and deterministic engine.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0f2744; --steel:#1b3a5c; --blue:#0055A4; --accent:#E87722;
+  --panel2:#fbfcfe; --thead:#eef2f7;
+  --bg:#f4f6f9; --panel:#ffffff; --line:#d9e0e8; --ink:#1c2733; --mut:#5d6b7a;
+  --ok:#1a7f4b; --warn:#b26a00; --err:#b3261e; --mono:'JetBrains Mono','Consolas',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter','Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+h1,.logo,.panel-h,.btn,.verdict .big{font-family:'Barlow Condensed','Inter',sans-serif;letter-spacing:.4px}
+.topbar{background:var(--navy);color:#fff;padding:14px 24px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.topbar .logo{font-weight:700;font-size:18px;letter-spacing:.5px}
+.topbar .logo span{color:var(--accent)}
+.badge{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);font-size:11px;padding:3px 10px;border-radius:20px;letter-spacing:1px;text-transform:uppercase}
+.eng{font-family:var(--mono);font-size:11px;color:#9db8d4;margin-left:auto}
+.wrap{max-width:1320px;margin:0 auto;padding:24px}
+.head{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:flex-end}
+.head h1{font-size:26px;color:var(--navy);margin-bottom:4px}
+.head p{color:var(--mut);font-size:14px;max-width:820px}
+.grid{display:grid;grid-template-columns:minmax(380px,540px) 1fr;gap:20px;margin-top:20px;align-items:start}
+@media(max-width:1000px){.grid{grid-template-columns:1fr}}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.panel-h{background:linear-gradient(90deg,var(--steel),var(--navy));color:#fff;padding:10px 16px;font-size:13px;font-weight:600;letter-spacing:.6px;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.panel-b{padding:16px}
+.fgroup{margin-bottom:18px}
+.fgroup>label{display:block;font-size:12px;font-weight:700;color:var(--steel);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px;border-bottom:1px solid var(--line);padding-bottom:4px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.row3{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:560px){.row,.row3{grid-template-columns:1fr}}
+.field{margin-bottom:8px}
+.field label{display:block;font-size:11px;color:var(--mut);margin-bottom:3px}
+.field input,.field select{width:100%;padding:8px 10px;border:1px solid var(--line);border-radius:6px;font-size:14px;font-family:inherit;background:var(--panel2);transition:border-color .15s}
+.field input:focus,.field select:focus{outline:none;border-color:var(--blue);background:#fff}
+.uwrap{display:flex;gap:6px;align-items:stretch;width:100%;min-width:0}
+.uwrap input{flex:1 1 auto;min-width:5.75rem;width:auto;padding:8px 10px;font-family:var(--mono);font-variant-numeric:tabular-nums;overflow-x:auto;box-sizing:border-box}
+.uwrap input[type=number]{-moz-appearance:textfield;appearance:textfield}
+.uwrap input[type=number]::-webkit-outer-spin-button,.uwrap input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.uwrap select.units{flex:0 0 auto;width:auto;min-width:3.75rem;max-width:5.5rem;padding:8px 6px;font-size:11px;font-weight:600;color:var(--steel);background:var(--thead);box-sizing:border-box}
+.ref{font-size:10px;color:#8593a5;margin-top:2px;font-style:italic;line-height:1.35}
+.hint{font-size:10.5px;color:var(--mut);margin-top:2px}
+.btn{display:inline-block;background:var(--accent);color:#fff;border:none;padding:12px 26px;font-size:14px;font-weight:700;border-radius:7px;cursor:pointer;width:100%;letter-spacing:.5px;transition:background .15s}
+.btn:hover{background:#cf621a}
+.btn2{background:var(--steel);font-size:12px;padding:8px 14px;width:auto;border:none;color:#fff;border-radius:6px;cursor:pointer;font-weight:600}
+.btn2:hover{background:var(--navy)}
+.btn3{background:var(--panel);color:var(--steel);border:1px solid var(--line);font-size:11px;padding:5px 10px;border-radius:6px;cursor:pointer;font-weight:600}
+.btn3:hover{border-color:var(--blue);color:var(--blue)}
+.seg{display:flex;border:1px solid var(--line);border-radius:7px;overflow:hidden}
+.seg button{flex:1;padding:8px 0;background:var(--panel);border:none;font-size:12px;font-weight:700;cursor:pointer;color:var(--mut)}
+.seg button.on{background:var(--navy);color:#fff}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:16px}
+.kpi{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:8px;padding:12px 14px}
+.kpi .v{font-family:var(--mono);font-size:20px;font-weight:700;color:var(--navy)}
+.kpi .l{font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.5px}
+.kpi .u{font-size:11px;color:var(--mut)}
+.kpi.hot{border-left-color:var(--accent)} .kpi.good{border-left-color:var(--ok)}
+.verdict{border-radius:10px;padding:16px 20px;margin-bottom:16px;color:#fff;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.verdict.pass{background:linear-gradient(90deg,#12572f,#1a7f4b)}
+.verdict.cond{background:linear-gradient(90deg,#8a5100,#b26a00)}
+.verdict.fail{background:linear-gradient(90deg,#7c1610,#b3261e)}
+.verdict .big{font-size:22px;font-weight:800;letter-spacing:1px}
+.verdict .sub{font-size:12.5px;opacity:.92}
+.verdict .score{margin-left:auto;font-family:var(--mono);font-size:26px;font-weight:700}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{padding:7px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:var(--thead);color:var(--steel);font-size:11px;text-transform:uppercase;letter-spacing:.5px}
+td.num{font-family:var(--mono);text-align:right}
+.warnbox{border-radius:8px;padding:10px 14px;margin-bottom:10px;font-size:13px}
+.warnbox.w{background:#fff7e8;border:1px solid #f0c979;color:var(--warn)}
+.warnbox.e{background:#fdecea;border:1px solid #f1a9a4;color:var(--err)}
+.warnbox.i{background:#e9f4fd;border:1px solid #a9d2ef;color:#12567f}
+.warnbox b{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.5px;margin-bottom:2px}
+.audit{margin-top:20px}
+details{border:1px solid var(--line);border-radius:8px;margin-bottom:10px;background:var(--panel2)}
+summary{cursor:pointer;padding:10px 14px;font-weight:700;font-size:13px;color:var(--navy);list-style:none}
+summary::before{content:'▸ ';color:var(--accent)}
+details[open] summary::before{content:'▾ '}
+details .body{padding:0 14px 14px;font-size:12.5px}
+.formula{font-family:var(--mono);background:#0f2744;color:#cfe3f5;padding:10px 14px;border-radius:6px;font-size:12.5px;margin:6px 0;overflow-x:auto}
+.hash{font-family:var(--mono);font-size:11px;background:var(--thead);padding:6px 10px;border-radius:5px;word-break:break-all}
+.sig{color:var(--ok);font-weight:700}
+.charts{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:760px){.charts{grid-template-columns:1fr}}
+.chartbox{border:1px solid var(--line);border-radius:8px;padding:10px;background:var(--panel2)}
+.chartbox .t{font-size:11px;font-weight:700;color:var(--steel);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
+canvas{width:100%;height:auto;display:block}
+.presets{display:flex;gap:6px;align-items:center;font-size:11px;color:#cfe0f0}
+footer{margin-top:28px;padding:18px;text-align:center;color:var(--mut);font-size:12px;border-top:1px solid var(--line)}
+html[data-theme="dark"]{
+  --bg:#0e131a; --panel:#161d27; --panel2:#1b2430; --line:#2a3646;
+  --ink:#e6ecf3; --mut:#93a3b5; --thead:#212c3a;
+  --navy:#0a1626; --steel:#12385e; --blue:#4c9be8; --accent:#E87722;
+  --ok:#3fbf7f; --warn:#e8a33d; --err:#f26d64;
+}
+html[data-theme="dark"] .warnbox.w{background:#3a2e12;border-color:#6b5418;color:#e8a33d}
+html[data-theme="dark"] .warnbox.e{background:#3a1a17;border-color:#6b2a25;color:#f26d64}
+html[data-theme="dark"] .warnbox.i{background:#14273a;border-color:#1e4a6e;color:#7fb3e8}
+html[data-theme="dark"] .field input,html[data-theme="dark"] .field select{background:#131a23;color:var(--ink)}
+html[data-theme="dark"] .field input:focus,html[data-theme="dark"] .field select:focus{background:#0f151d}
+html[data-theme="dark"] .kpi .v{color:#e6ecf3}
+html[data-theme="dark"] .verdict.pass{background:linear-gradient(90deg,#0d3a20,#146039)}
+html[data-theme="dark"] .verdict.cond{background:linear-gradient(90deg,#5e3900,#8a5a10)}
+html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#8a1f18)}
+#themeToggle{position:fixed;right:18px;bottom:18px;z-index:60;box-shadow:0 2px 10px rgba(0,0,0,.25)}
+@media print{#themeToggle{display:none}}
+@media print{.topbar .eng,.btn,.btn2,.btn3,.seg,.presets{display:none}.grid{grid-template-columns:1fr}details{display:block}details .body{display:block}}
+</style>
+<link rel="stylesheet" href="/sc-theme.css?v=12">
+<script src="/sc-theme.js?v=12" defer></script>
+<link rel="stylesheet" href="/sc-tool-guide.css?v=3">
+<link rel="stylesheet" href="/sc-eeat.css?v=3">
+<link rel="stylesheet" href="/sc-study.css?v=4">
+<script src="/sc-tool-guide.js?v=3" defer></script>
+<script src="/sc-study.js?v=4" defer></script>
+<link rel="stylesheet" href="/sc-site-nav.css?v=5">
+<script src="/sc-site-nav.js?v=2" defer></script>
+<script type="module" src="/src/auth-nav.ts"></script>
+<link rel="stylesheet" href="/sc-form-fields.css?v=5">
+<!--SC-SEO-META-START-->
+<link rel="canonical" href="https://sectorcalc.com/calculator/cycle-time-cost">
+<link rel="alternate" hreflang="x-default" href="https://sectorcalc.com/calculator/cycle-time-cost">
+<link rel="alternate" hreflang="en" href="https://sectorcalc.com/calculator/cycle-time-cost">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="googlebot" content="index, follow">
+<meta name="bingbot" content="index, follow">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="website">
+<meta property="og:title" content="SC-023 Cycle Time &amp; Cost per Part Calculator | SectorCalc">
+<meta property="og:description" content="Calculate true cycle time, setup burden, and cost per good part with scrap rate and deterministic engine.">
+<meta property="og:url" content="https://sectorcalc.com/calculator/cycle-time-cost">
+<meta property="og:site_name" content="SectorCalc">
+<meta property="og:image" content="https://sectorcalc.com/assets/images/og-cycle-cost-pro-1200x630.jpg">
+<meta property="og:image:secure_url" content="https://sectorcalc.com/assets/images/og-cycle-cost-pro-1200x630.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:alt" content="SC-023 Cycle Time &amp; Cost per Part Calculator | SectorCalc">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SC-023 Cycle Time &amp; Cost per Part Calculator | SectorCalc">
+<meta name="twitter:description" content="Calculate true cycle time, setup burden, and cost per good part with scrap rate and deterministic engine.">
+<meta name="twitter:image" content="https://sectorcalc.com/assets/images/og-cycle-cost-pro-1200x630.jpg">
+<meta name="twitter:image:alt" content="SC-023 Cycle Time &amp; Cost per Part Calculator | SectorCalc">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="author" content="SectorCalc Engineering Team">
+<meta name="theme-color" content="#0055A4">
+<meta name="format-detection" content="telephone=no">
+<!--SC-SEO-META-END-->
+<!--SC-SEO-SCHEMA-START-->
+<script type="application/ld+json" id="sc-schema-global">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://sectorcalc.com/#organization",
+      "name": "SectorCalc",
+      "alternateName": [
+        "SectorCalc Engineering Calculators"
+      ],
+      "url": "https://sectorcalc.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://sectorcalc.com/#logo",
+        "url": "https://sectorcalc.com/assets/images/sectorcalc-logo-512x512.png",
+        "width": 512,
+        "height": 512,
+        "caption": "SectorCalc"
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://sectorcalc.com/assets/images/sectorcalc-og-1200x630.jpg",
+        "width": 1200,
+        "height": 630
+      },
+      "description": "Deterministic industrial engineering calculators with visible formulas, ISO-standard audit trails, and full-precision decimal arithmetic. Client-side only.",
+      "slogan": "Stop Guessing. Start Defending Your Numbers.",
+      "foundingDate": "2024",
+      "sameAs": [
+        "https://github.com/barisbagirlar-web/SectorCalc",
+        "https://sectorcalc.com",
+        "https://sectorcalc.com/about",
+        "https://sectorcalc.com/tools.html"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "email": "support@sectorcalc.com",
+        "availableLanguage": [
+          "English"
+        ]
+      },
+      "knowsAbout": [
+        "Tolerance Stack-Up Analysis",
+        "Monte Carlo Simulation",
+        "ISO 286 Tolerancing",
+        "CNC Machining Feeds and Speeds",
+        "Bearing Life Calculation ISO 281",
+        "Welding Engineering",
+        "Manufacturing Cost Estimation"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://sectorcalc.com/#website",
+      "url": "https://sectorcalc.com/",
+      "name": "SectorCalc",
+      "publisher": {
+        "@id": "https://sectorcalc.com/#organization"
+      },
+      "inLanguage": [
+        "en",
+        "en-US"
+      ],
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://sectorcalc.com/tools.html?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json" id="sc-schema-tool-cycle-cost-pro">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://sectorcalc.com/calculator/cycle-time-cost#webpage",
+      "url": "https://sectorcalc.com/calculator/cycle-time-cost",
+      "name": "SC-023 Cycle Time & Cost per Part",
+      "description": "Calculate true cycle time, setup burden, and cost per good part with scrap rate and deterministic engine.",
+      "isPartOf": {
+        "@id": "https://sectorcalc.com/#website"
+      },
+      "about": {
+        "@id": "https://sectorcalc.com/calculator/cycle-time-cost#software"
+      },
+      "mainEntity": {
+        "@id": "https://sectorcalc.com/calculator/cycle-time-cost#software"
+      },
+      "publisher": {
+        "@id": "https://sectorcalc.com/#organization"
+      },
+      "author": {
+        "@id": "https://sectorcalc.com/#organization"
+      },
+      "inLanguage": "en-US",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".sc-aeo-problem",
+          ".sc-direct-answer",
+          ".sc-header-title",
+          "h1"
         ]
       }
-    </script>
-    <script type="application/ld+json" id="sc-schema-tool-cycle-cost-pro">
-      {
-        "@context": "https://schema.org",
-        "@graph": [
-          {
-            "@type": "WebPage",
-            "@id": "https://sectorcalc.com/calculator/cycle-time-cost#webpage",
-            "url": "https://sectorcalc.com/calculator/cycle-time-cost",
-            "name": "SC-023 Cycle Time & Cost per Part",
-            "description": "Calculate true cycle time, setup burden, and cost per good part with scrap rate and deterministic engine.",
-            "isPartOf": {
-              "@id": "https://sectorcalc.com/#website"
-            },
-            "about": {
-              "@id": "https://sectorcalc.com/calculator/cycle-time-cost#software"
-            },
-            "mainEntity": {
-              "@id": "https://sectorcalc.com/calculator/cycle-time-cost#software"
-            },
-            "publisher": {
-              "@id": "https://sectorcalc.com/#organization"
-            },
-            "author": {
-              "@id": "https://sectorcalc.com/#organization"
-            },
-            "inLanguage": "en-US",
-            "speakable": {
-              "@type": "SpeakableSpecification",
-              "cssSelector": [".sc-aeo-problem", ".sc-direct-answer", ".sc-header-title", "h1"]
-            }
-          },
-          {
-            "@type": "SoftwareApplication",
-            "@id": "https://sectorcalc.com/calculator/cycle-time-cost#software",
-            "name": "SC-023 Cycle Time & Cost per Part",
-            "applicationCategory": "EngineeringApplication",
-            "applicationSubCategory": "Machining Economics",
-            "operatingSystem": "Any (Client-side Browser)",
-            "offers": {
-              "@type": "Offer",
-              "name": "24-hour calculator session (credits)",
-              "description": "Unlock with SectorCalc credits. Session cost by tool tier: CORE 3, PRO 7, or ADVANCED 15 credits for 24 hours of unlimited recalculation. One-time credit packs — no subscription.",
-              "url": "https://sectorcalc.com/pricing.html",
-              "priceCurrency": "USD",
-              "availability": "https://schema.org/InStock",
-              "seller": {
-                "@id": "https://sectorcalc.com/#organization"
-              }
-            },
-            "isAccessibleForFree": false,
-            "description": "Calculate true cycle time, setup burden, and cost per good part with scrap rate and deterministic engine.",
-            "featureList": [
-              "Deterministic engine — same inputs, same result",
-              "Full-precision decimal / SI core arithmetic",
-              "Visible formulas, assumptions, and warnings",
-              "Client-side only — zero calculation upload",
-              "Audit trail / PDF export where provided"
-            ],
-            "softwareVersion": "1.0.0",
-            "provider": {
-              "@id": "https://sectorcalc.com/#organization"
-            },
-            "author": {
-              "@id": "https://sectorcalc.com/#organization"
-            },
-            "brand": {
-              "@id": "https://sectorcalc.com/#organization"
-            },
-            "screenshot": {
-              "@type": "ImageObject",
-              "url": "https://sectorcalc.com/assets/images/og-cycle-cost-pro-1200x630.jpg",
-              "width": 1200,
-              "height": 630
-            },
-            "inLanguage": ["en"],
-            "dateModified": "2026-07-27",
-            "isPartOf": {
-              "@id": "https://sectorcalc.com/#website"
-            },
-            "mainEntityOfPage": {
-              "@id": "https://sectorcalc.com/calculator/cycle-time-cost#webpage"
-            }
-          },
-          {
-            "@type": "Product",
-            "@id": "https://sectorcalc.com/calculator/cycle-time-cost#product",
-            "name": "SC-023 Cycle Time & Cost per Part",
-            "description": "Calculate true cycle time, setup burden, and cost per good part with scrap rate and deterministic engine.",
-            "brand": {
-              "@id": "https://sectorcalc.com/#organization"
-            },
-            "category": "Engineering Software",
-            "isRelatedTo": {
-              "@id": "https://sectorcalc.com/calculator/cycle-time-cost#software"
-            },
-            "offers": {
-              "@type": "Offer",
-              "name": "Credit-unlocked calculation session",
-              "description": "This calculator requires a credit-backed 24-hour session before results run. Buy one-time packs on Pricing.",
-              "url": "https://sectorcalc.com/pricing.html",
-              "priceCurrency": "USD",
-              "availability": "https://schema.org/InStock",
-              "seller": {
-                "@id": "https://sectorcalc.com/#organization"
-              }
-            }
-          },
-          {
-            "@type": "HowTo",
-            "@id": "https://sectorcalc.com/calculator/cycle-time-cost#howto",
-            "name": "How to run Cycle Cost on SectorCalc",
-            "description": "Open the calculator, enter inputs with units, then calculate and review the audit trail for SC-023 Cycle Time & Cost per Part.",
-            "totalTime": "PT3M",
-            "estimatedCost": {
-              "@type": "MonetaryAmount",
-              "currency": "USD",
-              "value": "15"
-            },
-            "tool": [
-              {
-                "@type": "HowToTool",
-                "name": "SC-023 Cycle Time & Cost per Part"
-              }
-            ],
-            "step": [
-              {
-                "@type": "HowToStep",
-                "position": 1,
-                "name": "Sign in and unlock a session",
-                "text": "Open https://sectorcalc.com/calculator/cycle-time-cost, sign in, and confirm a credit debit for a 24-hour session on this tool (tier cost applies).",
-                "url": "https://sectorcalc.com/calculator/cycle-time-cost"
-              },
-              {
-                "@type": "HowToStep",
-                "position": 2,
-                "name": "Enter inputs",
-                "text": "Fill each field using the selectable units. Check reference hints and validation banners before running.",
-                "url": "https://sectorcalc.com/calculator/cycle-time-cost"
-              },
-              {
-                "@type": "HowToStep",
-                "position": 3,
-                "name": "Calculate and audit",
-                "text": "Run Calculate & Audit / Generate Report. Review formulas, warnings, engine version, and export if needed. Recalculate freely until the session expires.",
-                "url": "https://sectorcalc.com/calculator/cycle-time-cost"
-              }
-            ],
-            "isPartOf": {
-              "@id": "https://sectorcalc.com/calculator/cycle-time-cost#software"
-            }
-          },
-          {
-            "@type": "BreadcrumbList",
-            "@id": "https://sectorcalc.com/calculator/cycle-time-cost#breadcrumb",
-            "itemListElement": [
-              {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://sectorcalc.com/"
-              },
-              {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "All Calculators",
-                "item": "https://sectorcalc.com/tools.html"
-              },
-              {
-                "@type": "ListItem",
-                "position": 3,
-                "name": "Manufacturing Economics",
-                "item": "https://sectorcalc.com/tools.html#costing"
-              },
-              {
-                "@type": "ListItem",
-                "position": 4,
-                "name": "SC-023 Cycle Time & Cost per Part",
-                "item": "https://sectorcalc.com/calculator/cycle-time-cost"
-              }
-            ]
-          }
-        ]
-      }
-    </script>
-    <script type="application/ld+json" id="sc-schema-dataset-cycle-cost-pro">
-      {
-        "@context": "https://schema.org",
-        "@type": "Dataset",
-        "@id": "https://sectorcalc.com/calculator/cycle-time-cost#dataset",
-        "name": "SC-023 Cycle Time & Cost per Part — Audit Report Dataset",
-        "description": "Deterministic calculation audit trail including inputs, formulas, assumptions, warnings, and engine version. Exported as hash-verified PDF.",
-        "creator": {
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://sectorcalc.com/calculator/cycle-time-cost#software",
+      "name": "SC-023 Cycle Time & Cost per Part",
+      "applicationCategory": "EngineeringApplication",
+      "applicationSubCategory": "Machining Economics",
+      "operatingSystem": "Any (Client-side Browser)",
+      "offers": {
+        "@type": "Offer",
+        "name": "24-hour calculator session (credits)",
+        "description": "Unlock with SectorCalc credits. Session cost by tool tier: CORE 3, PRO 7, or ADVANCED 15 credits for 24 hours of unlimited recalculation. One-time credit packs — no subscription.",
+        "url": "https://sectorcalc.com/pricing.html",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "seller": {
           "@id": "https://sectorcalc.com/#organization"
-        },
-        "publisher": {
+        }
+      },
+      "isAccessibleForFree": false,
+      "description": "Calculate true cycle time, setup burden, and cost per good part with scrap rate and deterministic engine.",
+      "featureList": [
+        "Deterministic engine — same inputs, same result",
+        "Full-precision decimal / SI core arithmetic",
+        "Visible formulas, assumptions, and warnings",
+        "Client-side only — zero calculation upload",
+        "Audit trail / PDF export where provided"
+      ],
+      "softwareVersion": "1.0.0",
+      "provider": {
+        "@id": "https://sectorcalc.com/#organization"
+      },
+      "author": {
+        "@id": "https://sectorcalc.com/#organization"
+      },
+      "brand": {
+        "@id": "https://sectorcalc.com/#organization"
+      },
+      "screenshot": {
+        "@type": "ImageObject",
+        "url": "https://sectorcalc.com/assets/images/og-cycle-cost-pro-1200x630.jpg",
+        "width": 1200,
+        "height": 630
+      },
+      "inLanguage": [
+        "en"
+      ],
+      "dateModified": "2026-07-27",
+      "isPartOf": {
+        "@id": "https://sectorcalc.com/#website"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://sectorcalc.com/calculator/cycle-time-cost#webpage"
+      }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://sectorcalc.com/calculator/cycle-time-cost#product",
+      "name": "SC-023 Cycle Time & Cost per Part",
+      "description": "Calculate true cycle time, setup burden, and cost per good part with scrap rate and deterministic engine.",
+      "brand": {
+        "@id": "https://sectorcalc.com/#organization"
+      },
+      "category": "Engineering Software",
+      "isRelatedTo": {
+        "@id": "https://sectorcalc.com/calculator/cycle-time-cost#software"
+      },
+      "offers": {
+        "@type": "Offer",
+        "name": "Credit-unlocked calculation session",
+        "description": "This calculator requires a credit-backed 24-hour session before results run. Buy one-time packs on Pricing.",
+        "url": "https://sectorcalc.com/pricing.html",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "seller": {
           "@id": "https://sectorcalc.com/#organization"
-        },
-        "license": "https://sectorcalc.com/terms.html",
-        "isAccessibleForFree": false,
-        "distribution": {
-          "@type": "DataDownload",
-          "encodingFormat": "application/pdf",
-          "contentUrl": "https://sectorcalc.com/calculator/cycle-time-cost?export=pdf"
-        },
-        "variableMeasured": ["Primary Result", "Derived Checks", "Warnings", "Engine Version Hash"],
-        "temporalCoverage": "2024-01-15/2026-07-25",
-        "spatialCoverage": {
-          "@type": "Place",
-          "name": "Global"
-        },
-        "inLanguage": ["en", "en-US", "en-GB"],
-        "datePublished": "2024-01-15",
-        "dateModified": "2026-07-25",
-        "isPartOf": {
-          "@id": "https://sectorcalc.com/calculator/cycle-time-cost#software"
         }
       }
-    </script>
-    <script type="application/ld+json" id="sc-schema-speakable">
-      {
-        "@context": "https://schema.org",
-        "@graph": [
-          {
-            "@type": "WebPage",
-            "@id": "https://sectorcalc.com/cycle-cost-pro.html#speakable",
-            "speakable": {
-              "@type": "SpeakableSpecification",
-              "cssSelector": [".sc-header-title", ".sc-guide-lede", "h1"]
-            },
-            "headline": "SC-023 Cycle Time & Cost per Part",
-            "description": "Calculate true cycle time, setup burden, and cost per good part with scrap rate and deterministic engine.",
-            "url": "https://sectorcalc.com/cycle-cost-pro.html",
-            "inLanguage": "en-US"
-          }
-        ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://sectorcalc.com/calculator/cycle-time-cost#howto",
+      "name": "How to run Cycle Cost on SectorCalc",
+      "description": "Open the calculator, enter inputs with units, then calculate and review the audit trail for SC-023 Cycle Time & Cost per Part.",
+      "totalTime": "PT3M",
+      "estimatedCost": {
+        "@type": "MonetaryAmount",
+        "currency": "USD",
+        "value": "15"
+      },
+      "tool": [
+        {
+          "@type": "HowToTool",
+          "name": "SC-023 Cycle Time & Cost per Part"
+        }
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Sign in and unlock a session",
+          "text": "Open https://sectorcalc.com/calculator/cycle-time-cost, sign in, and confirm a credit debit for a 24-hour session on this tool (tier cost applies).",
+          "url": "https://sectorcalc.com/calculator/cycle-time-cost"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Enter inputs",
+          "text": "Fill each field using the selectable units. Check reference hints and validation banners before running.",
+          "url": "https://sectorcalc.com/calculator/cycle-time-cost"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Calculate and audit",
+          "text": "Run Calculate & Audit / Generate Report. Review formulas, warnings, engine version, and export if needed. Recalculate freely until the session expires.",
+          "url": "https://sectorcalc.com/calculator/cycle-time-cost"
+        }
+      ],
+      "isPartOf": {
+        "@id": "https://sectorcalc.com/calculator/cycle-time-cost#software"
       }
-    </script>
-    <!--SC-SEO-SCHEMA-END-->
-    <link rel="stylesheet" href="/sc-related-tools.css?v=1" />
-    <link rel="stylesheet" href="/sc-calc-sheet.css?v=2" />
-    <!--SC-CALC-SHEET-START-->
-    <!-- calc-sheet theme: theme-calc-sheet -->
-    <!--SC-CALC-SHEET-END-->
-  </head>
-  <body data-tool-badge="SC-023 · Cycle Time & Cost per Part" class="theme-calc-sheet">
-    <!--SC-SITE-NAV-START-->
-    <header class="site-header" id="siteHeader" role="banner">
-      <a href="/" class="brand" aria-label="SectorCalc Home"
-        ><span class="brand-mark"
-          ><img
-            class="logo-light"
-            src="/sectorcalc-logo-214.w.png"
-            srcset="/sectorcalc-logo-214.w.png 214w, /sectorcalc-logo-428.w.png 428w"
-            sizes="183px"
-            width="183"
-            height="48"
-            alt="SectorCalc"
-            decoding="async" /><img
-            class="logo-dark"
-            src="/sectorcalc-logo-dark-214.w.png"
-            srcset="/sectorcalc-logo-dark-214.w.png 214w, /sectorcalc-logo-dark-428.w.png 428w"
-            sizes="183px"
-            width="183"
-            height="48"
-            alt=""
-            aria-hidden="true"
-            decoding="async" /></span
-      ></a>
-      <nav class="main-nav" role="navigation" aria-label="Main navigation">
-        <ul>
-          <li><a href="/tools.html" data-nav="tools">Tools</a></li>
-          <li><a href="/glossary" data-nav="glossary">Glossary</a></li>
-          <li><a href="/guides" data-nav="guides">Guides</a></li>
-          <li><a href="/compare" data-nav="compare">Compare</a></li>
-          <li><a href="/pricing.html" data-nav="pricing">Pricing</a></li>
-          <li><a href="/account.html" data-nav="account">Account</a></li>
-        </ul>
-        <span class="sc-nav-tool" aria-hidden="true"></span>
-        <a href="/login.html" class="btn btn-primary" data-nav="login">Sign in</a>
-      </nav>
-      <button
-        class="theme-toggle"
-        id="themeToggle"
-        type="button"
-        aria-label="Toggle color theme"
-        aria-pressed="false"
-        title="Toggle light / dark theme"
-      >
-        <svg
-          data-theme-icon="moon"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          aria-hidden="true"
-        >
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-        </svg>
-        <svg
-          data-theme-icon="sun"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          aria-hidden="true"
-        >
-          <circle cx="12" cy="12" r="5" />
-          <path
-            d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"
-          />
-        </svg>
-      </button>
-      <button
-        class="mobile-menu-btn"
-        id="mobileMenuBtn"
-        type="button"
-        aria-label="Open menu"
-        aria-expanded="false"
-        aria-controls="mobileNav"
-      >
-        <span></span><span></span><span></span>
-      </button>
-    </header>
-    <div
-      class="mobile-nav-overlay"
-      id="mobileNav"
-      role="dialog"
-      aria-label="Mobile menu"
-      aria-hidden="true"
-    >
-      <a href="/tools.html" data-nav="tools">All Tools</a>
-      <a href="/glossary" data-nav="glossary">Glossary</a>
-      <a href="/guides" data-nav="guides">Guides</a>
-      <a href="/compare" data-nav="compare">Compare</a>
-      <a href="/pricing.html" data-nav="pricing">Pricing</a>
-      <a href="/account.html" data-nav="account">Account</a>
-      <a href="/login.html" class="btn-primary" data-nav="login">Sign in</a>
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://sectorcalc.com/calculator/cycle-time-cost#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://sectorcalc.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "All Calculators",
+          "item": "https://sectorcalc.com/tools.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Manufacturing Economics",
+          "item": "https://sectorcalc.com/tools.html#costing"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "SC-023 Cycle Time & Cost per Part",
+          "item": "https://sectorcalc.com/calculator/cycle-time-cost"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<script type="application/ld+json" id="sc-schema-dataset-cycle-cost-pro">
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "@id": "https://sectorcalc.com/calculator/cycle-time-cost#dataset",
+  "name": "SC-023 Cycle Time & Cost per Part — Audit Report Dataset",
+  "description": "Deterministic calculation audit trail including inputs, formulas, assumptions, warnings, and engine version. Exported as hash-verified PDF.",
+  "creator": {
+    "@id": "https://sectorcalc.com/#organization"
+  },
+  "publisher": {
+    "@id": "https://sectorcalc.com/#organization"
+  },
+  "license": "https://sectorcalc.com/terms.html",
+  "isAccessibleForFree": false,
+  "distribution": {
+    "@type": "DataDownload",
+    "encodingFormat": "application/pdf",
+    "contentUrl": "https://sectorcalc.com/calculator/cycle-time-cost?export=pdf"
+  },
+  "variableMeasured": [
+    "Primary Result",
+    "Derived Checks",
+    "Warnings",
+    "Engine Version Hash"
+  ],
+  "temporalCoverage": "2024-01-15/2026-07-25",
+  "spatialCoverage": {
+    "@type": "Place",
+    "name": "Global"
+  },
+  "inLanguage": [
+    "en",
+    "en-US",
+    "en-GB"
+  ],
+  "datePublished": "2024-01-15",
+  "dateModified": "2026-07-25",
+  "isPartOf": {
+    "@id": "https://sectorcalc.com/calculator/cycle-time-cost#software"
+  }
+}
+</script>
+<script type="application/ld+json" id="sc-schema-speakable">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://sectorcalc.com/cycle-cost-pro.html#speakable",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".sc-header-title",
+          ".sc-guide-lede",
+          "h1"
+        ]
+      },
+      "headline": "SC-023 Cycle Time & Cost per Part",
+      "description": "Calculate true cycle time, setup burden, and cost per good part with scrap rate and deterministic engine.",
+      "url": "https://sectorcalc.com/cycle-cost-pro.html",
+      "inLanguage": "en-US"
+    }
+  ]
+}
+</script>
+<!--SC-SEO-SCHEMA-END-->
+<link rel="stylesheet" href="/sc-related-tools.css?v=1">
+                                                                  <link rel="stylesheet" href="/sc-calc-sheet.css?v=2">
+  <!--SC-CALC-SHEET-START-->
+  <!-- calc-sheet theme: theme-calc-sheet -->
+  <!--SC-CALC-SHEET-END-->
+</head>
+<body data-tool-badge="SC-023 · Cycle Time & Cost per Part" class="theme-calc-sheet">
+<!--SC-SITE-NAV-START-->
+<header class="site-header" id="siteHeader" role="banner">
+  <a href="/" class="brand" aria-label="SectorCalc Home"><span class="brand-mark"><img class="logo-light" src="/sectorcalc-logo-214.w.png" srcset="/sectorcalc-logo-214.w.png 214w, /sectorcalc-logo-428.w.png 428w" sizes="183px" width="183" height="48" alt="SectorCalc" decoding="async"><img class="logo-dark" src="/sectorcalc-logo-dark-214.w.png" srcset="/sectorcalc-logo-dark-214.w.png 214w, /sectorcalc-logo-dark-428.w.png 428w" sizes="183px" width="183" height="48" alt="" aria-hidden="true" decoding="async"></span></a>
+  <nav class="main-nav" role="navigation" aria-label="Main navigation">
+    <ul>
+      <li><a href="/tools.html" data-nav="tools">Tools</a></li>
+      <li><a href="/glossary" data-nav="glossary">Glossary</a></li>
+      <li><a href="/guides" data-nav="guides">Guides</a></li>
+      <li><a href="/compare" data-nav="compare">Compare</a></li>
+      <li><a href="/pricing.html" data-nav="pricing">Pricing</a></li>
+      <li><a href="/account.html" data-nav="account">Account</a></li>
+    </ul>
+    <span class="sc-nav-tool" aria-hidden="true"></span>
+    <a href="/login.html" class="btn btn-primary" data-nav="login">Sign in</a>
+  </nav>
+  <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme" aria-pressed="false" title="Toggle light / dark theme">
+    <svg data-theme-icon="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    <svg data-theme-icon="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+  </button>
+  <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+<div class="mobile-nav-overlay" id="mobileNav" role="dialog" aria-label="Mobile menu" aria-hidden="true">
+  <a href="/tools.html" data-nav="tools">All Tools</a>
+  <a href="/glossary" data-nav="glossary">Glossary</a>
+  <a href="/guides" data-nav="guides">Guides</a>
+  <a href="/compare" data-nav="compare">Compare</a>
+  <a href="/pricing.html" data-nav="pricing">Pricing</a>
+  <a href="/account.html" data-nav="account">Account</a>
+  <a href="/login.html" class="btn-primary" data-nav="login">Sign in</a>
+</div>
+<!--SC-SITE-NAV-END-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--SC-SEO-BREADCRUMB-START-->
+<nav aria-label="Breadcrumb" class="sc-breadcrumb">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="https://sectorcalc.com/"><span itemprop="name">Home</span></a><meta itemprop="position" content="1"></li>
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="https://sectorcalc.com/tools.html"><span itemprop="name">All Calculators</span></a><meta itemprop="position" content="2"></li>
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a itemprop="item" href="https://sectorcalc.com/tools.html#costing"><span itemprop="name">Manufacturing Economics</span></a><meta itemprop="position" content="3"></li>
+    <li aria-current="page" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><span itemprop="name">SC-023 Cycle Time &amp; Cost per Part</span><meta itemprop="position" content="4"></li>
+  </ol>
+</nav>
+<!--SC-SEO-BREADCRUMB-END-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="wrap">
+  <div class="head">
+    <div>
+      <h1>Cycle Time &amp; Cost per Part Calculator (SC-023)</h1>
+      <p>Manufacturing costing engine for process planners and estimators: physics-based cutting time T = L/(f·n) per pass, rapid-traverse, tool-change and handling times, setup amortization over the batch, and a full unit-cost build-up — machine hour rate, attended labor, material, overhead and profit margin — with parts-per-hour, batch-size sensitivity and cost-composition charts. Every input with <b>selectable universal units</b> and <b>reference-standard values</b>, every report with the full audit trail.</p>
     </div>
-    <!--SC-SITE-NAV-END-->
-
-    <!--SC-SEO-BREADCRUMB-START-->
-    <nav aria-label="Breadcrumb" class="sc-breadcrumb">
-      <ol itemscope itemtype="https://schema.org/BreadcrumbList">
-        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-          <a itemprop="item" href="https://sectorcalc.com/"><span itemprop="name">Home</span></a
-          ><meta itemprop="position" content="1" />
-        </li>
-        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-          <a itemprop="item" href="https://sectorcalc.com/tools.html"
-            ><span itemprop="name">All Calculators</span></a
-          ><meta itemprop="position" content="2" />
-        </li>
-        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-          <a itemprop="item" href="https://sectorcalc.com/tools.html#costing"
-            ><span itemprop="name">Manufacturing Economics</span></a
-          ><meta itemprop="position" content="3" />
-        </li>
-        <li
-          aria-current="page"
-          itemprop="itemListElement"
-          itemscope
-          itemtype="https://schema.org/ListItem"
-        >
-          <span itemprop="name">SC-023 Cycle Time &amp; Cost per Part</span
-          ><meta itemprop="position" content="4" />
-        </li>
-      </ol>
-    </nav>
-    <!--SC-SEO-BREADCRUMB-END-->
-
-    <div class="wrap">
-      <div class="head">
-        <div>
-          <h1>Cycle Time &amp; Cost per Part Calculator (SC-023)</h1>
-          <p>
-            Manufacturing costing engine for process planners and estimators: physics-based cutting
-            time T = L/(f·n) per pass, rapid-traverse, tool-change and handling times, setup
-            amortization over the batch, and a full unit-cost build-up — machine hour rate, attended
-            labor, material, overhead and profit margin — with parts-per-hour, batch-size
-            sensitivity and cost-composition charts. Every input with
-            <b>selectable universal units</b> and <b>reference-standard values</b>, every report
-            with the full audit trail.
-          </p>
-        </div>
-        <div>
-          <div class="seg" style="width: 230px">
-            <button id="uMetric" class="on" onclick="setAllUnits('metric')">All Metric (SI)</button>
-            <button id="uImp" onclick="setAllUnits('imp')">All Imperial</button>
-          </div>
-          <div class="hint" style="text-align: right; margin-top: 4px">
-            …or set units per field below
-          </div>
-        </div>
+    <div>
+      <div class="seg" style="width:230px">
+        <button id="uMetric" class="on" onclick="setAllUnits('metric')">All Metric (SI)</button>
+        <button id="uImp" onclick="setAllUnits('imp')">All Imperial</button>
       </div>
-
-      <div class="grid">
-        <!-- ================= INPUT PANEL ================= -->
-        <div class="panel">
-          <div class="panel-h">
-            1 · Machining, Handling &amp; Economics
-            <span class="presets"
-              >Preset: <button class="btn3" onclick="preset('save',1)">S1</button
-              ><button class="btn3" onclick="preset('load',1)">L1</button>
-              <button class="btn3" onclick="preset('save',2)">S2</button
-              ><button class="btn3" onclick="preset('load',2)">L2</button>
-            </span>
-          </div>
-          <div class="panel-b">
-            <div class="fgroup">
-              <label>Cutting (per operation set)</label>
-              <div class="row3">
-                <div class="field">
-                  <label>Cutting length / pass L</label>
-                  <div class="uwrap">
-                    <input type="number" id="L" value="120" step="5" min="0" />
-                    <select class="units" id="u_L" data-f="L" data-kind="len">
-                      <option value="mm" selected>mm</option>
-                      <option value="in">in</option>
-                    </select>
-                  </div>
-                  <div class="ref">Ref: total tool engagement path per pass</div>
-                </div>
-                <div class="field">
-                  <label>Feed f</label>
-                  <div class="uwrap">
-                    <input type="number" id="f" value="0.25" step="0.01" min="0.01" />
-                    <select class="units" id="u_f" data-f="f" data-kind="len">
-                      <option value="mm" selected>mm/rev</option>
-                      <option value="in">in/rev</option>
-                    </select>
-                  </div>
-                  <div class="ref">Ref: from SC-020 feeds &amp; speeds result</div>
-                </div>
-                <div class="field">
-                  <label>Spindle speed n</label>
-                  <div class="uwrap">
-                    <input type="number" id="n" value="1200" step="10" min="1" />
-                    <select class="units" disabled>
-                      <option>rpm</option>
-                    </select>
-                  </div>
-                  <div class="ref">Ref: n = 1000·Vc/(π·D) from SC-020</div>
-                </div>
-              </div>
-              <div class="row3">
-                <div class="field">
-                  <label>Cutting passes</label>
-                  <select id="passes">
-                    <option value="1">1</option>
-                    <option value="2" selected>2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="6">6</option>
-                    <option value="8">8</option>
-                  </select>
-                  <div class="ref">Ref: roughing + finishing passes</div>
-                </div>
-                <div class="field">
-                  <label>Extra cutting time (other ops)</label>
-                  <div class="uwrap">
-                    <input type="number" id="tExtra" value="45" step="5" min="0" />
-                    <select class="units" disabled>
-                      <option>s</option>
-                    </select>
-                  </div>
-                  <div class="ref">Ref: drilling, tapping (SC-022), milling ops</div>
-                </div>
-                <div class="field">
-                  <label>Number of tools used</label>
-                  <select id="tools">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3" selected>3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="8">8</option>
-                    <option value="10">10</option>
-                  </select>
-                  <div class="ref">Ref: tool changes per cycle</div>
-                </div>
-              </div>
-            </div>
-
-            <div class="fgroup">
-              <label>Non-Cutting &amp; Batch</label>
-              <div class="row3">
-                <div class="field">
-                  <label>Rapid traverse distance</label>
-                  <div class="uwrap">
-                    <input type="number" id="rapid" value="300" step="10" min="0" />
-                    <select class="units" id="u_rapid" data-f="rapid" data-kind="len">
-                      <option value="mm" selected>mm</option>
-                      <option value="in">in</option>
-                    </select>
-                  </div>
-                  <div class="ref">Ref: total approach/retract path per cycle</div>
-                </div>
-                <div class="field">
-                  <label>Rapid rate</label>
-                  <div class="uwrap">
-                    <input type="number" id="rapidRate" value="15000" step="500" min="1000" />
-                    <select class="units" id="u_rapidRate" data-f="rapidRate" data-kind="feed">
-                      <option value="mmmin" selected>mm/min</option>
-                      <option value="ipm">in/min</option>
-                    </select>
-                  </div>
-                  <div class="ref">Ref: machine spec (10–40 m/min typical)</div>
-                </div>
-                <div class="field">
-                  <label>Tool change time</label>
-                  <div class="uwrap">
-                    <input type="number" id="tTC" value="4" step="0.5" min="0" />
-                    <select class="units" disabled>
-                      <option>s/change</option>
-                    </select>
-                  </div>
-                  <div class="ref">Ref: turret index 1–3 s · ATC 3–8 s</div>
-                </div>
-              </div>
-              <div class="row3">
-                <div class="field">
-                  <label>Load / unload time</label>
-                  <div class="uwrap">
-                    <input type="number" id="tLoad" value="30" step="5" min="0" />
-                    <select class="units" disabled>
-                      <option>s</option>
-                    </select>
-                  </div>
-                  <div class="ref">Ref: manual 20–60 s · robot 5–15 s</div>
-                </div>
-                <div class="field">
-                  <label>Setup time per batch</label>
-                  <div class="uwrap">
-                    <input type="number" id="tSetup" value="45" step="5" min="0" />
-                    <select class="units" disabled>
-                      <option>min</option>
-                    </select>
-                  </div>
-                  <div class="ref">Ref: SMED-reduced changeover time</div>
-                </div>
-                <div class="field">
-                  <label>Batch size</label>
-                  <div class="uwrap">
-                    <input type="number" id="batch" value="100" step="10" min="1" />
-                    <select class="units" disabled>
-                      <option>pcs</option>
-                    </select>
-                  </div>
-                  <div class="ref">Ref: order quantity per setup</div>
-                </div>
-              </div>
-            </div>
-
-            <div class="fgroup">
-              <label>Economics</label>
-              <div class="row3">
-                <div class="field">
-                  <label>Machine hour rate</label>
-                  <div class="uwrap">
-                    <input type="number" id="rateM" value="65" step="1" min="0" />
-                    <select class="units" id="cur" data-noconv="1">
-                      <option value="$" selected>$/h</option>
-                      <option value="€">€/h</option>
-                      <option value="£">£/h</option>
-                    </select>
-                  </div>
-                  <div class="ref">Ref: from SC-038 machine hour rate</div>
-                </div>
-                <div class="field">
-                  <label>Labor rate (attended)</label>
-                  <div class="uwrap">
-                    <input type="number" id="rateL" value="35" step="1" min="0" />
-                    <select class="units" disabled>
-                      <option>same ccy/h</option>
-                    </select>
-                  </div>
-                  <div class="ref">Ref: loaded operator cost</div>
-                </div>
-                <div class="field">
-                  <label>Operator manning</label>
-                  <select id="manning">
-                    <option value="0.5">0.5 — one operator, two machines</option>
-                    <option value="1" selected>1.0 — dedicated operator</option>
-                    <option value="1.5">1.5 — operator + setter</option>
-                    <option value="0.25">0.25 — lights-out cell</option>
-                  </select>
-                  <div class="ref">Ref: labor share while machine runs</div>
-                </div>
-              </div>
-              <div class="row3">
-                <div class="field">
-                  <label>Material cost / part</label>
-                  <div class="uwrap">
-                    <input type="number" id="matCost" value="4.2" step="0.1" min="0" />
-                    <select class="units" disabled>
-                      <option>same ccy</option>
-                    </select>
-                  </div>
-                  <div class="ref">Ref: blank weight × stock price + cut-off</div>
-                </div>
-                <div class="field">
-                  <label>Overhead on conversion cost</label>
-                  <div class="uwrap">
-                    <input type="number" id="oh" value="15" step="1" min="0" />
-                    <select class="units" disabled>
-                      <option>%</option>
-                    </select>
-                  </div>
-                  <div class="ref">Ref: QA, logistics, admin allocation</div>
-                </div>
-                <div class="field">
-                  <label>Profit margin</label>
-                  <div class="uwrap">
-                    <input type="number" id="margin" value="12" step="1" min="0" />
-                    <select class="units" disabled>
-                      <option>%</option>
-                    </select>
-                  </div>
-                  <div class="ref">Ref: on total cost → selling price</div>
-                </div>
-              </div>
-            </div>
-
-            <button class="btn" id="calcBtn">CALCULATE &amp; AUDIT</button>
-          </div>
-        </div>
-
-        <!-- ================= RESULTS ================= -->
-        <div>
-          <div class="verdict pass" id="verdict"></div>
-          <div id="warnings"></div>
-          <div class="kpis" id="kpis"></div>
-
-          <div class="panel">
-            <div class="panel-h">
-              2 · Calculation Results
-              <span style="font-weight: 400; font-size: 11px; text-transform: none"
-                >(engine computes in SI)</span
-              >
-            </div>
-            <div class="panel-b"><table id="resTable"></table></div>
-          </div>
-
-          <div class="panel" style="margin-top: 20px">
-            <div class="panel-h">3 · Sensitivity Charts</div>
-            <div class="panel-b charts">
-              <div class="chartbox">
-                <div class="t">Unit Cost vs Batch Size — Setup Amortization</div>
-                <canvas id="chBatch" width="520" height="300"></canvas>
-              </div>
-              <div class="chartbox">
-                <div class="t">Cycle Time Composition vs Passes</div>
-                <canvas id="chTime" width="520" height="300"></canvas>
-              </div>
-            </div>
-          </div>
-
-          <!-- ================= AUDIT ================= -->
-          <div class="audit panel" style="margin-top: 20px">
-            <div class="panel-h" style="background: linear-gradient(90deg, #3d2a10, #5c3a10)">
-              4 · Audit / Review Trail — Verification Module
-              <span>
-                <button class="btn3" onclick="copyReport()">Copy Report</button>
-                <button class="btn3" onclick="exportJSON()">Export JSON</button>
-              </span>
-            </div>
-            <div class="panel-b">
-              <div class="warnbox i">
-                <b>Audit Statement</b> This report is generated deterministically from the inputs
-                below, each captured together with its selected display unit. Re-entering identical
-                inputs into the same engine version reproduces identical outputs. Any deviation
-                indicates input drift, unit mismatch, or manual tampering — investigate before
-                releasing a quotation.
-              </div>
-              <details open>
-                <summary>A1 · Engine Identity &amp; Integrity</summary>
-                <div class="body" id="aEngine"></div>
-              </details>
-              <details open>
-                <summary>A2 · Input Snapshot (value + selected unit)</summary>
-                <div class="body" id="aInputs"></div>
-              </details>
-              <details>
-                <summary>A3 · Formulas Applied</summary>
-                <div class="body" id="aFormulas"></div>
-              </details>
-              <details>
-                <summary>A4 · Engineering Assumptions</summary>
-                <div class="body" id="aAssump"></div>
-              </details>
-              <details open>
-                <summary>A5 · Warnings &amp; Limit Checks</summary>
-                <div class="body" id="aWarn"></div>
-              </details>
-              <div style="margin-top: 12px; text-align: right">
-                <button class="btn btn2" onclick="window.print()">
-                  ⎙ Print / Export PDF Report
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!--SC-GUIDE-START-->
-      <div class="sc-guide-shell">
-        <section
-          class="sc-guide"
-          id="sc-guide"
-          data-tool-id="SC-023"
-          data-tool-name="Cycle Time &amp; Cost per Part Calculator (SC-023)"
-          data-tool-url="https://sectorcalc.com/cycle-cost-pro.html"
-          itemscope
-          itemtype="https://schema.org/FAQPage"
-        >
-          <nav class="sc-guide-toc" aria-label="Table of contents">
-            <h2 class="sc-guide-toc-title">Contents</h2>
-            <ol>
-              <li><a href="#cutting">Cutting time from first principles</a></li>
-              <li><a href="#noncut">Non-cutting time components</a></li>
-              <li><a href="#setup">Setup amortization and batch size</a></li>
-              <li><a href="#cost">Unit cost build-up</a></li>
-              <li><a href="#margin">Margin and selling price</a></li>
-              <li><a href="#faqs">Frequently asked questions</a></li>
-            </ol>
-          </nav>
-
-          <p class="sc-guide-lede">
-            SectorCalc <strong>SC-023</strong> turns process parameters into a defensible unit
-            price. Cutting time comes from physics — length, feed and RPM — not from guesswork;
-            non-cutting time is itemized (rapids, tool changes, load/unload); setup is amortized
-            over the batch; and the cost build-up stacks machine hour rate, attended labor,
-            material, overhead and margin into a selling price. Batch-size sensitivity shows exactly
-            how much a small order really costs. Results are reference-grade estimates — final
-            quotations must reflect your actual cost accounting and commercial policy.
-          </p>
-
-          <h2 id="cutting">Cutting time from first principles</h2>
-
-          <div class="sc-formula">
-            T<sub>cut</sub> [min] = passes · L [mm] / (f [mm/rev] · n [rpm])
-          </div>
-
-          <p>
-            This is the only part of the cycle that adds value, and the only part the
-            feeds-and-speeds engine (SC-020) can shorten. Doubling feed halves cutting time — until
-            surface finish or tool life objects. The extra cutting time field folds in drilling,
-            tapping (SC-022) and milling operations estimated elsewhere.
-          </p>
-
-          <h2 id="noncut">Non-cutting time components</h2>
-
-          <div class="sc-formula">
-            T<sub>rapid</sub> = distance / rapid rate<br />
-            T<sub>tc</sub> = (tools − 1) · t<sub>change</sub><br />
-            T<sub>cycle</sub> = T<sub>cut</sub> + T<sub>extra</sub> + T<sub>rapid</sub> + T<sub
-              >tc</sub
-            >
-            + T<sub>load</sub>
-          </div>
-
-          <p>
-            On small parts, load/unload and tool changes routinely exceed cutting time. A 4-second
-            turret index on a 30-second cycle is 13 % of capacity; an operator walking to a pallet
-            rack is pure loss. Itemizing these times is the first step of any SMED or automation
-            business case.
-          </p>
-
-          <h2 id="setup">Setup amortization and batch size</h2>
-
-          <div class="sc-formula">
-            T<sub>setup/part</sub> = T<sub>setup</sub> / batch size<br />
-            T<sub>total/part</sub> = T<sub>cycle</sub> + T<sub>setup/part</sub>
-          </div>
-
-          <p>
-            A 45-minute setup adds 27 seconds per part at batch 100 but 4.5 minutes at batch 10 —
-            often doubling the small-batch price. The sensitivity chart quantifies this so you can
-            defend minimum-order quantities or justify changeover reduction investment with numbers.
-          </p>
-
-          <h2 id="cost">Unit cost build-up</h2>
-
-          <div class="sc-formula">
-            C<sub>machine</sub> = T<sub>total</sub>/60 · machine hour rate<br />
-            C<sub>labor</sub> = T<sub>total</sub>/60 · labor rate · manning<br />
-            C<sub>conversion</sub> = C<sub>machine</sub> + C<sub>labor</sub><br />
-            C<sub>total</sub> = (C<sub>conversion</sub> + C<sub>material</sub>) · (1 + overhead)
-          </div>
-
-          <p>
-            Machine hour rate (from SC-038) carries depreciation, interest, space, energy and
-            maintenance. Labor is charged only for the attended share via the manning factor — 0.5
-            for one operator running two machines. Overhead is applied to conversion cost plus
-            material as a single allocation.
-          </p>
-
-          <h2 id="margin">Margin and selling price</h2>
-
-          <div class="sc-formula">
-            Price = C<sub>total</sub> / (1 − margin) — margin on price basis<br />
-          </div>
-
-          <p>
-            Margin is applied on the price basis (12 % margin ⇒ price = cost/0.88), the convention
-            that survives discount negotiations intact. Markup-on-cost and margin-on-price diverge
-            fast above 20 % — the report states which basis is used so sales and costing read the
-            same number.
-          </p>
-
-          <h2 id="faqs">Frequently asked questions</h2>
-
-          <h3>Why does my quote lose money on small batches?</h3>
-          <p>
-            Setup amortization. Check the batch-size chart: below the knee of the curve, setup
-            dominates. Either enforce a minimum order quantity, charge setup as a separate line, or
-            invest in changeover reduction.
-          </p>
-
-          <h3>Should material carry overhead and margin?</h3>
-          <p>
-            Practices differ. This engine applies overhead to material + conversion (full
-            absorption) but margin to the total, which is the conservative common practice. If your
-            policy excludes material from overhead, reduce the overhead input accordingly.
-          </p>
-
-          <h3>Where does the machine hour rate come from?</h3>
-          <p>
-            From SC-038 (Machine Hour Rate Calculator): purchase price depreciation, imputed
-            interest, floor space, energy and maintenance per planned operating hour. Never use the
-            purchase price divided by warranty years — that understates the true rate by 30–50 %.
-          </p>
-
-          <h3>How do I cost a lights-out shift?</h3>
-          <p>
-            Set manning to 0.25 (attended only during tending windows) and increase load/unload to
-            reflect robot cycles. The machine rate usually stays constant; the labor line collapses
-            — that difference is the automation business case.
-          </p>
-        </section>
-      </div>
-      <!--SC-GUIDE-END-->
-
-      <footer>
-        SectorCalc Pro · SC-023 · Cycle time and cost reference-grade estimates — final quotations
-        must reflect actual cost accounting, tooling wear and commercial policy.
-      </footer>
+      <div class="hint" style="text-align:right;margin-top:4px">…or set units per field below</div>
     </div>
-    <script>
-      /* =====================================================================
+  </div>
+
+  <div class="grid">
+    <!-- ================= INPUT PANEL ================= -->
+    <div class="panel">
+      <div class="panel-h">1 · Machining, Handling &amp; Economics
+        <span class="presets">Preset:
+          <button class="btn3" onclick="preset('save',1)">S1</button><button class="btn3" onclick="preset('load',1)">L1</button>
+          <button class="btn3" onclick="preset('save',2)">S2</button><button class="btn3" onclick="preset('load',2)">L2</button>
+        </span>
+      </div>
+      <div class="panel-b">
+
+        <div class="fgroup">
+          <label>Cutting (per operation set)</label>
+          <div class="row3">
+            <div class="field"><label>Cutting length / pass L</label>
+              <div class="uwrap"><input type="number" id="L" value="120" step="5" min="0">
+              <select class="units" id="u_L" data-f="L" data-kind="len"><option value="mm" selected>mm</option><option value="in">in</option></select></div>
+              <div class="ref">Ref: total tool engagement path per pass</div></div>
+            <div class="field"><label>Feed f</label>
+              <div class="uwrap"><input type="number" id="f" value="0.25" step="0.01" min="0.01">
+              <select class="units" id="u_f" data-f="f" data-kind="len"><option value="mm" selected>mm/rev</option><option value="in">in/rev</option></select></div>
+              <div class="ref">Ref: from SC-020 feeds &amp; speeds result</div></div>
+            <div class="field"><label>Spindle speed n</label>
+              <div class="uwrap"><input type="number" id="n" value="1200" step="10" min="1">
+              <select class="units" disabled><option>rpm</option></select></div>
+              <div class="ref">Ref: n = 1000·Vc/(π·D) from SC-020</div></div>
+          </div>
+          <div class="row3">
+            <div class="field"><label>Cutting passes</label>
+              <select id="passes"><option value="1">1</option><option value="2" selected>2</option><option value="3">3</option><option value="4">4</option><option value="6">6</option><option value="8">8</option></select>
+              <div class="ref">Ref: roughing + finishing passes</div></div>
+            <div class="field"><label>Extra cutting time (other ops)</label>
+              <div class="uwrap"><input type="number" id="tExtra" value="45" step="5" min="0">
+              <select class="units" disabled><option>s</option></select></div>
+              <div class="ref">Ref: drilling, tapping (SC-022), milling ops</div></div>
+            <div class="field"><label>Number of tools used</label>
+              <select id="tools"><option value="1">1</option><option value="2">2</option><option value="3" selected>3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="8">8</option><option value="10">10</option></select>
+              <div class="ref">Ref: tool changes per cycle</div></div>
+          </div>
+        </div>
+
+        <div class="fgroup">
+          <label>Non-Cutting &amp; Batch</label>
+          <div class="row3">
+            <div class="field"><label>Rapid traverse distance</label>
+              <div class="uwrap"><input type="number" id="rapid" value="300" step="10" min="0">
+              <select class="units" id="u_rapid" data-f="rapid" data-kind="len"><option value="mm" selected>mm</option><option value="in">in</option></select></div>
+              <div class="ref">Ref: total approach/retract path per cycle</div></div>
+            <div class="field"><label>Rapid rate</label>
+              <div class="uwrap"><input type="number" id="rapidRate" value="15000" step="500" min="1000">
+              <select class="units" id="u_rapidRate" data-f="rapidRate" data-kind="feed"><option value="mmmin" selected>mm/min</option><option value="ipm">in/min</option></select></div>
+              <div class="ref">Ref: machine spec (10–40 m/min typical)</div></div>
+            <div class="field"><label>Tool change time</label>
+              <div class="uwrap"><input type="number" id="tTC" value="4" step="0.5" min="0">
+              <select class="units" disabled><option>s/change</option></select></div>
+              <div class="ref">Ref: turret index 1–3 s · ATC 3–8 s</div></div>
+          </div>
+          <div class="row3">
+            <div class="field"><label>Load / unload time</label>
+              <div class="uwrap"><input type="number" id="tLoad" value="30" step="5" min="0">
+              <select class="units" disabled><option>s</option></select></div>
+              <div class="ref">Ref: manual 20–60 s · robot 5–15 s</div></div>
+            <div class="field"><label>Setup time per batch</label>
+              <div class="uwrap"><input type="number" id="tSetup" value="45" step="5" min="0">
+              <select class="units" disabled><option>min</option></select></div>
+              <div class="ref">Ref: SMED-reduced changeover time</div></div>
+            <div class="field"><label>Batch size</label>
+              <div class="uwrap"><input type="number" id="batch" value="100" step="10" min="1">
+              <select class="units" disabled><option>pcs</option></select></div>
+              <div class="ref">Ref: order quantity per setup</div></div>
+          </div>
+        </div>
+
+        <div class="fgroup">
+          <label>Economics</label>
+          <div class="row3">
+            <div class="field"><label>Machine hour rate</label>
+              <div class="uwrap"><input type="number" id="rateM" value="65" step="1" min="0">
+              <select class="units" id="cur" data-noconv="1"><option value="$" selected>$/h</option><option value="€">€/h</option><option value="£">£/h</option></select></div>
+              <div class="ref">Ref: from SC-038 machine hour rate</div></div>
+            <div class="field"><label>Labor rate (attended)</label>
+              <div class="uwrap"><input type="number" id="rateL" value="35" step="1" min="0">
+              <select class="units" disabled><option>same ccy/h</option></select></div>
+              <div class="ref">Ref: loaded operator cost</div></div>
+            <div class="field"><label>Operator manning</label>
+              <select id="manning"><option value="0.5">0.5 — one operator, two machines</option><option value="1" selected>1.0 — dedicated operator</option><option value="1.5">1.5 — operator + setter</option><option value="0.25">0.25 — lights-out cell</option></select>
+              <div class="ref">Ref: labor share while machine runs</div></div>
+          </div>
+          <div class="row3">
+            <div class="field"><label>Material cost / part</label>
+              <div class="uwrap"><input type="number" id="matCost" value="4.2" step="0.1" min="0">
+              <select class="units" disabled><option>same ccy</option></select></div>
+              <div class="ref">Ref: blank weight × stock price + cut-off</div></div>
+            <div class="field"><label>Overhead on conversion cost</label>
+              <div class="uwrap"><input type="number" id="oh" value="15" step="1" min="0">
+              <select class="units" disabled><option>%</option></select></div>
+              <div class="ref">Ref: QA, logistics, admin allocation</div></div>
+            <div class="field"><label>Profit margin</label>
+              <div class="uwrap"><input type="number" id="margin" value="12" step="1" min="0">
+              <select class="units" disabled><option>%</option></select></div>
+              <div class="ref">Ref: on total cost → selling price</div></div>
+          </div>
+        </div>
+
+        <button class="btn" id="calcBtn">CALCULATE &amp; AUDIT</button>
+      </div>
+    </div>
+
+    <!-- ================= RESULTS ================= -->
+    <div>
+      <div class="verdict pass" id="verdict"></div>
+      <div id="warnings"></div>
+      <div class="kpis" id="kpis"></div>
+
+      <div class="panel">
+        <div class="panel-h">2 · Calculation Results <span style="font-weight:400;font-size:11px;text-transform:none">(engine computes in SI)</span></div>
+        <div class="panel-b"><table id="resTable"></table></div>
+      </div>
+
+      <div class="panel" style="margin-top:20px">
+        <div class="panel-h">3 · Sensitivity Charts</div>
+        <div class="panel-b charts">
+          <div class="chartbox"><div class="t">Unit Cost vs Batch Size — Setup Amortization</div><canvas id="chBatch" width="520" height="300"></canvas></div>
+          <div class="chartbox"><div class="t">Cycle Time Composition vs Passes</div><canvas id="chTime" width="520" height="300"></canvas></div>
+        </div>
+      </div>
+
+      <!-- ================= AUDIT ================= -->
+      <div class="audit panel" style="margin-top:20px">
+        <div class="panel-h" style="background:linear-gradient(90deg,#3d2a10,#5c3a10)">4 · Audit / Review Trail — Verification Module
+          <span>
+            <button class="btn3" onclick="copyReport()">Copy Report</button>
+            <button class="btn3" onclick="exportJSON()">Export JSON</button>
+          </span>
+        </div>
+        <div class="panel-b">
+          <div class="warnbox i"><b>Audit Statement</b>
+            This report is generated deterministically from the inputs below, each captured together with its selected display unit. Re-entering identical inputs into the same engine version reproduces identical outputs. Any deviation indicates input drift, unit mismatch, or manual tampering — investigate before releasing a quotation.</div>
+          <details open><summary>A1 · Engine Identity &amp; Integrity</summary><div class="body" id="aEngine"></div></details>
+          <details open><summary>A2 · Input Snapshot (value + selected unit)</summary><div class="body" id="aInputs"></div></details>
+          <details><summary>A3 · Formulas Applied</summary><div class="body" id="aFormulas"></div></details>
+          <details><summary>A4 · Engineering Assumptions</summary><div class="body" id="aAssump"></div></details>
+          <details open><summary>A5 · Warnings &amp; Limit Checks</summary><div class="body" id="aWarn"></div></details>
+          <div style="margin-top:12px;text-align:right">
+            <button class="btn btn2" onclick="window.print()">⎙ Print / Export PDF Report</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--SC-GUIDE-START-->
+<div class="sc-guide-shell">
+<section class="sc-guide" id="sc-guide" data-tool-id="SC-023" data-tool-name="Cycle Time &amp; Cost per Part Calculator (SC-023)" data-tool-url="https://sectorcalc.com/cycle-cost-pro.html" itemscope itemtype="https://schema.org/FAQPage">
+
+<nav class="sc-guide-toc" aria-label="Table of contents">
+  <h2 class="sc-guide-toc-title">Contents</h2>
+  <ol>
+    <li><a href="#cutting">Cutting time from first principles</a></li>
+    <li><a href="#noncut">Non-cutting time components</a></li>
+    <li><a href="#setup">Setup amortization and batch size</a></li>
+    <li><a href="#cost">Unit cost build-up</a></li>
+    <li><a href="#margin">Margin and selling price</a></li>
+    <li><a href="#faqs">Frequently asked questions</a></li>
+  </ol>
+</nav>
+
+<p class="sc-guide-lede">SectorCalc <strong>SC-023</strong> turns process parameters into a defensible unit price. Cutting time comes from physics — length, feed and RPM — not from guesswork; non-cutting time is itemized (rapids, tool changes, load/unload); setup is amortized over the batch; and the cost build-up stacks machine hour rate, attended labor, material, overhead and margin into a selling price. Batch-size sensitivity shows exactly how much a small order really costs. Results are reference-grade estimates — final quotations must reflect your actual cost accounting and commercial policy.</p>
+
+<h2 id="cutting">Cutting time from first principles</h2>
+
+<div class="sc-formula">
+  T<sub>cut</sub> [min] = passes · L [mm] / (f [mm/rev] · n [rpm])
+</div>
+
+<p>This is the only part of the cycle that adds value, and the only part the feeds-and-speeds engine (SC-020) can shorten. Doubling feed halves cutting time — until surface finish or tool life objects. The extra cutting time field folds in drilling, tapping (SC-022) and milling operations estimated elsewhere.</p>
+
+<h2 id="noncut">Non-cutting time components</h2>
+
+<div class="sc-formula">
+  T<sub>rapid</sub> = distance / rapid rate<br>
+  T<sub>tc</sub> = (tools − 1) · t<sub>change</sub><br>
+  T<sub>cycle</sub> = T<sub>cut</sub> + T<sub>extra</sub> + T<sub>rapid</sub> + T<sub>tc</sub> + T<sub>load</sub>
+</div>
+
+<p>On small parts, load/unload and tool changes routinely exceed cutting time. A 4-second turret index on a 30-second cycle is 13 % of capacity; an operator walking to a pallet rack is pure loss. Itemizing these times is the first step of any SMED or automation business case.</p>
+
+<h2 id="setup">Setup amortization and batch size</h2>
+
+<div class="sc-formula">
+  T<sub>setup/part</sub> = T<sub>setup</sub> / batch size<br>
+  T<sub>total/part</sub> = T<sub>cycle</sub> + T<sub>setup/part</sub>
+</div>
+
+<p>A 45-minute setup adds 27 seconds per part at batch 100 but 4.5 minutes at batch 10 — often doubling the small-batch price. The sensitivity chart quantifies this so you can defend minimum-order quantities or justify changeover reduction investment with numbers.</p>
+
+<h2 id="cost">Unit cost build-up</h2>
+
+<div class="sc-formula">
+  C<sub>machine</sub> = T<sub>total</sub>/60 · machine hour rate<br>
+  C<sub>labor</sub> = T<sub>total</sub>/60 · labor rate · manning<br>
+  C<sub>conversion</sub> = C<sub>machine</sub> + C<sub>labor</sub><br>
+  C<sub>total</sub> = (C<sub>conversion</sub> + C<sub>material</sub>) · (1 + overhead)
+</div>
+
+<p>Machine hour rate (from SC-038) carries depreciation, interest, space, energy and maintenance. Labor is charged only for the attended share via the manning factor — 0.5 for one operator running two machines. Overhead is applied to conversion cost plus material as a single allocation.</p>
+
+<h2 id="margin">Margin and selling price</h2>
+
+<div class="sc-formula">
+  Price = C<sub>total</sub> / (1 − margin)   — margin on price basis<br>
+</div>
+
+<p>Margin is applied on the price basis (12 % margin ⇒ price = cost/0.88), the convention that survives discount negotiations intact. Markup-on-cost and margin-on-price diverge fast above 20 % — the report states which basis is used so sales and costing read the same number.</p>
+
+<h2 id="faqs">Frequently asked questions</h2>
+
+<h3>Why does my quote lose money on small batches?</h3>
+<p>Setup amortization. Check the batch-size chart: below the knee of the curve, setup dominates. Either enforce a minimum order quantity, charge setup as a separate line, or invest in changeover reduction.</p>
+
+<h3>Should material carry overhead and margin?</h3>
+<p>Practices differ. This engine applies overhead to material + conversion (full absorption) but margin to the total, which is the conservative common practice. If your policy excludes material from overhead, reduce the overhead input accordingly.</p>
+
+<h3>Where does the machine hour rate come from?</h3>
+<p>From SC-038 (Machine Hour Rate Calculator): purchase price depreciation, imputed interest, floor space, energy and maintenance per planned operating hour. Never use the purchase price divided by warranty years — that understates the true rate by 30–50 %.</p>
+
+<h3>How do I cost a lights-out shift?</h3>
+<p>Set manning to 0.25 (attended only during tending windows) and increase load/unload to reflect robot cycles. The machine rate usually stays constant; the labor line collapses — that difference is the automation business case.</p>
+
+</section>
+</div>
+<!--SC-GUIDE-END-->
+
+<footer>
+    SectorCalc Pro · SC-023 · Cycle time and cost reference-grade estimates — final quotations must reflect actual cost accounting, tooling wear and commercial policy.
+  </footer>
+</div>
+<script>
+/* =====================================================================
    CT-ENGINE v1.0.0 — Cycle Time & Cost per Part
    Physics-based cutting time + itemized non-cutting + setup amortization
    + full cost build-up. Deterministic SI core (mm, s, currency).
    ===================================================================== */
-      const ENGINE = {
-        name: 'CT-ENGINE',
-        version: '1.0.0',
-        build: '2026-07-24',
-        standard: 'Machining economics (T = L/(f·n)) · full-absorption costing · margin-on-price',
-        model:
-          'T_cycle = cut+extra+rapid+toolchange+load · T_total = T_cycle + setup/batch · Cost = (machine+labor)·T/60 + material → +overhead → ÷(1−margin)'
-      };
-      let LAST = null;
+const ENGINE = {name:'CT-ENGINE', version:'1.0.0', build:'2026-07-24', standard:'Machining economics (T = L/(f·n)) · full-absorption costing · margin-on-price',
+  model:'T_cycle = cut+extra+rapid+toolchange+load · T_total = T_cycle + setup/batch · Cost = (machine+labor)·T/60 + material → +overhead → ÷(1−margin)'};
+let LAST=null;
 
-      const TO_SI = { len: { mm: 1, in: 25.4 }, feed: { mmmin: 1, ipm: 25.4 } };
-      function g(id) {
-        return document.getElementById(id);
-      }
-      function num(id) {
-        return parseFloat(g(id).value);
-      }
-      const fmt = (x, d = 2) =>
-        Number.isFinite(x)
-          ? x.toLocaleString('en-US', { minimumFractionDigits: d, maximumFractionDigits: d })
-          : '—';
+const TO_SI={len:{mm:1,in:25.4},feed:{mmmin:1,ipm:25.4}};
+function g(id){return document.getElementById(id);}
+function num(id){return parseFloat(g(id).value);}
+const fmt=(x,d=2)=>Number.isFinite(x)?x.toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d}):'—';
 
-      function fieldSI(id) {
-        const us = g('u_' + id),
-          raw = num(id);
-        if (!us) return { si: raw, disp: String(raw) };
-        const kind = us.dataset.kind,
-          u = us.value;
-        const si = raw * TO_SI[kind][u];
-        return { si, disp: `${raw} ${us.options[us.selectedIndex].text}` };
-      }
-      document.querySelectorAll('select.units[data-f]').forEach((us) => {
-        us.addEventListener('change', () => {
-          const inp = g(us.dataset.f),
-            val = parseFloat(inp.value);
-          if (Number.isFinite(val) && us.dataset.prev && us.dataset.prev !== us.value) {
-            const k = us.dataset.kind;
-            inp.value = +((val * TO_SI[k][us.dataset.prev]) / TO_SI[k][us.value]).toPrecision(6);
-          }
-          us.dataset.prev = us.value;
-          calculate();
-        });
-        us.dataset.prev = us.value;
-      });
-      function setAllUnits(sys) {
-        const map = sys === 'imp' ? { len: 'in', feed: 'ipm' } : { len: 'mm', feed: 'mmmin' };
-        document.querySelectorAll('select.units[data-f]').forEach((us) => {
-          const want = map[us.dataset.kind];
-          if (want && us.value !== want) {
-            us.value = want;
-            us.dispatchEvent(new Event('change'));
-          }
-        });
-        g('uMetric').classList.toggle('on', sys === 'metric');
-        g('uImp').classList.toggle('on', sys === 'imp');
-      }
+function fieldSI(id){
+  const us=g('u_'+id), raw=num(id);
+  if(!us)return{si:raw,disp:String(raw)};
+  const kind=us.dataset.kind,u=us.value;
+  const si=raw*TO_SI[kind][u];
+  return{si,disp:`${raw} ${us.options[us.selectedIndex].text}`};
+}
+document.querySelectorAll('select.units[data-f]').forEach(us=>{
+  us.addEventListener('change',()=>{
+    const inp=g(us.dataset.f),val=parseFloat(inp.value);
+    if(Number.isFinite(val)&&us.dataset.prev&&us.dataset.prev!==us.value){
+      const k=us.dataset.kind;
+      inp.value=+(val*TO_SI[k][us.dataset.prev]/TO_SI[k][us.value]).toPrecision(6);
+    }
+    us.dataset.prev=us.value;calculate();
+  });
+  us.dataset.prev=us.value;
+});
+function setAllUnits(sys){
+  const map=sys==='imp'?{len:'in',feed:'ipm'}:{len:'mm',feed:'mmmin'};
+  document.querySelectorAll('select.units[data-f]').forEach(us=>{
+    const want=map[us.dataset.kind];
+    if(want&&us.value!==want){us.value=want;us.dispatchEvent(new Event('change'));}
+  });
+  g('uMetric').classList.toggle('on',sys==='metric');
+  g('uImp').classList.toggle('on',sys==='imp');
+}
 
-      /* ---------------- presets ---------------- */
-      const IDS = [
-        'L',
-        'u_L',
-        'f',
-        'u_f',
-        'n',
-        'passes',
-        'tExtra',
-        'tools',
-        'rapid',
-        'u_rapid',
-        'rapidRate',
-        'u_rapidRate',
-        'tTC',
-        'tLoad',
-        'tSetup',
-        'batch',
-        'rateM',
-        'cur',
-        'rateL',
-        'manning',
-        'matCost',
-        'oh',
-        'margin'
-      ];
-      function preset(mode, slot) {
-        const key = 'sc023_preset_' + slot;
-        if (mode === 'save') {
-          const o = {};
-          IDS.forEach((i) => (o[i] = g(i).value));
-          localStorage.setItem(key, JSON.stringify(o));
-        } else {
-          const s = localStorage.getItem(key);
-          if (!s) return;
-          const o = JSON.parse(s);
-          IDS.forEach((i) => {
-            if (o[i] != null) g(i).value = o[i];
-          });
-          document
-            .querySelectorAll('select.units[data-f]')
-            .forEach((us) => (us.dataset.prev = us.value));
-        }
-      }
-      function fnv(s) {
-        let h = 0x811c9dc5;
-        for (let i = 0; i < s.length; i++) {
-          h ^= s.charCodeAt(i);
-          h = (h * 0x01000193) >>> 0;
-        }
-        return ('00000000' + h.toString(16)).slice(-8).toUpperCase();
-      }
-      function unitCost(inp, batch) {
-        const tCut = (60 * inp.passes * inp.L) / (inp.f * inp.n); /* s */
-        const tRapid = (60 * inp.rapid) / inp.rapidRate;
-        const tTC = (inp.tools - 1) * inp.tTC;
-        const tCycle = tCut + inp.tExtra + tRapid + tTC + inp.tLoad;
-        const tTotal = tCycle + (60 * inp.tSetup) / batch;
-        const cM = (tTotal / 3600) * inp.rateM,
-          cL = (tTotal / 3600) * inp.rateL * inp.manning;
-        const conv = cM + cL,
-          sub = conv + inp.matCost;
-        const cTotal = sub * (1 + inp.oh / 100);
-        return {
-          tCut,
-          tRapid,
-          tTC,
-          tCycle,
-          tTotal,
-          cM,
-          cL,
-          conv,
-          cTotal,
-          price: cTotal / (1 - inp.margin / 100)
-        };
-      }
+/* ---------------- presets ---------------- */
+const IDS=['L','u_L','f','u_f','n','passes','tExtra','tools','rapid','u_rapid','rapidRate','u_rapidRate','tTC','tLoad','tSetup','batch','rateM','cur','rateL','manning','matCost','oh','margin'];
+function preset(mode,slot){
+  const key='sc023_preset_'+slot;
+  if(mode==='save'){const o={};IDS.forEach(i=>o[i]=g(i).value);localStorage.setItem(key,JSON.stringify(o));}
+  else{const s=localStorage.getItem(key);if(!s)return;const o=JSON.parse(s);
+    IDS.forEach(i=>{if(o[i]!=null)g(i).value=o[i];});
+    document.querySelectorAll('select.units[data-f]').forEach(us=>us.dataset.prev=us.value);}
+}
+function fnv(s){let h=0x811c9dc5;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=(h*0x01000193)>>>0;}return ('00000000'+h.toString(16)).slice(-8).toUpperCase();}
+function unitCost(inp,batch){
+  const tCut=60*inp.passes*inp.L/(inp.f*inp.n); /* s */
+  const tRapid=60*inp.rapid/inp.rapidRate;
+  const tTC=(inp.tools-1)*inp.tTC;
+  const tCycle=tCut+inp.tExtra+tRapid+tTC+inp.tLoad;
+  const tTotal=tCycle+60*inp.tSetup/batch;
+  const cM=tTotal/3600*inp.rateM, cL=tTotal/3600*inp.rateL*inp.manning;
+  const conv=cM+cL, sub=conv+inp.matCost;
+  const cTotal=sub*(1+inp.oh/100);
+  return{tCut,tRapid,tTC,tCycle,tTotal,cM,cL,conv,cTotal,price:cTotal/(1-inp.margin/100)};
+}
 
-      /* =====================================================================
+/* =====================================================================
    CORE CALCULATION
    ===================================================================== */
-      function calculate() {
-        const W = [];
-        const fL = fieldSI('L'),
-          fF = fieldSI('f'),
-          fR = fieldSI('rapid'),
-          fRR = fieldSI('rapidRate');
-        const disp = { L: fL.disp, f: fF.disp, rapid: fR.disp, rapidRate: fRR.disp };
-        const inp = {
-          L: fL.si,
-          f: fF.si,
-          n: num('n'),
-          passes: +g('passes').value,
-          tExtra: num('tExtra'),
-          tools: +g('tools').value,
-          rapid: fR.si,
-          rapidRate: fRR.si,
-          tTC: num('tTC'),
-          tLoad: num('tLoad'),
-          tSetup: num('tSetup'),
-          batch: num('batch'),
-          rateM: num('rateM'),
-          cur: g('cur').value,
-          rateL: num('rateL'),
-          manning: parseFloat(g('manning').value),
-          matCost: num('matCost'),
-          oh: num('oh'),
-          margin: num('margin')
-        };
+function calculate(){
+  const W=[];
+  const fL=fieldSI('L'),fF=fieldSI('f'),fR=fieldSI('rapid'),fRR=fieldSI('rapidRate');
+  const disp={L:fL.disp,f:fF.disp,rapid:fR.disp,rapidRate:fRR.disp};
+  const inp={L:fL.si,f:fF.si,n:num('n'),passes:+g('passes').value,tExtra:num('tExtra'),tools:+g('tools').value,
+    rapid:fR.si,rapidRate:fRR.si,tTC:num('tTC'),tLoad:num('tLoad'),tSetup:num('tSetup'),batch:num('batch'),
+    rateM:num('rateM'),cur:g('cur').value,rateL:num('rateL'),manning:parseFloat(g('manning').value),
+    matCost:num('matCost'),oh:num('oh'),margin:num('margin')};
 
-        /* --- validation --- */
-        if (!Number.isFinite(inp.L) || inp.L <= 0)
-          W.push({
-            lvl: 'e',
-            t: 'Invalid cutting length',
-            d: 'Length per pass must be positive. Check value AND mm/in selector. Calculation aborted.'
-          });
-        if (!Number.isFinite(inp.f) || inp.f <= 0)
-          W.push({
-            lvl: 'e',
-            t: 'Invalid feed',
-            d: 'Feed must be positive mm/rev — verify against SC-020 output.'
-          });
-        if (!Number.isFinite(inp.n) || inp.n <= 0)
-          W.push({ lvl: 'e', t: 'Invalid spindle speed', d: 'RPM must be positive.' });
-        if (!Number.isFinite(inp.rapidRate) || inp.rapidRate <= 0)
-          W.push({
-            lvl: 'e',
-            t: 'Invalid rapid rate',
-            d: 'Rapid traverse rate must be positive mm/min.'
-          });
-        if (!Number.isFinite(inp.batch) || inp.batch < 1)
-          W.push({ lvl: 'e', t: 'Invalid batch size', d: 'Batch size must be at least 1 piece.' });
-        if (!Number.isFinite(inp.rateM) || inp.rateM < 0)
-          W.push({
-            lvl: 'e',
-            t: 'Invalid machine rate',
-            d: 'Machine hour rate cannot be negative — get it from SC-038.'
-          });
-        if (!Number.isFinite(inp.margin) || inp.margin < 0 || inp.margin >= 60)
-          W.push({
-            lvl: 'e',
-            t: 'Invalid margin',
-            d: 'Margin must be 0–60 % on price basis. Above that, quoting practice needs a different model.'
-          });
-        if (W.some((w) => w.lvl === 'e')) {
-          render(inp, null, W, disp);
-          return;
-        }
+  /* --- validation --- */
+  if(!Number.isFinite(inp.L)||inp.L<=0)W.push({lvl:'e',t:'Invalid cutting length',d:'Length per pass must be positive. Check value AND mm/in selector. Calculation aborted.'});
+  if(!Number.isFinite(inp.f)||inp.f<=0)W.push({lvl:'e',t:'Invalid feed',d:'Feed must be positive mm/rev — verify against SC-020 output.'});
+  if(!Number.isFinite(inp.n)||inp.n<=0)W.push({lvl:'e',t:'Invalid spindle speed',d:'RPM must be positive.'});
+  if(!Number.isFinite(inp.rapidRate)||inp.rapidRate<=0)W.push({lvl:'e',t:'Invalid rapid rate',d:'Rapid traverse rate must be positive mm/min.'});
+  if(!Number.isFinite(inp.batch)||inp.batch<1)W.push({lvl:'e',t:'Invalid batch size',d:'Batch size must be at least 1 piece.'});
+  if(!Number.isFinite(inp.rateM)||inp.rateM<0)W.push({lvl:'e',t:'Invalid machine rate',d:'Machine hour rate cannot be negative — get it from SC-038.'});
+  if(!Number.isFinite(inp.margin)||inp.margin<0||inp.margin>=60)W.push({lvl:'e',t:'Invalid margin',d:'Margin must be 0–60 % on price basis. Above that, quoting practice needs a different model.'});
+  if(W.some(w=>w.lvl==='e')){render(inp,null,W,disp);return;}
 
-        const r = unitCost(inp, inp.batch);
-        const out = {
-          ...r,
-          setupShare: (60 * inp.tSetup) / inp.batch,
-          partsHour: 3600 / r.tTotal,
-          cutShare: (100 * (r.tCut + inp.tExtra)) / r.tCycle
-        };
+  const r=unitCost(inp,inp.batch);
+  const out={...r,setupShare:60*inp.tSetup/inp.batch,partsHour:3600/r.tTotal,cutShare:100*(r.tCut+inp.tExtra)/r.tCycle};
 
-        /* --- warnings --- */
-        if (out.setupShare > 0.5 * r.tCycle)
-          W.push({
-            lvl: 'w',
-            t: 'Setup dominates small batch',
-            d: `Setup adds ${fmt(out.setupShare, 0)} s/part vs ${fmt(r.tCycle, 0)} s cycle — ${fmt((100 * out.setupShare) / r.tTotal, 0)} % of total time. Enforce minimum order quantity or attack changeover time (SMED).`
-          });
-        if (out.cutShare < 40)
-          W.push({
-            lvl: 'w',
-            t: 'Cutting below 40 % of cycle',
-            d: `Only ${fmt(out.cutShare, 0)} % of the cycle adds value. Load/unload, tool changes and rapids exceed cutting — automation or cycle redesign pays back faster than faster tools.`
-          });
-        if (inp.margin > 30)
-          W.push({
-            lvl: 'i',
-            t: 'High margin',
-            d: `${fmt(inp.margin, 0)} % margin-on-price = ${fmt((100 * inp.margin) / (100 - inp.margin), 0)} % markup on cost. Verify market acceptance.`
-          });
-        if (inp.batch < 20)
-          W.push({
-            lvl: 'i',
-            t: 'Prototype-scale batch',
-            d: `Batch of ${fmt(inp.batch, 0)}: consider quoting setup as a separate non-recurring line instead of amortizing.`
-          });
-        if (inp.manning < 1 && inp.tLoad > 20)
-          W.push({
-            lvl: 'i',
-            t: 'Manning vs load time',
-            d: 'Reduced manning with long manual load/unload is inconsistent — either the operator is present (manning 1.0 during load) or a robot loads (load time 5–15 s).'
-          });
+  /* --- warnings --- */
+  if(out.setupShare>0.5*r.tCycle)W.push({lvl:'w',t:'Setup dominates small batch',d:`Setup adds ${fmt(out.setupShare,0)} s/part vs ${fmt(r.tCycle,0)} s cycle — ${fmt(100*out.setupShare/r.tTotal,0)} % of total time. Enforce minimum order quantity or attack changeover time (SMED).`});
+  if(out.cutShare<40)W.push({lvl:'w',t:'Cutting below 40 % of cycle',d:`Only ${fmt(out.cutShare,0)} % of the cycle adds value. Load/unload, tool changes and rapids exceed cutting — automation or cycle redesign pays back faster than faster tools.`});
+  if(inp.margin>30)W.push({lvl:'i',t:'High margin',d:`${fmt(inp.margin,0)} % margin-on-price = ${fmt(100*inp.margin/(100-inp.margin),0)} % markup on cost. Verify market acceptance.`});
+  if(inp.batch<20)W.push({lvl:'i',t:'Prototype-scale batch',d:`Batch of ${fmt(inp.batch,0)}: consider quoting setup as a separate non-recurring line instead of amortizing.`});
+  if(inp.manning<1&&inp.tLoad>20)W.push({lvl:'i',t:'Manning vs load time',d:'Reduced manning with long manual load/unload is inconsistent — either the operator is present (manning 1.0 during load) or a robot loads (load time 5–15 s).'});
 
-        render(inp, out, W, disp);
-      }
-    </script>
+  render(inp,out,W,disp);
+}
+</script>
 
-    <script>
-      /* =====================================================================
+<script>
+/* =====================================================================
    RENDER
    ===================================================================== */
-      function render(inp, out, W, disp) {
-        LAST = { inp, disp, out, W, ts: new Date().toISOString() };
-        const errs = W.filter((w) => w.lvl === 'e').length,
-          warns = W.filter((w) => w.lvl === 'w').length;
-        const vd = g('verdict'),
-          total = 9,
-          passed = Math.max(total - errs * 2 - warns, 0);
-        if (!out || errs > 0) {
-          vd.className = 'verdict fail';
-          vd.innerHTML = `<div class="big">⛔ ESTIMATE REJECTED — FAIL</div><div class="sub">${errs} blocking issue(s), ${warns} warning(s). Quoting from an invalid estimate loses money on every part.</div><div class="score">${passed}/${total}</div>`;
-        } else if (warns > 0) {
-          vd.className = 'verdict cond';
-          vd.innerHTML = `<div class="big">⚠ CONDITIONALLY ACCEPTED</div><div class="sub">${warns} warning(s) — estimate is computable but has structural cost risks. Review yellow items before sending the quotation.</div><div class="score">${passed}/${total}</div>`;
-        } else {
-          vd.className = 'verdict pass';
-          vd.innerHTML = `<div class="big">✓ ESTIMATE ACCEPTED</div><div class="sub">All checks passed — cycle structure and cost build-up within validated envelopes.</div><div class="score">${total}/${total}</div>`;
-        }
+function render(inp,out,W,disp){
+  LAST={inp,disp,out,W,ts:new Date().toISOString()};
+  const errs=W.filter(w=>w.lvl==='e').length, warns=W.filter(w=>w.lvl==='w').length;
+  const vd=g('verdict'), total=9, passed=Math.max(total-errs*2-warns,0);
+  if(!out||errs>0){vd.className='verdict fail';vd.innerHTML=`<div class="big">⛔ ESTIMATE REJECTED — FAIL</div><div class="sub">${errs} blocking issue(s), ${warns} warning(s). Quoting from an invalid estimate loses money on every part.</div><div class="score">${passed}/${total}</div>`;}
+  else if(warns>0){vd.className='verdict cond';vd.innerHTML=`<div class="big">⚠ CONDITIONALLY ACCEPTED</div><div class="sub">${warns} warning(s) — estimate is computable but has structural cost risks. Review yellow items before sending the quotation.</div><div class="score">${passed}/${total}</div>`;}
+  else{vd.className='verdict pass';vd.innerHTML=`<div class="big">✓ ESTIMATE ACCEPTED</div><div class="sub">All checks passed — cycle structure and cost build-up within validated envelopes.</div><div class="score">${total}/${total}</div>`;}
 
-        g('warnings').innerHTML = W.map(
-          (w) =>
-            `<div class="warnbox ${w.lvl}"><b>${w.lvl === 'e' ? '⛔ BLOCKING' : w.lvl === 'w' ? '⚠ WARNING' : 'ℹ NOTE'} — ${w.t}</b>${w.d}</div>`
-        ).join('');
-        g('aWarn').innerHTML = W.length
-          ? W.map(
-              (w) => `<div class="warnbox ${w.lvl}" style="margin:6px 0"><b>${w.t}</b>${w.d}</div>`
-            ).join('')
-          : '<div class="warnbox i"><b>ALL CLEAR</b>No warnings. All parameters within validated envelopes.</div>';
+  g('warnings').innerHTML=W.map(w=>`<div class="warnbox ${w.lvl}"><b>${w.lvl==='e'?'⛔ BLOCKING':w.lvl==='w'?'⚠ WARNING':'ℹ NOTE'} — ${w.t}</b>${w.d}</div>`).join('');
+  g('aWarn').innerHTML=W.length?
+    W.map(w=>`<div class="warnbox ${w.lvl}" style="margin:6px 0"><b>${w.t}</b>${w.d}</div>`).join('')
+    :'<div class="warnbox i"><b>ALL CLEAR</b>No warnings. All parameters within validated envelopes.</div>';
 
-        const kpis = g('kpis'),
-          res = g('resTable'),
-          c = inp ? inp.cur : '$';
-        if (!out) {
-          kpis.innerHTML = '';
-          res.innerHTML =
-            '<tr><td style="color:var(--err);font-weight:700">Calculation aborted — resolve blocking errors above.</td></tr>';
-          drawCharts(null);
-          buildAudit(inp, null, W, disp);
-          return;
-        }
+  const kpis=g('kpis'),res=g('resTable'),c=inp?inp.cur:'$';
+  if(!out){kpis.innerHTML='';res.innerHTML='<tr><td style="color:var(--err);font-weight:700">Calculation aborted — resolve blocking errors above.</td></tr>';drawCharts(null);buildAudit(inp,null,W,disp);return;}
 
-        kpis.innerHTML = `
-    <div class="kpi hot"><div class="v">${c}${fmt(out.price, 2)}</div><div class="l">Selling price / part</div><div class="u">margin ${fmt(inp.margin, 0)} %</div></div>
-    <div class="kpi"><div class="v">${c}${fmt(out.cTotal, 2)}</div><div class="l">Total cost / part</div><div class="u">incl. overhead ${fmt(inp.oh, 0)} %</div></div>
-    <div class="kpi"><div class="v">${fmt(out.tCycle, 1)}</div><div class="l">Cycle time</div><div class="u">s · excl. setup</div></div>
-    <div class="kpi"><div class="v">${fmt(out.tTotal, 1)}</div><div class="l">Total time / part</div><div class="u">s · setup amortized</div></div>
-    <div class="kpi good"><div class="v">${fmt(out.partsHour, 1)}</div><div class="l">Parts / hour</div><div class="u">at batch ${fmt(inp.batch, 0)}</div></div>`;
+  kpis.innerHTML=`
+    <div class="kpi hot"><div class="v">${c}${fmt(out.price,2)}</div><div class="l">Selling price / part</div><div class="u">margin ${fmt(inp.margin,0)} %</div></div>
+    <div class="kpi"><div class="v">${c}${fmt(out.cTotal,2)}</div><div class="l">Total cost / part</div><div class="u">incl. overhead ${fmt(inp.oh,0)} %</div></div>
+    <div class="kpi"><div class="v">${fmt(out.tCycle,1)}</div><div class="l">Cycle time</div><div class="u">s · excl. setup</div></div>
+    <div class="kpi"><div class="v">${fmt(out.tTotal,1)}</div><div class="l">Total time / part</div><div class="u">s · setup amortized</div></div>
+    <div class="kpi good"><div class="v">${fmt(out.partsHour,1)}</div><div class="l">Parts / hour</div><div class="u">at batch ${fmt(inp.batch,0)}</div></div>`;
 
-        res.innerHTML = `<tr><th>Parameter</th><th>Symbol</th><th style="text-align:right">Value</th><th>Unit</th><th>Note</th></tr>
-  <tr><td>Cutting time (${inp.passes}× passes)</td><td>T_cut</td><td class="num">${fmt(out.tCut, 1)}</td><td>s</td><td>L/(f·n) + ${fmt(inp.tExtra, 0)} s extra ops</td></tr>
-  <tr><td>Rapid traverse</td><td>T_rapid</td><td class="num">${fmt(out.tRapid, 1)}</td><td>s</td><td>${fmt(inp.rapid, 0)} mm @ ${fmt(inp.rapidRate, 0)} mm/min</td></tr>
-  <tr><td>Tool changes</td><td>T_tc</td><td class="num">${fmt(out.tTC, 1)}</td><td>s</td><td>${inp.tools - 1} × ${fmt(inp.tTC, 1)} s</td></tr>
-  <tr><td>Load / unload</td><td>T_load</td><td class="num">${fmt(inp.tLoad, 1)}</td><td>s</td><td>operator / robot</td></tr>
-  <tr><td><b>Cycle time</b></td><td><b>T_cycle</b></td><td class="num"><b>${fmt(out.tCycle, 1)}</b></td><td><b>s</b></td><td>value-add share ${fmt(out.cutShare, 0)} %</td></tr>
-  <tr><td>Setup amortized</td><td>T_su</td><td class="num">${fmt(out.setupShare, 1)}</td><td>s/part</td><td>${fmt(inp.tSetup, 0)} min / ${fmt(inp.batch, 0)} pcs</td></tr>
-  <tr><td><b>Total time / part</b></td><td><b>T_total</b></td><td class="num"><b>${fmt(out.tTotal, 1)}</b></td><td><b>s</b></td><td>→ ${fmt(out.partsHour, 1)} parts/h</td></tr>
-  <tr><td>Machine cost</td><td>C_m</td><td class="num">${c}${fmt(out.cM, 3)}</td><td>/part</td><td>${c}${fmt(inp.rateM, 0)}/h machine rate</td></tr>
-  <tr><td>Labor cost</td><td>C_l</td><td class="num">${c}${fmt(out.cL, 3)}</td><td>/part</td><td>${c}${fmt(inp.rateL, 0)}/h × manning ${inp.manning}</td></tr>
-  <tr><td>Conversion cost</td><td>C_c</td><td class="num">${c}${fmt(out.conv, 3)}</td><td>/part</td><td>machine + labor</td></tr>
-  <tr><td>Material</td><td>C_mat</td><td class="num">${c}${fmt(inp.matCost, 3)}</td><td>/part</td><td>as entered</td></tr>
-  <tr><td>Overhead ${fmt(inp.oh, 0)} %</td><td>—</td><td class="num">${c}${fmt(out.cTotal - out.conv - inp.matCost, 3)}</td><td>/part</td><td>on material + conversion</td></tr>
-  <tr><td><b>Total cost</b></td><td><b>C_t</b></td><td class="num"><b>${c}${fmt(out.cTotal, 3)}</b></td><td><b>/part</b></td><td>full absorption</td></tr>
-  <tr><td><b>Selling price</b></td><td><b>P</b></td><td class="num"><b>${c}${fmt(out.price, 3)}</b></td><td><b>/part</b></td><td>cost / (1 − ${fmt(inp.margin, 0)} %)</td></tr>`;
+  res.innerHTML=`<tr><th>Parameter</th><th>Symbol</th><th style="text-align:right">Value</th><th>Unit</th><th>Note</th></tr>
+  <tr><td>Cutting time (${inp.passes}× passes)</td><td>T_cut</td><td class="num">${fmt(out.tCut,1)}</td><td>s</td><td>L/(f·n) + ${fmt(inp.tExtra,0)} s extra ops</td></tr>
+  <tr><td>Rapid traverse</td><td>T_rapid</td><td class="num">${fmt(out.tRapid,1)}</td><td>s</td><td>${fmt(inp.rapid,0)} mm @ ${fmt(inp.rapidRate,0)} mm/min</td></tr>
+  <tr><td>Tool changes</td><td>T_tc</td><td class="num">${fmt(out.tTC,1)}</td><td>s</td><td>${inp.tools-1} × ${fmt(inp.tTC,1)} s</td></tr>
+  <tr><td>Load / unload</td><td>T_load</td><td class="num">${fmt(inp.tLoad,1)}</td><td>s</td><td>operator / robot</td></tr>
+  <tr><td><b>Cycle time</b></td><td><b>T_cycle</b></td><td class="num"><b>${fmt(out.tCycle,1)}</b></td><td><b>s</b></td><td>value-add share ${fmt(out.cutShare,0)} %</td></tr>
+  <tr><td>Setup amortized</td><td>T_su</td><td class="num">${fmt(out.setupShare,1)}</td><td>s/part</td><td>${fmt(inp.tSetup,0)} min / ${fmt(inp.batch,0)} pcs</td></tr>
+  <tr><td><b>Total time / part</b></td><td><b>T_total</b></td><td class="num"><b>${fmt(out.tTotal,1)}</b></td><td><b>s</b></td><td>→ ${fmt(out.partsHour,1)} parts/h</td></tr>
+  <tr><td>Machine cost</td><td>C_m</td><td class="num">${c}${fmt(out.cM,3)}</td><td>/part</td><td>${c}${fmt(inp.rateM,0)}/h machine rate</td></tr>
+  <tr><td>Labor cost</td><td>C_l</td><td class="num">${c}${fmt(out.cL,3)}</td><td>/part</td><td>${c}${fmt(inp.rateL,0)}/h × manning ${inp.manning}</td></tr>
+  <tr><td>Conversion cost</td><td>C_c</td><td class="num">${c}${fmt(out.conv,3)}</td><td>/part</td><td>machine + labor</td></tr>
+  <tr><td>Material</td><td>C_mat</td><td class="num">${c}${fmt(inp.matCost,3)}</td><td>/part</td><td>as entered</td></tr>
+  <tr><td>Overhead ${fmt(inp.oh,0)} %</td><td>—</td><td class="num">${c}${fmt(out.cTotal-out.conv-inp.matCost,3)}</td><td>/part</td><td>on material + conversion</td></tr>
+  <tr><td><b>Total cost</b></td><td><b>C_t</b></td><td class="num"><b>${c}${fmt(out.cTotal,3)}</b></td><td><b>/part</b></td><td>full absorption</td></tr>
+  <tr><td><b>Selling price</b></td><td><b>P</b></td><td class="num"><b>${c}${fmt(out.price,3)}</b></td><td><b>/part</b></td><td>cost / (1 − ${fmt(inp.margin,0)} %)</td></tr>`;
 
-        drawCharts({ inp, out });
-        buildAudit(inp, out, W, disp);
-      }
+  drawCharts({inp,out});
+  buildAudit(inp,out,W,disp);
+}
 
-      /* ---------------- charts ---------------- */
-      function pal() {
-        const cs = getComputedStyle(document.documentElement),
-          v = (n) => cs.getPropertyValue(n).trim();
-        return {
-          bg: v('--panel2') || '#fbfcfe',
-          grid: v('--line') || '#d9e0e8',
-          txt: v('--mut') || '#5d6b7a',
-          line: v('--blue') || '#0055A4',
-          cur: v('--accent') || '#E87722',
-          eco: v('--ok') || '#1a7f4b',
-          sec: '#7a5fc0'
-        };
-      }
-      function plot(cvId, series, xlab, ylab, marks) {
-        const cv = g(cvId),
-          ctx = cv.getContext('2d'),
-          Wc = cv.width,
-          Hc = cv.height,
-          C = pal();
-        ctx.clearRect(0, 0, Wc, Hc);
-        ctx.fillStyle = C.bg;
-        ctx.fillRect(0, 0, Wc, Hc);
-        if (!series) {
-          ctx.fillStyle = C.txt;
-          ctx.font = '13px sans-serif';
-          ctx.fillText('No data — resolve errors', 20, 30);
-          return;
-        }
-        const xs = series.flatMap((s) => s.pts.map((p) => p[0])),
-          ys = series.flatMap((s) => s.pts.map((p) => p[1]));
-        const x0 = Math.min(...xs),
-          x1 = Math.max(...xs),
-          y1 = Math.max(...ys) * 1.08;
-        const P = { l: 52, r: 12, t: 14, b: 30 };
-        const X = (x) => P.l + ((x - x0) / (x1 - x0)) * (Wc - P.l - P.r),
-          Y = (y) => Hc - P.b - (y / y1) * (Hc - P.t - P.b);
-        ctx.strokeStyle = C.grid;
-        ctx.lineWidth = 1;
-        ctx.beginPath();
-        for (let i = 0; i <= 4; i++) {
-          const y = P.t + (i * (Hc - P.t - P.b)) / 4;
-          ctx.moveTo(P.l, y);
-          ctx.lineTo(Wc - P.r, y);
-        }
-        ctx.stroke();
-        series.forEach((s) => {
-          ctx.strokeStyle = s.color;
-          ctx.lineWidth = 2.5;
-          ctx.beginPath();
-          s.pts.forEach((p, i) =>
-            i ? ctx.lineTo(X(p[0]), Y(p[1])) : ctx.moveTo(X(p[0]), Y(p[1]))
-          );
-          ctx.stroke();
-        });
-        (marks || []).forEach((mk) => {
-          ctx.fillStyle = mk.color;
-          ctx.beginPath();
-          ctx.arc(X(mk.x), Y(mk.y), 5, 0, 7);
-          ctx.fill();
-          ctx.font = 'bold 11px sans-serif';
-          ctx.fillText(mk.t, Math.min(X(mk.x) + 8, Wc - 110), Math.max(Y(mk.y) - 6, 12));
-        });
-        ctx.fillStyle = C.txt;
-        ctx.font = '11px sans-serif';
-        ctx.fillText(xlab, P.l, Hc - 8);
-        ctx.fillText(ylab, 4, 12);
-        ctx.fillText(fmt(x1, 0), Wc - P.r - 28, Hc - 8);
-      }
-      function drawCharts(data) {
-        if (!data) {
-          plot('chBatch', null);
-          plot('chTime', null);
-          return;
-        }
-        const { inp, out } = data,
-          C = pal();
-        /* unit cost vs batch size (log-ish spread) */
-        const cost = [],
-          setupC = [];
-        const b0 = Math.max(1, Math.floor(inp.batch / 10)),
-          b1 = inp.batch * 10;
-        for (let i = 0; i <= 60; i++) {
-          const b = Math.round(b0 * Math.pow(b1 / b0, i / 60));
-          const r = unitCost(inp, b);
-          cost.push([b, r.price]);
-          setupC.push([
-            b,
-            (((60 * inp.tSetup) / b / 3600) *
-              (inp.rateM + inp.rateL * inp.manning) *
-              (1 + inp.oh / 100)) /
-              (1 - inp.margin / 100)
-          ]);
-        }
-        plot(
-          'chBatch',
-          [
-            { pts: cost, color: C.line },
-            { pts: setupC, color: C.cur }
-          ],
-          'batch size →',
-          inp.cur + '/part',
-          [{ x: inp.batch, y: out.price, color: C.eco, t: 'quoted batch' }]
-        );
-        /* time composition vs passes */
-        const cut = [],
-          ncut = [];
-        for (let p = 1; p <= 8; p++) {
-          const tCut = (60 * p * inp.L) / (inp.f * inp.n) + inp.tExtra;
-          const tNC = out.tRapid + out.tTC + inp.tLoad;
-          cut.push([p, tCut]);
-          ncut.push([p, tNC]);
-        }
-        plot(
-          'chTime',
-          [
-            { pts: cut, color: C.line },
-            { pts: ncut, color: C.sec }
-          ],
-          'passes →',
-          's',
-          [
-            { x: inp.passes, y: out.tCut + inp.tExtra, color: C.eco, t: 'cutting now' },
-            { x: inp.passes, y: out.tRapid + out.tTC + inp.tLoad, color: C.cur, t: 'non-cutting' }
-          ]
-        );
-      }
+/* ---------------- charts ---------------- */
+function pal(){const cs=getComputedStyle(document.documentElement),v=n=>cs.getPropertyValue(n).trim();
+  return{bg:v('--panel2')||'#fbfcfe',grid:v('--line')||'#d9e0e8',txt:v('--mut')||'#5d6b7a',
+         line:v('--blue')||'#0055A4',cur:v('--accent')||'#E87722',eco:v('--ok')||'#1a7f4b',sec:'#7a5fc0'};}
+function plot(cvId,series,xlab,ylab,marks){
+  const cv=g(cvId),ctx=cv.getContext('2d'),Wc=cv.width,Hc=cv.height,C=pal();
+  ctx.clearRect(0,0,Wc,Hc);ctx.fillStyle=C.bg;ctx.fillRect(0,0,Wc,Hc);
+  if(!series){ctx.fillStyle=C.txt;ctx.font='13px sans-serif';ctx.fillText('No data — resolve errors',20,30);return;}
+  const xs=series.flatMap(s=>s.pts.map(p=>p[0])),ys=series.flatMap(s=>s.pts.map(p=>p[1]));
+  const x0=Math.min(...xs),x1=Math.max(...xs),y1=Math.max(...ys)*1.08;
+  const P={l:52,r:12,t:14,b:30};
+  const X=x=>P.l+(x-x0)/(x1-x0)*(Wc-P.l-P.r), Y=y=>Hc-P.b-y/y1*(Hc-P.t-P.b);
+  ctx.strokeStyle=C.grid;ctx.lineWidth=1;ctx.beginPath();
+  for(let i=0;i<=4;i++){const y=P.t+i*(Hc-P.t-P.b)/4;ctx.moveTo(P.l,y);ctx.lineTo(Wc-P.r,y);}ctx.stroke();
+  series.forEach(s=>{ctx.strokeStyle=s.color;ctx.lineWidth=2.5;ctx.beginPath();
+    s.pts.forEach((p,i)=>i?ctx.lineTo(X(p[0]),Y(p[1])):ctx.moveTo(X(p[0]),Y(p[1])));ctx.stroke();});
+  (marks||[]).forEach(mk=>{ctx.fillStyle=mk.color;ctx.beginPath();ctx.arc(X(mk.x),Y(mk.y),5,0,7);ctx.fill();
+    ctx.font='bold 11px sans-serif';ctx.fillText(mk.t,Math.min(X(mk.x)+8,Wc-110),Math.max(Y(mk.y)-6,12));});
+  ctx.fillStyle=C.txt;ctx.font='11px sans-serif';
+  ctx.fillText(xlab,P.l,Hc-8);ctx.fillText(ylab,4,12);ctx.fillText(fmt(x1,0),Wc-P.r-28,Hc-8);
+}
+function drawCharts(data){
+  if(!data){plot('chBatch',null);plot('chTime',null);return;}
+  const {inp,out}=data,C=pal();
+  /* unit cost vs batch size (log-ish spread) */
+  const cost=[],setupC=[];
+  const b0=Math.max(1,Math.floor(inp.batch/10)),b1=inp.batch*10;
+  for(let i=0;i<=60;i++){const b=Math.round(b0*Math.pow(b1/b0,i/60));
+    const r=unitCost(inp,b);
+    cost.push([b,r.price]);
+    setupC.push([b,60*inp.tSetup/b/3600*(inp.rateM+inp.rateL*inp.manning)*(1+inp.oh/100)/(1-inp.margin/100)]);}
+  plot('chBatch',[{pts:cost,color:C.line},{pts:setupC,color:C.cur}],'batch size →',inp.cur+'/part',
+    [{x:inp.batch,y:out.price,color:C.eco,t:'quoted batch'}]);
+  /* time composition vs passes */
+  const cut=[],ncut=[];
+  for(let p=1;p<=8;p++){
+    const tCut=60*p*inp.L/(inp.f*inp.n)+inp.tExtra;
+    const tNC=out.tRapid+out.tTC+inp.tLoad;
+    cut.push([p,tCut]);ncut.push([p,tNC]);}
+  plot('chTime',[{pts:cut,color:C.line},{pts:ncut,color:C.sec}],'passes →','s',
+    [{x:inp.passes,y:out.tCut+inp.tExtra,color:C.eco,t:'cutting now'},{x:inp.passes,y:out.tRapid+out.tTC+inp.tLoad,color:C.cur,t:'non-cutting'}]);
+}
 
-      /* ---------------- audit ---------------- */
-      function buildAudit(inp, out, W, disp) {
-        const ts = LAST.ts;
-        const hash = fnv(JSON.stringify({ inp, disp, eng: ENGINE.version, ts }));
-        g('aEngine').innerHTML = `
+/* ---------------- audit ---------------- */
+function buildAudit(inp,out,W,disp){
+  const ts=LAST.ts;
+  const hash=fnv(JSON.stringify({inp,disp,eng:ENGINE.version,ts}));
+  g('aEngine').innerHTML=`
     <table><tr><th>Field</th><th>Value</th></tr>
     <tr><td>Engine</td><td>${ENGINE.name} v${ENGINE.version}</td></tr>
     <tr><td>Standard basis</td><td>${ENGINE.standard}</td></tr>
@@ -2124,37 +1088,11 @@
     <tr><td>Report timestamp (UTC)</td><td>${ts}</td></tr>
     <tr><td>Report integrity hash (FNV-1a)</td><td><span class="hash">${hash}</span></td></tr>
     <tr><td>Determinism</td><td><span class="sig">✓ VERIFIED</span> — identical inputs → identical outputs, no hidden state</td></tr></table>`;
-        const rows = Object.entries(disp)
-          .map(
-            ([k, v2]) =>
-              `<tr><td>${k}</td><td class="num" style="text-align:right">${v2}</td><td class="num">${fmt(inp[k], 4)}</td></tr>`
-          )
-          .join('');
-        const other = [
-          'n',
-          'passes',
-          'tExtra',
-          'tools',
-          'tTC',
-          'tLoad',
-          'tSetup',
-          'batch',
-          'rateM',
-          'cur',
-          'rateL',
-          'manning',
-          'matCost',
-          'oh',
-          'margin'
-        ]
-          .map(
-            (k) =>
-              `<tr><td>${k}</td><td class="num" style="text-align:right">${typeof inp[k] === 'number' ? fmt(inp[k], 4) : inp[k]}</td><td class="num">—</td></tr>`
-          )
-          .join('');
-        g('aInputs').innerHTML =
-          `<table><tr><th>Input</th><th style="text-align:right">As entered (value + unit)</th><th style="text-align:right">SI used by engine</th></tr>${rows}${other}</table>`;
-        g('aFormulas').innerHTML = `
+  const rows=Object.entries(disp).map(([k,v2])=>`<tr><td>${k}</td><td class="num" style="text-align:right">${v2}</td><td class="num">${fmt(inp[k],4)}</td></tr>`).join('');
+  const other=['n','passes','tExtra','tools','tTC','tLoad','tSetup','batch','rateM','cur','rateL','manning','matCost','oh','margin']
+    .map(k=>`<tr><td>${k}</td><td class="num" style="text-align:right">${typeof inp[k]==='number'?fmt(inp[k],4):inp[k]}</td><td class="num">—</td></tr>`).join('');
+  g('aInputs').innerHTML=`<table><tr><th>Input</th><th style="text-align:right">As entered (value + unit)</th><th style="text-align:right">SI used by engine</th></tr>${rows}${other}</table>`;
+  g('aFormulas').innerHTML=`
     <div class="formula">T_cut [s]    = 60 · passes · L[mm] / (f[mm/rev] · n[rpm]) + T_extra</div>
     <div class="formula">T_rapid [s]  = 60 · distance / rapid rate</div>
     <div class="formula">T_tc [s]     = (tools − 1) · t_change</div>
@@ -2164,7 +1102,7 @@
     <div class="formula">C_labor      = T_total/3600 · labor rate · manning</div>
     <div class="formula">C_total      = (C_machine + C_labor + C_material) · (1 + OH%)</div>
     <div class="formula">Price        = C_total / (1 − margin%)   (margin-on-price basis)</div>`;
-        g('aAssump').innerHTML = `
+  g('aAssump').innerHTML=`
     <ul style="padding-left:18px;line-height:1.8">
       <li>Single-operation-set model: one turning/milling pass group plus an "extra cutting time" lump for other operations. Complex routings: run per operation and sum.</li>
       <li>Cutting time uses constant RPM and feed along the full path — facing, speed-limit zones and acceleration are approximated inside the feed value from SC-020.</li>
@@ -2175,93 +1113,62 @@
       <li>Scrap/rework is NOT included — divide price by (1 − scrap rate) or see SC-037 OEE quality loss for realistic capacity.</li>
       <li>Engine computes in SI (mm, mm/min); display units convert at entry (1 in = 25.4 mm).</li>
     </ul>`;
-      }
+}
 
-      /* ---------------- export ---------------- */
-      function reportText() {
-        if (!LAST) return '';
-        const L = LAST,
-          c = L.inp.cur;
-        let s = `SECTORCALC PRO — SC-023 CYCLE TIME & COST PER PART REPORT\nEngine: ${ENGINE.name} v${ENGINE.version} | UTC: ${L.ts}\n\nINPUTS (as entered / SI):\n`;
-        for (const [k, v2] of Object.entries(L.disp))
-          s += `  ${k}: ${v2}  →  ${fmt(L.inp[k], 4)} SI\n`;
-        s += `  n ${fmt(L.inp.n, 0)} rpm × ${L.inp.passes} passes | batch ${fmt(L.inp.batch, 0)} | rates M ${c}${fmt(L.inp.rateM, 0)}/h, L ${c}${fmt(L.inp.rateL, 0)}/h × ${L.inp.manning} | material ${c}${fmt(L.inp.matCost, 2)} | OH ${fmt(L.inp.oh, 0)} % | margin ${fmt(L.inp.margin, 0)} %\n`;
-        if (L.out) {
-          s += `\nKEY RESULTS:\n  T_cycle = ${fmt(L.out.tCycle, 1)} s | T_total = ${fmt(L.out.tTotal, 1)} s/part (${fmt(L.out.partsHour, 1)} parts/h)\n  cost = ${c}${fmt(L.out.cTotal, 3)} → price = ${c}${fmt(L.out.price, 3)} per part\n`;
-        }
-        s += `\nWARNINGS (${L.W.length}):\n`;
-        L.W.forEach((w) => (s += `  [${w.lvl.toUpperCase()}] ${w.t}: ${w.d}\n`));
-        return s;
-      }
-      function copyReport() {
-        navigator.clipboard
-          .writeText(reportText())
-          .then(() => alert('Audit report copied to clipboard.'));
-      }
-      function exportJSON() {
-        if (!LAST) return;
-        const blob = new Blob([JSON.stringify({ engine: ENGINE, ...LAST }, null, 2)], {
-          type: 'application/json'
-        });
-        const a = document.createElement('a');
-        a.href = URL.createObjectURL(blob);
-        a.download = 'SC023_audit_report.json';
-        a.click();
-      }
+/* ---------------- export ---------------- */
+function reportText(){
+  if(!LAST)return'';
+  const L=LAST,c=L.inp.cur;
+  let s=`SECTORCALC PRO — SC-023 CYCLE TIME & COST PER PART REPORT\nEngine: ${ENGINE.name} v${ENGINE.version} | UTC: ${L.ts}\n\nINPUTS (as entered / SI):\n`;
+  for(const [k,v2] of Object.entries(L.disp))s+=`  ${k}: ${v2}  →  ${fmt(L.inp[k],4)} SI\n`;
+  s+=`  n ${fmt(L.inp.n,0)} rpm × ${L.inp.passes} passes | batch ${fmt(L.inp.batch,0)} | rates M ${c}${fmt(L.inp.rateM,0)}/h, L ${c}${fmt(L.inp.rateL,0)}/h × ${L.inp.manning} | material ${c}${fmt(L.inp.matCost,2)} | OH ${fmt(L.inp.oh,0)} % | margin ${fmt(L.inp.margin,0)} %\n`;
+  if(L.out){s+=`\nKEY RESULTS:\n  T_cycle = ${fmt(L.out.tCycle,1)} s | T_total = ${fmt(L.out.tTotal,1)} s/part (${fmt(L.out.partsHour,1)} parts/h)\n  cost = ${c}${fmt(L.out.cTotal,3)} → price = ${c}${fmt(L.out.price,3)} per part\n`;}
+  s+=`\nWARNINGS (${L.W.length}):\n`;L.W.forEach(w=>s+=`  [${w.lvl.toUpperCase()}] ${w.t}: ${w.d}\n`);
+  return s;
+}
+function copyReport(){navigator.clipboard.writeText(reportText()).then(()=>alert('Audit report copied to clipboard.'));}
+function exportJSON(){
+  if(!LAST)return;
+  const blob=new Blob([JSON.stringify({engine:ENGINE,...LAST},null,2)],{type:'application/json'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='SC023_audit_report.json';a.click();
+}
 
-      g('calcBtn').addEventListener('click', calculate);
-      document
-        .querySelectorAll('input,select')
-        .forEach((el) => el.addEventListener('change', calculate));
-      document.querySelectorAll('input').forEach((el) => el.addEventListener('input', calculate));
-      calculate();
-    </script>
-    <!--SC-SEO-CVW-->
-    <script src="/assets/js/sc-ga4-id.js"></script>
-    <script src="/assets/js/sc-funnel-analytics.js" defer></script>
-    <script src="/assets/js/cvw-monitor.js" defer></script>
+g('calcBtn').addEventListener('click',calculate);
+document.querySelectorAll('input,select').forEach(el=>el.addEventListener('change',calculate));
+document.querySelectorAll('input').forEach(el=>el.addEventListener('input',calculate));
+calculate();
+</script>
+<!--SC-SEO-CVW-->
+<script src="/assets/js/sc-ga4-id.js"></script>
+<script src="/assets/js/sc-funnel-analytics.js" defer></script>
+<script src="/assets/js/cvw-monitor.js" defer></script>
 
-    <!--SC-RELATED-TOOLS-START-->
-    <section class="related-tools-section" aria-labelledby="related-tools-heading">
-      <h2 id="related-tools-heading">Related Calculators</h2>
-      <div class="related-grid">
-        <a href="/calculator/cnc-feeds-speeds" class="related-card">
-          <div class="rt-title">SC-020 Feeds & Speeds</div>
-          <div class="rt-desc">
-            Calculate cutting speed, feed rate, and Taylor tool life with chip thinning and
-            deterministic De
-          </div>
-        </a>
-        <a href="/calculator/punching-force" class="related-card">
-          <div class="rt-title">SC-039 Punching Force</div>
-          <div class="rt-desc">
-            Punching force, stripping force, and die clearance for sheet metal operations.
-            Deterministic.
-          </div>
-        </a>
-        <a href="/calculator/tap-thread-milling" class="related-card">
-          <div class="rt-title">SC-022 Tap & Thread</div>
-          <div class="rt-desc">
-            Thread milling and tapping parameters with pitch, lead angle, and torque estimation.
-            Determinist
-          </div>
-        </a>
-      </div>
-    </section>
-    <!--SC-RELATED-TOOLS-END-->
-    <!--SC-CALC-SHEET-TB-START-->
-    <aside class="sc-calc-sheet-titleblock" aria-hidden="true">
-      <div class="tb-row">
-        <span class="tb-label">DWG</span><span class="tb-value">SC-023-001</span>
-      </div>
-      <div class="tb-row">
-        <span class="tb-label">FMT</span><span class="tb-value">CALC SHEET</span>
-      </div>
-      <div class="tb-row"><span class="tb-label">REV</span><span class="tb-value">A</span></div>
-      <div class="tb-row">
-        <span class="tb-label">DATE</span><span class="tb-value">2026-07-27</span>
-      </div>
-    </aside>
-    <!--SC-CALC-SHEET-TB-END-->
-  </body>
+<!--SC-RELATED-TOOLS-START-->
+<section class="related-tools-section" aria-labelledby="related-tools-heading">
+  <h2 id="related-tools-heading">Related Calculators</h2>
+  <div class="related-grid">
+    <a href="/calculator/cnc-feeds-speeds" class="related-card">
+      <div class="rt-title">SC-020 Feeds & Speeds</div>
+      <div class="rt-desc">Calculate cutting speed, feed rate, and Taylor tool life with chip thinning and deterministic De</div>
+    </a>
+    <a href="/calculator/punching-force" class="related-card">
+      <div class="rt-title">SC-039 Punching Force</div>
+      <div class="rt-desc">Punching force, stripping force, and die clearance for sheet metal operations. Deterministic.</div>
+    </a>
+    <a href="/calculator/tap-thread-milling" class="related-card">
+      <div class="rt-title">SC-022 Tap & Thread</div>
+      <div class="rt-desc">Thread milling and tapping parameters with pitch, lead angle, and torque estimation. Determinist</div>
+    </a>
+  </div>
+</section>
+<!--SC-RELATED-TOOLS-END-->
+<!--SC-CALC-SHEET-TB-START-->
+<aside class="sc-calc-sheet-titleblock" aria-hidden="true">
+  <div class="tb-row"><span class="tb-label">DWG</span><span class="tb-value">SC-023-001</span></div>
+  <div class="tb-row"><span class="tb-label">FMT</span><span class="tb-value">CALC SHEET</span></div>
+  <div class="tb-row"><span class="tb-label">REV</span><span class="tb-value">A</span></div>
+  <div class="tb-row"><span class="tb-label">DATE</span><span class="tb-value">2026-07-27</span></div>
+</aside>
+<!--SC-CALC-SHEET-TB-END-->
+</body>
 </html>
