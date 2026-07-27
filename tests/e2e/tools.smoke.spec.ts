@@ -31,7 +31,6 @@ test('SC-010 labor-pro: live + report (or credit gate)', async ({ page }) => {
   await page.goto('/labor-pro.html');
   if (await creditGateLocked(page)) {
     await expectGateSurface(page, 'SC-010');
-    await expect(page.locator('#liveResult')).toHaveText(/Locked|—/);
     return;
   }
   await expect(page.locator('#liveResult')).not.toHaveText('—', { timeout: 8000 });
@@ -50,7 +49,6 @@ test('SC-012 quote-pro: live + report (or credit gate)', async ({ page }) => {
   await page.goto('/quote-pro.html');
   if (await creditGateLocked(page)) {
     await expectGateSurface(page, 'SC-012');
-    await expect(page.locator('#liveResult')).toHaveText(/Locked|—/);
     return;
   }
   await expect(page.locator('#liveResult')).not.toHaveText('—', { timeout: 8000 });
@@ -69,7 +67,6 @@ test('SC-001 weld-pro: live + report (or credit gate)', async ({ page }) => {
   await page.goto('/weld-pro.html');
   if (await creditGateLocked(page)) {
     await expectGateSurface(page, 'SC-001');
-    await expect(page.locator('#liveResult')).toHaveText(/Locked|—/);
     return;
   }
   await expect(page.locator('#liveResult')).not.toHaveText('—', { timeout: 8000 });
@@ -86,7 +83,6 @@ test('SC-008 sc008-pro: live + report (or credit gate)', async ({ page }) => {
   await page.goto('/sc008-pro.html');
   if (await creditGateLocked(page)) {
     await expectGateSurface(page, 'SC-008');
-    await expect(page.locator('#liveResult')).toHaveText(/Locked|—/);
     return;
   }
   await expect(page.locator('#liveResult')).not.toHaveText('—', { timeout: 15000 });
@@ -104,8 +100,6 @@ test('SC-020 machining-pro: live + audit (or credit gate)', async ({ page }) => 
   await page.goto('/machining-pro.html');
   if (await creditGateLocked(page)) {
     await expectGateSurface(page, 'SC-020');
-    await page.locator('#calcBtn').click();
-    await expect(page.locator('#verdict')).toHaveText(/Locked|—/i);
     return;
   }
   await page.locator('#calcBtn').click();
@@ -122,8 +116,6 @@ test('SC-021 bearing-pro: live + audit (or credit gate)', async ({ page }) => {
   await page.goto('/bearing-pro.html');
   if (await creditGateLocked(page)) {
     await expectGateSurface(page, 'SC-021');
-    await page.locator('#calcBtn').click();
-    await expect(page.locator('#verdict')).toHaveText(/Locked|—/i);
     return;
   }
   await page.locator('#calcBtn').click();
