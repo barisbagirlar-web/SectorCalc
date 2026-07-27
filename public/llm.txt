@@ -118,6 +118,9 @@ Topic → subtopic → entity → internal links. Use these clusters for retriev
   - https://sectorcalc.com/calculator/iso-286-fits
   - https://sectorcalc.com/calculator/surface-finish
   - https://sectorcalc.com/glossary/iso-286-fits
+  - https://sectorcalc.com/guides/iso-286-fits-complete
+  - https://sectorcalc.com/guides/surface-finish-complete
+  - https://sectorcalc.com/topics/fits-and-finish
 
 ### CNC machining
 > Will this cut release on the spindle you actually own — or burn a tool and stall the machine?
@@ -234,6 +237,9 @@ Topic → subtopic → entity → internal links. Use these clusters for retriev
 - Authority links:
   - https://sectorcalc.com/calculator/sheet-metal-bend
   - https://sectorcalc.com/calculator/punching-force
+  - https://sectorcalc.com/guides/sheet-metal-bend-complete
+  - https://sectorcalc.com/guides/punching-force-complete
+  - https://sectorcalc.com/topics/sheet-metal-fabrication
 
 ### Lifting & rigging
 > Does the sling and hardware rating survive the angle and shock you will actually apply?
@@ -280,7 +286,7 @@ Critical calculator URLs follow: Empathy/Problem → Direct Answer → Calculati
 
 ## Search and retrieval
 - `robots.txt` explicitly allows Googlebot, Bingbot, OAI-SearchBot, PerplexityBot to crawl public production content.
-- The XML sitemap lists **82** canonical indexable HTML URLs derived from the SEO registry (calculators, hubs, glossary, guides, compare, resources, legal). It omits `priority`, `changefreq`, speculative freshness dates, non-HTML discovery files, redirects, noindex pages and incomplete locale previews.
+- The XML sitemap lists **86** canonical indexable HTML URLs derived from the SEO registry (calculators, hubs, glossary, guides, compare, resources, legal). It omits `priority`, `changefreq`, speculative freshness dates, non-HTML discovery files, redirects, noindex pages and incomplete locale previews.
 - German, Japanese and Chinese preview pages remain `noindex,follow` until full localized content and reciprocal hreflang sets are release-ready.
 - `llms.txt` / `llm.txt` are byte-identical supplemental discovery documentation. They do not guarantee Google AI Overview placement or ChatGPT citation. Public HTML, canonical URLs, visible engineering content and structured data remain the primary source of truth.
 
