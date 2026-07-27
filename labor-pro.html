@@ -550,10 +550,11 @@ hiddenCostPct = (trueMonthlyCost − netMonthly) / netMonthly × 100</div>
       "operatingSystem": "Any (Client-side Browser)",
       "offers": {
         "@type": "Offer",
-        "price": "0",
+        "name": "24-hour calculator session (credits)",
+        "description": "Unlock with SectorCalc credits. Session cost by tool tier: CORE 3, PRO 7, or ADVANCED 15 credits for 24 hours of unlimited recalculation. One-time credit packs — no subscription.",
+        "url": "https://sectorcalc.com/pricing.html",
         "priceCurrency": "USD",
         "availability": "https://schema.org/InStock",
-        "url": "https://sectorcalc.com/calculator/true-labor-cost",
         "seller": {
           "@id": "https://sectorcalc.com/#organization"
         }
@@ -607,11 +608,11 @@ hiddenCostPct = (trueMonthlyCost − netMonthly) / netMonthly × 100</div>
       },
       "offers": {
         "@type": "Offer",
-        "name": "Free exploratory calculation",
-        "price": "0.00",
+        "name": "Credit-unlocked calculation session",
+        "description": "Live calculators require a credit-backed 24-hour session before results run. Buy one-time packs on Pricing.",
+        "url": "https://sectorcalc.com/pricing.html",
         "priceCurrency": "USD",
         "availability": "https://schema.org/InStock",
-        "url": "https://sectorcalc.com/calculator/true-labor-cost",
         "seller": {
           "@id": "https://sectorcalc.com/#organization"
         }
@@ -626,7 +627,7 @@ hiddenCostPct = (trueMonthlyCost − netMonthly) / netMonthly × 100</div>
       "estimatedCost": {
         "@type": "MonetaryAmount",
         "currency": "USD",
-        "value": "0"
+        "value": "15"
       },
       "tool": [
         {
@@ -638,8 +639,8 @@ hiddenCostPct = (trueMonthlyCost − netMonthly) / netMonthly × 100</div>
         {
           "@type": "HowToStep",
           "position": 1,
-          "name": "Open the tool",
-          "text": "Go to https://sectorcalc.com/calculator/true-labor-cost and optionally Load Demo Data to inspect a complete working model.",
+          "name": "Sign in and unlock a session",
+          "text": "Open https://sectorcalc.com/calculator/true-labor-cost, sign in, and confirm a credit debit for a 24-hour session on this tool (tier cost applies).",
           "url": "https://sectorcalc.com/calculator/true-labor-cost"
         },
         {
@@ -653,7 +654,7 @@ hiddenCostPct = (trueMonthlyCost − netMonthly) / netMonthly × 100</div>
           "@type": "HowToStep",
           "position": 3,
           "name": "Calculate and audit",
-          "text": "Run Calculate & Audit / Generate Report. Review formulas, warnings, engine version, and export if needed.",
+          "text": "Run Calculate & Audit / Generate Report. Review formulas, warnings, engine version, and export if needed. Recalculate freely until the session expires.",
           "url": "https://sectorcalc.com/calculator/true-labor-cost"
         }
       ],
@@ -708,7 +709,7 @@ hiddenCostPct = (trueMonthlyCost − netMonthly) / netMonthly × 100</div>
     "@id": "https://sectorcalc.com/#organization"
   },
   "license": "https://sectorcalc.com/terms.html",
-  "isAccessibleForFree": true,
+  "isAccessibleForFree": false,
   "distribution": {
     "@type": "DataDownload",
     "encodingFormat": "application/pdf",
@@ -762,7 +763,7 @@ hiddenCostPct = (trueMonthlyCost − netMonthly) / netMonthly × 100</div>
 <!--SC-SEO-SCHEMA-END-->
 <link rel="stylesheet" href="/sc-related-tools.css?v=1">
                         <link rel="stylesheet" href="/sc-money.css?v=2">
-                          <link rel="stylesheet" href="/sc-calc-sheet.css?v=1">
+                            <link rel="stylesheet" href="/sc-calc-sheet.css?v=1">
   <!--SC-CALC-SHEET-START-->
   <!-- calc-sheet theme: theme-calc-sheet -->
   <!--SC-CALC-SHEET-END-->
@@ -802,6 +803,7 @@ hiddenCostPct = (trueMonthlyCost − netMonthly) / netMonthly × 100</div>
 </div>
 <!--SC-SITE-NAV-END-->
 <div class="sc-tool-strip"><b>SC-010 · True Labor Cost</b><span>Engineering preview · Decimal engine · Not for production approval</span></div>
+
 
 
 
