@@ -57,6 +57,50 @@ html[data-theme="dark"] .site-header .brand-mark .logo-dark{ display:block; }
   background:var(--sc-nav-blue-deep); border-color:var(--sc-nav-blue-deep); color:#fff;
 }
 
+/* Active session chip — signed-in identity, not a membership CTA */
+.site-header .main-nav a.sc-nav-session{
+  display:inline-flex; align-items:center; gap:10px;
+  text-decoration:none; color:var(--sc-nav-ink);
+  border:1.5px solid var(--sc-nav-line-strong);
+  background:rgba(0,85,164,0.06);
+  padding:6px 12px 6px 6px;
+  min-height:44px;
+  border-bottom:1.5px solid var(--sc-nav-line-strong);
+}
+.site-header .main-nav a.sc-nav-session:hover{
+  border-color:var(--sc-nav-blue); color:var(--sc-nav-ink); background:rgba(0,85,164,0.1);
+}
+.sc-nav-session-avatar{
+  display:inline-grid; place-items:center;
+  width:32px; height:32px; flex-shrink:0;
+  background:var(--sc-nav-blue); color:#fff;
+  font-family:var(--sc-nav-mono); font-size:11px; font-weight:700; letter-spacing:0.04em;
+}
+.sc-nav-session-meta{ display:grid; gap:1px; line-height:1.15; text-align:left; }
+.sc-nav-session-state{
+  font-family:var(--sc-nav-mono); font-size:10px; font-weight:700;
+  letter-spacing:0.1em; text-transform:uppercase; color:var(--sc-nav-blue);
+  display:inline-flex; align-items:center; gap:6px;
+}
+.sc-nav-session-state::before{
+  content:""; width:7px; height:7px; border-radius:50%;
+  background:#1f8f4e; box-shadow:0 0 0 2px rgba(31,143,78,0.22);
+}
+.sc-nav-session-who{
+  font-family:var(--sc-nav-mono); font-size:12px; font-weight:600;
+  letter-spacing:0.02em; text-transform:none; color:var(--sc-nav-ink);
+  max-width:140px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+}
+html[data-theme="dark"] .site-header .main-nav a.sc-nav-session{
+  background:rgba(76,155,232,0.1);
+}
+.mobile-nav-overlay a.sc-nav-session{
+  display:flex; align-items:center; gap:12px;
+  margin-top:8px; padding:12px; text-decoration:none; color:inherit;
+  border:1.5px solid var(--sc-nav-line, #C5C5BE); background:rgba(0,85,164,0.06);
+}
+.mobile-nav-overlay a.sc-nav-session .sc-nav-session-who{ max-width:none; }
+
 .site-header .sc-nav-tool{
   display:none; font-family:var(--sc-nav-mono); font-size:11px; font-weight:700;
   letter-spacing:.06em; text-transform:uppercase; color:var(--sc-nav-mut);
@@ -78,6 +122,7 @@ html[data-theme="dark"] .site-header .brand-mark .logo-dark{ display:block; }
 @media(max-width:900px){
   .site-header .main-nav ul,
   .site-header .main-nav .btn-primary,
+  .site-header .main-nav .sc-nav-session,
   .site-header .sc-nav-tool{ display:none !important; }
   .site-header .mobile-menu-btn{ display:flex; }
 }

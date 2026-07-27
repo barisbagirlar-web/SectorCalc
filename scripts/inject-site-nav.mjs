@@ -13,10 +13,12 @@ const PARTIAL = readFileSync(join(ROOT, 'content/partials/site-header.html'), 'u
 const FORM_FIELDS_VERSION = 5;
 const STUDY_VERSION = 4;
 const THEME_VERSION = 12;
-const NAV_VERSION = 4;
+const NAV_VERSION = 5;
+const AUTH_NAV_SCRIPT = `<script type="module" src="/src/auth-nav.ts"></script>`;
 const NAV_ASSETS = `
 <link rel="stylesheet" href="./sc-site-nav.css?v=${NAV_VERSION}">
 <script src="./sc-site-nav.js?v=2" defer></script>
+${AUTH_NAV_SCRIPT}
 `.trim();
 const THEME_ASSETS = `
 <link rel="stylesheet" href="./sc-theme.css?v=${THEME_VERSION}">
@@ -105,10 +107,22 @@ function autoRegisterProPages() {
 
 function ensureAssets(html, page = '') {
   let out = html;
+  // Drop legacy body-end auth-nav mounts (SEO/CVW injects rewrite </body> and can wipe them)
+  out = out.replace(/\s*<script type="module" src="\/src\/auth-nav\.ts"><\/script>\s*/g, '\n');
   if (!out.includes('sc-site-nav.css')) {
     out = out.replace('</head>', `${NAV_ASSETS}\n</head>`);
   } else {
     out = out.replace(/sc-site-nav\.css\?v=\d+/g, `sc-site-nav.css?v=${NAV_VERSION}`);
+    if (!out.includes('auth-nav')) {
+      if (/sc-site-nav\.js[^"']*["'][^>]*>/.test(out)) {
+        out = out.replace(
+          /(<script[^>]+sc-site-nav\.js[^>]*><\/script>)/,
+          `$1\n${AUTH_NAV_SCRIPT}`
+        );
+      } else {
+        out = out.replace('</head>', `${AUTH_NAV_SCRIPT}\n</head>`);
+      }
+    }
   }
   if (!out.includes('sc-theme.css')) {
     out = out.replace('</head>', `${THEME_ASSETS}\n</head>`);
