@@ -6,23 +6,23 @@
    ============================================================ */
 
 :root {
-  --iso-blue: #0055A4;
+  --iso-blue: #0055a4;
   --iso-green: #009639;
-  --iso-yellow: #F9A800;
-  --iso-orange: #E16A00;
-  --iso-red: #C8102E;
-  --cs-bg: #F7F8FA;
-  --cs-border: #1A3A5C;
+  --iso-yellow: #f9a800;
+  --iso-orange: #e16a00;
+  --iso-red: #c8102e;
+  --cs-bg: #f7f8fa;
+  --cs-border: #1a3a5c;
   --cs-grid: rgba(26, 58, 92, 0.055);
-  --cs-accent: #1A3A5C;
-  --cs-paper: #FFFFFF;
-  --ds-bg: #FAFBFC;
-  --ds-border: #2C3E50;
-  --ds-accent: #0055A4;
-  --bom-bg: #F5F6F8;
-  --bom-border: #2C3E50;
-  --bom-header: #1A3A5C;
-  --sc-sheet-mono: "JetBrains Mono", "SF Mono", "Fira Code", Consolas, monospace;
+  --cs-accent: #1a3a5c;
+  --cs-paper: #ffffff;
+  --ds-bg: #fafbfc;
+  --ds-border: #2c3e50;
+  --ds-accent: #0055a4;
+  --bom-bg: #f5f6f8;
+  --bom-border: #2c3e50;
+  --bom-header: #1a3a5c;
+  --sc-sheet-mono: 'JetBrains Mono', 'SF Mono', 'Fira Code', Consolas, monospace;
   --sc-sheet-grid: 20px;
 }
 
@@ -36,13 +36,12 @@ body.theme-bom {
 body.theme-calc-sheet::before,
 body.theme-drawing-index::before,
 body.theme-bom::before {
-  content: "";
+  content: '';
   position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: 0;
-  background-image:
-    linear-gradient(var(--cs-grid) 1px, transparent 1px),
+  background-image: linear-gradient(var(--cs-grid) 1px, transparent 1px),
     linear-gradient(90deg, var(--cs-grid) 1px, transparent 1px);
   background-size: var(--sc-sheet-grid) var(--sc-sheet-grid);
 }
@@ -137,6 +136,75 @@ body.theme-drawing-index .wrap {
   padding: 28px 32px 36px;
 }
 
+/* Engineering Resources rail — must live inside .wrap (never orphan body child) */
+.sc-seo-sprint-links {
+  margin: 2rem 0 0;
+  padding: 1.35rem 1.25rem 1.4rem;
+  border: 1px solid rgba(26, 58, 92, 0.18);
+  border-left: 3px solid var(--cs-accent, #0055a4);
+  background: linear-gradient(180deg, rgba(0, 85, 164, 0.04), transparent 42%), #fff;
+  max-width: 100%;
+}
+.sc-seo-sprint-links h2 {
+  margin: 0 0 0.4rem;
+  font:
+    700 1.05rem/1.25 'IBM Plex Sans',
+    'Segoe UI',
+    sans-serif;
+  letter-spacing: 0.02em;
+  color: #0b1c2c;
+  text-transform: none;
+}
+.sc-seo-sprint-links > p {
+  margin: 0 0 0.95rem;
+  color: #3d5366;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  max-width: 42rem;
+}
+.sc-seo-sprint-links ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.65rem 1rem;
+}
+.sc-seo-sprint-links li {
+  margin: 0;
+}
+.sc-seo-sprint-links a {
+  display: block;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid rgba(26, 58, 92, 0.14);
+  background: #f7fafc;
+  color: #0055a4;
+  font-weight: 650;
+  text-decoration: none;
+  line-height: 1.3;
+}
+.sc-seo-sprint-links a:hover,
+.sc-seo-sprint-links a:focus-visible {
+  border-color: rgba(0, 85, 164, 0.45);
+  background: #eef5fb;
+  outline: none;
+}
+html[data-theme='dark'] .sc-seo-sprint-links {
+  background: linear-gradient(180deg, rgba(127, 179, 232, 0.08), transparent 42%), #131a23;
+  border-color: rgba(127, 179, 232, 0.28);
+}
+html[data-theme='dark'] .sc-seo-sprint-links h2 {
+  color: #e8eef5;
+}
+html[data-theme='dark'] .sc-seo-sprint-links > p {
+  color: #9db8d4;
+}
+html[data-theme='dark'] .sc-seo-sprint-links a {
+  background: #0f151d;
+  border-color: rgba(127, 179, 232, 0.22);
+  color: #9db8d4;
+}
+
 body.theme-drawing-index .hero h1 {
   font-family: var(--sc-sheet-mono);
   letter-spacing: 0.04em;
@@ -150,7 +218,7 @@ body.theme-drawing-index .catsec h2 {
 }
 
 body.theme-drawing-index .catsec h2::before {
-  content: "DWG · ";
+  content: 'DWG · ';
   font-family: var(--sc-sheet-mono);
   font-size: 0.7em;
   color: var(--ds-accent);
@@ -231,9 +299,9 @@ body.theme-bom .packs {
 }
 
 /* ---------- Dark theme ---------- */
-html[data-theme="dark"] body.theme-calc-sheet,
-html[data-theme="dark"] body.theme-drawing-index,
-html[data-theme="dark"] body.theme-bom {
+html[data-theme='dark'] body.theme-calc-sheet,
+html[data-theme='dark'] body.theme-drawing-index,
+html[data-theme='dark'] body.theme-bom {
   --cs-bg: #0f151d;
   --cs-paper: #131a23;
   --cs-grid: rgba(255, 255, 255, 0.04);
@@ -241,22 +309,22 @@ html[data-theme="dark"] body.theme-bom {
   --bom-bg: #0f151d;
 }
 
-html[data-theme="dark"] body.theme-calc-sheet .wrap,
-html[data-theme="dark"] body.theme-calc-sheet .sc-layout,
-html[data-theme="dark"] body.theme-drawing-index .wrap,
-html[data-theme="dark"] body.theme-bom .wrap {
+html[data-theme='dark'] body.theme-calc-sheet .wrap,
+html[data-theme='dark'] body.theme-calc-sheet .sc-layout,
+html[data-theme='dark'] body.theme-drawing-index .wrap,
+html[data-theme='dark'] body.theme-bom .wrap {
   background: var(--cs-paper);
   border-color: rgba(127, 179, 232, 0.35);
   box-shadow: none;
 }
 
-html[data-theme="dark"] .sc-calc-sheet-titleblock {
+html[data-theme='dark'] .sc-calc-sheet-titleblock {
   background: rgba(19, 26, 35, 0.96);
   border-color: rgba(127, 179, 232, 0.35);
   color: #9db8d4;
 }
 
-html[data-theme="dark"] .sc-calc-sheet-titleblock .tb-value {
+html[data-theme='dark'] .sc-calc-sheet-titleblock .tb-value {
   color: #cfe0f2;
 }
 
