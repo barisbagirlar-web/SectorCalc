@@ -45,6 +45,24 @@ service cloud.firestore {
         allow create, update: if isOwner(uid);
         allow delete: if isOwner(uid) || isOpsAdmin();
       }
+
+      match /ledger/{id} {
+        allow read: if isOwner(uid) || isOpsAdmin();
+        allow create: if (
+            isOwner(uid)
+            && request.resource.data.delta is int
+            && request.resource.data.delta != 0
+            && request.resource.data.kind is string
+            && request.resource.data.label is string
+          ) || (
+            isOpsAdmin()
+            && request.resource.data.delta is int
+            && request.resource.data.delta != 0
+            && request.resource.data.kind is string
+            && request.resource.data.label is string
+          );
+        allow update, delete: if false;
+      }
     }
 
     match /ops_audit/{id} {

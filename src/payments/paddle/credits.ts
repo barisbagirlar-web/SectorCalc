@@ -52,3 +52,20 @@ export function grantCredits(amount: number, txnId?: string): CreditLedger {
   writeCredits(next);
   return next;
 }
+
+/** Debit credits for a professional session unlock. Null if insufficient. */
+export function spendCredits(amount: number, txnId?: string): CreditLedger | null {
+  if (!Number.isInteger(amount) || amount <= 0) {
+    throw new Error('spendCredits: amount must be a positive integer');
+  }
+  const current = readCredits();
+  if (txnId && current.lastTxnId === txnId) return current;
+  if (current.balance < amount) return null;
+  const next: CreditLedger = {
+    balance: current.balance - amount,
+    updatedAt: new Date().toISOString(),
+    lastTxnId: txnId ?? current.lastTxnId
+  };
+  writeCredits(next);
+  return next;
+}
