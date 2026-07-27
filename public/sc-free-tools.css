@@ -9,11 +9,21 @@
   --sc-free-paper: #ffffff;
   --sc-free-grid: #e0e0d8;
   padding: clamp(2.25rem, 4.5vw, 3.5rem) clamp(1rem, 4vw, 2.5rem);
-  background:
-    linear-gradient(to right, color-mix(in srgb, var(--sc-free-grid) 55%, transparent) 1px, transparent 1px),
-    linear-gradient(to bottom, color-mix(in srgb, var(--sc-free-grid) 55%, transparent) 1px, transparent 1px),
+  background: linear-gradient(
+      to right,
+      color-mix(in srgb, var(--sc-free-grid) 55%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--sc-free-grid) 55%, transparent) 1px,
+      transparent 1px
+    ),
     linear-gradient(180deg, #f5f5f0 0%, #ecece6 100%);
-  background-size: 24px 24px, 24px 24px, auto;
+  background-size:
+    24px 24px,
+    24px 24px,
+    auto;
   border-block: 2px solid var(--sc-free-line-strong);
   color: var(--sc-free-ink);
 }
@@ -26,11 +36,21 @@
   --sc-free-wash: rgba(79, 166, 214, 0.14);
   --sc-free-paper: #1b1f23;
   --sc-free-grid: #2a3238;
-  background:
-    linear-gradient(to right, color-mix(in srgb, var(--sc-free-grid) 70%, transparent) 1px, transparent 1px),
-    linear-gradient(to bottom, color-mix(in srgb, var(--sc-free-grid) 70%, transparent) 1px, transparent 1px),
+  background: linear-gradient(
+      to right,
+      color-mix(in srgb, var(--sc-free-grid) 70%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--sc-free-grid) 70%, transparent) 1px,
+      transparent 1px
+    ),
     linear-gradient(180deg, #14171a 0%, #1a1f24 100%);
-  background-size: 24px 24px, 24px 24px, auto;
+  background-size:
+    24px 24px,
+    24px 24px,
+    auto;
 }
 .sc-free-inner {
   max-width: 1120px;
@@ -38,14 +58,24 @@
 }
 .sc-free-kicker {
   margin: 0 0 0.55rem;
-  font: 700 0.7rem/1.25 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font:
+    700 0.7rem/1.25 'JetBrains Mono',
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Consolas,
+    monospace;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--sc-free-accent);
 }
 .sc-free-tools h2 {
   margin: 0 0 0.65rem;
-  font: 800 clamp(1.55rem, 2.8vw, 2.15rem)/1.12 'Barlow Condensed', 'IBM Plex Sans', system-ui, sans-serif;
+  font:
+    800 clamp(1.55rem, 2.8vw, 2.15rem) / 1.12 'Barlow Condensed',
+    'IBM Plex Sans',
+    system-ui,
+    sans-serif;
   letter-spacing: 0.01em;
   text-transform: uppercase;
   max-width: 22ch;
@@ -54,7 +84,11 @@
   margin: 0 0 1.5rem;
   max-width: 54rem;
   color: var(--sc-free-muted);
-  font: 400 1rem/1.6 Inter, 'IBM Plex Sans', system-ui, sans-serif;
+  font:
+    400 1rem/1.6 Inter,
+    'IBM Plex Sans',
+    system-ui,
+    sans-serif;
 }
 .sc-free-grid {
   display: grid;
@@ -81,7 +115,9 @@
   border-radius: 0;
   min-height: 100%;
   box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--sc-free-line) 35%, transparent);
-  transition: border-color 0.18s ease, transform 0.18s ease;
+  transition:
+    border-color 0.18s ease,
+    transform 0.18s ease;
 }
 .sc-free-card:hover {
   border-color: var(--sc-free-accent);
@@ -94,13 +130,22 @@
   background: var(--sc-free-wash);
   color: var(--sc-free-accent);
   border: 1px solid color-mix(in srgb, var(--sc-free-accent) 35%, transparent);
-  font: 700 0.66rem/1.2 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+  font:
+    700 0.66rem/1.2 'JetBrains Mono',
+    ui-monospace,
+    Menlo,
+    Consolas,
+    monospace;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 .sc-free-card h3 {
   margin: 0;
-  font: 700 1.02rem/1.25 'Barlow Condensed', 'IBM Plex Sans', system-ui, sans-serif;
+  font:
+    700 1.02rem/1.25 'Barlow Condensed',
+    'IBM Plex Sans',
+    system-ui,
+    sans-serif;
   letter-spacing: 0.02em;
   text-transform: uppercase;
 }
@@ -108,12 +153,21 @@
   margin: 0;
   flex: 1;
   color: var(--sc-free-muted);
-  font: 400 0.88rem/1.5 Inter, 'IBM Plex Sans', system-ui, sans-serif;
+  font:
+    400 0.88rem/1.5 Inter,
+    'IBM Plex Sans',
+    system-ui,
+    sans-serif;
 }
 .sc-free-cta {
   margin-top: 0.4rem;
   align-self: flex-start;
-  font: 700 0.78rem/1.3 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+  font:
+    700 0.78rem/1.3 'JetBrains Mono',
+    ui-monospace,
+    Menlo,
+    Consolas,
+    monospace;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--sc-free-accent);
@@ -157,7 +211,12 @@
 }
 .sc-free-aeo-upsell a {
   color: var(--sc-free-accent, #0055a4);
-  font: 700 0.8rem/1.3 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+  font:
+    700 0.8rem/1.3 'JetBrains Mono',
+    ui-monospace,
+    Menlo,
+    Consolas,
+    monospace;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   text-decoration: none;

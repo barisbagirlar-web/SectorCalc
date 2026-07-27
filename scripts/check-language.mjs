@@ -24,7 +24,9 @@ const IGNORE_DIRS = new Set([
   'coverage', 'playwright-report', 'test-results', '.cache',
   'kimi-hero', 'kimi-hiz', 'vendor',
   // Intentional multilingual landing hubs (de/ja/zh)
-  'de', 'ja', 'zh'
+  'de', 'ja', 'zh',
+  // Foreign multi-site kit drops (never part of SectorCalc English surface)
+  '5-SITE-REGRESSION-GUARD-COMPLETE'
 ]);
 
 // Files never scanned (generated, binary, or self).
@@ -98,7 +100,8 @@ function walk(dir) {
       continue;
     }
     if (st.isDirectory()) {
-      if (!IGNORE_DIRS.has(entry)) walk(abs);
+      if (IGNORE_DIRS.has(entry) || entry.startsWith('5-SITE-REGRESSION-GUARD')) continue;
+      walk(abs);
     } else if (st.isFile()) {
       if (IGNORE_FILES.has(entry)) continue;
       if (BINARY_EXT.has(extname(entry).toLowerCase())) continue;

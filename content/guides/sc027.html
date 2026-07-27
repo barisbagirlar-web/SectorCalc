@@ -1,99 +1,215 @@
 <div class="sc-guide-shell">
-<section class="sc-guide" id="sc-guide" data-tool-id="SC-027" data-tool-name="ISO 286 Fits Calculator (SC-027)">
+  <section
+    class="sc-guide"
+    id="sc-guide"
+    data-tool-id="SC-027"
+    data-tool-name="ISO 286 Fits Calculator (SC-027)"
+  >
+    <nav class="sc-guide-toc" aria-label="Table of contents">
+      <h2 class="sc-guide-toc-title">Contents</h2>
+      <ol>
+        <li><a href="#what-iso-286">What ISO 286 actually specifies</a></li>
+        <li><a href="#hole-shaft-basis">Hole basis vs shaft basis</a></li>
+        <li><a href="#limit-deviations">Limit deviations are size-dependent</a></li>
+        <li><a href="#fit-classes">Clearance, transition, interference</a></li>
+        <li><a href="#worked-h7g6">Worked pattern: H7/g6 screening</a></li>
+        <li><a href="#when-stack">When a fit is not enough — escalate to stack-up</a></li>
+        <li><a href="#unsupported">Unsupported zones and honesty rules</a></li>
+        <li><a href="#failure-modes">Common failure modes</a></li>
+        <li><a href="#decision-table">Decision table</a></li>
+        <li><a href="#faqs">Frequently asked questions</a></li>
+      </ol>
+    </nav>
 
-<nav class="sc-guide-toc" aria-label="Table of contents">
-  <h2 class="sc-guide-toc-title">Contents</h2>
-  <ol>
-    <li><a href="#what-iso-286">What ISO 286 actually specifies</a></li>
-    <li><a href="#hole-shaft-basis">Hole basis vs shaft basis</a></li>
-    <li><a href="#limit-deviations">Limit deviations are size-dependent</a></li>
-    <li><a href="#fit-classes">Clearance, transition, interference</a></li>
-    <li><a href="#worked-h7g6">Worked pattern: H7/g6 screening</a></li>
-    <li><a href="#when-stack">When a fit is not enough — escalate to stack-up</a></li>
-    <li><a href="#unsupported">Unsupported zones and honesty rules</a></li>
-    <li><a href="#failure-modes">Common failure modes</a></li>
-    <li><a href="#decision-table">Decision table</a></li>
-    <li><a href="#faqs">Frequently asked questions</a></li>
-  </ol>
-</nav>
+    <p class="sc-guide-lede">
+      ISO 286 defines <strong>hole and shaft tolerance zones</strong> relative to a nominal size.
+      Letter/number pairs like <strong>H7</strong> or <strong>g6</strong> are zone identities — not
+      millimetre clearances. SectorCalc <strong>SC-027</strong> looks up equation-backed families
+      and computes limit deviations for the selected diameter band so you can screen a fit before
+      drawings freeze. It does not invent unsupported zones and does not replace the governing ISO
+      286 edition on your contract.
+    </p>
 
-<p class="sc-guide-lede">ISO 286 defines <strong>hole and shaft tolerance zones</strong> relative to a nominal size. Letter/number pairs like <strong>H7</strong> or <strong>g6</strong> are zone identities — not millimetre clearances. SectorCalc <strong>SC-027</strong> looks up equation-backed families and computes limit deviations for the selected diameter band so you can screen a fit before drawings freeze. It does not invent unsupported zones and does not replace the governing ISO 286 edition on your contract.</p>
+    <h2 id="what-iso-286">What ISO 286 actually specifies</h2>
+    <p>
+      ISO 286 organises tolerances into a letter (fundamental deviation position relative to the
+      zero line) and a number (IT grade — the size of the tolerance zone). The same letters mean
+      different limit deviations in different nominal size ranges. Treating “H7/g6” as a constant
+      clearance across 10 mm and 80 mm shafts is the most common drawing-room error.
+    </p>
+    <p>
+      Use ISO 286 when the functional question is local mating behaviour: sliding clearance,
+      location transition, or light press. Use a 1D stack-up when the functional question is whether
+      an <em>assembly chain</em> still closes.
+    </p>
 
-<h2 id="what-iso-286">What ISO 286 actually specifies</h2>
-<p>ISO 286 organises tolerances into a letter (fundamental deviation position relative to the zero line) and a number (IT grade — the size of the tolerance zone). The same letters mean different limit deviations in different nominal size ranges. Treating “H7/g6” as a constant clearance across 10 mm and 80 mm shafts is the most common drawing-room error.</p>
-<p>Use ISO 286 when the functional question is local mating behaviour: sliding clearance, location transition, or light press. Use a 1D stack-up when the functional question is whether an <em>assembly chain</em> still closes.</p>
+    <div class="sc-formula">
+      Hole: upper limit deviation ES, lower EI<br />
+      Shaft: upper es, lower ei<br />
+      Extreme clearance / interference from mating extremes
+    </div>
 
-<div class="sc-formula">
-  Hole: upper limit deviation ES, lower EI<br>
-  Shaft: upper es, lower ei<br>
-  Extreme clearance / interference from mating extremes
-</div>
+    <h2 id="hole-shaft-basis">Hole basis vs shaft basis</h2>
+    <p>
+      Most production systems are <strong>hole-basis</strong>: the hole stays on an H-system
+      (fundamental deviation ≈ 0 for H), and the shaft grade (g, f, e, k, p…) sets clearance or
+      transition behaviour. Shaft-basis systems exist; mixing systems without documenting which
+      feature is basic creates ambiguous inspection plans.
+    </p>
+    <p>
+      Before you pick letters, write one sentence on the traveler: “Hole is basic (H7); shaft is g6
+      for easy sliding at Ø__.” That sentence prevents tribal fit folklore from overriding the
+      print.
+    </p>
 
-<h2 id="hole-shaft-basis">Hole basis vs shaft basis</h2>
-<p>Most production systems are <strong>hole-basis</strong>: the hole stays on an H-system (fundamental deviation ≈ 0 for H), and the shaft grade (g, f, e, k, p…) sets clearance or transition behaviour. Shaft-basis systems exist; mixing systems without documenting which feature is basic creates ambiguous inspection plans.</p>
-<p>Before you pick letters, write one sentence on the traveler: “Hole is basic (H7); shaft is g6 for easy sliding at Ø__.” That sentence prevents tribal fit folklore from overriding the print.</p>
+    <h2 id="limit-deviations">Limit deviations are size-dependent</h2>
+    <p>
+      SC-027 evaluates deviations at the <strong>actual nominal diameter</strong> you enter. Always
+      re-check when the diameter band changes — even if the letter pair stays the same. Document the
+      size range used for the lookup when you paste results into a drawing note or PPAP narrative.
+    </p>
+    <div class="sc-tip">
+      <div>
+        Cross-check finish callouts on the same seat with the free
+        <a href="/calculator/surface-finish">SC-028 Surface Finish</a> converter when Ra/Rz language
+        also gates release.
+      </div>
+    </div>
 
-<h2 id="limit-deviations">Limit deviations are size-dependent</h2>
-<p>SC-027 evaluates deviations at the <strong>actual nominal diameter</strong> you enter. Always re-check when the diameter band changes — even if the letter pair stays the same. Document the size range used for the lookup when you paste results into a drawing note or PPAP narrative.</p>
-<div class="sc-tip"><div>Cross-check finish callouts on the same seat with the free <a href="/calculator/surface-finish">SC-028 Surface Finish</a> converter when Ra/Rz language also gates release.</div></div>
+    <h2 id="fit-classes">Clearance, transition, interference</h2>
+    <p>
+      After both zones are known, extreme material conditions define the possible assembly states:
+    </p>
+    <ul>
+      <li>
+        <strong>Clearance</strong> — minimum hole ≥ maximum shaft under the extremes you care about.
+      </li>
+      <li>
+        <strong>Transition</strong> — either clearance or light interference possible depending on
+        actual sizes.
+      </li>
+      <li>
+        <strong>Interference</strong> — maximum hole ≤ minimum shaft (press/ shrink strategies).
+      </li>
+    </ul>
+    <p>
+      State the intended class on the traveler. “H7/g6” without “easy sliding clearance” leaves
+      assembly and QC arguing from memory.
+    </p>
 
-<h2 id="fit-classes">Clearance, transition, interference</h2>
-<p>After both zones are known, extreme material conditions define the possible assembly states:</p>
-<ul>
-  <li><strong>Clearance</strong> — minimum hole ≥ maximum shaft under the extremes you care about.</li>
-  <li><strong>Transition</strong> — either clearance or light interference possible depending on actual sizes.</li>
-  <li><strong>Interference</strong> — maximum hole ≤ minimum shaft (press/ shrink strategies).</li>
-</ul>
-<p>State the intended class on the traveler. “H7/g6” without “easy sliding clearance” leaves assembly and QC arguing from memory.</p>
+    <h2 id="worked-h7g6">Worked pattern: H7/g6 screening</h2>
+    <ol>
+      <li>Confirm nominal diameter and whether the hole or shaft is basic.</li>
+      <li>Run open <a href="/calculator/iso-286-fits">SC-027</a> — no sign-in.</li>
+      <li>Select the exposed hole/shaft family that matches the print language.</li>
+      <li>Read ES/EI and es/ei for that size band; record min/max clearance or interference.</li>
+      <li>
+        If the assembly still has stacked contributors (housings, spacers, bearings), open
+        credit-backed <a href="/calculator/tolerance-stack-up">SC-008</a>.
+      </li>
+    </ol>
+    <p>
+      <strong>Honesty note:</strong> This pattern screens fit language. It does not certify
+      press-fit assembly loads, thermal growth, or plating build-up unless you explicitly add those
+      deltas.
+    </p>
 
-<h2 id="worked-h7g6">Worked pattern: H7/g6 screening</h2>
-<ol>
-  <li>Confirm nominal diameter and whether the hole or shaft is basic.</li>
-  <li>Run open <a href="/calculator/iso-286-fits">SC-027</a> — no sign-in.</li>
-  <li>Select the exposed hole/shaft family that matches the print language.</li>
-  <li>Read ES/EI and es/ei for that size band; record min/max clearance or interference.</li>
-  <li>If the assembly still has stacked contributors (housings, spacers, bearings), open credit-backed <a href="/calculator/tolerance-stack-up">SC-008</a>.</li>
-</ol>
-<p><strong>Honesty note:</strong> This pattern screens fit language. It does not certify press-fit assembly loads, thermal growth, or plating build-up unless you explicitly add those deltas.</p>
+    <h2 id="when-stack">When a fit is not enough — escalate to stack-up</h2>
+    <p>Local fit success does not guarantee functional gap closure. Escalate when:</p>
+    <ul>
+      <li>More than one feature controls the gap (bore depth + bearing width + spacer).</li>
+      <li>Customer asks for worst-case / RSS / Monte Carlo evidence.</li>
+      <li>Thermal or coating deltas are significant relative to the clearance band.</li>
+    </ul>
 
-<h2 id="when-stack">When a fit is not enough — escalate to stack-up</h2>
-<p>Local fit success does not guarantee functional gap closure. Escalate when:</p>
-<ul>
-  <li>More than one feature controls the gap (bore depth + bearing width + spacer).</li>
-  <li>Customer asks for worst-case / RSS / Monte Carlo evidence.</li>
-  <li>Thermal or coating deltas are significant relative to the clearance band.</li>
-</ul>
+    <h2 id="unsupported">Unsupported zones and honesty rules</h2>
+    <p>
+      SC-027 exposes equation-backed families only. If a letter pair is outside the implemented set,
+      the calculator must not invent a table. Keep the governing ISO 286 edition for release; use
+      SectorCalc for screening and teaching the size-dependence of deviations.
+    </p>
 
-<h2 id="unsupported">Unsupported zones and honesty rules</h2>
-<p>SC-027 exposes equation-backed families only. If a letter pair is outside the implemented set, the calculator must not invent a table. Keep the governing ISO 286 edition for release; use SectorCalc for screening and teaching the size-dependence of deviations.</p>
+    <h2 id="failure-modes">Common failure modes</h2>
+    <ul>
+      <li>Copying H7/g6 from a previous job without re-looking up the diameter band.</li>
+      <li>Ignoring plating/temperature growth that consumes clearance.</li>
+      <li>Calling a transition fit “press” in the assembly instruction.</li>
+      <li>Using fit selection to skip stack-up on multi-contributor gaps.</li>
+    </ul>
 
-<h2 id="failure-modes">Common failure modes</h2>
-<ul>
-  <li>Copying H7/g6 from a previous job without re-looking up the diameter band.</li>
-  <li>Ignoring plating/temperature growth that consumes clearance.</li>
-  <li>Calling a transition fit “press” in the assembly instruction.</li>
-  <li>Using fit selection to skip stack-up on multi-contributor gaps.</li>
-</ul>
+    <h2 id="decision-table">Decision table</h2>
+    <table class="sc-guide-table">
+      <thead>
+        <tr>
+          <th>Question</th>
+          <th>Use</th>
+          <th>Not enough alone</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>What are limit deviations for this Ø and letter pair?</td>
+          <td>SC-027 (free)</td>
+          <td>Full ISO edition annexes outside exposed families</td>
+        </tr>
+        <tr>
+          <td>Will the assembly gap close under stacked extremes?</td>
+          <td>SC-008 (credits)</td>
+          <td>Fit letters alone</td>
+        </tr>
+        <tr>
+          <td>Drawing Ra vs shop Rz on the same seat?</td>
+          <td>SC-028 (free)</td>
+          <td>Fit calculator</td>
+        </tr>
+      </tbody>
+    </table>
 
-<h2 id="decision-table">Decision table</h2>
-<table class="sc-guide-table">
-  <thead><tr><th>Question</th><th>Use</th><th>Not enough alone</th></tr></thead>
-  <tbody>
-    <tr><td>What are limit deviations for this Ø and letter pair?</td><td>SC-027 (free)</td><td>Full ISO edition annexes outside exposed families</td></tr>
-    <tr><td>Will the assembly gap close under stacked extremes?</td><td>SC-008 (credits)</td><td>Fit letters alone</td></tr>
-    <tr><td>Drawing Ra vs shop Rz on the same seat?</td><td>SC-028 (free)</td><td>Fit calculator</td></tr>
-  </tbody>
-</table>
-
-<h2 id="faqs">Frequently asked questions</h2>
-<div class="q"><h3>Is SC-027 free?</h3><p>Yes. No sign-in, no credits. Instant screening results.</p></div>
-<div class="q"><h3>Does this replace ISO 286?</h3><p>No. Keep the governing edition for contractual release. SC-027 screens exposed families with visible math.</p></div>
-<div class="q"><h3>Can I put SC-027 numbers on PPAP?</h3><p>As engineering screening evidence only. Customer acceptance still governs.</p></div>
-<div class="q"><h3>Why did clearance change when I only changed diameter?</h3><p>Because IT grades and fundamental deviations are tabulated by size range — same letters, different micrometres.</p></div>
-<div class="q"><h3>When do I open stack-up?</h3><p>When multiple contributors — not a single hole/shaft pair — control the functional dimension.</p></div>
-<div class="q"><h3>Are all ISO letters supported?</h3><p>Only equation-backed families exposed in the UI. Unsupported zones are not invented.</p></div>
-<div class="q"><h3>Hole-basis or shaft-basis?</h3><p>Document which feature is basic. Most shops are hole-basis with H-system holes.</p></div>
-<div class="q"><h3>Related reading?</h3><p>See <a href="/blog/iso-286-h7-g6-explained.html">H7/g6 explained</a>, <a href="/topics/fits-and-finish">fits &amp; finish hub</a>, and <a href="/guides/tolerance-stack-up-complete">stack-up guide</a>.</p></div>
-
-</section>
+    <h2 id="faqs">Frequently asked questions</h2>
+    <div class="q">
+      <h3>Is SC-027 free?</h3>
+      <p>Yes. No sign-in, no credits. Instant screening results.</p>
+    </div>
+    <div class="q">
+      <h3>Does this replace ISO 286?</h3>
+      <p>
+        No. Keep the governing edition for contractual release. SC-027 screens exposed families with
+        visible math.
+      </p>
+    </div>
+    <div class="q">
+      <h3>Can I put SC-027 numbers on PPAP?</h3>
+      <p>As engineering screening evidence only. Customer acceptance still governs.</p>
+    </div>
+    <div class="q">
+      <h3>Why did clearance change when I only changed diameter?</h3>
+      <p>
+        Because IT grades and fundamental deviations are tabulated by size range — same letters,
+        different micrometres.
+      </p>
+    </div>
+    <div class="q">
+      <h3>When do I open stack-up?</h3>
+      <p>
+        When multiple contributors — not a single hole/shaft pair — control the functional
+        dimension.
+      </p>
+    </div>
+    <div class="q">
+      <h3>Are all ISO letters supported?</h3>
+      <p>Only equation-backed families exposed in the UI. Unsupported zones are not invented.</p>
+    </div>
+    <div class="q">
+      <h3>Hole-basis or shaft-basis?</h3>
+      <p>Document which feature is basic. Most shops are hole-basis with H-system holes.</p>
+    </div>
+    <div class="q">
+      <h3>Related reading?</h3>
+      <p>
+        See <a href="/blog/iso-286-h7-g6-explained.html">H7/g6 explained</a>,
+        <a href="/topics/fits-and-finish">fits &amp; finish hub</a>, and
+        <a href="/guides/tolerance-stack-up-complete">stack-up guide</a>.
+      </p>
+    </div>
+  </section>
 </div>

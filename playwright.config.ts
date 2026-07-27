@@ -1,44 +1,59 @@
 import { defineConfig, devices } from '@playwright/test';
 
 /**
- * SectorCalc Regression Guard — Playwright Config
- * Stack: Lit + Vite + Firebase Hosting + Paddle
+ * SectorCalc Enterprise Regression Guard — Playwright
  *
  * Modes:
- * - Local (default): Vite dev server on :5173
- * - Production / preview: set BASE_URL (skips webServer)
+ *   Local (default)     → Vite :5173 + Firebase rewrite/redirect parity
+ *   Preview / Live      → BASE_URL=https://… (no webServer)
  *
- * Specs live in tests/e2e as *.spec.ts so Vitest (*.test.ts) never picks them up.
+ * Tags (use --grep):
+ *   @critical  commerce, auth, free, gate, seo, nav
+ *   @matrix    all 25 calculators
+ *   @a11y      accessibility smoke
+ *   @visual    screenshot contracts (REGRESSION_VISUAL=1)
+ *   @deep      engine compute paths (tools.smoke)
  */
 const baseURL = process.env.BASE_URL || 'http://localhost:5173';
 const againstRemote = Boolean(process.env.BASE_URL);
+const isCI = !!process.env.CI;
 
 export default defineConfig({
   testDir: './tests/e2e',
-  testMatch: '**/*.spec.ts',
-  timeout: 45_000,
+  testMatch: ['**/suites/**/*.spec.ts', '**/tools.smoke.spec.ts'],
+  timeout: 60_000,
+  expect: { timeout: 12_000 },
   fullyParallel: !againstRemote,
-  forbidOnly: !!process.env.CI,
-  retries: process.env.CI ? 2 : 0,
-  workers: process.env.CI ? 1 : undefined,
-  reporter: [['list'], ['html', { open: 'never' }]],
+  forbidOnly: isCI,
+  retries: isCI ? 2 : 0,
+  workers: isCI ? 1 : undefined,
+  reporter: [
+    ['list'],
+    ['html', { open: 'never', outputFolder: 'playwright-report' }],
+    ...(isCI
+      ? ([['junit', { outputFile: 'test-results/junit-e2e.xml' }], ['github']] as const)
+      : [])
+  ],
   use: {
     baseURL,
     headless: true,
-    trace: 'on-first-retry',
+    trace: isCI ? 'on-first-retry' : 'retain-on-failure',
     screenshot: 'only-on-failure',
-    video: 'retain-on-failure'
+    video: 'retain-on-failure',
+    actionTimeout: 15_000,
+    navigationTimeout: 30_000
   },
   projects: [
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] }
     },
-    ...(againstRemote
+    ...(process.env.REGRESSION_MOBILE === '1'
       ? [
           {
-            name: 'Mobile Chrome',
-            use: { ...devices['Pixel 5'] }
+            name: 'mobile-chrome',
+            use: { ...devices['Pixel 5'] },
+            grep: /@critical|@nav|@commerce|@auth/
           }
         ]
       : [])
@@ -49,7 +64,7 @@ export default defineConfig({
         webServer: {
           command: 'npm run dev',
           port: 5173,
-          reuseExistingServer: !process.env.CI,
+          reuseExistingServer: !isCI,
           timeout: 120_000
         }
       })

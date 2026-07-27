@@ -49,11 +49,14 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
-    "test:e2e": "playwright test",
+    "test:e2e": "node scripts/export-regression-catalog.mjs --check && playwright test",
     "test:e2e:ui": "playwright test --ui",
     "test:e2e:debug": "playwright test --debug",
-    "test:e2e:critical": "playwright test tests/e2e/critical-flows.spec.ts",
-    "test:e2e:prod": "BASE_URL=https://sectorcalc.com playwright test tests/e2e/critical-flows.spec.ts --project=chromium",
+    "test:e2e:critical": "playwright test --project=chromium --grep @critical",
+    "test:e2e:matrix": "playwright test --project=chromium --grep @matrix",
+    "test:e2e:deep": "playwright test --project=chromium --grep @deep",
+    "test:e2e:prod": "BASE_URL=https://sectorcalc.com playwright test --project=chromium --grep @critical",
+    "test:e2e:preview": "playwright test --project=chromium --grep @critical",
     "test:unit": "vitest run",
     "test:unit:watch": "vitest",
     "test:all": "npm run test:unit && npm run test:e2e",
@@ -65,8 +68,11 @@
     "schema:validate": "node scripts/validate-schemas.js",
     "check:lang": "node scripts/check-language.mjs --strict",
     "check": "npm run format:check && npm run lint && npm run test",
-    "regression:ci": "npm run typecheck && npm run test:unit && npm run build && npm run test:e2e",
+    "catalog:regression": "node scripts/export-regression-catalog.mjs",
+    "catalog:regression:check": "node scripts/export-regression-catalog.mjs --check",
+    "regression:ci": "npm run typecheck && npm run check:lang && npm run test:unit && npm run catalog:regression:check && npm run build && npm run test:e2e",
     "regression:prod": "npm run test:e2e:prod",
+    "regression:visual": "REGRESSION_VISUAL=1 playwright test --project=chromium --grep @visual",
     "prepare": "husky",
     "inject:calc-sheet": "node scripts/inject-calc-sheet.mjs",
     "inject:eeat": "node scripts/inject-eeat.mjs"
@@ -75,7 +81,10 @@
     "*.{js,jsx,ts,tsx}": [
       "prettier --write"
     ],
-    "*.{css,scss,html,json,md}": [
+    "*.{css,scss,json,md}": [
+      "prettier --write"
+    ],
+    "src/**/*.{html,css}": [
       "prettier --write"
     ]
   },
