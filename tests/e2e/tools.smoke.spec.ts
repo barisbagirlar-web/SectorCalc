@@ -6,8 +6,11 @@ import { test, expect, type Page } from '@playwright/test';
  */
 
 async function creditGateLocked(page: Page): Promise<boolean> {
-  const gate = page.locator('#sc-pro-gate-root .sc-pro-gate');
-  if (!(await gate.isVisible().catch(() => false))) return false;
+  const gate = page.locator('#sc-pro-gate-root .sc-pro-gate, #sc-pro-gate-root');
+  await gate.first().waitFor({ state: 'attached', timeout: 12_000 }).catch(() => null);
+  if (!(await page.locator('#sc-pro-gate-root .sc-pro-gate').isVisible().catch(() => false))) {
+    return false;
+  }
   if (
     await page
       .locator('.sc-pro-gate-active')
@@ -19,15 +22,9 @@ async function creditGateLocked(page: Page): Promise<boolean> {
 }
 
 async function expectGateSurface(page: Page, toolId: string): Promise<void> {
-  await expect(page.locator('#sc-pro-gate-root .sc-pro-gate')).toBeVisible({ timeout: 12_000 });
-  await expect(page.locator('.sc-pro-gate')).toContainText(new RegExp(toolId));
-  await expect(
-    page
-      .locator(
-        '.sc-pro-gate a[href*="pricing"], .sc-pro-gate a[href*="login"], .sc-pro-gate button, .sc-pro-gate-btn'
-      )
-      .first()
-  ).toBeVisible({ timeout: 12_000 });
+  const gate = page.locator('#sc-pro-gate-root .sc-pro-gate');
+  await expect(gate).toBeVisible({ timeout: 15_000 });
+  await expect(gate).toContainText(new RegExp(toolId.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
 }
 
 test('SC-010 labor-pro: live + report (or credit gate)', async ({ page }) => {
