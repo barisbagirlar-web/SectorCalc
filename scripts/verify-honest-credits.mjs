@@ -58,8 +58,8 @@ for (const rel of paidSamples) {
   const p = join(ROOT, rel);
   if (!existsSync(p)) continue;
   const text = readFileSync(p, 'utf8');
-  if (/Free · no sign-in/i.test(text) && !FREE_TOOL_SLUGS.has(rel.replace(/\.html$/, ''))) {
-    fail(`${rel} must not claim Free · no sign-in`);
+  if (/Free · no sign-in|Open · no sign-in/i.test(text) && !FREE_TOOL_SLUGS.has(rel.replace(/\.html$/, ''))) {
+    fail(`${rel} must not claim open/free access on a paid tool`);
   }
   if (/"name"\s*:\s*"Free instant calculation"/.test(text)) {
     fail(`${rel} must not ship Free instant calculation Offer`);
@@ -78,7 +78,7 @@ for (const tool of FREE_TOOLS) {
     continue;
   }
   const text = readFileSync(p, 'utf8');
-  if (!/data-access="free"|data-free-aeo="1"|Free · no sign-in/.test(text)) {
+  if (!/data-access="free"|data-free-aeo="1"|Free · no sign-in|Open · no sign-in|Open instrument/.test(text)) {
     fail(`${rel} missing free AEO/access markers`);
   }
   if (!/"name"\s*:\s*"Free instant calculation"/.test(text) && !/"isAccessibleForFree"\s*:\s*true/.test(text)) {
