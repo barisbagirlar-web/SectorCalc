@@ -14,7 +14,7 @@ import { AEO_EMPATHY } from '../seo/aeo-empathy.mjs';
 const ROOT = process.cwd();
 const HEADER = readFileSync(join(ROOT, 'content/partials/site-header.html'), 'utf8').trim();
 const HOST = 'https://sectorcalc.com';
-const CSS_V = 3;
+const CSS_V = 4;
 const MIN_GUIDE_BYTES = 20000;
 
 function esc(s) {
@@ -37,6 +37,7 @@ function headLinks() {
 <link rel="stylesheet" href="/sc-site-nav.css?v=5">
 <link rel="stylesheet" href="/sc-tool-guide.css?v=3">
 <link rel="stylesheet" href="/css/sc-guides.css?v=${CSS_V}">
+<link rel="stylesheet" href="/sc-calc-sheet.css?v=3">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Sans:wght@400;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">

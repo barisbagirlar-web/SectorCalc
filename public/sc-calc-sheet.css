@@ -1,6 +1,7 @@
 /* ============================================================
-   SectorCalc Calculation Sheet overlay v1.0
-   Safe technical-drawing accents for calculators / tools / pricing.
+   SectorCalc Engineering Graph Paper v3 — Enterprise / Exclusive
+   Dual-scale drafting sheet (minor + major), registration marks,
+   title-block stamp. Safe accents for calculators / hubs / content.
    NEVER load on index.html (live-cell hero is sacred).
    No global resets. No opacity:0 reveal traps. No blueprint homepage.
    ============================================================ */
@@ -11,44 +12,116 @@
   --iso-yellow: #f9a800;
   --iso-orange: #e16a00;
   --iso-red: #c8102e;
-  --cs-bg: #f7f8fa;
+
+  /* Cool technical drafting paper — not cream, not purple wash */
+  --cs-bg: #eef1f4;
+  --cs-paper: #fbfcfd;
   --cs-border: #1a3a5c;
-  --cs-grid: rgba(26, 58, 92, 0.055);
   --cs-accent: #1a3a5c;
-  --cs-paper: #ffffff;
-  --ds-bg: #fafbfc;
+  --cs-grid-minor: rgba(26, 58, 92, 0.055);
+  --cs-grid-major: rgba(26, 58, 92, 0.11);
+  --cs-grid-frame: rgba(26, 58, 92, 0.16);
+  --cs-grain: rgba(26, 58, 92, 0.018);
+  --cs-mark: rgba(26, 58, 92, 0.45);
+
+  --ds-bg: #eef1f4;
   --ds-border: #2c3e50;
   --ds-accent: #0055a4;
-  --bom-bg: #f5f6f8;
+  --bom-bg: #eef1f4;
   --bom-border: #2c3e50;
   --bom-header: #1a3a5c;
+
   --sc-sheet-mono: 'JetBrains Mono', 'SF Mono', 'Fira Code', Consolas, monospace;
-  --sc-sheet-grid: 20px;
+  /* Millimeter-paper rhythm: 8px minor · 40px major (5×) */
+  --sc-sheet-minor: 8px;
+  --sc-sheet-major: 40px;
+  --sc-sheet-grid: var(--sc-sheet-minor);
 }
 
-/* ---------- Shared paper grid (scoped; pointer-events none) ---------- */
+/* ---------- Shared paper targets ---------- */
 body.theme-calc-sheet,
 body.theme-drawing-index,
-body.theme-bom {
+body.theme-bom,
+body.theme-eng-paper,
+body.calc-sheet.has-grid,
+body.sc-guides-shell {
   position: relative;
+  isolation: isolate;
 }
 
+/*
+  Layer stack (fixed, pointer-events none):
+  ::before  — dual-scale graph paper + cool paper wash + micro-grain
+  ::after   — ISO-style registration / crop marks at viewport corners
+*/
 body.theme-calc-sheet::before,
 body.theme-drawing-index::before,
-body.theme-bom::before {
+body.theme-bom::before,
+body.theme-eng-paper::before,
+body.calc-sheet.has-grid::before,
+body.sc-guides-shell::before {
   content: '';
   position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: 0;
-  background-image: linear-gradient(var(--cs-grid) 1px, transparent 1px),
-    linear-gradient(90deg, var(--cs-grid) 1px, transparent 1px);
-  background-size: var(--sc-sheet-grid) var(--sc-sheet-grid);
+  background-color: var(--cs-bg);
+  background-image:
+    /* micro fiber grain */
+    radial-gradient(circle at 18% 22%, var(--cs-grain) 0.6px, transparent 0.7px),
+    radial-gradient(circle at 72% 64%, var(--cs-grain) 0.55px, transparent 0.65px),
+    radial-gradient(circle at 44% 81%, var(--cs-grain) 0.5px, transparent 0.6px),
+    /* major grid */ linear-gradient(var(--cs-grid-major) 1.5px, transparent 1.5px),
+    linear-gradient(90deg, var(--cs-grid-major) 1.5px, transparent 1.5px),
+    /* minor grid */ linear-gradient(var(--cs-grid-minor) 1px, transparent 1px),
+    linear-gradient(90deg, var(--cs-grid-minor) 1px, transparent 1px),
+    /* soft vignette so sheet reads as a drafting table */
+      radial-gradient(120% 90% at 50% 0%, rgba(255, 255, 255, 0.55), transparent 58%),
+    linear-gradient(180deg, #f7f9fb 0%, var(--cs-bg) 42%, #e8ecf1 100%);
+  background-size:
+    48px 48px,
+    56px 56px,
+    40px 40px,
+    var(--sc-sheet-major) var(--sc-sheet-major),
+    var(--sc-sheet-major) var(--sc-sheet-major),
+    var(--sc-sheet-minor) var(--sc-sheet-minor),
+    var(--sc-sheet-minor) var(--sc-sheet-minor),
+    100% 100%,
+    100% 100%;
+  background-position: 0 0;
+}
+
+/* Corner registration marks (Exclusive drafting detail) */
+body.theme-calc-sheet::after,
+body.theme-drawing-index::after,
+body.theme-bom::after,
+body.theme-eng-paper::after,
+body.calc-sheet.has-grid::after,
+body.sc-guides-shell::after {
+  content: '';
+  position: fixed;
+  inset: 10px;
+  pointer-events: none;
+  z-index: 0;
+  border: 1px solid transparent;
+  background:
+    linear-gradient(var(--cs-mark), var(--cs-mark)) top left / 18px 1.5px no-repeat,
+    linear-gradient(var(--cs-mark), var(--cs-mark)) top left / 1.5px 18px no-repeat,
+    linear-gradient(var(--cs-mark), var(--cs-mark)) top right / 18px 1.5px no-repeat,
+    linear-gradient(var(--cs-mark), var(--cs-mark)) top right / 1.5px 18px no-repeat,
+    linear-gradient(var(--cs-mark), var(--cs-mark)) bottom left / 18px 1.5px no-repeat,
+    linear-gradient(var(--cs-mark), var(--cs-mark)) bottom left / 1.5px 18px no-repeat,
+    linear-gradient(var(--cs-mark), var(--cs-mark)) bottom right / 18px 1.5px no-repeat,
+    linear-gradient(var(--cs-mark), var(--cs-mark)) bottom right / 1.5px 18px no-repeat;
+  opacity: 0.55;
 }
 
 body.theme-calc-sheet > *:not(.sc-calc-sheet-titleblock),
 body.theme-drawing-index > *:not(.sc-calc-sheet-titleblock),
-body.theme-bom > *:not(.sc-calc-sheet-titleblock) {
+body.theme-bom > *:not(.sc-calc-sheet-titleblock),
+body.theme-eng-paper > *:not(.sc-calc-sheet-titleblock),
+body.calc-sheet.has-grid > *:not(.sc-calc-sheet-titleblock):not(.cs-title-block),
+body.sc-guides-shell > *:not(.sc-calc-sheet-titleblock) {
   position: relative;
   z-index: 1;
 }
@@ -65,7 +138,22 @@ body.theme-calc-sheet .sc-layout {
   margin-right: auto;
   background: var(--cs-paper);
   border: 2px solid var(--cs-border);
-  box-shadow: 0 2px 16px rgba(26, 58, 92, 0.06);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.65) inset,
+    0 0 0 6px rgba(26, 58, 92, 0.04),
+    0 8px 28px rgba(26, 58, 92, 0.07);
+  position: relative;
+}
+
+/* Inner drawing border (double-line sheet) */
+body.theme-calc-sheet .wrap::before,
+body.theme-calc-sheet .sc-layout::before {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border: 1px solid var(--cs-grid-frame);
+  pointer-events: none;
+  z-index: 0;
 }
 
 body.theme-calc-sheet .wrap {
@@ -110,7 +198,6 @@ body.theme-calc-sheet .sc-btn {
   border-radius: 2px !important;
 }
 
-/* Lit report cards → sheet edges */
 body.theme-calc-sheet .sc-card,
 body.theme-calc-sheet .sc-sec,
 body.theme-calc-sheet .sc-report-hd {
@@ -130,10 +217,22 @@ body.theme-drawing-index .wrap {
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
-  background: #fff;
+  background: var(--cs-paper);
   border: 2px solid var(--ds-border);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.65) inset,
+    0 0 0 6px rgba(26, 58, 92, 0.04),
+    0 8px 28px rgba(26, 58, 92, 0.07);
   padding: 28px 32px 36px;
+  position: relative;
+}
+
+body.theme-drawing-index .wrap::before {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border: 1px solid var(--cs-grid-frame);
+  pointer-events: none;
 }
 
 /* Engineering Resources rail — must live inside .wrap (never orphan body child) */
@@ -234,10 +333,22 @@ body.theme-bom .wrap {
   max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
-  background: #fff;
+  background: var(--cs-paper);
   border: 2px solid var(--bom-border);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.65) inset,
+    0 0 0 6px rgba(26, 58, 92, 0.04),
+    0 8px 28px rgba(26, 58, 92, 0.07);
   padding: 28px 32px 36px;
+  position: relative;
+}
+
+body.theme-bom .wrap::before {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border: 1px solid var(--cs-grid-frame);
+  pointer-events: none;
 }
 
 body.theme-bom .hero .eyebrow,
@@ -256,17 +367,50 @@ body.theme-bom .packs {
   font-variant-numeric: tabular-nums;
 }
 
-/* ---------- Title block (DWG stamp) ---------- */
+/* ---------- Content / account paper surfaces ---------- */
+body.theme-eng-paper {
+  background: var(--cs-bg) !important;
+}
+
+/* Guides / hubs: keep shell transparent so ::before paper shows through */
+body.sc-guides-shell {
+  background: transparent !important;
+}
+
+body.sc-guides-shell .sc-guides-main {
+  background: var(--cs-paper);
+  border: 2px solid rgba(26, 58, 92, 0.28);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.65) inset,
+    0 0 0 6px rgba(26, 58, 92, 0.035),
+    0 10px 32px rgba(26, 58, 92, 0.06);
+  position: relative;
+}
+
+body.sc-guides-shell .sc-guides-main::before {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border: 1px solid var(--cs-grid-frame);
+  pointer-events: none;
+  z-index: 0;
+}
+
+body.sc-guides-shell .sc-guides-main > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- Title block (DWG stamp) — Exclusive ---------- */
 .sc-calc-sheet-titleblock {
   position: fixed;
   right: 0.75rem;
   bottom: 0.75rem;
   z-index: 40;
-  background: rgba(255, 255, 255, 0.96);
-  border: 1px solid var(--cs-border);
-  border-bottom: none;
-  border-right: none;
-  padding: 0.55rem 0.85rem;
+  background: rgba(251, 252, 253, 0.97);
+  border: 1.5px solid var(--cs-border);
+  border-bottom-width: 3px;
+  padding: 0.55rem 0.85rem 0.6rem;
   font-family: var(--sc-sheet-mono);
   font-size: 0.62rem;
   text-transform: uppercase;
@@ -274,7 +418,21 @@ body.theme-bom .packs {
   color: var(--cs-accent);
   line-height: 1.45;
   pointer-events: none;
-  box-shadow: -2px -2px 12px rgba(26, 58, 92, 0.06);
+  box-shadow:
+    -2px -2px 12px rgba(26, 58, 92, 0.06),
+    0 0 0 1px rgba(255, 255, 255, 0.8) inset;
+  min-width: 9.5rem;
+}
+
+.sc-calc-sheet-titleblock::before {
+  content: 'SECTORCALC · ENG SHEET';
+  display: block;
+  font-size: 0.52rem;
+  letter-spacing: 0.14em;
+  color: #6b7c8f;
+  border-bottom: 1px solid rgba(26, 58, 92, 0.18);
+  padding-bottom: 0.28rem;
+  margin-bottom: 0.15rem;
 }
 
 .sc-calc-sheet-titleblock .tb-row {
@@ -301,18 +459,26 @@ body.theme-bom .packs {
 /* ---------- Dark theme ---------- */
 html[data-theme='dark'] body.theme-calc-sheet,
 html[data-theme='dark'] body.theme-drawing-index,
-html[data-theme='dark'] body.theme-bom {
-  --cs-bg: #0f151d;
+html[data-theme='dark'] body.theme-bom,
+html[data-theme='dark'] body.theme-eng-paper,
+html[data-theme='dark'] body.calc-sheet.has-grid,
+html[data-theme='dark'] body.sc-guides-shell {
+  --cs-bg: #0c1219;
   --cs-paper: #131a23;
-  --cs-grid: rgba(255, 255, 255, 0.04);
-  --ds-bg: #0f151d;
-  --bom-bg: #0f151d;
+  --cs-grid-minor: rgba(127, 179, 232, 0.045);
+  --cs-grid-major: rgba(127, 179, 232, 0.1);
+  --cs-grid-frame: rgba(127, 179, 232, 0.18);
+  --cs-grain: rgba(127, 179, 232, 0.03);
+  --cs-mark: rgba(157, 184, 212, 0.4);
+  --ds-bg: #0c1219;
+  --bom-bg: #0c1219;
 }
 
 html[data-theme='dark'] body.theme-calc-sheet .wrap,
 html[data-theme='dark'] body.theme-calc-sheet .sc-layout,
 html[data-theme='dark'] body.theme-drawing-index .wrap,
-html[data-theme='dark'] body.theme-bom .wrap {
+html[data-theme='dark'] body.theme-bom .wrap,
+html[data-theme='dark'] body.sc-guides-shell .sc-guides-main {
   background: var(--cs-paper);
   border-color: rgba(127, 179, 232, 0.35);
   box-shadow: none;
@@ -324,15 +490,40 @@ html[data-theme='dark'] .sc-calc-sheet-titleblock {
   color: #9db8d4;
 }
 
+html[data-theme='dark'] .sc-calc-sheet-titleblock::before {
+  color: #7a93ab;
+  border-bottom-color: rgba(127, 179, 232, 0.22);
+}
+
 html[data-theme='dark'] .sc-calc-sheet-titleblock .tb-value {
   color: #cfe0f2;
 }
 
-/* ---------- Print ---------- */
+/* ---------- Reduced motion / print ---------- */
+@media (prefers-reduced-motion: reduce) {
+  body.theme-calc-sheet::before,
+  body.theme-drawing-index::before,
+  body.theme-bom::before,
+  body.theme-eng-paper::before,
+  body.calc-sheet.has-grid::before,
+  body.sc-guides-shell::before {
+    background-attachment: scroll;
+  }
+}
+
 @media print {
   body.theme-calc-sheet::before,
   body.theme-drawing-index::before,
-  body.theme-bom::before {
+  body.theme-bom::before,
+  body.theme-eng-paper::before,
+  body.calc-sheet.has-grid::before,
+  body.sc-guides-shell::before,
+  body.theme-calc-sheet::after,
+  body.theme-drawing-index::after,
+  body.theme-bom::after,
+  body.theme-eng-paper::after,
+  body.calc-sheet.has-grid::after,
+  body.sc-guides-shell::after {
     display: none;
   }
 
@@ -347,14 +538,25 @@ html[data-theme='dark'] .sc-calc-sheet-titleblock .tb-value {
   .sc-calc-sheet-titleblock {
     position: static;
     margin: 1rem;
-    border: 1px solid var(--cs-border);
+    border: 1.5px solid var(--cs-border);
   }
 
   body.theme-drawing-index .wrap,
   body.theme-bom .wrap,
-  body.theme-calc-sheet .wrap {
+  body.theme-calc-sheet .wrap,
+  body.sc-guides-shell .sc-guides-main {
     border-left: none;
     border-right: none;
     box-shadow: none;
+  }
+
+  body.theme-calc-sheet::after,
+  body.theme-drawing-index::after,
+  body.theme-bom::after,
+  body.theme-eng-paper::after,
+  body.calc-sheet.has-grid::after,
+  body.sc-guides-shell::after {
+    inset: 6px;
+    opacity: 0.35;
   }
 }
