@@ -63,4 +63,33 @@ if (failed) {
   console.error(`\nProduction bundle verification failed (${failed})`);
   process.exit(1);
 }
+
+const forbiddenPriceIds = [
+  'pri_01kyhfb5q0jxrck07py0xxaqw7',
+  'pri_01kyhfczs0aaj62smrthvc3my8',
+  'pri_01kyhff4xx34m229w6ytpjpefs',
+  'pri_01kyhfgk3ax50gz1m7zh877w9c'
+];
+for (const id of forbiddenPriceIds) {
+  if (blob.includes(id)) {
+    console.error(`FAIL: INVALID Paddle price ID embedded in bundle: ${id}`);
+    failed += 1;
+  }
+}
+
+const pricingHtml = readFileSync(join(dist, 'pricing.html'), 'utf8');
+const pricingJs = files.filter((f) => /pricing-.*\.js$/.test(f) || f.endsWith('/pricing.js'));
+const pricingBlob = [pricingHtml, ...pricingJs.map((f) => readFileSync(f, 'utf8'))].join('\n');
+if (/\/\s*month|per\s*month|renews\s*monthly/i.test(pricingBlob) && /credit/i.test(pricingBlob)) {
+  // Soft check on pack cards: fail if monthly subscription language appears near packs
+  console.error('FAIL: monthly subscription wording detected near pricing credits surface');
+  failed += 1;
+} else {
+  console.log('OK: no monthly wording gate on credit packs');
+}
+
+if (failed) {
+  console.error(`\nProduction bundle verification failed (${failed})`);
+  process.exit(1);
+}
 console.log('\nProduction bundle verification PASSED');

@@ -1,6 +1,6 @@
 import type { Request } from 'firebase-functions/v2/https';
 import type { Response } from 'express';
-import { createHmac, timingSafeEqual } from 'node:crypto';
+import { createHmac } from 'node:crypto';
 import { webhookEventRef, purchaseRef, db } from '../lib/firestore';
 import { grantCreditsForCompletedTransaction } from '../lib/grant-service';
 import { getPaddleTransaction } from '../lib/paddle';
@@ -9,33 +9,7 @@ import { applyPurchaseReversal } from '../domain/grant';
 import { emptyWallet } from '../domain/types';
 import { ledgerCol, walletRef } from '../lib/firestore';
 import { FieldValue } from 'firebase-admin/firestore';
-
-/**
- * Verify Paddle-Signature (ts + h1) against raw body.
- * @see https://developer.paddle.com/webhooks/signature-verification
- */
-export function verifyPaddleSignature(rawBody: Buffer | string, signatureHeader: string | undefined, secret: string): boolean {
-  if (!signatureHeader || !secret) return false;
-  const parts = Object.fromEntries(
-    signatureHeader.split(';').map((p) => {
-      const [k, v] = p.split('=');
-      return [k?.trim(), v?.trim()];
-    })
-  ) as Record<string, string | undefined>;
-  const ts = parts.ts;
-  const h1 = parts.h1;
-  if (!ts || !h1) return false;
-  const payload = `${ts}:${typeof rawBody === 'string' ? rawBody : rawBody.toString('utf8')}`;
-  const computed = createHmac('sha256', secret).update(payload).digest('hex');
-  try {
-    const a = Buffer.from(computed, 'hex');
-    const b = Buffer.from(h1, 'hex');
-    if (a.length !== b.length) return false;
-    return timingSafeEqual(a, b);
-  } catch {
-    return false;
-  }
-}
+import { verifyPaddleSignature } from '../domain/paddle-signature';
 
 function newId(): string {
   return db().collection('_').doc().id;
@@ -43,7 +17,11 @@ function newId(): string {
 
 export async function handlePaddleWebhook(req: Request, res: Response): Promise<void> {
   const secret = process.env.PADDLE_WEBHOOK_SECRET || '';
-  const raw = (req as Request & { rawBody?: Buffer }).rawBody || Buffer.from(JSON.stringify(req.body || {}));
+  const raw = (req as Request & { rawBody?: Buffer }).rawBody;
+  if (!raw || !Buffer.isBuffer(raw)) {
+    res.status(400).json({ error: 'RAW_BODY_REQUIRED' });
+    return;
+  }
   const sig = req.get('Paddle-Signature') || req.get('paddle-signature') || undefined;
   if (!verifyPaddleSignature(raw, sig, secret)) {
     res.status(400).json({ error: 'INVALID_SIGNATURE' });
