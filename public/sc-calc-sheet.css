@@ -137,6 +137,76 @@ body.theme-drawing-index .wrap {
   padding: 28px 32px 36px;
 }
 
+/* Engineering Resources rail — must live inside .wrap (never orphan body child) */
+.sc-seo-sprint-links {
+  margin: 2rem 0 0;
+  padding: 1.35rem 1.25rem 1.4rem;
+  border: 1px solid rgba(26, 58, 92, 0.18);
+  border-left: 3px solid var(--cs-accent, #0055a4);
+  background:
+    linear-gradient(180deg, rgba(0, 85, 164, 0.04), transparent 42%),
+    #fff;
+  max-width: 100%;
+}
+.sc-seo-sprint-links h2 {
+  margin: 0 0 0.4rem;
+  font: 700 1.05rem/1.25 "IBM Plex Sans", "Segoe UI", sans-serif;
+  letter-spacing: 0.02em;
+  color: #0b1c2c;
+  text-transform: none;
+}
+.sc-seo-sprint-links > p {
+  margin: 0 0 0.95rem;
+  color: #3d5366;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  max-width: 42rem;
+}
+.sc-seo-sprint-links ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.65rem 1rem;
+}
+.sc-seo-sprint-links li {
+  margin: 0;
+}
+.sc-seo-sprint-links a {
+  display: block;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid rgba(26, 58, 92, 0.14);
+  background: #f7fafc;
+  color: #0055a4;
+  font-weight: 650;
+  text-decoration: none;
+  line-height: 1.3;
+}
+.sc-seo-sprint-links a:hover,
+.sc-seo-sprint-links a:focus-visible {
+  border-color: rgba(0, 85, 164, 0.45);
+  background: #eef5fb;
+  outline: none;
+}
+html[data-theme="dark"] .sc-seo-sprint-links {
+  background:
+    linear-gradient(180deg, rgba(127, 179, 232, 0.08), transparent 42%),
+    #131a23;
+  border-color: rgba(127, 179, 232, 0.28);
+}
+html[data-theme="dark"] .sc-seo-sprint-links h2 {
+  color: #e8eef5;
+}
+html[data-theme="dark"] .sc-seo-sprint-links > p {
+  color: #9db8d4;
+}
+html[data-theme="dark"] .sc-seo-sprint-links a {
+  background: #0f151d;
+  border-color: rgba(127, 179, 232, 0.22);
+  color: #9db8d4;
+}
+
 body.theme-drawing-index .hero h1 {
   font-family: var(--sc-sheet-mono);
   letter-spacing: 0.04em;

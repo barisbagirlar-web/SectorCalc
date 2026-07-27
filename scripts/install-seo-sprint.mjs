@@ -368,21 +368,20 @@ function patchToolsInternalLinks() {
   <h2>Engineering Resources</h2>
   <p>Glossary, comparison pages, and complete guides for shop-floor decision making.</p>
   <ul>
-    <li><a href="/glossary/">Engineering Glossary</a></li>
-    <li><a href="/compare/">SectorCalc vs Alternatives</a></li>
-    <li><a href="/guides/">Complete Engineering Guides</a></li>
+    <li><a href="/glossary">Engineering Glossary</a></li>
+    <li><a href="/compare">SectorCalc vs Alternatives</a></li>
+    <li><a href="/guides">Complete Engineering Guides</a></li>
   </ul>
 </section>
 ${markerEnd}`;
-  if (html.includes(markerStart) && html.includes(markerEnd)) {
-    html = html.replace(
-      new RegExp(`${markerStart}[\\s\\S]*?${markerEnd}`),
-      block,
-    );
+  // Always remount inside .wrap immediately before <footer> — never as an orphan body child.
+  html = html.replace(new RegExp(`${markerStart}[\\s\\S]*?${markerEnd}\\n?`, "g"), "");
+  if (html.includes("<footer>")) {
+    html = html.replace("<footer>", `${block}\n  <footer>`);
   } else if (html.includes("</main>")) {
     html = html.replace("</main>", `${block}\n</main>`);
-  } else if (html.includes("</body>")) {
-    html = html.replace("</body>", `${block}\n</body>`);
+  } else {
+    throw new Error("tools.html missing <footer> for Engineering Resources mount");
   }
   fs.writeFileSync(toolsPath, html);
   console.log("tools.html internal links updated");
