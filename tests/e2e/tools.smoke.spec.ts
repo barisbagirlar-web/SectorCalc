@@ -120,11 +120,13 @@ test('pricing page renders packages from source of truth', async ({ page }) => {
   await expect(page.locator('#packages .pack')).toHaveCount(4, { timeout: 8000 });
   await expect(page.locator('#packages .pack.pop, #packages .pack.featured').first()).toBeVisible();
   await expect(page.locator('#packages')).toContainText(/ONE-TIME|one-time|No subscription/i);
-  await page.locator('#packages button.load').first().click();
   // Signed-out users must authenticate before server-prepared checkout.
-  await expect(page.locator('#pay-status')).toContainText(/Sign in required|Opening|Checkout is not live yet|Preparing secure checkout/i, {
-    timeout: 8000
-  });
+  await Promise.all([
+    page.waitForURL(/\/login\.html(?:\?|$)/, { timeout: 8000 }),
+    page.locator('#packages button.load').first().click()
+  ]);
+  await expect(page).toHaveURL(/login\.html/);
+  await expect(page).toHaveURL(/next=/);
 });
 
 test('homepage mobile nav hamburger opens links', async ({ page }) => {
