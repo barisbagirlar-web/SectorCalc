@@ -384,35 +384,44 @@ def schema_pricing() -> str:
                 "@type": "Product",
                 "@id": f"{HOST}/pricing.html#product-credits",
                 "name": "SectorCalc Calculation Credits",
-                "description": "Planned pay-per-use credits for premium engineering workflows. Core calculators remain runnable client-side. Checkout via Paddle when live.",
+                "description": "One-time credit packs for Professional Analysis sessions. No subscription. Purchased credits do not expire. Checkout via Paddle Merchant of Record.",
                 "brand": {"@id": f"{HOST}/#organization"},
                 "category": "Engineering Software Credits",
                 "offers": [
                     {
                         "@type": "Offer",
-                        "name": "Starter Pack",
-                        "price": "29.00",
+                        "name": "Starter Pack — 20 credits",
+                        "price": "15.00",
                         "priceCurrency": "USD",
-                        "availability": "https://schema.org/PreOrder",
-                        "url": f"{HOST}/pricing.html#starter",
+                        "availability": "https://schema.org/InStock",
+                        "url": f"{HOST}/pricing.html#STARTER",
                         "seller": {"@id": f"{HOST}/#organization"},
                     },
                     {
                         "@type": "Offer",
-                        "name": "Pro Pack",
-                        "price": "99.00",
+                        "name": "Workshop Pack — 100 credits",
+                        "price": "59.00",
                         "priceCurrency": "USD",
-                        "availability": "https://schema.org/PreOrder",
-                        "url": f"{HOST}/pricing.html#pro",
+                        "availability": "https://schema.org/InStock",
+                        "url": f"{HOST}/pricing.html#WORKSHOP",
                         "seller": {"@id": f"{HOST}/#organization"},
                     },
                     {
                         "@type": "Offer",
-                        "name": "Enterprise Pack",
-                        "price": "349.00",
+                        "name": "Professional Pack — 300 credits",
+                        "price": "149.00",
                         "priceCurrency": "USD",
-                        "availability": "https://schema.org/PreOrder",
-                        "url": f"{HOST}/pricing.html#enterprise",
+                        "availability": "https://schema.org/InStock",
+                        "url": f"{HOST}/pricing.html#PROFESSIONAL",
+                        "seller": {"@id": f"{HOST}/#organization"},
+                    },
+                    {
+                        "@type": "Offer",
+                        "name": "Team Wallet — 1000 credits",
+                        "price": "399.00",
+                        "priceCurrency": "USD",
+                        "availability": "https://schema.org/InStock",
+                        "url": f"{HOST}/pricing.html#TEAM_WALLET",
                         "seller": {"@id": f"{HOST}/#organization"},
                     },
                 ],
@@ -720,7 +729,7 @@ def process(page: str) -> None:
     if slug in TOOL_META:
         desc = TOOL_META[slug]["desc"]
     elif page == "pricing.html":
-        desc = "SectorCalc credit packs for premium engineering workflows. Core calculators stay free and client-side. Starter, Pro, and Enterprise packs — no subscription."
+        desc = "SectorCalc one-time credit packs for professional calculation sessions. No subscription. Purchased credits do not expire. Starter, Workshop, Professional, Team Wallet."
     elif page == "index.html":
         desc = "Deterministic industrial engineering calculators — tolerance stack-up, CNC feeds & speeds, bearing life, welding, costing. Client-side, full-precision, audit-ready."
     elif page == "pro.html":

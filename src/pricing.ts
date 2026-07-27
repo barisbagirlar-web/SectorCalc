@@ -45,7 +45,26 @@ function init(): void {
       const tag = p.badge ? `<span class="tag">${p.badge}</span>` : '';
       const perLabel = `${p.perCredit} / credit`;
       const label = isCheckoutConfigured() ? 'Buy one-time' : 'Notify me';
-      return `<div class="pack${pop}">${tag}<div class="amt">${p.price}</div><div class="cred">${p.credits.toLocaleString('en-US')} credits</div><div class="per">${perLabel} · ONE-TIME</div><button class="load btn btn-ghost" style="margin-top:14px;width:100%;justify-content:center" data-package-key="${p.key}" type="button">${label}</button></div>`;
+      const spec =
+        p.key === 'STARTER'
+          ? 'Shop check · light sessions'
+          : p.key === 'WORKSHOP'
+            ? 'Daily floor · most jobs'
+            : p.key === 'PROFESSIONAL'
+              ? 'Heavy analysis · report cycles'
+              : 'Shared wallet · team load';
+      return `<article class="pack${pop}" id="${p.key}">${tag}
+        <div class="pack-top"><span class="pack-id">${p.key}</span><span class="pack-rev">ONE-TIME</span></div>
+        <div class="pack-mid">
+          <div class="amt">${p.price}</div>
+          <div class="cred">${p.credits.toLocaleString('en-US')} credits</div>
+          <div class="per">${perLabel} · never expire*</div>
+          <div class="pack-spec">${spec}</div>
+        </div>
+        <div class="pack-foot">
+          <button class="load btn btn-ghost" data-package-key="${p.key}" type="button">${label}</button>
+        </div>
+      </article>`;
     }).join('');
   }
 

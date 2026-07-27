@@ -144,7 +144,7 @@ export const PAGES = [
     "sitemapEligible": true,
     "llmEligible": true,
     "title": "Pricing — SectorCalc",
-    "description": "One-time SectorCalc credit packs — no subscription. Buy credits via Paddle, unlock 24-hour Professional Analysis sessions on advanced tools.",
+    "description": "One-time SectorCalc credit packs — no subscription. Starter 20, Workshop 100, Professional 300, Team Wallet 1000. Paddle checkout; credits unlock 24-hour Professional Analysis sessions.",
     "h1": "Pricing",
     "primaryIntent": "sectorcalc pricing",
     "queryCluster": "pricing",
