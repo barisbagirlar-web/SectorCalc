@@ -28,7 +28,8 @@ const checks = [
   ['Ops gate hash', /2d0dad38ec6b68bb25fbb34817eeb1df2fff0ecbcf7d7794e7a2c630b4028dba/],
   ['Login page', /Sign in — SectorCalc|Create account/],
   ['Account page', /SectorCalc account|Available credits|Billing|Device session/],
-  ['Ops page', /Administration|Ops gate|Operator help|Diagnostics|Users & credits/]
+  ['Ops page', /Administration|Ops gate|Operator help|Diagnostics|Users & credits/],
+  ['Auth nav session chip', /auth-nav|Signed in|sc-nav-session/]
 ];
 
 let failed = 0;

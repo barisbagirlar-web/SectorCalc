@@ -190,6 +190,7 @@ function checkPage(page) {
     if (!html.includes('sc-site-nav.css')) issues.push(`${page}: missing sc-site-nav.css`);
     if (!html.includes('sc-site-nav.js')) issues.push(`${page}: missing sc-site-nav.js`);
     if (!html.includes('id="siteHeader"')) issues.push(`${page}: missing shared #siteHeader`);
+    if (!html.includes('auth-nav')) issues.push(`${page}: missing auth-nav session module`);
     if (!/<link[^>]+sc-form-fields\.css/i.test(html)) issues.push(`${page}: missing sc-form-fields.css`);
     // 4-tile brand favicon set (cache-busted)
     if (!/<link[^>]+rel=["']icon["'][^>]+favicon\.ico/i.test(html)) {
