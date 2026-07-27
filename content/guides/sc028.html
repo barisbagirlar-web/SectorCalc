@@ -1,0 +1,114 @@
+<div class="sc-guide-shell">
+<section class="sc-guide" id="sc-guide" data-tool-id="SC-028" data-tool-name="Surface Finish Converter (SC-028)">
+
+<nav class="sc-guide-toc" aria-label="Table of contents">
+  <h2 class="sc-guide-toc-title">Contents</h2>
+  <ol>
+    <li><a href="#ra-vs-rz">Ra vs Rz — different statistics</a></li>
+    <li><a href="#acceptance">Read acceptance language first</a></li>
+    <li><a href="#conversion">Convert with visible assumptions</a></li>
+    <li><a href="#metrology">Metrology capability owns release</a></li>
+    <li><a href="#worked">Worked pattern: drawing Ra, shop Rz</a></li>
+    <li><a href="#pair-fits">Pair with fits on seats</a></li>
+    <li><a href="#failure-modes">Common failure modes</a></li>
+    <li><a href="#decision-table">Decision table</a></li>
+    <li><a href="#faqs">Frequently asked questions</a></li>
+  </ol>
+</nav>
+
+<p class="sc-guide-lede"><strong>Ra</strong> (arithmetical mean) and <strong>Rz</strong> (average peak-to-valley) describe different statistics of the same profile. Treating them as interchangeable without an explicit conversion assumption causes scrap, supplier fights, and first-article loops. SectorCalc <strong>SC-028</strong> converts common roughness parameters with the conversion basis visible on the page — free, no sign-in. Converters align language; measured capability still owns production release.</p>
+
+<h2 id="ra-vs-rz">Ra vs Rz — different statistics</h2>
+<p>Ra averages absolute deviations from the mean line. Rz emphasises peak-to-valley height over sampling lengths. A process can “pass Ra” and “fail Rz” on the same surface because the metrics weight the profile differently. That is not a calculator bug — it is physics of the definition.</p>
+
+<h2 id="acceptance">Read acceptance language first</h2>
+<p>Before converting anything, confirm which parameter the drawing and customer standard actually use. If the print says Ra 1.6 and the customer measures Rz, you do not “fix” the print by silently converting — you negotiate the acceptance language or measure what is specified.</p>
+
+<h2 id="conversion">Convert with visible assumptions</h2>
+<div class="sc-formula">Parameter translation only with a documented conversion basis</div>
+<p>Put the assumption on the traveler. SectorCalc shows the basis on the calculator page so two engineers can reproduce the same screening number. Do not convert “by feel” from a laminated shop chart of unknown origin.</p>
+
+<h2 id="metrology">Metrology capability owns release</h2>
+<p>Instrument tip radius, filter settings, and evaluation length change reported values. If the customer requires Rz, measure Rz with a capable method. A converter does not upgrade an instrument that cannot see the accepted parameter.</p>
+
+<h2 id="worked">Worked pattern: drawing Ra, shop Rz</h2>
+<ol>
+  <li>Quote the governing surface-texture standard from the print.</li>
+  <li>Identify the acceptance parameter (Ra, Rz, or other).</li>
+  <li>Run open <a href="/calculator/surface-finish">SC-028</a> and enter the known value.</li>
+  <li>Copy the conversion assumption into the traveler.</li>
+  <li>Confirm the shop can measure the accepted parameter before FAI.</li>
+</ol>
+
+<h2 id="pair-fits">Pair with fits on seats</h2>
+<p>Bearing seats and sealing surfaces often carry both a fit and a finish. Use free <a href="/calculator/iso-286-fits">SC-027</a> alongside SC-028 when both callouts gate release. If assembly closure is the real risk, escalate to <a href="/calculator/tolerance-stack-up">SC-008</a>.</p>
+
+<h2 id="failure-modes">Common failure modes</h2>
+<ul>
+  <li>Releasing an Ra callout as an Rz limit.</li>
+  <li>Converting without documenting the basis.</li>
+  <li>Ignoring instrument capability.</li>
+  <li>Using converter output alone as PPAP proof.</li>
+</ul>
+
+<h2 id="decision-table">Decision table</h2>
+<table class="sc-guide-table">
+  <thead><tr><th>Situation</th><th>Action</th></tr></thead>
+  <tbody>
+    <tr><td>Print and customer use the same parameter</td><td>Measure that parameter — skip conversion</td></tr>
+    <tr><td>Print Ra, temporary shop Rz screening</td><td>SC-028 + documented assumption + plan to measure Ra</td></tr>
+    <tr><td>Seat also has H7/g6</td><td>SC-027 + SC-028 together</td></tr>
+  </tbody>
+</table>
+
+<h2 id="faqs">Frequently asked questions</h2>
+<div class="q"><h3>Is SC-028 free?</h3><p>Yes. Instant results, no credits.</p></div>
+<div class="q"><h3>Can converted values go on PPAP?</h3><p>Only if the customer accepts the parameter and conversion basis.</p></div>
+<div class="q"><h3>Does SectorCalc invent Ra↔Rz ratios?</h3><p>No. The page exposes the conversion assumption; you remain responsible for the governing standard.</p></div>
+<div class="q"><h3>Where is the short explainer?</h3><p><a href="/blog/ra-vs-rz-surface-finish.html">Ra vs Rz blog</a> and <a href="/topics/fits-and-finish">topic hub</a>.</p></div>
+<div class="q"><h3>Related glossary?</h3><p><a href="/glossary/surface-finish-ra-rz">Ra / Rz glossary</a>.</p></div>
+<div class="q"><h3>What if the print uses Rmax?</h3><p>Confirm whether your instrument and the calculator’s exposed parameters cover it before screening.</p></div>
+<div class="q"><h3>Does finish replace capability studies?</h3><p>No. Process capability still owns production release.</p></div>
+<div class="q"><h3>Next escalation?</h3><p>Assembly risk → <a href="/guides/tolerance-stack-up-complete">stack-up guide</a>.</p></div>
+
+
+<h2 id="filters-and-cutoff">Filters, cutoff, and why numbers disagree</h2>
+<p>Two shops can measure the “same” surface and disagree by tens of percent if filter type, cutoff wavelength, and evaluation length differ. Before you argue about Ra vs Rz conversion, lock the metrology recipe named on the print or in the customer standard. A converter cannot repair mismatched filter settings.</p>
+<p>When SectorCalc shows a conversion assumption, treat it as language alignment for travelers and RFQs — then confirm the acceptance metrology can actually execute the accepted parameter with the required filter stack.</p>
+
+<h2 id="drawing-notes">Drawing notes that prevent scrap</h2>
+<ul>
+  <li>Name the parameter (Ra, Rz, …) explicitly — never “finish 32” without a system.</li>
+  <li>Name the standard edition when the customer requires it.</li>
+  <li>Call out special evaluation length or Motif parameters when used.</li>
+  <li>Separate cosmetic finish from functional sealing/bearing seats.</li>
+</ul>
+
+<h2 id="process-capability">Process capability still owns release</h2>
+<p>Even a perfect conversion does not prove the process can hold the callout. Use capability studies on the accepted parameter. Predicted conversions are not Cpk. If the shop historically reports Rz while the print demands Ra, schedule method alignment before PPAP — not during the customer witness.</p>
+
+<h2 id="supplier-fights">How supplier fights usually start</h2>
+<ol>
+  <li>Design inherits Ra from a material note template.</li>
+  <li>Inspection reports Rz because the portable instrument defaults there.</li>
+  <li>Someone multiplies by a tribal factor from a whiteboard.</li>
+  <li>FAI fails; everyone debates the factor instead of the acceptance language.</li>
+</ol>
+<p>Break the loop: write the acceptance parameter, measure it, and only convert with a documented basis when temporary screening is required.</p>
+
+<h2 id="seat-package">Seat package checklist</h2>
+<ul>
+  <li>Fit letters screened on <a href="/calculator/iso-286-fits">SC-027</a></li>
+  <li>Finish parameter aligned on <a href="/calculator/surface-finish">SC-028</a></li>
+  <li>If preload/gap depends on stacked widths, open <a href="/calculator/tolerance-stack-up">SC-008</a></li>
+  <li>Traveler carries conversion assumption + metrology recipe</li>
+</ul>
+
+<h2 id="more-faq">Additional FAQ</h2>
+<div class="q"><h3>What if the print uses both Ra and Rz?</h3><p>Treat them as independent acceptance criteria unless the customer explicitly allows conversion between them. Measure both if required.</p></div>
+<div class="q"><h3>Can I average Ra across a lot and convert once?</h3><p>No. Conversion is not a substitute for lot metrology on the accepted parameter.</p></div>
+<div class="q"><h3>Does polishing always lower Rz more than Ra?</h3><p>Not reliably. Process changes redistribute the profile; verify with measurement.</p></div>
+<div class="q"><h3>Where do topic hubs fit?</h3><p><a href="/topics/fits-and-finish">Fits &amp; finish</a> clusters free tools and fan-out blogs for retrieval.</p></div>
+
+</section>
+</div>

@@ -12,7 +12,7 @@ import { TOPICAL_MAPS } from '../seo/topical-maps.mjs';
 import { FREE_TOOLS } from '../seo/free-tools.mjs';
 import { GLOSSARY_GROUPS, GLOSSARY_TERMS } from '../seo/glossary-catalog.mjs';
 import { COMPARE_PAGES } from '../seo/compare-catalog.mjs';
-import { GUIDES } from '../seo/guides-catalog.mjs';
+import { GUIDE_ASSEMBLY as GUIDES } from '../seo/guides-assembly.mjs';
 import {
   HOST,
   absoluteUrl,

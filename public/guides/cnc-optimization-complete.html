@@ -1,56 +1,125 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Complete Guide to CNC Optimization | SectorCalc Engineering</title>
-  <meta name="description" content="A complete engineering guide to CNC Optimization: methodology, standards, formulas, common mistakes, and a deterministic calculator with full audit trail.">
-  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+  <title>CNC Optimization Complete Guide | SectorCalc</title>
+  <meta name="description" content="Before you burn a tool or stall a spindle, CNC feeds and speeds convert material group, tool geometry, and machine limits into spindle speed, table feed, chip">
   <link rel="canonical" href="https://sectorcalc.com/guides/cnc-optimization-complete">
-  <link rel="stylesheet" href="/css/seo-content.css">
-  <link rel="stylesheet" href="/sc-theme.css">
-  <meta property="og:title" content="Complete Guide to CNC Optimization | SectorCalc">
-  <meta property="og:description" content="Engineering methodology, standards, and deterministic calculator.">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+  <meta property="og:title" content="CNC Optimization Complete Guide | SectorCalc">
+  <meta property="og:description" content="A catalog Vc looks fine on paper until the spindle runs out of torque mid-cut and you lose a tool — and a shift.">
   <meta property="og:url" content="https://sectorcalc.com/guides/cnc-optimization-complete">
   <meta property="og:type" content="article">
+  <meta property="og:image" content="https://sectorcalc.com/assets/images/og-default-1200x630.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="/css/seo-content.css">
+<link rel="stylesheet" href="/sc-theme.css?v=12">
+<link rel="stylesheet" href="/sc-site-nav.css?v=5">
+<link rel="stylesheet" href="/sc-tool-guide.css?v=3">
+<link rel="stylesheet" href="/css/sc-guides.css?v=3">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Sans:wght@400;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<script src="/sc-theme.js?v=12" defer></script>
+<script src="/sc-site-nav.js?v=2" defer></script>
+<script src="/sc-tool-guide.js?v=3" defer></script>
+<script type="module" src="/src/auth-nav.ts"></script>
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "@id": "https://sectorcalc.com/#organization",
-        "name": "SectorCalc",
-        "url": "https://sectorcalc.com/"
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://sectorcalc.com/#organization",
+      "name": "SectorCalc",
+      "url": "https://sectorcalc.com/"
+    },
+    {
+      "@type": "TechArticle",
+      "@id": "https://sectorcalc.com/guides/cnc-optimization-complete#article",
+      "url": "https://sectorcalc.com/guides/cnc-optimization-complete",
+      "headline": "Complete Guide to CNC Feeds & Speeds Optimization",
+      "description": "Before you burn a tool or stall a spindle, CNC feeds and speeds convert material group, tool geometry, and machine limits into spindle speed, table feed, chip thickness, and power/torque demand — then flag whether the cut should be released, run with caution, or rejected.",
+      "datePublished": "2026-07-26",
+      "dateModified": "2026-07-28",
+      "author": {
+        "@id": "https://sectorcalc.com/#organization"
       },
-      {
-        "@type": "Article",
-        "@id": "https://sectorcalc.com/guides/cnc-optimization-complete#article",
-        "url": "https://sectorcalc.com/guides/cnc-optimization-complete",
-        "headline": "Complete Guide to CNC Optimization",
-        "description": "Engineering guide to CNC Optimization with methodology and calculator.",
-        "datePublished": "2026-07-26",
-        "dateModified": "2026-07-26",
-        "author": { "@id": "https://sectorcalc.com/#organization" },
-        "wordCount": 2500
+      "publisher": {
+        "@id": "https://sectorcalc.com/#organization"
       },
-      {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sectorcalc.com/" },
-          { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://sectorcalc.com/guides/" },
-          { "@type": "ListItem", "position": 3, "name": "CNC Optimization", "item": "https://sectorcalc.com/guides/cnc-optimization-complete" }
+      "isAccessibleForFree": false,
+      "inLanguage": "en-US",
+      "about": "CNC machining",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".sc-aeo-empathy",
+          ".sc-direct-answer",
+          "h1",
+          "#aeo-methodology"
         ]
       }
-    ]
-  }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://sectorcalc.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://sectorcalc.com/guides"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "CNC Optimization Complete Guide",
+          "item": "https://sectorcalc.com/guides/cnc-optimization-complete"
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "name": "How to use CNC Optimization Complete Guide",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Read the problem",
+          "text": "A catalog Vc looks fine on paper until the spindle runs out of torque mid-cut and you lose a tool — and a shift."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Open the calculator",
+          "text": "Open SC-020 CNC Feeds & Speeds (session) at https://sectorcalc.com/calculator/cnc-feeds-speeds"
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Apply methodology",
+          "text": "n = (1000·Vc)/(π·D). vf = n·z·fz (with chip-thinning compensation when ae < D). Power and torque demand come from specific cutting force models in the FS-ENGINE core."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Keep A1–A5 notes",
+          "text": "A1–A5 capture engine identity, SI inputs, formula trace, assumptions, and warnings so two shops can reproduce the same starting recommendation."
+        }
+      ]
+    }
+  ]
+}
   </script>
-<link rel="stylesheet" href="/css/sc-guides.css?v=1">
-<link rel="stylesheet" href="/sc-site-nav.css?v=5">
-<script src="/sc-site-nav.js?v=2" defer></script>
-<script type="module" src="/src/auth-nav.ts"></script>
 </head>
-<body class="theme-calc-sheet sc-guides-shell">
+<body class="sc-guides-shell sc-guides-exclusive">
 <!--SC-SITE-NAV-START-->
 <header class="site-header" id="siteHeader" role="banner">
   <a href="/" class="brand" aria-label="SectorCalc Home"><span class="brand-mark"><img class="logo-light" src="/sectorcalc-logo-214.w.png" srcset="/sectorcalc-logo-214.w.png 214w, /sectorcalc-logo-428.w.png 428w" sizes="183px" width="183" height="48" alt="SectorCalc" decoding="async"><img class="logo-dark" src="/sectorcalc-logo-dark-214.w.png" srcset="/sectorcalc-logo-dark-214.w.png 214w, /sectorcalc-logo-dark-428.w.png 428w" sizes="183px" width="183" height="48" alt="" aria-hidden="true" decoding="async"></span></a>
@@ -84,128 +153,391 @@
   <a href="/login.html" class="btn-primary" data-nav="login">Sign in</a>
 </div>
 <!--SC-SITE-NAV-END-->
+<main class="sc-guides-main sc-guide-article" id="main-content">
+  <nav class="sc-breadcrumb" aria-label="Breadcrumb">
+    <ol>
+      <li><a href="/">Home</a></li>
+      <li><a href="/guides">Guides</a></li>
+      <li aria-current="page">CNC Optimization Complete Guide</li>
+    </ol>
+  </nav>
 
-
-
-
-
-
+  <header class="sc-guide-hero-block">
+    <p class="sc-guides-kicker">CNC machining · Decision tool · credit session · SC-020</p>
+    <h1>Complete Guide to CNC Feeds &amp; Speeds Optimization</h1>
+    <div class="sc-aeo-empathy" data-aeo-step="empathy" id="aeo-empathy">
+      <p><strong>The problem:</strong> A catalog Vc looks fine on paper until the spindle runs out of torque mid-cut and you lose a tool — and a shift.</p>
+      <p><strong>What you get:</strong> Check speed, feed, chip load, and power demand against the machine you actually own.</p>
+    </div>
+    <p class="sc-direct-answer" data-aeo-step="direct-answer" id="aeo-direct-answer">Before you burn a tool or stall a spindle, CNC feeds and speeds convert material group, tool geometry, and machine limits into spindle speed, table feed, chip thickness, and power/torque demand — then flag whether the cut should be released, run with caution, or rejected.</p>
+    <nav class="sc-aeo-rail" aria-label="Answer engine chain"><a href="#aeo-empathy" data-aeo-rail="empathy">Problem</a><a href="#aeo-direct-answer" data-aeo-rail="direct-answer">Direct answer</a><a href="#aeo-explanation" data-aeo-rail="explanation">Explanation</a><a href="#aeo-methodology" data-aeo-rail="methodology">Methodology</a><a href="#aeo-evidence" data-aeo-rail="evidence">Evidence</a><a href="#aeo-accountability" data-aeo-rail="accountability">A1–A5</a><a href="#aeo-related-problems" data-aeo-rail="related-problems">Related</a></nav>
+    <p class="sc-guide-access-note">Unlock a credit session for 24-hour recalculation with A1–A5 audit trail. No subscription.</p>
+    <a class="sc-btn-primary" href="/calculator/cnc-feeds-speeds">Open SC-020 CNC Feeds &amp; Speeds (session) →</a>
+  </header>
 
   
-  <main class="sc-guide-page sc-guides-main sc-guide-article">
-    <nav class="sc-breadcrumb" aria-label="Breadcrumb">
-      <ol>
-        <li><a href="/">Home</a></li>
-        <li><a href="/guides/">Guides</a></li>
-        <li aria-current="page">CNC Optimization</li>
-      </ol>
-    </nav>
-    <article>
-      <h1>Complete Guide to <span class="highlight">CNC Optimization</span></h1>
-      <p class="sc-aeo-problem"><strong>The problem:</strong> Will this cut release on the spindle you actually own — or burn a tool and stall the machine?</p>
-      <p class="sc-direct-answer">Set feeds, speeds, chip thinning, and power checks with deterministic formulas on SC-020. Credit session unlocks full recalculation with audit trail.</p>
-      <p class="lead">CNC optimization balances material removal rate, surface finish, and tool life through cutting speed, feed rate, and depth of cut. This guide covers the Taylor tool life equation, chip thinning, and deterministic calculation for shop-floor decisions.</p>
-      <div class="sc-guide-toc">
-        <h2>Table of Contents</h2>
-        <ol>
-          <li><a href="#what-is">What is CNC Optimization?</a></li>
-          <li><a href="#standards">Applicable Standards</a></li>
-          <li><a href="#methodology">Methodology & Formulas</a></li>
-          <li><a href="#calculator">Using the Deterministic Calculator</a></li>
-          <li><a href="#common-mistakes">Common Mistakes & How to Avoid Them</a></li>
-          <li><a href="#case-study">Real-World Case Study</a></li>
-          <li><a href="#faq">FAQ</a></li>
-        </ol>
-      </div>
-      <section id="what-is">
-        <h2>1. What is CNC Optimization?</h2>
-        <p>CNC optimization is the process of selecting cutting parameters that maximize productivity while maintaining part quality and tool life. It bridges the gap between theoretical metal cutting science and practical shop-floor economics.</p>
-        <p>The Taylor tool life equation (V*T^n = C) relates cutting speed to tool life through empirical constants. Chip thinning occurs when radial engagement is less than half the tool diameter, requiring feed compensation to maintain chip load.</p>
-        <p>Optimizing CNC parameters can reduce tooling costs by 20-30 percent and cycle times by 15-25 percent. The deterministic approach ensures that feed/speed recommendations are traceable to specific tool geometry and workpiece material.</p>
-      </section>
-      <section id="standards">
-        <h2>2. Applicable Standards</h2>
-        <ul class="sc-standards-list">
-          <li><strong>Taylor (1907):</strong> Classic tool-life model relating cutting speed to tool life for cost and productivity trade-offs.</li>
-          <li><strong>ISO 3685:</strong> Tool-life testing framework used to generate comparable wear data for turning tools.</li>
-          <li><strong>VDI 3321:</strong> Guidance on cutting data selection and economic machining parameters for production planning.</li>
-        </ul>
-      </section>
-      <section id="methodology">
-        <h2>3. Methodology & Formulas</h2>
-        <p>This guide explains how to calculate optimal cutting parameters using the Taylor equation, chip thinning factors, and machine power constraints. The deterministic engine validates every step with visible formulas.</p>
-        <h3>3.1 Taylor Tool Life</h3>
-        <div class="sc-formula-block">
-          <code>V * T^n = C</code>
-          <p>Taylor tool life: raising cutting speed shortens life by the exponent n. Calibrate C and n to the tool–workpiece pair.</p>
-        </div>
-        <h3>3.2 Chip Thinning Factor</h3>
-        <div class="sc-formula-block">
-          <code>ae/D < 0.5 -> fz_effective = fz / (2 * sqrt(ae/D - (ae/D)^2))</code>
-          <p>Radial chip-thinning compensation restores intended chip thickness when width of cut is less than full slot.</p>
-        </div>
-        <h3>3.3 Spindle Power Check</h3>
-        <div class="sc-formula-block">
-          <code>P = (MRR * kc) / (60 * eta)</code>
-          <p>Spindle power estimate from material removal rate, specific cutting force, and machine efficiency.</p>
-        </div>
-      </section>
-      <section id="calculator">
-        <h2>4. Using the Deterministic Calculator</h2>
-        <p>Open the SC-020 calculator and enter your tool and workpiece parameters.</p>
-        <ol class="sc-step-list">
-          <li><strong>Step 1:</strong> Select tool material (HSS, carbide, ceramic) and workpiece material from the reference database.</li>
-          <li><strong>Step 2:</strong> Enter tool diameter, number of flutes, and radial engagement.</li>
-          <li><strong>Step 3:</strong> Input desired tool life or maximum cutting speed constraint.</li>
-          <li><strong>Step 4:</strong> Review optimized cutting speed, feed rate, and spindle RPM with chip thinning compensation.</li>
-          <li><strong>Step 5:</strong> Export the A1-A5 audit report with tool life prediction and cost per edge.</li>
-        </ol>
-        <div class="sc-cta-inline">
-          <a href="/calculator/cnc-feeds-speeds" class="sc-btn-primary">Open SC-020 CNC Feeds & Speeds -></a>
-        </div>
-      </section>
-      <section id="common-mistakes">
-        <h2>5. Common Mistakes & How to Avoid Them</h2>
-        <div class="sc-mistake-card">
-          <h3>Mistake 1: Using catalog C and n values without calibration</h3>
-          <p>Catalog values are starting points, not contracts. Your machine, coolant, and setup differ from the test conditions.</p>
-          <p><strong>Fix:</strong> Calibrate C and n from your own tool-wear data. SC-020 includes a calibration mode for this.</p>
-        </div>
-        <div class="sc-mistake-card">
-          <h3>Mistake 2: Ignoring chip thinning in high-speed machining</h3>
-          <p>Adaptive clearing and trochoidal paths use low ae/D ratios. Without compensation, chip load drops below the effective range, causing rubbing and premature wear.</p>
-          <p><strong>Fix:</strong> Always apply chip thinning factor when ae/D < 0.5. The calculator does this automatically.</p>
-        </div>
-        <div class="sc-mistake-card">
-          <h3>Mistake 3: Exceeding machine power for marginal gain</h3>
-          <p>A 10 percent speed increase that requires 30 percent more power is not economical if it triggers spindle overload alarms.</p>
-          <p><strong>Fix:</strong> Use the power check in the calculator. Optimize for cost per part, not just cycle time.</p>
-        </div>
-      </section>
-      <section id="case-study">
-        <h2>6. Worked decision pattern</h2>
-        <p><strong>Problem pattern:</strong> Will this cut release on the spindle you actually own — or burn a tool and stall the machine?</p>
-        <p><strong>Method:</strong> Use the calculator linked below with documented inputs, then keep A4 assumptions and A5 warnings with the result. SectorCalc does not publish invented customer ROI percentages.</p>
-        <p><strong>Next step:</strong> <a href="/calculator/cnc-feeds-speeds">Open SC-020 CNC Feeds &amp; Speeds</a></p>
-      </section>
-      <section id="faq" class="sc-faq-section">
-        <h2>7. Frequently Asked Questions</h2>
-        <details class="sc-faq-item"><summary>What is the most common mistake when calculating CNC Optimization?</summary><p>The most common mistake is using catalog c and n values without calibration. Calibrate C and n from your own tool-wear data. SC-020 includes a calibration mode for this.</p></details>
-        <details class="sc-faq-item"><summary>Which standard governs CNC Optimization in international practice?</summary><p>Taylor (1907) is the primary international standard. ISO 3685 provides additional guidance for specific applications.</p></details>
-        <details class="sc-faq-item"><summary>Can SectorCalc replace manual CNC Optimization calculations entirely?</summary><p>SectorCalc provides deterministic, audit-ready calculations with visible formulas. However, final production release remains subject to the governing code edition, certified material data, and competent engineering review.</p></details>
-        <details class="sc-faq-item"><summary>How do I calibrate the calculator for my specific shop conditions?</summary><p>Use the A4 assumptions section to document your shop-specific parameters. The deterministic engine ensures that once calibrated, all future calculations use the same basis.</p></details>
-        <details class="sc-faq-item"><summary>Is the audit report accepted for customer review?</summary><p>The A1-A5 audit trail includes engine identity, inputs, formulas, assumptions, and warnings. It is designed for engineering review and customer audit. It does not replace a licensed engineer sign-off.</p></details>
-      </section>
-      <section class="sc-guide-related" data-guide-related="1"><h2>Related entities</h2><ul><li><a href="/calculator/cnc-feeds-speeds">/calculator/cnc-feeds-speeds</a></li><li><a href="/calculator/cycle-time-cost">/calculator/cycle-time-cost</a></li><li><a href="/guides/punching-force-complete">/guides/punching-force-complete</a></li><li><a href="/glossary/cnc-feeds-and-speeds">/glossary/cnc-feeds-and-speeds</a></li><li><a href="/glossary/chip-thinning">/glossary/chip-thinning</a></li></ul></section>
-      <section class="sc-cta-panel">
-        <h2>Calculate CNC Optimization Deterministically</h2>
-        <p>Unlock a credit session for 24-hour recalculation with A1–A5 audit trail. No subscription.</p>
-        <a href="/calculator/cnc-feeds-speeds" class="sc-btn-primary">Open SC-020 CNC Feeds & Speeds -></a>
-      </section>
-    </article>
-  </main>
-  <footer class="sc-footer">
-    <p>Copyright 2026 SectorCalc. Deterministic industrial engineering calculators.</p>
-  </footer>
+<section class="sc-guide-block" data-aeo-step="explanation" id="aeo-explanation-decision">
+  <h2>Explanation — decision this supports</h2>
+  <p>Choose starting Vc/fz for a tool–material pair, check spindle power and torque headroom, and estimate whether the cut is production-credible before you burn a tool or stall the spindle.</p>
+</section>
+<section class="sc-guide-block" data-aeo-step="explanation" id="aeo-explanation-inputs">
+  <h2>Required inputs</h2>
+  <p>Material group, cutter diameter and teeth, Vc, fz, ae/ap, spindle power and torque, stick-out, coolant/interruption mode, and optional tool/machine cost rates.</p>
+</section>
+<section class="sc-guide-block" data-aeo-step="methodology" id="aeo-methodology">
+  <h2>Methodology — formula &amp; method</h2>
+  <div class="sc-formula-block"><code>n = (1000·Vc)/(π·D). vf = n·z·fz (with chip-thinning compensation when ae &lt; D). Power and torque demand come from specific cutting force models in the FS-ENGINE core.</code></div>
+</section>
+<section class="sc-guide-block" data-aeo-step="evidence" id="worked-example">
+  <h2>Evidence — worked example</h2>
+  <p>Production SC-020 returns spindle speed, table feed, chip thickness, power/torque demand, and a release verdict from the FS-ENGINE core.</p>
+  <p class="sc-money-engine">Engine source: <code>src/tools/SC-020-feeds-speeds/v1.0.0/formula.ts</code> · tool <code>SC-020</code></p>
+  <div class="sc-guide-split">
+    <div><h3>Inputs</h3><ul><li><strong>materialId:</strong> P1</li><li><strong>diameterMm:</strong> 12</li><li><strong>teeth:</strong> 4</li><li><strong>vcMPerMin:</strong> 180</li><li><strong>fzMm:</strong> 0.08</li><li><strong>apMm:</strong> 8</li><li><strong>aeMm:</strong> 3</li><li><strong>spindleKw:</strong> 11</li><li><strong>spindleTorqueNm:</strong> 80</li><li><strong>stickOutMm:</strong> 40</li><li><strong>noseRadiusMm:</strong> 0.4</li><li><strong>efficiency:</strong> 0.85</li><li><strong>coolant:</strong> emulsion</li><li><strong>interruption:</strong> continuous</li><li><strong>toolCost:</strong> 85</li><li><strong>machineCostPerMin:</strong> 1.4</li><li><strong>currency:</strong> EUR</li></ul></div>
+    <div><h3>Outputs</h3><ul><li><strong>nRpm:</strong> <code>4774.65</code></li><li><strong>vfMmMin:</strong> <code>1527.89</code></li><li><strong>hmMm:</strong> <code>0.0400</code></li><li><strong>materialName:</strong> <code>Low-carbon steel (C &lt; 0.25%)</code></li><li><strong>verdict:</strong> <code>DO NOT RUN</code></li></ul></div>
+  </div>
+  <p><em>SectorCalc does not publish invented customer ROI. These numbers come from the deterministic engine fixture.</em></p>
+</section>
+<section class="sc-guide-block" data-aeo-step="explanation">
+  <h2>What the result means</h2>
+  <p>Released means demand sits inside spindle limits with credible chip load. Caution means a limit is close. Do not run means power, torque, or chip thickness is outside the validated band for the selected material table.</p>
+</section>
+<section class="sc-guide-block" data-aeo-step="explanation">
+  <h2>What moves the result</h2>
+  <p>Diameter and Vc dominate rpm. Radial engagement and fz dominate chip thickness and force. Stick-out raises deflection risk faster than operators expect.</p>
+</section>
+<section class="sc-guide-block" data-aeo-step="methodology">
+  <h2>Assumptions</h2>
+  <p>Reference mid-band material constants. Machine efficiency and coolant factors are screening defaults. Supplier datasheets override tables for contract work.</p>
+</section>
+<section class="sc-guide-block" data-aeo-step="methodology">
+  <h2>Model boundaries</h2>
+  <p>Not a CAM toolpath simulator. Does not model chatter stability lobes, coated-grade specifics, or adaptive control. Calibrate to toolmaker data before production release.</p>
+</section>
+<section class="sc-guide-block" data-aeo-step="evidence">
+  <h2>Common engineering mistakes</h2>
+  <p>Using catalog Vc with full-slot ae while entering a finishing ae; ignoring torque at low rpm; treating verdict as a warranty.</p>
+</section>
+<section class="sc-guide-block" data-aeo-step="evidence">
+  <h2>Evidence — standard &amp; reference scope</h2>
+  <p>Material grouping follows ISO 513-style categories. Cutting equations are engineering practice, not a claim of full ISO machining-standard compliance for every grade.</p>
+</section>
+<section class="sc-guide-block" data-aeo-step="accountability" id="aeo-accountability">
+  <h2>Accountability — A1–A5 audit trail</h2>
+  <p>A1–A5 capture engine identity, SI inputs, formula trace, assumptions, and warnings so two shops can reproduce the same starting recommendation.</p>
+  <ol class="sc-a15">
+    <li><strong>A1</strong> Engine identity / version</li>
+    <li><strong>A2</strong> Inputs snapshot</li>
+    <li><strong>A3</strong> Formula path</li>
+    <li><strong>A4</strong> Assumptions</li>
+    <li><strong>A5</strong> Warnings / out-of-band flags</li>
+  </ol>
+</section>
+
+  <section class="sc-guide-deep" id="deep-methodology" aria-label="Deep methodology">
+    <h2 class="sc-guide-deep-title">Deep methodology library</h2>
+    <p class="sc-guide-deep-lead">The long-form reference below is the same engineering depth injected beside the live calculator — expanded here as a standalone guide for answer engines and humans.</p>
+    <section class="sc-guide" id="sc-guide" data-tool-id="SC-020" data-tool-name="CNC Feeds & Speeds + Tool Life Calculator (SC-020)" data-tool-url="https://sectorcalc.com/machining-pro.html" itemscope itemtype="https://schema.org/FAQPage">
+
+<p class="sc-guide-lede">The <b>CNC Feeds &amp; Speeds + Tool Life Calculator (SC-020)</b> runs on <b>FS-ENGINE v2.1.0</b> — an industrial parameter engine that couples <b>extended Taylor tool-life</b> (flank wear VB = 0.3&nbsp;mm), <b>ISO 513</b> material bands, <b>Kienzle</b> cutting-force modelling, radial <b>chip-thinning</b> / HEM engagement compensation, spindle <b>power and torque</b> verification, cantilever <b>deflection</b>, and <b>Gilbert</b> minimum-cost speed — all computed in <b>SI</b> with per-field universal units and a full audit trail. Results are engineering previews: calibrate Taylor C/n and kc1 against your tooling supplier before release to production.</p>
+
+<nav class="sc-guide-toc" aria-label="Table of contents">
+  <div class="t">On this page</div>
+  <ul>
+    <li><a href="#overview">What SC-020 computes</a></li>
+    <li><a href="#taylor">Taylor tool life and VB = 0.3&nbsp;mm</a></li>
+    <li><a href="#iso513">ISO 513 material groups</a></li>
+    <li><a href="#kienzle">Kienzle specific cutting force</a></li>
+    <li><a href="#chip-thinning">Chip thinning and HEM engagement</a></li>
+    <li><a href="#power-torque">Spindle power and torque</a></li>
+    <li><a href="#deflection">Tool deflection and L/D stability</a></li>
+    <li><a href="#gilbert">Gilbert economic cutting speed</a></li>
+    <li><a href="#environment">Coolant and interruption multipliers</a></li>
+    <li><a href="#ball-nose">Ball-nose effective diameter</a></li>
+    <li><a href="#fs-engine">FS-ENGINE SI core and units</a></li>
+    <li><a href="#faqs">Frequently asked questions</a></li>
+  </ul>
+</nav>
+
+<h2 id="overview">What SC-020 computes</h2>
+<p>SC-020 is not a lookup table with imperial/metric toggles. Each input — tool diameter, overhang, cutting speed, feed per tooth, depth and width of cut, machine limits, Taylor constants, and costing fields — carries its own unit selector. The engine normalises everything to SI (millimetres, metres per minute, kilowatts, newton-metres) before calculation, then renders results and warnings against your selected display units.</p>
+<p>A single run produces spindle speed and table feed, mean chip thickness (with thinning compensation where applicable), material removal rate, specific cutting force and tangential load, net and gross spindle power, torque demand versus machine limit, static tool deflection, corrected Taylor tool life, back-solved speed for a target life, theoretical feed-mark roughness, Gilbert economic speed, and cost-per-cutting-minute comparison. Blocking errors (RPM over limit, power exceeded, ae &gt; D, critically low life) halt release; warnings flag envelope excursions that are physically valid but risky.</p>
+<p class="note">Preview caveat: reference constants loaded from ISO 513 presets are mid-band handbook values. Contract machining, aerospace release, and tooling warranty claims require supplier-specific C, n, kc1, and mc validated on your machine–tool–material combination.</p>
+
+<h2 id="taylor">Taylor tool life and VB = 0.3&nbsp;mm</h2>
+<p>The classical Taylor speed–life relation describes how cutting speed V<sub>c</sub> trades off against tool life T for a fixed tool–workpiece pair under stated test conditions. SectorCalc implements the extended form with multiplicative environment corrections:</p>
+
+<div class="sc-formula">T [min] = (C / V<sub>c</sub>)<sup>1/n</sup> · k<sub>cool</sub> · k<sub>interrupt</sub></div>
+
+<p>where C and n are empirically fitted constants for the selected material and tool substrate (carbide vs HSS bands differ), k<sub>cool</sub> accounts for coolant strategy, and k<sub>interrupt</sub> penalises interrupted cuts. The implicit wear criterion is <b>average flank wear land VB = 0.3&nbsp;mm</b> on the major cutting edge — the ISO turning-test convention. Tool life below 15 minutes triggers a blocking warning; life between half and four times the user target generates advisory messages with a back-solved speed V<sub>c,T</sub> for the target life T<sub>target</sub>:</p>
+
+<div class="sc-formula">V<sub>c,T</sub> [m/min] = C · (T<sub>target</sub> / (k<sub>cool</sub> · k<sub>interrupt</sub>))<sup>−n</sup></div>
+
+<p>Taylor n typically ranges from 0.15 (superalloys, hardened steels) to 0.40 (aluminium). A low n means life is highly sensitive to speed — small V<sub>c</sub> increases yield disproportionate life gains. Operating above the calibrated ISO 513 band can underestimate wear because C/n were fitted inside the recommended envelope, not at the edge of thermal failure.</p>
+
+<h2 id="iso513">ISO 513 material groups</h2>
+<p>ISO 513 classifies workpiece materials by machinability using letter groups that map to colour codes on cutting-tool packaging. SC-020 presets bundle typical V<sub>c</sub> bands, feed-per-tooth ranges, Kienzle kc1/mc pairs, and suggested Taylor C/n for each selectable grade:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>ISO 513 group</th>
+      <th>Representative grades</th>
+      <th>Illustrative V<sub>c</sub> mid-band (carbide)</th>
+      <th>Typical Taylor n</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>P — Steel</td>
+      <td>1018, C45, 4140, pre-hardened tool steel</td>
+      <td>180–280 m/min (medium carbon)</td>
+      <td>0.20–0.26</td>
+    </tr>
+    <tr>
+      <td>M — Stainless</td>
+      <td>304/316 austenitic, 2205 duplex</td>
+      <td>150–230 m/min (304); 100–160 (duplex)</td>
+      <td>0.21–0.22</td>
+    </tr>
+    <tr>
+      <td>K — Cast iron</td>
+      <td>GG25 grey, GGG50 nodular</td>
+      <td>160–260 m/min (grey); 120–200 (nodular)</td>
+      <td>0.26–0.28</td>
+    </tr>
+    <tr>
+      <td>N — Non-ferrous</td>
+      <td>6061/7075 Al, brass, copper</td>
+      <td>400–900 m/min (wrought Al); 250–450 (brass)</td>
+      <td>0.30–0.40</td>
+    </tr>
+    <tr>
+      <td>S — Superalloys &amp; Ti</td>
+      <td>Ti-6Al-4V, Inconel 718</td>
+      <td>45–90 m/min (Ti); 25–55 (Inconel)</td>
+      <td>0.15–0.18</td>
+    </tr>
+    <tr>
+      <td>H — Hardened</td>
+      <td>52–62 HRC hardened steel</td>
+      <td>50–100 m/min</td>
+      <td>0.18</td>
+    </tr>
+  </tbody>
+</table>
+<p class="note">Mid-band values are reference hints, not hard limits. HSS substrate selection automatically derates V<sub>c</sub> to roughly 40–45% of the carbide band inside the engine.</p>
+
+<h2 id="kienzle">Kienzle specific cutting force</h2>
+<p>Cutting power depends on the specific cutting force k<sub>c</sub>, which varies with undeformed chip thickness h. The Kienzle equation captures the nonlinear increase in k<sub>c</sub> as chip load decreases (rubbing regime):</p>
+
+<div class="sc-formula">k<sub>c</sub> [N/mm²] = k<sub>c1</sub> · h<sup>−m<sub>c</sub></sup></div>
+
+<p>k<sub>c1</sub> and m<sub>c</sub> are material constants from the ISO 513 preset (e.g. medium-carbon steel: k<sub>c1</sub> ≈ 1980 N/mm², m<sub>c</sub> ≈ 0.25). The engine uses mean chip thickness h<sub>m</sub> after thinning compensation, floored at 0.01&nbsp;mm to avoid singularities. Material removal rate Q (cm³/min) and net cutting power follow:</p>
+
+<div class="sc-formula">Q [cm³/min] = a<sub>p</sub> · a<sub>e</sub> · v<sub>f</sub> / 1000 &nbsp;&nbsp;(milling/face); &nbsp; Q = π · D² · v<sub>f</sub> / (4 · 1000) &nbsp;(drilling)</div>
+<div class="sc-formula">P<sub>c</sub> [kW] = k<sub>c</sub> · Q / 60000</div>
+
+<p>Tangential force F<sub>c</sub> = P<sub>c</sub> · 60000 / V<sub>c</sub> feeds the deflection model. k<sub>c</sub> from handbook tables assumes sharp tools and conventional flood coolant; worn edges, built-up edge, and cryogenic or dry extremes are not modelled explicitly — use coolant and interruption multipliers on life, not on k<sub>c</sub>, unless you recalibrate k<sub>c1</sub> from force measurements.</p>
+
+<h2 id="chip-thinning">Chip thinning and HEM engagement</h2>
+<p>When radial width of cut a<sub>e</sub> is less than half the tool diameter, the chip is thinner than the programmed feed per tooth f<sub>z</sub>. Programming catalogue f<sub>z</sub> for full-slot conditions in a trochoidal or HEM toolpath produces rubbing, heat, and premature wear. SC-020 applies one of two compensation paths:</p>
+<ol>
+  <li><b>CAM engagement angle θ</b> (preferred when available): h<sub>m</sub> = f<sub>z</sub> · sin θ.</li>
+  <li><b>Radial fallback</b> when a<sub>e</sub>/D &lt; 0.5 and no angle is supplied: h<sub>m</sub> = f<sub>z</sub> · 2√(a<sub>e</sub>/D · (1 − a<sub>e</sub>/D)).</li>
+</ol>
+
+<div class="sc-formula">h<sub>m</sub> [mm] = f<sub>z</sub> · sin θ &nbsp;&nbsp;or&nbsp;&nbsp; h<sub>m</sub> = f<sub>z</sub> · 2√(a<sub>e</sub>/D · (1 − a<sub>e</sub>/D))</div>
+
+<p>The engine reports the compensated h<sub>m</sub> and the f<sub>z</sub> you should program to achieve a target chip load. High-efficiency machining (HEM) typically runs a<sub>e</sub>/D between 0.10 and 0.25 with a<sub>p</sub> ≈ 1–2 × D and elevated f<sub>z</sub> after thinning correction — the calculator verifies that corrected loads still respect power, torque, deflection, and life envelopes.</p>
+
+<h2 id="power-torque">Spindle power and torque</h2>
+<p>Gross spindle demand divides net cutting power by spindle efficiency η (typically 80–90% for belt- or direct-drive VMC spindles):</p>
+
+<div class="sc-formula">P<sub>s</sub> [kW] = P<sub>c</sub> / η ; &nbsp;&nbsp; M [N·m] = 9550 · P<sub>c</sub> / n</div>
+
+<p>Utilisation above 100% of rated power or torque is blocking; 80% power or 85% torque triggers warnings. Critical preview limitation: the engine applies a single torque limit at operating RPM — it does <em>not</em> interpolate the machine's torque–speed curve. High-speed spindles deliver far less torque near maximum RPM than the nameplate peak at base speed. Always cross-check M against the manufacturer's curve at the calculated n, not the catalog maximum alone.</p>
+
+<h2 id="deflection">Tool deflection and L/D stability</h2>
+<p>Static cantilever deflection treats the tool shank as a circular beam with second moment I = πD⁴/64 and Young's modulus E (580 GPa carbide, 200 GPa HSS):</p>
+
+<div class="sc-formula">δ [mm] = F<sub>c</sub> · L³ / (3 · E · I)</div>
+
+<p>Overhang ratio L/D governs chatter risk: L/D ≤ 4 is generally stable; 4–6 requires feed derating; L/D &gt; 6 is flagged as critical for regenerative chatter. Deflection above 0.05&nbsp;mm blocks release; 0.02–0.05&nbsp;mm warns. Fluted end mills are 10–20% more flexible than the solid-cylinder assumption — treat δ as a lower bound. Finish passes with reduced a<sub>e</sub> and shorter L are standard mitigation when roughing deflection is acceptable.</p>
+
+<h2 id="gilbert">Gilbert economic cutting speed</h2>
+<p>Maximum metal-removal rate is rarely minimum cost. Gilbert's model minimises cost per cutting minute by balancing machine time against edge consumption. Edge cost in machine-minutes is tool cost divided by machine rate plus changeover time. Economic tool life:</p>
+
+<div class="sc-formula">T<sub>econ</sub> [min] = (1/n − 1) · (C<sub>t</sub>/C<sub>m</sub> + t<sub>change</sub>) · k<sub>cool</sub> · k<sub>interrupt</sub></div>
+<div class="sc-formula">V<sub>econ</sub> [m/min] = C · T<sub>econ</sub><sup>−n</sup></div>
+
+<p>SC-020 compares cost per minute at your current V<sub>c</sub> versus V<sub>econ</sub> and reports potential savings on the machining-cost component only — scrap risk, surface-finish rework, and downstream operations are excluded. Currency selector sets display symbol; no FX conversion is performed.</p>
+
+<h2 id="environment">Coolant and interruption multipliers</h2>
+<p>Environment corrections scale Taylor life and Gilbert economics multiplicatively. They are engineering factors from machining-handbook practice, not measured data for your shop:</p>
+<ul>
+  <li><b>Coolant k<sub>cool</sub>:</b> flood 1.00 · MQL 0.90 · air blast 0.85 · dry 0.75</li>
+  <li><b>Cut continuity k<sub>interrupt</sub>:</b> continuous 1.00 · light interruption 0.80 · heavy interruption 0.60</li>
+</ul>
+<p>Heavy interruption applies to cast skin, welds, cross-holes, and entry/exit breaks where thermal cycling accelerates thermal-fatigue cratering. Dry machining of steels may need more aggressive derating than 0.75 on life — validate with toolmaker tests.</p>
+
+<h2 id="ball-nose">Ball-nose effective diameter</h2>
+<p>Surface speed at the tool tip of a ball-nose end mill is near zero if nominal diameter is used in n = 1000·V<sub>c</sub>/(πD). SC-020 replaces D with effective diameter at depth of cut a<sub>p</sub>:</p>
+
+<div class="sc-formula">D<sub>eff</sub> [mm] = 2 · √(R² − (R − a<sub>p</sub>)²) &nbsp;&nbsp;where R = D/2</div>
+
+<p>When D<sub>eff</sub> &lt; 0.3D, a warning recommends 10–15° tool tilt to bring the cutting zone onto a larger-radius section of the sphere. RPM, feed, power, and life all use D<sub>eff</sub> and the resulting V<sub>c,eff</sub>.</p>
+
+<h2 id="fs-engine">FS-ENGINE SI core and units</h2>
+<p>FS-ENGINE v2.1.0 computes deterministically in SI regardless of per-field display units. Conversion factors applied at input:</p>
+<ul>
+  <li>Length: in → mm × 25.4</li>
+  <li>Speed: SFM → m/min × 0.3048</li>
+  <li>Power: HP → kW × 0.7457</li>
+  <li>Torque: ft·lb → N·m × 1.3558</li>
+</ul>
+<p>Every report embeds engine version, UTC timestamp, FNV-1a integrity hash, entered values with units, SI values used internally, formula catalogue, and explicit assumptions. Identical inputs always yield identical outputs — no hidden state or stochastic variation.</p>
+
+<div class="sc-tip">
+  <span class="ico" aria-hidden="true">💡</span>
+  <div>
+    <b>Related SectorCalc tools</b> — Pair machining parameters with downstream checks:
+    <a href="/calculator/bearing-life-l10">Bearing Life L10 (ISO 281)</a> for spindle bearing duty from n and load;
+    <a href="/calculator/tolerance-stack-up">Tolerance Stack-Up (SC-008)</a> when deflection-driven size drift affects assembly fit;
+    <a href="/calculator/quote-pricing">Quote Pricing (SC-012)</a> to roll cycle time and tool cost into sell price;
+    browse all tools on the <a href="/tools.html">SectorCalc catalog</a>.
+  </div>
+</div>
+
+<h2 id="faqs" class="sc-guide-faq">Frequently asked questions</h2>
+
+<div class="q" id="faq-vb" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 itemprop="name">What wear criterion does the Taylor model use?</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <div itemprop="text">
+      <p>SC-020 assumes ISO-style flank wear with average land width <b>VB = 0.3&nbsp;mm</b> on the major cutting edge. C and n constants from the material preset were conceptually fitted to that endpoint. If your shop uses a different criterion — crater wear on stainless, maximum flank for aerospace, or surface-finish-driven change — refit C and n from your own tool tests or apply a safety factor to predicted life.</p>
+    </div>
+  </div>
+</div>
+
+<div class="q" id="faq-chip-thinning" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 itemprop="name">Why is my programmed feed per tooth higher than the chip load shown?</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <div itemprop="text">
+      <p>When a<sub>e</sub> &lt; 0.5D or a CAM engagement angle is supplied, the physical chip thickness h<sub>m</sub> is less than programmed f<sub>z</sub>. The engine displays compensated h<sub>m</sub> and suggests the f<sub>z</sub> to program for a target load. This is expected in HEM and rest-machining strategies — always size f<sub>z</sub> from h<sub>m</sub>, not from full-slot catalogue values.</p>
+    </div>
+  </div>
+</div>
+
+<div class="q" id="faq-power" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 itemprop="name">Why can spindle power pass while torque fails (or vice versa)?</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <div itemprop="text">
+      <p>Power P = M·ω couples torque and speed. Low-speed, heavy cuts are torque-limited; high-speed, light cuts are power-limited. SC-020 checks both against your entered limits at the operating RPM. Because torque curves droop with speed, a pass at nameplate torque may still fail on machine — verify against the OEM curve for the calculated spindle speed.</p>
+    </div>
+  </div>
+</div>
+
+<div class="q" id="faq-gilbert" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 itemprop="name">Should I always run at Gilbert economic speed V<sub>econ</sub>?</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <div itemprop="text">
+      <p>Not necessarily. V<sub>econ</sub> minimises machining cost per minute for the stated tool cost, change time, and machine rate. It does not account for scrap risk from tight tolerances, required surface finish, unstable setups, or contractual cycle-time caps. Use V<sub>econ</sub> as a benchmark — if your current speed sits far below it with life ≫ target, there is often room to increase V<sub>c</sub> without violating life or power limits.</p>
+    </div>
+  </div>
+</div>
+
+<div class="q" id="faq-units" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+  <h3 itemprop="name">Can I mix metric and imperial inputs?</h3>
+  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+    <div itemprop="text">
+      <p>Yes. Each dimensional field has its own unit selector; the engine converts to SI before calculation. Mixing SFM for V<sub>c</sub> with millimetre tool dimensions is supported — the audit trail records both as-entered values and SI internals. Use global “All Metric” or “All Imperial” toggles for consistency, then override individual fields where needed (e.g. inch tools on a metric machine).</p>
+    </div>
+  </div>
+</div>
+
+<details class="related">
+  <summary>Related calculators</summary>
+  <ul>
+    <li><a href="/calculator/cnc-feeds-speeds">SC-020 — CNC Feeds &amp; Speeds + Tool Life</a> (this tool)</li>
+    <li><a href="/calculator/bearing-life-l10">SC-021 — Bearing Life L10 (ISO 281)</a></li>
+    <li><a href="/calculator/tolerance-stack-up">SC-008 — Tolerance Stack-Up</a></li>
+    <li><a href="/calculator/quote-pricing">SC-012 — Quote Pricing</a></li>
+    <li><a href="/tools.html">Full SectorCalc tool catalog</a></li>
+  </ul>
+</details>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What wear criterion does the Taylor model use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SC-020 assumes ISO-style flank wear with average land width VB = 0.3 mm on the major cutting edge. C and n constants from the material preset were conceptually fitted to that endpoint. If your shop uses a different criterion, refit C and n from tool tests or apply a safety factor to predicted life."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is my programmed feed per tooth higher than the chip load shown?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "When radial width of cut ae is less than half the tool diameter or a CAM engagement angle is supplied, the physical chip thickness hm is less than programmed fz. The engine displays compensated hm and suggests the fz to program for a target load — expected in HEM and rest-machining strategies."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why can spindle power pass while torque fails (or vice versa)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Power equals torque times angular speed. Low-speed heavy cuts are torque-limited; high-speed light cuts are power-limited. SC-020 checks both at operating RPM; verify against the machine OEM torque curve because nameplate torque may overstate capability at high speed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I always run at Gilbert economic speed Vecon?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Vecon minimises machining cost per minute for stated tool cost, change time, and machine rate. It ignores scrap risk, surface finish, unstable setups, and cycle-time caps. Use it as a benchmark; if current speed is far below Vecon with life much greater than target, increasing Vc may be economical."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I mix metric and imperial inputs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Each field has its own unit selector; FS-ENGINE converts to SI before calculation. The audit trail records as-entered values and SI internals. Global All Metric or All Imperial toggles set defaults; individual fields can be overridden."
+      }
+    }
+  ]
+}
+</script>
+
+</section>
+  </section>
+
+  <section class="sc-guide-block" data-aeo-step="related-problems" id="aeo-related-problems">
+  <h2>Related entities &amp; query fan-out</h2>
+  <h3>Glossary</h3><ul><li><a href="/glossary/cnc-feeds-and-speeds">cnc feeds and speeds</a></li><li><a href="/glossary/chip-thinning">chip thinning</a></li></ul>
+  <h3>Calculators, topics, sibling guides</h3>
+  <ul><li><a href="/calculator/cnc-feeds-speeds">/calculator/cnc-feeds-speeds</a></li><li><a href="/calculator/cycle-time-cost">/calculator/cycle-time-cost</a></li><li><a href="/guides/punching-force-complete">/guides/punching-force-complete</a></li></ul>
+  <h3>Queries this guide owns in the cluster</h3>
+  <ul class="sc-fanout"><li>cnc feeds and speeds calculator</li><li>chip thinning calculator</li><li>spindle power check</li></ul>
+</section>
+
+  <section class="sc-cta-panel" data-aeo-step="related-problems">
+    <h2>Commercial next step</h2>
+    <p>Lock a released cut, keep the audit trail with the job traveler, and use Pro reporting when you need deterministic exports across the cell.</p>
+    <a class="sc-btn-primary" href="/calculator/cnc-feeds-speeds">Open SC-020 CNC Feeds &amp; Speeds (session) →</a>
+    <p class="sc-cta-secondary"><a href="/guides">← All engineering guides</a> · <a href="/#free-calculators">Open reference bench</a></p>
+  </section>
+</main>
+<footer class="sc-footer sc-guides-site-footer">
+  <p>© 2026 SectorCalc · Deterministic industrial calculators · A1–A5 audit language</p>
+  <p><a href="/#free-calculators">Free tools</a> · <a href="/tools.html">All tools</a> · <a href="/topics">Topics</a> · <a href="/pricing.html">Pricing</a> · <a href="/llms.txt">llms.txt</a></p>
+</footer>
 </body>
 </html>

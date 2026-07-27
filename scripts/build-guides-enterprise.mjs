@@ -1,18 +1,24 @@
 #!/usr/bin/env node
 /**
- * Enterprise guides builder — hub + new long-form guides + polish existing guides.
- * Idempotent. English-only. No fabricated ROI / Review / AggregateRating.
+ * Exclusive guides builder — money-parity AEO + dense content/guides bodies.
+ * Fully regenerates hub + all guide pages. English-only. No fabricated ROI/reviews.
  */
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
-import { GUIDES } from '../seo/guides-catalog.mjs';
+import { GUIDE_ASSEMBLY } from '../seo/guides-assembly.mjs';
+import { MONEY_CONTENT } from '../seo/money-content.mjs';
+import { FREE_GUIDE_CONTENT } from '../seo/guides-free-content.mjs';
+import { TOPICAL_MAPS } from '../seo/topical-maps.mjs';
+import { AEO_EMPATHY } from '../seo/aeo-empathy.mjs';
 
 const ROOT = process.cwd();
 const HEADER = readFileSync(join(ROOT, 'content/partials/site-header.html'), 'utf8').trim();
 const HOST = 'https://sectorcalc.com';
+const CSS_V = 3;
+const MIN_GUIDE_BYTES = 20000;
 
 function esc(s) {
-  return String(s)
+  return String(s ?? '')
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
@@ -20,44 +26,341 @@ function esc(s) {
 }
 
 function accessBadge(access) {
-  if (access === 'free') return 'Free calculator · no sign-in';
-  if (access === 'mixed') return 'Free weld size · heat input needs credits';
-  return 'Calculator unlocks with credits';
+  if (access === 'free') return 'Open instrument · no sign-in';
+  if (access === 'mixed') return 'Open weld size · heat input needs session';
+  return 'Decision tool · credit session';
 }
 
 function headLinks() {
   return `<link rel="stylesheet" href="/css/seo-content.css">
 <link rel="stylesheet" href="/sc-theme.css?v=12">
 <link rel="stylesheet" href="/sc-site-nav.css?v=5">
-<link rel="stylesheet" href="/css/sc-guides.css?v=2">
+<link rel="stylesheet" href="/sc-tool-guide.css?v=3">
+<link rel="stylesheet" href="/css/sc-guides.css?v=${CSS_V}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Sans:wght@400;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 <script src="/sc-theme.js?v=12" defer></script>
 <script src="/sc-site-nav.js?v=2" defer></script>
+<script src="/sc-tool-guide.js?v=3" defer></script>
 <script type="module" src="/src/auth-nav.ts"></script>`;
 }
 
 function footer() {
-  return `<footer class="sc-footer" style="max-width:1100px;margin:0 auto;padding:1.25rem;border-top:1px solid rgba(11,28,44,.12);display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between">
-  <p style="margin:0;color:#3d5366">© 2026 SectorCalc · Deterministic industrial calculators</p>
-  <p style="margin:0"><a href="/#free-calculators">Free tools</a> · <a href="/tools.html">All tools</a> · <a href="/pricing.html">Pricing</a></p>
+  return `<footer class="sc-footer sc-guides-site-footer">
+  <p>© 2026 SectorCalc · Deterministic industrial calculators · A1–A5 audit language</p>
+  <p><a href="/#free-calculators">Free tools</a> · <a href="/tools.html">All tools</a> · <a href="/topics">Topics</a> · <a href="/pricing.html">Pricing</a> · <a href="/llms.txt">llms.txt</a></p>
 </footer>`;
 }
 
+function editorialFor(g) {
+  if (g.moneyEntity && MONEY_CONTENT[g.moneyEntity]) {
+    const m = MONEY_CONTENT[g.moneyEntity];
+    const empathy = AEO_EMPATHY[g.moneyEntity];
+    return {
+      problem: empathy?.problem || g.h1,
+      promise: empathy?.promise || '',
+      ...m,
+    };
+  }
+  const key = g.calculator.toolId === 'SC-027' ? 'iso-286-fits'
+    : g.calculator.toolId === 'SC-028' ? 'surface-finish'
+    : g.calculator.toolId === 'SC-030' ? 'sheet-metal-bend'
+    : g.calculator.toolId === 'SC-039' ? 'punching-force'
+    : g.calculator.toolId === 'SC-001' ? 'surface-finish' // fallback unused
+    : null;
+  // weld uses moneyEntity weld-heat-input; free weld thickness uses FREE when moneyEntity null
+  if (g.slug.startsWith('weld') && MONEY_CONTENT['weld-heat-input']) {
+    // when moneyEntity set, handled above
+  }
+  const freeKey =
+    g.calculator.toolId === 'SC-027' ? 'iso-286-fits'
+    : g.calculator.toolId === 'SC-028' ? 'surface-finish'
+    : g.calculator.toolId === 'SC-030' ? 'sheet-metal-bend'
+    : g.calculator.toolId === 'SC-039' ? 'punching-force'
+    : null;
+  if (freeKey && FREE_GUIDE_CONTENT[freeKey]) return FREE_GUIDE_CONTENT[freeKey];
+  throw new Error(`No editorial for ${g.slug}`);
+}
+
+function extractBody(path) {
+  const abs = join(ROOT, path);
+  if (!existsSync(abs)) throw new Error(`missing guide body ${path}`);
+  let html = readFileSync(abs, 'utf8');
+  // Prefer inner section.sc-guide; else whole file
+  const m = html.match(/<section class="sc-guide"[\s\S]*<\/section>/i);
+  if (m) return m[0];
+  return html.replace(/^[\s\S]*?<body[^>]*>/i, '').replace(/<\/body>[\s\S]*$/i, '');
+}
+
+function workedHtml(path) {
+  if (!path || !existsSync(join(ROOT, path))) return '';
+  const fx = JSON.parse(readFileSync(join(ROOT, path), 'utf8'));
+  const inputs = Object.entries(fx.inputs || {})
+    .map(([k, v]) => {
+      if (Array.isArray(v)) {
+        return `<li><strong>${esc(k)}:</strong> ${v.length} component(s)</li>`;
+      }
+      if (v && typeof v === 'object') {
+        return `<li><strong>${esc(k)}:</strong> ${esc(JSON.stringify(v))}</li>`;
+      }
+      return `<li><strong>${esc(k)}:</strong> ${esc(v)}</li>`;
+    })
+    .join('');
+  const outputs = Object.entries(fx.outputs || {})
+    .map(([k, v]) => `<li><strong>${esc(k)}:</strong> <code>${esc(v)}</code></li>`)
+    .join('');
+  return `<section class="sc-guide-block" data-aeo-step="evidence" id="worked-example">
+  <h2>Evidence — worked example</h2>
+  <p>${esc(fx.narrative || fx.title || '')}</p>
+  <p class="sc-money-engine">Engine source: <code>${esc(fx.engineSource || 'n/a')}</code> · tool <code>${esc(fx.toolId || '')}</code></p>
+  <div class="sc-guide-split">
+    <div><h3>Inputs</h3><ul>${inputs}</ul></div>
+    <div><h3>Outputs</h3><ul>${outputs}</ul></div>
+  </div>
+  <p><em>SectorCalc does not publish invented customer ROI. These numbers come from the deterministic engine fixture.</em></p>
+</section>`;
+}
+
+function aeoRail() {
+  const steps = [
+    ['empathy', 'Problem'],
+    ['direct-answer', 'Direct answer'],
+    ['explanation', 'Explanation'],
+    ['methodology', 'Methodology'],
+    ['evidence', 'Evidence'],
+    ['accountability', 'A1–A5'],
+    ['related-problems', 'Related'],
+  ];
+  return `<nav class="sc-aeo-rail" aria-label="Answer engine chain">${steps
+    .map(([id, label]) => `<a href="#aeo-${id}" data-aeo-rail="${id}">${label}</a>`)
+    .join('')}</nav>`;
+}
+
+function moneyBlocks(ed, g) {
+  return `
+<section class="sc-guide-block" data-aeo-step="explanation" id="aeo-explanation-decision">
+  <h2>Explanation — decision this supports</h2>
+  <p>${esc(ed.decision)}</p>
+</section>
+<section class="sc-guide-block" data-aeo-step="explanation" id="aeo-explanation-inputs">
+  <h2>Required inputs</h2>
+  <p>${esc(ed.inputs)}</p>
+</section>
+<section class="sc-guide-block" data-aeo-step="methodology" id="aeo-methodology">
+  <h2>Methodology — formula &amp; method</h2>
+  <div class="sc-formula-block"><code>${esc(ed.formula)}</code></div>
+</section>
+${workedHtml(g.workedExample)}
+<section class="sc-guide-block" data-aeo-step="explanation">
+  <h2>What the result means</h2>
+  <p>${esc(ed.interpretation)}</p>
+</section>
+<section class="sc-guide-block" data-aeo-step="explanation">
+  <h2>What moves the result</h2>
+  <p>${esc(ed.sensitivity)}</p>
+</section>
+<section class="sc-guide-block" data-aeo-step="methodology">
+  <h2>Assumptions</h2>
+  <p>${esc(ed.assumptions)}</p>
+</section>
+<section class="sc-guide-block" data-aeo-step="methodology">
+  <h2>Model boundaries</h2>
+  <p>${esc(ed.limitations)}</p>
+</section>
+<section class="sc-guide-block" data-aeo-step="evidence">
+  <h2>Common engineering mistakes</h2>
+  <p>${esc(ed.mistakes)}</p>
+</section>
+<section class="sc-guide-block" data-aeo-step="evidence">
+  <h2>Evidence — standard &amp; reference scope</h2>
+  <p>${esc(ed.standards)}</p>
+</section>
+<section class="sc-guide-block" data-aeo-step="accountability" id="aeo-accountability">
+  <h2>Accountability — A1–A5 audit trail</h2>
+  <p>${esc(ed.audit)}</p>
+  <ol class="sc-a15">
+    <li><strong>A1</strong> Engine identity / version</li>
+    <li><strong>A2</strong> Inputs snapshot</li>
+    <li><strong>A3</strong> Formula path</li>
+    <li><strong>A4</strong> Assumptions</li>
+    <li><strong>A5</strong> Warnings / out-of-band flags</li>
+  </ol>
+</section>`;
+}
+
+function relatedBlocks(g) {
+  const gloss = (g.glossary || [])
+    .map((href) => `<li><a href="${esc(href)}">${esc(href.replace(/^\/glossary\//, '').replace(/-/g, ' '))}</a></li>`)
+    .join('');
+  const rel = (g.related || [])
+    .map((href) => `<li><a href="${esc(href)}">${esc(href)}</a></li>`)
+    .join('');
+  const fan = (g.fanOut || []).map((q) => `<li>${esc(q)}</li>`).join('');
+  return `<section class="sc-guide-block" data-aeo-step="related-problems" id="aeo-related-problems">
+  <h2>Related entities &amp; query fan-out</h2>
+  ${gloss ? `<h3>Glossary</h3><ul>${gloss}</ul>` : ''}
+  <h3>Calculators, topics, sibling guides</h3>
+  <ul>${rel}</ul>
+  <h3>Queries this guide owns in the cluster</h3>
+  <ul class="sc-fanout">${fan}</ul>
+</section>`;
+}
+
+function guidePage(g) {
+  const ed = editorialFor(g);
+  const bodies = g.bodies.map(extractBody).join('\n<hr class="sc-guide-body-split" />\n');
+  const freeNote =
+    g.access === 'free'
+      ? 'This calculator is free — no sign-in, instant results.'
+      : g.access === 'mixed'
+        ? 'Weld thickness (SC-001) is free; weld heat input (SC-029) unlocks with credits.'
+        : 'Unlock a credit session for 24-hour recalculation with A1–A5 audit trail. No subscription.';
+
+  const schema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      { '@type': 'Organization', '@id': `${HOST}/#organization`, name: 'SectorCalc', url: `${HOST}/` },
+      {
+        '@type': 'TechArticle',
+        '@id': `${HOST}/guides/${g.slug}#article`,
+        url: `${HOST}/guides/${g.slug}`,
+        headline: g.h1,
+        description: ed.directAnswer,
+        datePublished: '2026-07-26',
+        dateModified: '2026-07-28',
+        author: { '@id': `${HOST}/#organization` },
+        publisher: { '@id': `${HOST}/#organization` },
+        isAccessibleForFree: g.access === 'free' || g.access === 'mixed',
+        inLanguage: 'en-US',
+        about: g.topic,
+        speakable: {
+          '@type': 'SpeakableSpecification',
+          cssSelector: ['.sc-aeo-empathy', '.sc-direct-answer', 'h1', '#aeo-methodology'],
+        },
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: `${HOST}/` },
+          { '@type': 'ListItem', position: 2, name: 'Guides', item: `${HOST}/guides` },
+          { '@type': 'ListItem', position: 3, name: g.title, item: `${HOST}/guides/${g.slug}` },
+        ],
+      },
+      {
+        '@type': 'HowTo',
+        name: `How to use ${g.title}`,
+        step: [
+          { '@type': 'HowToStep', position: 1, name: 'Read the problem', text: ed.problem },
+          { '@type': 'HowToStep', position: 2, name: 'Open the calculator', text: `${g.calculator.label} at ${HOST}${g.calculator.href}` },
+          { '@type': 'HowToStep', position: 3, name: 'Apply methodology', text: ed.formula },
+          { '@type': 'HowToStep', position: 4, name: 'Keep A1–A5 notes', text: ed.audit },
+        ],
+      },
+    ],
+  };
+
+  return `<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${esc(g.title)} | SectorCalc</title>
+  <meta name="description" content="${esc(ed.directAnswer.slice(0, 158))}">
+  <link rel="canonical" href="${HOST}/guides/${esc(g.slug)}">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+  <meta property="og:title" content="${esc(g.title)} | SectorCalc">
+  <meta property="og:description" content="${esc(ed.problem)}">
+  <meta property="og:url" content="${HOST}/guides/${esc(g.slug)}">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="${HOST}/assets/images/og-default-1200x630.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  ${headLinks()}
+  <script type="application/ld+json">
+${JSON.stringify(schema, null, 2)}
+  </script>
+</head>
+<body class="sc-guides-shell sc-guides-exclusive">
+${HEADER}
+<main class="sc-guides-main sc-guide-article" id="main-content">
+  <nav class="sc-breadcrumb" aria-label="Breadcrumb">
+    <ol>
+      <li><a href="/">Home</a></li>
+      <li><a href="/guides">Guides</a></li>
+      <li aria-current="page">${esc(g.title)}</li>
+    </ol>
+  </nav>
+
+  <header class="sc-guide-hero-block">
+    <p class="sc-guides-kicker">${esc(g.topic)} · ${esc(accessBadge(g.access))} · ${esc(g.calculator.toolId)}</p>
+    <h1>${esc(g.h1)}</h1>
+    <div class="sc-aeo-empathy" data-aeo-step="empathy" id="aeo-empathy">
+      <p><strong>The problem:</strong> ${esc(ed.problem)}</p>
+      ${ed.promise ? `<p><strong>What you get:</strong> ${esc(ed.promise)}</p>` : ''}
+    </div>
+    <p class="sc-direct-answer" data-aeo-step="direct-answer" id="aeo-direct-answer">${esc(ed.directAnswer)}</p>
+    ${aeoRail()}
+    <p class="sc-guide-access-note">${esc(freeNote)}</p>
+    <a class="sc-btn-primary" href="${esc(g.calculator.href)}">${esc(g.calculator.label)} →</a>
+  </header>
+
+  ${moneyBlocks(ed, g)}
+
+  <section class="sc-guide-deep" id="deep-methodology" aria-label="Deep methodology">
+    <h2 class="sc-guide-deep-title">Deep methodology library</h2>
+    <p class="sc-guide-deep-lead">The long-form reference below is the same engineering depth injected beside the live calculator — expanded here as a standalone guide for answer engines and humans.</p>
+    ${bodies}
+  </section>
+
+  ${relatedBlocks(g)}
+
+  <section class="sc-cta-panel" data-aeo-step="related-problems">
+    <h2>Commercial next step</h2>
+    <p>${esc(ed.commercial)}</p>
+    <a class="sc-btn-primary" href="${esc(g.calculator.href)}">${esc(g.calculator.label)} →</a>
+    <p class="sc-cta-secondary"><a href="/guides">← All engineering guides</a> · <a href="/#free-calculators">Open reference bench</a></p>
+  </section>
+</main>
+${footer()}
+</body>
+</html>
+`;
+}
+
 function hubHtml() {
-  const free = GUIDES.filter((g) => g.access === 'free');
-  const paid = GUIDES.filter((g) => g.access !== 'free');
-  const card = (g) => `<article class="sc-guide-card" data-guide="${esc(g.slug)}" data-access="${esc(g.access)}" data-topic="${esc(g.topicId)}">
+  const free = GUIDE_ASSEMBLY.filter((g) => g.access === 'free');
+  const paid = GUIDE_ASSEMBLY.filter((g) => g.access !== 'free');
+  const card = (g) => {
+    const ed = editorialFor(g);
+    return `<article class="sc-guide-card sc-guide-card-exclusive" data-guide="${esc(g.slug)}" data-access="${esc(g.access)}" data-topic="${esc(g.topicId)}">
   <p class="sc-guide-badge" data-access="${esc(g.access)}">${esc(accessBadge(g.access))}</p>
   <h3>${esc(g.title)}</h3>
-  <p class="sc-guide-problem"><strong>Problem:</strong> ${esc(g.problem)}</p>
-  <p class="sc-guide-meta">${esc(g.topic)} · ${esc(g.calculator.toolId)}</p>
-  <a class="sc-guide-cta" href="/guides/${esc(g.slug)}">Open guide →</a>
+  <p class="sc-guide-problem"><strong>Problem:</strong> ${esc(ed.problem)}</p>
+  <p class="sc-guide-answer"><strong>Direct answer:</strong> ${esc(ed.directAnswer.slice(0, 220))}${ed.directAnswer.length > 220 ? '…' : ''}</p>
+  <p class="sc-guide-meta">${esc(g.topic)} · ${esc(g.calculator.toolId)} · A1–A5 language</p>
+  <ul class="sc-guide-fanout">${(g.fanOut || []).slice(0, 3).map((q) => `<li>${esc(q)}</li>`).join('')}</ul>
+  <a class="sc-guide-cta" href="/guides/${esc(g.slug)}">Open exclusive guide →</a>
   <a class="sc-guide-cta" href="${esc(g.calculator.href)}">${esc(g.calculator.label)} →</a>
 </article>`;
+  };
 
-  const itemList = GUIDES.map((g, i) => ({
+  const topics = TOPICAL_MAPS.map((t) => {
+    const links = t.subtopics
+      .flatMap((s) => s.links)
+      .filter((l) => l.startsWith('/guides/'))
+      .filter((v, i, a) => a.indexOf(v) === i);
+    if (!links.length) return '';
+    const queries = t.subtopics.flatMap((s) => s.fanOutQueries || []).slice(0, 4);
+    return `<article class="sc-topic-rail-card">
+      <h3>${esc(t.topic)}</h3>
+      <p>${esc(t.problem)}</p>
+      <ul>${links.map((l) => `<li><a href="${esc(l)}">${esc(l.replace('/guides/', ''))}</a></li>`).join('')}</ul>
+      <p class="sc-fan-label">Fan-out</p>
+      <ul class="sc-fanout">${queries.map((q) => `<li>${esc(q)}</li>`).join('')}</ul>
+    </article>`;
+  }).join('\n');
+
+  const itemList = GUIDE_ASSEMBLY.map((g, i) => ({
     '@type': 'ListItem',
     position: i + 1,
     name: g.title,
@@ -71,19 +374,19 @@ function hubHtml() {
         '@type': 'CollectionPage',
         '@id': `${HOST}/guides#webpage`,
         url: `${HOST}/guides`,
-        name: 'Complete Engineering Guides | SectorCalc',
+        name: 'Exclusive Engineering Guides | SectorCalc',
         description:
-          'Problem-first engineering guides for tolerance, CNC, bearings, weld sizing, labor costing, ISO fits, surface finish, bend, and punching — linked to free and credit-backed calculators.',
+          'Enterprise engineering guides with money-parity AEO chains: problem, direct answer, methodology, evidence, A1–A5 accountability, and calculator CTAs.',
         isPartOf: { '@id': `${HOST}/#website` },
         publisher: { '@id': `${HOST}/#organization` },
         inLanguage: 'en-US',
-        about: GUIDES.map((g) => g.title),
+        about: GUIDE_ASSEMBLY.map((g) => g.title),
       },
       {
         '@type': 'ItemList',
         '@id': `${HOST}/guides#itemlist`,
-        name: 'SectorCalc engineering guides',
-        numberOfItems: GUIDES.length,
+        name: 'SectorCalc exclusive engineering guides',
+        numberOfItems: GUIDE_ASSEMBLY.length,
         itemListElement: itemList,
       },
       {
@@ -99,34 +402,26 @@ function hubHtml() {
         mainEntity: [
           {
             '@type': 'Question',
-            name: 'Are all SectorCalc guides free to read?',
+            name: 'What makes SectorCalc guides exclusive vs thin blog posts?',
             acceptedAnswer: {
               '@type': 'Answer',
-              text: 'Yes. Every guide is free to read. Some linked calculators are free (ISO fits, surface finish, bend, punching, weld thickness). Tier-A decision calculators unlock with a credit session.',
+              text: 'Each guide mirrors the Tier-A money-page contract: empathy, direct answer, decision, inputs, methodology, worked evidence when available, interpretation, sensitivity, assumptions, boundaries, mistakes, standards scope, A1–A5 accountability, and related entities — plus the deep methodology library used beside live calculators.',
             },
           },
           {
             '@type': 'Question',
-            name: 'Do guides invent customer ROI or star ratings?',
+            name: 'Are guides free to read?',
             acceptedAnswer: {
               '@type': 'Answer',
-              text: 'No. Guides use problem → methodology → calculator → mistakes → FAQ. SectorCalc does not publish fabricated ROI percentages or AggregateRating/Review schema.',
+              text: 'Yes. Reading is free. Linked calculators are free for ISO fits, surface finish, bend, punching, and weld thickness. Tier-A decision calculators unlock with credits.',
             },
           },
           {
             '@type': 'Question',
-            name: 'How do guides connect to calculators?',
+            name: 'Do guides invent ROI or star ratings?',
             acceptedAnswer: {
               '@type': 'Answer',
-              text: 'Each guide owns one primary calculator CTA and related entities (glossary, topics, sibling tools) so answer engines can retrieve a closed problem–method–tool chain.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: 'Do guides claim certifications or ROI?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: 'No. Guides document problem → method → tool. SectorCalc does not publish fabricated ROI percentages or AggregateRating/Review schema.',
+              text: 'No. No AggregateRating/Review schema and no fabricated customer ROI percentages. Worked examples come from deterministic engine fixtures when present.',
             },
           },
         ],
@@ -139,12 +434,12 @@ function hubHtml() {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Complete Engineering Guides | SectorCalc</title>
-  <meta name="description" content="Problem-first engineering guides for tolerance stack-up, CNC feeds, bearing life, labor costing, weld sizing, ISO 286 fits, surface finish, bend, and punching — with free and credit-backed calculators.">
+  <title>Exclusive Engineering Guides | SectorCalc</title>
+  <meta name="description" content="Enterprise engineering guides with money-parity answer chains for tolerance, CNC, bearings, labor, weld, ISO fits, finish, bend, and punch — free and credit-backed calculators.">
   <link rel="canonical" href="${HOST}/guides">
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
-  <meta property="og:title" content="Complete Engineering Guides | SectorCalc">
-  <meta property="og:description" content="Touch the shop-floor problem first. Then methodology, calculator, and related entities.">
+  <meta property="og:title" content="Exclusive Engineering Guides | SectorCalc">
+  <meta property="og:description" content="Problem → direct answer → methodology → evidence → A1–A5 → calculator. Not a thin slug list.">
   <meta property="og:url" content="${HOST}/guides">
   <meta property="og:type" content="website">
   <meta property="og:image" content="${HOST}/assets/images/og-default-1200x630.jpg">
@@ -154,79 +449,64 @@ function hubHtml() {
 ${JSON.stringify(schema, null, 2)}
   </script>
 </head>
-<body class="sc-guides-shell">
+<body class="sc-guides-shell sc-guides-exclusive">
 ${HEADER}
 <main class="sc-guides-main" id="main-content">
   <header class="sc-guides-hero">
-    <p class="sc-guides-kicker">Answer engine · methodology library</p>
-    <h1>Engineering guides that start with the real problem</h1>
-    <p class="sc-guides-lead">Each guide opens with the decision that hurts on the shop floor, then methodology, formulas, calculator CTA, and related entities. Free reference guides calculate instantly. Tier-A decision guides unlock with credits — no invented certifications or fake case-study ROI.</p>
+    <p class="sc-guides-kicker">Exclusive methodology library · answer-engine ready</p>
+    <h1>Engineering guides at money-page depth</h1>
+    <p class="sc-guides-lead">Every guide opens with the shop-floor problem, ships a direct answer, then the full explanation → methodology → evidence → A1–A5 accountability chain used on Tier-A calculators — plus the deep methodology library. Open-bench instruments calculate instantly. Decision tools unlock with a credit session. No invented certifications. No thin slug lists.</p>
     <div class="sc-guides-stats" aria-label="Guide library stats">
-      <div class="sc-guides-stat"><b>${GUIDES.length}</b><span>Long-form guides</span></div>
-      <div class="sc-guides-stat"><b>${free.length}</b><span>Tied to free calculators</span></div>
-      <div class="sc-guides-stat"><b>${paid.length}</b><span>Tier-A / mixed depth</span></div>
-      <div class="sc-guides-stat"><b>A1–A5</b><span>Audit trail language</span></div>
+      <div class="sc-guides-stat"><b>${GUIDE_ASSEMBLY.length}</b><span>Exclusive guides</span></div>
+      <div class="sc-guides-stat"><b>${free.length}</b><span>Free calculator guides</span></div>
+      <div class="sc-guides-stat"><b>${paid.length}</b><span>Decision / mixed depth</span></div>
+      <div class="sc-guides-stat"><b>16</b><span>Money-parity block contract</span></div>
     </div>
   </header>
 
-  <section class="sc-guides-section" aria-labelledby="free-guides-heading">
-    <h2 id="free-guides-heading">Free calculator guides — instant results</h2>
-    <p>No sign-in. Built for citation, shop-floor reference, and query fan-out into ISO fits, finish, bend, and punch.</p>
-    <div class="sc-guides-grid">
-${free.map(card).join('\n')}
-    </div>
-  </section>
-
-  <section class="sc-guides-section" aria-labelledby="decision-guides-heading">
-    <h2 id="decision-guides-heading">Decision guides — credit-backed calculators</h2>
-    <p>Stack-up, feeds &amp; speeds, bearing life, and labor/quote economics. Open the guide first; unlock the calculator when the job is real.</p>
-    <div class="sc-guides-grid">
-${paid.map(card).join('\n')}
-    </div>
-  </section>
-
-  <section class="sc-guides-section" aria-labelledby="why-guides-heading">
-    <h2 id="why-guides-heading">Why SectorCalc guides start with the problem</h2>
-    <div class="sc-guides-prose">
-      <p>Most engineering “guides” open with a standard number and bury the decision that actually hurts. SectorCalc inverts that order. Each guide begins with the shop-floor question that creates scrap, rework, stalled spindles, rejected first articles, or quietly eroded quote margin — then delivers the direct answer, methodology, calculator CTA, common mistakes, FAQ, and related entities.</p>
-      <p>That structure is intentional for Google and LLM retrieval. Answer engines expand a query from entity → method → tool. The glossary names the entity. The guide owns the method. The calculator owns the equation. This hub is the index of those long-form methods: free reference workflows for ISO 286 fits, surface finish, bend allowance, and punching force; credit-backed decision workflows for tolerance stack-up, CNC feeds &amp; speeds, bearing L10 life, labor costing, and weld sizing.</p>
-      <p>Guides never invent certifications, PE stamps, AggregateRating stars, or fabricated customer ROI percentages. Free guides calculate instantly with no sign-in. Tier-A decision calculators unlock with a one-time credit pack session — purchased credits never expire. Production release still requires the governing code edition, certified material data, manufacturer ratings, and competent engineering review.</p>
-    </div>
-  </section>
-
-  <section class="sc-guides-section" aria-labelledby="chain-heading">
-    <h2 id="chain-heading">How every SectorCalc guide is structured</h2>
-    <div class="sc-guides-chain">
-      <p>Machine-readable authority chain for Google + LLM retrieval:</p>
+  <section class="sc-guides-section" aria-labelledby="contract-heading">
+    <h2 id="contract-heading">Editorial contract (non-negotiable)</h2>
+    <div class="sc-guides-chain sc-guides-contract">
       <ol>
-        <li><strong>Empathy / problem</strong> — the shop-floor decision that hurts</li>
-        <li><strong>Direct answer</strong> — what the guide + calculator actually deliver</li>
-        <li><strong>Methodology</strong> — formulas, standards scope, assumptions</li>
-        <li><strong>Calculation</strong> — link to the owning calculator (free or credits)</li>
-        <li><strong>Mistakes &amp; FAQ</strong> — failure modes engineers hit in review</li>
-        <li><strong>Related entities</strong> — glossary, topics, sibling tools</li>
+        <li><strong>Empathy / problem</strong> — the decision that hurts on the floor</li>
+        <li><strong>Direct answer</strong> — what the guide + calculator deliver</li>
+        <li><strong>Explanation</strong> — decision, inputs, interpretation, sensitivity</li>
+        <li><strong>Methodology</strong> — formulas, assumptions, boundaries</li>
+        <li><strong>Evidence</strong> — worked engine fixtures when available + standards scope</li>
+        <li><strong>Accountability</strong> — A1–A5 audit language</li>
+        <li><strong>Related entities</strong> — glossary, topics, sibling tools, query fan-out</li>
+        <li><strong>Deep library</strong> — long-form methodology shared with live calculator pages</li>
       </ol>
     </div>
   </section>
 
-  <section class="sc-guides-section" aria-labelledby="hub-routing-heading">
-    <h2 id="hub-routing-heading">How to route a query into the right surface</h2>
-    <div class="sc-guides-prose">
-      <p>If the user only needs a definition (“what is L10 life?”, “what is chip thinning?”), send them to the <a href="/glossary">Glossary</a>. If they need category fit (“SectorCalc vs Excel for stack-up”), send them to <a href="/compare">Compare</a>. If they need the full methodology with formulas and failure modes, stay on this Guides hub and open the matching long-form page. If they already know the job and need the engine, open the calculator CTA on the guide card — free tools calculate immediately; Tier-A tools require a credit session before calculation runs.</p>
-      <p>Topic hubs under <a href="/topics">/topics</a> cluster free tools and fan-out blogs for query expansion. Guides remain the long-form methodology owners. Calculators remain the computation owners. Do not invent a second primary owner for the same primary intent.</p>
-    </div>
+  <section class="sc-guides-section" aria-labelledby="free-guides-heading">
+    <h2 id="free-guides-heading">Free calculator guides — instant results</h2>
+    <p>No sign-in. Citation-ready. Built for ISO fits, finish, bend, and punch query fan-out.</p>
+    <div class="sc-guides-grid">${free.map(card).join('\n')}</div>
+  </section>
+
+  <section class="sc-guides-section" aria-labelledby="decision-guides-heading">
+    <h2 id="decision-guides-heading">Decision guides — credit-backed depth</h2>
+    <p>Stack-up, feeds &amp; speeds, bearing life, labor/quote economics, weld heat. Open the guide first; unlock the calculator when the job is real.</p>
+    <div class="sc-guides-grid">${paid.map(card).join('\n')}</div>
+  </section>
+
+  <section class="sc-guides-section" aria-labelledby="topics-heading">
+    <h2 id="topics-heading">Topical map — guides inside the cluster</h2>
+    <p>Same topical SSOT that powers money pages and llms.txt discovery.</p>
+    <div class="sc-guides-grid sc-topic-rail">${topics}</div>
   </section>
 
   <section class="sc-guides-section" aria-labelledby="hub-faq-heading">
     <h2 id="hub-faq-heading">Guides hub FAQ</h2>
-    <details class="sc-faq-item"><summary>Are guides free to read?</summary><p>Yes. Reading is free. Calculator access depends on the linked tool: five free calculators need no sign-in; Tier-A tools unlock with credits.</p></details>
-    <details class="sc-faq-item"><summary>Why separate free and decision guides?</summary><p>Free guides own high-traffic reference queries. Decision guides own high-stakes release math where an A1–A5 audit trail matters.</p></details>
-    <details class="sc-faq-item"><summary>Where do topic hubs fit?</summary><p>Topic hubs cluster free tools and fan-out blogs. Guides carry the long-form methodology. Calculators own the computation.</p></details>
-    <details class="sc-faq-item"><summary>Do guides claim certifications or ROI?</summary><p>No. Guides document problem → method → tool. SectorCalc does not publish fabricated ROI percentages or AggregateRating/Review schema.</p></details>
+    <details class="sc-faq-item"><summary>Why rebuild guides to money-page depth?</summary><p>Thin guides leak topical authority. Exclusive guides close the problem→method→tool→audit loop so Google and LLMs can retrieve a complete answer chain.</p></details>
+    <details class="sc-faq-item"><summary>Is deep methodology duplicated on calculators?</summary><p>Yes — intentionally. Calculator pages keep the live UI first; standalone guides carry the same library for people who land on /guides.</p></details>
+    <details class="sc-faq-item"><summary>Fake reviews or ROI?</summary><p>Never. Accountability is A1–A5 + Organization authorship.</p></details>
   </section>
 
   <nav class="sc-guides-footer-links" aria-label="Related hubs">
-    <a href="/#free-calculators">Five free calculators</a>
+    <a href="/#free-calculators">Open reference bench</a>
     <a href="/topics">Topic hubs</a>
     <a href="/glossary">Glossary</a>
     <a href="/compare">Compare</a>
@@ -240,432 +520,22 @@ ${footer()}
 `;
 }
 
-/** Dense long-form bodies for new free guides — must not ship thin. */
-function guideSections(slug) {
-  const map = {
-    'iso-286-fits-complete': {
-      what: `<p>ISO 286 defines hole and shaft tolerance zones relative to a nominal size. Letters like H7 or g6 are not millimetre clearances — they are zone identities whose limit deviations change with diameter band. Treating “H7/g6” as a constant clearance is the most common drawing-room error.</p>
-        <p>This guide covers hole-basis vs shaft-basis thinking, how limit deviations are looked up for a size range, when a local fit still fails the assembly, and how SectorCalc’s free SC-027 calculator exposes equation-backed families without inventing unsupported zones.</p>
-        <p>Use it when you are selecting or checking a fit before drawings freeze. Escalate to tolerance stack-up when the question becomes assembly closure under stacked contributors.</p>`,
-      standards: `<ul class="sc-standards-list">
-          <li><strong>ISO 286-1 / ISO 286-2:</strong> Basis of fits and tabulated limit deviations for hole and shaft tolerance zones.</li>
-          <li><strong>ISO 2768:</strong> General tolerances — complementary language when individual fits are not fully specified.</li>
-          <li><strong>ASME Y14.5:</strong> Drawing language and datum practice that surrounds fit callouts on North American prints.</li>
-        </ul>`,
-      method: `<h3>3.1 Hole vs shaft basis</h3>
-        <p>Confirm whether the hole or shaft is the basic feature. H-system holes are common in production; shaft grades (g, f, e…) set clearance or transition behavior against that hole. Mixing systems without documenting which feature is basic creates ambiguous inspection plans.</p>
-        <h3>3.2 Limit deviations are size-dependent</h3>
-        <div class="sc-formula-block"><code>ES / EI (hole) and es / ei (shaft) from ISO 286 tables for the selected size range</code>
-        <p>Always evaluate at the actual nominal diameter. The same grade letters are not a constant clearance across diameters.</p></div>
-        <h3>3.3 Clearance, transition, interference</h3>
-        <p>After both zones are known, the extreme material conditions define the possible assembly states. Document the condition you intend (easy sliding vs light press) in the traveler — not only the letter pair.</p>
-        <h3>3.4 When to escalate</h3>
-        <p>If the question is assembly closure under stacked contributors (housings, bearings, spacers), move from fit selection to the credit-backed tolerance stack-up calculator. Local fit success does not guarantee gap closure.</p>`,
-      calcSteps: [
-        'Open the free SC-027 ISO 286 Fits calculator — no sign-in required.',
-        'Enter the nominal diameter and select the hole/shaft family you need to screen.',
-        'Read limit deviations and resulting clearance/interference extremes for that size band.',
-        'If assembly risk remains, open SC-008 Tolerance Stack-Up (credits) with the same nominal chain.',
-      ],
-      mistakes: [
-        ['Treating H7/g6 as a constant clearance', 'Look up limit deviations for the diameter band you actually machine.'],
-        ['Mixing unsupported zone letters', 'SectorCalc exposes equation-backed families only — unsupported zones are not guessed.'],
-        ['Skipping stack-up after fit pick', 'Local fit success does not guarantee assembly gap closure.'],
-        ['Ignoring temperature and coating', 'Fits change when plating or operating temperature shifts diameter.'],
-      ],
-      faq: [
-        ['Is the ISO 286 calculator free?', 'Yes. SC-027 runs without sign-in or credits.'],
-        ['Does this replace the full ISO 286 standard?', 'No. Use it for exposed families and screening; keep the governing edition for release.'],
-        ['Can I use SC-027 results on a PPAP cover sheet?', 'Use them as engineering screening evidence. Customer-specific acceptance still governs.'],
-        ['When should I open tolerance stack-up instead?', 'When multiple contributors — not a single hole/shaft pair — control the functional gap.'],
-        ['Are all ISO letters supported?', 'Only equation-backed families exposed in the calculator. Unsupported zones are not invented.'],
-      ],
-    },
-    'surface-finish-complete': {
-      what: `<p>Ra (arithmetical mean) and Rz (average peak-to-valley) describe different statistics of the same profile. Treating them as interchangeable without an explicit conversion assumption causes scrap, supplier fights, and metrology reject loops.</p>
-        <p>This guide separates drawing language from shop measurement practice, shows how to convert with visible assumptions, and links the free SC-028 Surface Finish calculator. Converters align language; measured capability still owns production release.</p>`,
-      standards: `<ul class="sc-standards-list">
-          <li><strong>ISO 21920 / ISO 4287 family:</strong> Surface texture parameters and filtering language used on modern prints.</li>
-          <li><strong>ASME B46.1:</strong> Surface texture definitions commonly referenced on North American drawings.</li>
-          <li><strong>Customer material/finish specs:</strong> Often override generic conversion tables — document the governing source.</li>
-        </ul>`,
-      method: `<h3>3.1 Read the acceptance language first</h3>
-        <p>Confirm which parameter the drawing and customer standard actually use before converting. Ra callouts released as Rz limits are a classic first-article failure.</p>
-        <h3>3.2 Convert with visible assumptions</h3>
-        <div class="sc-formula-block"><code>Parameter translation only with documented conversion basis</code>
-        <p>Put the assumption on the traveler — not in tribal memory. SectorCalc shows the conversion basis on the calculator page.</p></div>
-        <h3>3.3 Validate on process data</h3>
-        <p>Converters align language. Instrument capability and process capability still own production release. If the customer requires Rz, measure Rz.</p>
-        <h3>3.4 Pair with fits when needed</h3>
-        <p>Finish and fit often travel together on bearing seats and sealing surfaces. Use the free fits calculator alongside finish conversion when both callouts gate release.</p>`,
-      calcSteps: [
-        'Open free SC-028 Surface Finish — no sign-in.',
-        'Enter the known parameter and target parameter from the drawing/customer standard.',
-        'Review the conversion assumption shown on the page; copy it into the traveler.',
-        'Confirm metrology can measure the accepted parameter before releasing first article.',
-      ],
-      mistakes: [
-        ['Ra callout released as Rz limit', 'Confirm the governing surface-texture parameter first.'],
-        ['Converting “by feel”', 'Use the free converter and document the basis.'],
-        ['Ignoring instrument capability', 'Shop metrology must match the accepted parameter.'],
-        ['Using converter output as PPAP proof alone', 'Customers accept parameters and methods — not anonymous conversions.'],
-      ],
-      faq: [
-        ['Is the surface finish calculator free?', 'Yes. SC-028 requires no sign-in.'],
-        ['Can I use converted values on PPAP?', 'Only if the customer accepts the parameter and conversion basis — converters do not invent acceptance.'],
-        ['Does SectorCalc invent Ra↔Rz ratios?', 'No. The page exposes the conversion assumption; you remain responsible for the governing standard.'],
-        ['Should I also check ISO fits?', 'Yes when seats or clearances share the same feature — open free SC-027.'],
-        ['Where is the long-form Ra vs Rz explainer?', 'See the fan-out blog on Ra vs Rz surface finish linked from related entities.'],
-      ],
-    },
-    'sheet-metal-bend-complete': {
-      what: `<p>Bend allowance and bend deduction translate a 3D bend into a flat blank. Wrong K-factor or inside radius assumptions produce parts that miss the brake setup by millimetres — expensive when the blank is already nested.</p>
-        <p>This guide covers the inputs that matter, flat-length workflow, when to calibrate K-factor against your brake, and how free SC-030 computes allowance and deduction with visible formulas.</p>`,
-      standards: `<ul class="sc-standards-list">
-          <li><strong>Shop brake manufacturer charts:</strong> Often govern practical K-factor and minimum flange lengths for your tooling.</li>
-          <li><strong>Material supplier data:</strong> Alloy temper and thickness tolerance change springback and allowance.</li>
-          <li><strong>Customer flat-pattern specifications:</strong> Some OEMs lock K-factor or deduction method on the print.</li>
-        </ul>`,
-      method: `<h3>3.1 Inputs that matter</h3>
-        <p>Thickness, bend angle, inside radius, and K-factor drive allowance. Material and tooling change K-factor in the real shop. Catalog defaults are a starting point — not a substitute for your brake’s proven values.</p>
-        <h3>3.2 Flat length</h3>
-        <div class="sc-formula-block"><code>Flat ≈ legs + bend allowance (or legs − bend deduction)</code>
-        <p>Pick one accounting style and stick to it across the nest. Mixing allowance and deduction without documenting the method creates blank chaos.</p></div>
-        <h3>3.3 Calibrate</h3>
-        <p>Run a coupon on the production brake, measure developed length, and back-calculate an effective K-factor for that alloy/tooling pair. Store it where programmers can find it.</p>
-        <h3>3.4 Adjacent checks</h3>
-        <p>When die work follows, pair bend with the free punching force calculator so press capacity is screened before tooling.</p>`,
-      calcSteps: [
-        'Open free SC-030 Sheet Metal Bend — no sign-in.',
-        'Enter thickness, bend angle, inside radius, and K-factor (shop-proven when available).',
-        'Review bend allowance / deduction and flat length.',
-        'Update traveler with the K-factor basis used; recalibrate after material or tooling changes.',
-      ],
-      mistakes: [
-        ['Using one K-factor for every alloy', 'Calibrate against your brake and material lot.'],
-        ['Ignoring inside radius growth', 'Radius changes move allowance nonlinearly.'],
-        ['Skipping punch capacity check', 'Pair bend with the free punching force calculator when die work follows.'],
-        ['Mixing BA and BD without a method note', 'Document which accounting style the nest uses.'],
-      ],
-      faq: [
-        ['Is the bend calculator free?', 'Yes. SC-030 calculates without credits.'],
-        ['Does this replace a forming simulation?', 'No — it screens blank length before first hit.'],
-        ['Where do I get K-factor?', 'Start from tooling charts, then calibrate with a coupon on your brake.'],
-        ['Can I link this to punching force?', 'Yes — both SC-030 and SC-039 are free and listed under sheet-metal fabrication topics.'],
-        ['What if the customer locks deduction method?', 'Follow the customer method; use SectorCalc to cross-check, not to override the contract.'],
-      ],
-    },
-    'punching-force-complete': {
-      what: `<p>Punching force estimates the press load needed to shear a perimeter through thickness at a given shear strength. Guessing tonnage from habit breaks punches and rings frames — and it shows up as downtime, not just scrap.</p>
-        <p>This guide covers the force estimate, unit discipline, capacity screening against press and tooling ratings, and how free SC-039 helps before tooling is ordered. Manufacturer charts and safety factors still govern final selection.</p>`,
-      standards: `<ul class="sc-standards-list">
-          <li><strong>Press manufacturer capacity charts:</strong> Govern allowable tonnage, stroke, and energy for your frame.</li>
-          <li><strong>Tooling OEM recommendations:</strong> Die clearance and punch material limits change force and edge quality.</li>
-          <li><strong>Material shear strength data:</strong> Must match material state (annealed vs hard) — do not invent.</li>
-        </ul>`,
-      method: `<h3>3.1 Force estimate</h3>
-        <div class="sc-formula-block"><code>F ≈ perimeter × thickness × shear strength</code>
-        <p>Handle units explicitly. Apply the safety factors required by your press standard before release.</p></div>
-        <h3>3.2 Geometry matters</h3>
-        <p>Complex punches increase effective shear length. Slots, windows, and irregular contours are not “same as a round hole of equal area.”</p>
-        <h3>3.3 Capacity screening</h3>
-        <p>Compare estimated force to press and tooling ratings. If you are near the limit, redesign the hit sequence or tool before steel is ordered.</p>
-        <h3>3.4 Pair with bend</h3>
-        <p>Many sheet-metal jobs punch then bend. Keep both free calculators in the same traveler package.</p>`,
-      calcSteps: [
-        'Open free SC-039 Punching Force — no sign-in.',
-        'Enter perimeter, thickness, and shear strength with consistent units.',
-        'Compare estimated force to press and tooling ratings with your required safety factor.',
-        'Document die clearance practice and material state alongside the result.',
-      ],
-      mistakes: [
-        ['Ignoring perimeter geometry', 'Complex punches increase effective shear length.'],
-        ['Forgetting shear strength basis', 'Document material state (annealed vs hard).'],
-        ['No die clearance plan', 'Force and edge quality both depend on clearance practice.'],
-        ['Skipping OEM charts', 'Calculators screen; manufacturer data wins for release.'],
-      ],
-      faq: [
-        ['Is punching force free?', 'Yes. SC-039 is free and instant.'],
-        ['Does this replace OEM tonnage charts?', 'No — it screens before tooling; OEM data wins for release.'],
-        ['What units should I use?', 'Stay consistent (N and mm, or tonf and in) and convert carefully.'],
-        ['Should I also run bend allowance?', 'Yes when the blank will be formed after punching — open free SC-030.'],
-        ['Can I cite SC-039 alone for press purchase?', 'Use it as a screening estimate; purchase decisions need OEM capacity data.'],
-      ],
-    },
-  };
-  return map[slug];
-}
-
-function newGuideBody(g) {
-  const freeNote =
-    g.access === 'free'
-      ? 'This calculator is free — no sign-in, instant results.'
-      : g.access === 'mixed'
-        ? 'Weld thickness is free; weld heat input (SC-029) requires a credit session.'
-        : 'This calculator unlocks with a credit session (24h recalculation).';
-
-  const body = guideSections(g.slug);
-  if (!body) throw new Error(`Missing dense sections for ${g.slug}`);
-
-  const mistakeHtml = body.mistakes
-    .map(
-      ([t, f], i) =>
-        `<div class="sc-mistake-card"><h3>Mistake ${i + 1}: ${esc(t)}</h3><p><strong>Fix:</strong> ${esc(f)}</p></div>`,
-    )
-    .join('\n');
-  const faqHtml = body.faq
-    .map((qa) => `<details class="sc-faq-item"><summary>${esc(qa[0])}</summary><p>${esc(qa[1])}</p></details>`)
-    .join('\n');
-  const related = g.related
-    .map((href) => {
-      const label = href
-        .replace(/^\//, '')
-        .replace(/\.html$/, '')
-        .replace(/\//g, ' · ');
-      return `<li><a href="${esc(href)}">${esc(label)}</a></li>`;
-    })
-    .join('\n');
-  const steps = body.calcSteps
-    .map((s, i) => `<li><strong>Step ${i + 1}:</strong> ${esc(s)}</li>`)
-    .join('\n');
-
-  const faqSchema = {
-    '@type': 'FAQPage',
-    '@id': `${HOST}/guides/${g.slug}#faq`,
-    mainEntity: body.faq.map(([q, a]) => ({
-      '@type': 'Question',
-      name: q,
-      acceptedAnswer: { '@type': 'Answer', text: a },
-    })),
-  };
-
-  const schema = {
-    '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'Organization',
-        '@id': `${HOST}/#organization`,
-        name: 'SectorCalc',
-        url: `${HOST}/`,
-      },
-      {
-        '@type': 'Article',
-        '@id': `${HOST}/guides/${g.slug}#article`,
-        url: `${HOST}/guides/${g.slug}`,
-        headline: g.h1,
-        description: g.lead,
-        datePublished: '2026-07-27',
-        dateModified: '2026-07-27',
-        author: { '@id': `${HOST}/#organization` },
-        publisher: { '@id': `${HOST}/#organization` },
-        isAccessibleForFree: g.access === 'free',
-        inLanguage: 'en-US',
-        speakable: {
-          '@type': 'SpeakableSpecification',
-          cssSelector: ['.sc-aeo-problem', '.sc-direct-answer', 'h1'],
-        },
-      },
-      faqSchema,
-      {
-        '@type': 'BreadcrumbList',
-        itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Home', item: `${HOST}/` },
-          { '@type': 'ListItem', position: 2, name: 'Guides', item: `${HOST}/guides` },
-          { '@type': 'ListItem', position: 3, name: g.title, item: `${HOST}/guides/${g.slug}` },
-        ],
-      },
-      {
-        '@type': 'HowTo',
-        name: `How to use ${g.title}`,
-        step: body.calcSteps.map((text, i) => ({
-          '@type': 'HowToStep',
-          position: i + 1,
-          name: `Step ${i + 1}`,
-          text,
-        })),
-      },
-    ],
-  };
-
-  return `<!DOCTYPE html>
-<html lang="en" data-theme="light">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>${esc(g.title)} | SectorCalc</title>
-  <meta name="description" content="${esc(g.lead)}">
-  <link rel="canonical" href="${HOST}/guides/${esc(g.slug)}">
-  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
-  <meta property="og:title" content="${esc(g.title)} | SectorCalc">
-  <meta property="og:description" content="${esc(g.lead)}">
-  <meta property="og:url" content="${HOST}/guides/${esc(g.slug)}">
-  <meta property="og:type" content="article">
-  <meta property="og:image" content="${HOST}/assets/images/og-default-1200x630.jpg">
-  <meta name="twitter:card" content="summary_large_image">
-  ${headLinks()}
-  <script type="application/ld+json">
-${JSON.stringify(schema, null, 2)}
-  </script>
-</head>
-<body class="sc-guides-shell">
-${HEADER}
-<main class="sc-guides-main sc-guide-article" id="main-content">
-  <nav class="sc-breadcrumb" aria-label="Breadcrumb">
-    <ol>
-      <li><a href="/">Home</a></li>
-      <li><a href="/guides">Guides</a></li>
-      <li aria-current="page">${esc(g.title)}</li>
-    </ol>
-  </nav>
-  <article>
-    <p class="sc-guides-kicker">${esc(g.topic)} · ${esc(accessBadge(g.access))}</p>
-    <h1>${esc(g.h1)}</h1>
-    <p class="sc-aeo-problem"><strong>The problem:</strong> ${esc(g.problem)}</p>
-    <p class="sc-direct-answer" data-aeo-step="direct-answer">${esc(g.lead)} ${esc(freeNote)}</p>
-    <div class="sc-guide-toc">
-      <h2>Table of contents</h2>
-      <ol>
-        <li><a href="#what-is">What this covers</a></li>
-        <li><a href="#standards">Applicable standards</a></li>
-        <li><a href="#methodology">Methodology</a></li>
-        <li><a href="#calculator">Calculator workflow</a></li>
-        <li><a href="#common-mistakes">Common mistakes</a></li>
-        <li><a href="#worked-pattern">Worked decision pattern</a></li>
-        <li><a href="#faq">FAQ</a></li>
-        <li><a href="#related">Related entities</a></li>
-      </ol>
-    </div>
-    <section id="what-is"><h2>1. What this covers</h2>${body.what}</section>
-    <section id="standards"><h2>2. Applicable standards &amp; references</h2>${body.standards}</section>
-    <section id="methodology"><h2>3. Methodology</h2>${body.method}</section>
-    <section id="calculator">
-      <h2>4. Calculator workflow</h2>
-      <ol class="sc-step-list">${steps}</ol>
-      <div class="sc-cta-inline"><a class="sc-btn-primary" href="${esc(g.calculator.href)}">${esc(g.calculator.label)} →</a></div>
-    </section>
-    <section id="common-mistakes"><h2>5. Common mistakes</h2>${mistakeHtml}</section>
-    <section id="worked-pattern">
-      <h2>6. Worked decision pattern</h2>
-      <p><strong>Problem pattern:</strong> ${esc(g.problem)}</p>
-      <p><strong>Method:</strong> Follow the methodology above, run ${esc(g.calculator.toolId)}, and keep assumptions + warnings with the result. SectorCalc does not publish invented customer ROI percentages.</p>
-      <p><strong>Next step:</strong> <a href="${esc(g.calculator.href)}">${esc(g.calculator.label)}</a></p>
-    </section>
-    <section id="faq" class="sc-faq-section"><h2>7. FAQ</h2>${faqHtml}</section>
-    <section id="related" class="sc-guide-related"><h2>8. Related entities</h2><ul>${related}</ul></section>
-    <section class="sc-cta-panel">
-      <h2>Calculate now</h2>
-      <p>${esc(freeNote)}</p>
-      <a class="sc-btn-primary" href="${esc(g.calculator.href)}">${esc(g.calculator.label)} →</a>
-      <p style="margin-top:0.75rem"><a href="/guides">← All engineering guides</a></p>
-    </section>
-  </article>
-</main>
-${footer()}
-</body>
-</html>
-`;
-}
-
-function polishExisting(path, g) {
-  let html = readFileSync(path, 'utf8');
-
-  html = html.replace(/<!--SC-SITE-NAV-START-->[\s\S]*?<!--SC-SITE-NAV-END-->\n?/g, '');
-  html = html.replace(/<header class="sc-header">[\s\S]*?<\/header>/, '');
-  html = html.replace(/<header class="site-header"[\s\S]*?<\/header>\s*/i, '');
-  html = html.replace(/<div class="mobile-nav-overlay" id="mobileNav"[\s\S]*?<\/div>\s*/i, '');
-
-  if (!html.includes('sc-guides.css')) {
-    html = html.replace(/<\/head>/i, `<link rel="stylesheet" href="/css/sc-guides.css?v=2">\n</head>`);
-  }
-  if (!html.includes('sc-site-nav.css')) {
-    html = html.replace(
-      /<\/head>/i,
-      `<link rel="stylesheet" href="/sc-site-nav.css?v=5">\n<script src="/sc-site-nav.js?v=2" defer></script>\n<script type="module" src="/src/auth-nav.ts"></script>\n</head>`,
-    );
-  }
-  if (!html.includes('sc-theme.css')) {
-    html = html.replace(
-      /<\/head>/i,
-      `<link rel="stylesheet" href="/sc-theme.css?v=12">\n<script src="/sc-theme.js?v=12" defer></script>\n</head>`,
-    );
-  }
-
-  if (!/class="[^"]*sc-guides-shell/.test(html)) {
-    html = html.replace(/<body([^>]*)>/i, (m, attrs) => {
-      if (/class=/.test(attrs)) {
-        return `<body${attrs.replace(/class=(["'])([^"']*)\1/, 'class=$1$2 sc-guides-shell$1')}>`;
-      }
-      return `<body${attrs} class="sc-guides-shell">`;
-    });
-  }
-
-  html = html.replace(/<body([^>]*)>/i, `<body$1>\n${HEADER}\n`);
-
-  if (!html.includes('sc-aeo-problem')) {
-    html = html.replace(
-      /(<h1\b[^>]*>[\s\S]*?<\/h1>)/i,
-      `$1\n      <p class="sc-aeo-problem"><strong>The problem:</strong> ${esc(g.problem)}</p>\n      <p class="sc-direct-answer">${esc(g.lead)}</p>`,
-    );
-  }
-
-  html = html.replace(
-    /Free preview\. Full A1-A5 audit report unlocks with credits\. No subscription\./gi,
-    g.access === 'free' || g.access === 'mixed'
-      ? 'Calculator access: see badge and CTA above. No subscription.'
-      : 'Unlock a credit session for 24-hour recalculation with A1–A5 audit trail. No subscription.',
-  );
-
-  html = html.replace(
-    /<section id="case-study">[\s\S]*?<\/section>/i,
-    `<section id="case-study">
-        <h2>6. Worked decision pattern</h2>
-        <p><strong>Problem pattern:</strong> ${esc(g.problem)}</p>
-        <p><strong>Method:</strong> Use the calculator linked below with documented inputs, then keep A4 assumptions and A5 warnings with the result. SectorCalc does not publish invented customer ROI percentages.</p>
-        <p><strong>Next step:</strong> <a href="${esc(g.calculator.href)}">${esc(g.calculator.label)}</a></p>
-      </section>`,
-  );
-
-  html = html.replace(
-    /"author"\s*:\s*\{\s*"@id"\s*:\s*"https:\/\/sectorcalc\.com\/#person-neela-nataraj"\s*\}/g,
-    '"author": { "@id": "https://sectorcalc.com/#organization" }',
-  );
-
-  if (!/sc-guides-main/.test(html)) {
-    html = html.replace(/<main\b([^>]*)class=(["'])([^"']*)\2/i, '<main$1class=$2$3 sc-guides-main sc-guide-article$2');
-    if (!/sc-guides-main/.test(html)) {
-      html = html.replace(/<main\b/i, '<main class="sc-guides-main sc-guide-article"');
-    }
-  }
-
-  // Related entities block once
-  if (!html.includes('data-guide-related="1"')) {
-    const related = g.related
-      .map((href) => `<li><a href="${esc(href)}">${esc(href)}</a></li>`)
-      .join('');
-    html = html.replace(
-      /(<section class="sc-cta-panel">)/i,
-      `<section class="sc-guide-related" data-guide-related="1"><h2>Related entities</h2><ul>${related}</ul></section>\n      $1`,
-    );
-  }
-
-  writeFileSync(path, html);
-}
-
 // --- run ---
 writeFileSync(join(ROOT, 'public/guides/index.html'), hubHtml());
-console.log('[OK] guides hub → public/guides/index.html');
+console.log('[OK] exclusive hub → public/guides/index.html');
 
-for (const g of GUIDES) {
+let fails = [];
+for (const g of GUIDE_ASSEMBLY) {
+  const html = guidePage(g);
   const path = join(ROOT, 'public/guides', `${g.slug}.html`);
-  if (!g.existing) {
-    writeFileSync(path, newGuideBody(g));
-    console.log(`[OK] new guide → ${g.slug}.html`);
-  } else if (existsSync(path)) {
-    polishExisting(path, g);
-    console.log(`[OK] polished → ${g.slug}.html`);
-  } else {
-    console.warn(`[SKIP] missing existing ${g.slug}.html`);
-  }
+  writeFileSync(path, html);
+  const bytes = Buffer.byteLength(html, 'utf8');
+  const status = bytes >= MIN_GUIDE_BYTES ? 'OK' : 'THIN';
+  console.log(`[${status}] ${g.slug}.html — ${bytes} bytes`);
+  if (bytes < MIN_GUIDE_BYTES) fails.push(`${g.slug} only ${bytes} bytes (min ${MIN_GUIDE_BYTES})`);
 }
-
-console.log(`[PASS] enterprise guides build: ${GUIDES.length} guides`);
+if (fails.length) {
+  console.error('[FAIL] exclusive density gate:\n' + fails.map((f) => `  - ${f}`).join('\n'));
+  process.exit(1);
+}
+console.log(`[PASS] exclusive guides build: ${GUIDE_ASSEMBLY.length} guides ≥ ${MIN_GUIDE_BYTES} bytes`);

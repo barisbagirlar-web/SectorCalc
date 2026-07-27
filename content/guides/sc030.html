@@ -1,0 +1,119 @@
+<div class="sc-guide-shell">
+<section class="sc-guide" id="sc-guide" data-tool-id="SC-030" data-tool-name="Sheet Metal Bend Calculator (SC-030)">
+
+<nav class="sc-guide-toc" aria-label="Table of contents">
+  <h2 class="sc-guide-toc-title">Contents</h2>
+  <ol>
+    <li><a href="#why-blank">Why blank length fails first</a></li>
+    <li><a href="#inputs">Inputs that actually matter</a></li>
+    <li><a href="#ba-bd">Bend allowance vs bend deduction</a></li>
+    <li><a href="#k-factor">K-factor calibration</a></li>
+    <li><a href="#worked">Worked pattern: first-hit screening</a></li>
+    <li><a href="#pair-punch">Pair with punching force</a></li>
+    <li><a href="#failure-modes">Common failure modes</a></li>
+    <li><a href="#decision-table">Decision table</a></li>
+    <li><a href="#faqs">Frequently asked questions</a></li>
+  </ol>
+</nav>
+
+<p class="sc-guide-lede">Bend allowance and bend deduction translate a 3D bend into a flat blank. Wrong <strong>K-factor</strong> or inside-radius assumptions miss the brake by millimetres — expensive when the nest is already cut. SectorCalc <strong>SC-030</strong> computes allowance, deduction, and flat length from thickness, angle, inside radius, and K-factor — free, formula-visible. Catalog defaults start the conversation; your brake and material lot own production K-factors.</p>
+
+<h2 id="why-blank">Why blank length fails first</h2>
+<p>If the flat is wrong, every downstream hit compounds the error. Brake setup cannot “absorb” a systematically short blank without flange growth fights. Screen blank length before nesting.</p>
+
+<h2 id="inputs">Inputs that actually matter</h2>
+<ul>
+  <li>Thickness and material temper</li>
+  <li>Bend angle</li>
+  <li>Inside radius (tooling reality, not CAD wish)</li>
+  <li>K-factor (shop-proven when available)</li>
+</ul>
+
+<h2 id="ba-bd">Bend allowance vs bend deduction</h2>
+<div class="sc-formula">Flat ≈ legs + bend allowance &nbsp;|&nbsp; Flat ≈ legs − bend deduction</div>
+<p>Pick one accounting style for the nest and document it. Mixing BA and BD without a method note creates blank chaos across programmers.</p>
+
+<h2 id="k-factor">K-factor calibration</h2>
+<p>Run a coupon on the production brake, measure developed length, and back-calculate an effective K-factor for that alloy/tooling pair. Store it where programmers can find it. Re-calibrate after material lot or tooling changes.</p>
+
+<h2 id="worked">Worked pattern: first-hit screening</h2>
+<ol>
+  <li>Collect thickness, angle, inside radius, and starting K-factor.</li>
+  <li>Run open <a href="/calculator/sheet-metal-bend">SC-030</a>.</li>
+  <li>Review BA/BD and flat length; paste the K-factor basis on the traveler.</li>
+  <li>Cut a coupon; compare measured vs predicted; update K-factor.</li>
+  <li>If die work follows, open free <a href="/calculator/punching-force">SC-039</a>.</li>
+</ol>
+
+<h2 id="pair-punch">Pair with punching force</h2>
+<p>Many sheet-metal jobs punch then bend. Keep both free calculators in the same traveler package under <a href="/topics/sheet-metal-fabrication">sheet-metal fabrication</a>.</p>
+
+<h2 id="failure-modes">Common failure modes</h2>
+<ul>
+  <li>One K-factor for every alloy</li>
+  <li>Ignoring inside radius growth</li>
+  <li>Mixing BA and BD methods</li>
+  <li>Skipping press capacity checks before die purchase</li>
+</ul>
+
+<h2 id="decision-table">Decision table</h2>
+<table class="sc-guide-table">
+  <thead><tr><th>Need</th><th>Tool</th></tr></thead>
+  <tbody>
+    <tr><td>Flat length / BA / BD</td><td>SC-030 free</td></tr>
+    <tr><td>Press tonnage screen</td><td>SC-039 free</td></tr>
+    <tr><td>Weld throat after form</td><td>SC-001 free</td></tr>
+  </tbody>
+</table>
+
+<h2 id="faqs">Frequently asked questions</h2>
+<div class="q"><h3>Is SC-030 free?</h3><p>Yes.</p></div>
+<div class="q"><h3>Does this replace forming simulation?</h3><p>No — it screens blank length before first hit.</p></div>
+<div class="q"><h3>Where do I get K-factor?</h3><p>Tooling charts first, then coupon calibration on your brake.</p></div>
+<div class="q"><h3>Customer locks deduction method?</h3><p>Follow the contract method; use SectorCalc to cross-check.</p></div>
+<div class="q"><h3>Related guide?</h3><p><a href="/guides/punching-force-complete">Punching force guide</a>.</p></div>
+<div class="q"><h3>Springback?</h3><p>Allowance models length; springback compensation is a separate process control step.</p></div>
+<div class="q"><h3>Minimum flange?</h3><p>Follow tooling OEM charts — calculator length does not override flange rules.</p></div>
+<div class="q"><h3>Units?</h3><p>Stay consistent (mm or in) end-to-end.</p></div>
+
+
+<h2 id="neutral-axis">Neutral axis intuition</h2>
+<p>K-factor locates the neutral axis inside the thickness as a fraction from the inside surface. Soft materials and large radii push the neutral axis; tight radii and work-hardening alloys pull it. That is why a single catalog K destroys nests when the alloy or tooling changes.</p>
+
+<h2 id="multi-bend">Multi-bend flats</h2>
+<p>SC-030 screens a bend. Multi-bend parts need consistent accounting across every bend in the chain. Document order of bends when sequence changes developed length through prior strain. When in doubt, coupon the critical bend first, then expand.</p>
+
+<h2 id="cad-vs-shop">CAD defaults vs shop reality</h2>
+<p>CAD bend tables are starting guesses. If your brake’s proven K-factor library disagrees with the CAD default, the shop library wins for released nests — and the disagreement belongs in the ECO notes so design stops re-injecting the wrong default.</p>
+
+<h2 id="springback-note">Springback is separate</h2>
+<p>Allowance models material length in the bend. Springback compensation overbends the angle. Do not “fix” angle error by silently changing K-factor — that corrupts blank length while masking the real process control gap.</p>
+
+<h2 id="traveler">Traveler package</h2>
+<ul>
+  <li>Thickness + alloy + temper</li>
+  <li>Inside radius (tool ID)</li>
+  <li>K-factor + calibration date</li>
+  <li>BA or BD method flag</li>
+  <li>Link to <a href="/calculator/punching-force">SC-039</a> when punched before bend</li>
+</ul>
+
+<h2 id="more-faq">Additional FAQ</h2>
+<div class="q"><h3>Air bend vs bottoming?</h3><p>Tooling mode changes radius and force. Recalibrate K-factor when the process mode changes.</p></div>
+<div class="q"><h3>Imperial nests?</h3><p>Keep units consistent. Do not mix mm thickness with inch flanges without conversion control.</p></div>
+<div class="q"><h3>Hemming?</h3><p>Hems are special tooling cases — do not force a simple V-bend K-factor without coupon proof.</p></div>
+<div class="q"><h3>Related topic hub?</h3><p><a href="/topics/sheet-metal-fabrication">Sheet-metal fabrication</a>.</p></div>
+
+
+<h2 id="material-tables">Material tables vs coupons</h2>
+<p>Published K-factor tables are population averages. Your coil lot, grain direction, and tooling wear move the effective neutral axis. Coupon calibration is not optional for precision nests — it is how you stop arguing with the brake after every ECO.</p>
+<p>When a customer locks a deduction method, follow it even if your internal K-factor library differs. Document the dual system: contract method for release, internal method for process learning.</p>
+<h2 id="qa-bend">QA checkpoints</h2>
+<ul>
+  <li>First-article flat length vs SC-030 prediction</li>
+  <li>Flange lengths after springback compensation</li>
+  <li>Inside radius achieved vs programmed</li>
+  <li>K-factor revision recorded on traveler</li>
+</ul>
+</section>
+</div>

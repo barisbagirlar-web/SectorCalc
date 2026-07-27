@@ -520,7 +520,7 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
 <!--SC-SEO-SCHEMA-END-->
 <link rel="stylesheet" href="/sc-related-tools.css?v=1">
                                                     <link rel="stylesheet" href="/sc-free-tools.css?v=2">
-          <link rel="stylesheet" href="/sc-calc-sheet.css?v=1">
+            <link rel="stylesheet" href="/sc-calc-sheet.css?v=1">
   <!--SC-CALC-SHEET-START-->
   <!-- calc-sheet theme: theme-calc-sheet -->
   <!--SC-CALC-SHEET-END-->
@@ -559,6 +559,7 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
   <a href="/login.html" class="btn-primary" data-nav="login">Sign in</a>
 </div>
 <!--SC-SITE-NAV-END-->
+
 
 
 
@@ -831,229 +832,125 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
       </div>
     </div>
   </div>
-  <!--SC-GUIDE-START-->
+  
+<!--SC-GUIDE-START-->
 <div class="sc-guide-shell">
-<section class="sc-guide" id="sc-guide" data-tool-id="SC-039" data-tool-name="Punching Force &amp; Die Clearance Calculator (SC-039)" data-tool-url="https://sectorcalc.com/punching-pro.html" itemscope itemtype="https://schema.org/FAQPage">
+<section class="sc-guide" id="sc-guide" data-tool-id="SC-039" data-tool-name="Punching Force Calculator (SC-039)">
 
 <nav class="sc-guide-toc" aria-label="Table of contents">
   <h2 class="sc-guide-toc-title">Contents</h2>
   <ol>
-    <li><a href="#cutting-force">Cutting force from shear strength</a></li>
-    <li><a href="#perimeter">Cut perimeter by hole shape</a></li>
-    <li><a href="#stripping">Stripping force and cluster punching</a></li>
-    <li><a href="#press-tonnage">Press tonnage and safety factor</a></li>
-    <li><a href="#die-clearance">Die clearance per side</a></li>
-    <li><a href="#punch-strength">Punch strength and minimum feature size</a></li>
-    <li><a href="#clearance-table">Clearance reference table</a></li>
+    <li><a href="#why-force">Why guessed tonnage fails</a></li>
+    <li><a href="#formula">Force estimate and units</a></li>
+    <li><a href="#geometry">Perimeter geometry matters</a></li>
+    <li><a href="#capacity">Capacity screening</a></li>
+    <li><a href="#clearance">Die clearance and edge quality</a></li>
+    <li><a href="#worked">Worked pattern: before tooling buy</a></li>
+    <li><a href="#failure-modes">Common failure modes</a></li>
+    <li><a href="#decision-table">Decision table</a></li>
     <li><a href="#faqs">Frequently asked questions</a></li>
   </ol>
 </nav>
 
-<p class="sc-guide-lede">SectorCalc <strong>SC-039</strong> computes the force required to punch a hole through sheet or plate, the stripping load that follows the cut, the press tonnage you should specify, and the die clearance that produces a clean fracture with acceptable burr and tool life. The engine works from <strong>material shear strength τ<sub>s</sub></strong>, cut perimeter and thickness — the same model used in press-shop estimating and die design handbooks — and adds punch-slenderness and feature-size checks so an undersized punch is caught before it breaks in the die. Results are reference-grade engineering estimates: confirm final tonnage against the press manufacturer's capacity curve and validate clearance on first-article parts.</p>
+<p class="sc-guide-lede">Punching force estimates the press load needed to shear a perimeter through thickness at a given shear strength. Guessing tonnage from habit breaks punches and rings frames. SectorCalc <strong>SC-039</strong> screens force from perimeter, thickness, and shear strength with explicit units — free. Manufacturer capacity charts and required safety factors still govern final selection.</p>
 
-<h2 id="cutting-force">Cutting force from shear strength</h2>
+<h2 id="why-force">Why guessed tonnage fails</h2>
+<p>Habit-based tonnage ignores perimeter growth on complex punches and material state (annealed vs hard). Downtime shows up as broken tooling, not just scrap.</p>
 
-<p>The punch must shear the material along the entire cut contour. The classical press-working relation is:</p>
+<h2 id="formula">Force estimate and units</h2>
+<div class="sc-formula">F ≈ perimeter × thickness × shear strength</div>
+<p>Handle units explicitly (N·mm vs tonf·in). Apply the safety factors required by your press standard before release.</p>
 
-<div class="sc-formula">
-  F [N] = L [mm] · t [mm] · τ<sub>s</sub> [MPa]<br>
-  F [kN] = L · t · τ<sub>s</sub> / 1000
-</div>
+<h2 id="geometry">Perimeter geometry matters</h2>
+<p>Slots, windows, and irregular contours are not “same as a round hole of equal area.” Effective shear length drives force. Measure or CAD-extract the true perimeter.</p>
 
-<p>Where <strong>L</strong> is the total cut perimeter, <strong>t</strong> is material thickness, and <strong>τ<sub>s</sub></strong> is the material shear strength. For steels, τ<sub>s</sub> is commonly taken as ≈ 0.8 × ultimate tensile strength; aluminium and copper alloys should use datasheet shear values because the 0.8 rule can over- or under-estimate by 15% depending on temper. SC-039 carries a curated material table and accepts a custom τ<sub>s</sub> with an audit flag.</p>
+<h2 id="capacity">Capacity screening</h2>
+<p>Compare estimated force to press and tooling ratings. Near the limit, redesign the hit sequence or tool before steel is ordered. OEM charts win for purchase decisions.</p>
 
-<p>The equation assumes the punch face is flat and the full perimeter cuts at once. A shear (rake) angle ground on the punch or die reduces peak force — roughly in proportion to how much the effective simultaneous cut length is reduced — but increases side loading on the punch. SC-039 reports the flat-face peak force, which is the conservative basis for press selection.</p>
+<h2 id="clearance">Die clearance and edge quality</h2>
+<p>Force and edge quality both depend on clearance practice. Document clearance intent beside the force result so tooling and QC share one story.</p>
 
-<h2 id="perimeter">Cut perimeter by hole shape</h2>
+<h2 id="worked">Worked pattern: before tooling buy</h2>
+<ol>
+  <li>Extract perimeter and thickness; confirm shear strength for material state.</li>
+  <li>Open free <a href="/calculator/punching-force">SC-039</a>.</li>
+  <li>Compare F to press/tool ratings with required safety factor.</li>
+  <li>Document clearance practice and material state on the traveler.</li>
+  <li>If forming follows, open free <a href="/calculator/sheet-metal-bend">SC-030</a>.</li>
+</ol>
 
-<div class="sc-formula">
-  Round: &nbsp; L = π · d<br>
-  Square: &nbsp; L = 4 · a<br>
-  Rectangle: &nbsp; L = 2 · (a + b)<br>
-  Obround slot: &nbsp; L = 2 · l + π · w<br>
-  Custom profile: &nbsp; L = CAD-measured contour length
-</div>
+<h2 id="failure-modes">Common failure modes</h2>
+<ul>
+  <li>Ignoring complex perimeter</li>
+  <li>Wrong shear strength basis</li>
+  <li>No clearance plan</li>
+  <li>Skipping OEM tonnage charts</li>
+</ul>
 
-<p>Perimeter — not hole area — drives force. A 20 mm round hole in 3 mm S235 (τ<sub>s</sub> = 290 MPa) needs π·20·3·290 ≈ <strong>54.7 kN</strong>; a 40 mm hole in the same sheet needs twice that, although its area is four times larger. Estimators who scale force by area systematically over-rate small holes and under-rate large ones.</p>
-
-<h2 id="stripping">Stripping force and cluster punching</h2>
-
-<p>After the cut, the punched material springs back and grips the punch. The stripper plate must pull it free:</p>
-
-<div class="sc-formula">
-  F<sub>strip</sub> [kN] = k<sub>s</sub> · F<br>
-  k<sub>s</sub> ≈ 0.05–0.20 by stripper type and stock condition
-</div>
-
-<p>When several punches fire in the same press stroke (progressive or cluster die), forces add:</p>
-
-<div class="sc-formula">
-  F<sub>stroke</sub> = n<sub>sim</sub> · (F + F<sub>strip</sub>)
-</div>
-
-<p>Stripping is frequently forgotten in quick estimates and is the reason presses stall on jobs that "calculated fine". A spring stripper at k<sub>s</sub> = 0.10 adds 10% to every hit; tight webs or adhesive-coated stock can double that.</p>
-
-<h2 id="press-tonnage">Press tonnage and safety factor</h2>
-
-<div class="sc-formula">
-  F<sub>press</sub> [kN] = SF · n<sub>sim</sub> · (F + F<sub>strip</sub>)<br>
-  Capacity [metric ton] = F<sub>press</sub> / 9.80665
-</div>
-
-<p>The safety factor covers punch-edge wear (a dull edge can raise cutting force 20–30%), material property scatter between coils, and stripper spring preload. SC-039 defaults to SF = 1.25 — standard shop practice. Use 1.15 only with freshly sharpened tooling and certified material; use 1.35 for worn dies or mixed stock. Remember that mechanical presses deliver rated tonnage only near bottom dead centre: check the press <em>tonnage curve</em> if the punch contacts the material well above BDC.</p>
-
-<div class="sc-tip"><span class="ico" aria-hidden="true">💡</span><div>After sizing the press, verify the die set itself: shut height, bolster slot layout, and guide pin diameter. Cost the operation with <a href="/calculator/quote-pricing">SC-012 Quote Pricing</a> before committing to a customer.</div></div>
-
-<h2 id="die-clearance">Die clearance per side</h2>
-
-<p>Clearance is the gap between punch and die cutting edges, expressed <strong>per side</strong> as a percentage of thickness:</p>
-
-<div class="sc-formula">
-  c [mm] = p% · t &nbsp; (per side)<br>
-  Die opening = punch size + 2 · c
-</div>
-
-<p>Too little clearance: secondary shear, high force, galling, short tool life. Too much: heavy burr, rollover, taper, and slug pulling. The recommended percentage rises with thickness (thicker stock fractures at a steeper angle) and with material hardness. SC-039's automatic mode applies material-group base values with a thickness-band correction; manual mode accepts a direct percentage and validates it against the recommended band.</p>
-
-<h2 id="punch-strength">Punch strength and minimum feature size</h2>
-
-<p>A punch is a slender column loaded in compression at the moment of shear. Two shop rules catch most failures:</p>
-
-<div class="sc-formula">
-  Smallest feature s<sub>min</sub> ≥ 1.5 · t &nbsp; (unguided punch)<br>
-  s<sub>min</sub> ≥ 1.0 · t &nbsp; acceptable only with guided / backed punch
-</div>
-
-<p>Below s<sub>min</sub> = t, punching force per unit area exceeds the compressive and buckling capacity of typical tool steels (A2, D2, M2) even at 58–62 HRC — the punch chips or snaps. SC-039 warns when the smallest punch feature falls below 1.5·t and blocks the verdict below 1.0·t. Remedies: guided punch retainer, shorter punch, carbide insert, or process change (laser/waterjet for the small feature, punch the rest).</p>
-
-<h2 id="clearance-table">Clearance reference table</h2>
-
-<p>Automatic-mode per-side clearance values used by SC-039 (engineering screening values from die-design handbooks):</p>
-
-<table>
-  <thead>
-    <tr><th>Material group</th><th>t &lt; 1 mm</th><th>1–3 mm</th><th>3–6 mm</th><th>&gt; 6 mm</th></tr>
-  </thead>
+<h2 id="decision-table">Decision table</h2>
+<table class="sc-guide-table">
+  <thead><tr><th>Question</th><th>Authority</th></tr></thead>
   <tbody>
-    <tr><td>Aluminium &amp; soft alloys (5052, 6061, Cu, brass)</td><td>4.0%</td><td>5.0%</td><td>6.0%</td><td>7.0%</td></tr>
-    <tr><td>Mild &amp; structural steel (S235, S355)</td><td>5.0%</td><td>6.0%</td><td>7.5%</td><td>9.0%</td></tr>
-    <tr><td>Stainless &amp; hard stock (304, 316)</td><td>6.0%</td><td>7.5%</td><td>9.0%</td><td>11.0%</td></tr>
+    <tr><td>Rough force screen</td><td>SC-039</td></tr>
+    <tr><td>Press purchase / final tonnage</td><td>OEM capacity charts</td></tr>
+    <tr><td>Blank length after punch</td><td>SC-030</td></tr>
   </tbody>
 </table>
 
-<p class="note">Fine-blanking and shave operations use near-zero clearance by design and are outside this engine's scope. Hardened stock above ~450 MPa yield should be validated with the toolmaker — clearance recommendations diverge between European and US handbook traditions by 1–2 percentage points.</p>
-
 <h2 id="faqs">Frequently asked questions</h2>
+<div class="q"><h3>Is SC-039 free?</h3><p>Yes.</p></div>
+<div class="q"><h3>Replace OEM charts?</h3><p>No — screens before tooling; OEM data wins for release.</p></div>
+<div class="q"><h3>Units?</h3><p>Stay consistent; convert carefully.</p></div>
+<div class="q"><h3>Cite alone for press purchase?</h3><p>No — use as screening estimate only.</p></div>
+<div class="q"><h3>Related?</h3><p><a href="/guides/sheet-metal-bend-complete">Bend guide</a>, <a href="/topics/sheet-metal-fabrication">topic hub</a>.</p></div>
+<div class="q"><h3>Shear strength source?</h3><p>Material datasheet for the actual state (annealed/hard).</p></div>
+<div class="q"><h3>Multiple hits?</h3><p>Sequence and stripper loads can change peak demand — screen each critical hit.</p></div>
+<div class="q"><h3>Safety factor?</h3><p>Use your press standard — do not invent a factor in the traveler.</p></div>
 
-<div class="q" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-  <h3 itemprop="name" id="faq-force-vs-tonnage">Is cutting force the same as required press tonnage?</h3>
-  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-    <div itemprop="text">
-      <p>No. Required press capacity is SF × (cutting force + stripping force) × number of simultaneous punches, converted to tons. A 55 kN cut needs roughly 7.8 metric tons of press capacity at SF = 1.25 with a spring stripper — not 5.6 tons as a raw force conversion suggests. Mechanical presses also deliver rated tonnage only near bottom dead centre, so the tonnage curve must be checked for thick material.</p>
-    </div>
-  </div>
-</div>
 
-<div class="q" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-  <h3 itemprop="name" id="faq-clearance-side">Is die clearance specified per side or total?</h3>
-  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-    <div itemprop="text">
-      <p>Engineering references specify clearance per side as a percentage of thickness (typically 4–12% depending on material and thickness). The die button opening is punch size plus twice the per-side clearance. Confusing per-side with total clearance is a classic first-article failure: a "10% total" shop instruction on 3 mm mild steel yields only 5% per side — acceptable — but a "10% per side" reading of the same note produces heavy burr and slug pulling.</p>
-    </div>
-  </div>
-</div>
+<h2 id="shear-strength">Shear strength discipline</h2>
+<p>Shear strength is not ultimate tensile strength and not “whatever the last job used.” Use the value for the material state on the router (annealed, cold-worked, stainless condition). Wrong shear strength is the quietest way to under-size a press.</p>
 
-<div class="q" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-  <h3 itemprop="name" id="faq-small-punch">How small a hole can I punch in a given thickness?</h3>
-  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-    <div itemprop="text">
-      <p>The standard shop limit is punch diameter at least 1.5× thickness for an unguided punch in mild steel. Below that, compressive stress and buckling risk on the punch rise sharply. Guided punch retainers, backed punches, and carbide tooling allow down to about 1.0×t with careful setup. Below 1.0×t, consider laser or waterjet cutting, or drill the hole. Stainless and hard stock are less forgiving than mild steel at the same ratio.</p>
-    </div>
-  </div>
-</div>
+<h2 id="hit-sequence">Hit sequence and stripper loads</h2>
+<p>A single-hit force screen is necessary but not always sufficient. Progressive dies and multi-hit patterns change peak demand and stripper requirements. When the estimate is near capacity, involve tooling engineering before steel is ordered — do not “hope the frame is fine.”</p>
 
-<div class="q" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-  <h3 itemprop="name" id="faq-shear-strength">Where do I find shear strength if my datasheet only lists tensile?</h3>
-  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-    <div itemprop="text">
-      <p>For carbon and stainless steels, shear strength ≈ 0.8 × ultimate tensile strength is the accepted estimating relation. Aluminium and copper alloys vary more with temper — use published shear values where possible (5052-H32 ≈ 140 MPa, 6061-T6 ≈ 205 MPa). When in doubt, enter the higher estimate: press tonnage is a capacity check, and over-sizing the press costs little compared to stalling a job on the shop floor.</p>
-    </div>
-  </div>
-</div>
+<h2 id="energy">Force vs energy</h2>
+<p>Some presses are energy-limited at speed even when peak force looks acceptable. SC-039 screens force. Confirm energy and stroke with OEM data for high-speed or thick work.</p>
 
-<div class="q" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-  <h3 itemprop="name" id="faq-burr">What does incorrect clearance look like on the part?</h3>
-  <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-    <div itemprop="text">
-      <p>A correct cut shows a small rollover, a smooth burnished shear band of about one-third of thickness, then a clean angular fracture with minimal burr. Too little clearance gives a double-shear band, high burr adhesion, and punch edge chipping. Too much clearance gives deep rollover, a tapered fracture, and a heavy ragged burr on the die side. First-article edge inspection against this pattern is the fastest clearance validation on the shop floor.</p>
-    </div>
-  </div>
-</div>
+<h2 id="edge-quality">Edge quality and secondary ops</h2>
+<p>Die clearance changes breakout and rollover. If the print demands a machined edge after punch, say so on the traveler so force screening and finishing plans stay aligned.</p>
 
-<details class="related">
-  <summary>Related calculators</summary>
-  <ul>
-    <li><a href="/calculator/punching-force">SC-039 Punching Force &amp; Die Clearance</a> — run the press-working engine with full audit trail</li>
-    <li><a href="/calculator/weld-thickness">SC-001 Weld Thickness</a> — welded frame verification for press structures</li>
-    <li><a href="/calculator/cnc-feeds-speeds">SC-020 Feeds &amp; Speeds</a> — machining the die button and punch profiles</li>
-    <li><a href="/calculator/quote-pricing">SC-012 Quote Pricing</a> — price the punching operation and die amortization</li>
-    <li><a href="/tools.html">All SectorCalc Tools</a> — full engineering calculator directory</li>
-  </ul>
-</details>
+<h2 id="traveler">Traveler package</h2>
+<ul>
+  <li>Perimeter source (CAD / measured)</li>
+  <li>Thickness + material state</li>
+  <li>Shear strength source</li>
+  <li>Estimated F + safety factor basis</li>
+  <li>Press/tool rating comparison</li>
+  <li>Clearance intent</li>
+  <li>Link to <a href="/calculator/sheet-metal-bend">SC-030</a> when forming follows</li>
+</ul>
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Is cutting force the same as required press tonnage?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. Required press capacity is the safety factor times cutting plus stripping force times simultaneous punches, converted to tons. Mechanical presses also deliver rated tonnage only near bottom dead centre."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is die clearance specified per side or total?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Per side, as a percentage of thickness — typically 4–12% by material and thickness. Die opening equals punch size plus twice the per-side clearance."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How small a hole can I punch in a given thickness?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Standard limit is punch diameter at least 1.5× thickness for unguided punches. Guided and carbide tooling allow about 1.0×t; below that use laser, waterjet, or drilling."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Where do I find shear strength if my datasheet only lists tensile?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "For steels use approximately 0.8× ultimate tensile strength. Aluminium and copper alloys should use published shear values by temper. When in doubt, estimate high — press tonnage is a capacity check."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What does incorrect clearance look like on the part?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Correct clearance shows small rollover, a burnished band about one-third of thickness, then clean fracture. Too little clearance gives double shear and edge chipping; too much gives deep rollover, taper and heavy burr."
-      }
-    }
-  ]
-}
-</script>
+<h2 id="more-faq">Additional FAQ</h2>
+<div class="q"><h3>What about shear factor &lt; 1.0?</h3><p>Some tooling practices apply a shear factor for angled punches. If you use one, document it — do not hide it inside an unexplained force number.</p></div>
+<div class="q"><h3>Stainless vs mild steel?</h3><p>Do not reuse mild-steel habit numbers. Update shear strength and expect higher force.</p></div>
+<div class="q"><h3>Can I size the press from SC-039 alone?</h3><p>No. Use it to screen, then confirm with OEM capacity and your safety policy.</p></div>
+<div class="q"><h3>Related guides?</h3><p><a href="/guides/sheet-metal-bend-complete">Bend</a> and <a href="/guides/cnc-optimization-complete">CNC</a> when machining follows.</p></div>
 
+
+<h2 id="tool-steel">Tool steel and punch life</h2>
+<p>Force screening prevents frame overload; it does not pick punch steel. When estimated force is high, expect heat and wear — involve tooling materials early. A “cheap” punch that snaps mid-lot costs more than the OEM chart review you skipped.</p>
+<h2 id="qa-punch">QA checkpoints</h2>
+<ul>
+  <li>Perimeter source attached to the traveler</li>
+  <li>Shear strength citation for material state</li>
+  <li>Force vs press rating with safety factor</li>
+  <li>Clearance intent signed by tooling</li>
+  <li>Edge requirement vs secondary machine plan</li>
+</ul>
 </section>
 </div>
 <!--SC-GUIDE-END-->
-
 <footer>
     SectorCalc Pro · SC-039 · Press-working reference-grade estimates — final press and die selection must be confirmed against the press manufacturer's tonnage curve and first-article validation.
   </footer>

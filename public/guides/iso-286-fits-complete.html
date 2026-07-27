@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ISO 286 Fits Complete Guide | SectorCalc</title>
-  <meta name="description" content="Learn how ISO 286 hole/shaft tolerance zones map to limit deviations, when to escalate to stack-up, and how to run the free SC-027 calculator without inventing unsupported fit families.">
+  <meta name="description" content="ISO 286 hole/shaft letters are zone identities whose limit deviations change with size range. SC-027 screens equation-backed families with visible deviations ">
   <link rel="canonical" href="https://sectorcalc.com/guides/iso-286-fits-complete">
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
   <meta property="og:title" content="ISO 286 Fits Complete Guide | SectorCalc">
-  <meta property="og:description" content="Learn how ISO 286 hole/shaft tolerance zones map to limit deviations, when to escalate to stack-up, and how to run the free SC-027 calculator without inventing unsupported fit families.">
+  <meta property="og:description" content="H7/g6 looks familiar — until someone asks for the actual limit deviations on your diameter band.">
   <meta property="og:url" content="https://sectorcalc.com/guides/iso-286-fits-complete">
   <meta property="og:type" content="article">
   <meta property="og:image" content="https://sectorcalc.com/assets/images/og-default-1200x630.jpg">
@@ -16,12 +16,14 @@
   <link rel="stylesheet" href="/css/seo-content.css">
 <link rel="stylesheet" href="/sc-theme.css?v=12">
 <link rel="stylesheet" href="/sc-site-nav.css?v=5">
-<link rel="stylesheet" href="/css/sc-guides.css?v=2">
+<link rel="stylesheet" href="/sc-tool-guide.css?v=3">
+<link rel="stylesheet" href="/css/sc-guides.css?v=3">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Sans:wght@400;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 <script src="/sc-theme.js?v=12" defer></script>
 <script src="/sc-site-nav.js?v=2" defer></script>
+<script src="/sc-tool-guide.js?v=3" defer></script>
 <script type="module" src="/src/auth-nav.ts"></script>
   <script type="application/ld+json">
 {
@@ -34,13 +36,13 @@
       "url": "https://sectorcalc.com/"
     },
     {
-      "@type": "Article",
+      "@type": "TechArticle",
       "@id": "https://sectorcalc.com/guides/iso-286-fits-complete#article",
       "url": "https://sectorcalc.com/guides/iso-286-fits-complete",
       "headline": "Complete Guide to ISO 286 Fits & Clearances",
-      "description": "Learn how ISO 286 hole/shaft tolerance zones map to limit deviations, when to escalate to stack-up, and how to run the free SC-027 calculator without inventing unsupported fit families.",
-      "datePublished": "2026-07-27",
-      "dateModified": "2026-07-27",
+      "description": "ISO 286 hole/shaft letters are zone identities whose limit deviations change with size range. SC-027 screens equation-backed families with visible deviations — free — then escalate to stack-up when assembly closure is the real question.",
+      "datePublished": "2026-07-26",
+      "dateModified": "2026-07-28",
       "author": {
         "@id": "https://sectorcalc.com/#organization"
       },
@@ -49,60 +51,16 @@
       },
       "isAccessibleForFree": true,
       "inLanguage": "en-US",
+      "about": "Tolerance & metrology",
       "speakable": {
         "@type": "SpeakableSpecification",
         "cssSelector": [
-          ".sc-aeo-problem",
+          ".sc-aeo-empathy",
           ".sc-direct-answer",
-          "h1"
+          "h1",
+          "#aeo-methodology"
         ]
       }
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://sectorcalc.com/guides/iso-286-fits-complete#faq",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Is the ISO 286 calculator free?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. SC-027 runs without sign-in or credits."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Does this replace the full ISO 286 standard?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "No. Use it for exposed families and screening; keep the governing edition for release."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can I use SC-027 results on a PPAP cover sheet?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Use them as engineering screening evidence. Customer-specific acceptance still governs."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "When should I open tolerance stack-up instead?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "When multiple contributors — not a single hole/shaft pair — control the functional gap."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Are all ISO letters supported?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Only equation-backed families exposed in the calculator. Unsupported zones are not invented."
-          }
-        }
-      ]
     },
     {
       "@type": "BreadcrumbList",
@@ -134,26 +92,26 @@
         {
           "@type": "HowToStep",
           "position": 1,
-          "name": "Step 1",
-          "text": "Open the free SC-027 ISO 286 Fits calculator — no sign-in required."
+          "name": "Read the problem",
+          "text": "H7/g6 looks familiar — until someone asks for the actual limit deviations on your diameter band."
         },
         {
           "@type": "HowToStep",
           "position": 2,
-          "name": "Step 2",
-          "text": "Enter the nominal diameter and select the hole/shaft family you need to screen."
+          "name": "Open the calculator",
+          "text": "Run open ISO 286 Fits instrument at https://sectorcalc.com/calculator/iso-286-fits"
         },
         {
           "@type": "HowToStep",
           "position": 3,
-          "name": "Step 3",
-          "text": "Read limit deviations and resulting clearance/interference extremes for that size band."
+          "name": "Apply methodology",
+          "text": "ES/EI (hole) and es/ei (shaft) from ISO 286 size-range logic for the selected family; extremes define clearance or interference."
         },
         {
           "@type": "HowToStep",
           "position": 4,
-          "name": "Step 4",
-          "text": "If assembly risk remains, open SC-008 Tolerance Stack-Up (credits) with the same nominal chain."
+          "name": "Keep A1–A5 notes",
+          "text": "Record diameter, family, deviations, and intended fit class on the traveler. Free tools still deserve reproducible notes."
         }
       ]
     }
@@ -161,7 +119,7 @@
 }
   </script>
 </head>
-<body class="sc-guides-shell">
+<body class="sc-guides-shell sc-guides-exclusive">
 <!--SC-SITE-NAV-START-->
 <header class="site-header" id="siteHeader" role="banner">
   <a href="/" class="brand" aria-label="SectorCalc Home"><span class="brand-mark"><img class="logo-light" src="/sectorcalc-logo-214.w.png" srcset="/sectorcalc-logo-214.w.png 214w, /sectorcalc-logo-428.w.png 428w" sizes="183px" width="183" height="48" alt="SectorCalc" decoding="async"><img class="logo-dark" src="/sectorcalc-logo-dark-214.w.png" srcset="/sectorcalc-logo-dark-214.w.png 214w, /sectorcalc-logo-dark-428.w.png 428w" sizes="183px" width="183" height="48" alt="" aria-hidden="true" decoding="async"></span></a>
@@ -203,82 +161,191 @@
       <li aria-current="page">ISO 286 Fits Complete Guide</li>
     </ol>
   </nav>
-  <article>
-    <p class="sc-guides-kicker">Tolerance &amp; metrology · Free calculator · no sign-in</p>
+
+  <header class="sc-guide-hero-block">
+    <p class="sc-guides-kicker">Tolerance &amp; metrology · Open instrument · no sign-in · SC-027</p>
     <h1>Complete Guide to ISO 286 Fits &amp; Clearances</h1>
-    <p class="sc-aeo-problem"><strong>The problem:</strong> H7/g6 looks familiar — until someone asks for the actual limit deviations on your diameter band.</p>
-    <p class="sc-direct-answer" data-aeo-step="direct-answer">Learn how ISO 286 hole/shaft tolerance zones map to limit deviations, when to escalate to stack-up, and how to run the free SC-027 calculator without inventing unsupported fit families. This calculator is free — no sign-in, instant results.</p>
-    <div class="sc-guide-toc">
-      <h2>Table of contents</h2>
-      <ol>
-        <li><a href="#what-is">What this covers</a></li>
-        <li><a href="#standards">Applicable standards</a></li>
-        <li><a href="#methodology">Methodology</a></li>
-        <li><a href="#calculator">Calculator workflow</a></li>
-        <li><a href="#common-mistakes">Common mistakes</a></li>
-        <li><a href="#worked-pattern">Worked decision pattern</a></li>
-        <li><a href="#faq">FAQ</a></li>
-        <li><a href="#related">Related entities</a></li>
-      </ol>
+    <div class="sc-aeo-empathy" data-aeo-step="empathy" id="aeo-empathy">
+      <p><strong>The problem:</strong> H7/g6 looks familiar — until someone asks for the actual limit deviations on your diameter band.</p>
+      
     </div>
-    <section id="what-is"><h2>1. What this covers</h2><p>ISO 286 defines hole and shaft tolerance zones relative to a nominal size. Letters like H7 or g6 are not millimetre clearances — they are zone identities whose limit deviations change with diameter band. Treating “H7/g6” as a constant clearance is the most common drawing-room error.</p>
-        <p>This guide covers hole-basis vs shaft-basis thinking, how limit deviations are looked up for a size range, when a local fit still fails the assembly, and how SectorCalc’s free SC-027 calculator exposes equation-backed families without inventing unsupported zones.</p>
-        <p>Use it when you are selecting or checking a fit before drawings freeze. Escalate to tolerance stack-up when the question becomes assembly closure under stacked contributors.</p></section>
-    <section id="standards"><h2>2. Applicable standards &amp; references</h2><ul class="sc-standards-list">
-          <li><strong>ISO 286-1 / ISO 286-2:</strong> Basis of fits and tabulated limit deviations for hole and shaft tolerance zones.</li>
-          <li><strong>ISO 2768:</strong> General tolerances — complementary language when individual fits are not fully specified.</li>
-          <li><strong>ASME Y14.5:</strong> Drawing language and datum practice that surrounds fit callouts on North American prints.</li>
-        </ul></section>
-    <section id="methodology"><h2>3. Methodology</h2><h3>3.1 Hole vs shaft basis</h3>
-        <p>Confirm whether the hole or shaft is the basic feature. H-system holes are common in production; shaft grades (g, f, e…) set clearance or transition behavior against that hole. Mixing systems without documenting which feature is basic creates ambiguous inspection plans.</p>
-        <h3>3.2 Limit deviations are size-dependent</h3>
-        <div class="sc-formula-block"><code>ES / EI (hole) and es / ei (shaft) from ISO 286 tables for the selected size range</code>
-        <p>Always evaluate at the actual nominal diameter. The same grade letters are not a constant clearance across diameters.</p></div>
-        <h3>3.3 Clearance, transition, interference</h3>
-        <p>After both zones are known, the extreme material conditions define the possible assembly states. Document the condition you intend (easy sliding vs light press) in the traveler — not only the letter pair.</p>
-        <h3>3.4 When to escalate</h3>
-        <p>If the question is assembly closure under stacked contributors (housings, bearings, spacers), move from fit selection to the credit-backed tolerance stack-up calculator. Local fit success does not guarantee gap closure.</p></section>
-    <section id="calculator">
-      <h2>4. Calculator workflow</h2>
-      <ol class="sc-step-list"><li><strong>Step 1:</strong> Open the free SC-027 ISO 286 Fits calculator — no sign-in required.</li>
-<li><strong>Step 2:</strong> Enter the nominal diameter and select the hole/shaft family you need to screen.</li>
-<li><strong>Step 3:</strong> Read limit deviations and resulting clearance/interference extremes for that size band.</li>
-<li><strong>Step 4:</strong> If assembly risk remains, open SC-008 Tolerance Stack-Up (credits) with the same nominal chain.</li></ol>
-      <div class="sc-cta-inline"><a class="sc-btn-primary" href="/calculator/iso-286-fits">Open free ISO 286 Fits calculator →</a></div>
-    </section>
-    <section id="common-mistakes"><h2>5. Common mistakes</h2><div class="sc-mistake-card"><h3>Mistake 1: Treating H7/g6 as a constant clearance</h3><p><strong>Fix:</strong> Look up limit deviations for the diameter band you actually machine.</p></div>
-<div class="sc-mistake-card"><h3>Mistake 2: Mixing unsupported zone letters</h3><p><strong>Fix:</strong> SectorCalc exposes equation-backed families only — unsupported zones are not guessed.</p></div>
-<div class="sc-mistake-card"><h3>Mistake 3: Skipping stack-up after fit pick</h3><p><strong>Fix:</strong> Local fit success does not guarantee assembly gap closure.</p></div>
-<div class="sc-mistake-card"><h3>Mistake 4: Ignoring temperature and coating</h3><p><strong>Fix:</strong> Fits change when plating or operating temperature shifts diameter.</p></div></section>
-    <section id="worked-pattern">
-      <h2>6. Worked decision pattern</h2>
-      <p><strong>Problem pattern:</strong> H7/g6 looks familiar — until someone asks for the actual limit deviations on your diameter band.</p>
-      <p><strong>Method:</strong> Follow the methodology above, run SC-027, and keep assumptions + warnings with the result. SectorCalc does not publish invented customer ROI percentages.</p>
-      <p><strong>Next step:</strong> <a href="/calculator/iso-286-fits">Open free ISO 286 Fits calculator</a></p>
-    </section>
-    <section id="faq" class="sc-faq-section"><h2>7. FAQ</h2><details class="sc-faq-item"><summary>Is the ISO 286 calculator free?</summary><p>Yes. SC-027 runs without sign-in or credits.</p></details>
-<details class="sc-faq-item"><summary>Does this replace the full ISO 286 standard?</summary><p>No. Use it for exposed families and screening; keep the governing edition for release.</p></details>
-<details class="sc-faq-item"><summary>Can I use SC-027 results on a PPAP cover sheet?</summary><p>Use them as engineering screening evidence. Customer-specific acceptance still governs.</p></details>
-<details class="sc-faq-item"><summary>When should I open tolerance stack-up instead?</summary><p>When multiple contributors — not a single hole/shaft pair — control the functional gap.</p></details>
-<details class="sc-faq-item"><summary>Are all ISO letters supported?</summary><p>Only equation-backed families exposed in the calculator. Unsupported zones are not invented.</p></details></section>
-    <section id="related" class="sc-guide-related"><h2>8. Related entities</h2><ul><li><a href="/calculator/iso-286-fits">calculator · iso-286-fits</a></li>
-<li><a href="/calculator/surface-finish">calculator · surface-finish</a></li>
-<li><a href="/calculator/tolerance-stack-up">calculator · tolerance-stack-up</a></li>
-<li><a href="/topics/fits-and-finish">topics · fits-and-finish</a></li>
-<li><a href="/blog/iso-286-h7-g6-explained.html">blog · iso-286-h7-g6-explained</a></li>
-<li><a href="/guides/tolerance-stack-up-complete">guides · tolerance-stack-up-complete</a></li>
-<li><a href="/glossary/iso-286-fits">glossary · iso-286-fits</a></li></ul></section>
-    <section class="sc-cta-panel">
-      <h2>Calculate now</h2>
-      <p>This calculator is free — no sign-in, instant results.</p>
-      <a class="sc-btn-primary" href="/calculator/iso-286-fits">Open free ISO 286 Fits calculator →</a>
-      <p style="margin-top:0.75rem"><a href="/guides">← All engineering guides</a></p>
-    </section>
-  </article>
+    <p class="sc-direct-answer" data-aeo-step="direct-answer" id="aeo-direct-answer">ISO 286 hole/shaft letters are zone identities whose limit deviations change with size range. SC-027 screens equation-backed families with visible deviations — free — then escalate to stack-up when assembly closure is the real question.</p>
+    <nav class="sc-aeo-rail" aria-label="Answer engine chain"><a href="#aeo-empathy" data-aeo-rail="empathy">Problem</a><a href="#aeo-direct-answer" data-aeo-rail="direct-answer">Direct answer</a><a href="#aeo-explanation" data-aeo-rail="explanation">Explanation</a><a href="#aeo-methodology" data-aeo-rail="methodology">Methodology</a><a href="#aeo-evidence" data-aeo-rail="evidence">Evidence</a><a href="#aeo-accountability" data-aeo-rail="accountability">A1–A5</a><a href="#aeo-related-problems" data-aeo-rail="related-problems">Related</a></nav>
+    <p class="sc-guide-access-note">This calculator is free — no sign-in, instant results.</p>
+    <a class="sc-btn-primary" href="/calculator/iso-286-fits">Run open ISO 286 Fits instrument →</a>
+  </header>
+
+  
+<section class="sc-guide-block" data-aeo-step="explanation" id="aeo-explanation-decision">
+  <h2>Explanation — decision this supports</h2>
+  <p>Decide whether a proposed fit letter pair produces the clearance/transition/interference class you intend at the actual nominal diameter before drawings freeze.</p>
+</section>
+<section class="sc-guide-block" data-aeo-step="explanation" id="aeo-explanation-inputs">
+  <h2>Required inputs</h2>
+  <p>Nominal diameter, hole/shaft basis, and an exposed fit family that matches print language.</p>
+</section>
+<section class="sc-guide-block" data-aeo-step="methodology" id="aeo-methodology">
+  <h2>Methodology — formula &amp; method</h2>
+  <div class="sc-formula-block"><code>ES/EI (hole) and es/ei (shaft) from ISO 286 size-range logic for the selected family; extremes define clearance or interference.</code></div>
+</section>
+
+<section class="sc-guide-block" data-aeo-step="explanation">
+  <h2>What the result means</h2>
+  <p>Read min/max clearance or interference, not just the letter pair. Same letters at a new diameter are a new calculation.</p>
+</section>
+<section class="sc-guide-block" data-aeo-step="explanation">
+  <h2>What moves the result</h2>
+  <p>Diameter band and IT grade dominate. Plating and temperature deltas can consume the entire clearance if ignored.</p>
+</section>
+<section class="sc-guide-block" data-aeo-step="methodology">
+  <h2>Assumptions</h2>
+  <p>Exposed equation-backed families only. Hole- or shaft-basis as selected. No invented unsupported zones.</p>
+</section>
+<section class="sc-guide-block" data-aeo-step="methodology">
+  <h2>Model boundaries</h2>
+  <p>Not a full ISO 286 edition substitute. Not press-fit load analysis. Not a stack-up for multi-contributor gaps.</p>
+</section>
+<section class="sc-guide-block" data-aeo-step="evidence">
+  <h2>Common engineering mistakes</h2>
+  <p>Treating H7/g6 as constant clearance; mixing basis systems; skipping stack-up after local fit pick.</p>
+</section>
+<section class="sc-guide-block" data-aeo-step="evidence">
+  <h2>Evidence — standard &amp; reference scope</h2>
+  <p>Aligned with ISO 286 hole/shaft tolerance concepts in the implemented UI scope. Keep the governing edition for contract release.</p>
+</section>
+<section class="sc-guide-block" data-aeo-step="accountability" id="aeo-accountability">
+  <h2>Accountability — A1–A5 audit trail</h2>
+  <p>Record diameter, family, deviations, and intended fit class on the traveler. Free tools still deserve reproducible notes.</p>
+  <ol class="sc-a15">
+    <li><strong>A1</strong> Engine identity / version</li>
+    <li><strong>A2</strong> Inputs snapshot</li>
+    <li><strong>A3</strong> Formula path</li>
+    <li><strong>A4</strong> Assumptions</li>
+    <li><strong>A5</strong> Warnings / out-of-band flags</li>
+  </ol>
+</section>
+
+  <section class="sc-guide-deep" id="deep-methodology" aria-label="Deep methodology">
+    <h2 class="sc-guide-deep-title">Deep methodology library</h2>
+    <p class="sc-guide-deep-lead">The long-form reference below is the same engineering depth injected beside the live calculator — expanded here as a standalone guide for answer engines and humans.</p>
+    <section class="sc-guide" id="sc-guide" data-tool-id="SC-027" data-tool-name="ISO 286 Fits Calculator (SC-027)">
+
+<nav class="sc-guide-toc" aria-label="Table of contents">
+  <h2 class="sc-guide-toc-title">Contents</h2>
+  <ol>
+    <li><a href="#what-iso-286">What ISO 286 actually specifies</a></li>
+    <li><a href="#hole-shaft-basis">Hole basis vs shaft basis</a></li>
+    <li><a href="#limit-deviations">Limit deviations are size-dependent</a></li>
+    <li><a href="#fit-classes">Clearance, transition, interference</a></li>
+    <li><a href="#worked-h7g6">Worked pattern: H7/g6 screening</a></li>
+    <li><a href="#when-stack">When a fit is not enough — escalate to stack-up</a></li>
+    <li><a href="#unsupported">Unsupported zones and honesty rules</a></li>
+    <li><a href="#failure-modes">Common failure modes</a></li>
+    <li><a href="#decision-table">Decision table</a></li>
+    <li><a href="#faqs">Frequently asked questions</a></li>
+  </ol>
+</nav>
+
+<p class="sc-guide-lede">ISO 286 defines <strong>hole and shaft tolerance zones</strong> relative to a nominal size. Letter/number pairs like <strong>H7</strong> or <strong>g6</strong> are zone identities — not millimetre clearances. SectorCalc <strong>SC-027</strong> looks up equation-backed families and computes limit deviations for the selected diameter band so you can screen a fit before drawings freeze. It does not invent unsupported zones and does not replace the governing ISO 286 edition on your contract.</p>
+
+<h2 id="what-iso-286">What ISO 286 actually specifies</h2>
+<p>ISO 286 organises tolerances into a letter (fundamental deviation position relative to the zero line) and a number (IT grade — the size of the tolerance zone). The same letters mean different limit deviations in different nominal size ranges. Treating “H7/g6” as a constant clearance across 10 mm and 80 mm shafts is the most common drawing-room error.</p>
+<p>Use ISO 286 when the functional question is local mating behaviour: sliding clearance, location transition, or light press. Use a 1D stack-up when the functional question is whether an <em>assembly chain</em> still closes.</p>
+
+<div class="sc-formula">
+  Hole: upper limit deviation ES, lower EI<br>
+  Shaft: upper es, lower ei<br>
+  Extreme clearance / interference from mating extremes
+</div>
+
+<h2 id="hole-shaft-basis">Hole basis vs shaft basis</h2>
+<p>Most production systems are <strong>hole-basis</strong>: the hole stays on an H-system (fundamental deviation ≈ 0 for H), and the shaft grade (g, f, e, k, p…) sets clearance or transition behaviour. Shaft-basis systems exist; mixing systems without documenting which feature is basic creates ambiguous inspection plans.</p>
+<p>Before you pick letters, write one sentence on the traveler: “Hole is basic (H7); shaft is g6 for easy sliding at Ø__.” That sentence prevents tribal fit folklore from overriding the print.</p>
+
+<h2 id="limit-deviations">Limit deviations are size-dependent</h2>
+<p>SC-027 evaluates deviations at the <strong>actual nominal diameter</strong> you enter. Always re-check when the diameter band changes — even if the letter pair stays the same. Document the size range used for the lookup when you paste results into a drawing note or PPAP narrative.</p>
+<div class="sc-tip"><div>Cross-check finish callouts on the same seat with the free <a href="/calculator/surface-finish">SC-028 Surface Finish</a> converter when Ra/Rz language also gates release.</div></div>
+
+<h2 id="fit-classes">Clearance, transition, interference</h2>
+<p>After both zones are known, extreme material conditions define the possible assembly states:</p>
+<ul>
+  <li><strong>Clearance</strong> — minimum hole ≥ maximum shaft under the extremes you care about.</li>
+  <li><strong>Transition</strong> — either clearance or light interference possible depending on actual sizes.</li>
+  <li><strong>Interference</strong> — maximum hole ≤ minimum shaft (press/ shrink strategies).</li>
+</ul>
+<p>State the intended class on the traveler. “H7/g6” without “easy sliding clearance” leaves assembly and QC arguing from memory.</p>
+
+<h2 id="worked-h7g6">Worked pattern: H7/g6 screening</h2>
+<ol>
+  <li>Confirm nominal diameter and whether the hole or shaft is basic.</li>
+  <li>Run open <a href="/calculator/iso-286-fits">SC-027</a> — no sign-in.</li>
+  <li>Select the exposed hole/shaft family that matches the print language.</li>
+  <li>Read ES/EI and es/ei for that size band; record min/max clearance or interference.</li>
+  <li>If the assembly still has stacked contributors (housings, spacers, bearings), open credit-backed <a href="/calculator/tolerance-stack-up">SC-008</a>.</li>
+</ol>
+<p><strong>Honesty note:</strong> This pattern screens fit language. It does not certify press-fit assembly loads, thermal growth, or plating build-up unless you explicitly add those deltas.</p>
+
+<h2 id="when-stack">When a fit is not enough — escalate to stack-up</h2>
+<p>Local fit success does not guarantee functional gap closure. Escalate when:</p>
+<ul>
+  <li>More than one feature controls the gap (bore depth + bearing width + spacer).</li>
+  <li>Customer asks for worst-case / RSS / Monte Carlo evidence.</li>
+  <li>Thermal or coating deltas are significant relative to the clearance band.</li>
+</ul>
+
+<h2 id="unsupported">Unsupported zones and honesty rules</h2>
+<p>SC-027 exposes equation-backed families only. If a letter pair is outside the implemented set, the calculator must not invent a table. Keep the governing ISO 286 edition for release; use SectorCalc for screening and teaching the size-dependence of deviations.</p>
+
+<h2 id="failure-modes">Common failure modes</h2>
+<ul>
+  <li>Copying H7/g6 from a previous job without re-looking up the diameter band.</li>
+  <li>Ignoring plating/temperature growth that consumes clearance.</li>
+  <li>Calling a transition fit “press” in the assembly instruction.</li>
+  <li>Using fit selection to skip stack-up on multi-contributor gaps.</li>
+</ul>
+
+<h2 id="decision-table">Decision table</h2>
+<table class="sc-guide-table">
+  <thead><tr><th>Question</th><th>Use</th><th>Not enough alone</th></tr></thead>
+  <tbody>
+    <tr><td>What are limit deviations for this Ø and letter pair?</td><td>SC-027 (free)</td><td>Full ISO edition annexes outside exposed families</td></tr>
+    <tr><td>Will the assembly gap close under stacked extremes?</td><td>SC-008 (credits)</td><td>Fit letters alone</td></tr>
+    <tr><td>Drawing Ra vs shop Rz on the same seat?</td><td>SC-028 (free)</td><td>Fit calculator</td></tr>
+  </tbody>
+</table>
+
+<h2 id="faqs">Frequently asked questions</h2>
+<div class="q"><h3>Is SC-027 free?</h3><p>Yes. No sign-in, no credits. Instant screening results.</p></div>
+<div class="q"><h3>Does this replace ISO 286?</h3><p>No. Keep the governing edition for contractual release. SC-027 screens exposed families with visible math.</p></div>
+<div class="q"><h3>Can I put SC-027 numbers on PPAP?</h3><p>As engineering screening evidence only. Customer acceptance still governs.</p></div>
+<div class="q"><h3>Why did clearance change when I only changed diameter?</h3><p>Because IT grades and fundamental deviations are tabulated by size range — same letters, different micrometres.</p></div>
+<div class="q"><h3>When do I open stack-up?</h3><p>When multiple contributors — not a single hole/shaft pair — control the functional dimension.</p></div>
+<div class="q"><h3>Are all ISO letters supported?</h3><p>Only equation-backed families exposed in the UI. Unsupported zones are not invented.</p></div>
+<div class="q"><h3>Hole-basis or shaft-basis?</h3><p>Document which feature is basic. Most shops are hole-basis with H-system holes.</p></div>
+<div class="q"><h3>Related reading?</h3><p>See <a href="/blog/iso-286-h7-g6-explained.html">H7/g6 explained</a>, <a href="/topics/fits-and-finish">fits &amp; finish hub</a>, and <a href="/guides/tolerance-stack-up-complete">stack-up guide</a>.</p></div>
+
+</section>
+  </section>
+
+  <section class="sc-guide-block" data-aeo-step="related-problems" id="aeo-related-problems">
+  <h2>Related entities &amp; query fan-out</h2>
+  <h3>Glossary</h3><ul><li><a href="/glossary/iso-286-fits">iso 286 fits</a></li><li><a href="/glossary/surface-finish-ra-rz">surface finish ra rz</a></li></ul>
+  <h3>Calculators, topics, sibling guides</h3>
+  <ul><li><a href="/calculator/iso-286-fits">/calculator/iso-286-fits</a></li><li><a href="/calculator/surface-finish">/calculator/surface-finish</a></li><li><a href="/calculator/tolerance-stack-up">/calculator/tolerance-stack-up</a></li><li><a href="/topics/fits-and-finish">/topics/fits-and-finish</a></li><li><a href="/blog/iso-286-h7-g6-explained.html">/blog/iso-286-h7-g6-explained.html</a></li><li><a href="/guides/surface-finish-complete">/guides/surface-finish-complete</a></li><li><a href="/guides/tolerance-stack-up-complete">/guides/tolerance-stack-up-complete</a></li></ul>
+  <h3>Queries this guide owns in the cluster</h3>
+  <ul class="sc-fanout"><li>iso 286 fit calculator</li><li>H7 g6 clearance chart</li><li>hole basis vs shaft basis</li></ul>
+</section>
+
+  <section class="sc-cta-panel" data-aeo-step="related-problems">
+    <h2>Commercial next step</h2>
+    <p>Screen free on SC-027. When the assembly chain matters, unlock SC-008 with credits for WC/RSS/Monte Carlo on the same job.</p>
+    <a class="sc-btn-primary" href="/calculator/iso-286-fits">Run open ISO 286 Fits instrument →</a>
+    <p class="sc-cta-secondary"><a href="/guides">← All engineering guides</a> · <a href="/#free-calculators">Open reference bench</a></p>
+  </section>
 </main>
-<footer class="sc-footer" style="max-width:1100px;margin:0 auto;padding:1.25rem;border-top:1px solid rgba(11,28,44,.12);display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between">
-  <p style="margin:0;color:#3d5366">© 2026 SectorCalc · Deterministic industrial calculators</p>
-  <p style="margin:0"><a href="/#free-calculators">Free tools</a> · <a href="/tools.html">All tools</a> · <a href="/pricing.html">Pricing</a></p>
+<footer class="sc-footer sc-guides-site-footer">
+  <p>© 2026 SectorCalc · Deterministic industrial calculators · A1–A5 audit language</p>
+  <p><a href="/#free-calculators">Free tools</a> · <a href="/tools.html">All tools</a> · <a href="/topics">Topics</a> · <a href="/pricing.html">Pricing</a> · <a href="/llms.txt">llms.txt</a></p>
 </footer>
 </body>
 </html>
