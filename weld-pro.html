@@ -494,6 +494,38 @@ finalLeg = max(legFromLoad, minLegFromTable)</div>
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "WebPage",
+      "@id": "https://sectorcalc.com/calculator/weld-thickness#webpage",
+      "url": "https://sectorcalc.com/calculator/weld-thickness",
+      "name": "SC-001 Weld Thickness",
+      "description": "Fillet weld throat and leg sizing per AWS D1.1 and ISO standards. Deterministic formula visibility.",
+      "isPartOf": {
+        "@id": "https://sectorcalc.com/#website"
+      },
+      "about": {
+        "@id": "https://sectorcalc.com/calculator/weld-thickness#software"
+      },
+      "mainEntity": {
+        "@id": "https://sectorcalc.com/calculator/weld-thickness#software"
+      },
+      "publisher": {
+        "@id": "https://sectorcalc.com/#organization"
+      },
+      "author": {
+        "@id": "https://sectorcalc.com/#organization"
+      },
+      "inLanguage": "en-US",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".sc-aeo-problem",
+          ".sc-direct-answer",
+          ".sc-header-title",
+          "h1"
+        ]
+      }
+    },
+    {
       "@type": "SoftwareApplication",
       "@id": "https://sectorcalc.com/calculator/weld-thickness#software",
       "name": "SC-001 Weld Thickness",
@@ -525,6 +557,9 @@ finalLeg = max(legFromLoad, minLegFromTable)</div>
       "author": {
         "@id": "https://sectorcalc.com/#organization"
       },
+      "brand": {
+        "@id": "https://sectorcalc.com/#organization"
+      },
       "screenshot": {
         "@type": "ImageObject",
         "url": "https://sectorcalc.com/assets/images/og-weld-pro-1200x630.jpg",
@@ -534,9 +569,36 @@ finalLeg = max(legFromLoad, minLegFromTable)</div>
       "inLanguage": [
         "en"
       ],
-      "dateModified": "2026-07-24",
+      "dateModified": "2026-07-27",
       "isPartOf": {
         "@id": "https://sectorcalc.com/#website"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://sectorcalc.com/calculator/weld-thickness#webpage"
+      }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://sectorcalc.com/calculator/weld-thickness#product",
+      "name": "SC-001 Weld Thickness",
+      "description": "Fillet weld throat and leg sizing per AWS D1.1 and ISO standards. Deterministic formula visibility.",
+      "brand": {
+        "@id": "https://sectorcalc.com/#organization"
+      },
+      "category": "Engineering Software",
+      "isRelatedTo": {
+        "@id": "https://sectorcalc.com/calculator/weld-thickness#software"
+      },
+      "offers": {
+        "@type": "Offer",
+        "name": "Free exploratory calculation",
+        "price": "0.00",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://sectorcalc.com/calculator/weld-thickness",
+        "seller": {
+          "@id": "https://sectorcalc.com/#organization"
+        }
       }
     },
     {
@@ -684,7 +746,7 @@ finalLeg = max(legFromLoad, minLegFromTable)</div>
 </script>
 <!--SC-SEO-SCHEMA-END-->
 <link rel="stylesheet" href="/sc-related-tools.css?v=1">
-                                                <link rel="stylesheet" href="/sc-calc-sheet.css?v=1">
+                                                  <link rel="stylesheet" href="/sc-calc-sheet.css?v=1">
   <!--SC-CALC-SHEET-START-->
   <!-- calc-sheet theme: theme-calc-sheet -->
   <!--SC-CALC-SHEET-END-->
@@ -724,6 +786,7 @@ finalLeg = max(legFromLoad, minLegFromTable)</div>
 </div>
 <!--SC-SITE-NAV-END-->
 <div class="sc-tool-strip"><b>SC-001 · Weld Thickness</b><span>Engineering preview · Decimal engine · Not for production approval</span></div>
+
 
 
 

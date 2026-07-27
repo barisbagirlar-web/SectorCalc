@@ -260,6 +260,38 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "WebPage",
+      "@id": "https://sectorcalc.com/calculator/machine-hour-rate#webpage",
+      "url": "https://sectorcalc.com/calculator/machine-hour-rate",
+      "name": "SC-038 Machine Hour Rate",
+      "description": "True machine hour rate with depreciation, maintenance, power, and overhead allocation. Deterministic.",
+      "isPartOf": {
+        "@id": "https://sectorcalc.com/#website"
+      },
+      "about": {
+        "@id": "https://sectorcalc.com/calculator/machine-hour-rate#software"
+      },
+      "mainEntity": {
+        "@id": "https://sectorcalc.com/calculator/machine-hour-rate#software"
+      },
+      "publisher": {
+        "@id": "https://sectorcalc.com/#organization"
+      },
+      "author": {
+        "@id": "https://sectorcalc.com/#organization"
+      },
+      "inLanguage": "en-US",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".sc-aeo-problem",
+          ".sc-direct-answer",
+          ".sc-header-title",
+          "h1"
+        ]
+      }
+    },
+    {
       "@type": "SoftwareApplication",
       "@id": "https://sectorcalc.com/calculator/machine-hour-rate#software",
       "name": "SC-038 Machine Hour Rate",
@@ -291,6 +323,9 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
       "author": {
         "@id": "https://sectorcalc.com/#organization"
       },
+      "brand": {
+        "@id": "https://sectorcalc.com/#organization"
+      },
       "screenshot": {
         "@type": "ImageObject",
         "url": "https://sectorcalc.com/assets/images/og-machine-rate-pro-1200x630.jpg",
@@ -300,9 +335,36 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
       "inLanguage": [
         "en"
       ],
-      "dateModified": "2026-07-24",
+      "dateModified": "2026-07-27",
       "isPartOf": {
         "@id": "https://sectorcalc.com/#website"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://sectorcalc.com/calculator/machine-hour-rate#webpage"
+      }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://sectorcalc.com/calculator/machine-hour-rate#product",
+      "name": "SC-038 Machine Hour Rate",
+      "description": "True machine hour rate with depreciation, maintenance, power, and overhead allocation. Deterministic.",
+      "brand": {
+        "@id": "https://sectorcalc.com/#organization"
+      },
+      "category": "Engineering Software",
+      "isRelatedTo": {
+        "@id": "https://sectorcalc.com/calculator/machine-hour-rate#software"
+      },
+      "offers": {
+        "@type": "Offer",
+        "name": "Free exploratory calculation",
+        "price": "0.00",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://sectorcalc.com/calculator/machine-hour-rate",
+        "seller": {
+          "@id": "https://sectorcalc.com/#organization"
+        }
       }
     },
     {
@@ -450,8 +512,8 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
 </script>
 <!--SC-SEO-SCHEMA-END-->
 <link rel="stylesheet" href="/sc-related-tools.css?v=1">
-                        <link rel="stylesheet" href="/sc-money.css?v=1">
-                        <link rel="stylesheet" href="/sc-calc-sheet.css?v=1">
+                        <link rel="stylesheet" href="/sc-money.css?v=2">
+                          <link rel="stylesheet" href="/sc-calc-sheet.css?v=1">
   <!--SC-CALC-SHEET-START-->
   <!-- calc-sheet theme: theme-calc-sheet -->
   <!--SC-CALC-SHEET-END-->
@@ -534,6 +596,7 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
 
 
 
+
 <!--SC-SEO-BREADCRUMB-START-->
 <nav aria-label="Breadcrumb" class="sc-breadcrumb">
   <ol itemscope itemtype="https://schema.org/BreadcrumbList">
@@ -562,7 +625,10 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
   <div class="head">
     <div>
       <h1>Machine Hour Rate Calculator (SC-038)</h1>
-<p class="sc-direct-answer" data-money-block="01" data-tool-id="SC-038">Machine hour rate is the fully loaded cost of running a machine for one productive hour, including ownership depreciation, maintenance, energy, attended labor share, and allocated overhead diluted by realistic annual operating hours rather than wishful capacity.</p>
+<div class="sc-aeo-empathy" data-aeo-step="empathy" data-tool-id="SC-038">
+<p class="sc-aeo-problem"><strong>The problem:</strong> If the shop rate was built on wishful annual hours, every quote that uses it is already underwater.</p>
+<p class="sc-aeo-promise">Build an honest €/h from ownership, energy, labor share, and real utilization.</p>
+</div><p class="sc-direct-answer" data-money-block="01" data-aeo-step="direct-answer" data-tool-id="SC-038">If quotes keep losing money despite “busy” spindles, machine hour rate is the fully loaded cost of one productive hour — ownership, maintenance, energy, attended labor share, and overhead diluted by realistic annual hours rather than wishful capacity.</p>
       <p>Full cost-accounting machine rate (Maschinenstundensatz) for estimators and controllers: <b>linear depreciation to residual value</b>, imputed interest on average capital, floor-space, energy with duty factor, maintenance, tooling — diluted over real annual operating hours — plus operator labor and overhead surcharge to the <b>total hourly rate</b> and cost per part. Utilization sensitivity shows exactly how idle hours destroy the rate. Every report with the full audit trail — quote prices you can defend.</p>
     </div>
     <div>
@@ -1036,12 +1102,13 @@ calculate();
 <script src="/assets/js/cvw-monitor.js" defer></script>
 
 <!--SC-MONEY-START-->
-<aside class="sc-money-contract" data-money-contract="tier-a" data-tool-id="SC-038" data-primary-entity="machine-hour-rate" data-query-cluster="manufacturing-machine-cost" data-primary-query="machine hourly rate calculator" data-canonical="/calculator/machine-hour-rate">
-<section class="sc-money-block" data-money-block="03"><h2>Decision this supports</h2><p>Set an honest shop rate for quoting, compare assets, and see how utilization and residual-value assumptions change the €/h you must recover.</p></section>
-<section class="sc-money-block" data-money-block="04"><h2>Required inputs</h2><p>Purchase price, residual, life, annual hours, imputed interest, floor space and rate, power and duty, energy tariff, maintenance %, tooling/other annuals, operator wage and machines-per-operator, overhead %, optional cycle time.</p></section>
-<section class="sc-money-block" data-money-block="05"><h2>Formula / method</h2><p>Fixed/yr = depreciation + interest + space + maint%·price + tools + other. Machine €/h = fixed/hours + power·duty·tariff. Labor €/h = wage / share. Total = (machine + labor)·(1 + OH%).</p></section>
-<section class="sc-money-block" data-money-block="06" id="money-worked-example">
-  <h2>Worked example</h2>
+<aside class="sc-money-contract" data-money-contract="tier-a" data-aeo-chain="direct-calc-explain-method-evidence-audit-related" data-tool-id="SC-038" data-primary-entity="machine-hour-rate" data-query-cluster="manufacturing-machine-cost" data-primary-query="machine hourly rate calculator" data-canonical="/calculator/machine-hour-rate">
+<nav class="sc-aeo-rail" aria-label="Answer engine structure"><ol><li data-aeo-rail="direct-answer"><span class="sc-aeo-rail-n">01</span> Direct answer</li><li data-aeo-rail="calculation"><span class="sc-aeo-rail-n">02</span> Calculation</li><li data-aeo-rail="explanation"><span class="sc-aeo-rail-n">03</span> Explanation</li><li data-aeo-rail="methodology"><span class="sc-aeo-rail-n">04</span> Methodology</li><li data-aeo-rail="evidence"><span class="sc-aeo-rail-n">05</span> Evidence</li><li data-aeo-rail="accountability"><span class="sc-aeo-rail-n">06</span> Audit trail</li><li data-aeo-rail="related-problems"><span class="sc-aeo-rail-n">07</span> Related problems</li></ol></nav>
+<section class="sc-money-block" data-money-block="03" data-aeo-step="explanation"><h2>Explanation — decision this supports</h2><p>Set an honest shop rate for quoting, compare assets, and see how utilization and residual-value assumptions change the €/h you must recover.</p></section>
+<section class="sc-money-block" data-money-block="04" data-aeo-step="explanation"><h2>Required inputs</h2><p>Purchase price, residual, life, annual hours, imputed interest, floor space and rate, power and duty, energy tariff, maintenance %, tooling/other annuals, operator wage and machines-per-operator, overhead %, optional cycle time.</p></section>
+<section class="sc-money-block" data-money-block="05" data-aeo-step="methodology"><h2>Methodology — formula &amp; method</h2><p>Fixed/yr = depreciation + interest + space + maint%·price + tools + other. Machine €/h = fixed/hours + power·duty·tariff. Labor €/h = wage / share. Total = (machine + labor)·(1 + OH%).</p></section>
+<section class="sc-money-block" data-money-block="06" id="money-worked-example" data-aeo-step="evidence">
+  <h2>Evidence — worked example</h2>
   <p class="sc-money-lede">CNC cell fully loaded €/h. Ownership, space, maintenance, energy, attended labor, and overhead dilute into a total hourly rate and optional cost/part at the stated cycle time.</p>
   <p class="sc-money-engine" data-worked-provenance="engine-generated">Engine source: <code>machine-rate-pro.html#calculate (extracted pure)</code> · tool <code>SC-038</code></p>
   <h3>Golden inputs</h3>
@@ -1049,15 +1116,24 @@ calculate();
   <h3>Verified engine outputs</h3>
   <table class="sc-money-table"><tbody><tr><th scope="row">dep</th><td><code>16000</code></td></tr><tr><th scope="row">interest</th><td><code>6300</code></td></tr><tr><th scope="row">fixedYr</th><td><code>39260</code></td></tr><tr><th scope="row">machineH</th><td><code>14.4468</code></td></tr><tr><th scope="row">laborH</th><td><code>28</code></td></tr><tr><th scope="row">totalH</th><td><code>50.0872</code></td></tr><tr><th scope="row">costPart</th><td><code>1.321745</code></td></tr></tbody></table>
 </section>
-<section class="sc-money-block" data-money-block="07"><h2>What the result means</h2><p>Higher utilization lowers €/h by diluting the fixed block. A rate that looks cheap at 5,500 h/yr may be dishonest on a single-shift meter reading. Cost/part only appears when cycle time is provided.</p></section>
-<section class="sc-money-block" data-money-block="08"><h2>What moves the result</h2><p>Annual hours and capital cost dominate. Maintenance % and residual assumptions move the rate next. Operator share swings labor when lights-out claims are aggressive.</p></section>
-<section class="sc-money-block" data-money-block="09"><h2>Assumptions</h2><p>Linear depreciation to residual. Imputed interest on average capital. Constant average power duty. Overhead is a simple uplift, not a full ABC model.</p></section>
-<section class="sc-money-block" data-money-block="10"><h2>Model boundaries</h2><p>Screening cost model. Not tax depreciation, IFRS impairment, or a replacement for a controller’s rate letter. Zero interest flatters the rate.</p></section>
-<section class="sc-money-block" data-money-block="11"><h2>Common engineering mistakes</h2><p>Using planned hours instead of metered hours; residual ≥ price; counting overhead twice in labor and OH%.</p></section>
-<section class="sc-money-block" data-money-block="12"><h2>Standard / reference scope</h2><p>Cost-engineering practice for machine-hour build-up. No ISO/ASME compliance claim — it is an internal costing method with explicit assumptions.</p></section>
-<section class="sc-money-block" data-money-block="13"><h2>A1–A5 audit trail</h2><p>A1–A5 record engine identity, unit-normalized inputs, formula block, assumptions, and utilization warnings.</p></section>
-<section class="sc-money-block" data-money-block="14"><h2>Related glossary</h2><ul><li><a href="/glossary/machine-hour-rate">Machine hour rate</a></li><li><a href="/glossary/labor-burden-rate">Labor burden rate</a></li></ul></section>
-<section class="sc-money-block" data-money-block="15"><h2>Related guide &amp; calculators</h2><p><a href="/guides/labor-costing-complete">Labor costing complete guide</a></p><ul><li><a href="/calculator/true-labor-cost">SC-010 True Labor Cost</a></li><li><a href="/calculator/oee-teep">SC-037 OEE</a></li><li><a href="/calculator/quote-pricing">SC-012 Quote Pricing</a></li></ul></section>
+<section class="sc-money-block" data-money-block="07" data-aeo-step="explanation"><h2>What the result means</h2><p>Higher utilization lowers €/h by diluting the fixed block. A rate that looks cheap at 5,500 h/yr may be dishonest on a single-shift meter reading. Cost/part only appears when cycle time is provided.</p></section>
+<section class="sc-money-block" data-money-block="08" data-aeo-step="explanation"><h2>What moves the result</h2><p>Annual hours and capital cost dominate. Maintenance % and residual assumptions move the rate next. Operator share swings labor when lights-out claims are aggressive.</p></section>
+<section class="sc-money-block" data-money-block="09" data-aeo-step="methodology"><h2>Assumptions</h2><p>Linear depreciation to residual. Imputed interest on average capital. Constant average power duty. Overhead is a simple uplift, not a full ABC model.</p></section>
+<section class="sc-money-block" data-money-block="10" data-aeo-step="methodology"><h2>Model boundaries</h2><p>Screening cost model. Not tax depreciation, IFRS impairment, or a replacement for a controller’s rate letter. Zero interest flatters the rate.</p></section>
+<section class="sc-money-block" data-money-block="11" data-aeo-step="evidence"><h2>Common engineering mistakes</h2><p>Using planned hours instead of metered hours; residual ≥ price; counting overhead twice in labor and OH%.</p></section>
+<section class="sc-money-block" data-money-block="12" data-aeo-step="evidence"><h2>Evidence — standard &amp; reference scope</h2><p>Cost-engineering practice for machine-hour build-up. No ISO/ASME compliance claim — it is an internal costing method with explicit assumptions.</p></section>
+<section class="sc-money-block" data-money-block="13" data-aeo-step="accountability"><h2>Accountability — A1–A5 audit trail</h2><p>A1–A5 record engine identity, unit-normalized inputs, formula block, assumptions, and utilization warnings.</p>
+<p class="sc-money-expert-note">Engineering accountability is carried by visible formulas, assumptions, warnings, and engine version — not by invented reviewer endorsements. Outputs remain engineering previews subject to competent review.</p></section>
+<section class="sc-money-block" data-money-block="14" data-aeo-step="related-problems"><h2>Related glossary</h2><ul><li><a href="/glossary/machine-hour-rate">Machine hour rate</a></li><li><a href="/glossary/labor-burden-rate">Labor burden rate</a></li></ul></section>
+<section class="sc-money-block" data-money-block="15" data-aeo-step="related-problems"><h2>Related guide &amp; calculators</h2><p><a href="/guides/labor-costing-complete">Labor costing complete guide</a></p><ul><li><a href="/calculator/true-labor-cost">SC-010 True Labor Cost</a></li><li><a href="/calculator/oee-teep">SC-037 OEE</a></li><li><a href="/calculator/quote-pricing">SC-012 Quote Pricing</a></li></ul></section>
+<section class="sc-money-block sc-aeo-topical" data-money-block="15b" data-aeo-step="related-problems" data-topic-id="manufacturing-economics" data-subtopic-id="rates">
+  <h2>Topical map &amp; related problems</h2>
+  <p class="sc-money-lede"><strong>Manufacturing economics</strong> · Labor &amp; machine rates. Is the shop rate and sell price recovering true cost — or quietly quoting away the margin?</p>
+  <h3>Query fan-out (same problem cluster)</h3>
+  <ul class="sc-aeo-fanout"><li><span class="sc-aeo-query">true labor cost calculator</span></li><li><span class="sc-aeo-query">machine hourly rate calculator</span></li></ul>
+  <h3>Internal authority links</h3>
+  <ul><li><a href="/calculator/true-labor-cost">SC-010 True Labor Cost</a></li><li><a href="/glossary/labor-burden-rate">Labor burden rate</a></li><li><a href="/glossary/machine-hour-rate">Machine hour rate</a></li><li><a href="/guides/labor-costing-complete">Labor costing complete guide</a></li></ul>
+</section>
 <section class="sc-money-block sc-money-cta" data-money-block="16"><h2>Commercial next step</h2><p>Export the rate into quote pricing next, then use Pro audit packs when customers ask how your €/h was built.</p>
 <p class="sc-money-cta-actions"><a class="sc-money-link" href="/pricing.html" data-sc-funnel="pricing">View pricing</a>
 <a class="sc-money-link" href="/pro.html">Pro hub</a></p></section>

@@ -260,6 +260,38 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "WebPage",
+      "@id": "https://sectorcalc.com/calculator/bolt-torque-preload#webpage",
+      "url": "https://sectorcalc.com/calculator/bolt-torque-preload",
+      "name": "SC-035 Bolt Torque & Preload — VDI 2230",
+      "description": "VDI 2230 bolt torque and preload calculator with friction coefficients and tightening factor.",
+      "isPartOf": {
+        "@id": "https://sectorcalc.com/#website"
+      },
+      "about": {
+        "@id": "https://sectorcalc.com/calculator/bolt-torque-preload#software"
+      },
+      "mainEntity": {
+        "@id": "https://sectorcalc.com/calculator/bolt-torque-preload#software"
+      },
+      "publisher": {
+        "@id": "https://sectorcalc.com/#organization"
+      },
+      "author": {
+        "@id": "https://sectorcalc.com/#organization"
+      },
+      "inLanguage": "en-US",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".sc-aeo-problem",
+          ".sc-direct-answer",
+          ".sc-header-title",
+          "h1"
+        ]
+      }
+    },
+    {
       "@type": "SoftwareApplication",
       "@id": "https://sectorcalc.com/calculator/bolt-torque-preload#software",
       "name": "SC-035 Bolt Torque & Preload — VDI 2230",
@@ -291,6 +323,9 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
       "author": {
         "@id": "https://sectorcalc.com/#organization"
       },
+      "brand": {
+        "@id": "https://sectorcalc.com/#organization"
+      },
       "screenshot": {
         "@type": "ImageObject",
         "url": "https://sectorcalc.com/assets/images/og-bolt-pro-1200x630.jpg",
@@ -300,9 +335,36 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
       "inLanguage": [
         "en"
       ],
-      "dateModified": "2026-07-24",
+      "dateModified": "2026-07-27",
       "isPartOf": {
         "@id": "https://sectorcalc.com/#website"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://sectorcalc.com/calculator/bolt-torque-preload#webpage"
+      }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://sectorcalc.com/calculator/bolt-torque-preload#product",
+      "name": "SC-035 Bolt Torque & Preload — VDI 2230",
+      "description": "VDI 2230 bolt torque and preload calculator with friction coefficients and tightening factor.",
+      "brand": {
+        "@id": "https://sectorcalc.com/#organization"
+      },
+      "category": "Engineering Software",
+      "isRelatedTo": {
+        "@id": "https://sectorcalc.com/calculator/bolt-torque-preload#software"
+      },
+      "offers": {
+        "@type": "Offer",
+        "name": "Free exploratory calculation",
+        "price": "0.00",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://sectorcalc.com/calculator/bolt-torque-preload",
+        "seller": {
+          "@id": "https://sectorcalc.com/#organization"
+        }
       }
     },
     {
@@ -450,8 +512,8 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
 </script>
 <!--SC-SEO-SCHEMA-END-->
 <link rel="stylesheet" href="/sc-related-tools.css?v=1">
-                        <link rel="stylesheet" href="/sc-money.css?v=1">
-                        <link rel="stylesheet" href="/sc-calc-sheet.css?v=1">
+                        <link rel="stylesheet" href="/sc-money.css?v=2">
+                          <link rel="stylesheet" href="/sc-calc-sheet.css?v=1">
   <!--SC-CALC-SHEET-START-->
   <!-- calc-sheet theme: theme-calc-sheet -->
   <!--SC-CALC-SHEET-END-->
@@ -534,6 +596,7 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
 
 
 
+
 <!--SC-SEO-BREADCRUMB-START-->
 <nav aria-label="Breadcrumb" class="sc-breadcrumb">
   <ol itemscope itemtype="https://schema.org/BreadcrumbList">
@@ -562,7 +625,10 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
   <div class="head">
     <div>
       <h1>Bolt Torque &amp; Preload — VDI 2230 Assembly (SC-035)</h1>
-<p class="sc-direct-answer" data-money-block="01" data-tool-id="SC-035">Bolt torque–preload estimates the assembly torque needed to reach a target preload using a nut factor, and reports mean tensile stress so you can see whether the tighten target is in a plausible strength band.</p>
+<div class="sc-aeo-empathy" data-aeo-step="empathy" data-tool-id="SC-035">
+<p class="sc-aeo-problem"><strong>The problem:</strong> Torque on a wrench is not preload in the joint — friction scatter can leave you clamped on hope.</p>
+<p class="sc-aeo-promise">Estimate preload from torque with explicit friction assumptions you can audit.</p>
+</div><p class="sc-direct-answer" data-money-block="01" data-aeo-step="direct-answer" data-tool-id="SC-035">When assembly torque is treated as a clamp-load guarantee, bolt torque–preload estimates the torque needed for a target preload using a nut factor, and reports mean tensile stress so you can see whether the tighten target sits in a plausible strength band.</p>
       <p>Bolted-joint assembly engine for design and maintenance engineers: permissible assembly preload F<sub>M zul</sub> with torsion during tightening (VDI 2230 Part 1), tightening torque M<sub>A</sub> from the full friction equation, preload scatter band F<sub>M min</sub>–F<sub>M max</sub> by tightening technique (α<sub>A</sub>), nut-factor K comparison, metric coarse thread database with stress areas — every report with the full audit trail.</p>
     </div>
     <div>
@@ -1192,12 +1258,13 @@ calculate();
 <script src="/assets/js/cvw-monitor.js" defer></script>
 
 <!--SC-MONEY-START-->
-<aside class="sc-money-contract" data-money-contract="tier-a" data-tool-id="SC-035" data-primary-entity="bolt-torque-preload" data-query-cluster="bolt-torque-preload" data-primary-query="bolt torque preload calculator" data-canonical="/calculator/bolt-torque-preload">
-<section class="sc-money-block" data-money-block="03"><h2>Decision this supports</h2><p>Set a first-pass tightening torque for assembly instructions before full VDI joint analysis, and sanity-check friction assumptions.</p></section>
-<section class="sc-money-block" data-money-block="04"><h2>Required inputs</h2><p>Target preload, nominal diameter, nut factor K (or friction inputs used to form K), and material strength context from the UI.</p></section>
-<section class="sc-money-block" data-money-block="05"><h2>Formula / method</h2><p>T ≈ K · F · d. Mean tensile stress ≈ F / (π d² / 4) for a screening check against proof strength bands.</p></section>
-<section class="sc-money-block" data-money-block="06" id="money-worked-example">
-  <h2>Worked example</h2>
+<aside class="sc-money-contract" data-money-contract="tier-a" data-aeo-chain="direct-calc-explain-method-evidence-audit-related" data-tool-id="SC-035" data-primary-entity="bolt-torque-preload" data-query-cluster="bolt-torque-preload" data-primary-query="bolt torque preload calculator" data-canonical="/calculator/bolt-torque-preload">
+<nav class="sc-aeo-rail" aria-label="Answer engine structure"><ol><li data-aeo-rail="direct-answer"><span class="sc-aeo-rail-n">01</span> Direct answer</li><li data-aeo-rail="calculation"><span class="sc-aeo-rail-n">02</span> Calculation</li><li data-aeo-rail="explanation"><span class="sc-aeo-rail-n">03</span> Explanation</li><li data-aeo-rail="methodology"><span class="sc-aeo-rail-n">04</span> Methodology</li><li data-aeo-rail="evidence"><span class="sc-aeo-rail-n">05</span> Evidence</li><li data-aeo-rail="accountability"><span class="sc-aeo-rail-n">06</span> Audit trail</li><li data-aeo-rail="related-problems"><span class="sc-aeo-rail-n">07</span> Related problems</li></ol></nav>
+<section class="sc-money-block" data-money-block="03" data-aeo-step="explanation"><h2>Explanation — decision this supports</h2><p>Set a first-pass tightening torque for assembly instructions before full VDI joint analysis, and sanity-check friction assumptions.</p></section>
+<section class="sc-money-block" data-money-block="04" data-aeo-step="explanation"><h2>Required inputs</h2><p>Target preload, nominal diameter, nut factor K (or friction inputs used to form K), and material strength context from the UI.</p></section>
+<section class="sc-money-block" data-money-block="05" data-aeo-step="methodology"><h2>Methodology — formula &amp; method</h2><p>T ≈ K · F · d. Mean tensile stress ≈ F / (π d² / 4) for a screening check against proof strength bands.</p></section>
+<section class="sc-money-block" data-money-block="06" id="money-worked-example" data-aeo-step="evidence">
+  <h2>Evidence — worked example</h2>
   <p class="sc-money-lede">M10 assembly torque from target preload. Assembly torque from nut factor K, target preload, and nominal diameter. Friction scatter dominates — treat as screening, not a substitute for VDI 2230 joint design.</p>
   <p class="sc-money-engine" data-worked-provenance="engine-generated">Engine source: <code>bolt-pro.html assembly torque core (extracted pure)</code> · tool <code>SC-035</code></p>
   <h3>Golden inputs</h3>
@@ -1205,15 +1272,24 @@ calculate();
   <h3>Verified engine outputs</h3>
   <table class="sc-money-table"><tbody><tr><th scope="row">torqueNm</th><td><code>57.6</code></td></tr><tr><th scope="row">meanStressMPa</th><td><code>407436654.32</code></td></tr></tbody></table>
 </section>
-<section class="sc-money-block" data-money-block="07"><h2>What the result means</h2><p>Torque is a poor preload meter when K is uncertain. Treat ±20–30% preload scatter as normal unless you measure tension.</p></section>
-<section class="sc-money-block" data-money-block="08"><h2>What moves the result</h2><p>K and target F dominate torque. Diameter errors square into stress. Lubrication changes K more than operators expect.</p></section>
-<section class="sc-money-block" data-money-block="09"><h2>Assumptions</h2><p>Nut factor encapsulates friction. Thread and bearing friction are not separately instrumented in the simple path.</p></section>
-<section class="sc-money-block" data-money-block="10"><h2>Model boundaries</h2><p>Assembly screening only. Not a full VDI 2230 embedment/relaxation/fatigue joint design. Not a substitute for calibrated tension tools on critical joints.</p></section>
-<section class="sc-money-block" data-money-block="11"><h2>Common engineering mistakes</h2><p>Copying dry K onto lubricated hardware; confusing torque with clamp load guarantee; ignoring embedment loss.</p></section>
-<section class="sc-money-block" data-money-block="12"><h2>Standard / reference scope</h2><p>Engineering assembly practice related to VDI-style bolted joint work. Full VDI 2230 compliance requires the joint calculator path and verified inputs.</p></section>
-<section class="sc-money-block" data-money-block="13"><h2>A1–A5 audit trail</h2><p>A1–A5 capture K, preload, diameter basis, and warnings when stress approaches proof limits.</p></section>
-<section class="sc-money-block" data-money-block="14"><h2>Related glossary</h2><ul><li><a href="/glossary/bolt-preload">Bolt preload</a></li><li><a href="/glossary/vdi-2230-bolted-joint">VDI 2230 bolted joint</a></li></ul></section>
-<section class="sc-money-block" data-money-block="15"><h2>Related guide &amp; calculators</h2><p>No dedicated long-form guide yet — use glossary + related calculators in this cluster.</p><ul><li><a href="/calculator/bolted-joint">SC-036 Bolted Joint Verification</a></li></ul></section>
+<section class="sc-money-block" data-money-block="07" data-aeo-step="explanation"><h2>What the result means</h2><p>Torque is a poor preload meter when K is uncertain. Treat ±20–30% preload scatter as normal unless you measure tension.</p></section>
+<section class="sc-money-block" data-money-block="08" data-aeo-step="explanation"><h2>What moves the result</h2><p>K and target F dominate torque. Diameter errors square into stress. Lubrication changes K more than operators expect.</p></section>
+<section class="sc-money-block" data-money-block="09" data-aeo-step="methodology"><h2>Assumptions</h2><p>Nut factor encapsulates friction. Thread and bearing friction are not separately instrumented in the simple path.</p></section>
+<section class="sc-money-block" data-money-block="10" data-aeo-step="methodology"><h2>Model boundaries</h2><p>Assembly screening only. Not a full VDI 2230 embedment/relaxation/fatigue joint design. Not a substitute for calibrated tension tools on critical joints.</p></section>
+<section class="sc-money-block" data-money-block="11" data-aeo-step="evidence"><h2>Common engineering mistakes</h2><p>Copying dry K onto lubricated hardware; confusing torque with clamp load guarantee; ignoring embedment loss.</p></section>
+<section class="sc-money-block" data-money-block="12" data-aeo-step="evidence"><h2>Evidence — standard &amp; reference scope</h2><p>Engineering assembly practice related to VDI-style bolted joint work. Full VDI 2230 compliance requires the joint calculator path and verified inputs.</p></section>
+<section class="sc-money-block" data-money-block="13" data-aeo-step="accountability"><h2>Accountability — A1–A5 audit trail</h2><p>A1–A5 capture K, preload, diameter basis, and warnings when stress approaches proof limits.</p>
+<p class="sc-money-expert-note">Engineering accountability is carried by visible formulas, assumptions, warnings, and engine version — not by invented reviewer endorsements. Outputs remain engineering previews subject to competent review.</p></section>
+<section class="sc-money-block" data-money-block="14" data-aeo-step="related-problems"><h2>Related glossary</h2><ul><li><a href="/glossary/bolt-preload">Bolt preload</a></li><li><a href="/glossary/vdi-2230-bolted-joint">VDI 2230 bolted joint</a></li></ul></section>
+<section class="sc-money-block" data-money-block="15" data-aeo-step="related-problems"><h2>Related guide &amp; calculators</h2><p>No dedicated long-form guide yet — use glossary + related calculators in this cluster.</p><ul><li><a href="/calculator/bolted-joint">SC-036 Bolted Joint Verification</a></li></ul></section>
+<section class="sc-money-block sc-aeo-topical" data-money-block="15b" data-aeo-step="related-problems" data-topic-id="fasteners" data-subtopic-id="torque-preload">
+  <h2>Topical map &amp; related problems</h2>
+  <p class="sc-money-lede"><strong>Fasteners &amp; joints</strong> · Torque &amp; preload. Will preload survive service — or is the joint riding on friction and hope?</p>
+  <h3>Query fan-out (same problem cluster)</h3>
+  <ul class="sc-aeo-fanout"><li><span class="sc-aeo-query">bolt torque preload calculator</span></li><li><span class="sc-aeo-query">vdi 2230 bolted joint calculator</span></li></ul>
+  <h3>Internal authority links</h3>
+  <ul><li><a href="/calculator/bolted-joint">SC-036 Bolted Joint Verification</a></li><li><a href="/glossary/bolt-preload">Bolt preload</a></li><li><a href="/glossary/vdi-2230-bolted-joint">VDI 2230 bolted joint</a></li></ul>
+</section>
 <section class="sc-money-block sc-money-cta" data-money-block="16"><h2>Commercial next step</h2><p>Move from torque screening to the bolted-joint calculator when the joint sees significant working load or fatigue.</p>
 <p class="sc-money-cta-actions"><a class="sc-money-link" href="/pricing.html" data-sc-funnel="pricing">View pricing</a>
 <a class="sc-money-link" href="/pro.html">Pro hub</a></p></section>

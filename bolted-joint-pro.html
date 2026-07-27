@@ -260,6 +260,38 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "WebPage",
+      "@id": "https://sectorcalc.com/calculator/bolted-joint#webpage",
+      "url": "https://sectorcalc.com/calculator/bolted-joint",
+      "name": "SC-036 Bolted Joint Verification — VDI 2230",
+      "description": "Bolted joint verification with axial stiffness, preload, and clamping force analysis per VDI 2230.",
+      "isPartOf": {
+        "@id": "https://sectorcalc.com/#website"
+      },
+      "about": {
+        "@id": "https://sectorcalc.com/calculator/bolted-joint#software"
+      },
+      "mainEntity": {
+        "@id": "https://sectorcalc.com/calculator/bolted-joint#software"
+      },
+      "publisher": {
+        "@id": "https://sectorcalc.com/#organization"
+      },
+      "author": {
+        "@id": "https://sectorcalc.com/#organization"
+      },
+      "inLanguage": "en-US",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".sc-aeo-problem",
+          ".sc-direct-answer",
+          ".sc-header-title",
+          "h1"
+        ]
+      }
+    },
+    {
       "@type": "SoftwareApplication",
       "@id": "https://sectorcalc.com/calculator/bolted-joint#software",
       "name": "SC-036 Bolted Joint Verification — VDI 2230",
@@ -291,6 +323,9 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
       "author": {
         "@id": "https://sectorcalc.com/#organization"
       },
+      "brand": {
+        "@id": "https://sectorcalc.com/#organization"
+      },
       "screenshot": {
         "@type": "ImageObject",
         "url": "https://sectorcalc.com/assets/images/og-bolted-joint-pro-1200x630.jpg",
@@ -300,9 +335,36 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
       "inLanguage": [
         "en"
       ],
-      "dateModified": "2026-07-24",
+      "dateModified": "2026-07-27",
       "isPartOf": {
         "@id": "https://sectorcalc.com/#website"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://sectorcalc.com/calculator/bolted-joint#webpage"
+      }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://sectorcalc.com/calculator/bolted-joint#product",
+      "name": "SC-036 Bolted Joint Verification — VDI 2230",
+      "description": "Bolted joint verification with axial stiffness, preload, and clamping force analysis per VDI 2230.",
+      "brand": {
+        "@id": "https://sectorcalc.com/#organization"
+      },
+      "category": "Engineering Software",
+      "isRelatedTo": {
+        "@id": "https://sectorcalc.com/calculator/bolted-joint#software"
+      },
+      "offers": {
+        "@type": "Offer",
+        "name": "Free exploratory calculation",
+        "price": "0.00",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://sectorcalc.com/calculator/bolted-joint",
+        "seller": {
+          "@id": "https://sectorcalc.com/#organization"
+        }
       }
     },
     {
@@ -450,8 +512,8 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
 </script>
 <!--SC-SEO-SCHEMA-END-->
 <link rel="stylesheet" href="/sc-related-tools.css?v=1">
-                        <link rel="stylesheet" href="/sc-money.css?v=1">
-                        <link rel="stylesheet" href="/sc-calc-sheet.css?v=1">
+                        <link rel="stylesheet" href="/sc-money.css?v=2">
+                          <link rel="stylesheet" href="/sc-calc-sheet.css?v=1">
   <!--SC-CALC-SHEET-START-->
   <!-- calc-sheet theme: theme-calc-sheet -->
   <!--SC-CALC-SHEET-END-->
@@ -534,6 +596,7 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
 
 
 
+
 <!--SC-SEO-BREADCRUMB-START-->
 <nav aria-label="Breadcrumb" class="sc-breadcrumb">
   <ol itemscope itemtype="https://schema.org/BreadcrumbList">
@@ -562,7 +625,10 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
   <div class="head">
     <div>
       <h1>Bolted Joint Verification Calculator (SC-036)</h1>
-<p class="sc-direct-answer" data-money-block="01" data-tool-id="SC-036">A bolted-joint load-factor model splits external working load between the bolt and the clamped parts, estimating maximum and minimum bolt force under operating load for VDI-style first-pass design before you detail geometry, embedment, or fatigue chapters.</p>
+<div class="sc-aeo-empathy" data-aeo-step="empathy" data-tool-id="SC-036">
+<p class="sc-aeo-problem"><strong>The problem:</strong> A joint that looks fine at assembly can lose clamp under working load if stiffness and embedment were never checked.</p>
+<p class="sc-aeo-promise">Screen VDI-style joint behavior before the pattern is released.</p>
+</div><p class="sc-direct-answer" data-money-block="01" data-aeo-step="direct-answer" data-tool-id="SC-036">Before a joint that “felt tight” opens under working load, a bolted-joint load-factor model splits external load between bolt and clamped parts, estimating maximum and minimum bolt force for a VDI-style first-pass check before embedment or fatigue detailing.</p>
       <p>Full VDI 2230 Blatt 1 style verification of a preloaded bolted joint in service: deformation-cone plate compliance, load factor Φ with load-plane correction, assembly preload from the torsion-yield equation, preload scatter α<sub>A</sub>, embedment settlement F<sub>Z</sub>, and the four service checks — <b>yield</b>, <b>residual clamping</b>, <b>slip</b> and <b>fatigue</b>. Companion to SC-035 (assembly sizing): that tool finds the torque, this one proves the joint survives. Every input with <b>selectable universal units</b>, every report with the full audit trail.</p>
     </div>
     <div>
@@ -1121,12 +1187,13 @@ calculate();
 <script src="/assets/js/cvw-monitor.js" defer></script>
 
 <!--SC-MONEY-START-->
-<aside class="sc-money-contract" data-money-contract="tier-a" data-tool-id="SC-036" data-primary-entity="bolted-joint" data-query-cluster="bolted-joint" data-primary-query="bolted joint calculator vdi 2230" data-canonical="/calculator/bolted-joint">
-<section class="sc-money-block" data-money-block="03"><h2>Decision this supports</h2><p>Check whether preload and stiffness ratio keep the joint closed and the bolt inside credible force limits before detailing the connection.</p></section>
-<section class="sc-money-block" data-money-block="04"><h2>Required inputs</h2><p>Bolt and member stiffnesses (or geometry used to form them), preload, and external working load.</p></section>
-<section class="sc-money-block" data-money-block="05"><h2>Formula / method</h2><p>Φ = Ck / (Ck + Cp). Fmax = Fpre + Φ·Fext. Fmin = Fpre − (1−Φ)·Fext.</p></section>
-<section class="sc-money-block" data-money-block="06" id="money-worked-example">
-  <h2>Worked example</h2>
+<aside class="sc-money-contract" data-money-contract="tier-a" data-aeo-chain="direct-calc-explain-method-evidence-audit-related" data-tool-id="SC-036" data-primary-entity="bolted-joint" data-query-cluster="bolted-joint" data-primary-query="bolted joint calculator vdi 2230" data-canonical="/calculator/bolted-joint">
+<nav class="sc-aeo-rail" aria-label="Answer engine structure"><ol><li data-aeo-rail="direct-answer"><span class="sc-aeo-rail-n">01</span> Direct answer</li><li data-aeo-rail="calculation"><span class="sc-aeo-rail-n">02</span> Calculation</li><li data-aeo-rail="explanation"><span class="sc-aeo-rail-n">03</span> Explanation</li><li data-aeo-rail="methodology"><span class="sc-aeo-rail-n">04</span> Methodology</li><li data-aeo-rail="evidence"><span class="sc-aeo-rail-n">05</span> Evidence</li><li data-aeo-rail="accountability"><span class="sc-aeo-rail-n">06</span> Audit trail</li><li data-aeo-rail="related-problems"><span class="sc-aeo-rail-n">07</span> Related problems</li></ol></nav>
+<section class="sc-money-block" data-money-block="03" data-aeo-step="explanation"><h2>Explanation — decision this supports</h2><p>Check whether preload and stiffness ratio keep the joint closed and the bolt inside credible force limits before detailing the connection.</p></section>
+<section class="sc-money-block" data-money-block="04" data-aeo-step="explanation"><h2>Required inputs</h2><p>Bolt and member stiffnesses (or geometry used to form them), preload, and external working load.</p></section>
+<section class="sc-money-block" data-money-block="05" data-aeo-step="methodology"><h2>Methodology — formula &amp; method</h2><p>Φ = Ck / (Ck + Cp). Fmax = Fpre + Φ·Fext. Fmin = Fpre − (1−Φ)·Fext.</p></section>
+<section class="sc-money-block" data-money-block="06" id="money-worked-example" data-aeo-step="evidence">
+  <h2>Evidence — worked example</h2>
   <p class="sc-money-lede">Eccentric joint load factor screening. Force ratio Φ splits external load between bolt and clamped parts. Outputs max/min bolt force under working load for first-pass VDI-style screening.</p>
   <p class="sc-money-engine" data-worked-provenance="engine-generated">Engine source: <code>bolted-joint-pro.html load-factor core (extracted pure)</code> · tool <code>SC-036</code></p>
   <h3>Golden inputs</h3>
@@ -1134,15 +1201,24 @@ calculate();
   <h3>Verified engine outputs</h3>
   <table class="sc-money-table"><tbody><tr><th scope="row">loadFactor</th><td><code>0.2</code></td></tr><tr><th scope="row">FmaxN</th><td><code>29800</code></td></tr><tr><th scope="row">FminN</th><td><code>20800</code></td></tr></tbody></table>
 </section>
-<section class="sc-money-block" data-money-block="07"><h2>What the result means</h2><p>High Φ means the bolt takes more of the working load. Fmin ≤ 0 signals opening risk under the stated load.</p></section>
-<section class="sc-money-block" data-money-block="08"><h2>What moves the result</h2><p>Stiffness ratio and preload dominate. External load spikes drive Fmax into yield if preload was already aggressive.</p></section>
-<section class="sc-money-block" data-money-block="09"><h2>Assumptions</h2><p>Linear elastic load sharing. Eccentricity and prying may be simplified depending on UI path.</p></section>
-<section class="sc-money-block" data-money-block="10"><h2>Model boundaries</h2><p>Screening / educational VDI-style model. Does not replace a full VDI 2230 dossier with embedment, thermal, and fatigue chapters for safety-critical joints.</p></section>
-<section class="sc-money-block" data-money-block="11"><h2>Common engineering mistakes</h2><p>Ignoring prying; using torque-only preload without scatter; treating Fmin &gt; 0 as proof against fatigue.</p></section>
-<section class="sc-money-block" data-money-block="12"><h2>Standard / reference scope</h2><p>Aligned with VDI 2230 load-factor concepts in the implemented scope. Not a claim of complete VDI 2230 edition coverage.</p></section>
-<section class="sc-money-block" data-money-block="13"><h2>A1–A5 audit trail</h2><p>A1–A5 record stiffness inputs, Φ, force results, and opening/yield warnings.</p></section>
-<section class="sc-money-block" data-money-block="14"><h2>Related glossary</h2><ul><li><a href="/glossary/vdi-2230-bolted-joint">VDI 2230 bolted joint</a></li><li><a href="/glossary/bolt-preload">Bolt preload</a></li></ul></section>
-<section class="sc-money-block" data-money-block="15"><h2>Related guide &amp; calculators</h2><p>No dedicated long-form guide yet — use glossary + related calculators in this cluster.</p><ul><li><a href="/calculator/bolt-torque-preload">SC-035 Bolt Torque &amp; Preload</a></li></ul></section>
+<section class="sc-money-block" data-money-block="07" data-aeo-step="explanation"><h2>What the result means</h2><p>High Φ means the bolt takes more of the working load. Fmin ≤ 0 signals opening risk under the stated load.</p></section>
+<section class="sc-money-block" data-money-block="08" data-aeo-step="explanation"><h2>What moves the result</h2><p>Stiffness ratio and preload dominate. External load spikes drive Fmax into yield if preload was already aggressive.</p></section>
+<section class="sc-money-block" data-money-block="09" data-aeo-step="methodology"><h2>Assumptions</h2><p>Linear elastic load sharing. Eccentricity and prying may be simplified depending on UI path.</p></section>
+<section class="sc-money-block" data-money-block="10" data-aeo-step="methodology"><h2>Model boundaries</h2><p>Screening / educational VDI-style model. Does not replace a full VDI 2230 dossier with embedment, thermal, and fatigue chapters for safety-critical joints.</p></section>
+<section class="sc-money-block" data-money-block="11" data-aeo-step="evidence"><h2>Common engineering mistakes</h2><p>Ignoring prying; using torque-only preload without scatter; treating Fmin &gt; 0 as proof against fatigue.</p></section>
+<section class="sc-money-block" data-money-block="12" data-aeo-step="evidence"><h2>Evidence — standard &amp; reference scope</h2><p>Aligned with VDI 2230 load-factor concepts in the implemented scope. Not a claim of complete VDI 2230 edition coverage.</p></section>
+<section class="sc-money-block" data-money-block="13" data-aeo-step="accountability"><h2>Accountability — A1–A5 audit trail</h2><p>A1–A5 record stiffness inputs, Φ, force results, and opening/yield warnings.</p>
+<p class="sc-money-expert-note">Engineering accountability is carried by visible formulas, assumptions, warnings, and engine version — not by invented reviewer endorsements. Outputs remain engineering previews subject to competent review.</p></section>
+<section class="sc-money-block" data-money-block="14" data-aeo-step="related-problems"><h2>Related glossary</h2><ul><li><a href="/glossary/vdi-2230-bolted-joint">VDI 2230 bolted joint</a></li><li><a href="/glossary/bolt-preload">Bolt preload</a></li></ul></section>
+<section class="sc-money-block" data-money-block="15" data-aeo-step="related-problems"><h2>Related guide &amp; calculators</h2><p>No dedicated long-form guide yet — use glossary + related calculators in this cluster.</p><ul><li><a href="/calculator/bolt-torque-preload">SC-035 Bolt Torque &amp; Preload</a></li></ul></section>
+<section class="sc-money-block sc-aeo-topical" data-money-block="15b" data-aeo-step="related-problems" data-topic-id="fasteners" data-subtopic-id="torque-preload">
+  <h2>Topical map &amp; related problems</h2>
+  <p class="sc-money-lede"><strong>Fasteners &amp; joints</strong> · Torque &amp; preload. Will preload survive service — or is the joint riding on friction and hope?</p>
+  <h3>Query fan-out (same problem cluster)</h3>
+  <ul class="sc-aeo-fanout"><li><span class="sc-aeo-query">bolt torque preload calculator</span></li><li><span class="sc-aeo-query">vdi 2230 bolted joint calculator</span></li></ul>
+  <h3>Internal authority links</h3>
+  <ul><li><a href="/calculator/bolt-torque-preload">SC-035 Bolt Torque &amp; Preload</a></li><li><a href="/glossary/bolt-preload">Bolt preload</a></li><li><a href="/glossary/vdi-2230-bolted-joint">VDI 2230 bolted joint</a></li></ul>
+</section>
 <section class="sc-money-block sc-money-cta" data-money-block="16"><h2>Commercial next step</h2><p>Pair with torque–preload for assembly values, then keep the joint audit when the connection is customer-witnessed.</p>
 <p class="sc-money-cta-actions"><a class="sc-money-link" href="/pricing.html" data-sc-funnel="pricing">View pricing</a>
 <a class="sc-money-link" href="/pro.html">Pro hub</a></p></section>

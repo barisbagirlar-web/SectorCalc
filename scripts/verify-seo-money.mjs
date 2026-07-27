@@ -51,6 +51,12 @@ for (const page of tierAMoneyCalculators()) {
 
   if (!/<h1\b/i.test(html)) fail(`${page.primaryEntity}: missing H1`);
 
+  // AEO empathy + chain markers
+  if (!/data-aeo-step="empathy"/.test(html)) fail(`${page.primaryEntity}: missing empathy block`);
+  if (!/data-aeo-chain=/.test(html)) fail(`${page.primaryEntity}: missing aeo chain marker`);
+  if (!/data-aeo-step="direct-answer"/.test(html)) fail(`${page.primaryEntity}: missing direct-answer aeo step`);
+  if (!/sc-aeo-topical|data-topic-id=/.test(html)) fail(`${page.primaryEntity}: missing topical map block`);
+
   // Block 01
   if (!/data-money-block="01"/.test(html)) fail(`${page.primaryEntity}: missing direct-answer block 01`);
   const da = html.match(/data-money-block="01"[^>]*>([\s\S]*?)<\/p>/);

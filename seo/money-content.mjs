@@ -5,7 +5,7 @@
 export const MONEY_CONTENT = {
   'tolerance-stack-up': {
     directAnswer:
-      'A 1D tolerance stack-up predicts whether an assembly gap or overall length stays inside specification by summing signed contributors with worst-case, RSS, and seeded Monte Carlo methods on the same stack. Use it to choose tolerances before tooling — not as a substitute for measured SPC on production parts.',
+      'When a critical gap must still close after every contributor hits its legal extreme, a 1D tolerance stack-up predicts assembly risk with worst-case, RSS, and seeded Monte Carlo on the same stack. Use it to choose tolerances before tooling — not as a substitute for measured SPC on production parts.',
     decision:
       'Decide whether a proposed tolerance set can close a critical gap, which contributors dominate risk, and whether worst-case, RSS, or Monte Carlo is the right release criterion for the drawing.',
     inputs:
@@ -33,7 +33,7 @@ export const MONEY_CONTENT = {
   },
   'cnc-feeds-speeds': {
     directAnswer:
-      'CNC feeds and speeds convert material group, tool geometry, and machine limits into spindle speed, table feed, chip thickness, and power/torque demand, then flag whether the cut should be released, run with caution, or rejected.',
+      'Before you burn a tool or stall a spindle, CNC feeds and speeds convert material group, tool geometry, and machine limits into spindle speed, table feed, chip thickness, and power/torque demand — then flag whether the cut should be released, run with caution, or rejected.',
     decision:
       'Choose starting Vc/fz for a tool–material pair, check spindle power and torque headroom, and estimate whether the cut is production-credible before you burn a tool or stall the spindle.',
     inputs:
@@ -61,7 +61,7 @@ export const MONEY_CONTENT = {
   },
   'machine-hour-rate': {
     directAnswer:
-      'Machine hour rate is the fully loaded cost of running a machine for one productive hour, including ownership depreciation, maintenance, energy, attended labor share, and allocated overhead diluted by realistic annual operating hours rather than wishful capacity.',
+      'If quotes keep losing money despite “busy” spindles, machine hour rate is the fully loaded cost of one productive hour — ownership, maintenance, energy, attended labor share, and overhead diluted by realistic annual hours rather than wishful capacity.',
     decision:
       'Set an honest shop rate for quoting, compare assets, and see how utilization and residual-value assumptions change the €/h you must recover.',
     inputs:
@@ -89,7 +89,7 @@ export const MONEY_CONTENT = {
   },
   'quote-pricing': {
     directAnswer:
-      'Quote pricing builds a full manufacturing cost — material with scrap, labor, machine time, setup, overhead, and payment finance — then marks up to a target margin so the sell price recovers true cost before you lock a customer promise.',
+      'When a competitive sell price still somehow kills margin after delivery, quote pricing rebuilds full manufacturing cost — material with scrap, labor, machine time, setup, overhead, and payment finance — then marks up to a target margin you can defend.',
     decision:
       'Decide a sell price and unit price that still hit margin after scrap, setup amortization, and cash-cycle finance — before you lock a customer promise.',
     inputs:
@@ -117,7 +117,7 @@ export const MONEY_CONTENT = {
   },
   'true-labor-cost': {
     directAnswer:
-      'True labor cost is the fully loaded employer cost of an hour of work — grossed-up pay plus employer social charges, benefits, severance accrual, overtime, and amortized recruitment — not the net wage on the payslip.',
+      'If labor in the quote looks cheap against payroll reality, true labor cost is the fully loaded employer hour — grossed-up pay plus employer social charges, benefits, severance accrual, overtime, and amortized recruitment — not the net wage on the payslip.',
     decision:
       'Price labor honestly into machine rates and quotes, compare country burden, and see the hidden cost percentage above net pay.',
     inputs:
@@ -145,7 +145,7 @@ export const MONEY_CONTENT = {
   },
   'oee-teep': {
     directAnswer:
-      'OEE multiplies availability, performance, and quality into a single effectiveness ratio for a production window. It shows how much of planned time became good output at the ideal cycle, so improvement work can target the real loss bucket.',
+      'When the line “feels busy” but output disappoints, OEE multiplies availability, performance, and quality into one effectiveness ratio for the window — so you can see how much planned time became good output at the ideal cycle.',
     decision:
       'Separate downtime, speed loss, and scrap so improvement work targets the real loss bucket instead of a vague “efficiency” percentage.',
     inputs:
@@ -173,7 +173,7 @@ export const MONEY_CONTENT = {
   },
   'bearing-life-l10': {
     directAnswer:
-      'Bearing L10 life estimates the millions of revolutions (or hours) at which 90% of a bearing population is expected to survive under a stated equivalent load, with optional aISO modification for lubrication and contamination conditions.',
+      'Before you lock a housing around a catalog bearing, L10 life estimates the millions of revolutions (or hours) at which 90% of a population is expected to survive under stated equivalent load, with optional aISO modification for lubrication and contamination.',
     decision:
       'Screen whether a catalog bearing capacity is credible for speed and load before locking a housing design or greasing interval story.',
     inputs:
@@ -201,7 +201,7 @@ export const MONEY_CONTENT = {
   },
   'bolt-torque-preload': {
     directAnswer:
-      'Bolt torque–preload estimates the assembly torque needed to reach a target preload using a nut factor, and reports mean tensile stress so you can see whether the tighten target is in a plausible strength band.',
+      'When assembly torque is treated as a clamp-load guarantee, bolt torque–preload estimates the torque needed for a target preload using a nut factor, and reports mean tensile stress so you can see whether the tighten target sits in a plausible strength band.',
     decision:
       'Set a first-pass tightening torque for assembly instructions before full VDI joint analysis, and sanity-check friction assumptions.',
     inputs:
@@ -229,7 +229,7 @@ export const MONEY_CONTENT = {
   },
   'bolted-joint': {
     directAnswer:
-      'A bolted-joint load-factor model splits external working load between the bolt and the clamped parts, estimating maximum and minimum bolt force under operating load for VDI-style first-pass design before you detail geometry, embedment, or fatigue chapters.',
+      'Before a joint that “felt tight” opens under working load, a bolted-joint load-factor model splits external load between bolt and clamped parts, estimating maximum and minimum bolt force for a VDI-style first-pass check before embedment or fatigue detailing.',
     decision:
       'Check whether preload and stiffness ratio keep the joint closed and the bolt inside credible force limits before detailing the connection.',
     inputs:
@@ -257,7 +257,7 @@ export const MONEY_CONTENT = {
   },
   'pipe-wall-thickness': {
     directAnswer:
-      'ASME B31.3 pipe wall thickness sizing estimates the design thickness for a straight pipe under internal pressure from design pressure, diameter, allowable stress, quality factors, and the Y coefficient, then adds corrosion allowance before schedule selection.',
+      'Before you buy a schedule by habit, ASME B31.3-style pipe wall sizing estimates design thickness for straight pipe under internal pressure from design pressure, diameter, allowable stress, quality factors, and Y — then adds corrosion allowance before schedule selection.',
     decision:
       'Choose a schedule or order thickness that meets pressure design before branch reinforcement and flexibility analysis.',
     inputs:
@@ -285,7 +285,7 @@ export const MONEY_CONTENT = {
   },
   'pressure-vessel-shell': {
     directAnswer:
-      'ASME VIII Div.1 cylindrical shell thickness estimates the required wall for internal pressure from design pressure, radius, allowable stress, and joint efficiency using the circumferential stress formula implemented in the tool for early vessel screening.',
+      'Before plate is ordered and the stamp conversation starts, ASME VIII Div.1 cylindrical shell thickness estimates required wall for internal pressure from design pressure, radius, allowable stress, and joint efficiency — for early vessel screening, not a complete U-stamp package.',
     decision:
       'Screen shell thickness early so head, nozzle, and material choices stay consistent before detailed vessel design.',
     inputs:
@@ -313,7 +313,7 @@ export const MONEY_CONTENT = {
   },
   'weld-heat-input': {
     directAnswer:
-      'Weld heat input estimates arc energy per unit length from voltage, current, and travel speed with a process efficiency factor — a key control for metallurgy and distortion risk when checking parameters against a qualified WPS window.',
+      'When “we always run it this way” fails a WPS review, weld heat input estimates arc energy per unit length from voltage, current, and travel speed with process efficiency — a control for metallurgy and distortion risk against a qualified window.',
     decision:
       'Check whether a proposed parameter set stays inside a WPS heat-input window before you weld production coupons.',
     inputs:

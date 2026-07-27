@@ -510,6 +510,38 @@ hiddenCostPct = (trueMonthlyCost − netMonthly) / netMonthly × 100</div>
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "WebPage",
+      "@id": "https://sectorcalc.com/calculator/true-labor-cost#webpage",
+      "url": "https://sectorcalc.com/calculator/true-labor-cost",
+      "name": "SC-010 True Labor Cost",
+      "description": "True loaded labor cost with statutory burden, benefits, overhead, and indirect time. Deterministic.",
+      "isPartOf": {
+        "@id": "https://sectorcalc.com/#website"
+      },
+      "about": {
+        "@id": "https://sectorcalc.com/calculator/true-labor-cost#software"
+      },
+      "mainEntity": {
+        "@id": "https://sectorcalc.com/calculator/true-labor-cost#software"
+      },
+      "publisher": {
+        "@id": "https://sectorcalc.com/#organization"
+      },
+      "author": {
+        "@id": "https://sectorcalc.com/#organization"
+      },
+      "inLanguage": "en-US",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".sc-aeo-problem",
+          ".sc-direct-answer",
+          ".sc-header-title",
+          "h1"
+        ]
+      }
+    },
+    {
       "@type": "SoftwareApplication",
       "@id": "https://sectorcalc.com/calculator/true-labor-cost#software",
       "name": "SC-010 True Labor Cost",
@@ -541,6 +573,9 @@ hiddenCostPct = (trueMonthlyCost − netMonthly) / netMonthly × 100</div>
       "author": {
         "@id": "https://sectorcalc.com/#organization"
       },
+      "brand": {
+        "@id": "https://sectorcalc.com/#organization"
+      },
       "screenshot": {
         "@type": "ImageObject",
         "url": "https://sectorcalc.com/assets/images/og-labor-pro-1200x630.jpg",
@@ -550,9 +585,36 @@ hiddenCostPct = (trueMonthlyCost − netMonthly) / netMonthly × 100</div>
       "inLanguage": [
         "en"
       ],
-      "dateModified": "2026-07-24",
+      "dateModified": "2026-07-27",
       "isPartOf": {
         "@id": "https://sectorcalc.com/#website"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://sectorcalc.com/calculator/true-labor-cost#webpage"
+      }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://sectorcalc.com/calculator/true-labor-cost#product",
+      "name": "SC-010 True Labor Cost",
+      "description": "True loaded labor cost with statutory burden, benefits, overhead, and indirect time. Deterministic.",
+      "brand": {
+        "@id": "https://sectorcalc.com/#organization"
+      },
+      "category": "Engineering Software",
+      "isRelatedTo": {
+        "@id": "https://sectorcalc.com/calculator/true-labor-cost#software"
+      },
+      "offers": {
+        "@type": "Offer",
+        "name": "Free exploratory calculation",
+        "price": "0.00",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://sectorcalc.com/calculator/true-labor-cost",
+        "seller": {
+          "@id": "https://sectorcalc.com/#organization"
+        }
       }
     },
     {
@@ -699,8 +761,8 @@ hiddenCostPct = (trueMonthlyCost − netMonthly) / netMonthly × 100</div>
 </script>
 <!--SC-SEO-SCHEMA-END-->
 <link rel="stylesheet" href="/sc-related-tools.css?v=1">
-                        <link rel="stylesheet" href="/sc-money.css?v=1">
-                        <link rel="stylesheet" href="/sc-calc-sheet.css?v=1">
+                        <link rel="stylesheet" href="/sc-money.css?v=2">
+                          <link rel="stylesheet" href="/sc-calc-sheet.css?v=1">
   <!--SC-CALC-SHEET-START-->
   <!-- calc-sheet theme: theme-calc-sheet -->
   <!--SC-CALC-SHEET-END-->
@@ -740,6 +802,7 @@ hiddenCostPct = (trueMonthlyCost − netMonthly) / netMonthly × 100</div>
 </div>
 <!--SC-SITE-NAV-END-->
 <div class="sc-tool-strip"><b>SC-010 · True Labor Cost</b><span>Engineering preview · Decimal engine · Not for production approval</span></div>
+
 
 
 
@@ -827,7 +890,10 @@ hiddenCostPct = (trueMonthlyCost − netMonthly) / netMonthly × 100</div>
     <a href="/" class="sc-logo" title="SectorCalc home" aria-label="SectorCalc home"><img class="logo-light" src="/sectorcalc-logo.png" alt="SectorCalc" width="160" height="42"><img class="logo-dark" src="/sectorcalc-logo-dark.png?v=2" alt="" width="160" height="42" aria-hidden="true"></a>
     <div class="sc-header-brand">
       <h1 class="sc-header-title">True Labor Cost Calculator</h1>
-<p class="sc-direct-answer" data-money-block="01" data-tool-id="SC-010">True labor cost is the fully loaded employer cost of an hour of work — grossed-up pay plus employer social charges, benefits, severance accrual, overtime, and amortized recruitment — not the net wage on the payslip.</p>
+<div class="sc-aeo-empathy" data-aeo-step="empathy" data-tool-id="SC-010">
+<p class="sc-aeo-problem"><strong>The problem:</strong> Net wage is not what the employer pays. Quoting on payslip numbers understates cost by the hidden burden you never wrote down.</p>
+<p class="sc-aeo-promise">Convert net pay into a fully loaded true hourly cost you can defend to finance.</p>
+</div><p class="sc-direct-answer" data-money-block="01" data-aeo-step="direct-answer" data-tool-id="SC-010">If labor in the quote looks cheap against payroll reality, true labor cost is the fully loaded employer hour — grossed-up pay plus employer social charges, benefits, severance accrual, overtime, and amortized recruitment — not the net wage on the payslip.</p>
       <div class="sc-header-sub">Engineering preview · Client-side · Deterministic Decimal engine · Not for production approval</div>
     </div>
   </div>
@@ -881,12 +947,13 @@ hiddenCostPct = (trueMonthlyCost − netMonthly) / netMonthly × 100</div>
 <script src="/assets/js/cvw-monitor.js" defer></script>
 
 <!--SC-MONEY-START-->
-<aside class="sc-money-contract" data-money-contract="tier-a" data-tool-id="SC-010" data-primary-entity="true-labor-cost" data-query-cluster="labor-burden-cost" data-primary-query="true labor cost calculator" data-canonical="/calculator/true-labor-cost">
-<section class="sc-money-block" data-money-block="03"><h2>Decision this supports</h2><p>Price labor honestly into machine rates and quotes, compare country burden, and see the hidden cost percentage above net pay.</p></section>
-<section class="sc-money-block" data-money-block="04"><h2>Required inputs</h2><p>Country profile, net pay and frequency, hours/week, optional rate overrides, benefits, bonus, overtime, recruitment cost and tenure.</p></section>
-<section class="sc-money-block" data-money-block="05"><h2>Formula / method</h2><p>Normalize net → monthly, gross-up by employee rate, add employer charges and benefits, accrue severance, add overtime and amortized recruitment, then divide by paid hours.</p></section>
-<section class="sc-money-block" data-money-block="06" id="money-worked-example">
-  <h2>Worked example</h2>
+<aside class="sc-money-contract" data-money-contract="tier-a" data-aeo-chain="direct-calc-explain-method-evidence-audit-related" data-tool-id="SC-010" data-primary-entity="true-labor-cost" data-query-cluster="labor-burden-cost" data-primary-query="true labor cost calculator" data-canonical="/calculator/true-labor-cost">
+<nav class="sc-aeo-rail" aria-label="Answer engine structure"><ol><li data-aeo-rail="direct-answer"><span class="sc-aeo-rail-n">01</span> Direct answer</li><li data-aeo-rail="calculation"><span class="sc-aeo-rail-n">02</span> Calculation</li><li data-aeo-rail="explanation"><span class="sc-aeo-rail-n">03</span> Explanation</li><li data-aeo-rail="methodology"><span class="sc-aeo-rail-n">04</span> Methodology</li><li data-aeo-rail="evidence"><span class="sc-aeo-rail-n">05</span> Evidence</li><li data-aeo-rail="accountability"><span class="sc-aeo-rail-n">06</span> Audit trail</li><li data-aeo-rail="related-problems"><span class="sc-aeo-rail-n">07</span> Related problems</li></ol></nav>
+<section class="sc-money-block" data-money-block="03" data-aeo-step="explanation"><h2>Explanation — decision this supports</h2><p>Price labor honestly into machine rates and quotes, compare country burden, and see the hidden cost percentage above net pay.</p></section>
+<section class="sc-money-block" data-money-block="04" data-aeo-step="explanation"><h2>Required inputs</h2><p>Country profile, net pay and frequency, hours/week, optional rate overrides, benefits, bonus, overtime, recruitment cost and tenure.</p></section>
+<section class="sc-money-block" data-money-block="05" data-aeo-step="methodology"><h2>Methodology — formula &amp; method</h2><p>Normalize net → monthly, gross-up by employee rate, add employer charges and benefits, accrue severance, add overtime and amortized recruitment, then divide by paid hours.</p></section>
+<section class="sc-money-block" data-money-block="06" id="money-worked-example" data-aeo-step="evidence">
+  <h2>Evidence — worked example</h2>
   <p class="sc-money-lede">German monthly net €3,200 fully loaded. Production SC-010 converts net pay into true employer cost including employer social charges, benefits, severance accrual, and amortized recruitment.</p>
   <p class="sc-money-engine" data-worked-provenance="engine-generated">Engine source: <code>src/tools/SC-010-labor-cost/v1.0.0/formula.ts</code> · tool <code>SC-010</code></p>
   <h3>Golden inputs</h3>
@@ -894,15 +961,24 @@ hiddenCostPct = (trueMonthlyCost − netMonthly) / netMonthly × 100</div>
   <h3>Verified engine outputs</h3>
   <table class="sc-money-table"><tbody><tr><th scope="row">trueMonthlyCost</th><td><code>5425.00</code></td></tr><tr><th scope="row">trueHourlyCost</th><td><code>31.32</code></td></tr><tr><th scope="row">costMultiplier</th><td><code>1.70</code></td></tr><tr><th scope="row">hiddenCostPct</th><td><code>69.5</code></td></tr><tr><th scope="row">currency</th><td><code>EUR</code></td></tr></tbody></table>
 </section>
-<section class="sc-money-block" data-money-block="07"><h2>What the result means</h2><p>Cost multiplier &gt; 1.5 is common. If your quote uses net wage as labor €/h, you are understating cost by the hidden percentage the engine reports.</p></section>
-<section class="sc-money-block" data-money-block="08"><h2>What moves the result</h2><p>Employer social rates and net pay dominate. Recruitment amortization matters on short tenure. Overtime multiplies quickly.</p></section>
-<section class="sc-money-block" data-money-block="09"><h2>Assumptions</h2><p>Country defaults are reference profiles. Overrides replace defaults when provided. Tenure amortizes recruitment linearly.</p></section>
-<section class="sc-money-block" data-money-block="10"><h2>Model boundaries</h2><p>Not payroll, tax advice, or a CBA interpreter. Local statutory rules can differ from the screening profile.</p></section>
-<section class="sc-money-block" data-money-block="11"><h2>Common engineering mistakes</h2><p>Using net instead of true hourly cost in quotes; ignoring employer charges; setting tenure to zero.</p></section>
-<section class="sc-money-block" data-money-block="12"><h2>Standard / reference scope</h2><p>Cost-engineering labor burden model. Not a claim of full statutory payroll compliance for every jurisdiction.</p></section>
-<section class="sc-money-block" data-money-block="13"><h2>A1–A5 audit trail</h2><p>Steps and conservation lock provide the reproducible trail from net pay to true monthly/hourly cost.</p></section>
-<section class="sc-money-block" data-money-block="14"><h2>Related glossary</h2><ul><li><a href="/glossary/labor-burden-rate">Labor burden rate</a></li><li><a href="/glossary/machine-hour-rate">Machine hour rate</a></li></ul></section>
-<section class="sc-money-block" data-money-block="15"><h2>Related guide &amp; calculators</h2><p><a href="/guides/labor-costing-complete">Labor costing complete guide</a></p><ul><li><a href="/calculator/machine-hour-rate">SC-038 Machine Hour Rate</a></li><li><a href="/calculator/oee-teep">SC-037 OEE</a></li><li><a href="/calculator/quote-pricing">SC-012 Quote Pricing</a></li></ul></section>
+<section class="sc-money-block" data-money-block="07" data-aeo-step="explanation"><h2>What the result means</h2><p>Cost multiplier &gt; 1.5 is common. If your quote uses net wage as labor €/h, you are understating cost by the hidden percentage the engine reports.</p></section>
+<section class="sc-money-block" data-money-block="08" data-aeo-step="explanation"><h2>What moves the result</h2><p>Employer social rates and net pay dominate. Recruitment amortization matters on short tenure. Overtime multiplies quickly.</p></section>
+<section class="sc-money-block" data-money-block="09" data-aeo-step="methodology"><h2>Assumptions</h2><p>Country defaults are reference profiles. Overrides replace defaults when provided. Tenure amortizes recruitment linearly.</p></section>
+<section class="sc-money-block" data-money-block="10" data-aeo-step="methodology"><h2>Model boundaries</h2><p>Not payroll, tax advice, or a CBA interpreter. Local statutory rules can differ from the screening profile.</p></section>
+<section class="sc-money-block" data-money-block="11" data-aeo-step="evidence"><h2>Common engineering mistakes</h2><p>Using net instead of true hourly cost in quotes; ignoring employer charges; setting tenure to zero.</p></section>
+<section class="sc-money-block" data-money-block="12" data-aeo-step="evidence"><h2>Evidence — standard &amp; reference scope</h2><p>Cost-engineering labor burden model. Not a claim of full statutory payroll compliance for every jurisdiction.</p></section>
+<section class="sc-money-block" data-money-block="13" data-aeo-step="accountability"><h2>Accountability — A1–A5 audit trail</h2><p>Steps and conservation lock provide the reproducible trail from net pay to true monthly/hourly cost.</p>
+<p class="sc-money-expert-note">Engineering accountability is carried by visible formulas, assumptions, warnings, and engine version — not by invented reviewer endorsements. Outputs remain engineering previews subject to competent review.</p></section>
+<section class="sc-money-block" data-money-block="14" data-aeo-step="related-problems"><h2>Related glossary</h2><ul><li><a href="/glossary/labor-burden-rate">Labor burden rate</a></li><li><a href="/glossary/machine-hour-rate">Machine hour rate</a></li></ul></section>
+<section class="sc-money-block" data-money-block="15" data-aeo-step="related-problems"><h2>Related guide &amp; calculators</h2><p><a href="/guides/labor-costing-complete">Labor costing complete guide</a></p><ul><li><a href="/calculator/machine-hour-rate">SC-038 Machine Hour Rate</a></li><li><a href="/calculator/oee-teep">SC-037 OEE</a></li><li><a href="/calculator/quote-pricing">SC-012 Quote Pricing</a></li></ul></section>
+<section class="sc-money-block sc-aeo-topical" data-money-block="15b" data-aeo-step="related-problems" data-topic-id="manufacturing-economics" data-subtopic-id="rates">
+  <h2>Topical map &amp; related problems</h2>
+  <p class="sc-money-lede"><strong>Manufacturing economics</strong> · Labor &amp; machine rates. Is the shop rate and sell price recovering true cost — or quietly quoting away the margin?</p>
+  <h3>Query fan-out (same problem cluster)</h3>
+  <ul class="sc-aeo-fanout"><li><span class="sc-aeo-query">true labor cost calculator</span></li><li><span class="sc-aeo-query">machine hourly rate calculator</span></li></ul>
+  <h3>Internal authority links</h3>
+  <ul><li><a href="/calculator/machine-hour-rate">SC-038 Machine Hour Rate</a></li><li><a href="/glossary/labor-burden-rate">Labor burden rate</a></li><li><a href="/glossary/machine-hour-rate">Machine hour rate</a></li><li><a href="/guides/labor-costing-complete">Labor costing complete guide</a></li></ul>
+</section>
 <section class="sc-money-block sc-money-cta" data-money-block="16"><h2>Commercial next step</h2><p>Feed true hourly cost into machine-hour and quote tools, then keep the burden breakdown when finance asks why shop labor is not “just the wage”.</p>
 <p class="sc-money-cta-actions"><a class="sc-money-link" href="/pricing.html" data-sc-funnel="pricing">View pricing</a>
 <a class="sc-money-link" href="/pro.html">Pro hub</a></p></section>

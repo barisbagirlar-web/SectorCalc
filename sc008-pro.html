@@ -601,6 +601,38 @@
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "WebPage",
+      "@id": "https://sectorcalc.com/calculator/tolerance-stack-up#webpage",
+      "url": "https://sectorcalc.com/calculator/tolerance-stack-up",
+      "name": "SC-008 Tolerance Stack-Up",
+      "description": "Deterministic 1D tolerance stack-up with worst-case, RSS, and seeded Monte Carlo (10,000 iterations). Predicted Cpk, PPM, and full A1-A5 audit trail. Client-side only.",
+      "isPartOf": {
+        "@id": "https://sectorcalc.com/#website"
+      },
+      "about": {
+        "@id": "https://sectorcalc.com/calculator/tolerance-stack-up#software"
+      },
+      "mainEntity": {
+        "@id": "https://sectorcalc.com/calculator/tolerance-stack-up#software"
+      },
+      "publisher": {
+        "@id": "https://sectorcalc.com/#organization"
+      },
+      "author": {
+        "@id": "https://sectorcalc.com/#organization"
+      },
+      "inLanguage": "en-US",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".sc-aeo-problem",
+          ".sc-direct-answer",
+          ".sc-header-title",
+          "h1"
+        ]
+      }
+    },
+    {
       "@type": "SoftwareApplication",
       "@id": "https://sectorcalc.com/calculator/tolerance-stack-up#software",
       "name": "SC-008 Tolerance Stack-Up",
@@ -632,6 +664,9 @@
       "author": {
         "@id": "https://sectorcalc.com/#organization"
       },
+      "brand": {
+        "@id": "https://sectorcalc.com/#organization"
+      },
       "screenshot": {
         "@type": "ImageObject",
         "url": "https://sectorcalc.com/assets/images/og-sc008-pro-1200x630.jpg",
@@ -641,9 +676,36 @@
       "inLanguage": [
         "en"
       ],
-      "dateModified": "2026-07-24",
+      "dateModified": "2026-07-27",
       "isPartOf": {
         "@id": "https://sectorcalc.com/#website"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://sectorcalc.com/calculator/tolerance-stack-up#webpage"
+      }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://sectorcalc.com/calculator/tolerance-stack-up#product",
+      "name": "SC-008 Tolerance Stack-Up",
+      "description": "Deterministic 1D tolerance stack-up with worst-case, RSS, and seeded Monte Carlo (10,000 iterations). Predicted Cpk, PPM, and full A1-A5 audit trail. Client-side only.",
+      "brand": {
+        "@id": "https://sectorcalc.com/#organization"
+      },
+      "category": "Engineering Software",
+      "isRelatedTo": {
+        "@id": "https://sectorcalc.com/calculator/tolerance-stack-up#software"
+      },
+      "offers": {
+        "@type": "Offer",
+        "name": "Free exploratory calculation",
+        "price": "0.00",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://sectorcalc.com/calculator/tolerance-stack-up",
+        "seller": {
+          "@id": "https://sectorcalc.com/#organization"
+        }
       }
     },
     {
@@ -834,8 +896,8 @@
 </script>
 <!--SC-SCHEMA-VIDEO-END-->
 <link rel="stylesheet" href="/sc-related-tools.css?v=1">
-                              <link rel="stylesheet" href="/sc-money.css?v=1">
-                            <link rel="stylesheet" href="/css/calculation-sheet.css?v=1">
+                              <link rel="stylesheet" href="/sc-money.css?v=2">
+                              <link rel="stylesheet" href="/css/calculation-sheet.css?v=1">
   <!--SC-CALC-SHEET-START-->
   <!-- calc-sheet theme: calc-sheet has-grid (isolated) -->
   <!--SC-CALC-SHEET-END-->
@@ -875,6 +937,7 @@
 </div>
 <!--SC-SITE-NAV-END-->
 <div class="sc-tool-strip"><b>SC-008 · Tolerance Stack-Up</b><span>Engineering preview · Decimal engine · Not for production approval</span></div>
+
 
 
 
@@ -963,7 +1026,10 @@
 
 <div class="sc-header">
   <div class="sc-header-left"><a href="/" class="sc-logo" title="SectorCalc home" aria-label="SectorCalc home"><img class="logo-light" src="/sectorcalc-logo.png" alt="SectorCalc" width="160" height="42"><img class="logo-dark" src="/sectorcalc-logo-dark.png?v=2" alt="" width="160" height="42" aria-hidden="true"></a><div><h1 class="sc-header-title">SC-008 Tolerance Stack-Up Calculator: Worst-Case, RSS, and Seeded Monte Carlo</h1>
-<p class="sc-direct-answer" data-money-block="01" data-tool-id="SC-008">A 1D tolerance stack-up predicts whether an assembly gap or overall length stays inside specification by summing signed contributors with worst-case, RSS, and seeded Monte Carlo methods on the same stack. Use it to choose tolerances before tooling — not as a substitute for measured SPC on production parts.</p>
+<div class="sc-aeo-empathy" data-aeo-step="empathy" data-tool-id="SC-008">
+<p class="sc-aeo-problem"><strong>The problem:</strong> You are about to freeze tolerances on a drawing — and the only question that matters is whether the gap still closes when every contributor hits its legal extreme.</p>
+<p class="sc-aeo-promise">Get a defendable stack prediction before steel is cut.</p>
+</div><p class="sc-direct-answer" data-money-block="01" data-aeo-step="direct-answer" data-tool-id="SC-008">When a critical gap must still close after every contributor hits its legal extreme, a 1D tolerance stack-up predicts assembly risk with worst-case, RSS, and seeded Monte Carlo on the same stack. Use it to choose tolerances before tooling — not as a substitute for measured SPC on production parts.</p>
 <div class="sc-header-sub">Engineering preview · 1D linear stack-up · per-component distribution · client-side · not for production approval</div></div></div>
   <div style="display:flex;align-items:center;gap:10px"><a href="/" class="sc-btn sc-btn-ghost" style="text-decoration:none">All tools</a><a href="/pricing.html" class="sc-btn sc-btn-ghost" style="margin-right:10px;text-decoration:none">Pricing</a><div class="sc-badge">Preview</div></div>
 </div>
@@ -1006,12 +1072,13 @@
 <script src="/assets/js/cvw-monitor.js" defer></script>
 
 <!--SC-MONEY-START-->
-<aside class="sc-money-contract" data-money-contract="tier-a" data-tool-id="SC-008" data-primary-entity="tolerance-stack-up" data-query-cluster="tolerance-stack-analysis" data-primary-query="tolerance stack up calculator" data-canonical="/calculator/tolerance-stack-up">
-<section class="sc-money-block" data-money-block="03"><h2>Decision this supports</h2><p>Decide whether a proposed tolerance set can close a critical gap, which contributors dominate risk, and whether worst-case, RSS, or Monte Carlo is the right release criterion for the drawing.</p></section>
-<section class="sc-money-block" data-money-block="04"><h2>Required inputs</h2><p>Each contributor needs a nominal, bilateral tolerance, sign/direction, and distribution model. The assembly needs upper/lower specification limits, iteration count, and a seed when Monte Carlo is used.</p></section>
-<section class="sc-money-block" data-money-block="05"><h2>Formula / method</h2><p>Stack nominal X = Σ nᵢ. Worst-case spread sums extremes. RSS uses √(Σ tᵢ²) under independent centered normals. Monte Carlo draws from assigned distributions with a fixed seed for audit reproducibility.</p></section>
-<section class="sc-money-block" data-money-block="06" id="money-worked-example">
-  <h2>Worked example</h2>
+<aside class="sc-money-contract" data-money-contract="tier-a" data-aeo-chain="direct-calc-explain-method-evidence-audit-related" data-tool-id="SC-008" data-primary-entity="tolerance-stack-up" data-query-cluster="tolerance-stack-analysis" data-primary-query="tolerance stack up calculator" data-canonical="/calculator/tolerance-stack-up">
+<nav class="sc-aeo-rail" aria-label="Answer engine structure"><ol><li data-aeo-rail="direct-answer"><span class="sc-aeo-rail-n">01</span> Direct answer</li><li data-aeo-rail="calculation"><span class="sc-aeo-rail-n">02</span> Calculation</li><li data-aeo-rail="explanation"><span class="sc-aeo-rail-n">03</span> Explanation</li><li data-aeo-rail="methodology"><span class="sc-aeo-rail-n">04</span> Methodology</li><li data-aeo-rail="evidence"><span class="sc-aeo-rail-n">05</span> Evidence</li><li data-aeo-rail="accountability"><span class="sc-aeo-rail-n">06</span> Audit trail</li><li data-aeo-rail="related-problems"><span class="sc-aeo-rail-n">07</span> Related problems</li></ol></nav>
+<section class="sc-money-block" data-money-block="03" data-aeo-step="explanation"><h2>Explanation — decision this supports</h2><p>Decide whether a proposed tolerance set can close a critical gap, which contributors dominate risk, and whether worst-case, RSS, or Monte Carlo is the right release criterion for the drawing.</p></section>
+<section class="sc-money-block" data-money-block="04" data-aeo-step="explanation"><h2>Required inputs</h2><p>Each contributor needs a nominal, bilateral tolerance, sign/direction, and distribution model. The assembly needs upper/lower specification limits, iteration count, and a seed when Monte Carlo is used.</p></section>
+<section class="sc-money-block" data-money-block="05" data-aeo-step="methodology"><h2>Methodology — formula &amp; method</h2><p>Stack nominal X = Σ nᵢ. Worst-case spread sums extremes. RSS uses √(Σ tᵢ²) under independent centered normals. Monte Carlo draws from assigned distributions with a fixed seed for audit reproducibility.</p></section>
+<section class="sc-money-block" data-money-block="06" id="money-worked-example" data-aeo-step="evidence">
+  <h2>Evidence — worked example</h2>
   <p class="sc-money-lede">Three-contributor gap stack (seeded). A housing depth, bearing width, and spacer close a 80.00 mm target gap band of ±0.20 mm. Worst-case, RSS, and seeded Monte Carlo are taken from the production SC-008 engine.</p>
   <p class="sc-money-engine" data-worked-provenance="engine-generated">Engine source: <code>src/tools/SC-008-tolerance-stack/v1.0.0/formula.ts</code> · tool <code>SC-008</code></p>
   <h3>Golden inputs</h3>
@@ -1019,15 +1086,24 @@
   <h3>Verified engine outputs</h3>
   <table class="sc-money-table"><tbody><tr><th scope="row">worstPlus</th><td><code>0.1000</code></td></tr><tr><th scope="row">rssPlus</th><td><code>0.0616</code></td></tr><tr><th scope="row">cpk</th><td><code>3.2308</code></td></tr><tr><th scope="row">mcStd</th><td><code>0.0206</code></td></tr></tbody></table>
 </section>
-<section class="sc-money-block" data-money-block="07"><h2>What the result means</h2><p>Higher predicted Cpk means more margin to the gap limits under your distribution assumptions. A large WC–RSS gap signals rare simultaneous extremes. If Monte Carlo disagrees with RSS, at least one distribution is poorly approximated by ±3σ normal.</p></section>
-<section class="sc-money-block" data-money-block="08"><h2>What moves the result</h2><p>The largest tolerances and the loosest distributions move predicted PPM the most. Tightening a small contributor rarely helps if a single wide uniform contributor dominates the stack.</p></section>
-<section class="sc-money-block" data-money-block="09"><h2>Assumptions</h2><p>Contributors are independent along one measurement axis. Distributions you assign are honest models of process behavior. Form, orientation, and 2D position tolerances are outside this model.</p></section>
-<section class="sc-money-block" data-money-block="10"><h2>Model boundaries</h2><p>Screening calculation for 1D linear stacks only. Not a GD&amp;T datum-frame solver. Predicted Cpk is not measured SPC. Does not replace a licensed engineer’s drawing release judgment.</p></section>
-<section class="sc-money-block" data-money-block="11"><h2>Common engineering mistakes</h2><p>Treating every drawing ± block as uniform; mixing absolute and deviation limits; forgetting sign direction; trusting Monte Carlo without fixing the seed for audits.</p></section>
-<section class="sc-money-block" data-money-block="12"><h2>Standard / reference scope</h2><p>Uses classical WC/RSS stack arithmetic and statistical tolerancing ideas aligned with common ASME Y14.5 practice. It does not claim full Y14.5 compliance for complex datum schemes.</p></section>
-<section class="sc-money-block" data-money-block="13"><h2>A1–A5 audit trail</h2><p>A1 identifies the engine and seed. A2 snapshots inputs. A3 records WC/RSS/MC formulas. A4 states distribution assumptions. A5 lists warnings when predictions leave validated bands.</p></section>
-<section class="sc-money-block" data-money-block="14"><h2>Related glossary</h2><ul><li><a href="/glossary/tolerance-stack-up">Tolerance stack-up</a></li><li><a href="/glossary/rss-tolerance">RSS tolerance</a></li><li><a href="/glossary/monte-carlo-simulation">Monte Carlo simulation</a></li></ul></section>
-<section class="sc-money-block" data-money-block="15"><h2>Related guide &amp; calculators</h2><p><a href="/guides/tolerance-stack-up-complete">Tolerance stack-up complete guide</a></p><ul><li><a href="/calculator/iso-286-fits">SC-027 Fits &amp; Clearances</a></li><li><a href="/calculator/surface-finish">SC-028 Surface Finish Converter</a></li></ul></section>
+<section class="sc-money-block" data-money-block="07" data-aeo-step="explanation"><h2>What the result means</h2><p>Higher predicted Cpk means more margin to the gap limits under your distribution assumptions. A large WC–RSS gap signals rare simultaneous extremes. If Monte Carlo disagrees with RSS, at least one distribution is poorly approximated by ±3σ normal.</p></section>
+<section class="sc-money-block" data-money-block="08" data-aeo-step="explanation"><h2>What moves the result</h2><p>The largest tolerances and the loosest distributions move predicted PPM the most. Tightening a small contributor rarely helps if a single wide uniform contributor dominates the stack.</p></section>
+<section class="sc-money-block" data-money-block="09" data-aeo-step="methodology"><h2>Assumptions</h2><p>Contributors are independent along one measurement axis. Distributions you assign are honest models of process behavior. Form, orientation, and 2D position tolerances are outside this model.</p></section>
+<section class="sc-money-block" data-money-block="10" data-aeo-step="methodology"><h2>Model boundaries</h2><p>Screening calculation for 1D linear stacks only. Not a GD&amp;T datum-frame solver. Predicted Cpk is not measured SPC. Does not replace a licensed engineer’s drawing release judgment.</p></section>
+<section class="sc-money-block" data-money-block="11" data-aeo-step="evidence"><h2>Common engineering mistakes</h2><p>Treating every drawing ± block as uniform; mixing absolute and deviation limits; forgetting sign direction; trusting Monte Carlo without fixing the seed for audits.</p></section>
+<section class="sc-money-block" data-money-block="12" data-aeo-step="evidence"><h2>Evidence — standard &amp; reference scope</h2><p>Uses classical WC/RSS stack arithmetic and statistical tolerancing ideas aligned with common ASME Y14.5 practice. It does not claim full Y14.5 compliance for complex datum schemes.</p></section>
+<section class="sc-money-block" data-money-block="13" data-aeo-step="accountability"><h2>Accountability — A1–A5 audit trail</h2><p>A1 identifies the engine and seed. A2 snapshots inputs. A3 records WC/RSS/MC formulas. A4 states distribution assumptions. A5 lists warnings when predictions leave validated bands.</p>
+<p class="sc-money-expert-note">Engineering accountability is carried by visible formulas, assumptions, warnings, and engine version — not by invented reviewer endorsements. Outputs remain engineering previews subject to competent review.</p></section>
+<section class="sc-money-block" data-money-block="14" data-aeo-step="related-problems"><h2>Related glossary</h2><ul><li><a href="/glossary/tolerance-stack-up">Tolerance stack-up</a></li><li><a href="/glossary/rss-tolerance">RSS tolerance</a></li><li><a href="/glossary/monte-carlo-simulation">Monte Carlo simulation</a></li></ul></section>
+<section class="sc-money-block" data-money-block="15" data-aeo-step="related-problems"><h2>Related guide &amp; calculators</h2><p><a href="/guides/tolerance-stack-up-complete">Tolerance stack-up complete guide</a></p><ul><li><a href="/calculator/iso-286-fits">SC-027 Fits &amp; Clearances</a></li><li><a href="/calculator/surface-finish">SC-028 Surface Finish Converter</a></li></ul></section>
+<section class="sc-money-block sc-aeo-topical" data-money-block="15b" data-aeo-step="related-problems" data-topic-id="tolerance-metrology" data-subtopic-id="stack-prediction">
+  <h2>Topical map &amp; related problems</h2>
+  <p class="sc-money-lede"><strong>Tolerance &amp; metrology</strong> · 1D stack prediction. Will this assembly still close when every contributor sits at its worst legal extreme?</p>
+  <h3>Query fan-out (same problem cluster)</h3>
+  <ul class="sc-aeo-fanout"><li><span class="sc-aeo-query">worst case tolerance stack up</span></li><li><span class="sc-aeo-query">rss tolerance stack calculator</span></li><li><span class="sc-aeo-query">monte carlo tolerance analysis</span></li></ul>
+  <h3>Internal authority links</h3>
+  <ul><li><a href="/glossary/tolerance-stack-up">Tolerance stack-up</a></li><li><a href="/glossary/rss-tolerance">RSS tolerance</a></li><li><a href="/glossary/monte-carlo-simulation">Monte Carlo simulation</a></li><li><a href="/guides/tolerance-stack-up-complete">Tolerance stack-up complete guide</a></li></ul>
+</section>
 <section class="sc-money-block sc-money-cta" data-money-block="16"><h2>Commercial next step</h2><p>Run the stack, read the predicted risk, then open the A1–A5 trail when you need a shareable audit for drawing release. Credit packs unlock full report workflows without inventing fake certifications.</p>
 <p class="sc-money-cta-actions"><a class="sc-money-link" href="/pricing.html" data-sc-funnel="pricing">View pricing</a>
 <a class="sc-money-link" href="/pro.html">Pro hub</a></p></section>

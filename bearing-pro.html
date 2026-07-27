@@ -260,6 +260,38 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "WebPage",
+      "@id": "https://sectorcalc.com/calculator/bearing-life-l10#webpage",
+      "url": "https://sectorcalc.com/calculator/bearing-life-l10",
+      "name": "SC-021 Bearing Life L10 — ISO 281",
+      "description": "ISO 281 bearing life calculator with aISO adjustment, viscosity ratio kappa, and contamination factor eC. Deterministic audit trail.",
+      "isPartOf": {
+        "@id": "https://sectorcalc.com/#website"
+      },
+      "about": {
+        "@id": "https://sectorcalc.com/calculator/bearing-life-l10#software"
+      },
+      "mainEntity": {
+        "@id": "https://sectorcalc.com/calculator/bearing-life-l10#software"
+      },
+      "publisher": {
+        "@id": "https://sectorcalc.com/#organization"
+      },
+      "author": {
+        "@id": "https://sectorcalc.com/#organization"
+      },
+      "inLanguage": "en-US",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".sc-aeo-problem",
+          ".sc-direct-answer",
+          ".sc-header-title",
+          "h1"
+        ]
+      }
+    },
+    {
       "@type": "SoftwareApplication",
       "@id": "https://sectorcalc.com/calculator/bearing-life-l10#software",
       "name": "SC-021 Bearing Life L10 — ISO 281",
@@ -291,6 +323,9 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
       "author": {
         "@id": "https://sectorcalc.com/#organization"
       },
+      "brand": {
+        "@id": "https://sectorcalc.com/#organization"
+      },
       "screenshot": {
         "@type": "ImageObject",
         "url": "https://sectorcalc.com/assets/images/og-bearing-pro-1200x630.jpg",
@@ -300,9 +335,36 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
       "inLanguage": [
         "en"
       ],
-      "dateModified": "2026-07-24",
+      "dateModified": "2026-07-27",
       "isPartOf": {
         "@id": "https://sectorcalc.com/#website"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://sectorcalc.com/calculator/bearing-life-l10#webpage"
+      }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://sectorcalc.com/calculator/bearing-life-l10#product",
+      "name": "SC-021 Bearing Life L10 — ISO 281",
+      "description": "ISO 281 bearing life calculator with aISO adjustment, viscosity ratio kappa, and contamination factor eC. Deterministic audit trail.",
+      "brand": {
+        "@id": "https://sectorcalc.com/#organization"
+      },
+      "category": "Engineering Software",
+      "isRelatedTo": {
+        "@id": "https://sectorcalc.com/calculator/bearing-life-l10#software"
+      },
+      "offers": {
+        "@type": "Offer",
+        "name": "Free exploratory calculation",
+        "price": "0.00",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://sectorcalc.com/calculator/bearing-life-l10",
+        "seller": {
+          "@id": "https://sectorcalc.com/#organization"
+        }
       }
     },
     {
@@ -450,8 +512,8 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
 </script>
 <!--SC-SEO-SCHEMA-END-->
 <link rel="stylesheet" href="/sc-related-tools.css?v=1">
-                        <link rel="stylesheet" href="/sc-money.css?v=1">
-                        <link rel="stylesheet" href="/sc-calc-sheet.css?v=1">
+                        <link rel="stylesheet" href="/sc-money.css?v=2">
+                          <link rel="stylesheet" href="/sc-calc-sheet.css?v=1">
   <!--SC-CALC-SHEET-START-->
   <!-- calc-sheet theme: theme-calc-sheet -->
   <!--SC-CALC-SHEET-END-->
@@ -490,6 +552,7 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
   <a href="/login.html" class="btn-primary" data-nav="login">Sign in</a>
 </div>
 <!--SC-SITE-NAV-END-->
+
 
 
 
@@ -577,7 +640,10 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
   <div class="head">
     <div>
       <h1>Bearing Life L10 — Modified Rating Life (ISO 281:2007)</h1>
-<p class="sc-direct-answer" data-money-block="01" data-tool-id="SC-021">Bearing L10 life estimates the millions of revolutions (or hours) at which 90% of a bearing population is expected to survive under a stated equivalent load, with optional aISO modification for lubrication and contamination conditions.</p>
+<div class="sc-aeo-empathy" data-aeo-step="empathy" data-tool-id="SC-021">
+<p class="sc-aeo-problem"><strong>The problem:</strong> Catalog capacity looks generous until equivalent load, speed, and dirty oil collapse L10 into a maintenance surprise.</p>
+<p class="sc-aeo-promise">Screen ISO 281 basic and modified life before the housing is cast.</p>
+</div><p class="sc-direct-answer" data-money-block="01" data-aeo-step="direct-answer" data-tool-id="SC-021">Before you lock a housing around a catalog bearing, L10 life estimates the millions of revolutions (or hours) at which 90% of a population is expected to survive under stated equivalent load, with optional aISO modification for lubrication and contamination.</p>
       <p>Industrial bearing selection &amp; life-verification engine: basic rating life L<sub>10</sub>, modified rating life L<sub>nm</sub> with the <b>digitized ISO 281:2007 a<sub>ISO</sub> equations</b> (lubrication κ, contamination e<sub>C</sub>, fatigue load limit C<sub>u</sub>), ASTM D341/D2270 viscosity-temperature model, equivalent-load X/Y interpolation, static safety check — every input with <b>selectable universal units</b> and <b>reference-standard values</b>, every report with the full audit trail.</p>
     </div>
     <div>
@@ -1486,12 +1552,13 @@ calculate();
 <script src="/assets/js/cvw-monitor.js" defer></script>
 
 <!--SC-MONEY-START-->
-<aside class="sc-money-contract" data-money-contract="tier-a" data-tool-id="SC-021" data-primary-entity="bearing-life-l10" data-query-cluster="bearing-life-l10" data-primary-query="bearing life calculator iso 281" data-canonical="/calculator/bearing-life-l10">
-<section class="sc-money-block" data-money-block="03"><h2>Decision this supports</h2><p>Screen whether a catalog bearing capacity is credible for speed and load before locking a housing design or greasing interval story.</p></section>
-<section class="sc-money-block" data-money-block="04"><h2>Required inputs</h2><p>Dynamic capacity C, equivalent load P, speed, bearing type exponent, and aISO (or factors used to form it).</p></section>
-<section class="sc-money-block" data-money-block="05"><h2>Formula / method</h2><p>L10 = (C/P)^p × 10⁶ revolutions; L10h = L10 / (60·n). Modified life multiplies by aISO when lubrication/contamination adjustment is applied.</p></section>
-<section class="sc-money-block" data-money-block="06" id="money-worked-example">
-  <h2>Worked example</h2>
+<aside class="sc-money-contract" data-money-contract="tier-a" data-aeo-chain="direct-calc-explain-method-evidence-audit-related" data-tool-id="SC-021" data-primary-entity="bearing-life-l10" data-query-cluster="bearing-life-l10" data-primary-query="bearing life calculator iso 281" data-canonical="/calculator/bearing-life-l10">
+<nav class="sc-aeo-rail" aria-label="Answer engine structure"><ol><li data-aeo-rail="direct-answer"><span class="sc-aeo-rail-n">01</span> Direct answer</li><li data-aeo-rail="calculation"><span class="sc-aeo-rail-n">02</span> Calculation</li><li data-aeo-rail="explanation"><span class="sc-aeo-rail-n">03</span> Explanation</li><li data-aeo-rail="methodology"><span class="sc-aeo-rail-n">04</span> Methodology</li><li data-aeo-rail="evidence"><span class="sc-aeo-rail-n">05</span> Evidence</li><li data-aeo-rail="accountability"><span class="sc-aeo-rail-n">06</span> Audit trail</li><li data-aeo-rail="related-problems"><span class="sc-aeo-rail-n">07</span> Related problems</li></ol></nav>
+<section class="sc-money-block" data-money-block="03" data-aeo-step="explanation"><h2>Explanation — decision this supports</h2><p>Screen whether a catalog bearing capacity is credible for speed and load before locking a housing design or greasing interval story.</p></section>
+<section class="sc-money-block" data-money-block="04" data-aeo-step="explanation"><h2>Required inputs</h2><p>Dynamic capacity C, equivalent load P, speed, bearing type exponent, and aISO (or factors used to form it).</p></section>
+<section class="sc-money-block" data-money-block="05" data-aeo-step="methodology"><h2>Methodology — formula &amp; method</h2><p>L10 = (C/P)^p × 10⁶ revolutions; L10h = L10 / (60·n). Modified life multiplies by aISO when lubrication/contamination adjustment is applied.</p></section>
+<section class="sc-money-block" data-money-block="06" id="money-worked-example" data-aeo-step="evidence">
+  <h2>Evidence — worked example</h2>
   <p class="sc-money-lede">Deep-groove ball bearing L10 / Lnm. Basic rating life from dynamic capacity and equivalent load, then modified life with the supplied aISO factor. Manufacturer catalog values remain authoritative for contract selection.</p>
   <p class="sc-money-engine" data-worked-provenance="engine-generated">Engine source: <code>bearing-pro.html ISO 281 core (extracted pure; aISO supplied)</code> · tool <code>SC-021</code></p>
   <h3>Golden inputs</h3>
@@ -1499,15 +1566,24 @@ calculate();
   <h3>Verified engine outputs</h3>
   <table class="sc-money-table"><tbody><tr><th scope="row">L10h</th><td><code>3593.31</code></td></tr><tr><th scope="row">Lnmh</th><td><code>4311.97</code></td></tr><tr><th scope="row">lifeRatio</th><td><code>7.2941</code></td></tr><tr><th scope="row">exponent</th><td><code>3</code></td></tr></tbody></table>
 </section>
-<section class="sc-money-block" data-money-block="07"><h2>What the result means</h2><p>L10 is a reliability statistic, not a warranty clock. Short L10 under steady load means resize, derate, or fix lubrication — not “hope”.</p></section>
-<section class="sc-money-block" data-money-block="08"><h2>What moves the result</h2><p>Load ratio C/P dominates. Speed converts revolutions to hours. aISO can swing life by orders of magnitude when mis-set.</p></section>
-<section class="sc-money-block" data-money-block="09"><h2>Assumptions</h2><p>ISO 281 basic rating framework. Equivalent load already includes radial/axial combination per catalog method.</p></section>
-<section class="sc-money-block" data-money-block="10"><h2>Model boundaries</h2><p>Screening model. Manufacturer tables, clearance fits, misalignment, and grease life can govern. Not a substitute for supplier selection software on safety-critical spindles.</p></section>
-<section class="sc-money-block" data-money-block="11"><h2>Common engineering mistakes</h2><p>Using Fr as P without axial factors; confusing L10h with calendar maintenance intervals; setting aISO = 1 in dirty oil.</p></section>
-<section class="sc-money-block" data-money-block="12"><h2>Standard / reference scope</h2><p>Implements ISO 281 rating-life equations in the stated scope. Does not claim full ISO 281 annex coverage for every adjustment factor table.</p></section>
-<section class="sc-money-block" data-money-block="13"><h2>A1–A5 audit trail</h2><p>A1–A5 document capacity inputs, exponents, aISO, and warnings when life leaves credible bands.</p></section>
-<section class="sc-money-block" data-money-block="14"><h2>Related glossary</h2><ul><li><a href="/glossary/bearing-l10-life">Bearing L10 life</a></li><li><a href="/glossary/iso-281">ISO 281</a></li></ul></section>
-<section class="sc-money-block" data-money-block="15"><h2>Related guide &amp; calculators</h2><p><a href="/guides/bearing-life-complete">Bearing life complete guide</a></p><ul><li><a href="/calculator/bearing-frequencies">SC-024 Bearing Frequencies</a></li><li><a href="/calculator/belt-chain-drive">SC-025 Belt &amp; Chain Drive Sizing</a></li><li><a href="/calculator/shaft-design">SC-026 Shaft Design</a></li></ul></section>
+<section class="sc-money-block" data-money-block="07" data-aeo-step="explanation"><h2>What the result means</h2><p>L10 is a reliability statistic, not a warranty clock. Short L10 under steady load means resize, derate, or fix lubrication — not “hope”.</p></section>
+<section class="sc-money-block" data-money-block="08" data-aeo-step="explanation"><h2>What moves the result</h2><p>Load ratio C/P dominates. Speed converts revolutions to hours. aISO can swing life by orders of magnitude when mis-set.</p></section>
+<section class="sc-money-block" data-money-block="09" data-aeo-step="methodology"><h2>Assumptions</h2><p>ISO 281 basic rating framework. Equivalent load already includes radial/axial combination per catalog method.</p></section>
+<section class="sc-money-block" data-money-block="10" data-aeo-step="methodology"><h2>Model boundaries</h2><p>Screening model. Manufacturer tables, clearance fits, misalignment, and grease life can govern. Not a substitute for supplier selection software on safety-critical spindles.</p></section>
+<section class="sc-money-block" data-money-block="11" data-aeo-step="evidence"><h2>Common engineering mistakes</h2><p>Using Fr as P without axial factors; confusing L10h with calendar maintenance intervals; setting aISO = 1 in dirty oil.</p></section>
+<section class="sc-money-block" data-money-block="12" data-aeo-step="evidence"><h2>Evidence — standard &amp; reference scope</h2><p>Implements ISO 281 rating-life equations in the stated scope. Does not claim full ISO 281 annex coverage for every adjustment factor table.</p></section>
+<section class="sc-money-block" data-money-block="13" data-aeo-step="accountability"><h2>Accountability — A1–A5 audit trail</h2><p>A1–A5 document capacity inputs, exponents, aISO, and warnings when life leaves credible bands.</p>
+<p class="sc-money-expert-note">Engineering accountability is carried by visible formulas, assumptions, warnings, and engine version — not by invented reviewer endorsements. Outputs remain engineering previews subject to competent review.</p></section>
+<section class="sc-money-block" data-money-block="14" data-aeo-step="related-problems"><h2>Related glossary</h2><ul><li><a href="/glossary/bearing-l10-life">Bearing L10 life</a></li><li><a href="/glossary/iso-281">ISO 281</a></li></ul></section>
+<section class="sc-money-block" data-money-block="15" data-aeo-step="related-problems"><h2>Related guide &amp; calculators</h2><p><a href="/guides/bearing-life-complete">Bearing life complete guide</a></p><ul><li><a href="/calculator/bearing-frequencies">SC-024 Bearing Frequencies</a></li><li><a href="/calculator/belt-chain-drive">SC-025 Belt &amp; Chain Drive Sizing</a></li><li><a href="/calculator/shaft-design">SC-026 Shaft Design</a></li></ul></section>
+<section class="sc-money-block sc-aeo-topical" data-money-block="15b" data-aeo-step="related-problems" data-topic-id="reliability" data-subtopic-id="bearing-life">
+  <h2>Topical map &amp; related problems</h2>
+  <p class="sc-money-lede"><strong>Reliability &amp; rotating equipment</strong> · Bearing life. Is the L10 life honest for the load and lubrication you will actually run?</p>
+  <h3>Query fan-out (same problem cluster)</h3>
+  <ul class="sc-aeo-fanout"><li><span class="sc-aeo-query">bearing life calculator iso 281</span></li><li><span class="sc-aeo-query">L10h bearing life</span></li></ul>
+  <h3>Internal authority links</h3>
+  <ul><li><a href="/glossary/bearing-l10-life">Bearing L10 life</a></li><li><a href="/glossary/iso-281">ISO 281</a></li><li><a href="/guides/bearing-life-complete">Bearing life complete guide</a></li></ul>
+</section>
 <section class="sc-money-block sc-money-cta" data-money-block="16"><h2>Commercial next step</h2><p>Keep the life audit with the shaft design package when customers ask why a larger bearing was selected.</p>
 <p class="sc-money-cta-actions"><a class="sc-money-link" href="/pricing.html" data-sc-funnel="pricing">View pricing</a>
 <a class="sc-money-link" href="/pro.html">Pro hub</a></p></section>

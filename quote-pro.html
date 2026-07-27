@@ -527,6 +527,38 @@ profitPerUnit = profit / quantity</div>
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "WebPage",
+      "@id": "https://sectorcalc.com/calculator/quote-pricing#webpage",
+      "url": "https://sectorcalc.com/calculator/quote-pricing",
+      "name": "SC-012 Quote Pricing",
+      "description": "Quote pricing with material, labor, overhead, markup, and margin analysis. Deterministic audit trail.",
+      "isPartOf": {
+        "@id": "https://sectorcalc.com/#website"
+      },
+      "about": {
+        "@id": "https://sectorcalc.com/calculator/quote-pricing#software"
+      },
+      "mainEntity": {
+        "@id": "https://sectorcalc.com/calculator/quote-pricing#software"
+      },
+      "publisher": {
+        "@id": "https://sectorcalc.com/#organization"
+      },
+      "author": {
+        "@id": "https://sectorcalc.com/#organization"
+      },
+      "inLanguage": "en-US",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".sc-aeo-problem",
+          ".sc-direct-answer",
+          ".sc-header-title",
+          "h1"
+        ]
+      }
+    },
+    {
       "@type": "SoftwareApplication",
       "@id": "https://sectorcalc.com/calculator/quote-pricing#software",
       "name": "SC-012 Quote Pricing",
@@ -558,6 +590,9 @@ profitPerUnit = profit / quantity</div>
       "author": {
         "@id": "https://sectorcalc.com/#organization"
       },
+      "brand": {
+        "@id": "https://sectorcalc.com/#organization"
+      },
       "screenshot": {
         "@type": "ImageObject",
         "url": "https://sectorcalc.com/assets/images/og-quote-pro-1200x630.jpg",
@@ -567,9 +602,36 @@ profitPerUnit = profit / quantity</div>
       "inLanguage": [
         "en"
       ],
-      "dateModified": "2026-07-24",
+      "dateModified": "2026-07-27",
       "isPartOf": {
         "@id": "https://sectorcalc.com/#website"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://sectorcalc.com/calculator/quote-pricing#webpage"
+      }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://sectorcalc.com/calculator/quote-pricing#product",
+      "name": "SC-012 Quote Pricing",
+      "description": "Quote pricing with material, labor, overhead, markup, and margin analysis. Deterministic audit trail.",
+      "brand": {
+        "@id": "https://sectorcalc.com/#organization"
+      },
+      "category": "Engineering Software",
+      "isRelatedTo": {
+        "@id": "https://sectorcalc.com/calculator/quote-pricing#software"
+      },
+      "offers": {
+        "@type": "Offer",
+        "name": "Free exploratory calculation",
+        "price": "0.00",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://sectorcalc.com/calculator/quote-pricing",
+        "seller": {
+          "@id": "https://sectorcalc.com/#organization"
+        }
       }
     },
     {
@@ -717,8 +779,8 @@ profitPerUnit = profit / quantity</div>
 </script>
 <!--SC-SEO-SCHEMA-END-->
 <link rel="stylesheet" href="/sc-related-tools.css?v=1">
-                        <link rel="stylesheet" href="/sc-money.css?v=1">
-                        <link rel="stylesheet" href="/sc-calc-sheet.css?v=1">
+                        <link rel="stylesheet" href="/sc-money.css?v=2">
+                          <link rel="stylesheet" href="/sc-calc-sheet.css?v=1">
   <!--SC-CALC-SHEET-START-->
   <!-- calc-sheet theme: theme-calc-sheet -->
   <!--SC-CALC-SHEET-END-->
@@ -758,6 +820,7 @@ profitPerUnit = profit / quantity</div>
 </div>
 <!--SC-SITE-NAV-END-->
 <div class="sc-tool-strip"><b>SC-012 · Quote Pricing</b><span>Engineering preview · Decimal engine · Not for production approval</span></div>
+
 
 
 
@@ -842,7 +905,10 @@ profitPerUnit = profit / quantity</div>
 
 <div class="sc-header">
   <div class="sc-header-left"><a href="/" class="sc-logo" title="SectorCalc home" aria-label="SectorCalc home"><img class="logo-light" src="/sectorcalc-logo.png" alt="SectorCalc" width="160" height="42"><img class="logo-dark" src="/sectorcalc-logo-dark.png?v=2" alt="" width="160" height="42" aria-hidden="true"></a><div class="sc-header-brand"><h1 class="sc-header-title">Quote Pricing / Full-Cost Margin Calculator</h1>
-<p class="sc-direct-answer" data-money-block="01" data-tool-id="SC-012">Quote pricing builds a full manufacturing cost — material with scrap, labor, machine time, setup, overhead, and payment finance — then marks up to a target margin so the sell price recovers true cost before you lock a customer promise.</p>
+<div class="sc-aeo-empathy" data-aeo-step="empathy" data-tool-id="SC-012">
+<p class="sc-aeo-problem"><strong>The problem:</strong> A sell price that ignores scrap, setup amortization, or payment float feels competitive — until the job ships and the margin vanishes.</p>
+<p class="sc-aeo-promise">Recover true manufactured cost before you lock the customer promise.</p>
+</div><p class="sc-direct-answer" data-money-block="01" data-aeo-step="direct-answer" data-tool-id="SC-012">When a competitive sell price still somehow kills margin after delivery, quote pricing rebuilds full manufacturing cost — material with scrap, labor, machine time, setup, overhead, and payment finance — then marks up to a target margin you can defend.</p>
 <div class="sc-header-sub">Engineering preview · Client-side · Deterministic Decimal engine · Not for production approval</div></div></div>
   <div class="sc-header-right"><a href="/" class="sc-btn sc-btn-ghost" style="margin-right:10px;text-decoration:none">All tools</a><a href="/pricing.html" class="sc-btn sc-btn-ghost" style="margin-right:10px;text-decoration:none">Pricing</a><div class="sc-badge sc-badge-cost">Price</div></div>
 </div>
@@ -877,12 +943,13 @@ profitPerUnit = profit / quantity</div>
 <script src="/assets/js/cvw-monitor.js" defer></script>
 
 <!--SC-MONEY-START-->
-<aside class="sc-money-contract" data-money-contract="tier-a" data-tool-id="SC-012" data-primary-entity="quote-pricing" data-query-cluster="manufacturing-quoting" data-primary-query="manufacturing quote calculator" data-canonical="/calculator/quote-pricing">
-<section class="sc-money-block" data-money-block="03"><h2>Decision this supports</h2><p>Decide a sell price and unit price that still hit margin after scrap, setup amortization, and cash-cycle finance — before you lock a customer promise.</p></section>
-<section class="sc-money-block" data-money-block="04"><h2>Required inputs</h2><p>Material, scrap rate, labor/machine hours and rates, setup, overhead rate, energy/consumables/shipping, payment days, interest, target margin, quantity.</p></section>
-<section class="sc-money-block" data-money-block="05"><h2>Formula / method</h2><p>Effective material = material / (1 − scrap). Direct = material + labor + machine + setup + energy + consumables + shipping. Finance from payment days. Sell = cost / (1 − margin).</p></section>
-<section class="sc-money-block" data-money-block="06" id="money-worked-example">
-  <h2>Worked example</h2>
+<aside class="sc-money-contract" data-money-contract="tier-a" data-aeo-chain="direct-calc-explain-method-evidence-audit-related" data-tool-id="SC-012" data-primary-entity="quote-pricing" data-query-cluster="manufacturing-quoting" data-primary-query="manufacturing quote calculator" data-canonical="/calculator/quote-pricing">
+<nav class="sc-aeo-rail" aria-label="Answer engine structure"><ol><li data-aeo-rail="direct-answer"><span class="sc-aeo-rail-n">01</span> Direct answer</li><li data-aeo-rail="calculation"><span class="sc-aeo-rail-n">02</span> Calculation</li><li data-aeo-rail="explanation"><span class="sc-aeo-rail-n">03</span> Explanation</li><li data-aeo-rail="methodology"><span class="sc-aeo-rail-n">04</span> Methodology</li><li data-aeo-rail="evidence"><span class="sc-aeo-rail-n">05</span> Evidence</li><li data-aeo-rail="accountability"><span class="sc-aeo-rail-n">06</span> Audit trail</li><li data-aeo-rail="related-problems"><span class="sc-aeo-rail-n">07</span> Related problems</li></ol></nav>
+<section class="sc-money-block" data-money-block="03" data-aeo-step="explanation"><h2>Explanation — decision this supports</h2><p>Decide a sell price and unit price that still hit margin after scrap, setup amortization, and cash-cycle finance — before you lock a customer promise.</p></section>
+<section class="sc-money-block" data-money-block="04" data-aeo-step="explanation"><h2>Required inputs</h2><p>Material, scrap rate, labor/machine hours and rates, setup, overhead rate, energy/consumables/shipping, payment days, interest, target margin, quantity.</p></section>
+<section class="sc-money-block" data-money-block="05" data-aeo-step="methodology"><h2>Methodology — formula &amp; method</h2><p>Effective material = material / (1 − scrap). Direct = material + labor + machine + setup + energy + consumables + shipping. Finance from payment days. Sell = cost / (1 − margin).</p></section>
+<section class="sc-money-block" data-money-block="06" id="money-worked-example" data-aeo-step="evidence">
+  <h2>Evidence — worked example</h2>
   <p class="sc-money-lede">50-piece job quote at 25% target margin. SC-012 builds full cost (material with scrap, labor, machine, setup, overhead, finance) then marks up to the target margin. Outputs are production-engine sell and unit prices.</p>
   <p class="sc-money-engine" data-worked-provenance="engine-generated">Engine source: <code>src/tools/SC-012-quote-pricing/v1.0.0/formula.ts</code> · tool <code>SC-012</code></p>
   <h3>Golden inputs</h3>
@@ -890,15 +957,24 @@ profitPerUnit = profit / quantity</div>
   <h3>Verified engine outputs</h3>
   <table class="sc-money-table"><tbody><tr><th scope="row">sellPrice</th><td><code>382.96</code></td></tr><tr><th scope="row">unitPrice</th><td><code>7.66</code></td></tr><tr><th scope="row">totalCost</th><td><code>287.22</code></td></tr><tr><th scope="row">profit</th><td><code>95.74</code></td></tr><tr><th scope="row">currency</th><td><code>EUR</code></td></tr></tbody></table>
 </section>
-<section class="sc-money-block" data-money-block="07"><h2>What the result means</h2><p>If margin looks high but scrap or finance was ignored, the quote is optimistic. Unit price should be checked against quantity breaks and setup intensity.</p></section>
-<section class="sc-money-block" data-money-block="08"><h2>What moves the result</h2><p>Scrap rate, machine €/h, and target margin dominate. Long payment terms quietly erode profit via finance charge.</p></section>
-<section class="sc-money-block" data-money-block="09"><h2>Assumptions</h2><p>Scrap is yield loss on material only. Overhead is a rate on cost base defined by the engine. Margin is on sell price, not cost-plus markup confusion.</p></section>
-<section class="sc-money-block" data-money-block="10"><h2>Model boundaries</h2><p>Not an ERP quote module. Does not model volume discounts, FX, or contractual LD clauses. Requires honest labor and machine rates from upstream tools.</p></section>
-<section class="sc-money-block" data-money-block="11"><h2>Common engineering mistakes</h2><p>Entering margin as markup; forgetting setup on short runs; double-counting overhead already inside machine rate.</p></section>
-<section class="sc-money-block" data-money-block="12"><h2>Standard / reference scope</h2><p>Manufacturing cost-accounting practice. No claim of GAAP/IFRS quote compliance.</p></section>
-<section class="sc-money-block" data-money-block="13"><h2>A1–A5 audit trail</h2><p>Conservation-locked cost breakdown and step list form the A1–A5 style trail for the quote.</p></section>
-<section class="sc-money-block" data-money-block="14"><h2>Related glossary</h2><ul><li><a href="/glossary/labor-burden-rate">Labor burden rate</a></li><li><a href="/glossary/machine-hour-rate">Machine hour rate</a></li></ul></section>
-<section class="sc-money-block" data-money-block="15"><h2>Related guide &amp; calculators</h2><p><a href="/guides/labor-costing-complete">Labor costing complete guide</a></p><ul><li><a href="/calculator/true-labor-cost">SC-010 True Labor Cost</a></li><li><a href="/calculator/machine-hour-rate">SC-038 Machine Hour Rate</a></li><li><a href="/calculator/oee-teep">SC-037 OEE</a></li></ul></section>
+<section class="sc-money-block" data-money-block="07" data-aeo-step="explanation"><h2>What the result means</h2><p>If margin looks high but scrap or finance was ignored, the quote is optimistic. Unit price should be checked against quantity breaks and setup intensity.</p></section>
+<section class="sc-money-block" data-money-block="08" data-aeo-step="explanation"><h2>What moves the result</h2><p>Scrap rate, machine €/h, and target margin dominate. Long payment terms quietly erode profit via finance charge.</p></section>
+<section class="sc-money-block" data-money-block="09" data-aeo-step="methodology"><h2>Assumptions</h2><p>Scrap is yield loss on material only. Overhead is a rate on cost base defined by the engine. Margin is on sell price, not cost-plus markup confusion.</p></section>
+<section class="sc-money-block" data-money-block="10" data-aeo-step="methodology"><h2>Model boundaries</h2><p>Not an ERP quote module. Does not model volume discounts, FX, or contractual LD clauses. Requires honest labor and machine rates from upstream tools.</p></section>
+<section class="sc-money-block" data-money-block="11" data-aeo-step="evidence"><h2>Common engineering mistakes</h2><p>Entering margin as markup; forgetting setup on short runs; double-counting overhead already inside machine rate.</p></section>
+<section class="sc-money-block" data-money-block="12" data-aeo-step="evidence"><h2>Evidence — standard &amp; reference scope</h2><p>Manufacturing cost-accounting practice. No claim of GAAP/IFRS quote compliance.</p></section>
+<section class="sc-money-block" data-money-block="13" data-aeo-step="accountability"><h2>Accountability — A1–A5 audit trail</h2><p>Conservation-locked cost breakdown and step list form the A1–A5 style trail for the quote.</p>
+<p class="sc-money-expert-note">Engineering accountability is carried by visible formulas, assumptions, warnings, and engine version — not by invented reviewer endorsements. Outputs remain engineering previews subject to competent review.</p></section>
+<section class="sc-money-block" data-money-block="14" data-aeo-step="related-problems"><h2>Related glossary</h2><ul><li><a href="/glossary/labor-burden-rate">Labor burden rate</a></li><li><a href="/glossary/machine-hour-rate">Machine hour rate</a></li></ul></section>
+<section class="sc-money-block" data-money-block="15" data-aeo-step="related-problems"><h2>Related guide &amp; calculators</h2><p><a href="/guides/labor-costing-complete">Labor costing complete guide</a></p><ul><li><a href="/calculator/true-labor-cost">SC-010 True Labor Cost</a></li><li><a href="/calculator/machine-hour-rate">SC-038 Machine Hour Rate</a></li><li><a href="/calculator/oee-teep">SC-037 OEE</a></li></ul></section>
+<section class="sc-money-block sc-aeo-topical" data-money-block="15b" data-aeo-step="related-problems" data-topic-id="manufacturing-economics" data-subtopic-id="quoting-oee">
+  <h2>Topical map &amp; related problems</h2>
+  <p class="sc-money-lede"><strong>Manufacturing economics</strong> · Quoting &amp; effectiveness. Is the shop rate and sell price recovering true cost — or quietly quoting away the margin?</p>
+  <h3>Query fan-out (same problem cluster)</h3>
+  <ul class="sc-aeo-fanout"><li><span class="sc-aeo-query">manufacturing quote calculator</span></li><li><span class="sc-aeo-query">oee calculator</span></li></ul>
+  <h3>Internal authority links</h3>
+  <ul><li><a href="/calculator/oee-teep">SC-037 OEE</a></li><li><a href="/glossary/oee-overall-equipment-effectiveness">OEE</a></li></ul>
+</section>
 <section class="sc-money-block sc-money-cta" data-money-block="16"><h2>Commercial next step</h2><p>Attach the cost breakdown to the quote PDF workflow when you need customer-facing cost transparency without exposing proprietary rate tables wholesale.</p>
 <p class="sc-money-cta-actions"><a class="sc-money-link" href="/pricing.html" data-sc-funnel="pricing">View pricing</a>
 <a class="sc-money-link" href="/pro.html">Pro hub</a></p></section>

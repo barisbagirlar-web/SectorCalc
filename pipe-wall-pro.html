@@ -260,6 +260,38 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "WebPage",
+      "@id": "https://sectorcalc.com/calculator/pipe-wall-thickness#webpage",
+      "url": "https://sectorcalc.com/calculator/pipe-wall-thickness",
+      "name": "SC-034 Pipe Wall Thickness — ASME B31.3",
+      "description": "ASME B31.3 pipe wall thickness and MAWP calculator with corrosion allowance and mill tolerance.",
+      "isPartOf": {
+        "@id": "https://sectorcalc.com/#website"
+      },
+      "about": {
+        "@id": "https://sectorcalc.com/calculator/pipe-wall-thickness#software"
+      },
+      "mainEntity": {
+        "@id": "https://sectorcalc.com/calculator/pipe-wall-thickness#software"
+      },
+      "publisher": {
+        "@id": "https://sectorcalc.com/#organization"
+      },
+      "author": {
+        "@id": "https://sectorcalc.com/#organization"
+      },
+      "inLanguage": "en-US",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".sc-aeo-problem",
+          ".sc-direct-answer",
+          ".sc-header-title",
+          "h1"
+        ]
+      }
+    },
+    {
       "@type": "SoftwareApplication",
       "@id": "https://sectorcalc.com/calculator/pipe-wall-thickness#software",
       "name": "SC-034 Pipe Wall Thickness — ASME B31.3",
@@ -291,6 +323,9 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
       "author": {
         "@id": "https://sectorcalc.com/#organization"
       },
+      "brand": {
+        "@id": "https://sectorcalc.com/#organization"
+      },
       "screenshot": {
         "@type": "ImageObject",
         "url": "https://sectorcalc.com/assets/images/og-pipe-wall-pro-1200x630.jpg",
@@ -300,9 +335,36 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
       "inLanguage": [
         "en"
       ],
-      "dateModified": "2026-07-24",
+      "dateModified": "2026-07-27",
       "isPartOf": {
         "@id": "https://sectorcalc.com/#website"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://sectorcalc.com/calculator/pipe-wall-thickness#webpage"
+      }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://sectorcalc.com/calculator/pipe-wall-thickness#product",
+      "name": "SC-034 Pipe Wall Thickness — ASME B31.3",
+      "description": "ASME B31.3 pipe wall thickness and MAWP calculator with corrosion allowance and mill tolerance.",
+      "brand": {
+        "@id": "https://sectorcalc.com/#organization"
+      },
+      "category": "Engineering Software",
+      "isRelatedTo": {
+        "@id": "https://sectorcalc.com/calculator/pipe-wall-thickness#software"
+      },
+      "offers": {
+        "@type": "Offer",
+        "name": "Free exploratory calculation",
+        "price": "0.00",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://sectorcalc.com/calculator/pipe-wall-thickness",
+        "seller": {
+          "@id": "https://sectorcalc.com/#organization"
+        }
       }
     },
     {
@@ -450,8 +512,8 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
 </script>
 <!--SC-SEO-SCHEMA-END-->
 <link rel="stylesheet" href="/sc-related-tools.css?v=1">
-                        <link rel="stylesheet" href="/sc-money.css?v=1">
-                        <link rel="stylesheet" href="/sc-calc-sheet.css?v=1">
+                        <link rel="stylesheet" href="/sc-money.css?v=2">
+                          <link rel="stylesheet" href="/sc-calc-sheet.css?v=1">
   <!--SC-CALC-SHEET-START-->
   <!-- calc-sheet theme: theme-calc-sheet -->
   <!--SC-CALC-SHEET-END-->
@@ -534,6 +596,7 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
 
 
 
+
 <!--SC-SEO-BREADCRUMB-START-->
 <nav aria-label="Breadcrumb" class="sc-breadcrumb">
   <ol itemscope itemtype="https://schema.org/BreadcrumbList">
@@ -562,7 +625,10 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
   <div class="head">
     <div>
       <h1>Pipe Wall Thickness Calculator — ASME B31.3 (SC-034)</h1>
-<p class="sc-direct-answer" data-money-block="01" data-tool-id="SC-034">ASME B31.3 pipe wall thickness sizing estimates the design thickness for a straight pipe under internal pressure from design pressure, diameter, allowable stress, quality factors, and the Y coefficient, then adds corrosion allowance before schedule selection.</p>
+<div class="sc-aeo-empathy" data-aeo-step="empathy" data-tool-id="SC-034">
+<p class="sc-aeo-problem"><strong>The problem:</strong> Buying the schedule by habit is how projects discover under-thickness after the mill run.</p>
+<p class="sc-aeo-promise">Screen ASME B31.3-style wall need — including mill tolerance — before purchase.</p>
+</div><p class="sc-direct-answer" data-money-block="01" data-aeo-step="direct-answer" data-tool-id="SC-034">Before you buy a schedule by habit, ASME B31.3-style pipe wall sizing estimates design thickness for straight pipe under internal pressure from design pressure, diameter, allowable stress, quality factors, and Y — then adds corrosion allowance before schedule selection.</p>
       <p>Piping design engine for process and piping engineers: pressure design per <b>B31.3 §304.1.2</b> — t = P·D/(2(S·E·W + P·Y)) — with joint factors, Y-coefficient, corrosion allowance, <b>12.5 % mill undertolerance</b> screening, automatic NPS/schedule selection from the dimensional database, and <b>MAWP back-calculation</b> on the selected schedule. Allowable stress presets for A106/A53/TP304 with temperature derating. Every input with <b>selectable universal units</b>, every report with the full audit trail.</p>
     </div>
     <div>
@@ -1068,12 +1134,13 @@ calculate();
 <script src="/assets/js/cvw-monitor.js" defer></script>
 
 <!--SC-MONEY-START-->
-<aside class="sc-money-contract" data-money-contract="tier-a" data-tool-id="SC-034" data-primary-entity="pipe-wall-thickness" data-query-cluster="pipe-wall-thickness" data-primary-query="asme b31.3 pipe wall thickness calculator" data-canonical="/calculator/pipe-wall-thickness">
-<section class="sc-money-block" data-money-block="03"><h2>Decision this supports</h2><p>Choose a schedule or order thickness that meets pressure design before branch reinforcement and flexibility analysis.</p></section>
-<section class="sc-money-block" data-money-block="04"><h2>Required inputs</h2><p>Design pressure, diameter basis, allowable stress, E/W quality factors, Y, corrosion/mechanical allowances.</p></section>
-<section class="sc-money-block" data-money-block="05"><h2>Formula / method</h2><p>t = P·D / (2·(S·E·W + P·Y)); tmin = t + allowances (straight pipe, internal pressure).</p></section>
-<section class="sc-money-block" data-money-block="06" id="money-worked-example">
-  <h2>Worked example</h2>
+<aside class="sc-money-contract" data-money-contract="tier-a" data-aeo-chain="direct-calc-explain-method-evidence-audit-related" data-tool-id="SC-034" data-primary-entity="pipe-wall-thickness" data-query-cluster="pipe-wall-thickness" data-primary-query="asme b31.3 pipe wall thickness calculator" data-canonical="/calculator/pipe-wall-thickness">
+<nav class="sc-aeo-rail" aria-label="Answer engine structure"><ol><li data-aeo-rail="direct-answer"><span class="sc-aeo-rail-n">01</span> Direct answer</li><li data-aeo-rail="calculation"><span class="sc-aeo-rail-n">02</span> Calculation</li><li data-aeo-rail="explanation"><span class="sc-aeo-rail-n">03</span> Explanation</li><li data-aeo-rail="methodology"><span class="sc-aeo-rail-n">04</span> Methodology</li><li data-aeo-rail="evidence"><span class="sc-aeo-rail-n">05</span> Evidence</li><li data-aeo-rail="accountability"><span class="sc-aeo-rail-n">06</span> Audit trail</li><li data-aeo-rail="related-problems"><span class="sc-aeo-rail-n">07</span> Related problems</li></ol></nav>
+<section class="sc-money-block" data-money-block="03" data-aeo-step="explanation"><h2>Explanation — decision this supports</h2><p>Choose a schedule or order thickness that meets pressure design before branch reinforcement and flexibility analysis.</p></section>
+<section class="sc-money-block" data-money-block="04" data-aeo-step="explanation"><h2>Required inputs</h2><p>Design pressure, diameter basis, allowable stress, E/W quality factors, Y, corrosion/mechanical allowances.</p></section>
+<section class="sc-money-block" data-money-block="05" data-aeo-step="methodology"><h2>Methodology — formula &amp; method</h2><p>t = P·D / (2·(S·E·W + P·Y)); tmin = t + allowances (straight pipe, internal pressure).</p></section>
+<section class="sc-money-block" data-money-block="06" id="money-worked-example" data-aeo-step="evidence">
+  <h2>Evidence — worked example</h2>
   <p class="sc-money-lede">DN150 process line internal pressure. Basic B31.3 internal-pressure thickness plus corrosion allowance. External pressure, branch reinforcement, and material certificates are out of scope.</p>
   <p class="sc-money-engine" data-worked-provenance="engine-generated">Engine source: <code>pipe-wall-pro.html B31.3 internal-pressure core (extracted pure)</code> · tool <code>SC-034</code></p>
   <h3>Golden inputs</h3>
@@ -1081,15 +1148,24 @@ calculate();
   <h3>Verified engine outputs</h3>
   <table class="sc-money-table"><tbody><tr><th scope="row">tDesignMm</th><td><code>1.515</code></td></tr><tr><th scope="row">tMinMm</th><td><code>3.015</code></td></tr></tbody></table>
 </section>
-<section class="sc-money-block" data-money-block="07"><h2>What the result means</h2><p>tmin is a pressure-design floor, not an automatic purchase thickness. Mill tolerance and manufacturer minimums still apply.</p></section>
-<section class="sc-money-block" data-money-block="08"><h2>What moves the result</h2><p>Pressure and diameter dominate. Allowable stress and E weld factor move t next. Y matters more as P approaches S bands.</p></section>
-<section class="sc-money-block" data-money-block="09"><h2>Assumptions</h2><p>Straight pipe under internal pressure. Factors match the selected B31.3 path in the UI.</p></section>
-<section class="sc-money-block" data-money-block="10"><h2>Model boundaries</h2><p>Does not cover external pressure, Occasional loads, branch reinforcement, or material certificate substitution. Not a licensed piping engineer stamp.</p></section>
-<section class="sc-money-block" data-money-block="11"><h2>Common engineering mistakes</h2><p>Using OD vs ID inconsistently; forgetting corrosion allowance; treating calculator output as hydrotest pressure.</p></section>
-<section class="sc-money-block" data-money-block="12"><h2>Standard / reference scope</h2><p>Implements ASME B31.3 internal-pressure thickness equations in the stated UI scope/edition notes. Not full B31.3 code compliance for an entire piping system.</p></section>
-<section class="sc-money-block" data-money-block="13"><h2>A1–A5 audit trail</h2><p>A1–A5 capture pressure basis, factors, allowances, and out-of-scope warnings.</p></section>
-<section class="sc-money-block" data-money-block="14"><h2>Related glossary</h2><ul><li><a href="/glossary/asme-b31-pipe-wall">ASME B31 pipe wall</a></li><li><a href="/glossary/asme-viii-pressure-vessel">ASME VIII pressure vessel</a></li></ul></section>
-<section class="sc-money-block" data-money-block="15"><h2>Related guide &amp; calculators</h2><p><a href="/guides/weld-sizing-complete">Weld sizing complete guide</a></p><ul><li><a href="/calculator/hydraulic-cylinder">SC-040 Hydraulic Cylinder Sizing</a></li><li><a href="/calculator/pressure-vessel-shell">SC-033 Pressure Vessel Shell</a></li></ul></section>
+<section class="sc-money-block" data-money-block="07" data-aeo-step="explanation"><h2>What the result means</h2><p>tmin is a pressure-design floor, not an automatic purchase thickness. Mill tolerance and manufacturer minimums still apply.</p></section>
+<section class="sc-money-block" data-money-block="08" data-aeo-step="explanation"><h2>What moves the result</h2><p>Pressure and diameter dominate. Allowable stress and E weld factor move t next. Y matters more as P approaches S bands.</p></section>
+<section class="sc-money-block" data-money-block="09" data-aeo-step="methodology"><h2>Assumptions</h2><p>Straight pipe under internal pressure. Factors match the selected B31.3 path in the UI.</p></section>
+<section class="sc-money-block" data-money-block="10" data-aeo-step="methodology"><h2>Model boundaries</h2><p>Does not cover external pressure, Occasional loads, branch reinforcement, or material certificate substitution. Not a licensed piping engineer stamp.</p></section>
+<section class="sc-money-block" data-money-block="11" data-aeo-step="evidence"><h2>Common engineering mistakes</h2><p>Using OD vs ID inconsistently; forgetting corrosion allowance; treating calculator output as hydrotest pressure.</p></section>
+<section class="sc-money-block" data-money-block="12" data-aeo-step="evidence"><h2>Evidence — standard &amp; reference scope</h2><p>Implements ASME B31.3 internal-pressure thickness equations in the stated UI scope/edition notes. Not full B31.3 code compliance for an entire piping system.</p></section>
+<section class="sc-money-block" data-money-block="13" data-aeo-step="accountability"><h2>Accountability — A1–A5 audit trail</h2><p>A1–A5 capture pressure basis, factors, allowances, and out-of-scope warnings.</p>
+<p class="sc-money-expert-note">Engineering accountability is carried by visible formulas, assumptions, warnings, and engine version — not by invented reviewer endorsements. Outputs remain engineering previews subject to competent review.</p></section>
+<section class="sc-money-block" data-money-block="14" data-aeo-step="related-problems"><h2>Related glossary</h2><ul><li><a href="/glossary/asme-b31-pipe-wall">ASME B31 pipe wall</a></li><li><a href="/glossary/asme-viii-pressure-vessel">ASME VIII pressure vessel</a></li></ul></section>
+<section class="sc-money-block" data-money-block="15" data-aeo-step="related-problems"><h2>Related guide &amp; calculators</h2><p><a href="/guides/weld-sizing-complete">Weld sizing complete guide</a></p><ul><li><a href="/calculator/hydraulic-cylinder">SC-040 Hydraulic Cylinder Sizing</a></li><li><a href="/calculator/pressure-vessel-shell">SC-033 Pressure Vessel Shell</a></li></ul></section>
+<section class="sc-money-block sc-aeo-topical" data-money-block="15b" data-aeo-step="related-problems" data-topic-id="pressure" data-subtopic-id="pipe-vessel">
+  <h2>Topical map &amp; related problems</h2>
+  <p class="sc-money-lede"><strong>Pressure equipment</strong> · Pipe &amp; vessel shells. Is the wall thick enough under the code edition you claim — before steel is ordered?</p>
+  <h3>Query fan-out (same problem cluster)</h3>
+  <ul class="sc-aeo-fanout"><li><span class="sc-aeo-query">asme b31.3 pipe wall thickness calculator</span></li><li><span class="sc-aeo-query">asme viii pressure vessel thickness calculator</span></li></ul>
+  <h3>Internal authority links</h3>
+  <ul><li><a href="/calculator/pressure-vessel-shell">SC-033 Pressure Vessel Shell</a></li><li><a href="/glossary/asme-b31-pipe-wall">ASME B31 pipe wall</a></li><li><a href="/glossary/asme-viii-pressure-vessel">ASME VIII pressure vessel</a></li></ul>
+</section>
 <section class="sc-money-block sc-money-cta" data-money-block="16"><h2>Commercial next step</h2><p>Carry the thickness audit into fabrication packages when clients ask which code equation produced tmin.</p>
 <p class="sc-money-cta-actions"><a class="sc-money-link" href="/pricing.html" data-sc-funnel="pricing">View pricing</a>
 <a class="sc-money-link" href="/pro.html">Pro hub</a></p></section>

@@ -8,6 +8,7 @@
 import { writeFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { TOPICAL_MAPS } from '../seo/topical-maps.mjs';
 import {
   HOST,
   absoluteUrl,
@@ -47,6 +48,17 @@ const clusterLines = [...byCluster.entries()]
     return `### ${cat}\n${links}`;
   })
   .join('\n\n');
+
+const topicalLines = TOPICAL_MAPS.map((topic) => {
+  const subs = topic.subtopics
+    .map((sub) => {
+      const links = (sub.links || []).map((href) => `  - ${absoluteUrl(href)}`).join('\n');
+      const queries = (sub.fanOutQueries || []).map((q) => `  - query: ${q}`).join('\n');
+      return `#### ${sub.name}\n- Problem cluster fan-out:\n${queries}\n- Authority links:\n${links}`;
+    })
+    .join('\n\n');
+  return `### ${topic.topic}\n> ${topic.problem}\n\n${subs}`;
+}).join('\n\n');
 
 const limitations = [
   'SC-021 evaluates one operating point at a time; variable-load spectra must be reduced to equivalent values for basic-life screening.',
@@ -100,6 +112,14 @@ const text = `# SectorCalc
 ## Live tools — ${listedToolCount}
 
 ${clusterLines}
+
+## Topical maps (query fan-out)
+Topic → subtopic → entity → internal links. Use these clusters for retrieval expansion; do not invent a second primary owner for the same primary query.
+
+${topicalLines}
+
+## Answer-engine page chain
+Critical calculator URLs follow: Empathy/Problem → Direct Answer → Calculation → Explanation → Methodology → Evidence → Accountability (A1–A5) → Related Problems / topical map. Free exploratory calculation stays available without a card.
 
 ## Model limits that must not be hidden
 ${limitations.map((l) => `- ${l}`).join('\n')}
