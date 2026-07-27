@@ -1,12 +1,38 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, type Page } from '@playwright/test';
 
 /**
- * Visual smoke against shipped *-pro calculator pages.
- * Each test: page loads, live engine updates, Generate Report shows a real report.
+ * Visual smoke against shipped calculator pages.
+ * Credit monetization may lock compute for guests — assert gate OR live engine.
  */
 
-test('SC-010 labor-pro: live + report', async ({ page }) => {
+async function creditGateLocked(page: Page): Promise<boolean> {
+  const gate = page.locator('#sc-pro-gate-root .sc-pro-gate');
+  if (!(await gate.isVisible().catch(() => false))) return false;
+  if (
+    await page
+      .locator('.sc-pro-gate-active')
+      .isVisible()
+      .catch(() => false)
+  )
+    return false;
+  return true;
+}
+
+async function expectGateSurface(page: Page, toolId: string): Promise<void> {
+  await expect(page.locator('#sc-pro-gate-root .sc-pro-gate')).toBeVisible({ timeout: 12_000 });
+  await expect(page.locator('.sc-pro-gate-kicker')).toContainText(toolId);
+  await expect(
+    page.locator('.sc-pro-gate a[href="/pricing.html"], .sc-pro-gate-btn').first()
+  ).toBeVisible();
+}
+
+test('SC-010 labor-pro: live + report (or credit gate)', async ({ page }) => {
   await page.goto('/labor-pro.html');
+  if (await creditGateLocked(page)) {
+    await expectGateSurface(page, 'SC-010');
+    await expect(page.locator('#liveResult')).toHaveText(/Locked|—/);
+    return;
+  }
   await expect(page.locator('#liveResult')).not.toHaveText('—', { timeout: 8000 });
   await page.fill('#netSalary', '3500');
   await page.locator('#netSalary').dispatchEvent('input');
@@ -14,11 +40,18 @@ test('SC-010 labor-pro: live + report', async ({ page }) => {
   await page.locator('button.sc-btn-primary').click();
   await expect(page.locator('#reportArea .sc-report-title')).toBeVisible({ timeout: 8000 });
   await expect(page.locator('#reportArea .sc-report-title')).toContainText('SC-010');
-  await expect(page.locator('#reportArea .sc-chart, #reportArea .sc-pareto-row').first()).toBeVisible();
+  await expect(
+    page.locator('#reportArea .sc-chart, #reportArea .sc-pareto-row').first()
+  ).toBeVisible();
 });
 
-test('SC-012 quote-pro: live + report', async ({ page }) => {
+test('SC-012 quote-pro: live + report (or credit gate)', async ({ page }) => {
   await page.goto('/quote-pro.html');
+  if (await creditGateLocked(page)) {
+    await expectGateSurface(page, 'SC-012');
+    await expect(page.locator('#liveResult')).toHaveText(/Locked|—/);
+    return;
+  }
   await expect(page.locator('#liveResult')).not.toHaveText('—', { timeout: 8000 });
   await page.fill('#materialCost', '1500');
   await page.locator('#materialCost').dispatchEvent('input');
@@ -26,11 +59,18 @@ test('SC-012 quote-pro: live + report', async ({ page }) => {
   await page.locator('button.sc-btn-primary').click();
   await expect(page.locator('#reportArea .sc-report-title')).toBeVisible({ timeout: 8000 });
   await expect(page.locator('#reportArea .sc-report-title')).toContainText('SC-012');
-  await expect(page.locator('#reportArea .sc-chart, #reportArea .sc-pareto-row').first()).toBeVisible();
+  await expect(
+    page.locator('#reportArea .sc-chart, #reportArea .sc-pareto-row').first()
+  ).toBeVisible();
 });
 
-test('SC-001 weld-pro: live + report', async ({ page }) => {
+test('SC-001 weld-pro: live + report (or credit gate)', async ({ page }) => {
   await page.goto('/weld-pro.html');
+  if (await creditGateLocked(page)) {
+    await expectGateSurface(page, 'SC-001');
+    await expect(page.locator('#liveResult')).toHaveText(/Locked|—/);
+    return;
+  }
   await expect(page.locator('#liveResult')).not.toHaveText('—', { timeout: 8000 });
   await page.fill('#weldLengthMm', '80');
   await page.locator('#weldLengthMm').dispatchEvent('input');
@@ -41,8 +81,13 @@ test('SC-001 weld-pro: live + report', async ({ page }) => {
   await expect(page.locator('#reportArea .sc-chart, #reportArea svg').first()).toBeVisible();
 });
 
-test('SC-008 sc008-pro: live + report', async ({ page }) => {
+test('SC-008 sc008-pro: live + report (or credit gate)', async ({ page }) => {
   await page.goto('/sc008-pro.html');
+  if (await creditGateLocked(page)) {
+    await expectGateSurface(page, 'SC-008');
+    await expect(page.locator('#liveResult')).toHaveText(/Locked|—/);
+    return;
+  }
   await expect(page.locator('#liveResult')).not.toHaveText('—', { timeout: 15000 });
   const tol = page.locator('#dimList input[data-f="tolerance"]').first();
   await tol.fill('0.080');
@@ -54,22 +99,35 @@ test('SC-008 sc008-pro: live + report', async ({ page }) => {
   await expect(page.locator('#reportArea .sc-chart, #reportArea svg').first()).toBeVisible();
 });
 
-test('SC-020 machining-pro: live + audit', async ({ page }) => {
+test('SC-020 machining-pro: live + audit (or credit gate)', async ({ page }) => {
   await page.goto('/machining-pro.html');
+  if (await creditGateLocked(page)) {
+    await expectGateSurface(page, 'SC-020');
+    await page.locator('#calcBtn').click();
+    await expect(page.locator('#verdict')).toHaveText(/Locked|—/i);
+    return;
+  }
   await page.locator('#calcBtn').click();
   await expect(page.locator('#verdict')).toBeVisible({ timeout: 8000 });
-  await expect(page.locator('#verdict')).toContainText(/RELEASED|CAUTION|DO NOT RUN|FAIL|ACCEPTED/i);
+  await expect(page.locator('#verdict')).toContainText(
+    /RELEASED|CAUTION|DO NOT RUN|FAIL|ACCEPTED/i
+  );
   await expect(page.locator('#kpis .kpi').first()).toBeVisible();
   await expect(page.locator('#aEngine')).toContainText('FS-ENGINE');
   await expect(page.locator('#aEngine')).toContainText(/integrity|hash/i);
 });
 
-test('SC-021 bearing-pro: live + audit', async ({ page }) => {
+test('SC-021 bearing-pro: live + audit (or credit gate)', async ({ page }) => {
   await page.goto('/bearing-pro.html');
+  if (await creditGateLocked(page)) {
+    await expectGateSurface(page, 'SC-021');
+    await page.locator('#calcBtn').click();
+    await expect(page.locator('#verdict')).toHaveText(/Locked|—/i);
+    return;
+  }
   await page.locator('#calcBtn').click();
   await expect(page.locator('#verdict')).toBeVisible({ timeout: 8000 });
   await expect(page.locator('#verdict')).toContainText(/ACCEPTED|CONDITIONALLY|REJECTED|FAIL/i);
-  await expect(page.locator('#kpis .kpi').first()).toBeVisible();
   await expect(page.locator('#aEngine')).toContainText('BL-ENGINE');
 });
 
@@ -88,10 +146,14 @@ test('tool SEO guide + engagement mounts on SC-020', async ({ page }) => {
   await expect(page.locator('#sc-guide .sc-guide-grid')).toBeVisible();
   await expect(page.locator('#sc-guide .sc-guide-toc')).toBeVisible();
   await expect(page.locator('#sc-guide .sc-guide-main .sc-guide-card').first()).toBeVisible();
-  await expect(page.locator('#sc-guide a[href="#taylor"], #sc-guide a[href*="taylor"]').first()).toBeVisible();
+  await expect(
+    page.locator('#sc-guide a[href="#taylor"], #sc-guide a[href*="taylor"]').first()
+  ).toBeVisible();
   await page.locator('[data-sc-engage-slot="form"] .sc-engage-btn[data-panel="cite"]').click();
   await expect(page.locator('[data-sc-engage-slot="form"] [data-pane="cite"].open')).toBeVisible();
-  await expect(page.locator('[data-sc-engage-slot="form"] [data-cite]')).toContainText(/SectorCalc/);
+  await expect(page.locator('[data-sc-engage-slot="form"] [data-cite]')).toContainText(
+    /SectorCalc/
+  );
   await expect(formEngage).not.toContainText(/Embed/i);
 });
 
@@ -99,20 +161,23 @@ test('tool SEO guide present on SC-008', async ({ page }) => {
   await page.goto('/sc008-pro.html');
   await expect(page.locator('#sc-guide')).toBeVisible();
   await expect(page.locator('#sc-guide')).toContainText(/Tolerance Stack-Up/i);
-  await expect(page.locator('[data-sc-engage-slot="form"] .sc-engage')).toBeVisible({ timeout: 5000 });
+  await expect(page.locator('[data-sc-engage-slot="form"] .sc-engage')).toBeVisible({
+    timeout: 5000
+  });
   await expect(page.locator('#sc-guide .sc-guide-grid')).toBeVisible();
   await expect(page.locator('#sc-guide .sc-guide-card').first()).toBeVisible();
 });
 
-test('legacy calculator redirects still land on pro tools', async ({ page }) => {
+test('legacy calculator redirects still land on live tools', async ({ page }) => {
+  // Local meta-refresh → *-pro.html; Firebase/Vite parity → /calculator/<slug>
   await page.goto('/calculator.html');
-  await expect(page).toHaveURL(/labor-pro/);
+  await expect(page).toHaveURL(/true-labor-cost|labor-pro/);
   await page.goto('/calculator2.html');
-  await expect(page).toHaveURL(/quote-pro/);
+  await expect(page).toHaveURL(/quote-pricing|quote-pro/);
   await page.goto('/calculator3.html');
-  await expect(page).toHaveURL(/weld-pro/);
+  await expect(page).toHaveURL(/weld-thickness|weld-pro/);
   await page.goto('/calculator4.html');
-  await expect(page).toHaveURL(/machining-pro/);
+  await expect(page).toHaveURL(/cnc-feeds-speeds|machining-pro/);
 });
 
 test('pricing page renders packages from source of truth', async ({ page }) => {

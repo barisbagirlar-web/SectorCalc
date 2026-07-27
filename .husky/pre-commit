@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+echo "[SectorCalc] Pre-commit guard starting..."
+
+npx tsc --noEmit || {
+  echo "[FAIL] TypeScript strict check failed"
+  exit 1
+}
+
+npx lint-staged || {
+  echo "[FAIL] lint-staged failed"
+  exit 1
+}
+
+echo "[OK] Pre-commit guard passed."

@@ -40,6 +40,10 @@ playwright-report/
 test-results/
 tests/visual/screenshots/diff/
 
+# Multi-site regression package drops (never commit foreign site kits)
+5-SITE-REGRESSION-GUARD-COMPLETE*/
+**/5-SITE-REGRESSION-GUARD-COMPLETE*
+
 # Cursor / AI local cache
 .cursor/cache/
 

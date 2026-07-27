@@ -1,8 +1,46 @@
+import { readFileSync } from 'node:fs';
 import { defineConfig } from 'vite';
+
+/**
+ * Mirror Firebase Hosting redirects + rewrites in Vite so local E2E
+ * exercises the same /calculator/<slug> surface as production.
+ */
+function firebaseHostingParity() {
+  const fb = JSON.parse(readFileSync(new URL('./firebase.json', import.meta.url), 'utf8'));
+  const redirects = fb.hosting?.redirects || [];
+  const rewrites = fb.hosting?.rewrites || [];
+
+  function pathOnly(url = '') {
+    return url.split('?')[0].split('#')[0];
+  }
+
+  return {
+    name: 'firebase-hosting-parity',
+    configureServer(server) {
+      server.middlewares.use((req, res, next) => {
+        const pathname = pathOnly(req.url || '');
+        const redirect = redirects.find((r) => r.source === pathname);
+        if (redirect) {
+          res.statusCode = redirect.type || 301;
+          res.setHeader('Location', redirect.destination);
+          res.end();
+          return;
+        }
+        const rewrite = rewrites.find((r) => r.source === pathname);
+        if (rewrite) {
+          const qs = (req.url || '').includes('?') ? `?${(req.url || '').split('?')[1]}` : '';
+          req.url = `${rewrite.destination}${qs}`;
+        }
+        next();
+      });
+    }
+  };
+}
 
 export default defineConfig({
   root: '.',
   base: '/', // Root-absolute assets — required for /calculator/* Firebase rewrites
+  plugins: [firebaseHostingParity()],
 
   build: {
     outDir: 'dist',
