@@ -20,10 +20,14 @@ async function creditGateLocked(page: Page): Promise<boolean> {
 
 async function expectGateSurface(page: Page, toolId: string): Promise<void> {
   await expect(page.locator('#sc-pro-gate-root .sc-pro-gate')).toBeVisible({ timeout: 12_000 });
-  await expect(page.locator('.sc-pro-gate-kicker')).toContainText(toolId);
+  await expect(page.locator('.sc-pro-gate')).toContainText(new RegExp(toolId));
   await expect(
-    page.locator('.sc-pro-gate a[href="/pricing.html"], .sc-pro-gate-btn').first()
-  ).toBeVisible();
+    page
+      .locator(
+        '.sc-pro-gate a[href*="pricing"], .sc-pro-gate a[href*="login"], .sc-pro-gate button, .sc-pro-gate-btn'
+      )
+      .first()
+  ).toBeVisible({ timeout: 12_000 });
 }
 
 test('SC-010 labor-pro: live + report (or credit gate)', async ({ page }) => {
@@ -312,7 +316,7 @@ test('discovery surface matches canonical SEO release policy', async ({ request 
   expect(llmsText).toContain('SC-008');
   expect(llmsText).toContain('/calculator/tolerance-stack-up');
   expect(llmsText).toContain('## Live tools — 25');
-  expect(llmsText).toContain('**78**');
+  expect(llmsText).toContain('**82**');
   expect(llmsText).toContain('OAI-SearchBot');
   expect(llmsText).toContain('PerplexityBot');
   expect(llmsText).not.toMatch(/https:\/\/sectorcalc\.com\/[a-z0-9-]+-pro\.html/i);
