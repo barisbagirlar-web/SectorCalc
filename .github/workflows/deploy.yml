@@ -54,7 +54,6 @@ jobs:
             --only functions,firestore:rules,firestore:indexes \
             --project sectorcalc-prod \
             --token "$FIREBASE_TOKEN" \
-            --force \
             --non-interactive \
             --force
 
