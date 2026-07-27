@@ -228,8 +228,24 @@ const roleMap = [
   ['Quality', '/calculator/tolerance-stack-up']
 ];
 for (const [role, href] of roleMap) {
-  const re = new RegExp(`href="${href.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}"[^>]*>[\\s\\S]{0,400}?${role}`);
-  if (!re.test(index)) issues.push(`index.html: role "${role}" not wired to ${href}`);
+  // Match role label inside the same <a>…</a> card as the href (prettier may expand SVGs).
+  const needle = `href="${href}"`;
+  let from = 0;
+  let wired = false;
+  while (from < index.length) {
+    const idx = index.indexOf(needle, from);
+    if (idx < 0) break;
+    const openEnd = index.indexOf('>', idx);
+    if (openEnd < 0) break;
+    const close = index.indexOf('</a>', openEnd);
+    const card = index.slice(idx, close > openEnd ? close : openEnd + 2500);
+    if (card.includes(`switch-role">${role}<`) || card.includes(`>${role}</span>`)) {
+      wired = true;
+      break;
+    }
+    from = idx + needle.length;
+  }
+  if (!wired) issues.push(`index.html: role "${role}" not wired to ${href}`);
 }
 
 if (!index.includes('id="mobileMenuBtn"') || !index.includes('id="mobileNav"')) {
