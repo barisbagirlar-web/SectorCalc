@@ -1,14 +1,15 @@
 /**
- * Professional Analysis gate UI for SC-008 / SC-020.
- * Free calc stays open; paid actions require server entitlement.
+ * Professional session gate UI — blocks calculation until server entitlement.
+ * Free tools (future): isCreditRequired(toolId) === false → no enforcement.
  */
 import { currentUser } from '../auth/index.js';
+import { isCreditRequired, resolveToolCost } from './domain/packages.js';
 import { fetchWallet, openProfessionalSessionApi, trackBillingEvent } from './api.js';
 
 export interface ProfessionalGateOptions {
-  toolId: 'SC-008' | 'SC-020';
+  toolId: string;
   mount: HTMLElement;
-  /** Called when user is entitled (or monetization not enforced). */
+  /** Called when user becomes entitled (or tool is free / enforcement off). */
   onEntitled?: (session: { expiresAt: string; reused: boolean } | null) => void;
 }
 
@@ -24,19 +25,21 @@ function esc(s: string): string {
 }
 
 export class ProfessionalGate {
-  readonly toolId: 'SC-008' | 'SC-020';
+  readonly toolId: string;
   private mount: HTMLElement;
   private onEntitled?: ProfessionalGateOptions['onEntitled'];
   private entitledUntil: string | null = null;
   private balance: number | null = null;
-  private cost = 15;
+  private cost: number;
   private enforce: boolean;
 
   constructor(opts: ProfessionalGateOptions) {
     this.toolId = opts.toolId;
     this.mount = opts.mount;
     this.onEntitled = opts.onEntitled;
-    this.enforce = monetizationUiEnabled();
+    const pricing = resolveToolCost(opts.toolId);
+    this.cost = pricing?.creditCost ?? 15;
+    this.enforce = monetizationUiEnabled() && isCreditRequired(opts.toolId);
     this.render();
     void this.refresh();
   }
@@ -52,6 +55,13 @@ export class ProfessionalGate {
     if (this.isEntitled()) return true;
     await this.refresh();
     return this.isEntitled();
+  }
+
+  /** Scroll gate into view and return false when locked. */
+  requireEntitled(): boolean {
+    if (this.isEntitled()) return true;
+    this.mount.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return false;
   }
 
   private async refresh(): Promise<void> {
@@ -75,7 +85,7 @@ export class ProfessionalGate {
   private async startSession(): Promise<void> {
     const user = currentUser();
     if (!user) {
-      window.location.href = `/login.html?next=${encodeURIComponent(window.location.pathname)}`;
+      window.location.href = `/login.html?next=${encodeURIComponent(window.location.pathname + window.location.search)}`;
       return;
     }
     trackBillingEvent('professional_session_requested', { toolId: this.toolId, creditCost: this.cost });
@@ -127,26 +137,23 @@ export class ProfessionalGate {
 
   private render(): void {
     const entitled = this.isEntitled();
-    const bal =
-      this.balance == null ? '—' : String(this.balance);
-    const after =
-      this.balance == null ? '—' : String(Math.max(0, this.balance - this.cost));
+    const bal = this.balance == null ? '—' : String(this.balance);
+    const after = this.balance == null ? '—' : String(Math.max(0, this.balance - this.cost));
 
     let body: string;
     if (!this.enforce) {
-      body = `<p class="sc-pro-gate-copy">Professional Analysis (15 credits / 24h) is prepared. Monetization enforcement is off in this environment — free calculation and reports remain available.</p>`;
+      body = `<p class="sc-pro-gate-copy">This tool is free in the current configuration (no credit debit).</p>`;
     } else if (entitled) {
       const exp = this.entitledUntil
         ? new Date(this.entitledUntil).toLocaleString(undefined, { dateStyle: 'medium', timeStyle: 'short' })
         : '—';
       body = `
-        <p class="sc-pro-gate-active">Professional Session Active</p>
+        <p class="sc-pro-gate-active">Session active — calculation unlocked</p>
         <p class="sc-pro-gate-copy">Expires: ${esc(exp)}</p>
-        <p class="sc-pro-gate-copy">Balance: ${esc(bal)} credits</p>
-        <button type="button" class="sc-pro-gate-btn sc-pro-gate-btn-primary" data-open-pro>Open professional analysis</button>`;
+        <p class="sc-pro-gate-copy">Balance: ${esc(bal)} credits</p>`;
     } else {
       body = `
-        <p class="sc-pro-gate-copy">Advanced analysis, engineering audit trail, professional report, and export functions.</p>
+        <p class="sc-pro-gate-copy">Sign in and unlock a 24-hour session to run this calculator. One debit covers unlimited recalculation until expiry.</p>
         <ul class="sc-pro-gate-meta">
           <li><strong>Cost:</strong> ${this.cost} credits</li>
           <li><strong>Current balance:</strong> ${esc(bal)} credits</li>
@@ -161,18 +168,13 @@ export class ProfessionalGate {
     }
 
     this.mount.innerHTML = `
-      <aside class="sc-pro-gate" data-tool="${this.toolId}">
-        <p class="sc-pro-gate-kicker">Professional Analysis</p>
+      <aside class="sc-pro-gate" data-tool="${esc(this.toolId)}">
+        <p class="sc-pro-gate-kicker">Credit unlock · ${esc(this.toolId)}</p>
         <h2 class="sc-pro-gate-title">${this.cost} CREDITS</h2>
         ${body}
       </aside>`;
 
     this.mount.querySelector('[data-confirm-pro]')?.addEventListener('click', () => void this.startSession());
-    this.mount.querySelector('[data-open-pro]')?.addEventListener('click', () => {
-      this.onEntitled?.(
-        this.entitledUntil ? { expiresAt: this.entitledUntil, reused: true } : null
-      );
-    });
   }
 }
 

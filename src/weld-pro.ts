@@ -28,6 +28,11 @@ let calcData = null;
 function readInputs() { const input = { jointType: $('jointType').value }; FIELDS.forEach(f => input[f] = parseFloat($(f).value) || 0); if (input.safetyFactor < 1) input.safetyFactor = 1; return input; }
 
 function validateAndCalc() {
+  if (window.__scProGate && !window.__scProGate.isEntitled()) {
+    if ($('liveResult')) $('liveResult').textContent = 'Locked';
+    if ($('liveSub')) $('liveSub').innerHTML = '<span>Unlock with credits to calculate</span>';
+    return;
+  }
   let hasError = false;
   const checks = [['designLoadN', v => v <= 0], ['weldLengthMm', v => v <= 0], ['weldStrengthMpa', v => v <= 0], ['safetyFactor', v => v < 1], ['materialThicknessMm', v => v <= 0]];
   checks.forEach(([f, bad]) => {

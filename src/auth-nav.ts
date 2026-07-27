@@ -1,9 +1,11 @@
 /**
  * Global header session indicator.
  * Signed-in users must see an active session chip — never a "Sign in" CTA.
+ * Calculator pages also boot the universal credit gate.
  */
 import type { User } from 'firebase/auth';
 import { authReady, watchAuth } from './auth/index.js';
+import { bootToolCreditGate } from './billing/boot-tool-gate.js';
 
 function initials(user: User): string {
   const base = (user.displayName || user.email || 'SC').trim();
@@ -68,6 +70,7 @@ function paintSignedIn(user: User): void {
 }
 
 function boot(): void {
+  bootToolCreditGate();
   if (!authReady()) return;
   watchAuth((user) => {
     if (user) paintSignedIn(user);

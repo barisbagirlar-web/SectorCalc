@@ -43,13 +43,51 @@ describe('packages SSOT', () => {
     expect(INVALID_PADDLE_PRICE_IDS).toEqual([]);
   });
 
-  it('SC-008/SC-020 are ADVANCED 15 with monetization enabled', () => {
+  it('all live tools require credits (no free tools yet)', () => {
+    const ids = Object.keys(
+      // re-import map via resolveToolCost coverage
+      {
+        'SC-001': 1,
+        'SC-008': 1,
+        'SC-010': 1,
+        'SC-012': 1,
+        'SC-020': 1,
+        'SC-021': 1,
+        'SC-022': 1,
+        'SC-023': 1,
+        'SC-024': 1,
+        'SC-025': 1,
+        'SC-026': 1,
+        'SC-027': 1,
+        'SC-028': 1,
+        'SC-029': 1,
+        'SC-030': 1,
+        'SC-031': 1,
+        'SC-032': 1,
+        'SC-033': 1,
+        'SC-034': 1,
+        'SC-035': 1,
+        'SC-036': 1,
+        'SC-037': 1,
+        'SC-038': 1,
+        'SC-039': 1,
+        'SC-040': 1
+      }
+    );
+    for (const id of ids) {
+      const row = resolveToolCost(id);
+      expect(row, id).toBeTruthy();
+      expect(row!.monetizationEnabled, id).toBe(true);
+      expect(row!.creditCost, id).toBeGreaterThan(0);
+    }
     expect(resolveToolCost('SC-020')).toEqual({
       tier: 'ADVANCED',
       creditCost: 15,
       monetizationEnabled: true
     });
     expect(resolveToolCost('SC-008')?.creditCost).toBe(15);
+    expect(resolveToolCost('SC-001')?.creditCost).toBe(3);
+    expect(resolveToolCost('SC-021')?.creditCost).toBe(7);
   });
 });
 

@@ -59,33 +59,37 @@ export const TIER_CREDITS: Record<PricingTier, number> = {
   DECISION: 30
 };
 
-/** Initial tool monetization map (server SSOT). */
+/**
+ * Tool monetization map (server SSOT).
+ * Mandate (2026-07-27): every live tool requires credits for calculation.
+ * Future free tools: set monetizationEnabled:false OR tier:'FREE' (creditCost 0).
+ */
 export const TOOL_PRICING: Record<string, { tier: PricingTier; monetizationEnabled: boolean }> = {
-  'SC-001': { tier: 'CORE', monetizationEnabled: false },
-  'SC-010': { tier: 'CORE', monetizationEnabled: false },
-  'SC-012': { tier: 'CORE', monetizationEnabled: false },
-  'SC-028': { tier: 'CORE', monetizationEnabled: false },
-  'SC-037': { tier: 'CORE', monetizationEnabled: false },
-  'SC-038': { tier: 'CORE', monetizationEnabled: false },
-  'SC-021': { tier: 'PRO', monetizationEnabled: false },
-  'SC-022': { tier: 'PRO', monetizationEnabled: false },
-  'SC-023': { tier: 'PRO', monetizationEnabled: false },
-  'SC-024': { tier: 'PRO', monetizationEnabled: false },
-  'SC-025': { tier: 'PRO', monetizationEnabled: false },
-  'SC-026': { tier: 'PRO', monetizationEnabled: false },
-  'SC-027': { tier: 'PRO', monetizationEnabled: false },
-  'SC-030': { tier: 'PRO', monetizationEnabled: false },
-  'SC-031': { tier: 'PRO', monetizationEnabled: false },
-  'SC-032': { tier: 'PRO', monetizationEnabled: false },
-  'SC-035': { tier: 'PRO', monetizationEnabled: false },
-  'SC-039': { tier: 'PRO', monetizationEnabled: false },
-  'SC-040': { tier: 'PRO', monetizationEnabled: false },
+  'SC-001': { tier: 'CORE', monetizationEnabled: true },
+  'SC-010': { tier: 'CORE', monetizationEnabled: true },
+  'SC-012': { tier: 'CORE', monetizationEnabled: true },
+  'SC-028': { tier: 'CORE', monetizationEnabled: true },
+  'SC-037': { tier: 'CORE', monetizationEnabled: true },
+  'SC-038': { tier: 'CORE', monetizationEnabled: true },
+  'SC-021': { tier: 'PRO', monetizationEnabled: true },
+  'SC-022': { tier: 'PRO', monetizationEnabled: true },
+  'SC-023': { tier: 'PRO', monetizationEnabled: true },
+  'SC-024': { tier: 'PRO', monetizationEnabled: true },
+  'SC-025': { tier: 'PRO', monetizationEnabled: true },
+  'SC-026': { tier: 'PRO', monetizationEnabled: true },
+  'SC-027': { tier: 'PRO', monetizationEnabled: true },
+  'SC-030': { tier: 'PRO', monetizationEnabled: true },
+  'SC-031': { tier: 'PRO', monetizationEnabled: true },
+  'SC-032': { tier: 'PRO', monetizationEnabled: true },
+  'SC-035': { tier: 'PRO', monetizationEnabled: true },
+  'SC-039': { tier: 'PRO', monetizationEnabled: true },
+  'SC-040': { tier: 'PRO', monetizationEnabled: true },
   'SC-008': { tier: 'ADVANCED', monetizationEnabled: true },
   'SC-020': { tier: 'ADVANCED', monetizationEnabled: true },
-  'SC-029': { tier: 'ADVANCED', monetizationEnabled: false },
-  'SC-033': { tier: 'ADVANCED', monetizationEnabled: false },
-  'SC-034': { tier: 'ADVANCED', monetizationEnabled: false },
-  'SC-036': { tier: 'ADVANCED', monetizationEnabled: false }
+  'SC-029': { tier: 'ADVANCED', monetizationEnabled: true },
+  'SC-033': { tier: 'ADVANCED', monetizationEnabled: true },
+  'SC-034': { tier: 'ADVANCED', monetizationEnabled: true },
+  'SC-036': { tier: 'ADVANCED', monetizationEnabled: true }
 };
 
 export function isCreditPackageKey(v: unknown): v is CreditPackageKey {
@@ -100,6 +104,14 @@ export function resolveToolCost(toolId: string): { tier: PricingTier; creditCost
     creditCost: TIER_CREDITS[row.tier],
     monetizationEnabled: row.monetizationEnabled
   };
+}
+
+/** True when this tool must debit a professional session before calculation. */
+export function isCreditRequired(toolId: string): boolean {
+  const row = resolveToolCost(toolId);
+  if (!row) return false;
+  if (row.tier === 'FREE' || row.creditCost <= 0) return false;
+  return row.monetizationEnabled;
 }
 
 export function assertNoInvalidPriceMapping(priceByKey: Partial<Record<CreditPackageKey, string>>): string[] {
