@@ -26,12 +26,19 @@ const html = readFileSync(indexPath, 'utf8');
 const section = html.match(/id="pricing"[\s\S]*?<\/section>/i)?.[0] || '';
 if (!section) fail('index.html missing #pricing credit section');
 
-const banned = [
+  const banned = [
   /Payments are not live yet/i,
   /notify-only/i,
   /free until Paddle checkout launches/i,
   /12 MONTH VALIDITY/i,
   /Planned:\s*Paddle/i,
+  /Run free/i,
+  /Run SC-008 Free/i,
+  /Open a calculator free/i,
+  /Free exploratory/i,
+  /free calc needs no card/i,
+  /Free exploratory runs stay free/i,
+  /no account required to try/i,
   /\$1\.99/,
   /\$4\.99/,
   /\$7\.99/,

@@ -14,6 +14,7 @@ const steps = [
   ['node', ['scripts/verify-internal-link-graph.mjs']],
   ['node', ['scripts/verify-hero-sacred.mjs']],
   ['node', ['scripts/verify-home-credit-packs.mjs']],
+  ['node', ['scripts/verify-honest-credits.mjs']],
   ['node', ['scripts/verify-seo-money.mjs']],
 ];
 

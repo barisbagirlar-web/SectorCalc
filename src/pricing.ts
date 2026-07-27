@@ -34,7 +34,7 @@ function init(): void {
   const freeTier = document.querySelector('#free-tier');
   if (freeTier) {
     freeTier.innerHTML = isCheckoutConfigured()
-      ? `<b>Paddle ${paddle.environment} one-time credit packs.</b> No subscription required. Purchased credits do not expire. Use credits when you need a professional calculation session.`
+      ? `<b>Paddle ${paddle.environment} checkout is ready.</b> Every live calculator requires a credit session before results run (CORE 3 / PRO 7 / ADVANCED 15 · 24h). Purchased credits do not expire.`
       : `<b>Checkout is not configured.</b> Set VITE_PADDLE_CLIENT_TOKEN. Purchased credits do not expire.`;
   }
 

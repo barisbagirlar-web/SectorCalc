@@ -10,7 +10,7 @@
 ## Credits & commerce
 - Optional one-time credit packs (no subscription): Starter 20 ($15), Workshop 100 ($59), Professional 300 ($149), Team Wallet 1000 ($399).
 - Purchased credits never expire. Promotional trial credits (when enabled) are a separate bucket with their own expiry.
-- Every live calculator currently requires a credit-backed professional session before calculation runs. Future free tools may be added by configuration (tier FREE or monetization disabled) without changing the checkout path.
+- Every live calculator currently requires a credit-backed professional session before calculation runs. Marketing must not imply a free live engine. Future free tools may be added by configuration (tier FREE or monetization disabled) without changing the checkout path.
 - Professional sessions debit the server wallet and unlock a tool for 24 hours (unlimited recalculation in-session). Credit cost by tier: CORE 3, PRO 7, ADVANCED 15.
 - Checkout requires sign-in. Merchant of Record is Paddle. Server webhook `transaction.completed` grants credits — browser `checkout.completed` events do not mutate wallet balances.
 - Stuck purchases are reconciled by a Cloud Scheduler job (every 15 minutes) using the same grant path as the webhook.
