@@ -128,7 +128,8 @@ export async function recordCloudPurchase(
     txnId,
     source: input.source || 'checkout',
     at: serverTimestamp(),
-    email: user.email || ''
+    email: user.email || '',
+    displayName: user.displayName || ''
   });
 }
 
