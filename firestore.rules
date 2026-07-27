@@ -19,10 +19,11 @@ service cloud.firestore {
         && request.resource.data.uid == uid
         && request.resource.data.credits is int
         && request.resource.data.credits >= 0;
-      // Owners cannot mutate credits; Cloud Functions (Admin SDK) own the ledger.
       allow update: if (
           isOwner(uid)
           && request.resource.data.uid == uid
+          && request.resource.data.credits is int
+          && request.resource.data.credits >= 0
           && request.resource.data.credits == resource.data.credits
         ) || (
           isOpsAdmin()
@@ -31,21 +32,6 @@ service cloud.firestore {
           && request.resource.data.credits >= 0
         );
       allow delete: if false;
-
-      match /wallet/{docId} {
-        allow read: if isOwner(uid) || isOpsAdmin();
-        allow write: if false;
-      }
-
-      match /creditTransactions/{id} {
-        allow read: if isOwner(uid) || isOpsAdmin();
-        allow write: if false;
-      }
-
-      match /calculationSessions/{id} {
-        allow read: if isOwner(uid) || isOpsAdmin();
-        allow write: if false;
-      }
 
       match /purchases/{id} {
         allow read: if isOwner(uid) || isOpsAdmin();
@@ -60,11 +46,24 @@ service cloud.firestore {
         allow create, update: if isOwner(uid);
         allow delete: if isOwner(uid) || isOpsAdmin();
       }
-    }
 
-    match /paymentEvents/{eventId} {
-      allow read: if isOpsAdmin();
-      allow write: if false;
+      match /ledger/{id} {
+        allow read: if isOwner(uid) || isOpsAdmin();
+        allow create: if (
+            isOwner(uid)
+            && request.resource.data.delta is int
+            && request.resource.data.delta != 0
+            && request.resource.data.kind is string
+            && request.resource.data.label is string
+          ) || (
+            isOpsAdmin()
+            && request.resource.data.delta is int
+            && request.resource.data.delta != 0
+            && request.resource.data.kind is string
+            && request.resource.data.label is string
+          );
+        allow update, delete: if false;
+      }
     }
 
     match /ops_audit/{id} {
@@ -74,6 +73,32 @@ service cloud.firestore {
         && request.resource.data.action is string
         && request.resource.data.actorEmail is string;
       allow update, delete: if false;
+    }
+
+    /* Server-authoritative billing (Admin SDK only). */
+    match /wallets/{uid} {
+      allow read: if isOwner(uid) || isOpsAdmin();
+      allow write: if false;
+
+      match /ledger/{id} {
+        allow read: if isOwner(uid) || isOpsAdmin();
+        allow write: if false;
+      }
+
+      match /professional_sessions/{id} {
+        allow read: if isOwner(uid) || isOpsAdmin();
+        allow write: if false;
+      }
+    }
+
+    match /billing_purchases/{id} {
+      allow read: if signedIn() && (resource.data.userId == request.auth.uid || isOpsAdmin());
+      allow write: if false;
+    }
+
+    match /paddle_webhook_events/{id} {
+      allow read: if isOpsAdmin();
+      allow write: if false;
     }
   }
 }

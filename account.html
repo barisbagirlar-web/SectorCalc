@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="./sc-site-nav.css?v=5">
 <script src="./sc-site-nav.js?v=2" defer></script>
 <script type="module" src="/src/auth-nav.ts"></script>
-<link rel="stylesheet" href="/sc-account.css?v=5">
+<link rel="stylesheet" href="/sc-account.css?v=7">
 <link rel="stylesheet" href="./sc-form-fields.css?v=5">
 </head>
 <body>
@@ -52,7 +52,20 @@
 <!--SC-SITE-NAV-END-->
 
 
+
+
+
 <main class="acc-page" id="acc-root">
+  <div id="acc-inspect-banner" class="acc-inspect-banner" hidden>
+    <div>
+      <strong>Operator inspect mode</strong>
+      <span id="acc-inspect-copy">Viewing a customer cloud account. Changes that affect the customer are limited to read-only statement data.</span>
+    </div>
+    <div class="acc-btn-row">
+      <a class="acc-btn acc-btn-ghost" href="/sc-ops.html">Back to ops</a>
+      <a class="acc-btn acc-btn-primary" id="acc-inspect-exit" href="/account.html">Exit inspect</a>
+    </div>
+  </div>
   <div id="acc-loading" class="acc-loading" hidden>
     <div class="acc-skel-side"></div>
     <div class="acc-skel-main">
@@ -185,9 +198,35 @@
       </div>
 
       <div class="acc-tab" id="acc-tab-credits" role="tabpanel" hidden>
-        <div class="acc-card-grid">
+        <div class="acc-stat-row acc-ledger-kpis">
+          <article class="acc-stat"><p class="acc-stat-label">Available</p><p class="acc-stat-value mono" id="acc-ledger-available">—</p><p class="acc-stat-hint">Current balance</p></article>
+          <article class="acc-stat"><p class="acc-stat-label">Purchased</p><p class="acc-stat-value mono" id="acc-ledger-purchased">—</p><p class="acc-stat-hint">Lifetime credits in</p></article>
+          <article class="acc-stat"><p class="acc-stat-label">Spent</p><p class="acc-stat-value mono" id="acc-ledger-spent">—</p><p class="acc-stat-hint">Lifetime credits out</p></article>
+          <article class="acc-stat"><p class="acc-stat-label">Movements</p><p class="acc-stat-value mono" id="acc-ledger-count">—</p><p class="acc-stat-hint">Statement rows</p></article>
+        </div>
+        <div class="acc-toolbar">
+          <p class="acc-lede">Credit statement — purchases, spends, and adjustments with date and time (UTC).</p>
+          <button type="button" class="acc-btn acc-btn-ghost" id="ledger-refresh">Refresh</button>
+        </div>
+        <div class="acc-table-wrap">
+          <table class="acc-table acc-ledger-table">
+            <thead>
+              <tr>
+                <th>Date &amp; time (UTC)</th>
+                <th>Type</th>
+                <th>Description</th>
+                <th>Amount</th>
+                <th>Balance after</th>
+                <th>Reference</th>
+              </tr>
+            </thead>
+            <tbody id="ledger-tbody"><tr><td colspan="6">Loading…</td></tr></tbody>
+          </table>
+        </div>
+        <p class="acc-muted" id="ledger-empty" hidden>No credit movements yet. Buy a pack or unlock a professional session to start the statement.</p>
+        <div class="acc-card-grid acc-card-grid-2" style="margin-top:18px">
           <article class="acc-card">
-            <h3>Balance breakdown</h3>
+            <h3>Balance sources</h3>
             <dl class="acc-dl">
               <div><dt>Cloud profile</dt><dd class="mono" id="acc-cloud-detail">—</dd></div>
               <div><dt>This browser</dt><dd class="mono" id="acc-local-detail">—</dd></div>
@@ -199,8 +238,8 @@
             <h3>Policy</h3>
             <ul class="acc-bullets">
               <li>Pay-per-use · no subscription.</li>
-              <li>Credits valid 12 months from purchase.</li>
-              <li>Paddle is merchant of record.</li>
+              <li>Purchases and spends post here with UTC timestamps.</li>
+              <li>Paddle is merchant of record for paid packs.</li>
               <li>Engines stay client-side; credits gate entitlement only.</li>
             </ul>
           </article>

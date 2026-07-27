@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="./sc-theme.css?v=12">
 <script src="./sc-theme.js?v=12" defer></script>
 <link rel="stylesheet" href="/sc-auth.css?v=3">
-<link rel="stylesheet" href="/sc-ops.css?v=5">
+<link rel="stylesheet" href="/sc-ops.css?v=7">
 </head>
 <body class="ops-body">
 <main class="ops-shell">
@@ -161,6 +161,56 @@
           </table>
         </div>
 
+        <article class="ops-card ops-user-dossier" id="user-dossier" hidden>
+          <div class="ops-toolbar ops-toolbar-tight">
+            <div>
+              <h2 id="dossier-title">Customer account</h2>
+              <p class="ops-lede" id="dossier-sub">Select a user to inspect their cloud account, credit statement, and devices.</p>
+            </div>
+            <div class="ops-btn-row">
+              <a class="ops-btn ops-btn-primary" id="dossier-open-account" href="/account.html" target="_blank" rel="noopener">Open account view</a>
+              <button type="button" class="ops-btn ops-btn-ghost" id="dossier-adjust">Adjust credits</button>
+              <button type="button" class="ops-btn ops-btn-ghost" id="dossier-close">Close</button>
+            </div>
+          </div>
+          <div class="ops-kpi-grid ops-kpi-grid-compact" id="dossier-kpis">
+            <article class="ops-kpi"><p class="ops-kpi-label">Balance</p><p class="ops-kpi-value mono" id="dossier-credits">—</p></article>
+            <article class="ops-kpi"><p class="ops-kpi-label">Purchased (stmt)</p><p class="ops-kpi-value mono" id="dossier-purchased">—</p></article>
+            <article class="ops-kpi"><p class="ops-kpi-label">Spent (stmt)</p><p class="ops-kpi-value mono" id="dossier-spent">—</p></article>
+            <article class="ops-kpi"><p class="ops-kpi-label">Devices</p><p class="ops-kpi-value mono" id="dossier-devices">—</p></article>
+          </div>
+          <dl class="ops-dl" id="dossier-identity">
+            <div><dt>Email</dt><dd id="dossier-email" class="mono">—</dd></div>
+            <div><dt>Name</dt><dd id="dossier-name">—</dd></div>
+            <div><dt>UID</dt><dd id="dossier-uid" class="mono">—</dd></div>
+          </dl>
+          <h3 class="ops-section-title">Credit statement</h3>
+          <div class="ops-table-wrap">
+            <table class="ops-table">
+              <thead>
+                <tr><th>Date &amp; time (UTC)</th><th>Type</th><th>Description</th><th>Amount</th><th>Balance after</th><th>Reference</th></tr>
+              </thead>
+              <tbody id="dossier-ledger-tbody"><tr><td colspan="6">Select a user…</td></tr></tbody>
+            </table>
+          </div>
+          <h3 class="ops-section-title">Purchase receipts</h3>
+          <div class="ops-table-wrap">
+            <table class="ops-table">
+              <thead><tr><th>When (UTC)</th><th>Credits</th><th>Amount</th><th>Txn</th><th>Source</th></tr></thead>
+              <tbody id="dossier-purchases-tbody"><tr><td colspan="5">Select a user…</td></tr></tbody>
+            </table>
+          </div>
+          <h3 class="ops-section-title">Devices</h3>
+          <ul class="ops-activity" id="dossier-session-list"><li class="ops-activity-empty">Select a user…</li></ul>
+          <h3 class="ops-section-title">Audit involving this user</h3>
+          <div class="ops-table-wrap">
+            <table class="ops-table">
+              <thead><tr><th>When (UTC)</th><th>Action</th><th>Actor</th><th>Detail</th></tr></thead>
+              <tbody id="dossier-audit-tbody"><tr><td colspan="4">Select a user…</td></tr></tbody>
+            </table>
+          </div>
+        </article>
+
         <article class="ops-card ops-credit-desk" id="credit-desk">
           <h2>Credit adjustment</h2>
           <p class="ops-lede">Set absolute balance or apply a signed delta. Every change writes an audit record.</p>
@@ -219,25 +269,46 @@
           </article>
         </div>
         <h2 class="ops-section-title">Cloud purchase receipts</h2>
+        <p class="ops-lede ops-section-lede">Every cloud checkout with buyer name and email (joined from user profile when the receipt omits identity).</p>
         <div class="ops-table-wrap">
           <table class="ops-table">
             <thead>
-              <tr><th>When (UTC)</th><th>Email</th><th>Credits</th><th>Amount</th><th>Txn</th><th>Source</th></tr>
+              <tr><th>When (UTC)</th><th>Name</th><th>Email</th><th>Pack</th><th>Credits</th><th>Amount</th><th>Txn</th><th></th></tr>
             </thead>
             <tbody id="ops-receipts-tbody">
-              <tr><td colspan="6">Loading…</td></tr>
+              <tr><td colspan="8">Loading…</td></tr>
             </tbody>
           </table>
         </div>
         <h2 class="ops-section-title">Credit pack catalog</h2>
+        <p class="ops-lede ops-section-lede">Published SKUs with live sales counts and buyer emails. Click a pack or <strong>Buyers</strong> to list purchases by name and email.</p>
         <div class="ops-table-wrap">
           <table class="ops-table">
             <thead>
-              <tr><th>Credits</th><th>Price</th><th>Per credit</th><th>Badge</th><th>Paddle price ID</th><th></th></tr>
+              <tr><th>Credits</th><th>Price</th><th>Per credit</th><th>Badge</th><th>Paddle price ID</th><th>Sales</th><th>Buyers</th><th></th></tr>
             </thead>
             <tbody id="ops-packs"></tbody>
           </table>
         </div>
+        <article class="ops-card ops-pack-buyers-card" id="pack-buyers-panel" hidden>
+          <div class="ops-toolbar ops-toolbar-tight">
+            <div>
+              <h2 id="pack-buyers-title">Buyers</h2>
+              <p class="ops-lede" id="pack-buyers-sub">Select a pack to list purchasers.</p>
+            </div>
+            <button type="button" class="ops-btn ops-btn-ghost" id="pack-buyers-close">Close</button>
+          </div>
+          <div class="ops-table-wrap">
+            <table class="ops-table">
+              <thead>
+                <tr><th>When (UTC)</th><th>Name</th><th>Email</th><th>Amount</th><th>Txn</th><th></th></tr>
+              </thead>
+              <tbody id="pack-buyers-tbody">
+                <tr><td colspan="6">Select a pack…</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
       </div>
 
       <!-- CATALOG -->

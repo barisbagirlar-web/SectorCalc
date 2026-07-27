@@ -16,15 +16,28 @@ import {
   listUserProfiles,
   listOpsAudit,
   listAllPurchases,
+  enrichOpsPurchases,
+  packBuyerSummary,
   estimateGmvUsd,
   writeOpsAudit,
   adminSetUserCredits,
   adminAdjustUserCredits,
   profilesToCsv,
   downloadTextFile,
+  readUserProfile,
+  listCloudPurchases,
+  listCloudLedger,
+  listSessions,
+  mergeMovements,
+  withRunningBalance,
+  ledgerTotals,
+  purchasesAsMovements,
   type UserProfile,
   type OpsAuditEvent,
-  type OpsPurchaseRow
+  type OpsPurchaseRow,
+  type CreditMovement,
+  type DeviceSession,
+  type PurchaseRecord
 } from './auth/index.js';
 import { getPaddlePublicConfig } from './payments/paddle/index.js';
 import { PACKAGES } from './lib/pricing-packages.js';
@@ -41,7 +54,7 @@ const PANEL_META: Record<string, { title: string; sub: string }> = {
   },
   commerce: {
     title: 'Payments & packs',
-    sub: 'Paddle merchant surface and published credit pack catalog.'
+    sub: 'Paddle surface, cloud purchase receipts with buyer identity, and pack catalog sales.'
   },
   catalog: {
     title: 'Tool catalog',
@@ -73,8 +86,10 @@ let currentUser: User | null = null;
 let profilesCache: UserProfile[] = [];
 let auditCache: OpsAuditEvent[] = [];
 let purchasesCache: OpsPurchaseRow[] = [];
+let dossierUid = '';
 let activeTab = 'overview';
 let openLogged = false;
+let selectedPackCredits: number | null = null;
 
 function $(id: string): HTMLElement | null {
   return document.getElementById(id);
@@ -135,20 +150,85 @@ function setTab(tab: string): void {
   if (sub) sub.textContent = meta.sub;
 }
 
+function packLabel(credits: number): string {
+  const pack = PACKAGES.find((p) => p.credits === credits);
+  if (!pack) return `${credits} credits`;
+  return pack.badge ? `${pack.credits} · ${pack.badge}` : `${pack.credits} credits`;
+}
+
+function selectPackBuyers(credits: number): void {
+  selectedPackCredits = credits;
+  renderPacks();
+  $('pack-buyers-panel')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
 function renderPacks(): void {
   const el = $('ops-packs');
   if (!el) return;
   el.innerHTML = PACKAGES.map((p) => {
     const badge = p.badge ? esc(p.badge) : '—';
-    return `<tr>
+    const summary = packBuyerSummary(purchasesCache, p.credits);
+    const buyerPreview = summary.buyers.length
+      ? summary.buyers
+          .slice(0, 3)
+          .map((b) => esc(b.email || b.displayName || b.uid.slice(0, 8) || '—'))
+          .join(', ') + (summary.buyers.length > 3 ? ` +${summary.buyers.length - 3}` : '')
+      : '—';
+    const selected = selectedPackCredits === p.credits ? ' is-selected' : '';
+    return `<tr class="ops-pack-row${selected}" data-pack-credits="${p.credits}" tabindex="0" role="button" title="Show buyers for this pack">
       <td class="mono">${p.credits}</td>
       <td class="mono">${esc(p.price)}</td>
       <td class="mono">${esc(p.perCredit)}</td>
       <td>${badge}</td>
       <td><code>${esc(p.paddlePriceId)}</code></td>
-      <td><button type="button" class="ops-btn ops-btn-sm ops-btn-ghost" data-copy="${esc(p.paddlePriceId)}">Copy ID</button></td>
+      <td class="mono">${summary.sales}</td>
+      <td class="ops-pack-buyers">${buyerPreview}</td>
+      <td class="ops-actions">
+        <button type="button" class="ops-btn ops-btn-sm ops-btn-primary" data-pack-buyers="${p.credits}">Buyers</button>
+        <button type="button" class="ops-btn ops-btn-sm ops-btn-ghost" data-copy="${esc(p.paddlePriceId)}">Copy ID</button>
+      </td>
     </tr>`;
   }).join('');
+  renderPackBuyers();
+}
+
+function renderPackBuyers(): void {
+  const panel = $('pack-buyers-panel');
+  const title = $('pack-buyers-title');
+  const sub = $('pack-buyers-sub');
+  const tbody = $('pack-buyers-tbody');
+  if (!panel || !tbody) return;
+  if (selectedPackCredits == null) {
+    panel.hidden = true;
+    return;
+  }
+  const pack = PACKAGES.find((p) => p.credits === selectedPackCredits);
+  const rows = purchasesCache.filter((p) => p.credits === selectedPackCredits);
+  panel.hidden = false;
+  if (title) title.textContent = pack ? `Buyers · ${pack.credits}-credit pack` : 'Buyers';
+  if (sub) {
+    sub.textContent = pack
+      ? `${rows.length} purchase(s) · ${pack.price}${pack.badge ? ` · ${pack.badge}` : ''}`
+      : `${rows.length} purchase(s)`;
+  }
+  if (!rows.length) {
+    tbody.innerHTML = '<tr><td colspan="6">No cloud purchases for this pack yet.</td></tr>';
+    return;
+  }
+  tbody.innerHTML = rows
+    .map(
+      (p) => `<tr>
+      <td class="mono">${esc(p.at.replace('T', ' ').slice(0, 19))}</td>
+      <td>${esc(p.displayName || '—')}</td>
+      <td class="ops-user-email">${esc(p.email || '—')}</td>
+      <td class="mono">${esc(p.amountLabel)}</td>
+      <td class="mono">${esc(p.txnId)}</td>
+      <td class="ops-actions">
+        <button type="button" class="ops-btn ops-btn-sm ops-btn-primary" data-open-account="${esc(p.uid)}" data-email="${esc(p.email)}">Open account</button>
+      </td>
+    </tr>`
+    )
+    .join('');
 }
 
 function renderTools(): void {
@@ -187,13 +267,14 @@ function renderUsersTable(): void {
   }
   tbody.innerHTML = rows
     .map(
-      (p) => `<tr>
-      <td>${esc(p.email || '—')}</td>
+      (p) => `<tr class="ops-user-row" data-open-account="${esc(p.uid)}" data-email="${esc(p.email)}" tabindex="0" role="button" title="Open customer account">
+      <td class="ops-user-email">${esc(p.email || '—')}</td>
       <td>${esc(p.displayName || '—')}</td>
       <td class="mono">${p.credits}</td>
       <td><code title="${esc(p.uid)}">${esc(p.uid.slice(0, 10))}…</code></td>
       <td class="ops-actions">
-        <button type="button" class="ops-btn ops-btn-sm ops-btn-primary" data-select-user="${esc(p.uid)}" data-email="${esc(p.email)}">Adjust</button>
+        <button type="button" class="ops-btn ops-btn-sm ops-btn-primary" data-open-account="${esc(p.uid)}" data-email="${esc(p.email)}">Open account</button>
+        <button type="button" class="ops-btn ops-btn-sm ops-btn-ghost" data-select-user="${esc(p.uid)}" data-email="${esc(p.email)}">Adjust</button>
         <button type="button" class="ops-btn ops-btn-sm ops-btn-ghost" data-copy="${esc(p.uid)}">Copy UID</button>
       </td>
     </tr>`
@@ -245,19 +326,23 @@ function renderReceipts(): void {
   const tbody = $('ops-receipts-tbody');
   if (!tbody) return;
   if (!purchasesCache.length) {
-    tbody.innerHTML = '<tr><td colspan="6">No cloud purchase receipts yet.</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="8">No cloud purchase receipts yet.</td></tr>';
     return;
   }
   tbody.innerHTML = purchasesCache
-    .slice(0, 40)
+    .slice(0, 80)
     .map(
       (p) => `<tr>
       <td class="mono">${esc(p.at.replace('T', ' ').slice(0, 19))}</td>
-      <td>${esc(p.email || p.uid || '—')}</td>
+      <td>${esc(p.displayName || '—')}</td>
+      <td class="ops-user-email">${esc(p.email || '—')}</td>
+      <td>${esc(packLabel(p.credits))}</td>
       <td class="mono">${esc(String(p.credits))}</td>
       <td class="mono">${esc(p.amountLabel)}</td>
       <td class="mono">${esc(p.txnId)}</td>
-      <td class="mono">${esc(p.source)}</td>
+      <td class="ops-actions">
+        <button type="button" class="ops-btn ops-btn-sm ops-btn-primary" data-open-account="${esc(p.uid)}" data-email="${esc(p.email)}">Open account</button>
+      </td>
     </tr>`
     )
     .join('');
@@ -332,10 +417,11 @@ async function loadData(showStatus = false): Promise<void> {
     ]);
     profilesCache = profiles;
     auditCache = audit;
-    purchasesCache = purchases;
+    purchasesCache = enrichOpsPurchases(purchases, profiles);
     renderUsersTable();
     renderAudit();
     renderReceipts();
+    renderPacks();
     renderOverviewHealth();
     if (showStatus) {
       setMsg(
@@ -363,6 +449,163 @@ function selectUser(uid: string, email: string): void {
   }
   setTab('users');
   $('credit-desk')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function kindLabel(kind: CreditMovement['kind']): string {
+  switch (kind) {
+    case 'purchase':
+      return 'Purchase';
+    case 'spend':
+      return 'Spend';
+    case 'refund':
+      return 'Refund';
+    case 'admin':
+      return 'Admin';
+    case 'promo':
+      return 'Promo';
+    case 'sync':
+      return 'Sync';
+    default:
+      return 'Movement';
+  }
+}
+
+function closeDossier(): void {
+  dossierUid = '';
+  const panel = $('user-dossier');
+  if (panel) panel.hidden = true;
+}
+
+async function openUserAccount(uid: string, emailHint = ''): Promise<void> {
+  setTab('users');
+  dossierUid = uid;
+  const panel = $('user-dossier');
+  if (panel) panel.hidden = false;
+  setMsg('ops-desk-msg', 'Loading customer account…', '');
+  setMsg('dossier-title', 'Customer account');
+  setMsg('dossier-sub', 'Loading cloud profile, statement, devices, and audit…');
+  const ledgerBody = $('dossier-ledger-tbody');
+  const purchBody = $('dossier-purchases-tbody');
+  const auditBody = $('dossier-audit-tbody');
+  const sessionsList = $('dossier-session-list');
+  if (ledgerBody) ledgerBody.innerHTML = '<tr><td colspan="6">Loading…</td></tr>';
+  if (purchBody) purchBody.innerHTML = '<tr><td colspan="5">Loading…</td></tr>';
+  if (auditBody) auditBody.innerHTML = '<tr><td colspan="4">Loading…</td></tr>';
+  if (sessionsList) sessionsList.innerHTML = '<li class="ops-activity-empty">Loading…</li>';
+
+  const link = $('dossier-open-account') as HTMLAnchorElement | null;
+  if (link) link.href = `/account.html?inspect=${encodeURIComponent(uid)}`;
+
+  try {
+    const profile =
+      profilesCache.find((p) => p.uid === uid) ||
+      (await readUserProfile(uid).catch(() => null));
+    const [purchases, ledgerRaw, sessions] = await Promise.all([
+      listCloudPurchases(uid).catch(() => [] as PurchaseRecord[]),
+      listCloudLedger(uid).catch(() => [] as CreditMovement[]),
+      listSessions(uid).catch(() => [] as DeviceSession[])
+    ]);
+    const balance = profile?.credits ?? 0;
+    const movements = withRunningBalance(
+      mergeMovements(ledgerRaw, purchasesAsMovements(purchases)),
+      balance
+    );
+    const totals = ledgerTotals(movements);
+    const email = profile?.email || emailHint || '—';
+    const name = profile?.displayName || '—';
+
+    setMsg('dossier-title', email !== '—' ? email : 'Customer account');
+    setMsg('dossier-sub', `Cloud account inspect · UID ${uid}`);
+    setMsg('dossier-email', email);
+    setMsg('dossier-name', name);
+    setMsg('dossier-uid', uid);
+    setMsg('dossier-credits', String(balance));
+    setMsg('dossier-purchased', String(totals.purchased));
+    setMsg('dossier-spent', String(totals.spent));
+    setMsg('dossier-devices', String(sessions.length));
+
+    if (ledgerBody) {
+      ledgerBody.innerHTML = movements.length
+        ? movements
+            .slice(0, 80)
+            .map((m) => {
+              const amt = m.delta > 0 ? `+${m.delta}` : String(m.delta);
+              const bal = m.balanceAfter == null ? '—' : String(m.balanceAfter);
+              return `<tr>
+                <td class="mono">${esc(m.at.replace('T', ' ').slice(0, 19))}</td>
+                <td class="mono">${esc(kindLabel(m.kind))}</td>
+                <td>${esc(m.label)}${m.detail ? `<div class="ops-muted">${esc(m.detail)}</div>` : ''}</td>
+                <td class="mono">${esc(amt)}</td>
+                <td class="mono">${esc(bal)}</td>
+                <td class="mono">${esc(m.txnId)}</td>
+              </tr>`;
+            })
+            .join('')
+        : '<tr><td colspan="6">No credit movements for this user yet.</td></tr>';
+    }
+
+    if (purchBody) {
+      purchBody.innerHTML = purchases.length
+        ? purchases
+            .slice(0, 40)
+            .map(
+              (p) => `<tr>
+              <td class="mono">${esc(p.at.replace('T', ' ').slice(0, 19))}</td>
+              <td class="mono">${esc(String(p.credits))}</td>
+              <td class="mono">${esc(p.amountLabel)}</td>
+              <td class="mono">${esc(p.txnId)}</td>
+              <td class="mono">${esc(p.source)}</td>
+            </tr>`
+            )
+            .join('')
+        : '<tr><td colspan="5">No purchase receipts.</td></tr>';
+    }
+
+    if (sessionsList) {
+      sessionsList.innerHTML = sessions.length
+        ? sessions
+            .map(
+              (s) =>
+                `<li class="ops-activity-row"><strong>${esc(s.label)}</strong><span class="mono">${esc(
+                  s.lastSeenAt.replace('T', ' ').slice(0, 19)
+                )}</span><span>${s.current ? 'Current device hint' : 'Registered'}</span></li>`
+            )
+            .join('')
+        : '<li class="ops-activity-empty">No registered devices.</li>';
+    }
+
+    const related = auditCache.filter(
+      (ev) => ev.targetUid === uid || (email !== '—' && ev.targetEmail === email)
+    );
+    if (auditBody) {
+      auditBody.innerHTML = related.length
+        ? related
+            .slice(0, 40)
+            .map(
+              (ev) => `<tr>
+              <td class="mono">${esc(fmtWhen(ev))}</td>
+              <td class="mono">${esc(ev.action)}</td>
+              <td>${esc(ev.actorEmail || ev.actorUid)}</td>
+              <td>${esc(ev.detail || '—')}</td>
+            </tr>`
+            )
+            .join('')
+        : '<tr><td colspan="4">No audit rows targeting this user.</td></tr>';
+    }
+
+    panel?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    setMsg('ops-desk-msg', `Opened account dossier for ${email}`, 'ok');
+    if (currentUser) {
+      void writeOpsAudit(currentUser, {
+        action: 'user.inspect',
+        targetUid: uid,
+        targetEmail: email !== '—' ? email : undefined,
+        detail: 'Opened customer account dossier'
+      }).catch(() => undefined);
+    }
+  } catch (err) {
+    setMsg('ops-desk-msg', err instanceof Error ? err.message : 'Failed to open account', 'err');
+  }
 }
 
 async function copyText(text: string): Promise<void> {
@@ -573,10 +816,51 @@ function bindEvents(): void {
       void copyText(copyBtn.dataset.copy);
       return;
     }
+    const packBuyers = t.closest<HTMLElement>('[data-pack-buyers]');
+    if (packBuyers?.dataset.packBuyers) {
+      selectPackBuyers(Number(packBuyers.dataset.packBuyers));
+      return;
+    }
+    const packRow = t.closest<HTMLElement>('tr[data-pack-credits]');
+    if (packRow?.dataset.packCredits && !t.closest('[data-copy]')) {
+      selectPackBuyers(Number(packRow.dataset.packCredits));
+      return;
+    }
     const sel = t.closest<HTMLElement>('[data-select-user]');
     if (sel?.dataset.selectUser) {
       selectUser(sel.dataset.selectUser, sel.dataset.email || '');
+      return;
     }
+    const openAcc = t.closest<HTMLElement>('[data-open-account]');
+    if (openAcc?.dataset.openAccount) {
+      void openUserAccount(openAcc.dataset.openAccount, openAcc.dataset.email || '');
+    }
+  });
+
+  document.addEventListener('keydown', (ev) => {
+    if (ev.key !== 'Enter' && ev.key !== ' ') return;
+    const t = ev.target as HTMLElement | null;
+    const packRow = t?.closest?.<HTMLElement>('tr[data-pack-credits]');
+    if (packRow?.dataset.packCredits) {
+      ev.preventDefault();
+      selectPackBuyers(Number(packRow.dataset.packCredits));
+      return;
+    }
+    const row = t?.closest?.<HTMLElement>('tr[data-open-account]');
+    if (!row?.dataset.openAccount) return;
+    ev.preventDefault();
+    void openUserAccount(row.dataset.openAccount, row.dataset.email || '');
+  });
+
+  $('pack-buyers-close')?.addEventListener('click', () => {
+    selectedPackCredits = null;
+    renderPacks();
+  });
+  $('dossier-close')?.addEventListener('click', () => closeDossier());
+  $('dossier-adjust')?.addEventListener('click', () => {
+    if (!dossierUid) return;
+    const row = profilesCache.find((p) => p.uid === dossierUid);
+    selectUser(dossierUid, row?.email || '');
   });
 }
 

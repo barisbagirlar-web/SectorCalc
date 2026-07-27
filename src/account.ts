@@ -7,6 +7,7 @@ import {
   signOutUser,
   readUserProfile,
   friendlyAuthError,
+  isOpsAdminEmail,
   listCloudPurchases,
   mergePurchases,
   readLocalPurchases,
@@ -16,17 +17,28 @@ import {
   listSessions,
   revokeSession,
   touchSession,
+  listCloudLedger,
+  readLocalLedger,
+  mergeMovements,
+  withRunningBalance,
+  ledgerTotals,
+  purchasesAsMovements,
   type PurchaseRecord,
   type DeviceSession,
-  type AccountPrefs
+  type AccountPrefs,
+  type CreditMovement
 } from './auth/index.js';
 import { readCredits } from './payments/paddle/credits.js';
+import { fetchWallet } from './billing/api.js';
 import type { User } from 'firebase/auth';
 
 const TAB_META: Record<string, { title: string; sub: string }> = {
   overview: { title: 'Overview', sub: 'Balance, receipts, and session posture for your SectorCalc identity.' },
   billing: { title: 'Billing', sub: 'Purchase receipts from Paddle checkout (browser + cloud).' },
-  credits: { title: 'Credits', sub: 'Balance breakdown and entitlement policy.' },
+  credits: {
+    title: 'Credits',
+    sub: 'Credit statement — purchases, spends, and adjustments with date and time.'
+  },
   security: { title: 'Security', sub: 'Identity plate and registered device sessions.' },
   preferences: { title: 'Preferences', sub: 'Notification and workspace density settings.' },
   workspace: { title: 'Workspace', sub: 'Jump into calculators and the credit store.' }
@@ -36,6 +48,8 @@ let activeTab = 'overview';
 let current: User | null = null;
 let purchases: PurchaseRecord[] = [];
 let sessions: DeviceSession[] = [];
+let movements: CreditMovement[] = [];
+let inspectUid: string | null = null;
 
 function $(id: string): HTMLElement | null {
   return document.getElementById(id);
@@ -62,6 +76,68 @@ function providerLabel(raw: string): string {
 function fmtDate(iso: string): string {
   if (!iso) return '—';
   return iso.replace('T', ' ').slice(0, 19);
+}
+
+function readInspectUid(): string | null {
+  try {
+    const v = new URLSearchParams(location.search).get('inspect');
+    return v && /^[A-Za-z0-9]{8,128}$/.test(v) ? v : null;
+  } catch {
+    return null;
+  }
+}
+
+
+
+function kindLabel(kind: CreditMovement['kind']): string {
+  switch (kind) {
+    case 'purchase':
+      return 'Purchase';
+    case 'spend':
+      return 'Spend';
+    case 'refund':
+      return 'Refund';
+    case 'admin':
+      return 'Admin';
+    case 'promo':
+      return 'Promo';
+    case 'sync':
+      return 'Sync';
+    default:
+      return 'Movement';
+  }
+}
+
+function renderLedger(): void {
+  const tbody = $('ledger-tbody');
+  const empty = $('ledger-empty');
+  if (!tbody) return;
+  const totals = ledgerTotals(movements);
+  setText('acc-ledger-purchased', String(totals.purchased));
+  setText('acc-ledger-spent', String(totals.spent));
+  setText('acc-ledger-count', String(movements.length));
+  if (!movements.length) {
+    tbody.innerHTML = '';
+    if (empty) empty.hidden = false;
+    return;
+  }
+  if (empty) empty.hidden = true;
+  tbody.innerHTML = movements
+    .map((m) => {
+      const amtClass = m.delta > 0 ? 'acc-amt-credit' : 'acc-amt-debit';
+      const amt = m.delta > 0 ? `+${m.delta}` : String(m.delta);
+      const bal = m.balanceAfter == null ? '—' : String(m.balanceAfter);
+      const detail = m.detail ? `<div class="acc-muted">${m.detail}</div>` : '';
+      return `<tr>
+        <td class="mono">${fmtDate(m.at)}</td>
+        <td><span class="acc-kind acc-kind-${m.kind}">${kindLabel(m.kind)}</span></td>
+        <td><strong>${m.label}</strong>${detail}</td>
+        <td class="mono ${amtClass}">${amt}</td>
+        <td class="mono">${bal}</td>
+        <td><code class="mono">${m.txnId}</code></td>
+      </tr>`;
+    })
+    .join('');
 }
 
 function initialsFor(user: User): string {
@@ -170,83 +246,159 @@ function fillPrefs(prefs: AccountPrefs): void {
   document.documentElement.dataset.accCompact = prefs.compactWorkspace ? '1' : '0';
 }
 
-async function loadPremiumData(user: User): Promise<void> {
+async function loadPremiumData(user: User, displayBalance: number, subjectUid?: string): Promise<void> {
+  const uid = subjectUid || user.uid;
+  const inspecting = Boolean(subjectUid && subjectUid !== user.uid);
   let cloudPurchases: PurchaseRecord[] = [];
   try {
-    cloudPurchases = await listCloudPurchases(user.uid);
+    cloudPurchases = await listCloudPurchases(uid);
   } catch {
     cloudPurchases = [];
   }
-  purchases = mergePurchases(cloudPurchases, readLocalPurchases());
+  purchases = inspecting
+    ? mergePurchases(cloudPurchases, [])
+    : mergePurchases(cloudPurchases, readLocalPurchases());
+
+  let cloudLedger: CreditMovement[] = [];
   try {
-    await touchSession(user);
-    sessions = await listSessions(user.uid);
+    cloudLedger = await listCloudLedger(uid);
+  } catch {
+    cloudLedger = [];
+  }
+  movements = withRunningBalance(
+    mergeMovements(
+      cloudLedger,
+      inspecting ? [] : readLocalLedger(),
+      purchasesAsMovements(purchases)
+    ),
+    displayBalance
+  );
+
+  try {
+    if (!inspecting) await touchSession(user);
+    sessions = await listSessions(uid);
   } catch {
     sessions = [];
   }
-  fillPrefs(readPrefs());
+  if (!inspecting) fillPrefs(readPrefs());
   renderBilling();
+  renderLedger();
   renderDevices();
 }
 
 async function render(user: User): Promise<void> {
   current = user;
   setLoading(true);
-  const guest = readCredits().balance;
-  let cloud = guest;
+  inspectUid = readInspectUid();
+  const canInspect = Boolean(inspectUid && isOpsAdminEmail(user.email));
+  if (inspectUid && !canInspect) {
+    inspectUid = null;
+  }
+  const subjectUid = canInspect && inspectUid ? inspectUid : user.uid;
+  const inspecting = subjectUid !== user.uid;
+
+  const banner = $('acc-inspect-banner');
+  if (banner) banner.hidden = !inspecting;
+
+  let cloud = 0;
+  let profileName = '';
+  let profileEmail = '';
   try {
-    const profile = await readUserProfile(user.uid);
-    if (profile) cloud = profile.credits;
+    const profile = await readUserProfile(subjectUid);
+    if (profile) {
+      cloud = profile.credits;
+      profileName = profile.displayName || '';
+      profileEmail = profile.email || '';
+    }
   } catch {
     /* keep */
   }
-  const display = Math.max(cloud, guest);
-  await loadPremiumData(user);
+  const guest = inspecting ? 0 : readCredits().balance;
+  let serverSpendable: number | null = null;
+  if (!inspecting) {
+    try {
+      const w = await fetchWallet();
+      serverSpendable = w.spendableCredits;
+    } catch {
+      serverSpendable = null;
+    }
+  }
+  const display = inspecting
+    ? cloud
+    : serverSpendable != null
+      ? serverSpendable
+      : Math.max(cloud, guest);
+  await loadPremiumData(user, display, inspecting ? subjectUid : undefined);
 
   const lifetime = purchases.reduce((n, p) => n + p.credits, 0);
   const providers = user.providerData.map((p) => providerLabel(p.providerId));
-  const providerText = providers.length ? providers.join(' · ') : 'Email / password';
-  const name = user.displayName || 'SectorCalc engineer';
-  const email = user.email || 'No email on file';
-  const last = user.metadata?.lastSignInTime
-    ? new Date(user.metadata.lastSignInTime).toISOString().replace('T', ' ').slice(0, 19) + 'Z'
-    : '—';
-  const since = user.metadata?.creationTime
-    ? new Date(user.metadata.creationTime).toISOString().slice(0, 10)
-    : '—';
+  const providerText = inspecting
+    ? 'Inspected cloud profile'
+    : providers.length
+      ? providers.join(' · ')
+      : 'Email / password';
+  const name = inspecting
+    ? profileName || profileEmail || 'Customer account'
+    : user.displayName || 'SectorCalc engineer';
+  const email = inspecting ? profileEmail || 'No email on file' : user.email || 'No email on file';
+  const last = inspecting
+    ? '—'
+    : user.metadata?.lastSignInTime
+      ? new Date(user.metadata.lastSignInTime).toISOString().replace('T', ' ').slice(0, 19) + 'Z'
+      : '—';
+  const since = inspecting
+    ? '—'
+    : user.metadata?.creationTime
+      ? new Date(user.metadata.creationTime).toISOString().slice(0, 10)
+      : '—';
+
+  if (inspecting) {
+    setText(
+      'acc-inspect-copy',
+      `Viewing cloud account ${email} (${subjectUid}). Statement and devices are customer data; you remain signed in as ${user.email || 'operator'}.`
+    );
+  }
 
   setText('acc-name', name);
   setText('acc-name-side', name);
   setText('acc-email', email);
   setText('acc-email-side', email);
-  setText('acc-email-spec', user.email || '—');
-  setText('acc-uid', user.uid);
+  setText('acc-email-spec', email);
+  setText('acc-uid', subjectUid);
   setText('acc-credits', String(display));
   setText('acc-credits-hero', String(display));
   setText('acc-lifetime', String(lifetime));
+  setText('acc-ledger-available', String(display));
   setText('acc-device-count', String(sessions.length));
   setText('acc-cloud-detail', String(cloud));
-  setText('acc-local-detail', String(guest));
+  setText('acc-local-detail', inspecting ? 'n/a (inspect)' : String(guest));
   setText('acc-display-detail', String(display));
   setText('acc-provider-spec', providerText);
   setText('acc-since', since);
   setText('acc-last-signin', last);
   setText(
     'acc-session',
-    user.emailVerified ? 'Verified session · premium workspace' : 'Session active · email not verified'
+    inspecting
+      ? 'Operator inspect · read-only customer workspace'
+      : user.emailVerified
+        ? 'Verified session · premium workspace'
+        : 'Session active · email not verified'
   );
-  setText('acc-verified-spec', user.emailVerified ? 'Yes' : 'No');
+  setText('acc-verified-spec', inspecting ? '—' : user.emailVerified ? 'Yes' : 'No');
   setText(
     'acc-next-copy',
-    display < 1
-      ? 'You have zero credits. Buy a pack to unlock paid report runs, or continue with free exploratory use.'
-      : `You have ${display} credit${display === 1 ? '' : 's'} ready. Generate an auditable report when you need a formal deliverable.`
+    inspecting
+      ? 'Use Credits for the customer statement. Return to ops to adjust balance.'
+      : display < 1
+        ? 'You have zero credits. Buy a pack to unlock paid report runs, or continue with free exploratory use.'
+        : `You have ${display} credit${display === 1 ? '' : 's'} ready. Generate an auditable report when you need a formal deliverable.`
   );
 
+  // Keep operator avatar when inspecting; show customer initials in identity plate via name fields.
   paintAvatar(user);
   $('signed-out')!.hidden = true;
   $('signed-in')!.hidden = false;
-  setTab(activeTab);
+  setTab(inspecting ? 'credits' : activeTab);
   setLoading(false);
 }
 
@@ -261,12 +413,14 @@ function bind(): void {
   });
   $('sign-out')?.addEventListener('click', () => void doSignOut());
   $('sign-out-sec')?.addEventListener('click', () => void doSignOut());
-  $('billing-refresh')?.addEventListener('click', async () => {
+  const refreshLedger = async () => {
     if (!current) return;
-    toast('Refreshing billing…');
-    await loadPremiumData(current);
-    toast('Billing updated.', 'ok');
-  });
+    toast('Refreshing statement…');
+    await render(current);
+    toast('Statement updated.', 'ok');
+  };
+  $('billing-refresh')?.addEventListener('click', () => void refreshLedger());
+  $('ledger-refresh')?.addEventListener('click', () => void refreshLedger());
   $('copy-uid')?.addEventListener('click', async () => {
     const uid = $('acc-uid')?.textContent?.trim();
     if (!uid) return;
@@ -279,6 +433,10 @@ function bind(): void {
   });
   $('prefs-form')?.addEventListener('submit', async (ev) => {
     ev.preventDefault();
+    if (inspectUid) {
+      toast('Preferences are disabled in inspect mode.', 'err');
+      return;
+    }
     const prefs: AccountPrefs = {
       emailProduct: Boolean(($('pref-email-product') as HTMLInputElement)?.checked),
       emailReceipts: Boolean(($('pref-email-receipts') as HTMLInputElement)?.checked),

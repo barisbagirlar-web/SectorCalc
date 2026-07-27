@@ -170,6 +170,236 @@
 <link rel="stylesheet" href="./sc-site-nav.css?v=5">
 <script src="./sc-site-nav.js?v=2" defer></script>
 <script type="module" src="/src/auth-nav.ts"></script>
+<!--SC-GUIDE-START-->
+<div class="sc-guide-shell">
+<section class="sc-guide" id="sc-guide" data-tool-id="SC-010" data-tool-name="True Labor Cost Calculator (SC-010)" data-tool-url="https://sectorcalc.com/labor-pro.html" itemscope itemtype="https://schema.org/FAQPage">
+
+<nav class="sc-guide-toc" aria-label="Table of contents">
+  <div class="t">On this page</div>
+  <ul>
+    <li><a href="#overview">Why net salary is not your cost</a></li>
+    <li><a href="#net-to-gross">Net to gross salary conversion</a></li>
+    <li><a href="#employer-burden">Employer social security and unemployment</a></li>
+    <li><a href="#benefits">Benefits and allowances</a></li>
+    <li><a href="#severance">Severance accrual</a></li>
+    <li><a href="#burden-rate">Burden rate and cost multiplier</a></li>
+    <li><a href="#fully-loaded">Fully loaded hourly cost</a></li>
+    <li><a href="#country-rates">Country-rate caveats</a></li>
+    <li><a href="#quoting">Using loaded labor in quotes</a></li>
+    <li><a href="#faq">Frequently asked questions</a></li>
+  </ul>
+</nav>
+
+<p class="sc-guide-lede"><b>True labor cost</b> is what an employer actually spends to keep one worker productive for one hour — not the net salary on a payslip. SC-010 grosses up take-home pay, adds statutory employer contributions, benefits, severance accrual, overtime, and amortized recruitment, then returns a <b>conservation-locked monthly total</b> and a <b>fully loaded hourly rate</b> suitable for job costing and quoting.</p>
+
+<p class="note">Engineering preview · Client-side deterministic Decimal engine · Reference country rates are estimates — verify with local payroll law before production use · Not for statutory payroll filing or production approval.</p>
+
+<h2 id="overview">Why net salary is not your cost</h2>
+
+<p>Shop owners and estimators often anchor on the number the employee sees: monthly net pay. That figure excludes employee-side income tax and social deductions already withheld, and it completely ignores employer-side statutory contributions, health premiums, meal and transport allowances, bonus accruals, severance provisions, overtime premiums, and hiring costs spread over tenure.</p>
+
+<p>When you quote a weldment or machined part using net pay divided by 160 hours, you systematically under-recover cost. The gap — sometimes called <b>hidden labor cost</b> — routinely runs 30–80% above net depending on jurisdiction and benefit package. SC-010 makes that gap explicit with a line-item breakdown and a cost multiplier (true monthly cost ÷ net monthly).</p>
+
+<h2 id="net-to-gross">Net to gross salary conversion</h2>
+
+<p>Most payroll systems work from gross; estimators often know net. SC-010 reverses the employee burden with a simplified gross-up:</p>
+
+<div class="sc-formula">grossMonthly = netMonthly / (1 − employeeRate)</div>
+
+<p>Where <b>employeeRate</b> is the combined employee-side deduction ratio (income tax + employee social contributions). The tool accepts net salary as hourly, weekly, bi-weekly, or monthly and normalizes to a monthly net first using 4.33 weeks per month (52 ÷ 12).</p>
+
+<div class="sc-formula">netMonthly (hourly) = netHourly × hoursPerWeek × 4.33</div>
+
+<p>The gross-up is a planning estimate, not a tax return. Progressive tax brackets, caps, and allowances are not modeled in v1.0.0. For a single effective rate that matches observed payslips, adjust <b>employeeRate</b> manually until gross reconciles with payroll.</p>
+
+<h2 id="employer-burden">Employer social security and unemployment</h2>
+
+<p>After gross salary is estimated, employer statutory costs apply on the gross base (not net):</p>
+
+<div class="sc-formula">employerSS = gross × employerSSRate
+employerUnemployment = gross × employerUnempRate</div>
+
+<p>In the United States reference preset, employer FICA (6.2% + 1.45%) and an approximate FUTA/SUTA unemployment burden are represented. Germany, France, Turkey, and other presets carry different combined employer rates. Wage bases, ceilings, and experience-rated unemployment taxes are not fully modeled — the rates are <b>reference estimates</b> for engineering preview only.</p>
+
+<table>
+  <thead>
+    <tr><th>Component</th><th>Typical base</th><th>Notes</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Employer social security</td><td>Gross wages</td><td>Often capped annually (e.g. SS wage base in US)</td></tr>
+    <tr><td>Employer unemployment</td><td>Gross wages (partial)</td><td>FUTA capped; SUTA varies by state and experience</td></tr>
+    <tr><td>Workers' compensation</td><td>Not in SC-010 v1.0.0</td><td>Add manually via benefits or overhead in <a href="/calculator/quote-pricing">SC-012 Quote Pricing</a></td></tr>
+  </tbody>
+</table>
+
+<h2 id="benefits">Benefits and allowances</h2>
+
+<p>Employer-paid benefits enter as fixed monthly amounts plus annual bonus spread over twelve months:</p>
+
+<div class="sc-formula">benefitsMonthly = health + meal + transport + (annualBonus / 12)</div>
+
+<p>Health insurance, meal vouchers, and commuting allowances are common in EU and Turkish shops; US shops often add employer health premiums separately from gross. Bonus accrual smooths a lump-sum payment into monthly job cost — useful for quoting even when bonus is discretionary.</p>
+
+<div class="sc-tip"><span class="ico" aria-hidden="true">💡</span><div>After SC-010 gives you <b>trueHourlyCost</b>, paste it into the labor rate field in <a href="/calculator/quote-pricing">SC-012 Quote Pricing</a> — do not re-use net hourly pay. For machine burden (depreciation, maintenance, floor space), use a separate machine hourly rate or shop overhead in SC-012.</div></div>
+
+<h2 id="severance">Severance accrual</h2>
+
+<p>In jurisdictions with statutory severance (e.g. Turkey: roughly one month gross per year of service), SC-010 accrues severance monthly as a ratio of gross:</p>
+
+<div class="sc-formula">severanceMonthly = gross × severanceRate</div>
+
+<p>For Turkey the reference <b>severanceRate</b> is 0.0833 (1 ÷ 12 of one month's gross per year). US and UK presets use zero statutory severance; contractual redundancy or WARN costs are not auto-included. Treat severance accrual as a long-run average — actual payout depends on tenure at separation.</p>
+
+<h2 id="burden-rate">Burden rate and cost multiplier</h2>
+
+<p>The <b>burden rate</b> (or labor burden) is the ratio of total employer cost to gross or to net, depending on convention. SC-010 reports:</p>
+
+<div class="sc-formula">costMultiplier = trueMonthlyCost / netMonthly
+hiddenCostPct = (trueMonthlyCost − netMonthly) / netMonthly × 100</div>
+
+<p>A multiplier of 1.65 means the employer spends 65% more than the employee's take-home. This is the number production controllers watch when net wages rise but quotes stay flat. Overtime and recruitment amortization inflate the multiplier further when those inputs are non-zero.</p>
+
+<h2 id="fully-loaded">Fully loaded hourly cost</h2>
+
+<p>The hourly rate used in routing sheets and CNC time studies should include every monthly component divided by productive hours:</p>
+
+<div class="sc-formula">trueHourlyCost = trueMonthlyCost / (hoursPerWeek × 4.33)</div>
+
+<p>Overtime is modeled separately: average monthly overtime hours × base hourly × overtime multiplier (default 1.5×). Base hourly for overtime is derived from gross, not from true hourly — a conservative simplification. Paid leave, training, and non-productive time are not subtracted from the denominator in v1.0.0; if only 85% of paid hours are billable, divide true monthly cost by billable hours instead, or inflate overhead in SC-012.</p>
+
+<div class="sc-formula">trueMonthlyCost = gross + employerSS + employerUnemp + benefits + severance + overtime + recruitmentMonthly</div>
+
+<p>The engine enforces <b>conservation</b>: the sum of breakdown line items must equal true monthly cost within 1×10⁻⁹; a mismatch throws an error rather than shipping a wrong total.</p>
+
+<h2 id="country-rates">Country-rate caveats</h2>
+
+<p>Built-in presets (US, TR, DE, GB, IN, FR) ship reference rates as Decimal strings for reproducibility. They are starting points from public summaries, not legal advice:</p>
+
+<ul>
+  <li><b>US</b> — FICA employer 7.65%; FUTA ~6% on first $7k is averaged, not wage-base capped.</li>
+  <li><b>TR</b> — SGK employer ~20.5%; severance accrual 8.33%/month of gross.</li>
+  <li><b>DE / FR</b> — High employer social ratios; local surcharges and industry funds omitted.</li>
+  <li><b>GB</b> — Employer NIC 13.8% above threshold simplified to flat ratio.</li>
+  <li><b>IN</b> — EPF/ESI approximate; gratuity after five years not accrued.</li>
+</ul>
+
+<p>Always reconcile one employee against actual payroll before rolling rates across the shop. Update inputs when law changes; SC-010 does not fetch live statutory tables.</p>
+
+<h2 id="quoting">Using loaded labor in quotes</h2>
+
+<p>Job quoting requires <b>fully absorbed</b> labor: loaded hourly × run hours, plus setup at the same or a higher setup rate, plus scrap, overhead, and margin. Workflow:</p>
+
+<ol>
+  <li>Run SC-010 for each trade or use a blended shop rate (weighted average of true hourly costs).</li>
+  <li>Copy <b>trueHourlyCost</b> into <a href="/calculator/quote-pricing">SC-012</a> as <b>laborHourlyCost</b>.</li>
+  <li>Add machine hours at machine burden, material with scrap yield, shop overhead rate, and target margin on sell price.</li>
+  <li>For tolerance-sensitive or weld-critical jobs, cross-check process assumptions with <a href="/calculator/tolerance-stack-up">SC-008 Tolerance Stack-Up</a> and <a href="/calculator/weld-thickness">SC-001 Weld Thickness</a>.</li>
+</ol>
+
+<p>Never mix net pay in SC-012 and loaded pay in overhead — that double-counts or under-counts depending on how overhead was calibrated. Pick one labor philosophy per quote and stay consistent.</p>
+
+<div class="sc-guide-faq" id="faq">
+  <h2>Frequently asked questions</h2>
+
+  <div class="q" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">What is the difference between burden rate and cost multiplier in SC-010?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text"><p>SC-010's <b>costMultiplier</b> is true monthly employer cost divided by net monthly pay. A burden rate in cost accounting sometimes means employer cost divided by gross wages only. Both express how much extra you pay above a reference wage; always note which base (net vs gross) your ERP uses before comparing numbers.</p></div>
+    </div>
+  </div>
+
+  <div class="q" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">Why does SC-010 use 4.33 weeks per month?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text"><p>52 weeks ÷ 12 months = 4.333… weeks. Using 4.33 keeps hourly normalization deterministic and aligned with the engine's Decimal constants. Some payroll systems use 4.35 or calendar days; if your shop standard differs, adjust hours per week or scale the result.</p></div>
+    </div>
+  </div>
+
+  <div class="q" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">Can I use SC-010 output directly in SC-012 Quote Pricing?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text"><p>Yes — that is the intended handoff. Enter SC-010's <b>trueHourlyCost</b> as SC-012's labor hourly cost. SC-012 does not auto-fetch SC-010; rates must be copied manually so you control blending and revision dates.</p></div>
+    </div>
+  </div>
+
+  <div class="q" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">Are country presets legally certified payroll rates?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text"><p>No. Presets are reference estimates for engineering preview and quoting sensitivity. Wage bases, caps, industry funds, and progressive tax are simplified. Verify against your payroll provider and local law before contractual or statutory use.</p></div>
+    </div>
+  </div>
+
+  <div class="q" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">How should overtime affect my quoted hourly rate?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text"><p>Enter average monthly overtime hours and multiplier in SC-010 to bake overtime into true hourly cost, or keep overtime out and add a contingency line in SC-012. Mixing both without adjusting hours double-counts. For spike workloads, run a what-if with higher overtime hours before committing a fixed shop rate.</p></div>
+    </div>
+  </div>
+</div>
+
+<details class="related">
+  <summary>Related calculators</summary>
+  <ul>
+    <li><a href="/calculator/quote-pricing">SC-012 Quote Pricing</a> — full absorption quoting with margin on sell price</li>
+    <li><a href="/calculator/cnc-feeds-speeds">SC-020 CNC Feeds &amp; Speeds</a> — cycle time for labor hours input</li>
+    <li><a href="/calculator/weld-thickness">SC-001 Weld Thickness</a> — weld sizing for fabrication quotes</li>
+    <li><a href="/calculator/tolerance-stack-up">SC-008 Tolerance Stack-Up</a> — predicted fit risk on tight assemblies</li>
+    <li><a href="/tools.html">All calculators</a></li>
+  </ul>
+</details>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the difference between burden rate and cost multiplier in SC-010?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "SC-010's costMultiplier is true monthly employer cost divided by net monthly pay. A burden rate in cost accounting sometimes means employer cost divided by gross wages only. Both express how much extra you pay above a reference wage; always note which base (net vs gross) your ERP uses before comparing numbers."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does SC-010 use 4.33 weeks per month?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "52 weeks divided by 12 months equals 4.333 weeks. Using 4.33 keeps hourly normalization deterministic and aligned with the engine's Decimal constants. Some payroll systems use 4.35 or calendar days; if your shop standard differs, adjust hours per week or scale the result."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use SC-010 output directly in SC-012 Quote Pricing?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — that is the intended handoff. Enter SC-010's trueHourlyCost as SC-012's labor hourly cost. SC-012 does not auto-fetch SC-010; rates must be copied manually so you control blending and revision dates."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are country presets legally certified payroll rates?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Presets are reference estimates for engineering preview and quoting sensitivity. Wage bases, caps, industry funds, and progressive tax are simplified. Verify against your payroll provider and local law before contractual or statutory use."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How should overtime affect my quoted hourly rate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Enter average monthly overtime hours and multiplier in SC-010 to bake overtime into true hourly cost, or keep overtime out and add a contingency line in SC-012. Mixing both without adjusting hours double-counts. For spike workloads, run a what-if with higher overtime hours before committing a fixed shop rate."
+      }
+    }
+  ]
+}
+</script>
+
+</section>
+</div>
+<!--SC-GUIDE-END-->
 <link rel="stylesheet" href="./sc-form-fields.css?v=5">
 <!--SC-SEO-META-START-->
 <link rel="canonical" href="https://sectorcalc.com/calculator/true-labor-cost">
@@ -470,7 +700,7 @@
 <!--SC-SEO-SCHEMA-END-->
 <link rel="stylesheet" href="/sc-related-tools.css?v=1">
                         <link rel="stylesheet" href="/sc-money.css?v=1">
-  <link rel="stylesheet" href="/sc-calc-sheet.css?v=1">
+      <link rel="stylesheet" href="/sc-calc-sheet.css?v=1">
   <!--SC-CALC-SHEET-START-->
   <!-- calc-sheet theme: theme-calc-sheet -->
   <!--SC-CALC-SHEET-END-->
@@ -510,6 +740,8 @@
 </div>
 <!--SC-SITE-NAV-END-->
 <div class="sc-tool-strip"><b>SC-010 · True Labor Cost</b><span>Engineering preview · Decimal engine · Not for production approval</span></div>
+
+
 
 
 
@@ -632,236 +864,6 @@
   </div>
 </div>
 
-<!--SC-GUIDE-START-->
-<div class="sc-guide-shell">
-<section class="sc-guide" id="sc-guide" data-tool-id="SC-010" data-tool-name="True Labor Cost Calculator (SC-010)" data-tool-url="https://sectorcalc.com/labor-pro.html" itemscope itemtype="https://schema.org/FAQPage">
-
-<nav class="sc-guide-toc" aria-label="Table of contents">
-  <div class="t">On this page</div>
-  <ul>
-    <li><a href="#overview">Why net salary is not your cost</a></li>
-    <li><a href="#net-to-gross">Net to gross salary conversion</a></li>
-    <li><a href="#employer-burden">Employer social security and unemployment</a></li>
-    <li><a href="#benefits">Benefits and allowances</a></li>
-    <li><a href="#severance">Severance accrual</a></li>
-    <li><a href="#burden-rate">Burden rate and cost multiplier</a></li>
-    <li><a href="#fully-loaded">Fully loaded hourly cost</a></li>
-    <li><a href="#country-rates">Country-rate caveats</a></li>
-    <li><a href="#quoting">Using loaded labor in quotes</a></li>
-    <li><a href="#faq">Frequently asked questions</a></li>
-  </ul>
-</nav>
-
-<p class="sc-guide-lede"><b>True labor cost</b> is what an employer actually spends to keep one worker productive for one hour — not the net salary on a payslip. SC-010 grosses up take-home pay, adds statutory employer contributions, benefits, severance accrual, overtime, and amortized recruitment, then returns a <b>conservation-locked monthly total</b> and a <b>fully loaded hourly rate</b> suitable for job costing and quoting.</p>
-
-<p class="note">Engineering preview · Client-side deterministic Decimal engine · Reference country rates are estimates — verify with local payroll law before production use · Not for statutory payroll filing or production approval.</p>
-
-<h2 id="overview">Why net salary is not your cost</h2>
-
-<p>Shop owners and estimators often anchor on the number the employee sees: monthly net pay. That figure excludes employee-side income tax and social deductions already withheld, and it completely ignores employer-side statutory contributions, health premiums, meal and transport allowances, bonus accruals, severance provisions, overtime premiums, and hiring costs spread over tenure.</p>
-
-<p>When you quote a weldment or machined part using net pay divided by 160 hours, you systematically under-recover cost. The gap — sometimes called <b>hidden labor cost</b> — routinely runs 30–80% above net depending on jurisdiction and benefit package. SC-010 makes that gap explicit with a line-item breakdown and a cost multiplier (true monthly cost ÷ net monthly).</p>
-
-<h2 id="net-to-gross">Net to gross salary conversion</h2>
-
-<p>Most payroll systems work from gross; estimators often know net. SC-010 reverses the employee burden with a simplified gross-up:</p>
-
-<div class="sc-formula">grossMonthly = netMonthly / (1 − employeeRate)</div>
-
-<p>Where <b>employeeRate</b> is the combined employee-side deduction ratio (income tax + employee social contributions). The tool accepts net salary as hourly, weekly, bi-weekly, or monthly and normalizes to a monthly net first using 4.33 weeks per month (52 ÷ 12).</p>
-
-<div class="sc-formula">netMonthly (hourly) = netHourly × hoursPerWeek × 4.33</div>
-
-<p>The gross-up is a planning estimate, not a tax return. Progressive tax brackets, caps, and allowances are not modeled in v1.0.0. For a single effective rate that matches observed payslips, adjust <b>employeeRate</b> manually until gross reconciles with payroll.</p>
-
-<h2 id="employer-burden">Employer social security and unemployment</h2>
-
-<p>After gross salary is estimated, employer statutory costs apply on the gross base (not net):</p>
-
-<div class="sc-formula">employerSS = gross × employerSSRate
-employerUnemployment = gross × employerUnempRate</div>
-
-<p>In the United States reference preset, employer FICA (6.2% + 1.45%) and an approximate FUTA/SUTA unemployment burden are represented. Germany, France, Turkey, and other presets carry different combined employer rates. Wage bases, ceilings, and experience-rated unemployment taxes are not fully modeled — the rates are <b>reference estimates</b> for engineering preview only.</p>
-
-<table>
-  <thead>
-    <tr><th>Component</th><th>Typical base</th><th>Notes</th></tr>
-  </thead>
-  <tbody>
-    <tr><td>Employer social security</td><td>Gross wages</td><td>Often capped annually (e.g. SS wage base in US)</td></tr>
-    <tr><td>Employer unemployment</td><td>Gross wages (partial)</td><td>FUTA capped; SUTA varies by state and experience</td></tr>
-    <tr><td>Workers' compensation</td><td>Not in SC-010 v1.0.0</td><td>Add manually via benefits or overhead in <a href="/calculator/quote-pricing">SC-012 Quote Pricing</a></td></tr>
-  </tbody>
-</table>
-
-<h2 id="benefits">Benefits and allowances</h2>
-
-<p>Employer-paid benefits enter as fixed monthly amounts plus annual bonus spread over twelve months:</p>
-
-<div class="sc-formula">benefitsMonthly = health + meal + transport + (annualBonus / 12)</div>
-
-<p>Health insurance, meal vouchers, and commuting allowances are common in EU and Turkish shops; US shops often add employer health premiums separately from gross. Bonus accrual smooths a lump-sum payment into monthly job cost — useful for quoting even when bonus is discretionary.</p>
-
-<div class="sc-tip"><span class="ico" aria-hidden="true">💡</span><div>After SC-010 gives you <b>trueHourlyCost</b>, paste it into the labor rate field in <a href="/calculator/quote-pricing">SC-012 Quote Pricing</a> — do not re-use net hourly pay. For machine burden (depreciation, maintenance, floor space), use a separate machine hourly rate or shop overhead in SC-012.</div></div>
-
-<h2 id="severance">Severance accrual</h2>
-
-<p>In jurisdictions with statutory severance (e.g. Turkey: roughly one month gross per year of service), SC-010 accrues severance monthly as a ratio of gross:</p>
-
-<div class="sc-formula">severanceMonthly = gross × severanceRate</div>
-
-<p>For Turkey the reference <b>severanceRate</b> is 0.0833 (1 ÷ 12 of one month's gross per year). US and UK presets use zero statutory severance; contractual redundancy or WARN costs are not auto-included. Treat severance accrual as a long-run average — actual payout depends on tenure at separation.</p>
-
-<h2 id="burden-rate">Burden rate and cost multiplier</h2>
-
-<p>The <b>burden rate</b> (or labor burden) is the ratio of total employer cost to gross or to net, depending on convention. SC-010 reports:</p>
-
-<div class="sc-formula">costMultiplier = trueMonthlyCost / netMonthly
-hiddenCostPct = (trueMonthlyCost − netMonthly) / netMonthly × 100</div>
-
-<p>A multiplier of 1.65 means the employer spends 65% more than the employee's take-home. This is the number production controllers watch when net wages rise but quotes stay flat. Overtime and recruitment amortization inflate the multiplier further when those inputs are non-zero.</p>
-
-<h2 id="fully-loaded">Fully loaded hourly cost</h2>
-
-<p>The hourly rate used in routing sheets and CNC time studies should include every monthly component divided by productive hours:</p>
-
-<div class="sc-formula">trueHourlyCost = trueMonthlyCost / (hoursPerWeek × 4.33)</div>
-
-<p>Overtime is modeled separately: average monthly overtime hours × base hourly × overtime multiplier (default 1.5×). Base hourly for overtime is derived from gross, not from true hourly — a conservative simplification. Paid leave, training, and non-productive time are not subtracted from the denominator in v1.0.0; if only 85% of paid hours are billable, divide true monthly cost by billable hours instead, or inflate overhead in SC-012.</p>
-
-<div class="sc-formula">trueMonthlyCost = gross + employerSS + employerUnemp + benefits + severance + overtime + recruitmentMonthly</div>
-
-<p>The engine enforces <b>conservation</b>: the sum of breakdown line items must equal true monthly cost within 1×10⁻⁹; a mismatch throws an error rather than shipping a wrong total.</p>
-
-<h2 id="country-rates">Country-rate caveats</h2>
-
-<p>Built-in presets (US, TR, DE, GB, IN, FR) ship reference rates as Decimal strings for reproducibility. They are starting points from public summaries, not legal advice:</p>
-
-<ul>
-  <li><b>US</b> — FICA employer 7.65%; FUTA ~6% on first $7k is averaged, not wage-base capped.</li>
-  <li><b>TR</b> — SGK employer ~20.5%; severance accrual 8.33%/month of gross.</li>
-  <li><b>DE / FR</b> — High employer social ratios; local surcharges and industry funds omitted.</li>
-  <li><b>GB</b> — Employer NIC 13.8% above threshold simplified to flat ratio.</li>
-  <li><b>IN</b> — EPF/ESI approximate; gratuity after five years not accrued.</li>
-</ul>
-
-<p>Always reconcile one employee against actual payroll before rolling rates across the shop. Update inputs when law changes; SC-010 does not fetch live statutory tables.</p>
-
-<h2 id="quoting">Using loaded labor in quotes</h2>
-
-<p>Job quoting requires <b>fully absorbed</b> labor: loaded hourly × run hours, plus setup at the same or a higher setup rate, plus scrap, overhead, and margin. Workflow:</p>
-
-<ol>
-  <li>Run SC-010 for each trade or use a blended shop rate (weighted average of true hourly costs).</li>
-  <li>Copy <b>trueHourlyCost</b> into <a href="/calculator/quote-pricing">SC-012</a> as <b>laborHourlyCost</b>.</li>
-  <li>Add machine hours at machine burden, material with scrap yield, shop overhead rate, and target margin on sell price.</li>
-  <li>For tolerance-sensitive or weld-critical jobs, cross-check process assumptions with <a href="/calculator/tolerance-stack-up">SC-008 Tolerance Stack-Up</a> and <a href="/calculator/weld-thickness">SC-001 Weld Thickness</a>.</li>
-</ol>
-
-<p>Never mix net pay in SC-012 and loaded pay in overhead — that double-counts or under-counts depending on how overhead was calibrated. Pick one labor philosophy per quote and stay consistent.</p>
-
-<div class="sc-guide-faq" id="faq">
-  <h2>Frequently asked questions</h2>
-
-  <div class="q" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-    <h3 itemprop="name">What is the difference between burden rate and cost multiplier in SC-010?</h3>
-    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-      <div itemprop="text"><p>SC-010's <b>costMultiplier</b> is true monthly employer cost divided by net monthly pay. A burden rate in cost accounting sometimes means employer cost divided by gross wages only. Both express how much extra you pay above a reference wage; always note which base (net vs gross) your ERP uses before comparing numbers.</p></div>
-    </div>
-  </div>
-
-  <div class="q" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-    <h3 itemprop="name">Why does SC-010 use 4.33 weeks per month?</h3>
-    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-      <div itemprop="text"><p>52 weeks ÷ 12 months = 4.333… weeks. Using 4.33 keeps hourly normalization deterministic and aligned with the engine's Decimal constants. Some payroll systems use 4.35 or calendar days; if your shop standard differs, adjust hours per week or scale the result.</p></div>
-    </div>
-  </div>
-
-  <div class="q" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-    <h3 itemprop="name">Can I use SC-010 output directly in SC-012 Quote Pricing?</h3>
-    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-      <div itemprop="text"><p>Yes — that is the intended handoff. Enter SC-010's <b>trueHourlyCost</b> as SC-012's labor hourly cost. SC-012 does not auto-fetch SC-010; rates must be copied manually so you control blending and revision dates.</p></div>
-    </div>
-  </div>
-
-  <div class="q" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-    <h3 itemprop="name">Are country presets legally certified payroll rates?</h3>
-    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-      <div itemprop="text"><p>No. Presets are reference estimates for engineering preview and quoting sensitivity. Wage bases, caps, industry funds, and progressive tax are simplified. Verify against your payroll provider and local law before contractual or statutory use.</p></div>
-    </div>
-  </div>
-
-  <div class="q" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-    <h3 itemprop="name">How should overtime affect my quoted hourly rate?</h3>
-    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-      <div itemprop="text"><p>Enter average monthly overtime hours and multiplier in SC-010 to bake overtime into true hourly cost, or keep overtime out and add a contingency line in SC-012. Mixing both without adjusting hours double-counts. For spike workloads, run a what-if with higher overtime hours before committing a fixed shop rate.</p></div>
-    </div>
-  </div>
-</div>
-
-<details class="related">
-  <summary>Related calculators</summary>
-  <ul>
-    <li><a href="/calculator/quote-pricing">SC-012 Quote Pricing</a> — full absorption quoting with margin on sell price</li>
-    <li><a href="/calculator/cnc-feeds-speeds">SC-020 CNC Feeds &amp; Speeds</a> — cycle time for labor hours input</li>
-    <li><a href="/calculator/weld-thickness">SC-001 Weld Thickness</a> — weld sizing for fabrication quotes</li>
-    <li><a href="/calculator/tolerance-stack-up">SC-008 Tolerance Stack-Up</a> — predicted fit risk on tight assemblies</li>
-    <li><a href="/tools.html">All calculators</a></li>
-  </ul>
-</details>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is the difference between burden rate and cost multiplier in SC-010?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "SC-010's costMultiplier is true monthly employer cost divided by net monthly pay. A burden rate in cost accounting sometimes means employer cost divided by gross wages only. Both express how much extra you pay above a reference wage; always note which base (net vs gross) your ERP uses before comparing numbers."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Why does SC-010 use 4.33 weeks per month?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "52 weeks divided by 12 months equals 4.333 weeks. Using 4.33 keeps hourly normalization deterministic and aligned with the engine's Decimal constants. Some payroll systems use 4.35 or calendar days; if your shop standard differs, adjust hours per week or scale the result."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I use SC-010 output directly in SC-012 Quote Pricing?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes — that is the intended handoff. Enter SC-010's trueHourlyCost as SC-012's labor hourly cost. SC-012 does not auto-fetch SC-010; rates must be copied manually so you control blending and revision dates."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Are country presets legally certified payroll rates?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. Presets are reference estimates for engineering preview and quoting sensitivity. Wage bases, caps, industry funds, and progressive tax are simplified. Verify against your payroll provider and local law before contractual or statutory use."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How should overtime affect my quoted hourly rate?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Enter average monthly overtime hours and multiplier in SC-010 to bake overtime into true hourly cost, or keep overtime out and add a contingency line in SC-012. Mixing both without adjusting hours double-counts. For spike workloads, run a what-if with higher overtime hours before committing a fixed shop rate."
-      }
-    }
-  ]
-}
-</script>
-
-</section>
-</div>
-<!--SC-GUIDE-END-->
 <script type="module" src="/src/labor-pro.ts"></script>
 <!--SC-SEO-CVW-->
 <script src="/assets/js/sc-ga4-id.js"></script>
@@ -896,14 +898,6 @@ hiddenCostPct = (trueMonthlyCost − netMonthly) / netMonthly × 100</div>
 <a class="sc-money-link" href="/pro.html">Pro hub</a></p></section>
 </aside>
 <!--SC-MONEY-END-->
-<!--SC-CALC-SHEET-TB-START-->
-<aside class="sc-calc-sheet-titleblock" aria-hidden="true">
-  <div class="tb-row"><span class="tb-label">DWG</span><span class="tb-value">SC-010-001</span></div>
-  <div class="tb-row"><span class="tb-label">FMT</span><span class="tb-value">CALC SHEET</span></div>
-  <div class="tb-row"><span class="tb-label">REV</span><span class="tb-value">A</span></div>
-  <div class="tb-row"><span class="tb-label">DATE</span><span class="tb-value">2026-07-26</span></div>
-</aside>
-<!--SC-CALC-SHEET-TB-END-->
 <!--SC-RELATED-TOOLS-START-->
 <section class="related-tools-section" aria-labelledby="related-tools-heading">
   <h2 id="related-tools-heading">Related Calculators</h2>
@@ -923,5 +917,13 @@ hiddenCostPct = (trueMonthlyCost − netMonthly) / netMonthly × 100</div>
   </div>
 </section>
 <!--SC-RELATED-TOOLS-END-->
+<!--SC-CALC-SHEET-TB-START-->
+<aside class="sc-calc-sheet-titleblock" aria-hidden="true">
+  <div class="tb-row"><span class="tb-label">DWG</span><span class="tb-value">SC-010-001</span></div>
+  <div class="tb-row"><span class="tb-label">FMT</span><span class="tb-value">CALC SHEET</span></div>
+  <div class="tb-row"><span class="tb-label">REV</span><span class="tb-value">A</span></div>
+  <div class="tb-row"><span class="tb-label">DATE</span><span class="tb-value">2026-07-27</span></div>
+</aside>
+<!--SC-CALC-SHEET-TB-END-->
 </body>
 </html>

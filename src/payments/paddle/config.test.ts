@@ -1,22 +1,15 @@
 import { describe, it, expect } from 'vitest';
-import {
-  PADDLE_SANDBOX_PRICE_IDS,
-  getPaddlePublicConfig,
-  resolveSandboxPriceId
-} from './config.js';
-import { PACKAGES } from '../../billing/credit-packages.js';
+import { INVALID_PADDLE_PRICE_IDS, getPaddlePublicConfig } from './config.js';
+import { PACKAGES } from '../../lib/pricing-packages.js';
 
-describe('paddle sandbox config', () => {
-  it('defaults to sandbox', () => {
+describe('paddle public config', () => {
+  it('exposes mandate packages without browser price IDs', () => {
     const cfg = getPaddlePublicConfig();
-    expect(cfg.environment).toBe('sandbox');
     expect(cfg.packages).toBe(PACKAGES);
+    expect(cfg.packages.every((p) => p.paddlePriceId === '')).toBe(true);
   });
 
-  it('exposes credit-pack sandbox price IDs', () => {
-    expect(PADDLE_SANDBOX_PRICE_IDS.starter).toBe('pri_01kyhfb5q0jxrck07py0xxaqw7');
-    expect(PADDLE_SANDBOX_PRICE_IDS.teamWallet).toBe('pri_01kyhfgk3ax50gz1m7zh877w9c');
-    expect(resolveSandboxPriceId(100)).toBe(PADDLE_SANDBOX_PRICE_IDS.workshop);
-    expect(resolveSandboxPriceId(20)).toBe(PADDLE_SANDBOX_PRICE_IDS.starter);
+  it('has empty hard-block list after one-time qty lock', () => {
+    expect(INVALID_PADDLE_PRICE_IDS).toEqual([]);
   });
 });

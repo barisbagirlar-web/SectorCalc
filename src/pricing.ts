@@ -1,43 +1,32 @@
-import { PACKAGES, getPackageByCredits, getPackageById } from './lib/pricing-packages.js';
+import { PACKAGES, getPackageByKey, type CreditPackageKey } from './lib/pricing-packages.js';
 import {
   isCheckoutConfigured,
-  openCreditCheckout,
+  openPreparedCheckout,
   readCredits,
   getPaddlePublicConfig
 } from './payments/paddle/index.js';
-import { currentUser, recordLocalPurchase, recordCloudPurchase } from './auth/index.js';
-import { trackBillingEvent } from './billing/analytics.js';
+import { currentUser } from './auth/index.js';
+import { createCheckout, pollPurchaseCredited, fetchWallet } from './billing/api.js';
 
 function renderBalance(): void {
   const el = document.querySelector('#credit-balance');
   if (!el) return;
-  const { balance, purchasedCredits, promotionalCredits } = readCredits();
-  const purchased = purchasedCredits ?? balance;
-  const promo = promotionalCredits ?? 0;
-  el.textContent =
-    promo > 0
-      ? `Balance: ${balance} credits (purchased ${purchased} · promotional ${promo}) — cache display`
-      : balance === 1
-        ? 'Balance: 1 credit (display cache; server ledger is authoritative when signed in)'
-        : `Balance: ${balance} credits (display cache; server ledger is authoritative when signed in)`;
-}
-
-async function persistPurchase(detail: { granted?: number; txnId?: string; source?: string }): Promise<void> {
-  const credits = Number(detail.granted) || 0;
-  if (credits <= 0) return;
-  recordLocalPurchase({ credits, txnId: detail.txnId, source: detail.source });
-  trackBillingEvent('credit_purchase_success', {
-    packageId: getPackageByCredits(credits)?.id,
-    creditCost: credits,
-    cohort: currentUser() ? 'account' : 'anonymous'
-  });
   const user = currentUser();
-  if (!user) return;
-  try {
-    await recordCloudPurchase(user, { credits, txnId: detail.txnId, source: detail.source });
-  } catch {
-    /* cloud purchase log best-effort until webhook is authoritative */
+  if (!user) {
+    const balance = readCredits().balance;
+    el.textContent =
+      balance > 0
+        ? `Local cache: ${balance} (sign in for server wallet)`
+        : 'Sign in to purchase credits — no subscription required.';
+    return;
   }
+  void fetchWallet()
+    .then((w) => {
+      el.textContent = `Balance: ${w.spendableCredits} credits (server wallet)`;
+    })
+    .catch(() => {
+      el.textContent = 'Sign in required for server wallet.';
+    });
 }
 
 function init(): void {
@@ -45,33 +34,35 @@ function init(): void {
   const freeTier = document.querySelector('#free-tier');
   if (freeTier) {
     freeTier.innerHTML = isCheckoutConfigured()
-      ? `<b>Paddle ${paddle.environment} checkout is live.</b> No subscription required. Purchased credits do not expire. Use credits only when you need a professional calculation session.`
-      : `<b>Checkout is not configured.</b> Set VITE_PADDLE_CLIENT_TOKEN to enable purchases. Purchased credits do not expire once checkout is live.`;
+      ? `<b>Paddle ${paddle.environment} one-time credit packs.</b> No subscription required. Purchased credits do not expire. Use credits when you need a professional calculation session.`
+      : `<b>Checkout is not configured.</b> Set VITE_PADDLE_CLIENT_TOKEN. Purchased credits do not expire.`;
   }
 
   const grid = document.querySelector('#packages');
   if (grid) {
-    const specs: Record<string, string> = {
-      STARTER: 'Job ticket · few professional sessions',
-      WORKSHOP: 'Cell / bay · weekly release work',
-      PROFESSIONAL: 'Program stack · multi-tool weeks',
-      TEAM_WALLET: 'Shared rack · team wallet'
-    };
     grid.innerHTML = PACKAGES.map((p) => {
       const pop = p.featured ? ' pop' : '';
       const tag = p.badge ? `<span class="tag">${p.badge}</span>` : '';
-      const label = isCheckoutConfigured() ? 'Load pack' : 'Notify me';
-      const spec = specs[p.id] || 'Credit stock pack';
-      return `<article class="pack${pop}" id="${p.id}">${tag}
-        <div class="pack-top"><span class="pack-id">${p.id}</span><span class="pack-rev">QTY ${p.credits}</span></div>
+      const perLabel = `${p.perCredit} / credit`;
+      const label = isCheckoutConfigured() ? 'Buy one-time' : 'Notify me';
+      const spec =
+        p.key === 'STARTER'
+          ? 'Shop check · light sessions'
+          : p.key === 'WORKSHOP'
+            ? 'Daily floor · most jobs'
+            : p.key === 'PROFESSIONAL'
+              ? 'Heavy analysis · report cycles'
+              : 'Shared wallet · team load';
+      return `<article class="pack${pop}" id="${p.key}">${tag}
+        <div class="pack-top"><span class="pack-id">${p.key}</span><span class="pack-rev">ONE-TIME</span></div>
         <div class="pack-mid">
           <div class="amt">${p.price}</div>
-          <div class="cred">${p.credits} credits</div>
-          <div class="per">${p.perCredit} / credit</div>
-          <p class="pack-spec">${spec}</p>
+          <div class="cred">${p.credits.toLocaleString('en-US')} credits</div>
+          <div class="per">${perLabel} · never expire*</div>
+          <div class="pack-spec">${spec}</div>
         </div>
         <div class="pack-foot">
-          <button class="load btn btn-ghost" data-package-id="${p.id}" data-credits="${p.credits}" data-price-id="${p.paddlePriceId}" type="button">${label}</button>
+          <button class="load btn btn-ghost" data-package-key="${p.key}" type="button">${label}</button>
         </div>
       </article>`;
     }).join('');
@@ -80,38 +71,54 @@ function init(): void {
   const status = document.querySelector('#pay-status');
   document.querySelectorAll<HTMLButtonElement>('.load').forEach((btn) => {
     btn.addEventListener('click', async () => {
-      const packageId = btn.dataset.packageId as
-        | 'STARTER'
-        | 'WORKSHOP'
-        | 'PROFESSIONAL'
-        | 'TEAM_WALLET'
-        | undefined;
-      const pack = packageId ? getPackageById(packageId) : getPackageByCredits(Number(btn.dataset.credits));
+      const packageKey = btn.dataset.packageKey as CreditPackageKey | undefined;
+      const pack = packageKey ? getPackageByKey(packageKey) : undefined;
       if (!pack) {
         if (status) status.textContent = 'Unknown package.';
         return;
       }
+      if (!currentUser()) {
+        if (status) status.textContent = 'Sign in required before purchasing credits.';
+        window.location.href = `/login.html?next=${encodeURIComponent('/pricing.html')}`;
+        return;
+      }
       if (!isCheckoutConfigured()) {
-        if (status) {
-          status.textContent = `Checkout is not live yet. Planned packs never expire after purchase when Paddle connects.`;
-        }
+        if (status) status.textContent = 'Checkout is not live yet.';
         return;
       }
       try {
-        trackBillingEvent('checkout_started', {
-          packageId: pack.id,
-          creditCost: pack.credits,
-          cohort: currentUser() ? 'account' : 'anonymous'
-        });
         if (status) {
-          status.textContent =
-            paddle.environment === 'sandbox'
-              ? `Opening Paddle sandbox checkout for ${pack.credits} credits (${pack.id})…`
-              : `Opening checkout for ${pack.credits} credits (${pack.id})…`;
+          status.textContent = `Preparing secure checkout for ${pack.credits} credits…`;
         }
-        await openCreditCheckout(pack.paddlePriceId);
+        const { purchaseId, paddleTransactionId } = await createCheckout(
+          pack.key,
+          window.location.pathname
+        );
+        await openPreparedCheckout({ paddleTransactionId, purchaseId });
+        if (status) status.textContent = 'Checkout open. Complete payment in Paddle…';
+
+        window.addEventListener(
+          'sectorcalc-checkout',
+          async (ev) => {
+            const detail = (ev as CustomEvent).detail;
+            if (detail?.name !== 'checkout.completed' || detail.purchaseId !== purchaseId) return;
+            if (status) status.textContent = 'Payment received. Activating credits…';
+            const st = await pollPurchaseCredited(purchaseId);
+            if (st.status === 'CREDITED') {
+              if (status) status.textContent = 'Credits activated on your server wallet.';
+              renderBalance();
+            } else if (st.status === 'CREDIT_ACTIVATION_PENDING') {
+              if (status) {
+                status.textContent =
+                  'Payment received. Credit activation is still processing — check your account shortly.';
+              }
+            } else {
+              if (status) status.textContent = `Purchase status: ${st.status}`;
+            }
+          },
+          { once: true }
+        );
       } catch (err) {
-        trackBillingEvent('credit_purchase_failed', { packageId: pack.id });
         if (status) {
           status.textContent = err instanceof Error ? err.message : 'Checkout failed.';
         }
@@ -120,24 +127,11 @@ function init(): void {
   });
 
   renderBalance();
-  trackBillingEvent('credit_wallet_viewed', { cohort: currentUser() ? 'account' : 'anonymous' });
-  window.addEventListener('sectorcalc-credits', ((ev: CustomEvent) => {
-    renderBalance();
-    if (status) status.textContent = 'Credits added to display cache. Server ledger confirms via payment event.';
-    void persistPurchase({
-      granted: ev.detail?.granted,
-      txnId: ev.detail?.txnId,
-      source: ev.detail?.source
-    });
-  }) as EventListener);
   window.addEventListener('sectorcalc-checkout', ((ev: CustomEvent) => {
     if (!status) return;
     const name = ev.detail?.name;
     if (name === 'checkout.closed') status.textContent = 'Checkout closed.';
-    if (name === 'checkout.error') {
-      trackBillingEvent('credit_purchase_failed');
-      status.textContent = 'Checkout error — try again.';
-    }
+    if (name === 'checkout.error') status.textContent = 'Checkout error — try again.';
   }) as EventListener);
 }
 

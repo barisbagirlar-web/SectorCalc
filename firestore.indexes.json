@@ -1,10 +1,18 @@
 {
   "indexes": [
     {
-      "collectionGroup": "calculationSessions",
+      "collectionGroup": "professional_sessions",
       "queryScope": "COLLECTION",
       "fields": [
         { "fieldPath": "toolId", "order": "ASCENDING" },
+        { "fieldPath": "status", "order": "ASCENDING" }
+      ]
+    },
+    {
+      "collectionGroup": "billing_purchases",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "paddleTransactionId", "order": "ASCENDING" },
         { "fieldPath": "status", "order": "ASCENDING" }
       ]
     }

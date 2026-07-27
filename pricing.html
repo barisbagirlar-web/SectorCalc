@@ -31,7 +31,7 @@
 <link rel="manifest" href="./site.webmanifest?v=20260724c">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pricing - SectorCalc</title>
-<meta name="description" content="SectorCalc credit packs for professional calculation sessions. No subscription. Purchased credits do not expire. Starter, Workshop, Professional, and Team Wallet.">
+<meta name="description" content="One-time SectorCalc credit packs — no subscription. Starter 20, Workshop 100, Professional 300, Team Wallet 1000. Paddle checkout; credits unlock 24-hour Professional Analysis sessions.">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
@@ -48,25 +48,16 @@
     background-image:
       linear-gradient(to right, color-mix(in srgb, var(--grid) 70%, transparent) 1px, transparent 1px),
       linear-gradient(to bottom, color-mix(in srgb, var(--grid) 70%, transparent) 1px, transparent 1px);
-    background-size:24px 24px;
-    background-attachment:fixed;
+    background-size:24px 24px;background-attachment:fixed;
   }
   .wrap{max-width:1080px;margin:0 auto;padding:0 20px 48px}
   a{color:inherit;text-decoration:none}
   .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--mono);font-weight:600;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;padding:12px 18px;border-radius:0;border:1.5px solid var(--border2);cursor:pointer;transition:border-color .15s ease, background .15s ease, color .15s ease}
   .btn-primary{background:var(--blue);border-color:var(--blue);color:#fff}.btn-primary:hover{background:#003D66;border-color:#003D66}
   .btn-ghost{background:var(--surface);border-color:var(--border2);color:var(--ink);width:100%}.btn-ghost:hover{border-color:var(--blue);color:var(--blue)}
-
-  /* Drawing sheet frame */
-  .dwg-sheet{
-    margin-top:28px;background:var(--surface);border:2px solid var(--border2);
-    box-shadow:inset 0 0 0 1px var(--hair);
-    animation:sheetIn .55s ease both;
-  }
+  .dwg-sheet{margin-top:28px;background:var(--surface);border:2px solid var(--border2);box-shadow:inset 0 0 0 1px var(--hair);animation:sheetIn .55s ease both}
   @keyframes sheetIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-  .dwg-head{
-    display:grid;grid-template-columns:1fr auto;gap:0;border-bottom:2px solid var(--border2);
-  }
+  .dwg-head{display:grid;grid-template-columns:1fr auto;gap:0;border-bottom:2px solid var(--border2)}
   .dwg-title{padding:22px 24px 18px;border-right:1.5px solid var(--border)}
   .dwg-meta{display:grid;grid-template-columns:1fr 1fr;min-width:min(320px,42vw)}
   .dwg-meta .cell{padding:10px 14px;border-bottom:1px solid var(--border);border-left:1px solid var(--border)}
@@ -78,19 +69,10 @@
   .dwg-title h1{font-family:var(--display);font-size:clamp(28px,4.2vw,42px);font-weight:800;text-transform:uppercase;letter-spacing:.01em;line-height:1.05;margin:0 0 12px}
   .dwg-title .lede{font-size:15.5px;color:var(--ink2);max-width:52ch;margin:0}
   .dwg-body{padding:22px 24px 28px}
-  .section-label{
-    display:flex;align-items:baseline;justify-content:space-between;gap:12px;
-    font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
-    border-bottom:1.5px solid var(--border2);padding-bottom:8px;margin:0 0 16px;
-  }
+  .section-label{display:flex;align-items:baseline;justify-content:space-between;gap:12px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);border-bottom:1.5px solid var(--border2);padding-bottom:8px;margin:0 0 16px}
   .section-label strong{color:var(--ink);font-weight:600}
-
   .packs{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:0 0 28px}
-  .pack{
-    background:var(--bg);border:1.5px solid var(--border);padding:0;position:relative;
-    display:flex;flex-direction:column;min-height:100%;
-    transition:border-color .18s ease, transform .18s ease, box-shadow .18s ease;
-  }
+  .pack{background:var(--bg);border:1.5px solid var(--border);padding:0;position:relative;display:flex;flex-direction:column;min-height:100%;transition:border-color .18s ease, transform .18s ease, box-shadow .18s ease}
   .pack:hover{border-color:var(--blue);transform:translateY(-2px);box-shadow:0 6px 0 color-mix(in srgb, var(--blue) 18%, transparent)}
   .pack.pop{border-color:var(--blue);border-width:2px;background:var(--surface)}
   .pack .tag{position:absolute;top:-1px;right:-1px;font-family:var(--mono);font-size:9px;font-weight:700;background:var(--blue);color:#fff;padding:5px 8px;letter-spacing:.08em;text-transform:uppercase}
@@ -104,7 +86,6 @@
   .pack-spec{margin-top:12px;padding-top:10px;border-top:1px dashed var(--border);font-family:var(--mono);font-size:10.5px;color:var(--ink2);line-height:1.45}
   .pack-foot{padding:0 14px 14px}
   .pack-foot .btn{margin-top:4px}
-
   .rail{display:grid;grid-template-columns:1.15fr .85fr;gap:14px;margin-bottom:14px}
   .panel{background:var(--bg);border:1.5px solid var(--border);padding:18px 18px 14px}
   .panel h2{font-family:var(--display);font-size:20px;font-weight:800;text-transform:uppercase;letter-spacing:.02em;margin:0 0 14px}
@@ -117,19 +98,11 @@
   .why-list li{display:grid;grid-template-columns:18px 1fr;gap:10px;align-items:start;font-size:13.5px;color:var(--ink2)}
   .why-list .tick{font-family:var(--mono);color:var(--blue);font-weight:700;line-height:1.3}
   .why-list strong{color:var(--ink);font-weight:600}
-
-  .status-bar{
-    display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;justify-content:space-between;
-    margin:0 0 18px;padding:10px 12px;border:1px dashed var(--border2);background:var(--bg);
-    font-family:var(--mono);font-size:12px;color:var(--ink2);
-  }
+  .status-bar{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;justify-content:space-between;margin:0 0 18px;padding:10px 12px;border:1px dashed var(--border2);background:var(--bg);font-family:var(--mono);font-size:12px;color:var(--ink2)}
   .note{border:1.5px solid color-mix(in srgb, var(--iso-orange) 35%, var(--border));background:color-mix(in srgb, var(--iso-orange) 10%, var(--surface));padding:14px 16px;font-size:13.5px;color:var(--ink2);margin:14px 0 0}
   .note b{color:var(--ink)}
   .tools-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:4px}
-  .tool-chip{
-    display:block;border:1.5px solid var(--border);background:var(--surface);padding:12px 12px 11px;
-    transition:border-color .15s ease, background .15s ease;
-  }
+  .tool-chip{display:block;border:1.5px solid var(--border);background:var(--surface);padding:12px 12px 11px;transition:border-color .15s ease, background .15s ease}
   .tool-chip:hover{border-color:var(--blue);background:var(--bg)}
   .tool-chip .sc{font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--blue);font-weight:700}
   .tool-chip .nm{display:block;font-family:var(--display);font-size:16px;font-weight:800;text-transform:uppercase;letter-spacing:.02em;margin:4px 0 2px;line-height:1.1}
@@ -157,7 +130,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Pricing - SectorCalc">
-<meta property="og:description" content="SectorCalc credit packs for professional calculation sessions. No subscription. Purchased credits do not expire.">
+<meta property="og:description" content="SectorCalc one-time credit packs for professional calculation sessions. No subscription. Purchased credits do not expire. Starter, Workshop, Professional, Team Wallet.">
 <meta property="og:url" content="https://sectorcalc.com/pricing.html">
 <meta property="og:site_name" content="SectorCalc">
 <meta property="og:image" content="https://sectorcalc.com/assets/images/og-pricing-1200x630.jpg">
@@ -168,7 +141,7 @@
 <meta property="og:image:alt" content="Pricing - SectorCalc">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Pricing - SectorCalc">
-<meta name="twitter:description" content="SectorCalc credit packs for professional calculation sessions. No subscription. Purchased credits do not expire.">
+<meta name="twitter:description" content="SectorCalc one-time credit packs for professional calculation sessions. No subscription. Purchased credits do not expire. Starter, Workshop, Professional, Team Wallet.">
 <meta name="twitter:image" content="https://sectorcalc.com/assets/images/og-pricing-1200x630.jpg">
 <meta name="twitter:image:alt" content="Pricing - SectorCalc">
 <meta name="referrer" content="strict-origin-when-cross-origin">
@@ -259,7 +232,7 @@
       "@type": "Product",
       "@id": "https://sectorcalc.com/pricing.html#product-credits",
       "name": "SectorCalc Calculation Credits",
-      "description": "Pay-per-use credits for professional calculation sessions. No subscription. Purchased credits do not expire. Checkout via Paddle.",
+      "description": "One-time credit packs for Professional Analysis sessions. No subscription. Purchased credits do not expire. Checkout via Paddle Merchant of Record.",
       "brand": {
         "@id": "https://sectorcalc.com/#organization"
       },
@@ -272,7 +245,9 @@
           "priceCurrency": "USD",
           "availability": "https://schema.org/InStock",
           "url": "https://sectorcalc.com/pricing.html#STARTER",
-          "seller": { "@id": "https://sectorcalc.com/#organization" }
+          "seller": {
+            "@id": "https://sectorcalc.com/#organization"
+          }
         },
         {
           "@type": "Offer",
@@ -281,7 +256,9 @@
           "priceCurrency": "USD",
           "availability": "https://schema.org/InStock",
           "url": "https://sectorcalc.com/pricing.html#WORKSHOP",
-          "seller": { "@id": "https://sectorcalc.com/#organization" }
+          "seller": {
+            "@id": "https://sectorcalc.com/#organization"
+          }
         },
         {
           "@type": "Offer",
@@ -290,7 +267,9 @@
           "priceCurrency": "USD",
           "availability": "https://schema.org/InStock",
           "url": "https://sectorcalc.com/pricing.html#PROFESSIONAL",
-          "seller": { "@id": "https://sectorcalc.com/#organization" }
+          "seller": {
+            "@id": "https://sectorcalc.com/#organization"
+          }
         },
         {
           "@type": "Offer",
@@ -299,7 +278,9 @@
           "priceCurrency": "USD",
           "availability": "https://schema.org/InStock",
           "url": "https://sectorcalc.com/pricing.html#TEAM_WALLET",
-          "seller": { "@id": "https://sectorcalc.com/#organization" }
+          "seller": {
+            "@id": "https://sectorcalc.com/#organization"
+          }
         }
       ],
       "isPartOf": {
@@ -328,7 +309,7 @@
 }
 </script>
 <!--SC-SEO-SCHEMA-END-->
-                                      <link rel="stylesheet" href="/sc-calc-sheet.css?v=1">
+                                          <link rel="stylesheet" href="/sc-calc-sheet.css?v=1">
   <!--SC-CALC-SHEET-START-->
   <!-- calc-sheet theme: theme-bom -->
   <!--SC-CALC-SHEET-END-->
@@ -367,6 +348,8 @@
   <a href="/login.html" class="btn-primary" data-nav="login">Sign in</a>
 </div>
 <!--SC-SITE-NAV-END-->
+
+
 
 
 
@@ -444,29 +427,26 @@
       </div>
       <div class="dwg-meta" aria-hidden="true">
         <div class="cell"><span class="k">DWG</span><span class="v">SC-PRC-001</span></div>
-        <div class="cell"><span class="k">REV</span><span class="v">B</span></div>
+        <div class="cell"><span class="k">REV</span><span class="v">C</span></div>
         <div class="cell"><span class="k">SCALE</span><span class="v">1 : 1</span></div>
         <div class="cell"><span class="k">UNIT</span><span class="v">CREDIT</span></div>
         <div class="cell"><span class="k">STATUS</span><span class="v">NO SUBSCRIPTION</span></div>
         <div class="cell"><span class="k">SHELF</span><span class="v">NEVER EXPIRES*</span></div>
       </div>
     </header>
-
     <div class="dwg-body">
       <div class="section-label"><strong>01 · Stock packs</strong><span>USD for wallets · credits for tools</span></div>
       <div class="packs" id="packages" aria-live="polite"></div>
-
       <div class="status-bar">
         <span id="credit-balance">Balance: —</span>
         <span id="pay-status"></span>
       </div>
-
       <div class="rail">
         <section class="panel">
           <h2>How an engineer uses this</h2>
           <div class="step"><span class="n">01</span><div><b>Run free</b><p>Inputs, core results, formulas, and basic warnings stay free — same as sketching on the pad before you stamp a report.</p></div></div>
           <div class="step"><span class="n">02</span><div><b>Open a professional session</b><p>One debit unlocks 24 hours on that tool. Recalculate freely. Report revisions are capped — not a charge on every Calculate click.</p></div></div>
-          <div class="step"><span class="n">03</span><div><b>Load stock when needed</b><p>Buy a pack. Credits sit in your wallet like bar stock on the rack until you need them.</p></div></div>
+          <div class="step"><span class="n">03</span><div><b>Load stock when needed</b><p>Buy a one-time pack. Credits sit in your server wallet like bar stock on the rack until you need them.</p></div></div>
           <div class="step"><span class="n">04</span><div><b>Defend the number</b><p>Professional session covers the audit trail / export / advanced analysis path where the tool supports it.</p></div></div>
         </section>
         <section class="panel">
@@ -480,7 +460,6 @@
           <div class="note" id="free-tier"><b>Checkout status loading…</b></div>
         </section>
       </div>
-
       <div class="section-label" style="margin-top:22px"><strong>02 · Start on the floor</strong><span>Same tools you already trust</span></div>
       <div class="tools-grid">
         <a class="tool-chip" href="/calculator/tolerance-stack-up"><span class="sc">SC-008</span><span class="nm">Tolerance stack-up</span><span class="ds">Worst-case · RSS · Monte Carlo</span></a>
@@ -490,9 +469,8 @@
         <a class="tool-chip" href="/calculator/true-labor-cost"><span class="sc">SC-010</span><span class="nm">True labor cost</span><span class="ds">Loaded labor burden</span></a>
         <a class="tool-chip" href="/calculator/weld-thickness"><span class="sc">SC-001</span><span class="nm">Weld thickness</span><span class="ds">Leg · throat · utilization</span></a>
       </div>
-
       <div class="cta-row">
-        <p>*Purchased credits never expire. Promotional trial credits are stored separately with a 14-day window.</p>
+        <p>*Purchased credits never expire. Promotional trial credits are stored separately with a 14-day window. Sign in required before checkout.</p>
         <a class="btn btn-primary" href="/calculator/tolerance-stack-up">Open a calculator free</a>
       </div>
     </div>
@@ -508,9 +486,9 @@
 
 <!--SC-CALC-SHEET-TB-START-->
 <aside class="sc-calc-sheet-titleblock" aria-hidden="true">
-  <div class="tb-row"><span class="tb-label">DWG</span><span class="tb-value">SC-PRC-001</span></div>
-  <div class="tb-row"><span class="tb-label">FMT</span><span class="tb-value">CREDIT</span></div>
-  <div class="tb-row"><span class="tb-label">REV</span><span class="tb-value">B</span></div>
+  <div class="tb-row"><span class="tb-label">DWG</span><span class="tb-value">SC-BOM-001</span></div>
+  <div class="tb-row"><span class="tb-label">FMT</span><span class="tb-value">BOM</span></div>
+  <div class="tb-row"><span class="tb-label">REV</span><span class="tb-value">A</span></div>
   <div class="tb-row"><span class="tb-label">DATE</span><span class="tb-value">2026-07-27</span></div>
 </aside>
 <!--SC-CALC-SHEET-TB-END-->

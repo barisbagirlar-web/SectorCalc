@@ -12,6 +12,7 @@ import {
   FS_ENGINE_BUILD_DATE
 } from './core/fs-engine.js';
 import { readThemePalette, exportSurfaceBg, onThemeChange } from './lib/theme-palette.js';
+import { mountProfessionalGate } from './billing/professional-ui.js';
 
 const ENGINE_LABEL = `${FS_ENGINE_ID} (${FS_ENGINE_BUILD_DATE})`;
 const $ = (id) => document.getElementById(id);
@@ -526,13 +527,27 @@ try {
   console.error(e);
 }
 
-window.generateReport = generateReport;
-window.exportJSON = exportJSON;
-window.exportPDF = exportPDF;
-window.exportPDFGraphic = exportPDFGraphic;
+async function requirePro(action) {
+  if (window.__scProGate && !(await window.__scProGate.ensureEntitled())) {
+    alert('Start a Professional Session (15 credits / 24h) for professional report / export.');
+    document.getElementById('sc-pro-gate-root')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return;
+  }
+  return action();
+}
+
+window.generateReport = (opts) => requirePro(() => generateReport(opts));
+window.exportJSON = () => requirePro(() => exportJSON());
+window.exportPDF = () => requirePro(() => exportPDF());
+window.exportPDFGraphic = () => requirePro(() => exportPDFGraphic());
 window.shareReport = shareReport;
 window.loadPreset = loadPreset;
 window.resetAll = resetAll;
 window.validateAndCalc = validateAndCalc;
 window.onMaterialChange = onMaterialChange;
 onThemeChange(syncReportIfOpen);
+
+const _proRoot = document.getElementById('sc-pro-gate-root');
+if (_proRoot) {
+  window.__scProGate = mountProfessionalGate({ toolId: 'SC-020', mount: _proRoot });
+}

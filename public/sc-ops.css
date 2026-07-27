@@ -428,3 +428,16 @@
 @media (max-width: 900px){
   .ops-activity-row{ grid-template-columns:1fr 1fr; }
 }
+
+.ops-user-row{ cursor:pointer; }
+.ops-user-row:hover{ background:rgba(0,85,164,0.04); }
+.ops-user-email{ color:var(--ops-blue, #0055A4); font-weight:600; }
+.ops-user-dossier{ margin-top:16px; }
+.ops-kpi-grid-compact{ margin:12px 0 16px; }
+.ops-muted{ color:var(--ops-muted, #6b6b63); font-size:12px; margin-top:2px; }
+.ops-section-lede{ margin:0 0 12px; }
+.ops-pack-row{ cursor:pointer; }
+.ops-pack-row:hover{ background:rgba(0,85,164,0.04); }
+.ops-pack-row.is-selected{ background:rgba(0,85,164,0.08); outline:1px solid rgba(0,85,164,0.25); }
+.ops-pack-buyers{ font-size:13px; max-width:280px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.ops-pack-buyers-card{ margin-top:16px; }
