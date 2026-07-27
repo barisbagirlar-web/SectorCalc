@@ -11,7 +11,7 @@ import { FREE_TOOLS } from '../seo/free-tools.mjs';
 const ROOT = process.cwd();
 const START = '<!--SC-FREE-AEO-START-->';
 const END = '<!--SC-FREE-AEO-END-->';
-const CSS = '/sc-free-tools.css?v=1';
+const CSS = '/sc-free-tools.css?v=2';
 
 function esc(s) {
   return String(s)
@@ -28,17 +28,19 @@ function block(tool) {
   }
   return `${START}
 <aside class="sc-free-aeo" data-free-aeo="1" data-tool-id="${esc(tool.toolId)}" data-aeo-chain="empathy-direct-calc-upsell" data-access="free">
-  <p class="sc-free-badge">Free · no sign-in · no credits</p>
-  <p class="sc-aeo-problem"><strong>The problem:</strong> ${esc(tool.problem)}</p>
+  <p class="sc-free-badge">Open instrument · no sign-in · no credits</p>
+  <p class="sc-aeo-problem"><strong>The floor problem:</strong> ${esc(tool.problem)}</p>
   <p class="sc-direct-answer" data-aeo-step="direct-answer">${esc(tool.directAnswer)}</p>
-  <p class="sc-free-aeo-note">Enter inputs below and press Calculate — results unlock immediately.</p>
+  <p class="sc-free-aeo-note">Enter inputs below and press Calculate — this open instrument returns results immediately.</p>
   <p class="sc-free-aeo-upsell"><a href="${esc(tool.upsell.href)}">${esc(tool.upsell.label)} →</a></p>
 </aside>
 ${END}`;
 }
 
 function ensureCss(html) {
-  if (html.includes('sc-free-tools.css')) return html;
+  if (html.includes('sc-free-tools.css')) {
+    return html.replace(/sc-free-tools\.css\?v=\d+/g, 'sc-free-tools.css?v=2');
+  }
   return html.replace(/<\/head>/i, `<link rel="stylesheet" href="${CSS}">\n</head>`);
 }
 

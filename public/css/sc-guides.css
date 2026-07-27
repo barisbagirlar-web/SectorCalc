@@ -1,0 +1,225 @@
+/* Enterprise guides hub + article chrome — aligned with main SectorCalc surfaces */
+:root {
+  --g-ink: #0b1c2c;
+  --g-muted: #3d5366;
+  --g-line: rgba(11, 28, 44, 0.12);
+  --g-blue: #0055a4;
+  --g-orange: #e87722;
+  --g-green: #0f6b4c;
+  --g-wash: #f4f7fa;
+  --g-card: #ffffff;
+}
+.sc-guides-shell {
+  min-height: 100vh;
+  background:
+    radial-gradient(90% 60% at 100% 0%, rgba(0, 85, 164, 0.07), transparent 50%),
+    linear-gradient(180deg, #f8fafc 0%, var(--g-wash) 100%);
+  color: var(--g-ink);
+  font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
+}
+.sc-guides-shell a { color: var(--g-blue); }
+.sc-guides-main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.25rem clamp(1rem, 3vw, 1.75rem) 3.5rem;
+}
+.sc-guides-hero {
+  padding: 1.5rem 0 1.75rem;
+  border-bottom: 1px solid var(--g-line);
+  margin-bottom: 1.75rem;
+}
+.sc-guides-kicker {
+  margin: 0 0 0.45rem;
+  font: 650 0.72rem/1.2 "JetBrains Mono", ui-monospace, monospace;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--g-blue);
+}
+.sc-guides-hero h1 {
+  margin: 0 0 0.65rem;
+  font: 750 clamp(1.7rem, 3.2vw, 2.35rem)/1.15 "Barlow Condensed", "IBM Plex Sans", sans-serif;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+.sc-guides-lead {
+  margin: 0;
+  max-width: 46rem;
+  color: var(--g-muted);
+  font-size: 1.02rem;
+  line-height: 1.55;
+}
+.sc-guides-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.75rem;
+  margin: 1.25rem 0 0;
+}
+.sc-guides-stat {
+  border: 1px solid var(--g-line);
+  background: var(--g-card);
+  padding: 0.75rem 0.85rem;
+}
+.sc-guides-stat b {
+  display: block;
+  font-size: 1.15rem;
+}
+.sc-guides-stat span {
+  color: var(--g-muted);
+  font-size: 0.82rem;
+}
+.sc-guides-section {
+  margin: 2rem 0;
+}
+.sc-guides-section > h2 {
+  margin: 0 0 0.45rem;
+  font: 700 1.35rem/1.2 "IBM Plex Sans", sans-serif;
+}
+.sc-guides-section > p {
+  margin: 0 0 1rem;
+  color: var(--g-muted);
+  max-width: 42rem;
+}
+.sc-guides-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 0.95rem;
+}
+.sc-guide-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-height: 100%;
+  padding: 1.05rem 1.1rem 1.15rem;
+  background: var(--g-card);
+  border: 1px solid var(--g-line);
+  border-radius: 2px;
+}
+.sc-guide-badge {
+  align-self: flex-start;
+  margin: 0;
+  padding: 0.16rem 0.45rem;
+  font: 700 0.68rem/1.2 ui-monospace, monospace;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.sc-guide-badge[data-access="free"] {
+  background: #eef6f2;
+  color: var(--g-green);
+}
+.sc-guide-badge[data-access="credits"],
+.sc-guide-badge[data-access="mixed"] {
+  background: #fff4e8;
+  color: #9a4b00;
+}
+.sc-guide-card h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.25;
+}
+.sc-guide-problem {
+  margin: 0;
+  flex: 1;
+  color: var(--g-muted);
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+.sc-guide-meta {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--g-muted);
+}
+.sc-guide-cta {
+  margin-top: 0.25rem;
+  font-weight: 650;
+  text-underline-offset: 0.16em;
+}
+.sc-guides-chain {
+  border: 1px solid var(--g-line);
+  background: #fff;
+  padding: 1rem 1.1rem;
+}
+.sc-guides-chain ol {
+  margin: 0.5rem 0 0;
+  padding-left: 1.2rem;
+}
+.sc-guides-chain li { margin: 0.35rem 0; }
+.sc-guides-footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem 1.25rem;
+  margin-top: 2.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--g-line);
+  font-size: 0.92rem;
+}
+
+.sc-guide-article {
+  max-width: 820px;
+}
+.sc-guide-article .sc-aeo-problem,
+.sc-guide-article .sc-direct-answer {
+  margin: 0.55rem 0;
+  line-height: 1.5;
+}
+.sc-guide-article .sc-direct-answer {
+  padding: 0.85rem 1rem;
+  background: #eef6f2;
+  border-left: 3px solid var(--g-green);
+}
+.sc-guide-article .sc-guide-toc {
+  margin: 1.25rem 0;
+  padding: 1rem;
+  border: 1px solid var(--g-line);
+  background: #fff;
+}
+.sc-guide-article .sc-cta-panel {
+  margin-top: 2rem;
+  padding: 1.2rem;
+  border: 1px solid var(--g-line);
+  background: #fff;
+}
+.sc-guide-article .sc-btn-primary {
+  display: inline-block;
+  margin-top: 0.65rem;
+  padding: 0.7rem 1rem;
+  background: var(--g-orange);
+  color: #111 !important;
+  font-weight: 750;
+  text-decoration: none !important;
+  border-radius: 2px;
+}
+.sc-guide-related {
+  margin-top: 1.5rem;
+}
+.sc-guide-related ul { padding-left: 1.15rem; }
+.sc-guide-article .sc-standards-list,
+.sc-guide-article .sc-step-list {
+  padding-left: 1.2rem;
+}
+.sc-guide-article .sc-formula-block {
+  margin: 0.85rem 0;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--g-line);
+  background: #fff;
+}
+.sc-guide-article .sc-formula-block code {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.9rem;
+}
+.sc-guide-article .sc-mistake-card {
+  margin: 0.75rem 0;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--g-line);
+  background: #fff;
+}
+.sc-guide-article .sc-faq-item {
+  margin: 0.55rem 0;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid var(--g-line);
+  background: #fff;
+}
+@media (max-width: 640px) {
+  .sc-guides-grid { grid-template-columns: 1fr; }
+}

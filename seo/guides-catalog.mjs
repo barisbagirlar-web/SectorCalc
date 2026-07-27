@@ -1,0 +1,226 @@
+/**
+ * Guides catalog SSOT — enterprise hub + long-form guide generator.
+ * English-only. Access flags must match free-tools / packages SSOT.
+ */
+export const GUIDES = Object.freeze([
+  {
+    slug: 'iso-286-fits-complete',
+    existing: false,
+    access: 'free',
+    topicId: 'tolerance-metrology',
+    topic: 'Tolerance & metrology',
+    title: 'ISO 286 Fits Complete Guide',
+    h1: 'Complete Guide to ISO 286 Fits & Clearances',
+    problem: 'H7/g6 looks familiar — until someone asks for the actual limit deviations on your diameter band.',
+    lead:
+      'Learn how ISO 286 hole/shaft tolerance zones map to limit deviations, when to escalate to stack-up, and how to run the free SC-027 calculator without inventing unsupported fit families.',
+    calculator: {
+      toolId: 'SC-027',
+      href: '/calculator/iso-286-fits',
+      label: 'Open free ISO 286 Fits calculator',
+    },
+    related: [
+      '/calculator/iso-286-fits',
+      '/calculator/surface-finish',
+      '/calculator/tolerance-stack-up',
+      '/topics/fits-and-finish',
+      '/blog/iso-286-h7-g6-explained.html',
+      '/guides/tolerance-stack-up-complete',
+      '/glossary/iso-286-fits',
+    ],
+  },
+  {
+    slug: 'surface-finish-complete',
+    existing: false,
+    access: 'free',
+    topicId: 'tolerance-metrology',
+    topic: 'Tolerance & metrology',
+    title: 'Surface Finish (Ra / Rz) Complete Guide',
+    h1: 'Complete Guide to Surface Finish: Ra, Rz & Conversion Assumptions',
+    problem: 'The drawing calls out Ra — the shop measures Rz. Which number do you release?',
+    lead:
+      'Separate roughness parameters from tribal conversion habits. Use the free SC-028 converter with visible assumptions, then keep measured capability as the release authority.',
+    calculator: {
+      toolId: 'SC-028',
+      href: '/calculator/surface-finish',
+      label: 'Open free Surface Finish calculator',
+    },
+    related: [
+      '/calculator/surface-finish',
+      '/calculator/iso-286-fits',
+      '/topics/fits-and-finish',
+      '/blog/ra-vs-rz-surface-finish.html',
+      '/guides/iso-286-fits-complete',
+      '/glossary/iso-286-fits',
+    ],
+  },
+  {
+    slug: 'sheet-metal-bend-complete',
+    existing: false,
+    access: 'free',
+    topicId: 'welding',
+    topic: 'Welding & fabrication',
+    title: 'Sheet Metal Bend & K-Factor Complete Guide',
+    h1: 'Complete Guide to Sheet Metal Bend Allowance & K-Factor',
+    problem: 'Flat pattern wrong by a few millimetres means the brake setup already failed.',
+    lead:
+      'Compute bend allowance, bend deduction, and flat length from thickness, angle, inside radius, and K-factor — then calibrate against your brake and material lot with the free SC-030 calculator.',
+    calculator: {
+      toolId: 'SC-030',
+      href: '/calculator/sheet-metal-bend',
+      label: 'Open free Sheet Metal Bend calculator',
+    },
+    related: [
+      '/calculator/sheet-metal-bend',
+      '/calculator/punching-force',
+      '/topics/sheet-metal-fabrication',
+      '/guides/punching-force-complete',
+      '/guides/weld-sizing-complete',
+    ],
+  },
+  {
+    slug: 'punching-force-complete',
+    existing: false,
+    access: 'free',
+    topicId: 'welding',
+    topic: 'Welding & fabrication',
+    title: 'Punching Force Complete Guide',
+    h1: 'Complete Guide to Punching Force & Press Capacity Screening',
+    problem: 'Press tonnage guessed from habit is how punches snap and frames ring.',
+    lead:
+      'Estimate punching force from perimeter, thickness, and shear strength with explicit units. Screen die and press capacity with free SC-039 before tooling — OEM charts still govern final release.',
+    calculator: {
+      toolId: 'SC-039',
+      href: '/calculator/punching-force',
+      label: 'Open free Punching Force calculator',
+    },
+    related: [
+      '/calculator/punching-force',
+      '/calculator/sheet-metal-bend',
+      '/topics/sheet-metal-fabrication',
+      '/guides/sheet-metal-bend-complete',
+      '/guides/cnc-optimization-complete',
+    ],
+  },
+  {
+    slug: 'tolerance-stack-up-complete',
+    existing: true,
+    access: 'credits',
+    topicId: 'tolerance-metrology',
+    topic: 'Tolerance & metrology',
+    title: 'Tolerance Stack-Up Complete Guide',
+    h1: 'Complete Guide to Tolerance Stack-Up',
+    problem: 'Will this assembly still close when every contributor sits at its worst legal extreme?',
+    lead:
+      'Run worst-case, RSS, and Monte Carlo side-by-side with visible formulas and an A1–A5 audit trail on SC-008 — unlock with credits when the job is real.',
+    calculator: {
+      toolId: 'SC-008',
+      href: '/calculator/tolerance-stack-up',
+      label: 'Open SC-008 Tolerance Stack-Up',
+    },
+    related: [
+      '/calculator/tolerance-stack-up',
+      '/calculator/iso-286-fits',
+      '/guides/iso-286-fits-complete',
+      '/glossary/tolerance-stack-up',
+      '/glossary/rss-tolerance',
+    ],
+  },
+  {
+    slug: 'cnc-optimization-complete',
+    existing: true,
+    access: 'credits',
+    topicId: 'cnc-machining',
+    topic: 'CNC machining',
+    title: 'CNC Optimization Complete Guide',
+    h1: 'Complete Guide to CNC Feeds & Speeds Optimization',
+    problem: 'Will this cut release on the spindle you actually own — or burn a tool and stall the machine?',
+    lead:
+      'Set feeds, speeds, chip thinning, and power checks with deterministic formulas on SC-020. Credit session unlocks full recalculation with audit trail.',
+    calculator: {
+      toolId: 'SC-020',
+      href: '/calculator/cnc-feeds-speeds',
+      label: 'Open SC-020 CNC Feeds & Speeds',
+    },
+    related: [
+      '/calculator/cnc-feeds-speeds',
+      '/calculator/cycle-time-cost',
+      '/guides/punching-force-complete',
+      '/glossary/cnc-feeds-and-speeds',
+      '/glossary/chip-thinning',
+    ],
+  },
+  {
+    slug: 'bearing-life-complete',
+    existing: true,
+    access: 'credits',
+    topicId: 'reliability',
+    topic: 'Reliability & rotating equipment',
+    title: 'Bearing Life Complete Guide',
+    h1: 'Complete Guide to Bearing L10 Life (ISO 281)',
+    problem: 'Is the L10 life honest for the load and lubrication you will actually run?',
+    lead:
+      'Compute ISO 281 L10 / L10h life with documented load and lubrication assumptions on SC-021. Credits unlock the full A1–A5 session.',
+    calculator: {
+      toolId: 'SC-021',
+      href: '/calculator/bearing-life-l10',
+      label: 'Open SC-021 Bearing Life L10',
+    },
+    related: [
+      '/calculator/bearing-life-l10',
+      '/calculator/bearing-frequencies',
+      '/glossary/bearing-l10-life',
+      '/glossary/iso-281',
+    ],
+  },
+  {
+    slug: 'labor-costing-complete',
+    existing: true,
+    access: 'credits',
+    topicId: 'manufacturing-economics',
+    topic: 'Manufacturing economics',
+    title: 'Labor Costing Complete Guide',
+    h1: 'Complete Guide to True Labor Cost & Shop Rate Economics',
+    problem: 'Is the shop rate recovering true cost — or quietly quoting away the margin?',
+    lead:
+      'Build burdened labor cost, then connect machine hour rate and quote pricing. SC-010 unlocks with credits for audit-ready recalculation.',
+    calculator: {
+      toolId: 'SC-010',
+      href: '/calculator/true-labor-cost',
+      label: 'Open SC-010 True Labor Cost',
+    },
+    related: [
+      '/calculator/true-labor-cost',
+      '/calculator/machine-hour-rate',
+      '/calculator/quote-pricing',
+      '/glossary/labor-burden-rate',
+      '/glossary/machine-hour-rate',
+    ],
+  },
+  {
+    slug: 'weld-sizing-complete',
+    existing: true,
+    access: 'mixed',
+    topicId: 'welding',
+    topic: 'Welding & fabrication',
+    title: 'Weld Sizing Complete Guide',
+    h1: 'Complete Guide to Weld Throat, Leg & Heat Input',
+    problem: 'Throat and leg look interchangeable until drawing review rejects the callout — and heat input still sits outside the process window.',
+    lead:
+      'Size fillet throat/leg with free SC-001, then escalate to credit-backed SC-029 for heat input / t8/5 when WPS windows matter.',
+    calculator: {
+      toolId: 'SC-001',
+      href: '/calculator/weld-thickness',
+      label: 'Open free Weld Thickness calculator',
+    },
+    related: [
+      '/calculator/weld-thickness',
+      '/calculator/weld-heat-input',
+      '/guides/sheet-metal-bend-complete',
+      '/glossary/weld-throat',
+      '/glossary/heat-input-t85',
+    ],
+  },
+]);
+
+export const GUIDE_SLUGS = Object.freeze(GUIDES.map((g) => g.slug));

@@ -8,7 +8,7 @@ import { join } from 'node:path';
 import { FREE_TOOLS } from '../seo/free-tools.mjs';
 
 const ROOT = process.cwd();
-const CSS = '/sc-free-tools.css?v=1';
+const CSS = '/sc-free-tools.css?v=2';
 const START = '<!--SC-FREE-TOOLS-START-->';
 const END = '<!--SC-FREE-TOOLS-END-->';
 
@@ -23,19 +23,19 @@ function esc(s) {
 function stripHtml() {
   const cards = FREE_TOOLS.map(
     (t) => `<article class="sc-free-card" data-free-tool="${esc(t.toolId)}" data-entity="${esc(t.entity)}">
-  <p class="sc-free-badge">Free · no sign-in</p>
+  <p class="sc-free-badge">Open · no sign-in</p>
   <h3>${esc(t.name)}</h3>
   <p class="sc-free-problem">${esc(t.problem)}</p>
-  <a class="sc-free-cta" href="${esc(t.canonicalPath)}">Calculate free →</a>
+  <a class="sc-free-cta" href="${esc(t.canonicalPath)}">Run this instrument →</a>
 </article>`,
   ).join('\n');
 
   return `${START}
 <section class="sc-free-tools" id="free-calculators" aria-labelledby="free-calculators-heading" data-aeo-hub="free">
   <div class="sc-free-inner">
-    <p class="sc-free-kicker">Link + citation bait · instant results</p>
-    <h2 id="free-calculators-heading">Five free calculators — no credits, no login</h2>
-    <p class="sc-free-lead">Shop-floor reference tools you can run immediately. Tier-A decision tools (stack-up, feeds &amp; speeds, quoting, OEE, pressure, heat input) still unlock with credits.</p>
+    <p class="sc-free-kicker">Open reference bench · five instruments · wallet not required</p>
+    <h2 id="free-calculators-heading">Prove the engine before you commission a session</h2>
+    <p class="sc-free-lead">These five shop instruments calculate immediately — surface finish, ISO fits, bend allowance, punching force, weld thickness. No login. No debit. When the decision must survive a design review (tolerance stack-up, feeds &amp; speeds, quoting, OEE, pressure, heat input), unlock a Tier-A credit session. Explore the <a href="/topics">topic hubs</a> for related shop problems.</p>
     <div class="sc-free-grid">
 ${cards}
     </div>
@@ -46,7 +46,7 @@ ${END}`;
 
 function ensureCss(html) {
   if (html.includes('sc-free-tools.css')) {
-    return html.replace(/sc-free-tools\.css\?v=\d+/g, 'sc-free-tools.css?v=1');
+    return html.replace(/sc-free-tools\.css\?v=\d+/g, 'sc-free-tools.css?v=2');
   }
   return html.replace(/<\/head>/i, `<link rel="stylesheet" href="${CSS}">\n</head>`);
 }
