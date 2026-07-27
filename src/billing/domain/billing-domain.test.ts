@@ -22,14 +22,25 @@ describe('packages SSOT', () => {
     expect(CREDIT_PACKAGES.STARTER.expectedMinorUnits).toBe('1500');
   });
 
-  it('rejects INVALID monthly/unlocked price IDs', () => {
+  it('requires all four price IDs', () => {
     const errs = assertNoInvalidPriceMapping({
-      STARTER: INVALID_PADDLE_PRICE_IDS[0],
+      STARTER: '',
       WORKSHOP: 'pri_ok_workshop',
       PROFESSIONAL: 'pri_ok_pro',
       TEAM_WALLET: 'pri_ok_team'
     });
-    expect(errs.some((e) => e.includes('INVALID'))).toBe(true);
+    expect(errs.some((e) => e.includes('missing'))).toBe(true);
+  });
+
+  it('accepts configured sandbox one-time IDs when present', () => {
+    const errs = assertNoInvalidPriceMapping({
+      STARTER: 'pri_01kyhfb5q0jxrck07py0xxaqw7',
+      WORKSHOP: 'pri_01kyhfczs0aaj62smrthvc3my8',
+      PROFESSIONAL: 'pri_01kyhff4xx34m229w6ytpjpefs',
+      TEAM_WALLET: 'pri_01kyhfgk3ax50gz1m7zh877w9c'
+    });
+    expect(errs).toEqual([]);
+    expect(INVALID_PADDLE_PRICE_IDS).toEqual([]);
   });
 
   it('SC-008/SC-020 are ADVANCED 15 with monetization enabled', () => {

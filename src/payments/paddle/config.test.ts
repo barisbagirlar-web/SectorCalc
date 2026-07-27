@@ -9,8 +9,7 @@ describe('paddle public config', () => {
     expect(cfg.packages.every((p) => p.paddlePriceId === '')).toBe(true);
   });
 
-  it('lists INVALID price IDs that must never be mapped', () => {
-    expect(INVALID_PADDLE_PRICE_IDS).toHaveLength(4);
-    expect(INVALID_PADDLE_PRICE_IDS[0]).toMatch(/^pri_01kyhf/);
+  it('has empty hard-block list after one-time qty lock', () => {
+    expect(INVALID_PADDLE_PRICE_IDS).toEqual([]);
   });
 });

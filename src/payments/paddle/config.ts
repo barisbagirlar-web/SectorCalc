@@ -11,13 +11,8 @@ export interface PaddlePublicConfig {
   packages: CreditPackage[];
 }
 
-/** @deprecated Do not use — INVALID / legacy sandbox IDs. Kept only for guard tests. */
-export const INVALID_PADDLE_PRICE_IDS = [
-  'pri_01kyhfb5q0jxrck07py0xxaqw7',
-  'pri_01kyhfczs0aaj62smrthvc3my8',
-  'pri_01kyhff4xx34m229w6ytpjpefs',
-  'pri_01kyhfgk3ax50gz1m7zh877w9c'
-] as const;
+/** Hard-blocked price IDs (recurring / known-bad). Empty after sandbox qty lock verified. */
+export const INVALID_PADDLE_PRICE_IDS: readonly string[] = [];
 
 function viteEnv(name: string): string {
   const env = (import.meta as ImportMeta & { env?: Record<string, string | undefined> }).env;

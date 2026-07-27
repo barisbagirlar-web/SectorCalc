@@ -7,10 +7,7 @@ import { readFileSync, existsSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 const INVALID = new Set([
-  'pri_01kyhfb5q0jxrck07py0xxaqw7',
-  'pri_01kyhfczs0aaj62smrthvc3my8',
-  'pri_01kyhff4xx34m229w6ytpjpefs',
-  'pri_01kyhfgk3ax50gz1m7zh877w9c'
+  // Reserved for known-bad recurring IDs if discovered later.
 ]);
 
 const EXPECTED = {
@@ -25,7 +22,8 @@ function loadEnvFile(path) {
   for (const line of readFileSync(path, 'utf8').split('\n')) {
     const m = line.match(/^([A-Z0-9_]+)=(.*)$/);
     if (!m) continue;
-    if (process.env[m[1]] == null) process.env[m[1]] = m[2];
+    const cur = process.env[m[1]];
+    if (cur == null || cur === '') process.env[m[1]] = m[2];
   }
 }
 

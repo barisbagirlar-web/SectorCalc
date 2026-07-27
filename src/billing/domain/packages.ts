@@ -7,13 +7,8 @@ export type CreditPackageKey = 'STARTER' | 'WORKSHOP' | 'PROFESSIONAL' | 'TEAM_W
 
 export type PricingTier = 'FREE' | 'CORE' | 'PRO' | 'ADVANCED' | 'DECISION';
 
-/** INVALID recurring / unlocked-qty IDs — must never map into production/sandbox config. */
-export const INVALID_PADDLE_PRICE_IDS = [
-  'pri_01kyhfb5q0jxrck07py0xxaqw7',
-  'pri_01kyhfczs0aaj62smrthvc3my8',
-  'pri_01kyhff4xx34m229w6ytpjpefs',
-  'pri_01kyhfgk3ax50gz1m7zh877w9c'
-] as const;
+/** Previously flagged IDs — cleared after sandbox qty locked to 1..1 and billing_cycle=null verified. */
+export const INVALID_PADDLE_PRICE_IDS: readonly string[] = [];
 
 export interface CreditPackageDef {
   key: CreditPackageKey;
