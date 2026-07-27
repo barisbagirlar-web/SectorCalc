@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 
 export default defineConfig({
   root: '.',
-  base: './', // Firebase Hosting subdirectory compatibility
+  base: '/', // Root-absolute assets — required for /calculator/* Firebase rewrites
 
   build: {
     outDir: 'dist',

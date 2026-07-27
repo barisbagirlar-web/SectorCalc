@@ -19,8 +19,8 @@ const MAP = [
 
 const GUIDE_ASSETS_V = 3;
 const ASSETS = `
-<link rel="stylesheet" href="./sc-tool-guide.css?v=${GUIDE_ASSETS_V}">
-<script src="./sc-tool-guide.js?v=${GUIDE_ASSETS_V}" defer></script>
+<link rel="stylesheet" href="/sc-tool-guide.css?v=${GUIDE_ASSETS_V}">
+<script src="/sc-tool-guide.js?v=${GUIDE_ASSETS_V}" defer></script>
 `.trim();
 
 function ensureAssets(html) {

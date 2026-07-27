@@ -5,6 +5,7 @@
 import { initializeApp } from 'firebase-admin/app';
 import { setGlobalOptions } from 'firebase-functions/v2';
 import { onRequest } from 'firebase-functions/v2/https';
+import { onSchedule } from 'firebase-functions/v2/scheduler';
 import { defineSecret, defineString } from 'firebase-functions/params';
 import { handleCheckout } from './http/checkout';
 import { handleWallet, handleWalletTransactions } from './http/wallet';
@@ -12,6 +13,7 @@ import { handlePurchaseStatus } from './http/purchase';
 import { handleProfessionalSession } from './http/session';
 import { handlePaddleWebhook } from './http/webhook';
 import { handleHealth } from './http/health';
+import { runPurchaseReconciliation } from './http/reconcile';
 
 const paddleApiKey = defineSecret('PADDLE_API_KEY');
 const paddleWebhookSecret = defineSecret('PADDLE_WEBHOOK_SECRET');
@@ -25,6 +27,9 @@ const firestoreDb = defineString('FIRESTORE_DB', { default: 'sectorcalc-2' });
 
 initializeApp();
 setGlobalOptions({ region: 'us-central1', maxInstances: 20 });
+
+/** Health + ops truth: scheduler export below means reconciliation is wired. */
+export const RECONCILIATION_SCHEDULER_DEPLOYED = true as const;
 
 function cors(res: { set: (k: string, v: string) => void }, origin: string | undefined): void {
   const allowed = new Set([
@@ -83,7 +88,7 @@ export const api = onRequest(
     const path = normalizePath(req.path || '');
     try {
       if (path === '/health' || path === '/billing/health') {
-        await handleHealth(req, res);
+        await handleHealth(req, res, { reconciliationSchedulerDeployed: RECONCILIATION_SCHEDULER_DEPLOYED });
         return;
       }
       if (path === '/billing/checkout' && req.method === 'POST') {
@@ -118,3 +123,27 @@ export const api = onRequest(
     }
   }
 );
+
+function hydrateAndReconcileFactory() {
+  return async () => {
+    hydrateEnv();
+    const summary = await runPurchaseReconciliation();
+    console.log('reconcile_purchases', summary);
+  };
+}
+
+/** Cloud Scheduler → stuck purchase credit grants (same SSOT as webhook). */
+export const reconcilePurchases = onSchedule(
+  {
+    schedule: 'every 15 minutes',
+    region: 'us-central1',
+    timeZone: 'UTC',
+    memory: '512MiB',
+    timeoutSeconds: 120,
+    secrets: [paddleApiKey, paddleWebhookSecret]
+  },
+  async () => {
+    await hydrateAndReconcileFactory()();
+  }
+);
+

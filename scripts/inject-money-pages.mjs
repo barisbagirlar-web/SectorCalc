@@ -20,6 +20,55 @@ function esc(s) {
     .replace(/"/g, '&quot;');
 }
 
+/** Human label for glossary / guide / calculator paths (never dump raw href as link text). */
+function linkLabel(href) {
+  const known = {
+    '/glossary/tolerance-stack-up': 'Tolerance stack-up',
+    '/glossary/rss-tolerance': 'RSS tolerance',
+    '/glossary/monte-carlo-simulation': 'Monte Carlo simulation',
+    '/glossary/worst-case-analysis': 'Worst-case analysis',
+    '/glossary/process-capability-cpk': 'Process capability (Cpk)',
+    '/glossary/asme-y14-5': 'ASME Y14.5',
+    '/glossary/iso-286-fits': 'ISO 286 fits',
+    '/glossary/labor-burden-rate': 'Labor burden rate',
+    '/glossary/machine-hour-rate': 'Machine hour rate',
+    '/glossary/bearing-l10-life': 'Bearing L10 life',
+    '/glossary/cnc-feeds-and-speeds': 'CNC feeds and speeds',
+    '/glossary/weld-throat': 'Weld throat',
+    '/glossary/taylor-tool-life': 'Taylor tool life',
+    '/glossary/chip-thinning': 'Chip thinning',
+    '/glossary/oee-overall-equipment-effectiveness': 'OEE',
+    '/glossary/surface-finish-ra-rz': 'Surface finish Ra/Rz',
+    '/glossary/bolt-preload': 'Bolt preload',
+    '/glossary/sheet-metal-k-factor': 'Sheet metal K-factor',
+    '/glossary/sling-angle-factor': 'Sling angle factor',
+    '/glossary/vdi-2230-bolted-joint': 'VDI 2230 bolted joint',
+    '/glossary/asme-viii-pressure-vessel': 'ASME VIII pressure vessel',
+    '/glossary/asme-b31-pipe-wall': 'ASME B31 pipe wall',
+    '/glossary/heat-input-t85': 'Heat input / t8/5',
+    '/glossary/iso-281': 'ISO 281',
+    '/glossary/deterministic-engine': 'Deterministic engine',
+    '/guides/tolerance-stack-up-complete': 'Tolerance stack-up complete guide',
+    '/guides/cnc-optimization-complete': 'CNC optimization complete guide',
+    '/guides/bearing-life-complete': 'Bearing life complete guide',
+    '/guides/weld-sizing-complete': 'Weld sizing complete guide',
+    '/guides/labor-costing-complete': 'Labor costing complete guide',
+    '/calculator/iso-286-fits': 'SC-027 ISO Fits',
+    '/calculator/surface-finish': 'SC-028 Surface Finish',
+    '/calculator/true-labor-cost': 'SC-010 True Labor Cost',
+    '/calculator/machine-hour-rate': 'SC-022 Machine Hour Rate',
+    '/calculator/oee-teep': 'SC-023 OEE / TEEP',
+    '/calculator/tolerance-stack-up': 'SC-008 Tolerance Stack-Up',
+    '/calculator/cnc-feeds-speeds': 'SC-020 Feeds & Speeds',
+    '/calculator/bearing-life-l10': 'SC-021 Bearing Life L10',
+    '/calculator/quote-pricing': 'SC-012 Quote Pricing',
+    '/calculator/weld-thickness': 'SC-001 Weld Thickness',
+  };
+  if (known[href]) return known[href];
+  const slug = String(href).replace(/\/$/, '').split('/').pop() || href;
+  return slug.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+}
+
 function loadWorked(entity) {
   const path = join(ROOT, 'seo/worked-examples', `${entity}.json`);
   if (!existsSync(path)) throw new Error(`missing worked example fixture: ${entity}`);
@@ -52,13 +101,13 @@ function contractHtml(page, content, fx) {
   const cluster = own?.clusterId || page.queryCluster;
   const primaryQuery = own?.primaryQuery || page.primaryIntent || '';
   const gloss = (content.glossary || [])
-    .map((href) => `<li><a href="${esc(href)}">${esc(href)}</a></li>`)
+    .map((href) => `<li><a href="${esc(href)}">${esc(linkLabel(href))}</a></li>`)
     .join('');
   const guide = content.guide
-    ? `<p><a href="${esc(content.guide)}">${esc(content.guide)}</a></p>`
+    ? `<p><a href="${esc(content.guide)}">${esc(linkLabel(content.guide))}</a></p>`
     : '<p>No dedicated long-form guide yet — use glossary + related calculators in this cluster.</p>';
   const related = (page.relatedRoutes || [])
-    .map((href) => `<li><a href="${esc(href)}">${esc(href)}</a></li>`)
+    .map((href) => `<li><a href="${esc(href)}">${esc(linkLabel(href))}</a></li>`)
     .join('');
 
   return `<!--SC-MONEY-START-->

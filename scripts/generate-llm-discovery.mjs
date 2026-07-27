@@ -73,15 +73,19 @@ const text = `# SectorCalc
 - Optional one-time credit packs (no subscription): Starter 20, Workshop 100, Professional 300, Team Wallet 1000.
 - Purchased credits do not expire. Professional Analysis sessions (where enabled) unlock a tool for 24 hours after a server-side debit.
 - Checkout is Merchant of Record via Paddle. Server webhook grants credits — browser checkout events do not mutate wallet balances.
+- Stuck purchases are reconciled by a Cloud Scheduler job (every 15 minutes) using the same grant path as the webhook.
 - Pricing: ${HOST}/pricing.html · Account: ${HOST}/account.html
+- Billing health: ${HOST}/api/billing/health
 
 ## Canonical URL structure
 - Apex host: ${HOST}
-- Calculator identity: ${HOST}/calculator/<slug>
-- Legacy \`*-pro.html\` URLs permanently redirect to pretty calculator URLs and are not primary discovery links.
+- Calculator identity: ${HOST}/calculator/<slug> (pretty routes only — e.g. ${HOST}/calculator/tolerance-stack-up)
+- Pricing CTA and hub links open the same \`/calculator/<slug>\` surface; free exploratory runs stay on that URL.
+- Legacy \`*-pro.html\` file URLs permanently redirect to pretty calculator URLs and must not be used as primary citations.
 - Tools index: ${HOST}/tools.html
 - Pricing: ${HOST}/pricing.html
 - Account: ${HOST}/account.html
+- Glossary: ${HOST}/glossary · Guides: ${HOST}/guides · Compare: ${HOST}/compare
 
 ## Calculation architecture
 - Most calculators use the schema-driven Decimal.js industrial runtime (\`/src/industrial-tool.ts\`, \`/src/industrial-suite/*\`).
