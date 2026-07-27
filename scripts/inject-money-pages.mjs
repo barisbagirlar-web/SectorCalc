@@ -8,10 +8,12 @@ import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { tierAMoneyCalculators, ownershipForPath } from '../seo/money-pages.mjs';
 import { MONEY_CONTENT } from '../seo/money-content.mjs';
+import { AEO_EMPATHY } from '../seo/aeo-empathy.mjs';
+import { topicalMapForEntity } from '../seo/topical-maps.mjs';
 import { publishedCalculators } from '../seo/registry.mjs';
 
 const ROOT = process.cwd();
-const CSS = '/sc-money.css?v=1';
+const CSS = '/sc-money.css?v=2';
 const CALC_BY_PATH = new Map(publishedCalculators().map((c) => [c.canonicalPath, c]));
 
 function esc(s) {
@@ -85,8 +87,8 @@ function workedHtml(fx) {
   const outRows = Object.entries(fx.outputs)
     .map(([k, v]) => `<tr><th scope="row">${esc(k)}</th><td><code>${esc(String(v))}</code></td></tr>`)
     .join('');
-  return `<section class="sc-money-block" data-money-block="06" id="money-worked-example">
-  <h2>Worked example</h2>
+  return `<section class="sc-money-block" data-money-block="06" id="money-worked-example" data-aeo-step="evidence">
+  <h2>Evidence — worked example</h2>
   <p class="sc-money-lede">${esc(fx.title)}. ${esc(fx.narrative)}</p>
   <p class="sc-money-engine" data-worked-provenance="engine-generated">Engine source: <code>${esc(fx.engineSource)}</code> · tool <code>${esc(fx.toolId)}</code></p>
   <h3>Golden inputs</h3>
@@ -94,6 +96,46 @@ function workedHtml(fx) {
   <h3>Verified engine outputs</h3>
   <table class="sc-money-table"><tbody>${outRows}</tbody></table>
 </section>`;
+}
+
+function topicalFanOutHtml(page) {
+  const map = topicalMapForEntity(page.primaryEntity);
+  if (!map) return '';
+  const { topic, subtopic } = map;
+  const fan = (subtopic.fanOutQueries || [])
+    .map((q) => `<li><span class="sc-aeo-query">${esc(q)}</span></li>`)
+    .join('');
+  const links = (subtopic.links || [])
+    .filter((href) => href !== page.canonicalPath)
+    .map((href) => `<li><a href="${esc(href)}">${esc(linkLabel(href))}</a></li>`)
+    .join('');
+  return `<section class="sc-money-block sc-aeo-topical" data-money-block="15b" data-aeo-step="related-problems" data-topic-id="${esc(topic.topicId)}" data-subtopic-id="${esc(subtopic.id)}">
+  <h2>Topical map &amp; related problems</h2>
+  <p class="sc-money-lede"><strong>${esc(topic.topic)}</strong> · ${esc(subtopic.name)}. ${esc(topic.problem)}</p>
+  <h3>Query fan-out (same problem cluster)</h3>
+  <ul class="sc-aeo-fanout">${fan}</ul>
+  <h3>Internal authority links</h3>
+  <ul>${links}</ul>
+</section>`;
+}
+
+function aeoRailHtml() {
+  const steps = [
+    ['direct-answer', 'Direct answer'],
+    ['calculation', 'Calculation'],
+    ['explanation', 'Explanation'],
+    ['methodology', 'Methodology'],
+    ['evidence', 'Evidence'],
+    ['accountability', 'Audit trail'],
+    ['related-problems', 'Related problems'],
+  ];
+  const items = steps
+    .map(
+      ([id, label], i) =>
+        `<li data-aeo-rail="${esc(id)}"><span class="sc-aeo-rail-n">${String(i + 1).padStart(2, '0')}</span> ${esc(label)}</li>`
+    )
+    .join('');
+  return `<nav class="sc-aeo-rail" aria-label="Answer engine structure"><ol>${items}</ol></nav>`;
 }
 
 function contractHtml(page, content, fx) {
@@ -111,20 +153,23 @@ function contractHtml(page, content, fx) {
     .join('');
 
   return `<!--SC-MONEY-START-->
-<aside class="sc-money-contract" data-money-contract="tier-a" data-tool-id="${esc(page.id)}" data-primary-entity="${esc(page.primaryEntity)}" data-query-cluster="${esc(cluster)}" data-primary-query="${esc(primaryQuery)}" data-canonical="${esc(page.canonicalPath)}">
-<section class="sc-money-block" data-money-block="03"><h2>Decision this supports</h2><p>${esc(content.decision)}</p></section>
-<section class="sc-money-block" data-money-block="04"><h2>Required inputs</h2><p>${esc(content.inputs)}</p></section>
-<section class="sc-money-block" data-money-block="05"><h2>Formula / method</h2><p>${esc(content.formula)}</p></section>
+<aside class="sc-money-contract" data-money-contract="tier-a" data-aeo-chain="direct-calc-explain-method-evidence-audit-related" data-tool-id="${esc(page.id)}" data-primary-entity="${esc(page.primaryEntity)}" data-query-cluster="${esc(cluster)}" data-primary-query="${esc(primaryQuery)}" data-canonical="${esc(page.canonicalPath)}">
+${aeoRailHtml()}
+<section class="sc-money-block" data-money-block="03" data-aeo-step="explanation"><h2>Explanation — decision this supports</h2><p>${esc(content.decision)}</p></section>
+<section class="sc-money-block" data-money-block="04" data-aeo-step="explanation"><h2>Required inputs</h2><p>${esc(content.inputs)}</p></section>
+<section class="sc-money-block" data-money-block="05" data-aeo-step="methodology"><h2>Methodology — formula &amp; method</h2><p>${esc(content.formula)}</p></section>
 ${workedHtml(fx)}
-<section class="sc-money-block" data-money-block="07"><h2>What the result means</h2><p>${esc(content.interpretation)}</p></section>
-<section class="sc-money-block" data-money-block="08"><h2>What moves the result</h2><p>${esc(content.sensitivity)}</p></section>
-<section class="sc-money-block" data-money-block="09"><h2>Assumptions</h2><p>${esc(content.assumptions)}</p></section>
-<section class="sc-money-block" data-money-block="10"><h2>Model boundaries</h2><p>${esc(content.limitations)}</p></section>
-<section class="sc-money-block" data-money-block="11"><h2>Common engineering mistakes</h2><p>${esc(content.mistakes)}</p></section>
-<section class="sc-money-block" data-money-block="12"><h2>Standard / reference scope</h2><p>${esc(content.standards)}</p></section>
-<section class="sc-money-block" data-money-block="13"><h2>A1–A5 audit trail</h2><p>${esc(content.audit)}</p></section>
-<section class="sc-money-block" data-money-block="14"><h2>Related glossary</h2><ul>${gloss}</ul></section>
-<section class="sc-money-block" data-money-block="15"><h2>Related guide &amp; calculators</h2>${guide}<ul>${related}</ul></section>
+<section class="sc-money-block" data-money-block="07" data-aeo-step="explanation"><h2>What the result means</h2><p>${esc(content.interpretation)}</p></section>
+<section class="sc-money-block" data-money-block="08" data-aeo-step="explanation"><h2>What moves the result</h2><p>${esc(content.sensitivity)}</p></section>
+<section class="sc-money-block" data-money-block="09" data-aeo-step="methodology"><h2>Assumptions</h2><p>${esc(content.assumptions)}</p></section>
+<section class="sc-money-block" data-money-block="10" data-aeo-step="methodology"><h2>Model boundaries</h2><p>${esc(content.limitations)}</p></section>
+<section class="sc-money-block" data-money-block="11" data-aeo-step="evidence"><h2>Common engineering mistakes</h2><p>${esc(content.mistakes)}</p></section>
+<section class="sc-money-block" data-money-block="12" data-aeo-step="evidence"><h2>Evidence — standard &amp; reference scope</h2><p>${esc(content.standards)}</p></section>
+<section class="sc-money-block" data-money-block="13" data-aeo-step="accountability"><h2>Accountability — A1–A5 audit trail</h2><p>${esc(content.audit)}</p>
+<p class="sc-money-expert-note">Engineering accountability is carried by visible formulas, assumptions, warnings, and engine version — not by invented reviewer endorsements. Outputs remain engineering previews subject to competent review.</p></section>
+<section class="sc-money-block" data-money-block="14" data-aeo-step="related-problems"><h2>Related glossary</h2><ul>${gloss}</ul></section>
+<section class="sc-money-block" data-money-block="15" data-aeo-step="related-problems"><h2>Related guide &amp; calculators</h2>${guide}<ul>${related}</ul></section>
+${topicalFanOutHtml(page)}
 <section class="sc-money-block sc-money-cta" data-money-block="16"><h2>Commercial next step</h2><p>${esc(content.commercial)}</p>
 <p class="sc-money-cta-actions"><a class="sc-money-link" href="/pricing.html" data-sc-funnel="pricing">View pricing</a>
 <a class="sc-money-link" href="/pro.html">Pro hub</a></p></section>
@@ -134,15 +179,22 @@ ${workedHtml(fx)}
 
 function ensureCss(html) {
   if (html.includes('sc-money.css')) {
-    return html.replace(/sc-money\.css\?v=\d+/g, 'sc-money.css?v=1');
+    return html.replace(/sc-money\.css\?v=\d+/g, 'sc-money.css?v=2');
   }
   return html.replace(/<\/head>/i, `<link rel="stylesheet" href="${CSS}">\n</head>`);
 }
 
 function injectDirectAnswer(html, page, content) {
-  const answer = `<p class="sc-direct-answer" data-money-block="01" data-tool-id="${esc(page.id)}">${esc(content.directAnswer)}</p>`;
+  const empathy = AEO_EMPATHY[page.primaryEntity];
+  const empathyBlock = empathy
+    ? `<div class="sc-aeo-empathy" data-aeo-step="empathy" data-tool-id="${esc(page.id)}">
+<p class="sc-aeo-problem"><strong>The problem:</strong> ${esc(empathy.problem)}</p>
+<p class="sc-aeo-promise">${esc(empathy.promise)}</p>
+</div>`
+    : '';
+  const answer = `${empathyBlock}<p class="sc-direct-answer" data-money-block="01" data-aeo-step="direct-answer" data-tool-id="${esc(page.id)}">${esc(content.directAnswer)}</p>`;
+  html = html.replace(/<div class="sc-aeo-empathy"[\s\S]*?<\/div>\n?/g, '');
   html = html.replace(/<p class="sc-direct-answer" data-money-block="01"[^>]*>[\s\S]*?<\/p>\n?/g, '');
-  // Prefer first real H1 in body
   const re = /(<h1\b[^>]*>[\s\S]*?<\/h1>)/i;
   if (!re.test(html)) throw new Error(`${page.sourceFile}: missing H1 for direct answer`);
   return html.replace(re, `$1\n${answer}`);

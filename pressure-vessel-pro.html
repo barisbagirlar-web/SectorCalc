@@ -260,6 +260,38 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "WebPage",
+      "@id": "https://sectorcalc.com/calculator/pressure-vessel-shell#webpage",
+      "url": "https://sectorcalc.com/calculator/pressure-vessel-shell",
+      "name": "SC-033 Pressure Vessel Shell — ASME VIII",
+      "description": "ASME Section VIII Division 1 internal pressure shell thickness calculator. Deterministic audit trail.",
+      "isPartOf": {
+        "@id": "https://sectorcalc.com/#website"
+      },
+      "about": {
+        "@id": "https://sectorcalc.com/calculator/pressure-vessel-shell#software"
+      },
+      "mainEntity": {
+        "@id": "https://sectorcalc.com/calculator/pressure-vessel-shell#software"
+      },
+      "publisher": {
+        "@id": "https://sectorcalc.com/#organization"
+      },
+      "author": {
+        "@id": "https://sectorcalc.com/#organization"
+      },
+      "inLanguage": "en-US",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".sc-aeo-problem",
+          ".sc-direct-answer",
+          ".sc-header-title",
+          "h1"
+        ]
+      }
+    },
+    {
       "@type": "SoftwareApplication",
       "@id": "https://sectorcalc.com/calculator/pressure-vessel-shell#software",
       "name": "SC-033 Pressure Vessel Shell — ASME VIII",
@@ -291,6 +323,9 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
       "author": {
         "@id": "https://sectorcalc.com/#organization"
       },
+      "brand": {
+        "@id": "https://sectorcalc.com/#organization"
+      },
       "screenshot": {
         "@type": "ImageObject",
         "url": "https://sectorcalc.com/assets/images/og-pressure-vessel-pro-1200x630.jpg",
@@ -300,9 +335,36 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
       "inLanguage": [
         "en"
       ],
-      "dateModified": "2026-07-24",
+      "dateModified": "2026-07-27",
       "isPartOf": {
         "@id": "https://sectorcalc.com/#website"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://sectorcalc.com/calculator/pressure-vessel-shell#webpage"
+      }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://sectorcalc.com/calculator/pressure-vessel-shell#product",
+      "name": "SC-033 Pressure Vessel Shell — ASME VIII",
+      "description": "ASME Section VIII Division 1 internal pressure shell thickness calculator. Deterministic audit trail.",
+      "brand": {
+        "@id": "https://sectorcalc.com/#organization"
+      },
+      "category": "Engineering Software",
+      "isRelatedTo": {
+        "@id": "https://sectorcalc.com/calculator/pressure-vessel-shell#software"
+      },
+      "offers": {
+        "@type": "Offer",
+        "name": "Free exploratory calculation",
+        "price": "0.00",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://sectorcalc.com/calculator/pressure-vessel-shell",
+        "seller": {
+          "@id": "https://sectorcalc.com/#organization"
+        }
       }
     },
     {
@@ -450,8 +512,8 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
 </script>
 <!--SC-SEO-SCHEMA-END-->
 <link rel="stylesheet" href="/sc-related-tools.css?v=1">
-                        <link rel="stylesheet" href="/sc-money.css?v=1">
-                        <link rel="stylesheet" href="/sc-calc-sheet.css?v=1">
+                        <link rel="stylesheet" href="/sc-money.css?v=2">
+                          <link rel="stylesheet" href="/sc-calc-sheet.css?v=1">
   <!--SC-CALC-SHEET-START-->
   <!-- calc-sheet theme: theme-calc-sheet -->
   <!--SC-CALC-SHEET-END-->
@@ -534,6 +596,7 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
 
 
 
+
 <!--SC-SEO-BREADCRUMB-START-->
 <nav aria-label="Breadcrumb" class="sc-breadcrumb">
   <ol itemscope itemtype="https://schema.org/BreadcrumbList">
@@ -562,7 +625,10 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
   <div class="head">
     <div>
       <h1>Pressure Vessel Shell Calculator — ASME VIII Div.1 (SC-033)</h1>
-<p class="sc-direct-answer" data-money-block="01" data-tool-id="SC-033">ASME VIII Div.1 cylindrical shell thickness estimates the required wall for internal pressure from design pressure, radius, allowable stress, and joint efficiency using the circumferential stress formula implemented in the tool for early vessel screening.</p>
+<div class="sc-aeo-empathy" data-aeo-step="empathy" data-tool-id="SC-033">
+<p class="sc-aeo-problem"><strong>The problem:</strong> Shell thickness mistakes are expensive once plate is ordered and the AI stamp conversation starts.</p>
+<p class="sc-aeo-promise">Screen internal-pressure shell thickness in the stated ASME VIII scope before detailing.</p>
+</div><p class="sc-direct-answer" data-money-block="01" data-aeo-step="direct-answer" data-tool-id="SC-033">Before plate is ordered and the stamp conversation starts, ASME VIII Div.1 cylindrical shell thickness estimates required wall for internal pressure from design pressure, radius, allowable stress, and joint efficiency — for early vessel screening, not a complete U-stamp package.</p>
       <p>Pressure-equipment design engine for mechanical and vessel engineers: cylindrical shell per <b>UG-27</b> (circumferential and longitudinal governing logic), formed heads per <b>UG-32</b> (2:1 semi-elliptical, torispherical with M-factor, hemispherical), joint efficiency by radiography class, corrosion allowance on a corroded-basis radius, validity window P ≤ 0.385·S·E, standard plate selection, <b>MAWP back-calculation</b> and hydrostatic test pressure per UG-99 (1.3× stress ratio). Every input with <b>selectable universal units</b>, every report with the full audit trail.</p>
     </div>
     <div>
@@ -1047,12 +1113,13 @@ calculate();
 <script src="/assets/js/cvw-monitor.js" defer></script>
 
 <!--SC-MONEY-START-->
-<aside class="sc-money-contract" data-money-contract="tier-a" data-tool-id="SC-033" data-primary-entity="pressure-vessel-shell" data-query-cluster="pressure-vessel-shell" data-primary-query="asme viii pressure vessel thickness calculator" data-canonical="/calculator/pressure-vessel-shell">
-<section class="sc-money-block" data-money-block="03"><h2>Decision this supports</h2><p>Screen shell thickness early so head, nozzle, and material choices stay consistent before detailed vessel design.</p></section>
-<section class="sc-money-block" data-money-block="04"><h2>Required inputs</h2><p>Design pressure, radius/diameter basis, allowable stress, joint efficiency, and corrosion allowance as exposed in the UI.</p></section>
-<section class="sc-money-block" data-money-block="05"><h2>Formula / method</h2><p>t = P·R / (S·E − 0.6·P) for the circumferential stress path implemented (plus allowances when enabled).</p></section>
-<section class="sc-money-block" data-money-block="06" id="money-worked-example">
-  <h2>Worked example</h2>
+<aside class="sc-money-contract" data-money-contract="tier-a" data-aeo-chain="direct-calc-explain-method-evidence-audit-related" data-tool-id="SC-033" data-primary-entity="pressure-vessel-shell" data-query-cluster="pressure-vessel-shell" data-primary-query="asme viii pressure vessel thickness calculator" data-canonical="/calculator/pressure-vessel-shell">
+<nav class="sc-aeo-rail" aria-label="Answer engine structure"><ol><li data-aeo-rail="direct-answer"><span class="sc-aeo-rail-n">01</span> Direct answer</li><li data-aeo-rail="calculation"><span class="sc-aeo-rail-n">02</span> Calculation</li><li data-aeo-rail="explanation"><span class="sc-aeo-rail-n">03</span> Explanation</li><li data-aeo-rail="methodology"><span class="sc-aeo-rail-n">04</span> Methodology</li><li data-aeo-rail="evidence"><span class="sc-aeo-rail-n">05</span> Evidence</li><li data-aeo-rail="accountability"><span class="sc-aeo-rail-n">06</span> Audit trail</li><li data-aeo-rail="related-problems"><span class="sc-aeo-rail-n">07</span> Related problems</li></ol></nav>
+<section class="sc-money-block" data-money-block="03" data-aeo-step="explanation"><h2>Explanation — decision this supports</h2><p>Screen shell thickness early so head, nozzle, and material choices stay consistent before detailed vessel design.</p></section>
+<section class="sc-money-block" data-money-block="04" data-aeo-step="explanation"><h2>Required inputs</h2><p>Design pressure, radius/diameter basis, allowable stress, joint efficiency, and corrosion allowance as exposed in the UI.</p></section>
+<section class="sc-money-block" data-money-block="05" data-aeo-step="methodology"><h2>Methodology — formula &amp; method</h2><p>t = P·R / (S·E − 0.6·P) for the circumferential stress path implemented (plus allowances when enabled).</p></section>
+<section class="sc-money-block" data-money-block="06" id="money-worked-example" data-aeo-step="evidence">
+  <h2>Evidence — worked example</h2>
   <p class="sc-money-lede">Cylindrical shell under internal pressure. Circumferential stress screening thickness for a cylindrical shell. Heads, nozzles, wind/seismic, and external pressure procedures are not included.</p>
   <p class="sc-money-engine" data-worked-provenance="engine-generated">Engine source: <code>pressure-vessel-pro.html VIII Div.1 circ. core (extracted pure)</code> · tool <code>SC-033</code></p>
   <h3>Golden inputs</h3>
@@ -1060,15 +1127,24 @@ calculate();
   <h3>Verified engine outputs</h3>
   <table class="sc-money-table"><tbody><tr><th scope="row">tShellMm</th><td><code>5.249</code></td></tr></tbody></table>
 </section>
-<section class="sc-money-block" data-money-block="07"><h2>What the result means</h2><p>Required t is a Code screening thickness for the stated path — not a complete U-stamp design package.</p></section>
-<section class="sc-money-block" data-money-block="08"><h2>What moves the result</h2><p>Pressure and radius dominate. Joint efficiency E moves thickness when weld quality basis changes.</p></section>
-<section class="sc-money-block" data-money-block="09"><h2>Assumptions</h2><p>Cylindrical shell, internal pressure, formula path selected in the UI. Material allowable is user-supplied/tabled as shown.</p></section>
-<section class="sc-money-block" data-money-block="10"><h2>Model boundaries</h2><p>Heads, external pressure, wind/seismic, nozzles, and MDMT checks are out of scope unless explicitly enabled in-product. Not a PE stamp replacement.</p></section>
-<section class="sc-money-block" data-money-block="11"><h2>Common engineering mistakes</h2><p>Using gage pressure inconsistently; ignoring joint efficiency; treating screening t as final purchase thickness without mill under-tolerance.</p></section>
-<section class="sc-money-block" data-money-block="12"><h2>Standard / reference scope</h2><p>Implements ASME VIII Div.1 circumferential shell equation in the stated scope. Not full Div.1 coverage for an entire vessel.</p></section>
-<section class="sc-money-block" data-money-block="13"><h2>A1–A5 audit trail</h2><p>A1–A5 document pressure basis, efficiency, formula path, and scope warnings.</p></section>
-<section class="sc-money-block" data-money-block="14"><h2>Related glossary</h2><ul><li><a href="/glossary/asme-viii-pressure-vessel">ASME VIII pressure vessel</a></li><li><a href="/glossary/asme-b31-pipe-wall">ASME B31 pipe wall</a></li></ul></section>
-<section class="sc-money-block" data-money-block="15"><h2>Related guide &amp; calculators</h2><p><a href="/guides/weld-sizing-complete">Weld sizing complete guide</a></p><ul><li><a href="/calculator/hydraulic-cylinder">SC-040 Hydraulic Cylinder Sizing</a></li><li><a href="/calculator/pipe-wall-thickness">SC-034 Pipe Wall Thickness</a></li></ul></section>
+<section class="sc-money-block" data-money-block="07" data-aeo-step="explanation"><h2>What the result means</h2><p>Required t is a Code screening thickness for the stated path — not a complete U-stamp design package.</p></section>
+<section class="sc-money-block" data-money-block="08" data-aeo-step="explanation"><h2>What moves the result</h2><p>Pressure and radius dominate. Joint efficiency E moves thickness when weld quality basis changes.</p></section>
+<section class="sc-money-block" data-money-block="09" data-aeo-step="methodology"><h2>Assumptions</h2><p>Cylindrical shell, internal pressure, formula path selected in the UI. Material allowable is user-supplied/tabled as shown.</p></section>
+<section class="sc-money-block" data-money-block="10" data-aeo-step="methodology"><h2>Model boundaries</h2><p>Heads, external pressure, wind/seismic, nozzles, and MDMT checks are out of scope unless explicitly enabled in-product. Not a PE stamp replacement.</p></section>
+<section class="sc-money-block" data-money-block="11" data-aeo-step="evidence"><h2>Common engineering mistakes</h2><p>Using gage pressure inconsistently; ignoring joint efficiency; treating screening t as final purchase thickness without mill under-tolerance.</p></section>
+<section class="sc-money-block" data-money-block="12" data-aeo-step="evidence"><h2>Evidence — standard &amp; reference scope</h2><p>Implements ASME VIII Div.1 circumferential shell equation in the stated scope. Not full Div.1 coverage for an entire vessel.</p></section>
+<section class="sc-money-block" data-money-block="13" data-aeo-step="accountability"><h2>Accountability — A1–A5 audit trail</h2><p>A1–A5 document pressure basis, efficiency, formula path, and scope warnings.</p>
+<p class="sc-money-expert-note">Engineering accountability is carried by visible formulas, assumptions, warnings, and engine version — not by invented reviewer endorsements. Outputs remain engineering previews subject to competent review.</p></section>
+<section class="sc-money-block" data-money-block="14" data-aeo-step="related-problems"><h2>Related glossary</h2><ul><li><a href="/glossary/asme-viii-pressure-vessel">ASME VIII pressure vessel</a></li><li><a href="/glossary/asme-b31-pipe-wall">ASME B31 pipe wall</a></li></ul></section>
+<section class="sc-money-block" data-money-block="15" data-aeo-step="related-problems"><h2>Related guide &amp; calculators</h2><p><a href="/guides/weld-sizing-complete">Weld sizing complete guide</a></p><ul><li><a href="/calculator/hydraulic-cylinder">SC-040 Hydraulic Cylinder Sizing</a></li><li><a href="/calculator/pipe-wall-thickness">SC-034 Pipe Wall Thickness</a></li></ul></section>
+<section class="sc-money-block sc-aeo-topical" data-money-block="15b" data-aeo-step="related-problems" data-topic-id="pressure" data-subtopic-id="pipe-vessel">
+  <h2>Topical map &amp; related problems</h2>
+  <p class="sc-money-lede"><strong>Pressure equipment</strong> · Pipe &amp; vessel shells. Is the wall thick enough under the code edition you claim — before steel is ordered?</p>
+  <h3>Query fan-out (same problem cluster)</h3>
+  <ul class="sc-aeo-fanout"><li><span class="sc-aeo-query">asme b31.3 pipe wall thickness calculator</span></li><li><span class="sc-aeo-query">asme viii pressure vessel thickness calculator</span></li></ul>
+  <h3>Internal authority links</h3>
+  <ul><li><a href="/calculator/pipe-wall-thickness">SC-034 Pipe Wall Thickness</a></li><li><a href="/glossary/asme-b31-pipe-wall">ASME B31 pipe wall</a></li><li><a href="/glossary/asme-viii-pressure-vessel">ASME VIII pressure vessel</a></li></ul>
+</section>
 <section class="sc-money-block sc-money-cta" data-money-block="16"><h2>Commercial next step</h2><p>Keep the shell audit with the vessel datasheet when fabricators request the equation basis.</p>
 <p class="sc-money-cta-actions"><a class="sc-money-link" href="/pricing.html" data-sc-funnel="pricing">View pricing</a>
 <a class="sc-money-link" href="/pro.html">Pro hub</a></p></section>

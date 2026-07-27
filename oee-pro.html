@@ -260,6 +260,38 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "WebPage",
+      "@id": "https://sectorcalc.com/calculator/oee-teep#webpage",
+      "url": "https://sectorcalc.com/calculator/oee-teep",
+      "name": "SC-037 OEE — Overall Equipment Effectiveness",
+      "description": "Overall Equipment Effectiveness, TEEP, and capacity loss breakdown with availability, performance, and quality.",
+      "isPartOf": {
+        "@id": "https://sectorcalc.com/#website"
+      },
+      "about": {
+        "@id": "https://sectorcalc.com/calculator/oee-teep#software"
+      },
+      "mainEntity": {
+        "@id": "https://sectorcalc.com/calculator/oee-teep#software"
+      },
+      "publisher": {
+        "@id": "https://sectorcalc.com/#organization"
+      },
+      "author": {
+        "@id": "https://sectorcalc.com/#organization"
+      },
+      "inLanguage": "en-US",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".sc-aeo-problem",
+          ".sc-direct-answer",
+          ".sc-header-title",
+          "h1"
+        ]
+      }
+    },
+    {
       "@type": "SoftwareApplication",
       "@id": "https://sectorcalc.com/calculator/oee-teep#software",
       "name": "SC-037 OEE — Overall Equipment Effectiveness",
@@ -291,6 +323,9 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
       "author": {
         "@id": "https://sectorcalc.com/#organization"
       },
+      "brand": {
+        "@id": "https://sectorcalc.com/#organization"
+      },
       "screenshot": {
         "@type": "ImageObject",
         "url": "https://sectorcalc.com/assets/images/og-oee-pro-1200x630.jpg",
@@ -300,9 +335,36 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
       "inLanguage": [
         "en"
       ],
-      "dateModified": "2026-07-24",
+      "dateModified": "2026-07-27",
       "isPartOf": {
         "@id": "https://sectorcalc.com/#website"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://sectorcalc.com/calculator/oee-teep#webpage"
+      }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://sectorcalc.com/calculator/oee-teep#product",
+      "name": "SC-037 OEE — Overall Equipment Effectiveness",
+      "description": "Overall Equipment Effectiveness, TEEP, and capacity loss breakdown with availability, performance, and quality.",
+      "brand": {
+        "@id": "https://sectorcalc.com/#organization"
+      },
+      "category": "Engineering Software",
+      "isRelatedTo": {
+        "@id": "https://sectorcalc.com/calculator/oee-teep#software"
+      },
+      "offers": {
+        "@type": "Offer",
+        "name": "Free exploratory calculation",
+        "price": "0.00",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://sectorcalc.com/calculator/oee-teep",
+        "seller": {
+          "@id": "https://sectorcalc.com/#organization"
+        }
       }
     },
     {
@@ -450,8 +512,8 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
 </script>
 <!--SC-SEO-SCHEMA-END-->
 <link rel="stylesheet" href="/sc-related-tools.css?v=1">
-                        <link rel="stylesheet" href="/sc-money.css?v=1">
-                        <link rel="stylesheet" href="/sc-calc-sheet.css?v=1">
+                        <link rel="stylesheet" href="/sc-money.css?v=2">
+                          <link rel="stylesheet" href="/sc-calc-sheet.css?v=1">
   <!--SC-CALC-SHEET-START-->
   <!-- calc-sheet theme: theme-calc-sheet -->
   <!--SC-CALC-SHEET-END-->
@@ -534,6 +596,7 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
 
 
 
+
 <!--SC-SEO-BREADCRUMB-START-->
 <nav aria-label="Breadcrumb" class="sc-breadcrumb">
   <ol itemscope itemtype="https://schema.org/BreadcrumbList">
@@ -562,7 +625,10 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
   <div class="head">
     <div>
       <h1>OEE Calculator — Overall Equipment Effectiveness (SC-037)</h1>
-<p class="sc-direct-answer" data-money-block="01" data-tool-id="SC-037">OEE multiplies availability, performance, and quality into a single effectiveness ratio for a production window. It shows how much of planned time became good output at the ideal cycle, so improvement work can target the real loss bucket.</p>
+<div class="sc-aeo-empathy" data-aeo-step="empathy" data-tool-id="SC-037">
+<p class="sc-aeo-problem"><strong>The problem:</strong> A single “efficiency” percentage hides whether you are losing the shift to downtime, speed loss, or scrap.</p>
+<p class="sc-aeo-promise">Split availability, performance, and quality so improvement work hits the real loss bucket.</p>
+</div><p class="sc-direct-answer" data-money-block="01" data-aeo-step="direct-answer" data-tool-id="SC-037">When the line “feels busy” but output disappoints, OEE multiplies availability, performance, and quality into one effectiveness ratio for the window — so you can see how much planned time became good output at the ideal cycle.</p>
       <p>Production-loss analysis engine for plant managers and CI engineers: full <b>OEE = Availability × Performance × Quality</b> decomposition with time-equivalent loss waterfall (unplanned downtime, speed loss, quality loss), TEEP against calendar time, world-class 85 % benchmarking, what-if recovery potential at target OEE, and data-consistency blocking when the numbers cannot be physical. Every report with the full audit trail — ready to paste into the morning meeting deck.</p>
     </div>
     <div>
@@ -1015,12 +1081,13 @@ calculate();
 <script src="/assets/js/cvw-monitor.js" defer></script>
 
 <!--SC-MONEY-START-->
-<aside class="sc-money-contract" data-money-contract="tier-a" data-tool-id="SC-037" data-primary-entity="oee-teep" data-query-cluster="oee-teep" data-primary-query="oee calculator" data-canonical="/calculator/oee-teep">
-<section class="sc-money-block" data-money-block="03"><h2>Decision this supports</h2><p>Separate downtime, speed loss, and scrap so improvement work targets the real loss bucket instead of a vague “efficiency” percentage.</p></section>
-<section class="sc-money-block" data-money-block="04"><h2>Required inputs</h2><p>Planned production time, run time, ideal cycle time, total count, good count — in consistent units.</p></section>
-<section class="sc-money-block" data-money-block="05"><h2>Formula / method</h2><p>Availability = run / planned. Performance = (ideal cycle × total count) / run. Quality = good / total. OEE = A × P × Q.</p></section>
-<section class="sc-money-block" data-money-block="06" id="money-worked-example">
-  <h2>Worked example</h2>
+<aside class="sc-money-contract" data-money-contract="tier-a" data-aeo-chain="direct-calc-explain-method-evidence-audit-related" data-tool-id="SC-037" data-primary-entity="oee-teep" data-query-cluster="oee-teep" data-primary-query="oee calculator" data-canonical="/calculator/oee-teep">
+<nav class="sc-aeo-rail" aria-label="Answer engine structure"><ol><li data-aeo-rail="direct-answer"><span class="sc-aeo-rail-n">01</span> Direct answer</li><li data-aeo-rail="calculation"><span class="sc-aeo-rail-n">02</span> Calculation</li><li data-aeo-rail="explanation"><span class="sc-aeo-rail-n">03</span> Explanation</li><li data-aeo-rail="methodology"><span class="sc-aeo-rail-n">04</span> Methodology</li><li data-aeo-rail="evidence"><span class="sc-aeo-rail-n">05</span> Evidence</li><li data-aeo-rail="accountability"><span class="sc-aeo-rail-n">06</span> Audit trail</li><li data-aeo-rail="related-problems"><span class="sc-aeo-rail-n">07</span> Related problems</li></ol></nav>
+<section class="sc-money-block" data-money-block="03" data-aeo-step="explanation"><h2>Explanation — decision this supports</h2><p>Separate downtime, speed loss, and scrap so improvement work targets the real loss bucket instead of a vague “efficiency” percentage.</p></section>
+<section class="sc-money-block" data-money-block="04" data-aeo-step="explanation"><h2>Required inputs</h2><p>Planned production time, run time, ideal cycle time, total count, good count — in consistent units.</p></section>
+<section class="sc-money-block" data-money-block="05" data-aeo-step="methodology"><h2>Methodology — formula &amp; method</h2><p>Availability = run / planned. Performance = (ideal cycle × total count) / run. Quality = good / total. OEE = A × P × Q.</p></section>
+<section class="sc-money-block" data-money-block="06" id="money-worked-example" data-aeo-step="evidence">
+  <h2>Evidence — worked example</h2>
   <p class="sc-money-lede">One-shift cell OEE with scrap. Availability, performance, and quality multiply to OEE. The production engine (SC-014 formula module used by SC-037 UI) does not clamp rates above 100%.</p>
   <p class="sc-money-engine" data-worked-provenance="engine-generated">Engine source: <code>src/tools/SC-014-oee/v1.0.0/formula.ts</code> · tool <code>SC-037</code></p>
   <h3>Golden inputs</h3>
@@ -1028,15 +1095,24 @@ calculate();
   <h3>Verified engine outputs</h3>
   <table class="sc-money-table"><tbody><tr><th scope="row">oeePct</th><td><code>72.8</code></td></tr><tr><th scope="row">availabilityPct</th><td><code>87.5</code></td></tr><tr><th scope="row">performancePct</th><td><code>85.7</code></td></tr><tr><th scope="row">qualityPct</th><td><code>97.0</code></td></tr></tbody></table>
 </section>
-<section class="sc-money-block" data-money-block="07"><h2>What the result means</h2><p>A single OEE number is not a target theater metric — read the three factors. Performance above 100% usually means ideal cycle or counts are wrong, not heroics.</p></section>
-<section class="sc-money-block" data-money-block="08"><h2>What moves the result</h2><p>Short run time crushes availability. Inflated ideal cycle flatters performance. Scrap hits quality and hides in the product.</p></section>
-<section class="sc-money-block" data-money-block="09"><h2>Assumptions</h2><p>Counts and times refer to the same window. Ideal cycle is the theoretical best, not average historical cycle.</p></section>
-<section class="sc-money-block" data-money-block="10"><h2>Model boundaries</h2><p>Not TEEP unless calendar time is used as the planned base. Does not diagnose root causes — only quantifies loss buckets.</p></section>
-<section class="sc-money-block" data-money-block="11"><h2>Common engineering mistakes</h2><p>Mixing shifts; using average cycle as ideal; excluding changeover from planned time inconsistently.</p></section>
-<section class="sc-money-block" data-money-block="12"><h2>Standard / reference scope</h2><p>Classic OEE definition used in manufacturing excellence practice. Not a certified ISO OEE audit by itself.</p></section>
-<section class="sc-money-block" data-money-block="13"><h2>A1–A5 audit trail</h2><p>Factor steps and warnings when rates exceed 100% keep the calculation honest for tier reviews.</p></section>
-<section class="sc-money-block" data-money-block="14"><h2>Related glossary</h2><ul><li><a href="/glossary/oee-overall-equipment-effectiveness">OEE</a></li><li><a href="/glossary/machine-hour-rate">Machine hour rate</a></li></ul></section>
-<section class="sc-money-block" data-money-block="15"><h2>Related guide &amp; calculators</h2><p><a href="/guides/labor-costing-complete">Labor costing complete guide</a></p><ul><li><a href="/calculator/true-labor-cost">SC-010 True Labor Cost</a></li><li><a href="/calculator/machine-hour-rate">SC-038 Machine Hour Rate</a></li><li><a href="/calculator/quote-pricing">SC-012 Quote Pricing</a></li></ul></section>
+<section class="sc-money-block" data-money-block="07" data-aeo-step="explanation"><h2>What the result means</h2><p>A single OEE number is not a target theater metric — read the three factors. Performance above 100% usually means ideal cycle or counts are wrong, not heroics.</p></section>
+<section class="sc-money-block" data-money-block="08" data-aeo-step="explanation"><h2>What moves the result</h2><p>Short run time crushes availability. Inflated ideal cycle flatters performance. Scrap hits quality and hides in the product.</p></section>
+<section class="sc-money-block" data-money-block="09" data-aeo-step="methodology"><h2>Assumptions</h2><p>Counts and times refer to the same window. Ideal cycle is the theoretical best, not average historical cycle.</p></section>
+<section class="sc-money-block" data-money-block="10" data-aeo-step="methodology"><h2>Model boundaries</h2><p>Not TEEP unless calendar time is used as the planned base. Does not diagnose root causes — only quantifies loss buckets.</p></section>
+<section class="sc-money-block" data-money-block="11" data-aeo-step="evidence"><h2>Common engineering mistakes</h2><p>Mixing shifts; using average cycle as ideal; excluding changeover from planned time inconsistently.</p></section>
+<section class="sc-money-block" data-money-block="12" data-aeo-step="evidence"><h2>Evidence — standard &amp; reference scope</h2><p>Classic OEE definition used in manufacturing excellence practice. Not a certified ISO OEE audit by itself.</p></section>
+<section class="sc-money-block" data-money-block="13" data-aeo-step="accountability"><h2>Accountability — A1–A5 audit trail</h2><p>Factor steps and warnings when rates exceed 100% keep the calculation honest for tier reviews.</p>
+<p class="sc-money-expert-note">Engineering accountability is carried by visible formulas, assumptions, warnings, and engine version — not by invented reviewer endorsements. Outputs remain engineering previews subject to competent review.</p></section>
+<section class="sc-money-block" data-money-block="14" data-aeo-step="related-problems"><h2>Related glossary</h2><ul><li><a href="/glossary/oee-overall-equipment-effectiveness">OEE</a></li><li><a href="/glossary/machine-hour-rate">Machine hour rate</a></li></ul></section>
+<section class="sc-money-block" data-money-block="15" data-aeo-step="related-problems"><h2>Related guide &amp; calculators</h2><p><a href="/guides/labor-costing-complete">Labor costing complete guide</a></p><ul><li><a href="/calculator/true-labor-cost">SC-010 True Labor Cost</a></li><li><a href="/calculator/machine-hour-rate">SC-038 Machine Hour Rate</a></li><li><a href="/calculator/quote-pricing">SC-012 Quote Pricing</a></li></ul></section>
+<section class="sc-money-block sc-aeo-topical" data-money-block="15b" data-aeo-step="related-problems" data-topic-id="manufacturing-economics" data-subtopic-id="quoting-oee">
+  <h2>Topical map &amp; related problems</h2>
+  <p class="sc-money-lede"><strong>Manufacturing economics</strong> · Quoting &amp; effectiveness. Is the shop rate and sell price recovering true cost — or quietly quoting away the margin?</p>
+  <h3>Query fan-out (same problem cluster)</h3>
+  <ul class="sc-aeo-fanout"><li><span class="sc-aeo-query">manufacturing quote calculator</span></li><li><span class="sc-aeo-query">oee calculator</span></li></ul>
+  <h3>Internal authority links</h3>
+  <ul><li><a href="/calculator/quote-pricing">SC-012 Quote Pricing</a></li><li><a href="/glossary/oee-overall-equipment-effectiveness">OEE</a></li></ul>
+</section>
 <section class="sc-money-block sc-money-cta" data-money-block="16"><h2>Commercial next step</h2><p>Convert OEE reality into machine-hour and quote adjustments when the cell cannot hit the planned utilization baked into rates.</p>
 <p class="sc-money-cta-actions"><a class="sc-money-link" href="/pricing.html" data-sc-funnel="pricing">View pricing</a>
 <a class="sc-money-link" href="/pro.html">Pro hub</a></p></section>

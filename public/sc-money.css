@@ -15,6 +15,63 @@
   color: var(--sc-money-muted);
 }
 
+.sc-aeo-empathy {
+  max-width: 46rem;
+  margin: 0.85rem 0 0.35rem;
+  padding: 0.85rem 1rem;
+  border-left: 3px solid var(--sc-money-accent);
+  background: var(--sc-money-bg);
+}
+.sc-aeo-problem {
+  margin: 0 0 0.35rem;
+  line-height: 1.5;
+  color: var(--sc-money-ink);
+  font-size: 1.02rem;
+}
+.sc-aeo-promise {
+  margin: 0;
+  color: var(--sc-money-muted);
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+.sc-aeo-rail {
+  margin: 0 0 1.5rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid var(--sc-money-line);
+}
+.sc-aeo-rail ol {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.85rem;
+  margin: 0;
+  padding: 0;
+}
+.sc-aeo-rail li {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--sc-money-muted);
+}
+.sc-aeo-rail-n {
+  color: var(--sc-money-accent);
+  font-weight: 700;
+}
+.sc-aeo-fanout {
+  margin: 0.25rem 0 0.75rem;
+  padding-left: 1.2rem;
+  color: var(--sc-money-muted);
+}
+.sc-aeo-query {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.86rem;
+}
+.sc-money-expert-note {
+  font-size: 0.92rem;
+  color: var(--sc-money-muted);
+}
+
 .sc-money-contract {
   display: block;
   margin: 2.5rem 0 1.5rem;

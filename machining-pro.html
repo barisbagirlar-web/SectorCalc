@@ -261,6 +261,38 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "WebPage",
+      "@id": "https://sectorcalc.com/calculator/cnc-feeds-speeds#webpage",
+      "url": "https://sectorcalc.com/calculator/cnc-feeds-speeds",
+      "name": "SC-020 CNC Feeds & Speeds + Tool Life",
+      "description": "Calculate cutting speed, feed rate, and Taylor tool life with chip thinning and deterministic Decimal engine. Full audit trail. Client-side only.",
+      "isPartOf": {
+        "@id": "https://sectorcalc.com/#website"
+      },
+      "about": {
+        "@id": "https://sectorcalc.com/calculator/cnc-feeds-speeds#software"
+      },
+      "mainEntity": {
+        "@id": "https://sectorcalc.com/calculator/cnc-feeds-speeds#software"
+      },
+      "publisher": {
+        "@id": "https://sectorcalc.com/#organization"
+      },
+      "author": {
+        "@id": "https://sectorcalc.com/#organization"
+      },
+      "inLanguage": "en-US",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".sc-aeo-problem",
+          ".sc-direct-answer",
+          ".sc-header-title",
+          "h1"
+        ]
+      }
+    },
+    {
       "@type": "SoftwareApplication",
       "@id": "https://sectorcalc.com/calculator/cnc-feeds-speeds#software",
       "name": "SC-020 CNC Feeds & Speeds + Tool Life",
@@ -292,6 +324,9 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
       "author": {
         "@id": "https://sectorcalc.com/#organization"
       },
+      "brand": {
+        "@id": "https://sectorcalc.com/#organization"
+      },
       "screenshot": {
         "@type": "ImageObject",
         "url": "https://sectorcalc.com/assets/images/og-machining-pro-1200x630.jpg",
@@ -301,9 +336,36 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
       "inLanguage": [
         "en"
       ],
-      "dateModified": "2026-07-24",
+      "dateModified": "2026-07-27",
       "isPartOf": {
         "@id": "https://sectorcalc.com/#website"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://sectorcalc.com/calculator/cnc-feeds-speeds#webpage"
+      }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://sectorcalc.com/calculator/cnc-feeds-speeds#product",
+      "name": "SC-020 CNC Feeds & Speeds + Tool Life",
+      "description": "Calculate cutting speed, feed rate, and Taylor tool life with chip thinning and deterministic Decimal engine. Full audit trail. Client-side only.",
+      "brand": {
+        "@id": "https://sectorcalc.com/#organization"
+      },
+      "category": "Engineering Software",
+      "isRelatedTo": {
+        "@id": "https://sectorcalc.com/calculator/cnc-feeds-speeds#software"
+      },
+      "offers": {
+        "@type": "Offer",
+        "name": "Free exploratory calculation",
+        "price": "0.00",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://sectorcalc.com/calculator/cnc-feeds-speeds",
+        "seller": {
+          "@id": "https://sectorcalc.com/#organization"
+        }
       }
     },
     {
@@ -452,8 +514,8 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
 </script>
 <!--SC-SEO-SCHEMA-END-->
 <link rel="stylesheet" href="/sc-related-tools.css?v=1">
-                        <link rel="stylesheet" href="/sc-money.css?v=1">
-                            <link rel="stylesheet" href="/sc-calc-sheet.css?v=1">
+                        <link rel="stylesheet" href="/sc-money.css?v=2">
+                              <link rel="stylesheet" href="/sc-calc-sheet.css?v=1">
   <!--SC-CALC-SHEET-START-->
   <!-- calc-sheet theme: theme-calc-sheet -->
   <!--SC-CALC-SHEET-END-->
@@ -492,6 +554,7 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
   <a href="/login.html" class="btn-primary" data-nav="login">Sign in</a>
 </div>
 <!--SC-SITE-NAV-END-->
+
 
 
 
@@ -580,7 +643,10 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
   <div class="head">
     <div>
       <h1>CNC Feeds &amp; Speeds + Tool Life Calculator</h1>
-<p class="sc-direct-answer" data-money-block="01" data-tool-id="SC-020">CNC feeds and speeds convert material group, tool geometry, and machine limits into spindle speed, table feed, chip thickness, and power/torque demand, then flag whether the cut should be released, run with caution, or rejected.</p>
+<div class="sc-aeo-empathy" data-aeo-step="empathy" data-tool-id="SC-020">
+<p class="sc-aeo-problem"><strong>The problem:</strong> A catalog Vc looks fine on paper until the spindle runs out of torque mid-cut and you lose a tool — and a shift.</p>
+<p class="sc-aeo-promise">Check speed, feed, chip load, and power demand against the machine you actually own.</p>
+</div><p class="sc-direct-answer" data-money-block="01" data-aeo-step="direct-answer" data-tool-id="SC-020">Before you burn a tool or stall a spindle, CNC feeds and speeds convert material group, tool geometry, and machine limits into spindle speed, table feed, chip thickness, and power/torque demand — then flag whether the cut should be released, run with caution, or rejected.</p>
       <p>Industrial-grade machining parameter engine: extended Taylor tool-life with coolant &amp; interruption correction, radial chip-thinning compensation, Kienzle cutting force, spindle power &amp; torque verification, tool deflection, surface-finish prediction and Gilbert minimum-cost optimization. Every input carries <b>selectable universal units</b> and <b>reference-standard values</b>; every report embeds the full audit trail — inputs, formulas, assumptions, warnings, engine version and integrity hash.</p>
     </div>
     <div>
@@ -1474,12 +1540,13 @@ calculate();
 <script src="/assets/js/cvw-monitor.js" defer></script>
 
 <!--SC-MONEY-START-->
-<aside class="sc-money-contract" data-money-contract="tier-a" data-tool-id="SC-020" data-primary-entity="cnc-feeds-speeds" data-query-cluster="cnc-feeds-speeds" data-primary-query="cnc feeds and speeds calculator" data-canonical="/calculator/cnc-feeds-speeds">
-<section class="sc-money-block" data-money-block="03"><h2>Decision this supports</h2><p>Choose starting Vc/fz for a tool–material pair, check spindle power and torque headroom, and estimate whether the cut is production-credible before you burn a tool or stall the spindle.</p></section>
-<section class="sc-money-block" data-money-block="04"><h2>Required inputs</h2><p>Material group, cutter diameter and teeth, Vc, fz, ae/ap, spindle power and torque, stick-out, coolant/interruption mode, and optional tool/machine cost rates.</p></section>
-<section class="sc-money-block" data-money-block="05"><h2>Formula / method</h2><p>n = (1000·Vc)/(π·D). vf = n·z·fz (with chip-thinning compensation when ae &lt; D). Power and torque demand come from specific cutting force models in the FS-ENGINE core.</p></section>
-<section class="sc-money-block" data-money-block="06" id="money-worked-example">
-  <h2>Worked example</h2>
+<aside class="sc-money-contract" data-money-contract="tier-a" data-aeo-chain="direct-calc-explain-method-evidence-audit-related" data-tool-id="SC-020" data-primary-entity="cnc-feeds-speeds" data-query-cluster="cnc-feeds-speeds" data-primary-query="cnc feeds and speeds calculator" data-canonical="/calculator/cnc-feeds-speeds">
+<nav class="sc-aeo-rail" aria-label="Answer engine structure"><ol><li data-aeo-rail="direct-answer"><span class="sc-aeo-rail-n">01</span> Direct answer</li><li data-aeo-rail="calculation"><span class="sc-aeo-rail-n">02</span> Calculation</li><li data-aeo-rail="explanation"><span class="sc-aeo-rail-n">03</span> Explanation</li><li data-aeo-rail="methodology"><span class="sc-aeo-rail-n">04</span> Methodology</li><li data-aeo-rail="evidence"><span class="sc-aeo-rail-n">05</span> Evidence</li><li data-aeo-rail="accountability"><span class="sc-aeo-rail-n">06</span> Audit trail</li><li data-aeo-rail="related-problems"><span class="sc-aeo-rail-n">07</span> Related problems</li></ol></nav>
+<section class="sc-money-block" data-money-block="03" data-aeo-step="explanation"><h2>Explanation — decision this supports</h2><p>Choose starting Vc/fz for a tool–material pair, check spindle power and torque headroom, and estimate whether the cut is production-credible before you burn a tool or stall the spindle.</p></section>
+<section class="sc-money-block" data-money-block="04" data-aeo-step="explanation"><h2>Required inputs</h2><p>Material group, cutter diameter and teeth, Vc, fz, ae/ap, spindle power and torque, stick-out, coolant/interruption mode, and optional tool/machine cost rates.</p></section>
+<section class="sc-money-block" data-money-block="05" data-aeo-step="methodology"><h2>Methodology — formula &amp; method</h2><p>n = (1000·Vc)/(π·D). vf = n·z·fz (with chip-thinning compensation when ae &lt; D). Power and torque demand come from specific cutting force models in the FS-ENGINE core.</p></section>
+<section class="sc-money-block" data-money-block="06" id="money-worked-example" data-aeo-step="evidence">
+  <h2>Evidence — worked example</h2>
   <p class="sc-money-lede">Ø12 mm 4-flute end mill in ISO P1 steel. Production SC-020 returns spindle speed, table feed, chip thickness, power/torque demand, and a release verdict from the FS-ENGINE core.</p>
   <p class="sc-money-engine" data-worked-provenance="engine-generated">Engine source: <code>src/tools/SC-020-feeds-speeds/v1.0.0/formula.ts</code> · tool <code>SC-020</code></p>
   <h3>Golden inputs</h3>
@@ -1487,15 +1554,24 @@ calculate();
   <h3>Verified engine outputs</h3>
   <table class="sc-money-table"><tbody><tr><th scope="row">nRpm</th><td><code>4774.65</code></td></tr><tr><th scope="row">vfMmMin</th><td><code>1527.89</code></td></tr><tr><th scope="row">hmMm</th><td><code>0.0400</code></td></tr><tr><th scope="row">materialName</th><td><code>Low-carbon steel (C &lt; 0.25%)</code></td></tr><tr><th scope="row">verdict</th><td><code>DO NOT RUN</code></td></tr></tbody></table>
 </section>
-<section class="sc-money-block" data-money-block="07"><h2>What the result means</h2><p>Released means demand sits inside spindle limits with credible chip load. Caution means a limit is close. Do not run means power, torque, or chip thickness is outside the validated band for the selected material table.</p></section>
-<section class="sc-money-block" data-money-block="08"><h2>What moves the result</h2><p>Diameter and Vc dominate rpm. Radial engagement and fz dominate chip thickness and force. Stick-out raises deflection risk faster than operators expect.</p></section>
-<section class="sc-money-block" data-money-block="09"><h2>Assumptions</h2><p>Reference mid-band material constants. Machine efficiency and coolant factors are screening defaults. Supplier datasheets override tables for contract work.</p></section>
-<section class="sc-money-block" data-money-block="10"><h2>Model boundaries</h2><p>Not a CAM toolpath simulator. Does not model chatter stability lobes, coated-grade specifics, or adaptive control. Calibrate to toolmaker data before production release.</p></section>
-<section class="sc-money-block" data-money-block="11"><h2>Common engineering mistakes</h2><p>Using catalog Vc with full-slot ae while entering a finishing ae; ignoring torque at low rpm; treating verdict as a warranty.</p></section>
-<section class="sc-money-block" data-money-block="12"><h2>Standard / reference scope</h2><p>Material grouping follows ISO 513-style categories. Cutting equations are engineering practice, not a claim of full ISO machining-standard compliance for every grade.</p></section>
-<section class="sc-money-block" data-money-block="13"><h2>A1–A5 audit trail</h2><p>A1–A5 capture engine identity, SI inputs, formula trace, assumptions, and warnings so two shops can reproduce the same starting recommendation.</p></section>
-<section class="sc-money-block" data-money-block="14"><h2>Related glossary</h2><ul><li><a href="/glossary/cnc-feeds-and-speeds">CNC feeds and speeds</a></li><li><a href="/glossary/chip-thinning">Chip thinning</a></li><li><a href="/glossary/taylor-tool-life">Taylor tool life</a></li></ul></section>
-<section class="sc-money-block" data-money-block="15"><h2>Related guide &amp; calculators</h2><p><a href="/guides/cnc-optimization-complete">CNC optimization complete guide</a></p><ul><li><a href="/calculator/cycle-time-cost">SC-023 Cycle Time &amp; Cost per Part</a></li><li><a href="/calculator/punching-force">SC-039 Punching Force &amp; Die Clearance</a></li><li><a href="/calculator/tap-thread-milling">SC-022 Tap &amp; Thread Milling</a></li></ul></section>
+<section class="sc-money-block" data-money-block="07" data-aeo-step="explanation"><h2>What the result means</h2><p>Released means demand sits inside spindle limits with credible chip load. Caution means a limit is close. Do not run means power, torque, or chip thickness is outside the validated band for the selected material table.</p></section>
+<section class="sc-money-block" data-money-block="08" data-aeo-step="explanation"><h2>What moves the result</h2><p>Diameter and Vc dominate rpm. Radial engagement and fz dominate chip thickness and force. Stick-out raises deflection risk faster than operators expect.</p></section>
+<section class="sc-money-block" data-money-block="09" data-aeo-step="methodology"><h2>Assumptions</h2><p>Reference mid-band material constants. Machine efficiency and coolant factors are screening defaults. Supplier datasheets override tables for contract work.</p></section>
+<section class="sc-money-block" data-money-block="10" data-aeo-step="methodology"><h2>Model boundaries</h2><p>Not a CAM toolpath simulator. Does not model chatter stability lobes, coated-grade specifics, or adaptive control. Calibrate to toolmaker data before production release.</p></section>
+<section class="sc-money-block" data-money-block="11" data-aeo-step="evidence"><h2>Common engineering mistakes</h2><p>Using catalog Vc with full-slot ae while entering a finishing ae; ignoring torque at low rpm; treating verdict as a warranty.</p></section>
+<section class="sc-money-block" data-money-block="12" data-aeo-step="evidence"><h2>Evidence — standard &amp; reference scope</h2><p>Material grouping follows ISO 513-style categories. Cutting equations are engineering practice, not a claim of full ISO machining-standard compliance for every grade.</p></section>
+<section class="sc-money-block" data-money-block="13" data-aeo-step="accountability"><h2>Accountability — A1–A5 audit trail</h2><p>A1–A5 capture engine identity, SI inputs, formula trace, assumptions, and warnings so two shops can reproduce the same starting recommendation.</p>
+<p class="sc-money-expert-note">Engineering accountability is carried by visible formulas, assumptions, warnings, and engine version — not by invented reviewer endorsements. Outputs remain engineering previews subject to competent review.</p></section>
+<section class="sc-money-block" data-money-block="14" data-aeo-step="related-problems"><h2>Related glossary</h2><ul><li><a href="/glossary/cnc-feeds-and-speeds">CNC feeds and speeds</a></li><li><a href="/glossary/chip-thinning">Chip thinning</a></li><li><a href="/glossary/taylor-tool-life">Taylor tool life</a></li></ul></section>
+<section class="sc-money-block" data-money-block="15" data-aeo-step="related-problems"><h2>Related guide &amp; calculators</h2><p><a href="/guides/cnc-optimization-complete">CNC optimization complete guide</a></p><ul><li><a href="/calculator/cycle-time-cost">SC-023 Cycle Time &amp; Cost per Part</a></li><li><a href="/calculator/punching-force">SC-039 Punching Force &amp; Die Clearance</a></li><li><a href="/calculator/tap-thread-milling">SC-022 Tap &amp; Thread Milling</a></li></ul></section>
+<section class="sc-money-block sc-aeo-topical" data-money-block="15b" data-aeo-step="related-problems" data-topic-id="cnc-machining" data-subtopic-id="feeds-speeds">
+  <h2>Topical map &amp; related problems</h2>
+  <p class="sc-money-lede"><strong>CNC machining</strong> · Feeds &amp; speeds. Will this cut release on the spindle you actually own — or burn a tool and stall the machine?</p>
+  <h3>Query fan-out (same problem cluster)</h3>
+  <ul class="sc-aeo-fanout"><li><span class="sc-aeo-query">cnc feeds and speeds calculator</span></li><li><span class="sc-aeo-query">chip thinning calculator</span></li><li><span class="sc-aeo-query">spindle power check</span></li></ul>
+  <h3>Internal authority links</h3>
+  <ul><li><a href="/glossary/cnc-feeds-and-speeds">CNC feeds and speeds</a></li><li><a href="/glossary/chip-thinning">Chip thinning</a></li><li><a href="/guides/cnc-optimization-complete">CNC optimization complete guide</a></li></ul>
+</section>
 <section class="sc-money-block sc-money-cta" data-money-block="16"><h2>Commercial next step</h2><p>Lock a released cut, keep the audit trail with the job traveler, and use Pro reporting when you need deterministic exports across the cell.</p>
 <p class="sc-money-cta-actions"><a class="sc-money-link" href="/pricing.html" data-sc-funnel="pricing">View pricing</a>
 <a class="sc-money-link" href="/pro.html">Pro hub</a></p></section>

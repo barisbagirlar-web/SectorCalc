@@ -260,6 +260,38 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "WebPage",
+      "@id": "https://sectorcalc.com/calculator/weld-heat-input#webpage",
+      "url": "https://sectorcalc.com/calculator/weld-heat-input",
+      "name": "SC-029 Heat Input & Cooling Rate t8/5",
+      "description": "Calculate welding heat input and cooling time t8/5 for WPS/PQR screening. Deterministic engine.",
+      "isPartOf": {
+        "@id": "https://sectorcalc.com/#website"
+      },
+      "about": {
+        "@id": "https://sectorcalc.com/calculator/weld-heat-input#software"
+      },
+      "mainEntity": {
+        "@id": "https://sectorcalc.com/calculator/weld-heat-input#software"
+      },
+      "publisher": {
+        "@id": "https://sectorcalc.com/#organization"
+      },
+      "author": {
+        "@id": "https://sectorcalc.com/#organization"
+      },
+      "inLanguage": "en-US",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".sc-aeo-problem",
+          ".sc-direct-answer",
+          ".sc-header-title",
+          "h1"
+        ]
+      }
+    },
+    {
       "@type": "SoftwareApplication",
       "@id": "https://sectorcalc.com/calculator/weld-heat-input#software",
       "name": "SC-029 Heat Input & Cooling Rate t8/5",
@@ -291,6 +323,9 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
       "author": {
         "@id": "https://sectorcalc.com/#organization"
       },
+      "brand": {
+        "@id": "https://sectorcalc.com/#organization"
+      },
       "screenshot": {
         "@type": "ImageObject",
         "url": "https://sectorcalc.com/assets/images/og-heat-input-pro-1200x630.jpg",
@@ -300,9 +335,36 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
       "inLanguage": [
         "en"
       ],
-      "dateModified": "2026-07-24",
+      "dateModified": "2026-07-27",
       "isPartOf": {
         "@id": "https://sectorcalc.com/#website"
+      },
+      "mainEntityOfPage": {
+        "@id": "https://sectorcalc.com/calculator/weld-heat-input#webpage"
+      }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://sectorcalc.com/calculator/weld-heat-input#product",
+      "name": "SC-029 Heat Input & Cooling Rate t8/5",
+      "description": "Calculate welding heat input and cooling time t8/5 for WPS/PQR screening. Deterministic engine.",
+      "brand": {
+        "@id": "https://sectorcalc.com/#organization"
+      },
+      "category": "Engineering Software",
+      "isRelatedTo": {
+        "@id": "https://sectorcalc.com/calculator/weld-heat-input#software"
+      },
+      "offers": {
+        "@type": "Offer",
+        "name": "Free exploratory calculation",
+        "price": "0.00",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://sectorcalc.com/calculator/weld-heat-input",
+        "seller": {
+          "@id": "https://sectorcalc.com/#organization"
+        }
       }
     },
     {
@@ -450,8 +512,8 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
 </script>
 <!--SC-SEO-SCHEMA-END-->
 <link rel="stylesheet" href="/sc-related-tools.css?v=1">
-                        <link rel="stylesheet" href="/sc-money.css?v=1">
-                        <link rel="stylesheet" href="/sc-calc-sheet.css?v=1">
+                        <link rel="stylesheet" href="/sc-money.css?v=2">
+                          <link rel="stylesheet" href="/sc-calc-sheet.css?v=1">
   <!--SC-CALC-SHEET-START-->
   <!-- calc-sheet theme: theme-calc-sheet -->
   <!--SC-CALC-SHEET-END-->
@@ -534,6 +596,7 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
 
 
 
+
 <!--SC-SEO-BREADCRUMB-START-->
 <nav aria-label="Breadcrumb" class="sc-breadcrumb">
   <ol itemscope itemtype="https://schema.org/BreadcrumbList">
@@ -562,7 +625,10 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
   <div class="head">
     <div>
       <h1>Heat Input &amp; Cooling Rate Calculator — t8/5 (EN 1011, SC-029)</h1>
-<p class="sc-direct-answer" data-money-block="01" data-tool-id="SC-029">Weld heat input estimates arc energy per unit length from voltage, current, and travel speed with a process efficiency factor — a key control for metallurgy and distortion risk when checking parameters against a qualified WPS window.</p>
+<div class="sc-aeo-empathy" data-aeo-step="empathy" data-tool-id="SC-029">
+<p class="sc-aeo-problem"><strong>The problem:</strong> Heat input and t8/5 decide HAZ behavior — guessing from “we always run it this way” is how procedures fail review.</p>
+<p class="sc-aeo-promise">Compute heat input and cooling estimate with inputs you can put on the traveler.</p>
+</div><p class="sc-direct-answer" data-money-block="01" data-aeo-step="direct-answer" data-tool-id="SC-029">When “we always run it this way” fails a WPS review, weld heat input estimates arc energy per unit length from voltage, current, and travel speed with process efficiency — a control for metallurgy and distortion risk against a qualified window.</p>
       <p>Welding-metallurgy engine for welding engineers and IWE/IWTs: arc energy and heat input with process efficiency, <b>transition thickness</b> between 2D and 3D heat flow, <b>t8/5 cooling time</b> per EN 1011-2 Annex D with seam shape factors, carbon equivalents (CE-IIW, CET, Pcm), and <b>preheat temperature per EN 1011-2 Method B</b> from CET, combined thickness, hydrogen scale and heat input. Every report with the full audit trail.</p>
     </div>
     <div>
@@ -1097,12 +1163,13 @@ calculate();
 <script src="/assets/js/cvw-monitor.js" defer></script>
 
 <!--SC-MONEY-START-->
-<aside class="sc-money-contract" data-money-contract="tier-a" data-tool-id="SC-029" data-primary-entity="weld-heat-input" data-query-cluster="weld-heat-input" data-primary-query="welding heat input calculator" data-canonical="/calculator/weld-heat-input">
-<section class="sc-money-block" data-money-block="03"><h2>Decision this supports</h2><p>Check whether a proposed parameter set stays inside a WPS heat-input window before you weld production coupons.</p></section>
-<section class="sc-money-block" data-money-block="04"><h2>Required inputs</h2><p>Arc voltage, current, travel speed, and process efficiency (or process preset that sets efficiency).</p></section>
-<section class="sc-money-block" data-money-block="05"><h2>Formula / method</h2><p>HI (kJ/mm) = (V · I · 60) / (1000 · travel_mm_per_min) · η.</p></section>
-<section class="sc-money-block" data-money-block="06" id="money-worked-example">
-  <h2>Worked example</h2>
+<aside class="sc-money-contract" data-money-contract="tier-a" data-aeo-chain="direct-calc-explain-method-evidence-audit-related" data-tool-id="SC-029" data-primary-entity="weld-heat-input" data-query-cluster="weld-heat-input" data-primary-query="welding heat input calculator" data-canonical="/calculator/weld-heat-input">
+<nav class="sc-aeo-rail" aria-label="Answer engine structure"><ol><li data-aeo-rail="direct-answer"><span class="sc-aeo-rail-n">01</span> Direct answer</li><li data-aeo-rail="calculation"><span class="sc-aeo-rail-n">02</span> Calculation</li><li data-aeo-rail="explanation"><span class="sc-aeo-rail-n">03</span> Explanation</li><li data-aeo-rail="methodology"><span class="sc-aeo-rail-n">04</span> Methodology</li><li data-aeo-rail="evidence"><span class="sc-aeo-rail-n">05</span> Evidence</li><li data-aeo-rail="accountability"><span class="sc-aeo-rail-n">06</span> Audit trail</li><li data-aeo-rail="related-problems"><span class="sc-aeo-rail-n">07</span> Related problems</li></ol></nav>
+<section class="sc-money-block" data-money-block="03" data-aeo-step="explanation"><h2>Explanation — decision this supports</h2><p>Check whether a proposed parameter set stays inside a WPS heat-input window before you weld production coupons.</p></section>
+<section class="sc-money-block" data-money-block="04" data-aeo-step="explanation"><h2>Required inputs</h2><p>Arc voltage, current, travel speed, and process efficiency (or process preset that sets efficiency).</p></section>
+<section class="sc-money-block" data-money-block="05" data-aeo-step="methodology"><h2>Methodology — formula &amp; method</h2><p>HI (kJ/mm) = (V · I · 60) / (1000 · travel_mm_per_min) · η.</p></section>
+<section class="sc-money-block" data-money-block="06" id="money-worked-example" data-aeo-step="evidence">
+  <h2>Evidence — worked example</h2>
   <p class="sc-money-lede">GMAW pass heat input. Arc energy from voltage, current, and travel speed with process efficiency. This does not replace WPS/PQR qualification or cooling-time metallurgy checks.</p>
   <p class="sc-money-engine" data-worked-provenance="engine-generated">Engine source: <code>heat-input-pro.html arc energy core (extracted pure)</code> · tool <code>SC-029</code></p>
   <h3>Golden inputs</h3>
@@ -1110,15 +1177,24 @@ calculate();
   <h3>Verified engine outputs</h3>
   <table class="sc-money-table"><tbody><tr><th scope="row">heatInputKJperMm</th><td><code>0.7406</code></td></tr></tbody></table>
 </section>
-<section class="sc-money-block" data-money-block="07"><h2>What the result means</h2><p>Higher heat input usually means slower cooling and more distortion risk. Compare against the qualified WPS range — not against a generic “good weld” myth.</p></section>
-<section class="sc-money-block" data-money-block="08"><h2>What moves the result</h2><p>Travel speed dominates. Current is next. Efficiency differences between processes shift HI even at identical V/I/v.</p></section>
-<section class="sc-money-block" data-money-block="09"><h2>Assumptions</h2><p>Constant parameters along the bead. Efficiency is a process factor, not measured calorimetry.</p></section>
-<section class="sc-money-block" data-money-block="10"><h2>Model boundaries</h2><p>Not a WPS/PQR replacement. Does not compute t8/5 cooling time metallurgy by itself unless that module path is used. Not a Code stamp.</p></section>
-<section class="sc-money-block" data-money-block="11"><h2>Common engineering mistakes</h2><p>Mixing in/min and mm/min; using η = 1 for GMAW; treating HI as penetration guarantee.</p></section>
-<section class="sc-money-block" data-money-block="12"><h2>Standard / reference scope</h2><p>Arc energy practice used with AWS/ISO welding procedure control. Does not claim full ISO 3834 or ASME IX compliance alone.</p></section>
-<section class="sc-money-block" data-money-block="13"><h2>A1–A5 audit trail</h2><p>A1–A5 capture parameters, efficiency, HI result, and procedure-scope warnings.</p></section>
-<section class="sc-money-block" data-money-block="14"><h2>Related glossary</h2><ul><li><a href="/glossary/heat-input-t85">Heat input / t8/5</a></li><li><a href="/glossary/weld-throat">Weld throat</a></li></ul></section>
-<section class="sc-money-block" data-money-block="15"><h2>Related guide &amp; calculators</h2><p><a href="/guides/weld-sizing-complete">Weld sizing complete guide</a></p><ul><li><a href="/calculator/sheet-metal-bend">SC-030 Sheet Metal Bend &amp; K-Factor</a></li><li><a href="/calculator/weld-thickness">SC-001 Weld Thickness</a></li></ul></section>
+<section class="sc-money-block" data-money-block="07" data-aeo-step="explanation"><h2>What the result means</h2><p>Higher heat input usually means slower cooling and more distortion risk. Compare against the qualified WPS range — not against a generic “good weld” myth.</p></section>
+<section class="sc-money-block" data-money-block="08" data-aeo-step="explanation"><h2>What moves the result</h2><p>Travel speed dominates. Current is next. Efficiency differences between processes shift HI even at identical V/I/v.</p></section>
+<section class="sc-money-block" data-money-block="09" data-aeo-step="methodology"><h2>Assumptions</h2><p>Constant parameters along the bead. Efficiency is a process factor, not measured calorimetry.</p></section>
+<section class="sc-money-block" data-money-block="10" data-aeo-step="methodology"><h2>Model boundaries</h2><p>Not a WPS/PQR replacement. Does not compute t8/5 cooling time metallurgy by itself unless that module path is used. Not a Code stamp.</p></section>
+<section class="sc-money-block" data-money-block="11" data-aeo-step="evidence"><h2>Common engineering mistakes</h2><p>Mixing in/min and mm/min; using η = 1 for GMAW; treating HI as penetration guarantee.</p></section>
+<section class="sc-money-block" data-money-block="12" data-aeo-step="evidence"><h2>Evidence — standard &amp; reference scope</h2><p>Arc energy practice used with AWS/ISO welding procedure control. Does not claim full ISO 3834 or ASME IX compliance alone.</p></section>
+<section class="sc-money-block" data-money-block="13" data-aeo-step="accountability"><h2>Accountability — A1–A5 audit trail</h2><p>A1–A5 capture parameters, efficiency, HI result, and procedure-scope warnings.</p>
+<p class="sc-money-expert-note">Engineering accountability is carried by visible formulas, assumptions, warnings, and engine version — not by invented reviewer endorsements. Outputs remain engineering previews subject to competent review.</p></section>
+<section class="sc-money-block" data-money-block="14" data-aeo-step="related-problems"><h2>Related glossary</h2><ul><li><a href="/glossary/heat-input-t85">Heat input / t8/5</a></li><li><a href="/glossary/weld-throat">Weld throat</a></li></ul></section>
+<section class="sc-money-block" data-money-block="15" data-aeo-step="related-problems"><h2>Related guide &amp; calculators</h2><p><a href="/guides/weld-sizing-complete">Weld sizing complete guide</a></p><ul><li><a href="/calculator/sheet-metal-bend">SC-030 Sheet Metal Bend &amp; K-Factor</a></li><li><a href="/calculator/weld-thickness">SC-001 Weld Thickness</a></li></ul></section>
+<section class="sc-money-block sc-aeo-topical" data-money-block="15b" data-aeo-step="related-problems" data-topic-id="welding" data-subtopic-id="weld-size-heat">
+  <h2>Topical map &amp; related problems</h2>
+  <p class="sc-money-lede"><strong>Welding &amp; fabrication</strong> · Weld size &amp; heat input. Is the throat and heat input inside the process window — or are you guessing from habit?</p>
+  <h3>Query fan-out (same problem cluster)</h3>
+  <ul class="sc-aeo-fanout"><li><span class="sc-aeo-query">weld size calculator</span></li><li><span class="sc-aeo-query">welding heat input calculator</span></li><li><span class="sc-aeo-query">t8/5 cooling rate</span></li></ul>
+  <h3>Internal authority links</h3>
+  <ul><li><a href="/calculator/weld-thickness">SC-001 Weld Thickness</a></li><li><a href="/glossary/weld-throat">Weld throat</a></li><li><a href="/glossary/heat-input-t85">Heat input / t8/5</a></li><li><a href="/guides/weld-sizing-complete">Weld sizing complete guide</a></li></ul>
+</section>
 <section class="sc-money-block sc-money-cta" data-money-block="16"><h2>Commercial next step</h2><p>Pair heat-input checks with weld sizing when procedure packages need both geometry and energy evidence.</p>
 <p class="sc-money-cta-actions"><a class="sc-money-link" href="/pricing.html" data-sc-funnel="pricing">View pricing</a>
 <a class="sc-money-link" href="/pro.html">Pro hub</a></p></section>

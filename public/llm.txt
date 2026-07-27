@@ -82,6 +82,164 @@
 - [SC-029 Heat Input & Cooling Rate t8/5](https://sectorcalc.com/calculator/weld-heat-input)
 - [SC-001 Weld Thickness](https://sectorcalc.com/calculator/weld-thickness)
 
+## Topical maps (query fan-out)
+Topic → subtopic → entity → internal links. Use these clusters for retrieval expansion; do not invent a second primary owner for the same primary query.
+
+### Tolerance & metrology
+> Will this assembly still close when every contributor sits at its worst legal extreme?
+
+#### 1D stack prediction
+- Problem cluster fan-out:
+  - query: worst case tolerance stack up
+  - query: rss tolerance stack calculator
+  - query: monte carlo tolerance analysis
+- Authority links:
+  - https://sectorcalc.com/calculator/tolerance-stack-up
+  - https://sectorcalc.com/glossary/tolerance-stack-up
+  - https://sectorcalc.com/glossary/rss-tolerance
+  - https://sectorcalc.com/glossary/monte-carlo-simulation
+  - https://sectorcalc.com/guides/tolerance-stack-up-complete
+
+#### Fits & surface finish
+- Problem cluster fan-out:
+  - query: iso 286 fit calculator
+  - query: ra to rz conversion
+- Authority links:
+  - https://sectorcalc.com/calculator/iso-286-fits
+  - https://sectorcalc.com/calculator/surface-finish
+  - https://sectorcalc.com/glossary/iso-286-fits
+
+### CNC machining
+> Will this cut release on the spindle you actually own — or burn a tool and stall the machine?
+
+#### Feeds & speeds
+- Problem cluster fan-out:
+  - query: cnc feeds and speeds calculator
+  - query: chip thinning calculator
+  - query: spindle power check
+- Authority links:
+  - https://sectorcalc.com/calculator/cnc-feeds-speeds
+  - https://sectorcalc.com/glossary/cnc-feeds-and-speeds
+  - https://sectorcalc.com/glossary/chip-thinning
+  - https://sectorcalc.com/guides/cnc-optimization-complete
+
+#### Related machining checks
+- Problem cluster fan-out:
+  - query: tap drill size calculator
+  - query: cycle time cost per part
+- Authority links:
+  - https://sectorcalc.com/calculator/tap-thread-milling
+  - https://sectorcalc.com/calculator/cycle-time-cost
+
+### Manufacturing economics
+> Is the shop rate and sell price recovering true cost — or quietly quoting away the margin?
+
+#### Labor & machine rates
+- Problem cluster fan-out:
+  - query: true labor cost calculator
+  - query: machine hourly rate calculator
+- Authority links:
+  - https://sectorcalc.com/calculator/true-labor-cost
+  - https://sectorcalc.com/calculator/machine-hour-rate
+  - https://sectorcalc.com/glossary/labor-burden-rate
+  - https://sectorcalc.com/glossary/machine-hour-rate
+  - https://sectorcalc.com/guides/labor-costing-complete
+
+#### Quoting & effectiveness
+- Problem cluster fan-out:
+  - query: manufacturing quote calculator
+  - query: oee calculator
+- Authority links:
+  - https://sectorcalc.com/calculator/quote-pricing
+  - https://sectorcalc.com/calculator/oee-teep
+  - https://sectorcalc.com/glossary/oee-overall-equipment-effectiveness
+
+### Reliability & rotating equipment
+> Is the L10 life honest for the load and lubrication you will actually run?
+
+#### Bearing life
+- Problem cluster fan-out:
+  - query: bearing life calculator iso 281
+  - query: L10h bearing life
+- Authority links:
+  - https://sectorcalc.com/calculator/bearing-life-l10
+  - https://sectorcalc.com/glossary/bearing-l10-life
+  - https://sectorcalc.com/glossary/iso-281
+  - https://sectorcalc.com/guides/bearing-life-complete
+
+#### Adjacent checks
+- Problem cluster fan-out:
+  - query: bpfo bpfi calculator
+  - query: shaft diameter calculator
+- Authority links:
+  - https://sectorcalc.com/calculator/bearing-frequencies
+  - https://sectorcalc.com/calculator/shaft-design
+  - https://sectorcalc.com/calculator/belt-chain-drive
+
+### Fasteners & joints
+> Will preload survive service — or is the joint riding on friction and hope?
+
+#### Torque & preload
+- Problem cluster fan-out:
+  - query: bolt torque preload calculator
+  - query: vdi 2230 bolted joint calculator
+- Authority links:
+  - https://sectorcalc.com/calculator/bolt-torque-preload
+  - https://sectorcalc.com/calculator/bolted-joint
+  - https://sectorcalc.com/glossary/bolt-preload
+  - https://sectorcalc.com/glossary/vdi-2230-bolted-joint
+
+### Pressure equipment
+> Is the wall thick enough under the code edition you claim — before steel is ordered?
+
+#### Pipe & vessel shells
+- Problem cluster fan-out:
+  - query: asme b31.3 pipe wall thickness calculator
+  - query: asme viii pressure vessel thickness calculator
+- Authority links:
+  - https://sectorcalc.com/calculator/pipe-wall-thickness
+  - https://sectorcalc.com/calculator/pressure-vessel-shell
+  - https://sectorcalc.com/glossary/asme-b31-pipe-wall
+  - https://sectorcalc.com/glossary/asme-viii-pressure-vessel
+
+### Welding & fabrication
+> Is the throat and heat input inside the process window — or are you guessing from habit?
+
+#### Weld size & heat input
+- Problem cluster fan-out:
+  - query: weld size calculator
+  - query: welding heat input calculator
+  - query: t8/5 cooling rate
+- Authority links:
+  - https://sectorcalc.com/calculator/weld-thickness
+  - https://sectorcalc.com/calculator/weld-heat-input
+  - https://sectorcalc.com/glossary/weld-throat
+  - https://sectorcalc.com/glossary/heat-input-t85
+  - https://sectorcalc.com/guides/weld-sizing-complete
+
+#### Forming adjacent
+- Problem cluster fan-out:
+  - query: k factor bend calculator
+  - query: punching force calculator
+- Authority links:
+  - https://sectorcalc.com/calculator/sheet-metal-bend
+  - https://sectorcalc.com/calculator/punching-force
+
+### Lifting & rigging
+> Does the sling and hardware rating survive the angle and shock you will actually apply?
+
+#### Sling & hardware
+- Problem cluster fan-out:
+  - query: sling angle capacity calculator
+  - query: shackle working load limit
+- Authority links:
+  - https://sectorcalc.com/calculator/sling-capacity
+  - https://sectorcalc.com/calculator/shackle-eyebolt
+  - https://sectorcalc.com/glossary/sling-angle-factor
+
+## Answer-engine page chain
+Critical calculator URLs follow: Empathy/Problem → Direct Answer → Calculation → Explanation → Methodology → Evidence → Accountability (A1–A5) → Related Problems / topical map. Free exploratory calculation stays available without a card.
+
 ## Model limits that must not be hidden
 - SC-021 evaluates one operating point at a time; variable-load spectra must be reduced to equivalent values for basic-life screening.
 - SC-027 exposes equation-backed fit families only; unsupported ISO tolerance zones are not guessed.
