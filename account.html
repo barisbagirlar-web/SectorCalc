@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="./sc-site-nav.css?v=5">
 <script src="./sc-site-nav.js?v=2" defer></script>
 <script type="module" src="/src/auth-nav.ts"></script>
-<link rel="stylesheet" href="/sc-account.css?v=6">
+<link rel="stylesheet" href="/sc-account.css?v=7">
 <link rel="stylesheet" href="./sc-form-fields.css?v=5">
 </head>
 <body>
@@ -52,7 +52,18 @@
 <!--SC-SITE-NAV-END-->
 
 
+
 <main class="acc-page" id="acc-root">
+  <div id="acc-inspect-banner" class="acc-inspect-banner" hidden>
+    <div>
+      <strong>Operator inspect mode</strong>
+      <span id="acc-inspect-copy">Viewing a customer cloud account. Changes that affect the customer are limited to read-only statement data.</span>
+    </div>
+    <div class="acc-btn-row">
+      <a class="acc-btn acc-btn-ghost" href="/sc-ops.html">Back to ops</a>
+      <a class="acc-btn acc-btn-primary" id="acc-inspect-exit" href="/account.html">Exit inspect</a>
+    </div>
+  </div>
   <div id="acc-loading" class="acc-loading" hidden>
     <div class="acc-skel-side"></div>
     <div class="acc-skel-main">

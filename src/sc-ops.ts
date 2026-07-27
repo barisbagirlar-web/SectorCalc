@@ -22,9 +22,20 @@ import {
   adminAdjustUserCredits,
   profilesToCsv,
   downloadTextFile,
+  readUserProfile,
+  listCloudPurchases,
+  listCloudLedger,
+  listSessions,
+  mergeMovements,
+  withRunningBalance,
+  ledgerTotals,
+  purchasesAsMovements,
   type UserProfile,
   type OpsAuditEvent,
-  type OpsPurchaseRow
+  type OpsPurchaseRow,
+  type CreditMovement,
+  type DeviceSession,
+  type PurchaseRecord
 } from './auth/index.js';
 import { getPaddlePublicConfig } from './payments/paddle/index.js';
 import { PACKAGES } from './lib/pricing-packages.js';
@@ -73,6 +84,7 @@ let currentUser: User | null = null;
 let profilesCache: UserProfile[] = [];
 let auditCache: OpsAuditEvent[] = [];
 let purchasesCache: OpsPurchaseRow[] = [];
+let dossierUid = '';
 let activeTab = 'overview';
 let openLogged = false;
 
@@ -187,13 +199,14 @@ function renderUsersTable(): void {
   }
   tbody.innerHTML = rows
     .map(
-      (p) => `<tr>
-      <td>${esc(p.email || '—')}</td>
+      (p) => `<tr class="ops-user-row" data-open-account="${esc(p.uid)}" data-email="${esc(p.email)}" tabindex="0" role="button" title="Open customer account">
+      <td class="ops-user-email">${esc(p.email || '—')}</td>
       <td>${esc(p.displayName || '—')}</td>
       <td class="mono">${p.credits}</td>
       <td><code title="${esc(p.uid)}">${esc(p.uid.slice(0, 10))}…</code></td>
       <td class="ops-actions">
-        <button type="button" class="ops-btn ops-btn-sm ops-btn-primary" data-select-user="${esc(p.uid)}" data-email="${esc(p.email)}">Adjust</button>
+        <button type="button" class="ops-btn ops-btn-sm ops-btn-primary" data-open-account="${esc(p.uid)}" data-email="${esc(p.email)}">Open account</button>
+        <button type="button" class="ops-btn ops-btn-sm ops-btn-ghost" data-select-user="${esc(p.uid)}" data-email="${esc(p.email)}">Adjust</button>
         <button type="button" class="ops-btn ops-btn-sm ops-btn-ghost" data-copy="${esc(p.uid)}">Copy UID</button>
       </td>
     </tr>`
@@ -363,6 +376,163 @@ function selectUser(uid: string, email: string): void {
   }
   setTab('users');
   $('credit-desk')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function kindLabel(kind: CreditMovement['kind']): string {
+  switch (kind) {
+    case 'purchase':
+      return 'Purchase';
+    case 'spend':
+      return 'Spend';
+    case 'refund':
+      return 'Refund';
+    case 'admin':
+      return 'Admin';
+    case 'promo':
+      return 'Promo';
+    case 'sync':
+      return 'Sync';
+    default:
+      return 'Movement';
+  }
+}
+
+function closeDossier(): void {
+  dossierUid = '';
+  const panel = $('user-dossier');
+  if (panel) panel.hidden = true;
+}
+
+async function openUserAccount(uid: string, emailHint = ''): Promise<void> {
+  setTab('users');
+  dossierUid = uid;
+  const panel = $('user-dossier');
+  if (panel) panel.hidden = false;
+  setMsg('ops-desk-msg', 'Loading customer account…', '');
+  setMsg('dossier-title', 'Customer account');
+  setMsg('dossier-sub', 'Loading cloud profile, statement, devices, and audit…');
+  const ledgerBody = $('dossier-ledger-tbody');
+  const purchBody = $('dossier-purchases-tbody');
+  const auditBody = $('dossier-audit-tbody');
+  const sessionsList = $('dossier-session-list');
+  if (ledgerBody) ledgerBody.innerHTML = '<tr><td colspan="6">Loading…</td></tr>';
+  if (purchBody) purchBody.innerHTML = '<tr><td colspan="5">Loading…</td></tr>';
+  if (auditBody) auditBody.innerHTML = '<tr><td colspan="4">Loading…</td></tr>';
+  if (sessionsList) sessionsList.innerHTML = '<li class="ops-activity-empty">Loading…</li>';
+
+  const link = $('dossier-open-account') as HTMLAnchorElement | null;
+  if (link) link.href = `/account.html?inspect=${encodeURIComponent(uid)}`;
+
+  try {
+    const profile =
+      profilesCache.find((p) => p.uid === uid) ||
+      (await readUserProfile(uid).catch(() => null));
+    const [purchases, ledgerRaw, sessions] = await Promise.all([
+      listCloudPurchases(uid).catch(() => [] as PurchaseRecord[]),
+      listCloudLedger(uid).catch(() => [] as CreditMovement[]),
+      listSessions(uid).catch(() => [] as DeviceSession[])
+    ]);
+    const balance = profile?.credits ?? 0;
+    const movements = withRunningBalance(
+      mergeMovements(ledgerRaw, purchasesAsMovements(purchases)),
+      balance
+    );
+    const totals = ledgerTotals(movements);
+    const email = profile?.email || emailHint || '—';
+    const name = profile?.displayName || '—';
+
+    setMsg('dossier-title', email !== '—' ? email : 'Customer account');
+    setMsg('dossier-sub', `Cloud account inspect · UID ${uid}`);
+    setMsg('dossier-email', email);
+    setMsg('dossier-name', name);
+    setMsg('dossier-uid', uid);
+    setMsg('dossier-credits', String(balance));
+    setMsg('dossier-purchased', String(totals.purchased));
+    setMsg('dossier-spent', String(totals.spent));
+    setMsg('dossier-devices', String(sessions.length));
+
+    if (ledgerBody) {
+      ledgerBody.innerHTML = movements.length
+        ? movements
+            .slice(0, 80)
+            .map((m) => {
+              const amt = m.delta > 0 ? `+${m.delta}` : String(m.delta);
+              const bal = m.balanceAfter == null ? '—' : String(m.balanceAfter);
+              return `<tr>
+                <td class="mono">${esc(m.at.replace('T', ' ').slice(0, 19))}</td>
+                <td class="mono">${esc(kindLabel(m.kind))}</td>
+                <td>${esc(m.label)}${m.detail ? `<div class="ops-muted">${esc(m.detail)}</div>` : ''}</td>
+                <td class="mono">${esc(amt)}</td>
+                <td class="mono">${esc(bal)}</td>
+                <td class="mono">${esc(m.txnId)}</td>
+              </tr>`;
+            })
+            .join('')
+        : '<tr><td colspan="6">No credit movements for this user yet.</td></tr>';
+    }
+
+    if (purchBody) {
+      purchBody.innerHTML = purchases.length
+        ? purchases
+            .slice(0, 40)
+            .map(
+              (p) => `<tr>
+              <td class="mono">${esc(p.at.replace('T', ' ').slice(0, 19))}</td>
+              <td class="mono">${esc(String(p.credits))}</td>
+              <td class="mono">${esc(p.amountLabel)}</td>
+              <td class="mono">${esc(p.txnId)}</td>
+              <td class="mono">${esc(p.source)}</td>
+            </tr>`
+            )
+            .join('')
+        : '<tr><td colspan="5">No purchase receipts.</td></tr>';
+    }
+
+    if (sessionsList) {
+      sessionsList.innerHTML = sessions.length
+        ? sessions
+            .map(
+              (s) =>
+                `<li class="ops-activity-row"><strong>${esc(s.label)}</strong><span class="mono">${esc(
+                  s.lastSeenAt.replace('T', ' ').slice(0, 19)
+                )}</span><span>${s.current ? 'Current device hint' : 'Registered'}</span></li>`
+            )
+            .join('')
+        : '<li class="ops-activity-empty">No registered devices.</li>';
+    }
+
+    const related = auditCache.filter(
+      (ev) => ev.targetUid === uid || (email !== '—' && ev.targetEmail === email)
+    );
+    if (auditBody) {
+      auditBody.innerHTML = related.length
+        ? related
+            .slice(0, 40)
+            .map(
+              (ev) => `<tr>
+              <td class="mono">${esc(fmtWhen(ev))}</td>
+              <td class="mono">${esc(ev.action)}</td>
+              <td>${esc(ev.actorEmail || ev.actorUid)}</td>
+              <td>${esc(ev.detail || '—')}</td>
+            </tr>`
+            )
+            .join('')
+        : '<tr><td colspan="4">No audit rows targeting this user.</td></tr>';
+    }
+
+    panel?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    setMsg('ops-desk-msg', `Opened account dossier for ${email}`, 'ok');
+    if (currentUser) {
+      void writeOpsAudit(currentUser, {
+        action: 'user.inspect',
+        targetUid: uid,
+        targetEmail: email !== '—' ? email : undefined,
+        detail: 'Opened customer account dossier'
+      }).catch(() => undefined);
+    }
+  } catch (err) {
+    setMsg('ops-desk-msg', err instanceof Error ? err.message : 'Failed to open account', 'err');
+  }
 }
 
 async function copyText(text: string): Promise<void> {
@@ -576,7 +746,28 @@ function bindEvents(): void {
     const sel = t.closest<HTMLElement>('[data-select-user]');
     if (sel?.dataset.selectUser) {
       selectUser(sel.dataset.selectUser, sel.dataset.email || '');
+      return;
     }
+    const openAcc = t.closest<HTMLElement>('[data-open-account]');
+    if (openAcc?.dataset.openAccount) {
+      void openUserAccount(openAcc.dataset.openAccount, openAcc.dataset.email || '');
+    }
+  });
+
+  document.addEventListener('keydown', (ev) => {
+    if (ev.key !== 'Enter' && ev.key !== ' ') return;
+    const t = ev.target as HTMLElement | null;
+    const row = t?.closest?.<HTMLElement>('tr[data-open-account]');
+    if (!row?.dataset.openAccount) return;
+    ev.preventDefault();
+    void openUserAccount(row.dataset.openAccount, row.dataset.email || '');
+  });
+
+  $('dossier-close')?.addEventListener('click', () => closeDossier());
+  $('dossier-adjust')?.addEventListener('click', () => {
+    if (!dossierUid) return;
+    const row = profilesCache.find((p) => p.uid === dossierUid);
+    selectUser(dossierUid, row?.email || '');
   });
 }
 
