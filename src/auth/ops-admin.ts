@@ -21,6 +21,7 @@ import type { PurchaseRecord } from './account-data.js';
 export interface OpsPurchaseRow extends PurchaseRecord {
   uid: string;
   email: string;
+  displayName: string;
 }
 
 export interface OpsAuditEvent {
@@ -158,6 +159,7 @@ export async function listAllPurchases(max = 200): Promise<OpsPurchaseRow[]> {
       id: docSnap.id,
       uid: parent?.id || '',
       email: String(data.email || ''),
+      displayName: String(data.displayName || ''),
       credits: Number(data.credits) || 0,
       amountLabel: String(data.amountLabel || '—'),
       txnId: String(data.txnId || docSnap.id),
@@ -167,6 +169,51 @@ export async function listAllPurchases(max = 200): Promise<OpsPurchaseRow[]> {
   });
   rows.sort((a, b) => b.at.localeCompare(a.at));
   return rows.slice(0, max);
+}
+
+/**
+ * Join purchase receipts to Firestore profiles so ops always sees buyer email / name
+ * even when older purchase docs omitted identity fields.
+ */
+export function enrichOpsPurchases(
+  rows: OpsPurchaseRow[],
+  profiles: UserProfile[]
+): OpsPurchaseRow[] {
+  const byUid = new Map(profiles.map((p) => [p.uid, p]));
+  return rows.map((row) => {
+    const profile = byUid.get(row.uid);
+    return {
+      ...row,
+      email: (row.email || profile?.email || '').trim(),
+      displayName: (row.displayName || profile?.displayName || '').trim()
+    };
+  });
+}
+
+export function packBuyerSummary(
+  rows: OpsPurchaseRow[],
+  credits: number
+): { sales: number; buyers: Array<{ email: string; displayName: string; uid: string; count: number }> } {
+  const matched = rows.filter((r) => r.credits === credits);
+  const byBuyer = new Map<string, { email: string; displayName: string; uid: string; count: number }>();
+  for (const row of matched) {
+    const key = row.uid || row.email || row.txnId;
+    const prev = byBuyer.get(key);
+    if (prev) {
+      prev.count += 1;
+      continue;
+    }
+    byBuyer.set(key, {
+      uid: row.uid,
+      email: row.email,
+      displayName: row.displayName,
+      count: 1
+    });
+  }
+  const buyers = [...byBuyer.values()].sort((a, b) =>
+    (a.email || a.displayName || a.uid).localeCompare(b.email || b.displayName || b.uid)
+  );
+  return { sales: matched.length, buyers };
 }
 
 export function estimateGmvUsd(rows: OpsPurchaseRow[]): number {

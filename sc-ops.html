@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="./sc-theme.css?v=12">
 <script src="./sc-theme.js?v=12" defer></script>
 <link rel="stylesheet" href="/sc-auth.css?v=3">
-<link rel="stylesheet" href="/sc-ops.css?v=6">
+<link rel="stylesheet" href="/sc-ops.css?v=7">
 </head>
 <body class="ops-body">
 <main class="ops-shell">
@@ -269,25 +269,46 @@
           </article>
         </div>
         <h2 class="ops-section-title">Cloud purchase receipts</h2>
+        <p class="ops-lede ops-section-lede">Every cloud checkout with buyer name and email (joined from user profile when the receipt omits identity).</p>
         <div class="ops-table-wrap">
           <table class="ops-table">
             <thead>
-              <tr><th>When (UTC)</th><th>Email</th><th>Credits</th><th>Amount</th><th>Txn</th><th>Source</th></tr>
+              <tr><th>When (UTC)</th><th>Name</th><th>Email</th><th>Pack</th><th>Credits</th><th>Amount</th><th>Txn</th><th></th></tr>
             </thead>
             <tbody id="ops-receipts-tbody">
-              <tr><td colspan="6">Loading…</td></tr>
+              <tr><td colspan="8">Loading…</td></tr>
             </tbody>
           </table>
         </div>
         <h2 class="ops-section-title">Credit pack catalog</h2>
+        <p class="ops-lede ops-section-lede">Published SKUs with live sales counts and buyer emails. Click a pack or <strong>Buyers</strong> to list purchases by name and email.</p>
         <div class="ops-table-wrap">
           <table class="ops-table">
             <thead>
-              <tr><th>Credits</th><th>Price</th><th>Per credit</th><th>Badge</th><th>Paddle price ID</th><th></th></tr>
+              <tr><th>Credits</th><th>Price</th><th>Per credit</th><th>Badge</th><th>Paddle price ID</th><th>Sales</th><th>Buyers</th><th></th></tr>
             </thead>
             <tbody id="ops-packs"></tbody>
           </table>
         </div>
+        <article class="ops-card ops-pack-buyers-card" id="pack-buyers-panel" hidden>
+          <div class="ops-toolbar ops-toolbar-tight">
+            <div>
+              <h2 id="pack-buyers-title">Buyers</h2>
+              <p class="ops-lede" id="pack-buyers-sub">Select a pack to list purchasers.</p>
+            </div>
+            <button type="button" class="ops-btn ops-btn-ghost" id="pack-buyers-close">Close</button>
+          </div>
+          <div class="ops-table-wrap">
+            <table class="ops-table">
+              <thead>
+                <tr><th>When (UTC)</th><th>Name</th><th>Email</th><th>Amount</th><th>Txn</th><th></th></tr>
+              </thead>
+              <tbody id="pack-buyers-tbody">
+                <tr><td colspan="6">Select a pack…</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
       </div>
 
       <!-- CATALOG -->

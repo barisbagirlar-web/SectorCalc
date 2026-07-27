@@ -71,6 +71,8 @@ export {
   listUserProfiles,
   listOpsAudit,
   listAllPurchases,
+  enrichOpsPurchases,
+  packBuyerSummary,
   estimateGmvUsd,
   writeOpsAudit,
   adminSetUserCredits,

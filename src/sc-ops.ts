@@ -16,6 +16,8 @@ import {
   listUserProfiles,
   listOpsAudit,
   listAllPurchases,
+  enrichOpsPurchases,
+  packBuyerSummary,
   estimateGmvUsd,
   writeOpsAudit,
   adminSetUserCredits,
@@ -52,7 +54,7 @@ const PANEL_META: Record<string, { title: string; sub: string }> = {
   },
   commerce: {
     title: 'Payments & packs',
-    sub: 'Paddle merchant surface and published credit pack catalog.'
+    sub: 'Paddle surface, cloud purchase receipts with buyer identity, and pack catalog sales.'
   },
   catalog: {
     title: 'Tool catalog',
@@ -87,6 +89,7 @@ let purchasesCache: OpsPurchaseRow[] = [];
 let dossierUid = '';
 let activeTab = 'overview';
 let openLogged = false;
+let selectedPackCredits: number | null = null;
 
 function $(id: string): HTMLElement | null {
   return document.getElementById(id);
@@ -147,20 +150,85 @@ function setTab(tab: string): void {
   if (sub) sub.textContent = meta.sub;
 }
 
+function packLabel(credits: number): string {
+  const pack = PACKAGES.find((p) => p.credits === credits);
+  if (!pack) return `${credits} credits`;
+  return pack.badge ? `${pack.credits} · ${pack.badge}` : `${pack.credits} credits`;
+}
+
+function selectPackBuyers(credits: number): void {
+  selectedPackCredits = credits;
+  renderPacks();
+  $('pack-buyers-panel')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
 function renderPacks(): void {
   const el = $('ops-packs');
   if (!el) return;
   el.innerHTML = PACKAGES.map((p) => {
     const badge = p.badge ? esc(p.badge) : '—';
-    return `<tr>
+    const summary = packBuyerSummary(purchasesCache, p.credits);
+    const buyerPreview = summary.buyers.length
+      ? summary.buyers
+          .slice(0, 3)
+          .map((b) => esc(b.email || b.displayName || b.uid.slice(0, 8) || '—'))
+          .join(', ') + (summary.buyers.length > 3 ? ` +${summary.buyers.length - 3}` : '')
+      : '—';
+    const selected = selectedPackCredits === p.credits ? ' is-selected' : '';
+    return `<tr class="ops-pack-row${selected}" data-pack-credits="${p.credits}" tabindex="0" role="button" title="Show buyers for this pack">
       <td class="mono">${p.credits}</td>
       <td class="mono">${esc(p.price)}</td>
       <td class="mono">${esc(p.perCredit)}</td>
       <td>${badge}</td>
       <td><code>${esc(p.paddlePriceId)}</code></td>
-      <td><button type="button" class="ops-btn ops-btn-sm ops-btn-ghost" data-copy="${esc(p.paddlePriceId)}">Copy ID</button></td>
+      <td class="mono">${summary.sales}</td>
+      <td class="ops-pack-buyers">${buyerPreview}</td>
+      <td class="ops-actions">
+        <button type="button" class="ops-btn ops-btn-sm ops-btn-primary" data-pack-buyers="${p.credits}">Buyers</button>
+        <button type="button" class="ops-btn ops-btn-sm ops-btn-ghost" data-copy="${esc(p.paddlePriceId)}">Copy ID</button>
+      </td>
     </tr>`;
   }).join('');
+  renderPackBuyers();
+}
+
+function renderPackBuyers(): void {
+  const panel = $('pack-buyers-panel');
+  const title = $('pack-buyers-title');
+  const sub = $('pack-buyers-sub');
+  const tbody = $('pack-buyers-tbody');
+  if (!panel || !tbody) return;
+  if (selectedPackCredits == null) {
+    panel.hidden = true;
+    return;
+  }
+  const pack = PACKAGES.find((p) => p.credits === selectedPackCredits);
+  const rows = purchasesCache.filter((p) => p.credits === selectedPackCredits);
+  panel.hidden = false;
+  if (title) title.textContent = pack ? `Buyers · ${pack.credits}-credit pack` : 'Buyers';
+  if (sub) {
+    sub.textContent = pack
+      ? `${rows.length} purchase(s) · ${pack.price}${pack.badge ? ` · ${pack.badge}` : ''}`
+      : `${rows.length} purchase(s)`;
+  }
+  if (!rows.length) {
+    tbody.innerHTML = '<tr><td colspan="6">No cloud purchases for this pack yet.</td></tr>';
+    return;
+  }
+  tbody.innerHTML = rows
+    .map(
+      (p) => `<tr>
+      <td class="mono">${esc(p.at.replace('T', ' ').slice(0, 19))}</td>
+      <td>${esc(p.displayName || '—')}</td>
+      <td class="ops-user-email">${esc(p.email || '—')}</td>
+      <td class="mono">${esc(p.amountLabel)}</td>
+      <td class="mono">${esc(p.txnId)}</td>
+      <td class="ops-actions">
+        <button type="button" class="ops-btn ops-btn-sm ops-btn-primary" data-open-account="${esc(p.uid)}" data-email="${esc(p.email)}">Open account</button>
+      </td>
+    </tr>`
+    )
+    .join('');
 }
 
 function renderTools(): void {
@@ -258,19 +326,23 @@ function renderReceipts(): void {
   const tbody = $('ops-receipts-tbody');
   if (!tbody) return;
   if (!purchasesCache.length) {
-    tbody.innerHTML = '<tr><td colspan="6">No cloud purchase receipts yet.</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="8">No cloud purchase receipts yet.</td></tr>';
     return;
   }
   tbody.innerHTML = purchasesCache
-    .slice(0, 40)
+    .slice(0, 80)
     .map(
       (p) => `<tr>
       <td class="mono">${esc(p.at.replace('T', ' ').slice(0, 19))}</td>
-      <td>${esc(p.email || p.uid || '—')}</td>
+      <td>${esc(p.displayName || '—')}</td>
+      <td class="ops-user-email">${esc(p.email || '—')}</td>
+      <td>${esc(packLabel(p.credits))}</td>
       <td class="mono">${esc(String(p.credits))}</td>
       <td class="mono">${esc(p.amountLabel)}</td>
       <td class="mono">${esc(p.txnId)}</td>
-      <td class="mono">${esc(p.source)}</td>
+      <td class="ops-actions">
+        <button type="button" class="ops-btn ops-btn-sm ops-btn-primary" data-open-account="${esc(p.uid)}" data-email="${esc(p.email)}">Open account</button>
+      </td>
     </tr>`
     )
     .join('');
@@ -345,10 +417,11 @@ async function loadData(showStatus = false): Promise<void> {
     ]);
     profilesCache = profiles;
     auditCache = audit;
-    purchasesCache = purchases;
+    purchasesCache = enrichOpsPurchases(purchases, profiles);
     renderUsersTable();
     renderAudit();
     renderReceipts();
+    renderPacks();
     renderOverviewHealth();
     if (showStatus) {
       setMsg(
@@ -743,6 +816,16 @@ function bindEvents(): void {
       void copyText(copyBtn.dataset.copy);
       return;
     }
+    const packBuyers = t.closest<HTMLElement>('[data-pack-buyers]');
+    if (packBuyers?.dataset.packBuyers) {
+      selectPackBuyers(Number(packBuyers.dataset.packBuyers));
+      return;
+    }
+    const packRow = t.closest<HTMLElement>('tr[data-pack-credits]');
+    if (packRow?.dataset.packCredits && !t.closest('[data-copy]')) {
+      selectPackBuyers(Number(packRow.dataset.packCredits));
+      return;
+    }
     const sel = t.closest<HTMLElement>('[data-select-user]');
     if (sel?.dataset.selectUser) {
       selectUser(sel.dataset.selectUser, sel.dataset.email || '');
@@ -757,12 +840,22 @@ function bindEvents(): void {
   document.addEventListener('keydown', (ev) => {
     if (ev.key !== 'Enter' && ev.key !== ' ') return;
     const t = ev.target as HTMLElement | null;
+    const packRow = t?.closest?.<HTMLElement>('tr[data-pack-credits]');
+    if (packRow?.dataset.packCredits) {
+      ev.preventDefault();
+      selectPackBuyers(Number(packRow.dataset.packCredits));
+      return;
+    }
     const row = t?.closest?.<HTMLElement>('tr[data-open-account]');
     if (!row?.dataset.openAccount) return;
     ev.preventDefault();
     void openUserAccount(row.dataset.openAccount, row.dataset.email || '');
   });
 
+  $('pack-buyers-close')?.addEventListener('click', () => {
+    selectedPackCredits = null;
+    renderPacks();
+  });
   $('dossier-close')?.addEventListener('click', () => closeDossier());
   $('dossier-adjust')?.addEventListener('click', () => {
     if (!dossierUid) return;
