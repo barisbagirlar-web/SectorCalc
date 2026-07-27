@@ -76,11 +76,17 @@ function inject(html) {
   html = stripHub(html);
   html = ensureCss(html);
   const block = hubHtml();
-  // Homepage: before blueprint (keep sacred hero + trust strips intact)
+  // Homepage: before blueprint (keep sacred hero + trust strips intact).
+  // Collapse leftover blank runs so rebuilds cannot double whitespace forever.
   if (/class="sc-hero"/.test(html) && /id="blueprint"/.test(html)) {
+    html = html.replace(
+      /\n(?:[ \t]*\n){2,}(?=\s*(?:<!-- ================= BLUEPRINT|<\s*section[^>]*id="blueprint"))/,
+      '\n\n'
+    );
+    if (/<!--SC-AEO-HUB-START-->/.test(html)) return html;
     return html.replace(
-      /(\s*)(<!-- ================= BLUEPRINT|<\s*section[^>]*id="blueprint")/,
-      `$1${block}\n$1$2`
+      /(\n)([ \t]*)(<!-- ================= BLUEPRINT|<\s*section[^>]*id="blueprint")/,
+      `$1${block}\n$2$3`
     );
   }
   // tools / pro: after site-header
