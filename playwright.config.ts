@@ -1,23 +1,56 @@
-import { defineConfig } from '@playwright/test';
+import { defineConfig, devices } from '@playwright/test';
 
 /**
- * E2E visual smoke against the Vite dev server.
+ * SectorCalc Regression Guard — Playwright Config
+ * Stack: Lit + Vite + Firebase Hosting + Paddle
+ *
+ * Modes:
+ * - Local (default): Vite dev server on :5173
+ * - Production / preview: set BASE_URL (skips webServer)
+ *
  * Specs live in tests/e2e as *.spec.ts so Vitest (*.test.ts) never picks them up.
  */
+const baseURL = process.env.BASE_URL || 'http://localhost:5173';
+const againstRemote = Boolean(process.env.BASE_URL);
+
 export default defineConfig({
   testDir: './tests/e2e',
   testMatch: '**/*.spec.ts',
-  timeout: 30000,
-  fullyParallel: false,
+  timeout: 45_000,
+  fullyParallel: !againstRemote,
+  forbidOnly: !!process.env.CI,
+  retries: process.env.CI ? 2 : 0,
+  workers: process.env.CI ? 1 : undefined,
+  reporter: [['list'], ['html', { open: 'never' }]],
   use: {
-    baseURL: 'http://localhost:5173',
-    headless: true
+    baseURL,
+    headless: true,
+    trace: 'on-first-retry',
+    screenshot: 'only-on-failure',
+    video: 'retain-on-failure'
   },
-  projects: [{ name: 'chromium', use: { browserName: 'chromium' } }],
-  webServer: {
-    command: 'npm run dev',
-    port: 5173,
-    reuseExistingServer: true,
-    timeout: 60000
-  }
+  projects: [
+    {
+      name: 'chromium',
+      use: { ...devices['Desktop Chrome'] }
+    },
+    ...(againstRemote
+      ? [
+          {
+            name: 'Mobile Chrome',
+            use: { ...devices['Pixel 5'] }
+          }
+        ]
+      : [])
+  ],
+  ...(againstRemote
+    ? {}
+    : {
+        webServer: {
+          command: 'npm run dev',
+          port: 5173,
+          reuseExistingServer: !process.env.CI,
+          timeout: 120_000
+        }
+      })
 });
