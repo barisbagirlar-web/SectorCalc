@@ -88,6 +88,15 @@ jobs:
           SEO_GUARD_MODE: preview
         run: node scripts/seo-live-guard.mjs
 
+      - name: Preview E2E critical seal (block promote on broken candidate)
+        env:
+          BASE_URL: ${{ steps.preview.outputs.preview_url }}
+          CI: true
+        run: |
+          set -euo pipefail
+          npx playwright install --with-deps chromium
+          npx playwright test --project=chromium --grep @critical
+
       - name: Promote the exact validated Firebase version to live
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
