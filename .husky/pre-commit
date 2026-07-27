@@ -1,8 +1,13 @@
 #!/usr/bin/env sh
-echo "[SectorCalc] Pre-commit guard starting..."
+echo "[SectorCalc] Enterprise pre-commit guard..."
 
 npx tsc --noEmit || {
   echo "[FAIL] TypeScript strict check failed"
+  exit 1
+}
+
+node scripts/check-language.mjs --strict || {
+  echo "[FAIL] English-only language gate failed"
   exit 1
 }
 
@@ -11,4 +16,13 @@ npx lint-staged || {
   exit 1
 }
 
-echo "[OK] Pre-commit guard passed."
+# If regression/SEO/billing surfaces changed, keep catalog fixture fresh.
+CHANGED="$(git diff --cached --name-only)"
+if echo "$CHANGED" | grep -Eq '^(seo/|src/billing/|tests/e2e/|scripts/export-regression-catalog)'; then
+  node scripts/export-regression-catalog.mjs --check || {
+    echo "[FAIL] regression catalog stale — run: node scripts/export-regression-catalog.mjs"
+    exit 1
+  }
+fi
+
+echo "[OK] Enterprise pre-commit guard passed."
