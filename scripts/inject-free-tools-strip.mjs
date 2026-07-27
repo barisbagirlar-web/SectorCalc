@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 /**
- * Inject homepage + tools free-calculators strip (idempotent).
+ * Inject homepage free-calculators strip (idempotent).
  * Does NOT modify sacred .sc-hero markup beyond post-hero insertion.
+ * tools.html catalog DNA is sacred — open bench lives on / and /topics only.
  */
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
@@ -69,22 +70,8 @@ function injectHome(html) {
   return html;
 }
 
-function injectTools(html) {
-  html = strip(html);
-  html = ensureCss(html);
-  const block = stripHtml();
-  if (/<!--SC-SITE-NAV-END-->/.test(html)) {
-    return html.replace(/<!--SC-SITE-NAV-END-->/, `<!--SC-SITE-NAV-END-->\n${block}`);
-  }
-  if (/<!--SC-AEO-HUB-END-->/.test(html)) {
-    return html.replace(/<!--SC-AEO-HUB-END-->/, `<!--SC-AEO-HUB-END-->\n${block}`);
-  }
-  return html.replace(/<main\b[^>]*>/i, (m) => `${m}\n${block}`);
-}
-
 const targets = [
   { page: 'index.html', fn: injectHome },
-  { page: 'tools.html', fn: injectTools },
 ];
 
 let n = 0;

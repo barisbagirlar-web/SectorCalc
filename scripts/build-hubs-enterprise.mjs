@@ -9,6 +9,8 @@ import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { GLOSSARY_GROUPS, GLOSSARY_TERMS } from '../seo/glossary-catalog.mjs';
 import { COMPARE_PAGES } from '../seo/compare-catalog.mjs';
+import { FREE_TOOLS } from '../seo/free-tools.mjs';
+import { TOPICAL_MAPS } from '../seo/topical-maps.mjs';
 
 const ROOT = process.cwd();
 const HEADER = readFileSync(join(ROOT, 'content/partials/site-header.html'), 'utf8').trim();
@@ -39,7 +41,7 @@ function headLinks() {
 function footer() {
   return `<footer class="sc-footer" style="max-width:1100px;margin:0 auto;padding:1.25rem;border-top:1px solid rgba(11,28,44,.12);display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between">
   <p style="margin:0;color:#3d5366">© 2026 SectorCalc · Deterministic industrial calculators</p>
-  <p style="margin:0"><a href="/#free-calculators">Free tools</a> · <a href="/tools.html">All tools</a> · <a href="/pricing.html">Pricing</a></p>
+  <p style="margin:0"><a href="/#free-calculators">Open bench</a> · <a href="/topics">Topics</a> · <a href="/tools.html">All tools</a> · <a href="/pricing.html">Pricing</a></p>
 </footer>`;
 }
 
@@ -456,6 +458,159 @@ ${footer()}
 `;
 }
 
+function topicsHubHtml() {
+  const freeCards = FREE_TOOLS.map(
+    (t) => `<article class="sc-guide-card" data-free-tool="${esc(t.toolId)}" data-entity="${esc(t.entity)}">
+  <p class="sc-guide-badge" data-access="free">Open · no sign-in</p>
+  <h3>${esc(t.name)}</h3>
+  <p class="sc-guide-problem">${esc(t.problem)}</p>
+  <a class="sc-guide-cta" href="${esc(t.canonicalPath)}">Run this instrument →</a>
+</article>`
+  ).join('\n');
+
+  const problemCards = TOPICAL_MAPS.map((t) => {
+    const primary =
+      t.subtopics[0]?.links?.find((l) => l.startsWith('/calculator/')) ||
+      t.subtopics[0]?.links?.[0] ||
+      '/tools.html';
+    const queries = (t.subtopics[0]?.fanOutQueries || [])
+      .slice(0, 2)
+      .map((q) => `<li>${esc(q)}</li>`)
+      .join('');
+    return `<article class="sc-guide-card" data-topic-id="${esc(t.topicId)}">
+  <p class="sc-guide-badge">Problem first</p>
+  <h3>${esc(t.topic)}</h3>
+  <p class="sc-guide-problem">${esc(t.problem)}</p>
+  <ul class="sc-guide-queries">${queries}</ul>
+  <a class="sc-guide-cta" href="${esc(primary)}">Open the calculator →</a>
+</article>`;
+  }).join('\n');
+
+  const itemList = [
+    ...FREE_TOOLS.map((t, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: t.name,
+      url: `${HOST}${t.canonicalPath}`,
+    })),
+    {
+      '@type': 'ListItem',
+      position: FREE_TOOLS.length + 1,
+      name: 'Fits & surface finish',
+      url: `${HOST}/topics/fits-and-finish`,
+    },
+    {
+      '@type': 'ListItem',
+      position: FREE_TOOLS.length + 2,
+      name: 'Sheet metal fabrication',
+      url: `${HOST}/topics/sheet-metal-fabrication`,
+    },
+  ];
+
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Topic Hubs &amp; Open Reference Bench | SectorCalc</title>
+<meta name="description" content="Open SectorCalc reference instruments and shop-floor problem hubs — five free calculators, then Tier-A credit sessions when the decision must survive review. Fits, sheet metal, tolerance, CNC, economics.">
+<link rel="canonical" href="${HOST}/topics">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Topic Hubs &amp; Open Reference Bench | SectorCalc">
+<meta property="og:description" content="Prove the engine on five open instruments, then route to the shop-floor problem that hurts.">
+<meta property="og:url" content="${HOST}/topics">
+<meta property="og:image" content="${HOST}/assets/images/og-default-1200x630.jpg">
+${headLinks()}
+<link rel="stylesheet" href="/sc-free-tools.css?v=2">
+<script type="application/ld+json">${JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'SectorCalc topic hubs & open reference bench',
+    url: `${HOST}/topics`,
+    description:
+      'Open reference instruments and problem-first topic maps for industrial shop-floor decisions.',
+    isPartOf: { '@type': 'WebSite', name: 'SectorCalc', url: HOST },
+    mainEntity: {
+      '@type': 'ItemList',
+      itemListElement: itemList,
+    },
+  })}</script>
+</head>
+<body>
+${HEADER}
+<main class="sc-guides-hub" id="topics-hub">
+  <nav class="sc-breadcrumb" aria-label="Breadcrumb">
+    <ol>
+      <li><a href="/">Home</a></li>
+      <li aria-current="page">Topics</li>
+    </ol>
+  </nav>
+
+  <header class="sc-guides-hero">
+    <p class="sc-guides-kicker">Open reference bench · problem-first routing</p>
+    <h1>Prove the engine. Then name the shop problem.</h1>
+    <p class="lead-definition">This hub carries the open-bench instruments and answer-engine problem map that must not crowd the <a href="/tools.html">calculators catalog</a>. Search and category tiles stay on Tools. Here you run five wallet-free instruments, then follow the decision that hurts into Tier-A credit sessions when a design review is on the line.</p>
+  </header>
+
+  <section class="sc-guides-section" id="free-calculators" aria-labelledby="topics-free-heading" data-aeo-hub="free">
+    <h2 id="topics-free-heading">Open reference bench · five instruments · wallet not required</h2>
+    <p>These five shop instruments calculate immediately — surface finish, ISO fits, bend allowance, punching force, weld thickness. No login. No debit. When the decision must survive a design review (tolerance stack-up, feeds &amp; speeds, quoting, OEE, pressure, heat input), unlock a Tier-A credit session from <a href="/pricing.html">pricing</a>.</p>
+    <div class="sc-guides-grid">
+${freeCards}
+    </div>
+  </section>
+
+  <section class="sc-guides-section" id="problems-we-solve" aria-labelledby="topics-problems-heading" data-aeo-hub="problems">
+    <h2 id="topics-problems-heading">Touch the real shop-floor problem first</h2>
+    <p>SectorCalc pages open with the decision that hurts — then the calculator, then methodology, evidence, and related problems. No filler. No invented certifications. Use this map when you know the pain but not the tool code.</p>
+    <div class="sc-guides-grid">
+${problemCards}
+    </div>
+  </section>
+
+  <section class="sc-guides-section" aria-labelledby="topics-clusters">
+    <h2 id="topics-clusters">Crawlable topic clusters</h2>
+    <p>Dedicated topic pages keep free instruments adjacent to the related credit-backed decision tools without polluting the drawing-index catalog.</p>
+    <div class="sc-guides-grid">
+      <article class="sc-guide-card">
+        <p class="sc-guide-badge" data-access="free">Topic cluster</p>
+        <h3>Fits &amp; surface finish</h3>
+        <p class="sc-guide-problem">ISO 286 limit deviations and Ra/Rz release calls that must match what the CMM and the drawing actually say.</p>
+        <a class="sc-guide-cta" href="/topics/fits-and-finish">Open fits &amp; finish hub →</a>
+      </article>
+      <article class="sc-guide-card">
+        <p class="sc-guide-badge" data-access="free">Topic cluster</p>
+        <h3>Sheet metal fabrication</h3>
+        <p class="sc-guide-problem">Bend allowance, punching tonnage, and weld throat calls before the brake, press, and weld bay argue with the flat pattern.</p>
+        <a class="sc-guide-cta" href="/topics/sheet-metal-fabrication">Open sheet-metal hub →</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="sc-guides-section" aria-labelledby="topics-catalog">
+    <h2 id="topics-catalog">Where the catalog lives</h2>
+    <div class="sc-guides-prose">
+      <p>Need to search by task, standard, or machine? That DNA belongs exclusively on <a href="/tools.html">All Calculators</a> — omni-search, live/pipeline stats, and category tiles. Homepage keeps a short open-bench strip after the sacred hero for conversion. This Topics page is the long-form problem map and open-bench desk.</p>
+      <p>Production release still requires the governing code edition, certified material data, manufacturer ratings, and competent engineering review. Open instruments prove the engine; Tier-A sessions stamp the decision when the room demands an audit trail.</p>
+    </div>
+  </section>
+
+  <nav class="sc-guides-footer-links" aria-label="Related hubs">
+    <a href="/#free-calculators">Homepage open bench</a>
+    <a href="/tools.html">All calculators catalog</a>
+    <a href="/glossary">Glossary</a>
+    <a href="/guides">Guides</a>
+    <a href="/compare">Compare</a>
+    <a href="/pricing.html">Commission credits</a>
+    <a href="/llms.txt">llms.txt discovery</a>
+  </nav>
+</main>
+${footer()}
+</body>
+</html>
+`;
+}
+
 function writeHub(relPath, html, label) {
   assertDensity(label, html);
   const out = join(ROOT, relPath);
@@ -481,4 +636,7 @@ for (const c of COMPARE_PAGES) {
 
 writeHub('public/glossary/index.html', glossaryHubHtml(), 'glossary hub');
 writeHub('public/compare/index.html', compareHubHtml(), 'compare hub');
-console.log(`[PASS] Enterprise hubs built (${GLOSSARY_TERMS.length} glossary terms, ${COMPARE_PAGES.length} compares)`);
+writeHub('public/topics/index.html', topicsHubHtml(), 'topics hub');
+console.log(
+  `[PASS] Enterprise hubs built (${GLOSSARY_TERMS.length} glossary terms, ${COMPARE_PAGES.length} compares, ${FREE_TOOLS.length} open instruments, ${TOPICAL_MAPS.length} problem maps)`
+);

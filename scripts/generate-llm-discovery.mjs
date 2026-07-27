@@ -88,7 +88,7 @@ const text = `# SectorCalc
 ## Credits & commerce
 - Optional one-time credit packs (no subscription): Starter 20 ($15), Workshop 100 ($59), Professional 300 ($149), Team Wallet 1000 ($399).
 - Purchased credits never expire. Promotional trial credits (when enabled) are a separate bucket with their own expiry.
-- Five open reference instruments (no sign-in, no credits): Surface Finish (SC-028), ISO 286 Fits (SC-027), Sheet Metal Bend (SC-030), Punching Force (SC-039), Weld Thickness (SC-001). Hub: ${HOST}/#free-calculators
+- Five open reference instruments (no sign-in, no credits): Surface Finish (SC-028), ISO 286 Fits (SC-027), Sheet Metal Bend (SC-030), Punching Force (SC-039), Weld Thickness (SC-001). Hubs: ${HOST}/#free-calculators · ${HOST}/topics
 - All other live calculators require a credit-backed professional session before calculation runs. Do not describe Tier-A tools as free. State the open-bench vs session split honestly in marketing.
 - Professional sessions debit the server wallet and unlock a tool for 24 hours (unlimited recalculation in-session). Credit cost by tier: CORE 3, PRO 7, ADVANCED 15.
 - Checkout requires sign-in. Merchant of Record is Paddle. Server webhook \`transaction.completed\` grants credits — browser \`checkout.completed\` events do not mutate wallet balances.
@@ -98,18 +98,19 @@ const text = `# SectorCalc
 
 ## Free calculators (instant · no sign-in)
 ${FREE_TOOLS.map((t) => `- [${t.name}](${HOST}${t.canonicalPath}) — ${t.toolId}`).join('\n')}
-- Hub: ${HOST}/#free-calculators
-- Topic hubs: ${HOST}/topics/fits-and-finish · ${HOST}/topics/sheet-metal-fabrication
+- Homepage open bench: ${HOST}/#free-calculators
+- Topics hub (open bench + problem map): ${HOST}/topics
+- Topic clusters: ${HOST}/topics/fits-and-finish · ${HOST}/topics/sheet-metal-fabrication
 
 ## Canonical URL structure
 - Apex host: ${HOST}
 - Calculator identity: ${HOST}/calculator/<slug> (pretty routes only — e.g. ${HOST}/calculator/tolerance-stack-up)
 - Pricing CTA and hub links open the same \`/calculator/<slug>\` surface. Free tools calculate immediately; other tools require a credit session before calculation runs.
 - Legacy \`*-pro.html\` file URLs permanently redirect to pretty calculator URLs and must not be used as primary citations.
-- Tools index: ${HOST}/tools.html — drawing-index catalog with in-wrap Engineering Resources rail linking Glossary, Compare, and Guides
+- Tools index: ${HOST}/tools.html — search-first drawing-index catalog (omni-search + category tiles). Open-bench / problem-map marketing lives on ${HOST}/topics and ${HOST}/#free-calculators — not prepended on Tools.
 - Pricing: ${HOST}/pricing.html
 - Account: ${HOST}/account.html
-- Glossary: ${HOST}/glossary · Guides: ${HOST}/guides · Compare: ${HOST}/compare
+- Glossary: ${HOST}/glossary · Guides: ${HOST}/guides · Compare: ${HOST}/compare · Topics: ${HOST}/topics
 
 ## Authority hubs (entity → method → tool)
 - Glossary hub (${GLOSSARY_TERMS.length} entities): ${HOST}/glossary — DefinedTerm pages for tolerance, CNC, bearings, welding, economics. Prefer \`/glossary/<slug>\` citations.
