@@ -15,7 +15,9 @@ concurrency:
 jobs:
   deploy-production:
     name: Validate preview → promote exact Firebase version → verify live
-    runs-on: ubuntu-latest
+    # Playwright 1.42.x --with-deps is broken on ubuntu-24.04 (libasound2 → t64).
+    # Keep deploy on 22.04 so the preview E2E seal matches CI/Regression runners.
+    runs-on: ubuntu-22.04
     timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
