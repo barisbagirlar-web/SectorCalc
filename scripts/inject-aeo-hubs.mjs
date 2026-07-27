@@ -2,7 +2,9 @@
 /**
  * Inject visible AEO empathy + topical problem map on discovery hubs (idempotent).
  * Does NOT modify the sacred homepage hero — inserts after .sc-hero / before blueprint.
- * FORBIDDEN on pricing.html — commerce BOM page must keep its own soul (no problem-map chrome).
+ * FORBIDDEN:
+ *   - pricing.html — commerce BOM page must keep its own soul
+ *   - tools.html — catalog DNA is sacred; problem map lives on / and /topics
  */
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
@@ -10,8 +12,8 @@ import { TOPICAL_MAPS } from '../seo/topical-maps.mjs';
 
 const ROOT = process.cwd();
 const CSS = '/sc-aeo-hub.css?v=1';
-const FORBIDDEN = new Set(['pricing.html']);
-const TARGETS = ['index.html', 'tools.html', 'pro.html'];
+const FORBIDDEN = new Set(['pricing.html', 'tools.html']);
+const TARGETS = ['index.html', 'pro.html'];
 
 function esc(s) {
   return String(s)
@@ -89,7 +91,7 @@ function inject(html) {
       `$1${block}\n$2$3`
     );
   }
-  // tools / pro: after site-header
+  // pro: after site-header
   if (/<!--SC-SITE-NAV-END-->/.test(html)) {
     return html.replace(/<!--SC-SITE-NAV-END-->/, `<!--SC-SITE-NAV-END-->\n${block}`);
   }
@@ -101,7 +103,7 @@ function inject(html) {
 
 let n = 0;
 
-// Always scrub commerce pages so a stale block cannot survive a rebuild.
+// Always scrub forbidden pages so a stale block cannot survive a rebuild.
 for (const page of FORBIDDEN) {
   const path = join(ROOT, page);
   if (!existsSync(path)) continue;
