@@ -3,27 +3,63 @@ import { test, expect, type Page } from '@playwright/test';
 /**
  * Visual smoke against shipped calculator pages.
  * Credit monetization may lock compute for guests — assert gate OR live engine.
+ *
+ * Gate states:
+ * - none: free tool (isCreditRequired=false) → no #sc-pro-gate-root mount
+ * - free-config: paid tool but VITE_CREDIT_MONETIZATION_ENABLED≠true → engine still runs
+ * - locked: confirm CTA visible → assert gate surface
+ * - active: session unlocked → engine runs
  */
 
-async function creditGateLocked(page: Page): Promise<boolean> {
-  const gate = page.locator('#sc-pro-gate-root .sc-pro-gate');
-  if (!(await gate.isVisible().catch(() => false))) return false;
+async function waitForGateState(page: Page): Promise<'none' | 'free-config' | 'locked' | 'active'> {
+  // Wait until auth-nav boot has either mounted a gate or skipped (free tools).
+  await expect
+    .poll(
+      async () => {
+        const hasChrome = await page.locator('#sc-guide, #calcBtn, #liveResult, #verdict').count();
+        const hasGate = await page.locator('#sc-pro-gate-root .sc-pro-gate').count();
+        if (!hasChrome && !hasGate) return 'booting';
+        if (hasGate) {
+          if (await page.locator('.sc-pro-gate-active').count()) return 'active';
+          if (await page.locator('[data-confirm-pro]').count()) return 'locked';
+          if (
+            await page
+              .locator('.sc-pro-gate-copy')
+              .filter({ hasText: /free in the current configuration/i })
+              .count()
+          ) {
+            return 'free-config';
+          }
+          return 'pending';
+        }
+        return 'none';
+      },
+      { timeout: 15_000 }
+    )
+    .not.toMatch(/booting|pending/);
+
+  if (await page.locator('.sc-pro-gate-active').count()) return 'active';
+  if (await page.locator('[data-confirm-pro]').count()) return 'locked';
   if (
     await page
-      .locator('.sc-pro-gate-active')
-      .isVisible()
-      .catch(() => false)
-  )
-    return false;
-  return true;
+      .locator('.sc-pro-gate-copy')
+      .filter({ hasText: /free in the current configuration/i })
+      .count()
+  ) {
+    return 'free-config';
+  }
+  return 'none';
+}
+
+async function creditGateLocked(page: Page): Promise<boolean> {
+  return (await waitForGateState(page)) === 'locked';
 }
 
 async function expectGateSurface(page: Page, toolId: string): Promise<void> {
   await expect(page.locator('#sc-pro-gate-root .sc-pro-gate')).toBeVisible({ timeout: 12_000 });
   await expect(page.locator('.sc-pro-gate-kicker')).toContainText(toolId);
-  await expect(
-    page.locator('.sc-pro-gate a[href="/pricing.html"], .sc-pro-gate-btn').first()
-  ).toBeVisible();
+  await expect(page.locator('[data-confirm-pro]')).toBeVisible();
+  await expect(page.locator('.sc-pro-gate a[href="/pricing.html"]')).toBeVisible();
 }
 
 test('SC-010 labor-pro: live + report (or credit gate)', async ({ page }) => {
@@ -312,7 +348,9 @@ test('discovery surface matches canonical SEO release policy', async ({ request 
   expect(llmsText).toContain('SC-008');
   expect(llmsText).toContain('/calculator/tolerance-stack-up');
   expect(llmsText).toContain('## Live tools — 25');
-  expect(llmsText).toContain('**78**');
+  const sitemapUrlCount = (sm.match(/<loc>/g) || []).length;
+  expect(sitemapUrlCount).toBeGreaterThanOrEqual(78);
+  expect(llmsText).toContain(`**${sitemapUrlCount}**`);
   expect(llmsText).toContain('OAI-SearchBot');
   expect(llmsText).toContain('PerplexityBot');
   expect(llmsText).not.toMatch(/https:\/\/sectorcalc\.com\/[a-z0-9-]+-pro\.html/i);
