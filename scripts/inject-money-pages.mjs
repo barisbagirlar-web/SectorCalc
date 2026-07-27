@@ -8,9 +8,11 @@ import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { tierAMoneyCalculators, ownershipForPath } from '../seo/money-pages.mjs';
 import { MONEY_CONTENT } from '../seo/money-content.mjs';
+import { publishedCalculators } from '../seo/registry.mjs';
 
 const ROOT = process.cwd();
 const CSS = '/sc-money.css?v=1';
+const CALC_BY_PATH = new Map(publishedCalculators().map((c) => [c.canonicalPath, c]));
 
 function esc(s) {
   return String(s)
@@ -22,6 +24,14 @@ function esc(s) {
 
 /** Human label for glossary / guide / calculator paths (never dump raw href as link text). */
 function linkLabel(href) {
+  const calc = CALC_BY_PATH.get(href);
+  if (calc) {
+    let title = String(calc.name || calc.h1 || '').trim();
+    // Strip a leading tool id (do not treat the hyphen inside SC-038 as a title separator).
+    title = title.replace(new RegExp(`^${calc.id}\\s*[·:.—–-]?\\s*`, 'i'), '').trim();
+    title = title.replace(/\s*[—–].*$/, '').trim();
+    return title ? `${calc.id} ${title}` : calc.id;
+  }
   const known = {
     '/glossary/tolerance-stack-up': 'Tolerance stack-up',
     '/glossary/rss-tolerance': 'RSS tolerance',
@@ -53,16 +63,6 @@ function linkLabel(href) {
     '/guides/bearing-life-complete': 'Bearing life complete guide',
     '/guides/weld-sizing-complete': 'Weld sizing complete guide',
     '/guides/labor-costing-complete': 'Labor costing complete guide',
-    '/calculator/iso-286-fits': 'SC-027 ISO Fits',
-    '/calculator/surface-finish': 'SC-028 Surface Finish',
-    '/calculator/true-labor-cost': 'SC-010 True Labor Cost',
-    '/calculator/machine-hour-rate': 'SC-022 Machine Hour Rate',
-    '/calculator/oee-teep': 'SC-023 OEE / TEEP',
-    '/calculator/tolerance-stack-up': 'SC-008 Tolerance Stack-Up',
-    '/calculator/cnc-feeds-speeds': 'SC-020 Feeds & Speeds',
-    '/calculator/bearing-life-l10': 'SC-021 Bearing Life L10',
-    '/calculator/quote-pricing': 'SC-012 Quote Pricing',
-    '/calculator/weld-thickness': 'SC-001 Weld Thickness',
   };
   if (known[href]) return known[href];
   const slug = String(href).replace(/\/$/, '').split('/').pop() || href;
