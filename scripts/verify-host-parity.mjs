@@ -44,19 +44,39 @@ if (MODE !== 'live') {
   process.exit(1);
 }
 
+async function sleep(ms) {
+  await new Promise((r) => setTimeout(r, ms));
+}
+
 async function fetchManual(url) {
-  const res = await fetch(url, {
-    redirect: 'manual',
-    headers: { 'User-Agent': 'SectorCalcHostParity/1.0' },
-    signal: AbortSignal.timeout(20000),
-  });
-  const buf = Buffer.from(await res.arrayBuffer());
-  return {
-    status: res.status,
-    location: res.headers.get('location'),
-    hash: createHash('sha256').update(buf).digest('hex'),
-    text: buf.toString('utf8'),
-  };
+  let lastError;
+  for (let attempt = 1; attempt <= 5; attempt += 1) {
+    try {
+      const res = await fetch(url, {
+        redirect: 'manual',
+        headers: { 'User-Agent': 'SectorCalcHostParity/1.0' },
+        signal: AbortSignal.timeout(25000),
+      });
+      const buf = Buffer.from(await res.arrayBuffer());
+      // Edge can stall mid-promote; retry hard failures.
+      if (res.status >= 500 && attempt < 5) {
+        lastError = new Error(`HTTP ${res.status}`);
+        await sleep(attempt * 2000);
+        continue;
+      }
+      return {
+        status: res.status,
+        location: res.headers.get('location'),
+        hash: createHash('sha256').update(buf).digest('hex'),
+        text: buf.toString('utf8'),
+      };
+    } catch (error) {
+      lastError = error;
+      if (attempt === 5) throw error;
+      await sleep(attempt * 2500);
+    }
+  }
+  throw lastError;
 }
 
 function resolveLocation(location, baseHost) {
