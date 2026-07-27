@@ -210,6 +210,21 @@ for (const [route, file] of contentRoutes) {
   }
 }
 
+// pricing.html is commerce BOM — AEO problem-map chrome is forbidden (kills page soul).
+{
+  const pricing = read('pricing.html');
+  if (/sc-aeo-hub|problems-we-solve|SC-AEO-HUB|Answer engine · problem first/i.test(pricing)) {
+    fail('pricing.html must not include AEO problem-map hub (commerce page soul)');
+  }
+  const distPricing = join(ROOT, 'dist/pricing.html');
+  if (existsSync(distPricing)) {
+    const dp = readFileSync(distPricing, 'utf8');
+    if (/sc-aeo-hub|problems-we-solve|SC-AEO-HUB/i.test(dp)) {
+      fail('dist/pricing.html still contains AEO problem-map hub');
+    }
+  }
+}
+
 const fj = JSON.parse(read('firebase.json'));
 if ((fj.hosting?.rewrites || []).some((r) => r.destination === '/index.html')) fail('firebase SPA catch-all would create soft 404s');
 for (const [oldFile, pretty] of Object.entries(TOOL_CANONICAL)) {

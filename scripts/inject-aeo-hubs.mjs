@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 /**
- * Inject visible AEO empathy + topical problem map on hub pages (idempotent).
- * Does NOT modify the sacred homepage hero — inserts after </section> of .sc-hero.
+ * Inject visible AEO empathy + topical problem map on discovery hubs (idempotent).
+ * Does NOT modify the sacred homepage hero — inserts after .sc-hero / before blueprint.
+ * FORBIDDEN on pricing.html — commerce BOM page must keep its own soul (no problem-map chrome).
  */
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
@@ -9,6 +10,8 @@ import { TOPICAL_MAPS } from '../seo/topical-maps.mjs';
 
 const ROOT = process.cwd();
 const CSS = '/sc-aeo-hub.css?v=1';
+const FORBIDDEN = new Set(['pricing.html']);
+const TARGETS = ['index.html', 'tools.html', 'pro.html'];
 
 function esc(s) {
   return String(s)
@@ -20,8 +23,12 @@ function esc(s) {
 
 function hubHtml() {
   const cards = TOPICAL_MAPS.map((t) => {
-    const primary = t.subtopics[0]?.links?.find((l) => l.startsWith('/calculator/')) || t.subtopics[0]?.links?.[0] || '/tools.html';
-    const queries = (t.subtopics[0]?.fanOutQueries || []).slice(0, 2)
+    const primary =
+      t.subtopics[0]?.links?.find((l) => l.startsWith('/calculator/')) ||
+      t.subtopics[0]?.links?.[0] ||
+      '/tools.html';
+    const queries = (t.subtopics[0]?.fanOutQueries || [])
+      .slice(0, 2)
       .map((q) => `<li>${esc(q)}</li>`)
       .join('');
     return `<article class="sc-aeo-hub-card" data-topic-id="${esc(t.topicId)}">
@@ -53,24 +60,30 @@ function ensureCss(html) {
   return html.replace(/<\/head>/i, `<link rel="stylesheet" href="${CSS}">\n</head>`);
 }
 
-function strip(html) {
+function stripHub(html) {
   return html.replace(/<!--SC-AEO-HUB-START-->[\s\S]*?<!--SC-AEO-HUB-END-->\n?/g, '');
 }
 
+function stripCss(html) {
+  return html.replace(/\s*<link[^>]+sc-aeo-hub\.css[^>]*>\s*/gi, '\n');
+}
+
+function stripFromForbidden(html) {
+  return stripCss(stripHub(html));
+}
+
 function inject(html) {
-  html = strip(html);
+  html = stripHub(html);
   html = ensureCss(html);
   const block = hubHtml();
   // Homepage: before blueprint (keep sacred hero + trust strips intact)
   if (/class="sc-hero"/.test(html) && /id="blueprint"/.test(html)) {
-    if (/<!--SC-AEO-HUB-START-->/.test(html) === false) {
-      return html.replace(
-        /(\s*)(<!-- ================= BLUEPRINT|<\s*section[^>]*id="blueprint")/,
-        `$1${block}\n$1$2`
-      );
-    }
+    return html.replace(
+      /(\s*)(<!-- ================= BLUEPRINT|<\s*section[^>]*id="blueprint")/,
+      `$1${block}\n$1$2`
+    );
   }
-  // tools / pro / pricing: after first H1 block or site-header
+  // tools / pro: after site-header
   if (/<!--SC-SITE-NAV-END-->/.test(html)) {
     return html.replace(/<!--SC-SITE-NAV-END-->/, `<!--SC-SITE-NAV-END-->\n${block}`);
   }
@@ -80,8 +93,27 @@ function inject(html) {
   return html.replace(/<body[^>]*>/i, (m) => `${m}\n${block}`);
 }
 
-const TARGETS = ['index.html', 'tools.html', 'pro.html', 'pricing.html'];
 let n = 0;
+
+// Always scrub commerce pages so a stale block cannot survive a rebuild.
+for (const page of FORBIDDEN) {
+  const path = join(ROOT, page);
+  if (!existsSync(path)) continue;
+  const html = readFileSync(path, 'utf8');
+  const next = stripFromForbidden(html);
+  if (next !== html) {
+    writeFileSync(path, next);
+    n += 1;
+    console.log(`[OK] AEO hub stripped from forbidden page → ${page}`);
+  } else {
+    console.log(`[OK] AEO hub absent on forbidden page → ${page}`);
+  }
+  if (/sc-aeo-hub|problems-we-solve|SC-AEO-HUB/i.test(next)) {
+    console.error(`[FAIL] ${page} still contains AEO hub after strip`);
+    process.exit(1);
+  }
+}
+
 for (const page of TARGETS) {
   const path = join(ROOT, page);
   if (!existsSync(path)) {
@@ -98,4 +130,5 @@ for (const page of TARGETS) {
     console.log(`[OK] AEO hub unchanged ${page}`);
   }
 }
-console.log(`[PASS] AEO hub inject on ${n}/${TARGETS.length} pages`);
+
+console.log(`[PASS] AEO hub inject on ${n} pages (forbidden: ${[...FORBIDDEN].join(', ')})`);

@@ -107,7 +107,7 @@ ${FREE_TOOLS.map((t) => `- [${t.name}](${HOST}${t.canonicalPath}) — ${t.toolId
 - Pricing CTA and hub links open the same \`/calculator/<slug>\` surface. Free tools calculate immediately; other tools require a credit session before calculation runs.
 - Legacy \`*-pro.html\` file URLs permanently redirect to pretty calculator URLs and must not be used as primary citations.
 - Tools index: ${HOST}/tools.html — drawing-index catalog with in-wrap Engineering Resources rail linking Glossary, Compare, and Guides
-- Pricing: ${HOST}/pricing.html
+- Pricing: ${HOST}/pricing.html — one-time credit packs / BOM commerce surface (no AEO problem-map chrome; discovery hubs own that)
 - Account: ${HOST}/account.html
 - Glossary: ${HOST}/glossary · Guides: ${HOST}/guides · Compare: ${HOST}/compare
 
