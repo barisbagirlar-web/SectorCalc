@@ -26,9 +26,9 @@ function esc(s) {
 }
 
 function accessBadge(access) {
-  if (access === 'free') return 'Free calculator · no sign-in';
-  if (access === 'mixed') return 'Free weld size · heat input needs credits';
-  return 'Calculator unlocks with credits';
+  if (access === 'free') return 'Open instrument · no sign-in';
+  if (access === 'mixed') return 'Open weld size · heat input needs session';
+  return 'Decision tool · credit session';
 }
 
 function headLinks() {
@@ -318,7 +318,7 @@ ${HEADER}
     <h2>Commercial next step</h2>
     <p>${esc(ed.commercial)}</p>
     <a class="sc-btn-primary" href="${esc(g.calculator.href)}">${esc(g.calculator.label)} →</a>
-    <p class="sc-cta-secondary"><a href="/guides">← All engineering guides</a> · <a href="/#free-calculators">Five free calculators</a></p>
+    <p class="sc-cta-secondary"><a href="/guides">← All engineering guides</a> · <a href="/#free-calculators">Open reference bench</a></p>
   </section>
 </main>
 ${footer()}
@@ -455,7 +455,7 @@ ${HEADER}
   <header class="sc-guides-hero">
     <p class="sc-guides-kicker">Exclusive methodology library · answer-engine ready</p>
     <h1>Engineering guides at money-page depth</h1>
-    <p class="sc-guides-lead">Every guide opens with the shop-floor problem, ships a direct answer, then the full explanation → methodology → evidence → A1–A5 accountability chain used on Tier-A calculators — plus the deep methodology library. Free tools calculate instantly. Decision tools unlock with credits. No invented certifications. No thin slug lists.</p>
+    <p class="sc-guides-lead">Every guide opens with the shop-floor problem, ships a direct answer, then the full explanation → methodology → evidence → A1–A5 accountability chain used on Tier-A calculators — plus the deep methodology library. Open-bench instruments calculate instantly. Decision tools unlock with a credit session. No invented certifications. No thin slug lists.</p>
     <div class="sc-guides-stats" aria-label="Guide library stats">
       <div class="sc-guides-stat"><b>${GUIDE_ASSEMBLY.length}</b><span>Exclusive guides</span></div>
       <div class="sc-guides-stat"><b>${free.length}</b><span>Free calculator guides</span></div>
@@ -506,7 +506,7 @@ ${HEADER}
   </section>
 
   <nav class="sc-guides-footer-links" aria-label="Related hubs">
-    <a href="/#free-calculators">Five free calculators</a>
+    <a href="/#free-calculators">Open reference bench</a>
     <a href="/topics">Topic hubs</a>
     <a href="/glossary">Glossary</a>
     <a href="/compare">Compare</a>

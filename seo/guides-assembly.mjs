@@ -14,7 +14,7 @@ export const GUIDE_ASSEMBLY = Object.freeze([
     bodies: ['content/guides/sc027.html'],
     moneyEntity: null,
     workedExample: null,
-    calculator: { toolId: 'SC-027', href: '/calculator/iso-286-fits', label: 'Open free ISO 286 Fits calculator' },
+    calculator: { toolId: 'SC-027', href: '/calculator/iso-286-fits', label: 'Run open ISO 286 Fits instrument' },
     glossary: ['/glossary/iso-286-fits', '/glossary/surface-finish-ra-rz'],
     related: [
       '/calculator/iso-286-fits',
@@ -37,7 +37,7 @@ export const GUIDE_ASSEMBLY = Object.freeze([
     bodies: ['content/guides/sc028.html'],
     moneyEntity: null,
     workedExample: null,
-    calculator: { toolId: 'SC-028', href: '/calculator/surface-finish', label: 'Open free Surface Finish calculator' },
+    calculator: { toolId: 'SC-028', href: '/calculator/surface-finish', label: 'Run open Surface Finish instrument' },
     glossary: ['/glossary/surface-finish-ra-rz', '/glossary/iso-286-fits'],
     related: [
       '/calculator/surface-finish',
@@ -58,7 +58,7 @@ export const GUIDE_ASSEMBLY = Object.freeze([
     bodies: ['content/guides/sc030.html'],
     moneyEntity: null,
     workedExample: null,
-    calculator: { toolId: 'SC-030', href: '/calculator/sheet-metal-bend', label: 'Open free Sheet Metal Bend calculator' },
+    calculator: { toolId: 'SC-030', href: '/calculator/sheet-metal-bend', label: 'Run open Sheet Metal Bend instrument' },
     glossary: [],
     related: [
       '/calculator/sheet-metal-bend',
@@ -79,7 +79,7 @@ export const GUIDE_ASSEMBLY = Object.freeze([
     bodies: ['content/guides/sc039.html'],
     moneyEntity: null,
     workedExample: null,
-    calculator: { toolId: 'SC-039', href: '/calculator/punching-force', label: 'Open free Punching Force calculator' },
+    calculator: { toolId: 'SC-039', href: '/calculator/punching-force', label: 'Run open Punching Force instrument' },
     glossary: [],
     related: [
       '/calculator/punching-force',
@@ -100,7 +100,7 @@ export const GUIDE_ASSEMBLY = Object.freeze([
     bodies: ['content/guides/sc008.html'],
     moneyEntity: 'tolerance-stack-up',
     workedExample: 'seo/worked-examples/tolerance-stack-up.json',
-    calculator: { toolId: 'SC-008', href: '/calculator/tolerance-stack-up', label: 'Open SC-008 Tolerance Stack-Up' },
+    calculator: { toolId: 'SC-008', href: '/calculator/tolerance-stack-up', label: 'Open SC-008 Tolerance Stack-Up (session)' },
     glossary: ['/glossary/tolerance-stack-up', '/glossary/rss-tolerance', '/glossary/monte-carlo-simulation'],
     related: [
       '/calculator/tolerance-stack-up',
@@ -120,7 +120,7 @@ export const GUIDE_ASSEMBLY = Object.freeze([
     bodies: ['content/guides/sc020.html'],
     moneyEntity: 'cnc-feeds-speeds',
     workedExample: 'seo/worked-examples/cnc-feeds-speeds.json',
-    calculator: { toolId: 'SC-020', href: '/calculator/cnc-feeds-speeds', label: 'Open SC-020 CNC Feeds & Speeds' },
+    calculator: { toolId: 'SC-020', href: '/calculator/cnc-feeds-speeds', label: 'Open SC-020 CNC Feeds & Speeds (session)' },
     glossary: ['/glossary/cnc-feeds-and-speeds', '/glossary/chip-thinning'],
     related: ['/calculator/cnc-feeds-speeds', '/calculator/cycle-time-cost', '/guides/punching-force-complete'],
     fanOut: ['cnc feeds and speeds calculator', 'chip thinning calculator', 'spindle power check'],
@@ -135,7 +135,7 @@ export const GUIDE_ASSEMBLY = Object.freeze([
     bodies: ['content/guides/sc021.html'],
     moneyEntity: 'bearing-life-l10',
     workedExample: 'seo/worked-examples/bearing-life-l10.json',
-    calculator: { toolId: 'SC-021', href: '/calculator/bearing-life-l10', label: 'Open SC-021 Bearing Life L10' },
+    calculator: { toolId: 'SC-021', href: '/calculator/bearing-life-l10', label: 'Open SC-021 Bearing Life L10 (session)' },
     glossary: ['/glossary/bearing-l10-life', '/glossary/iso-281'],
     related: ['/calculator/bearing-life-l10', '/calculator/bearing-frequencies', '/calculator/shaft-design'],
     fanOut: ['bearing life calculator iso 281', 'L10h bearing life', 'aISO bearing life'],
@@ -150,7 +150,7 @@ export const GUIDE_ASSEMBLY = Object.freeze([
     bodies: ['content/guides/sc010.html', 'content/guides/sc012.html'],
     moneyEntity: 'true-labor-cost',
     workedExample: 'seo/worked-examples/true-labor-cost.json',
-    calculator: { toolId: 'SC-010', href: '/calculator/true-labor-cost', label: 'Open SC-010 True Labor Cost' },
+    calculator: { toolId: 'SC-010', href: '/calculator/true-labor-cost', label: 'Open SC-010 True Labor Cost (session)' },
     glossary: ['/glossary/labor-burden-rate', '/glossary/machine-hour-rate'],
     related: [
       '/calculator/true-labor-cost',
@@ -170,7 +170,7 @@ export const GUIDE_ASSEMBLY = Object.freeze([
     bodies: ['content/guides/sc001.html'],
     moneyEntity: 'weld-heat-input',
     workedExample: 'seo/worked-examples/weld-heat-input.json',
-    calculator: { toolId: 'SC-001', href: '/calculator/weld-thickness', label: 'Open free Weld Thickness calculator' },
+    calculator: { toolId: 'SC-001', href: '/calculator/weld-thickness', label: 'Run open Weld Thickness instrument' },
     glossary: ['/glossary/weld-throat', '/glossary/heat-input-t85'],
     related: [
       '/calculator/weld-thickness',
