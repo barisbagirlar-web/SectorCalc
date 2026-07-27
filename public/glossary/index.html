@@ -1,58 +1,1030 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Engineering Glossary | SectorCalc</title>
-  <meta name="description" content="Definitions for tolerance analysis, machining, bearings, welding, and manufacturing economics.">
-  <link rel="canonical" href="https://sectorcalc.com/glossary">
-  <meta name="robots" content="index,follow">
-  <link rel="stylesheet" href="/css/seo-content.css">
-</head>
-<body>
-  <header class="sc-header">
-    <a href="/" class="sc-logo">SectorCalc</a>
-    <nav class="sc-nav">
-      <a href="/tools.html">Tools</a>
-      <a href="/glossary/">Glossary</a>
-      <a href="/compare/">Compare</a>
-      <a href="/guides/">Guides</a>
-      <a href="/pricing.html">Pricing</a>
-    </nav>
-  </header>
-  <main class="sc-content-page">
-    <h1>Engineering Glossary</h1>
-    <p class="lead-definition">Definitions for tolerance analysis, machining, bearings, welding, and manufacturing economics.</p>
-    <ul>
-        <li><a href="/glossary/asme-b31-pipe-wall">asme b31 pipe wall</a></li>
-        <li><a href="/glossary/asme-viii-pressure-vessel">asme viii pressure vessel</a></li>
-        <li><a href="/glossary/asme-y14-5">asme y14 5</a></li>
-        <li><a href="/glossary/bearing-l10-life">bearing l10 life</a></li>
-        <li><a href="/glossary/bolt-preload">bolt preload</a></li>
-        <li><a href="/glossary/chip-thinning">chip thinning</a></li>
-        <li><a href="/glossary/cnc-feeds-and-speeds">cnc feeds and speeds</a></li>
-        <li><a href="/glossary/deterministic-engine">deterministic engine</a></li>
-        <li><a href="/glossary/heat-input-t85">heat input t85</a></li>
-        <li><a href="/glossary/iso-281">iso 281</a></li>
-        <li><a href="/glossary/iso-286-fits">iso 286 fits</a></li>
-        <li><a href="/glossary/labor-burden-rate">labor burden rate</a></li>
-        <li><a href="/glossary/machine-hour-rate">machine hour rate</a></li>
-        <li><a href="/glossary/monte-carlo-simulation">monte carlo simulation</a></li>
-        <li><a href="/glossary/oee-overall-equipment-effectiveness">oee overall equipment effectiveness</a></li>
-        <li><a href="/glossary/process-capability-cpk">process capability cpk</a></li>
-        <li><a href="/glossary/rss-tolerance">rss tolerance</a></li>
-        <li><a href="/glossary/sheet-metal-k-factor">sheet metal k factor</a></li>
-        <li><a href="/glossary/sling-angle-factor">sling angle factor</a></li>
-        <li><a href="/glossary/surface-finish-ra-rz">surface finish ra rz</a></li>
-        <li><a href="/glossary/taylor-tool-life">taylor tool life</a></li>
-        <li><a href="/glossary/tolerance-stack-up">tolerance stack up</a></li>
-        <li><a href="/glossary/vdi-2230-bolted-joint">vdi 2230 bolted joint</a></li>
-        <li><a href="/glossary/weld-throat">weld throat</a></li>
-        <li><a href="/glossary/worst-case-analysis">worst case analysis</a></li>
-    </ul>
-  </main>
-  <footer class="sc-footer">
-    <p>Copyright 2026 SectorCalc. Deterministic industrial engineering calculators.</p>
-  </footer>
-</body>
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Engineering Glossary | SectorCalc</title>
+    <meta
+      name="description"
+      content="Industrial engineering glossary for tolerance stack-up, ISO 286 fits, CNC feeds &amp; speeds, bearing L10, weld throat, labor burden, OEE, and manufacturing economics — linked to deterministic SectorCalc calculators."
+    />
+    <link rel="canonical" href="https://sectorcalc.com/glossary" />
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1" />
+    <meta property="og:title" content="Engineering Glossary | SectorCalc" />
+    <meta
+      property="og:description"
+      content="Entity definitions for tolerance, machining, bearings, welding, and manufacturing economics — built for Google and LLM retrieval."
+    />
+    <meta property="og:url" content="https://sectorcalc.com/glossary" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="https://sectorcalc.com/assets/images/og-default-1200x630.jpg"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="stylesheet" href="/css/seo-content.css" />
+    <link rel="stylesheet" href="/sc-theme.css?v=12" />
+    <link rel="stylesheet" href="/sc-site-nav.css?v=5" />
+    <link rel="stylesheet" href="/css/sc-guides.css?v=2" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Sans:wght@400;600;700&family=JetBrains+Mono:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="/sc-theme.js?v=12" defer></script>
+    <script src="/sc-site-nav.js?v=2" defer></script>
+    <script type="module" src="/src/auth-nav.ts"></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "CollectionPage",
+            "@id": "https://sectorcalc.com/glossary#webpage",
+            "url": "https://sectorcalc.com/glossary",
+            "name": "Engineering Glossary | SectorCalc",
+            "description": "Deterministic industrial engineering glossary for tolerance stack-up, ISO 286 fits, CNC feeds, bearing L10 life, weld throat, labor burden, OEE, and related manufacturing entities — linked to SectorCalc calculators.",
+            "isPartOf": {
+              "@id": "https://sectorcalc.com/#website"
+            },
+            "publisher": {
+              "@id": "https://sectorcalc.com/#organization"
+            },
+            "inLanguage": "en-US",
+            "about": [
+              "Tolerance Stack-Up",
+              "RSS Tolerance",
+              "Monte Carlo Simulation",
+              "Worst-Case Analysis",
+              "ASME Y14.5",
+              "ISO 286 Fits",
+              "Surface Finish (Ra / Rz)",
+              "Process Capability Cpk",
+              "CNC Feeds and Speeds",
+              "Chip Thinning",
+              "Taylor Tool Life",
+              "Bearing L10 Life",
+              "ISO 281",
+              "Bolt Preload",
+              "VDI 2230 Bolted Joint",
+              "ASME B31 Pipe Wall",
+              "ASME VIII Pressure Vessel",
+              "Weld Throat",
+              "Heat Input t8/5",
+              "Sheet Metal K-Factor",
+              "Sling Angle Factor",
+              "Labor Burden Rate",
+              "Machine Hour Rate",
+              "OEE (Overall Equipment Effectiveness)",
+              "Deterministic Engine"
+            ]
+          },
+          {
+            "@type": "DefinedTermSet",
+            "@id": "https://sectorcalc.com/glossary#termset",
+            "name": "SectorCalc Engineering Glossary",
+            "url": "https://sectorcalc.com/glossary",
+            "hasDefinedTerm": [
+              {
+                "@type": "DefinedTerm",
+                "name": "Tolerance Stack-Up",
+                "url": "https://sectorcalc.com/glossary/tolerance-stack-up",
+                "description": "1D linear analysis that sums dimensional contributors to predict gap or interference risk."
+              },
+              {
+                "@type": "DefinedTerm",
+                "name": "RSS Tolerance",
+                "url": "https://sectorcalc.com/glossary/rss-tolerance",
+                "description": "Root-sum-square statistical stack method used when contributors are treated as independent."
+              },
+              {
+                "@type": "DefinedTerm",
+                "name": "Monte Carlo Simulation",
+                "url": "https://sectorcalc.com/glossary/monte-carlo-simulation",
+                "description": "Seeded statistical sampling of stacked contributors for distribution-aware assembly risk."
+              },
+              {
+                "@type": "DefinedTerm",
+                "name": "Worst-Case Analysis",
+                "url": "https://sectorcalc.com/glossary/worst-case-analysis",
+                "description": "Arithmetic extreme-material stack that assumes every contributor sits at its legal extreme."
+              },
+              {
+                "@type": "DefinedTerm",
+                "name": "ASME Y14.5",
+                "url": "https://sectorcalc.com/glossary/asme-y14-5",
+                "description": "Drawing language and datum practice that frames GD&T callouts on North American prints."
+              },
+              {
+                "@type": "DefinedTerm",
+                "name": "ISO 286 Fits",
+                "url": "https://sectorcalc.com/glossary/iso-286-fits",
+                "description": "Hole and shaft tolerance zones whose limit deviations change with diameter band."
+              },
+              {
+                "@type": "DefinedTerm",
+                "name": "Surface Finish (Ra / Rz)",
+                "url": "https://sectorcalc.com/glossary/surface-finish-ra-rz",
+                "description": "Roughness parameters that are not interchangeable without an explicit conversion basis."
+              },
+              {
+                "@type": "DefinedTerm",
+                "name": "Process Capability Cpk",
+                "url": "https://sectorcalc.com/glossary/process-capability-cpk",
+                "description": "Capability index that compares process spread and centering against specification limits."
+              },
+              {
+                "@type": "DefinedTerm",
+                "name": "CNC Feeds and Speeds",
+                "url": "https://sectorcalc.com/glossary/cnc-feeds-and-speeds",
+                "description": "Surface speed, spindle RPM, feed per tooth, and material-removal rate for a stable cut."
+              },
+              {
+                "@type": "DefinedTerm",
+                "name": "Chip Thinning",
+                "url": "https://sectorcalc.com/glossary/chip-thinning",
+                "description": "Effective chip thickness drop in light radial engagement that requires feed compensation."
+              },
+              {
+                "@type": "DefinedTerm",
+                "name": "Taylor Tool Life",
+                "url": "https://sectorcalc.com/glossary/taylor-tool-life",
+                "description": "Classic VTⁿ = C relationship used to screen how cutting speed trades against tool life."
+              },
+              {
+                "@type": "DefinedTerm",
+                "name": "Bearing L10 Life",
+                "url": "https://sectorcalc.com/glossary/bearing-l10-life",
+                "description": "Basic rating life at which 90% of a bearing population is expected to survive under stated load."
+              },
+              {
+                "@type": "DefinedTerm",
+                "name": "ISO 281",
+                "url": "https://sectorcalc.com/glossary/iso-281",
+                "description": "International basis for rolling-bearing dynamic load ratings and basic rating life."
+              },
+              {
+                "@type": "DefinedTerm",
+                "name": "Bolt Preload",
+                "url": "https://sectorcalc.com/glossary/bolt-preload",
+                "description": "Initial tensile force introduced by tightening — the clamp load that holds the joint."
+              },
+              {
+                "@type": "DefinedTerm",
+                "name": "VDI 2230 Bolted Joint",
+                "url": "https://sectorcalc.com/glossary/vdi-2230-bolted-joint",
+                "description": "Guideline framework for bolted-joint verification including stiffness and load sharing."
+              },
+              {
+                "@type": "DefinedTerm",
+                "name": "ASME B31 Pipe Wall",
+                "url": "https://sectorcalc.com/glossary/asme-b31-pipe-wall",
+                "description": "Pipe wall thickness language for internal-pressure design under ASME B31 piping codes."
+              },
+              {
+                "@type": "DefinedTerm",
+                "name": "ASME VIII Pressure Vessel",
+                "url": "https://sectorcalc.com/glossary/asme-viii-pressure-vessel",
+                "description": "Pressure-vessel shell thickness language under ASME Section VIII scope assumptions."
+              },
+              {
+                "@type": "DefinedTerm",
+                "name": "Weld Throat",
+                "url": "https://sectorcalc.com/glossary/weld-throat",
+                "description": "Effective throat dimension that governs fillet-weld strength on the drawing."
+              },
+              {
+                "@type": "DefinedTerm",
+                "name": "Heat Input t8/5",
+                "url": "https://sectorcalc.com/glossary/heat-input-t85",
+                "description": "Cooling-time estimate between 800 °C and 500 °C used to screen weld thermal cycles."
+              },
+              {
+                "@type": "DefinedTerm",
+                "name": "Sheet Metal K-Factor",
+                "url": "https://sectorcalc.com/glossary/sheet-metal-k-factor",
+                "description": "Neutral-axis location factor used to compute bend allowance and flat pattern length."
+              },
+              {
+                "@type": "DefinedTerm",
+                "name": "Sling Angle Factor",
+                "url": "https://sectorcalc.com/glossary/sling-angle-factor",
+                "description": "Geometric derating of sling capacity as the included angle moves away from vertical."
+              },
+              {
+                "@type": "DefinedTerm",
+                "name": "Labor Burden Rate",
+                "url": "https://sectorcalc.com/glossary/labor-burden-rate",
+                "description": "Fully burdened labor cost including taxes, benefits, and shop overhead allocation."
+              },
+              {
+                "@type": "DefinedTerm",
+                "name": "Machine Hour Rate",
+                "url": "https://sectorcalc.com/glossary/machine-hour-rate",
+                "description": "Shop rate that recovers ownership, operating, and overhead cost per productive machine hour."
+              },
+              {
+                "@type": "DefinedTerm",
+                "name": "OEE (Overall Equipment Effectiveness)",
+                "url": "https://sectorcalc.com/glossary/oee-overall-equipment-effectiveness",
+                "description": "Availability × performance × quality product used to quantify productive equipment time."
+              },
+              {
+                "@type": "DefinedTerm",
+                "name": "Deterministic Engine",
+                "url": "https://sectorcalc.com/glossary/deterministic-engine",
+                "description": "Client-side calculation runtime with visible formulas, Decimal-native math, and A1–A5 audit trails."
+              }
+            ]
+          },
+          {
+            "@type": "ItemList",
+            "@id": "https://sectorcalc.com/glossary#itemlist",
+            "name": "SectorCalc glossary entities",
+            "numberOfItems": 25,
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Tolerance Stack-Up",
+                "url": "https://sectorcalc.com/glossary/tolerance-stack-up"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "RSS Tolerance",
+                "url": "https://sectorcalc.com/glossary/rss-tolerance"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Monte Carlo Simulation",
+                "url": "https://sectorcalc.com/glossary/monte-carlo-simulation"
+              },
+              {
+                "@type": "ListItem",
+                "position": 4,
+                "name": "Worst-Case Analysis",
+                "url": "https://sectorcalc.com/glossary/worst-case-analysis"
+              },
+              {
+                "@type": "ListItem",
+                "position": 5,
+                "name": "ASME Y14.5",
+                "url": "https://sectorcalc.com/glossary/asme-y14-5"
+              },
+              {
+                "@type": "ListItem",
+                "position": 6,
+                "name": "ISO 286 Fits",
+                "url": "https://sectorcalc.com/glossary/iso-286-fits"
+              },
+              {
+                "@type": "ListItem",
+                "position": 7,
+                "name": "Surface Finish (Ra / Rz)",
+                "url": "https://sectorcalc.com/glossary/surface-finish-ra-rz"
+              },
+              {
+                "@type": "ListItem",
+                "position": 8,
+                "name": "Process Capability Cpk",
+                "url": "https://sectorcalc.com/glossary/process-capability-cpk"
+              },
+              {
+                "@type": "ListItem",
+                "position": 9,
+                "name": "CNC Feeds and Speeds",
+                "url": "https://sectorcalc.com/glossary/cnc-feeds-and-speeds"
+              },
+              {
+                "@type": "ListItem",
+                "position": 10,
+                "name": "Chip Thinning",
+                "url": "https://sectorcalc.com/glossary/chip-thinning"
+              },
+              {
+                "@type": "ListItem",
+                "position": 11,
+                "name": "Taylor Tool Life",
+                "url": "https://sectorcalc.com/glossary/taylor-tool-life"
+              },
+              {
+                "@type": "ListItem",
+                "position": 12,
+                "name": "Bearing L10 Life",
+                "url": "https://sectorcalc.com/glossary/bearing-l10-life"
+              },
+              {
+                "@type": "ListItem",
+                "position": 13,
+                "name": "ISO 281",
+                "url": "https://sectorcalc.com/glossary/iso-281"
+              },
+              {
+                "@type": "ListItem",
+                "position": 14,
+                "name": "Bolt Preload",
+                "url": "https://sectorcalc.com/glossary/bolt-preload"
+              },
+              {
+                "@type": "ListItem",
+                "position": 15,
+                "name": "VDI 2230 Bolted Joint",
+                "url": "https://sectorcalc.com/glossary/vdi-2230-bolted-joint"
+              },
+              {
+                "@type": "ListItem",
+                "position": 16,
+                "name": "ASME B31 Pipe Wall",
+                "url": "https://sectorcalc.com/glossary/asme-b31-pipe-wall"
+              },
+              {
+                "@type": "ListItem",
+                "position": 17,
+                "name": "ASME VIII Pressure Vessel",
+                "url": "https://sectorcalc.com/glossary/asme-viii-pressure-vessel"
+              },
+              {
+                "@type": "ListItem",
+                "position": 18,
+                "name": "Weld Throat",
+                "url": "https://sectorcalc.com/glossary/weld-throat"
+              },
+              {
+                "@type": "ListItem",
+                "position": 19,
+                "name": "Heat Input t8/5",
+                "url": "https://sectorcalc.com/glossary/heat-input-t85"
+              },
+              {
+                "@type": "ListItem",
+                "position": 20,
+                "name": "Sheet Metal K-Factor",
+                "url": "https://sectorcalc.com/glossary/sheet-metal-k-factor"
+              },
+              {
+                "@type": "ListItem",
+                "position": 21,
+                "name": "Sling Angle Factor",
+                "url": "https://sectorcalc.com/glossary/sling-angle-factor"
+              },
+              {
+                "@type": "ListItem",
+                "position": 22,
+                "name": "Labor Burden Rate",
+                "url": "https://sectorcalc.com/glossary/labor-burden-rate"
+              },
+              {
+                "@type": "ListItem",
+                "position": 23,
+                "name": "Machine Hour Rate",
+                "url": "https://sectorcalc.com/glossary/machine-hour-rate"
+              },
+              {
+                "@type": "ListItem",
+                "position": 24,
+                "name": "OEE (Overall Equipment Effectiveness)",
+                "url": "https://sectorcalc.com/glossary/oee-overall-equipment-effectiveness"
+              },
+              {
+                "@type": "ListItem",
+                "position": 25,
+                "name": "Deterministic Engine",
+                "url": "https://sectorcalc.com/glossary/deterministic-engine"
+              }
+            ]
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://sectorcalc.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Glossary",
+                "item": "https://sectorcalc.com/glossary"
+              }
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://sectorcalc.com/glossary#faq",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Is the SectorCalc glossary free to read?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. Every glossary definition is free. Linked Tier-A calculators unlock with a credit session; five free calculators (ISO fits, surface finish, bend, punching, weld thickness) calculate without sign-in."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How do glossary terms connect to calculators?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Each entity page defines the term, states scope limits, and links to the owning calculator and related guides so answer engines retrieve a closed entity–method–tool chain."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Does SectorCalc invent standards ratings or certifications?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "No. Glossary pages document engineering vocabulary and calculation scope. They do not claim PE stamps, ASME reviewer status, or fabricated ROI."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body class="sc-guides-shell">
+    <!--SC-SITE-NAV-START-->
+    <header class="site-header" id="siteHeader" role="banner">
+      <a href="/" class="brand" aria-label="SectorCalc Home"
+        ><span class="brand-mark"
+          ><img
+            class="logo-light"
+            src="/sectorcalc-logo-214.w.png"
+            srcset="/sectorcalc-logo-214.w.png 214w, /sectorcalc-logo-428.w.png 428w"
+            sizes="183px"
+            width="183"
+            height="48"
+            alt="SectorCalc"
+            decoding="async" /><img
+            class="logo-dark"
+            src="/sectorcalc-logo-dark-214.w.png"
+            srcset="/sectorcalc-logo-dark-214.w.png 214w, /sectorcalc-logo-dark-428.w.png 428w"
+            sizes="183px"
+            width="183"
+            height="48"
+            alt=""
+            aria-hidden="true"
+            decoding="async" /></span
+      ></a>
+      <nav class="main-nav" role="navigation" aria-label="Main navigation">
+        <ul>
+          <li><a href="/tools.html" data-nav="tools">Tools</a></li>
+          <li><a href="/glossary" data-nav="glossary">Glossary</a></li>
+          <li><a href="/guides" data-nav="guides">Guides</a></li>
+          <li><a href="/compare" data-nav="compare">Compare</a></li>
+          <li><a href="/pricing.html" data-nav="pricing">Pricing</a></li>
+          <li><a href="/account.html" data-nav="account">Account</a></li>
+        </ul>
+        <span class="sc-nav-tool" aria-hidden="true"></span>
+        <a href="/login.html" class="btn btn-primary" data-nav="login">Sign in</a>
+      </nav>
+      <button
+        class="theme-toggle"
+        id="themeToggle"
+        type="button"
+        aria-label="Toggle color theme"
+        aria-pressed="false"
+        title="Toggle light / dark theme"
+      >
+        <svg
+          data-theme-icon="moon"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          aria-hidden="true"
+        >
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+        </svg>
+        <svg
+          data-theme-icon="sun"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          aria-hidden="true"
+        >
+          <circle cx="12" cy="12" r="5" />
+          <path
+            d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"
+          />
+        </svg>
+      </button>
+      <button
+        class="mobile-menu-btn"
+        id="mobileMenuBtn"
+        type="button"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="mobileNav"
+      >
+        <span></span><span></span><span></span>
+      </button>
+    </header>
+    <div
+      class="mobile-nav-overlay"
+      id="mobileNav"
+      role="dialog"
+      aria-label="Mobile menu"
+      aria-hidden="true"
+    >
+      <a href="/tools.html" data-nav="tools">All Tools</a>
+      <a href="/glossary" data-nav="glossary">Glossary</a>
+      <a href="/guides" data-nav="guides">Guides</a>
+      <a href="/compare" data-nav="compare">Compare</a>
+      <a href="/pricing.html" data-nav="pricing">Pricing</a>
+      <a href="/account.html" data-nav="account">Account</a>
+      <a href="/login.html" class="btn-primary" data-nav="login">Sign in</a>
+    </div>
+    <!--SC-SITE-NAV-END-->
+    <main class="sc-guides-main" id="main-content">
+      <header class="sc-guides-hero">
+        <p class="sc-guides-kicker">Answer engine · entity library</p>
+        <h1>Engineering glossary built for retrieval, not filler</h1>
+        <p class="sc-guides-lead">
+          SectorCalc glossary entities name the shop-floor decision, define the term without
+          marketing haze, state calculation scope limits, and link to the owning calculator and
+          long-form guide. This hub is the entity map Google and LLMs should cite when expanding
+          queries across tolerance, CNC, bearings, welding, and manufacturing economics.
+        </p>
+        <div class="sc-guides-stats" aria-label="Glossary library stats">
+          <div class="sc-guides-stat"><b>25</b><span>Defined entities</span></div>
+          <div class="sc-guides-stat"><b>9</b><span>Topic clusters</span></div>
+          <div class="sc-guides-stat"><b>23</b><span>Calculator-linked</span></div>
+          <div class="sc-guides-stat"><b>A1–A5</b><span>Audit vocabulary</span></div>
+        </div>
+      </header>
+
+      <section class="sc-guides-section" aria-labelledby="gloss-why">
+        <h2 id="gloss-why">Why this glossary exists</h2>
+        <div class="sc-guides-prose">
+          <p>
+            Industrial search queries rarely stop at a single keyword. An engineer asking about
+            “H7/g6” needs ISO 286 limit deviations, then often escalates to tolerance stack-up,
+            surface finish, or bearing seat clearance. A machinist asking about chip thinning needs
+            feeds and speeds, then tool life. A cost estimator asking about burden rate needs true
+            labor cost and machine hour rate. Answer engines and crawlers need a stable entity graph
+            — not a thin bullet list of slug-looking labels.
+          </p>
+          <p>
+            Each SectorCalc glossary page is written as a <strong>DefinedTerm</strong> with a lead
+            definition, operational meaning on the shop floor, common failure modes, and explicit
+            links to the calculator that owns the math. Definitions stay English-only and
+            evidence-first: no invented certifications, no AggregateRating schema, no fabricated
+            customer ROI percentages.
+          </p>
+          <p>
+            Use this hub when you need the canonical internal name for a concept before opening a
+            calculator. Use <a href="/guides">Guides</a> when you need the full problem →
+            methodology → calculation chain. Use <a href="/compare">Compare</a> when you are
+            deciding whether SectorCalc replaces a spreadsheet, CAD module, or classic shop
+            calculator for a specific workflow.
+          </p>
+        </div>
+      </section>
+
+      <section class="sc-guides-section" aria-labelledby="gloss-chain">
+        <h2 id="gloss-chain">Entity → method → tool chain</h2>
+        <div class="sc-guides-chain">
+          <p>Machine-readable authority chain for Google + LLM retrieval:</p>
+          <ol>
+            <li><strong>Entity</strong> — glossary term with a stable URL and lead definition</li>
+            <li><strong>Scope</strong> — what the term includes and what it does not claim</li>
+            <li><strong>Method</strong> — long-form guide when the workflow needs depth</li>
+            <li><strong>Tool</strong> — free or credit-backed calculator that owns the equation</li>
+            <li>
+              <strong>Audit</strong> — A1–A5 trail language for inputs, formulas, assumptions, and
+              warnings
+            </li>
+            <li><strong>Related</strong> — sibling entities, topic hubs, and compare pages</li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="sc-guides-section" aria-labelledby="gloss-tolerance-metrology">
+        <h2 id="gloss-tolerance-metrology">Tolerance, GD&amp;T &amp; metrology</h2>
+        <p>
+          Terms that decide whether an assembly closes, a fit slides, or a finish callout survives
+          first-article review.
+        </p>
+        <div class="sc-guides-grid">
+          <article class="sc-guide-card" data-glossary="tolerance-stack-up">
+            <p class="sc-guide-badge" data-access="free">Glossary entity</p>
+            <h3>Tolerance Stack-Up</h3>
+            <p class="sc-guide-problem">
+              1D linear analysis that sums dimensional contributors to predict gap or interference
+              risk.
+            </p>
+            <a class="sc-guide-cta" href="/glossary/tolerance-stack-up">Open definition →</a>
+            <a class="sc-guide-cta" href="/calculator/tolerance-stack-up"
+              >Open related calculator →</a
+            >
+          </article>
+          <article class="sc-guide-card" data-glossary="rss-tolerance">
+            <p class="sc-guide-badge" data-access="free">Glossary entity</p>
+            <h3>RSS Tolerance</h3>
+            <p class="sc-guide-problem">
+              Root-sum-square statistical stack method used when contributors are treated as
+              independent.
+            </p>
+            <a class="sc-guide-cta" href="/glossary/rss-tolerance">Open definition →</a>
+            <a class="sc-guide-cta" href="/calculator/tolerance-stack-up"
+              >Open related calculator →</a
+            >
+          </article>
+          <article class="sc-guide-card" data-glossary="monte-carlo-simulation">
+            <p class="sc-guide-badge" data-access="free">Glossary entity</p>
+            <h3>Monte Carlo Simulation</h3>
+            <p class="sc-guide-problem">
+              Seeded statistical sampling of stacked contributors for distribution-aware assembly
+              risk.
+            </p>
+            <a class="sc-guide-cta" href="/glossary/monte-carlo-simulation">Open definition →</a>
+            <a class="sc-guide-cta" href="/calculator/tolerance-stack-up"
+              >Open related calculator →</a
+            >
+          </article>
+          <article class="sc-guide-card" data-glossary="worst-case-analysis">
+            <p class="sc-guide-badge" data-access="free">Glossary entity</p>
+            <h3>Worst-Case Analysis</h3>
+            <p class="sc-guide-problem">
+              Arithmetic extreme-material stack that assumes every contributor sits at its legal
+              extreme.
+            </p>
+            <a class="sc-guide-cta" href="/glossary/worst-case-analysis">Open definition →</a>
+            <a class="sc-guide-cta" href="/calculator/tolerance-stack-up"
+              >Open related calculator →</a
+            >
+          </article>
+          <article class="sc-guide-card" data-glossary="asme-y14-5">
+            <p class="sc-guide-badge" data-access="free">Glossary entity</p>
+            <h3>ASME Y14.5</h3>
+            <p class="sc-guide-problem">
+              Drawing language and datum practice that frames GD&amp;T callouts on North American
+              prints.
+            </p>
+            <a class="sc-guide-cta" href="/glossary/asme-y14-5">Open definition →</a>
+          </article>
+          <article class="sc-guide-card" data-glossary="iso-286-fits">
+            <p class="sc-guide-badge" data-access="free">Glossary entity</p>
+            <h3>ISO 286 Fits</h3>
+            <p class="sc-guide-problem">
+              Hole and shaft tolerance zones whose limit deviations change with diameter band.
+            </p>
+            <a class="sc-guide-cta" href="/glossary/iso-286-fits">Open definition →</a>
+            <a class="sc-guide-cta" href="/calculator/iso-286-fits">Open related calculator →</a>
+          </article>
+          <article class="sc-guide-card" data-glossary="surface-finish-ra-rz">
+            <p class="sc-guide-badge" data-access="free">Glossary entity</p>
+            <h3>Surface Finish (Ra / Rz)</h3>
+            <p class="sc-guide-problem">
+              Roughness parameters that are not interchangeable without an explicit conversion
+              basis.
+            </p>
+            <a class="sc-guide-cta" href="/glossary/surface-finish-ra-rz">Open definition →</a>
+            <a class="sc-guide-cta" href="/calculator/surface-finish">Open related calculator →</a>
+          </article>
+          <article class="sc-guide-card" data-glossary="process-capability-cpk">
+            <p class="sc-guide-badge" data-access="free">Glossary entity</p>
+            <h3>Process Capability Cpk</h3>
+            <p class="sc-guide-problem">
+              Capability index that compares process spread and centering against specification
+              limits.
+            </p>
+            <a class="sc-guide-cta" href="/glossary/process-capability-cpk">Open definition →</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="sc-guides-section" aria-labelledby="gloss-cnc-machining">
+        <h2 id="gloss-cnc-machining">CNC machining &amp; tool life</h2>
+        <p>
+          Feeds, speeds, chip load, and tool-life vocabulary used when a cut must release on the
+          spindle you own.
+        </p>
+        <div class="sc-guides-grid">
+          <article class="sc-guide-card" data-glossary="cnc-feeds-and-speeds">
+            <p class="sc-guide-badge" data-access="free">Glossary entity</p>
+            <h3>CNC Feeds and Speeds</h3>
+            <p class="sc-guide-problem">
+              Surface speed, spindle RPM, feed per tooth, and material-removal rate for a stable
+              cut.
+            </p>
+            <a class="sc-guide-cta" href="/glossary/cnc-feeds-and-speeds">Open definition →</a>
+            <a class="sc-guide-cta" href="/calculator/cnc-feeds-speeds"
+              >Open related calculator →</a
+            >
+          </article>
+          <article class="sc-guide-card" data-glossary="chip-thinning">
+            <p class="sc-guide-badge" data-access="free">Glossary entity</p>
+            <h3>Chip Thinning</h3>
+            <p class="sc-guide-problem">
+              Effective chip thickness drop in light radial engagement that requires feed
+              compensation.
+            </p>
+            <a class="sc-guide-cta" href="/glossary/chip-thinning">Open definition →</a>
+            <a class="sc-guide-cta" href="/calculator/cnc-feeds-speeds"
+              >Open related calculator →</a
+            >
+          </article>
+          <article class="sc-guide-card" data-glossary="taylor-tool-life">
+            <p class="sc-guide-badge" data-access="free">Glossary entity</p>
+            <h3>Taylor Tool Life</h3>
+            <p class="sc-guide-problem">
+              Classic VTⁿ = C relationship used to screen how cutting speed trades against tool
+              life.
+            </p>
+            <a class="sc-guide-cta" href="/glossary/taylor-tool-life">Open definition →</a>
+            <a class="sc-guide-cta" href="/calculator/cnc-feeds-speeds"
+              >Open related calculator →</a
+            >
+          </article>
+        </div>
+      </section>
+
+      <section class="sc-guides-section" aria-labelledby="gloss-reliability">
+        <h2 id="gloss-reliability">Bearings &amp; rotating equipment</h2>
+        <p>
+          Life and rating language for bearings when load, speed, and lubrication define release
+          risk.
+        </p>
+        <div class="sc-guides-grid">
+          <article class="sc-guide-card" data-glossary="bearing-l10-life">
+            <p class="sc-guide-badge" data-access="free">Glossary entity</p>
+            <h3>Bearing L10 Life</h3>
+            <p class="sc-guide-problem">
+              Basic rating life at which 90% of a bearing population is expected to survive under
+              stated load.
+            </p>
+            <a class="sc-guide-cta" href="/glossary/bearing-l10-life">Open definition →</a>
+            <a class="sc-guide-cta" href="/calculator/bearing-life-l10"
+              >Open related calculator →</a
+            >
+          </article>
+          <article class="sc-guide-card" data-glossary="iso-281">
+            <p class="sc-guide-badge" data-access="free">Glossary entity</p>
+            <h3>ISO 281</h3>
+            <p class="sc-guide-problem">
+              International basis for rolling-bearing dynamic load ratings and basic rating life.
+            </p>
+            <a class="sc-guide-cta" href="/glossary/iso-281">Open definition →</a>
+            <a class="sc-guide-cta" href="/calculator/bearing-life-l10"
+              >Open related calculator →</a
+            >
+          </article>
+        </div>
+      </section>
+
+      <section class="sc-guides-section" aria-labelledby="gloss-fastening">
+        <h2 id="gloss-fastening">Bolted joints &amp; preload</h2>
+        <p>
+          Preload, friction, and joint stiffness terms that decide whether a clamp load survives
+          service.
+        </p>
+        <div class="sc-guides-grid">
+          <article class="sc-guide-card" data-glossary="bolt-preload">
+            <p class="sc-guide-badge" data-access="free">Glossary entity</p>
+            <h3>Bolt Preload</h3>
+            <p class="sc-guide-problem">
+              Initial tensile force introduced by tightening — the clamp load that holds the joint.
+            </p>
+            <a class="sc-guide-cta" href="/glossary/bolt-preload">Open definition →</a>
+            <a class="sc-guide-cta" href="/calculator/bolt-torque-preload"
+              >Open related calculator →</a
+            >
+          </article>
+          <article class="sc-guide-card" data-glossary="vdi-2230-bolted-joint">
+            <p class="sc-guide-badge" data-access="free">Glossary entity</p>
+            <h3>VDI 2230 Bolted Joint</h3>
+            <p class="sc-guide-problem">
+              Guideline framework for bolted-joint verification including stiffness and load
+              sharing.
+            </p>
+            <a class="sc-guide-cta" href="/glossary/vdi-2230-bolted-joint">Open definition →</a>
+            <a class="sc-guide-cta" href="/calculator/bolted-joint">Open related calculator →</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="sc-guides-section" aria-labelledby="gloss-pressure">
+        <h2 id="gloss-pressure">Pressure equipment &amp; piping</h2>
+        <p>
+          Code-facing thickness and vessel vocabulary used for internal-pressure screening — not a
+          PE stamp.
+        </p>
+        <div class="sc-guides-grid">
+          <article class="sc-guide-card" data-glossary="asme-b31-pipe-wall">
+            <p class="sc-guide-badge" data-access="free">Glossary entity</p>
+            <h3>ASME B31 Pipe Wall</h3>
+            <p class="sc-guide-problem">
+              Pipe wall thickness language for internal-pressure design under ASME B31 piping codes.
+            </p>
+            <a class="sc-guide-cta" href="/glossary/asme-b31-pipe-wall">Open definition →</a>
+            <a class="sc-guide-cta" href="/calculator/pipe-wall-thickness"
+              >Open related calculator →</a
+            >
+          </article>
+          <article class="sc-guide-card" data-glossary="asme-viii-pressure-vessel">
+            <p class="sc-guide-badge" data-access="free">Glossary entity</p>
+            <h3>ASME VIII Pressure Vessel</h3>
+            <p class="sc-guide-problem">
+              Pressure-vessel shell thickness language under ASME Section VIII scope assumptions.
+            </p>
+            <a class="sc-guide-cta" href="/glossary/asme-viii-pressure-vessel">Open definition →</a>
+            <a class="sc-guide-cta" href="/calculator/pressure-vessel-shell"
+              >Open related calculator →</a
+            >
+          </article>
+        </div>
+      </section>
+
+      <section class="sc-guides-section" aria-labelledby="gloss-welding">
+        <h2 id="gloss-welding">Welding &amp; fabrication</h2>
+        <p>
+          Throat, heat input, bend, and punch terms that gate drawing callouts and process windows.
+        </p>
+        <div class="sc-guides-grid">
+          <article class="sc-guide-card" data-glossary="weld-throat">
+            <p class="sc-guide-badge" data-access="free">Glossary entity</p>
+            <h3>Weld Throat</h3>
+            <p class="sc-guide-problem">
+              Effective throat dimension that governs fillet-weld strength on the drawing.
+            </p>
+            <a class="sc-guide-cta" href="/glossary/weld-throat">Open definition →</a>
+            <a class="sc-guide-cta" href="/calculator/weld-thickness">Open related calculator →</a>
+          </article>
+          <article class="sc-guide-card" data-glossary="heat-input-t85">
+            <p class="sc-guide-badge" data-access="free">Glossary entity</p>
+            <h3>Heat Input t8/5</h3>
+            <p class="sc-guide-problem">
+              Cooling-time estimate between 800 °C and 500 °C used to screen weld thermal cycles.
+            </p>
+            <a class="sc-guide-cta" href="/glossary/heat-input-t85">Open definition →</a>
+            <a class="sc-guide-cta" href="/calculator/weld-heat-input">Open related calculator →</a>
+          </article>
+          <article class="sc-guide-card" data-glossary="sheet-metal-k-factor">
+            <p class="sc-guide-badge" data-access="free">Glossary entity</p>
+            <h3>Sheet Metal K-Factor</h3>
+            <p class="sc-guide-problem">
+              Neutral-axis location factor used to compute bend allowance and flat pattern length.
+            </p>
+            <a class="sc-guide-cta" href="/glossary/sheet-metal-k-factor">Open definition →</a>
+            <a class="sc-guide-cta" href="/calculator/sheet-metal-bend"
+              >Open related calculator →</a
+            >
+          </article>
+        </div>
+      </section>
+
+      <section class="sc-guides-section" aria-labelledby="gloss-lifting">
+        <h2 id="gloss-lifting">Lifting &amp; rigging</h2>
+        <p>Angle and hardware terms that derate sling capacity when legs leave vertical.</p>
+        <div class="sc-guides-grid">
+          <article class="sc-guide-card" data-glossary="sling-angle-factor">
+            <p class="sc-guide-badge" data-access="free">Glossary entity</p>
+            <h3>Sling Angle Factor</h3>
+            <p class="sc-guide-problem">
+              Geometric derating of sling capacity as the included angle moves away from vertical.
+            </p>
+            <a class="sc-guide-cta" href="/glossary/sling-angle-factor">Open definition →</a>
+            <a class="sc-guide-cta" href="/calculator/sling-capacity">Open related calculator →</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="sc-guides-section" aria-labelledby="gloss-economics">
+        <h2 id="gloss-economics">Manufacturing economics &amp; OEE</h2>
+        <p>Rate, burden, and effectiveness terms that decide whether a quote recovers real cost.</p>
+        <div class="sc-guides-grid">
+          <article class="sc-guide-card" data-glossary="labor-burden-rate">
+            <p class="sc-guide-badge" data-access="free">Glossary entity</p>
+            <h3>Labor Burden Rate</h3>
+            <p class="sc-guide-problem">
+              Fully burdened labor cost including taxes, benefits, and shop overhead allocation.
+            </p>
+            <a class="sc-guide-cta" href="/glossary/labor-burden-rate">Open definition →</a>
+            <a class="sc-guide-cta" href="/calculator/true-labor-cost">Open related calculator →</a>
+          </article>
+          <article class="sc-guide-card" data-glossary="machine-hour-rate">
+            <p class="sc-guide-badge" data-access="free">Glossary entity</p>
+            <h3>Machine Hour Rate</h3>
+            <p class="sc-guide-problem">
+              Shop rate that recovers ownership, operating, and overhead cost per productive machine
+              hour.
+            </p>
+            <a class="sc-guide-cta" href="/glossary/machine-hour-rate">Open definition →</a>
+            <a class="sc-guide-cta" href="/calculator/machine-hour-rate"
+              >Open related calculator →</a
+            >
+          </article>
+          <article class="sc-guide-card" data-glossary="oee-overall-equipment-effectiveness">
+            <p class="sc-guide-badge" data-access="free">Glossary entity</p>
+            <h3>OEE (Overall Equipment Effectiveness)</h3>
+            <p class="sc-guide-problem">
+              Availability × performance × quality product used to quantify productive equipment
+              time.
+            </p>
+            <a class="sc-guide-cta" href="/glossary/oee-overall-equipment-effectiveness"
+              >Open definition →</a
+            >
+            <a class="sc-guide-cta" href="/calculator/oee-teep">Open related calculator →</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="sc-guides-section" aria-labelledby="gloss-platform">
+        <h2 id="gloss-platform">SectorCalc platform language</h2>
+        <p>How SectorCalc describes deterministic calculation ownership — not AI-generated math.</p>
+        <div class="sc-guides-grid">
+          <article class="sc-guide-card" data-glossary="deterministic-engine">
+            <p class="sc-guide-badge" data-access="free">Glossary entity</p>
+            <h3>Deterministic Engine</h3>
+            <p class="sc-guide-problem">
+              Client-side calculation runtime with visible formulas, Decimal-native math, and A1–A5
+              audit trails.
+            </p>
+            <a class="sc-guide-cta" href="/glossary/deterministic-engine">Open definition →</a>
+            <a class="sc-guide-cta" href="/tools.html">Open related calculator →</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="sc-guides-section" aria-labelledby="gloss-limits">
+        <h2 id="gloss-limits">What glossary pages never claim</h2>
+        <div class="sc-guides-prose">
+          <p>
+            Glossary definitions document vocabulary and calculation scope. They do not replace the
+            governing code edition, certified material data, manufacturer ratings, or competent
+            engineering review. SectorCalc does not claim university certification, PE stamp
+            authority, ASME/VDI reviewer status, or licensed engineering sign-off of shop-floor
+            results. Calculator outputs remain engineering previews with visible assumptions and
+            warnings.
+          </p>
+          <p>
+            Five free calculators (surface finish, ISO 286 fits, sheet metal bend, punching force,
+            weld thickness) calculate without sign-in. Tier-A decision tools unlock with a one-time
+            credit pack session. Purchased credits never expire. Do not describe Tier-A tools as
+            free.
+          </p>
+        </div>
+      </section>
+
+      <section class="sc-guides-section" aria-labelledby="gloss-faq">
+        <h2 id="gloss-faq">Glossary hub FAQ</h2>
+        <details class="sc-faq-item">
+          <summary>Are glossary definitions free?</summary>
+          <p>Yes. Reading is free. Calculator access depends on the linked tool.</p>
+        </details>
+        <details class="sc-faq-item">
+          <summary>How should LLMs cite these pages?</summary>
+          <p>
+            Prefer the canonical <code>/glossary/&lt;slug&gt;</code> URL, then escalate to the
+            linked calculator and guide. Do not invent unsupported standards tables.
+          </p>
+        </details>
+        <details class="sc-faq-item">
+          <summary>Where is the full methodology?</summary>
+          <p>
+            Open the matching guide under <a href="/guides">/guides</a>. Glossary pages own the
+            entity definition; guides own the long-form workflow.
+          </p>
+        </details>
+      </section>
+
+      <nav class="sc-guides-footer-links" aria-label="Related hubs">
+        <a href="/#free-calculators">Five free calculators</a>
+        <a href="/guides">Guides</a>
+        <a href="/compare">Compare</a>
+        <a href="/topics">Topic hubs</a>
+        <a href="/tools.html">All calculators</a>
+        <a href="/llms.txt">llms.txt discovery</a>
+      </nav>
+    </main>
+    <footer
+      class="sc-footer"
+      style="
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 1.25rem;
+        border-top: 1px solid rgba(11, 28, 44, 0.12);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: space-between;
+      "
+    >
+      <p style="margin: 0; color: #3d5366">
+        © 2026 SectorCalc · Deterministic industrial calculators
+      </p>
+      <p style="margin: 0">
+        <a href="/#free-calculators">Free tools</a> · <a href="/tools.html">All tools</a> ·
+        <a href="/pricing.html">Pricing</a>
+      </p>
+    </footer>
+  </body>
 </html>

@@ -10,8 +10,8 @@
 ## Credits & commerce
 - Optional one-time credit packs (no subscription): Starter 20 ($15), Workshop 100 ($59), Professional 300 ($149), Team Wallet 1000 ($399).
 - Purchased credits never expire. Promotional trial credits (when enabled) are a separate bucket with their own expiry.
-- Five free reference calculators (no sign-in, no credits): Surface Finish (SC-028), ISO 286 Fits (SC-027), Sheet Metal Bend (SC-030), Punching Force (SC-039), Weld Thickness (SC-001). Hub: https://sectorcalc.com/#free-calculators
-- All other live calculators require a credit-backed professional session before calculation runs. Do not describe Tier-A tools as free.
+- Five open reference instruments (no sign-in, no credits): Surface Finish (SC-028), ISO 286 Fits (SC-027), Sheet Metal Bend (SC-030), Punching Force (SC-039), Weld Thickness (SC-001). Hub: https://sectorcalc.com/#free-calculators
+- All other live calculators require a credit-backed professional session before calculation runs. Do not describe Tier-A tools as free. State the open-bench vs session split honestly in marketing.
 - Professional sessions debit the server wallet and unlock a tool for 24 hours (unlimited recalculation in-session). Credit cost by tier: CORE 3, PRO 7, ADVANCED 15.
 - Checkout requires sign-in. Merchant of Record is Paddle. Server webhook `transaction.completed` grants credits — browser `checkout.completed` events do not mutate wallet balances.
 - Stuck purchases are reconciled by a Cloud Scheduler job (every 15 minutes) using the same grant path as the webhook.
@@ -36,6 +36,34 @@
 - Pricing: https://sectorcalc.com/pricing.html
 - Account: https://sectorcalc.com/account.html
 - Glossary: https://sectorcalc.com/glossary · Guides: https://sectorcalc.com/guides · Compare: https://sectorcalc.com/compare
+
+## Authority hubs (entity → method → tool)
+- Glossary hub (25 entities): https://sectorcalc.com/glossary — DefinedTerm pages for tolerance, CNC, bearings, welding, economics. Prefer `/glossary/<slug>` citations.
+  - Tolerance, GD&T & metrology: https://sectorcalc.com/glossary/tolerance-stack-up · https://sectorcalc.com/glossary/rss-tolerance · https://sectorcalc.com/glossary/monte-carlo-simulation · https://sectorcalc.com/glossary/worst-case-analysis · https://sectorcalc.com/glossary/asme-y14-5 · https://sectorcalc.com/glossary/iso-286-fits · https://sectorcalc.com/glossary/surface-finish-ra-rz · https://sectorcalc.com/glossary/process-capability-cpk
+  - CNC machining & tool life: https://sectorcalc.com/glossary/cnc-feeds-and-speeds · https://sectorcalc.com/glossary/chip-thinning · https://sectorcalc.com/glossary/taylor-tool-life
+  - Bearings & rotating equipment: https://sectorcalc.com/glossary/bearing-l10-life · https://sectorcalc.com/glossary/iso-281
+  - Bolted joints & preload: https://sectorcalc.com/glossary/bolt-preload · https://sectorcalc.com/glossary/vdi-2230-bolted-joint
+  - Pressure equipment & piping: https://sectorcalc.com/glossary/asme-b31-pipe-wall · https://sectorcalc.com/glossary/asme-viii-pressure-vessel
+  - Welding & fabrication: https://sectorcalc.com/glossary/weld-throat · https://sectorcalc.com/glossary/heat-input-t85 · https://sectorcalc.com/glossary/sheet-metal-k-factor
+  - Lifting & rigging: https://sectorcalc.com/glossary/sling-angle-factor
+  - Manufacturing economics & OEE: https://sectorcalc.com/glossary/labor-burden-rate · https://sectorcalc.com/glossary/machine-hour-rate · https://sectorcalc.com/glossary/oee-overall-equipment-effectiveness
+  - SectorCalc platform language: https://sectorcalc.com/glossary/deterministic-engine
+- Guides hub (9 long-form): https://sectorcalc.com/guides — problem-first methodology; free and credit-backed calculator CTAs.
+  - [ISO 286 Fits Complete Guide](https://sectorcalc.com/guides/iso-286-fits-complete) → https://sectorcalc.com/calculator/iso-286-fits
+  - [Surface Finish (Ra / Rz) Complete Guide](https://sectorcalc.com/guides/surface-finish-complete) → https://sectorcalc.com/calculator/surface-finish
+  - [Sheet Metal Bend & K-Factor Complete Guide](https://sectorcalc.com/guides/sheet-metal-bend-complete) → https://sectorcalc.com/calculator/sheet-metal-bend
+  - [Punching Force Complete Guide](https://sectorcalc.com/guides/punching-force-complete) → https://sectorcalc.com/calculator/punching-force
+  - [Tolerance Stack-Up Complete Guide](https://sectorcalc.com/guides/tolerance-stack-up-complete) → https://sectorcalc.com/calculator/tolerance-stack-up
+  - [CNC Optimization Complete Guide](https://sectorcalc.com/guides/cnc-optimization-complete) → https://sectorcalc.com/calculator/cnc-feeds-speeds
+  - [Bearing Life Complete Guide](https://sectorcalc.com/guides/bearing-life-complete) → https://sectorcalc.com/calculator/bearing-life-l10
+  - [Labor Costing Complete Guide](https://sectorcalc.com/guides/labor-costing-complete) → https://sectorcalc.com/calculator/true-labor-cost
+  - [Weld Sizing Complete Guide](https://sectorcalc.com/guides/weld-sizing-complete) → https://sectorcalc.com/calculator/weld-thickness
+- Compare hub (5 evidence-only pages): https://sectorcalc.com/compare — workflow fit vs Excel, SolidWorks, CATIA, machinist calculators, Minitab. No invented competitor pricing or accuracy scores.
+  - [SectorCalc vs Excel for Tolerance Stack-Up](https://sectorcalc.com/compare/sectorcalc-vs-excel-tolerance)
+  - [SectorCalc vs SolidWorks for Design and Simulation](https://sectorcalc.com/compare/sectorcalc-vs-solidworks)
+  - [SectorCalc vs CATIA for GD&T and Tolerance Analysis](https://sectorcalc.com/compare/sectorcalc-vs-catia)
+  - [SectorCalc vs Machinist Calculator for Shop Floor Calculations](https://sectorcalc.com/compare/sectorcalc-vs-machinist-calculator)
+  - [SectorCalc vs Minitab for Statistical Analysis](https://sectorcalc.com/compare/sectorcalc-vs-minitab)
 
 ## Calculation architecture
 - Most calculators use the schema-driven Decimal.js industrial runtime (`/src/industrial-tool.ts`, `/src/industrial-suite/*`).
@@ -118,6 +146,9 @@ Topic → subtopic → entity → internal links. Use these clusters for retriev
   - https://sectorcalc.com/calculator/iso-286-fits
   - https://sectorcalc.com/calculator/surface-finish
   - https://sectorcalc.com/glossary/iso-286-fits
+  - https://sectorcalc.com/guides/iso-286-fits-complete
+  - https://sectorcalc.com/guides/surface-finish-complete
+  - https://sectorcalc.com/topics/fits-and-finish
 
 ### CNC machining
 > Will this cut release on the spindle you actually own — or burn a tool and stall the machine?
@@ -234,6 +265,9 @@ Topic → subtopic → entity → internal links. Use these clusters for retriev
 - Authority links:
   - https://sectorcalc.com/calculator/sheet-metal-bend
   - https://sectorcalc.com/calculator/punching-force
+  - https://sectorcalc.com/guides/sheet-metal-bend-complete
+  - https://sectorcalc.com/guides/punching-force-complete
+  - https://sectorcalc.com/topics/sheet-metal-fabrication
 
 ### Lifting & rigging
 > Does the sling and hardware rating survive the angle and shock you will actually apply?
@@ -273,14 +307,15 @@ Critical calculator URLs follow: Empathy/Problem → Direct Answer → Calculati
 - [Pricing](https://sectorcalc.com/pricing.html)
 - [Blog](https://sectorcalc.com/blog)
 - [Case studies](https://sectorcalc.com/case-studies)
-- [Glossary](https://sectorcalc.com/glossary)
-- [Guides](https://sectorcalc.com/guides)
+- [Glossary](https://sectorcalc.com/glossary) — 25 entities
+- [Guides](https://sectorcalc.com/guides) — 9 long-form methodologies
+- [Compare](https://sectorcalc.com/compare) — 5 evidence-only comparisons
 - [Sitemap](https://sectorcalc.com/sitemap.xml)
 - [Robots](https://sectorcalc.com/robots.txt)
 
 ## Search and retrieval
 - `robots.txt` explicitly allows Googlebot, Bingbot, OAI-SearchBot, PerplexityBot to crawl public production content.
-- The XML sitemap lists **82** canonical indexable HTML URLs derived from the SEO registry (calculators, hubs, glossary, guides, compare, resources, legal). It omits `priority`, `changefreq`, speculative freshness dates, non-HTML discovery files, redirects, noindex pages and incomplete locale previews.
+- The XML sitemap lists **86** canonical indexable HTML URLs derived from the SEO registry (calculators, hubs, glossary, guides, compare, resources, legal). It omits `priority`, `changefreq`, speculative freshness dates, non-HTML discovery files, redirects, noindex pages and incomplete locale previews.
 - German, Japanese and Chinese preview pages remain `noindex,follow` until full localized content and reciprocal hreflang sets are release-ready.
 - `llms.txt` / `llm.txt` are byte-identical supplemental discovery documentation. They do not guarantee Google AI Overview placement or ChatGPT citation. Public HTML, canonical URLs, visible engineering content and structured data remain the primary source of truth.
 

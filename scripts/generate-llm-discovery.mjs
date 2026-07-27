@@ -10,6 +10,9 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { TOPICAL_MAPS } from '../seo/topical-maps.mjs';
 import { FREE_TOOLS } from '../seo/free-tools.mjs';
+import { GLOSSARY_GROUPS, GLOSSARY_TERMS } from '../seo/glossary-catalog.mjs';
+import { COMPARE_PAGES } from '../seo/compare-catalog.mjs';
+import { GUIDE_ASSEMBLY as GUIDES } from '../seo/guides-assembly.mjs';
 import {
   HOST,
   absoluteUrl,
@@ -85,8 +88,8 @@ const text = `# SectorCalc
 ## Credits & commerce
 - Optional one-time credit packs (no subscription): Starter 20 ($15), Workshop 100 ($59), Professional 300 ($149), Team Wallet 1000 ($399).
 - Purchased credits never expire. Promotional trial credits (when enabled) are a separate bucket with their own expiry.
-- Five free reference calculators (no sign-in, no credits): Surface Finish (SC-028), ISO 286 Fits (SC-027), Sheet Metal Bend (SC-030), Punching Force (SC-039), Weld Thickness (SC-001). Hub: ${HOST}/#free-calculators
-- All other live calculators require a credit-backed professional session before calculation runs. Do not describe Tier-A tools as free.
+- Five open reference instruments (no sign-in, no credits): Surface Finish (SC-028), ISO 286 Fits (SC-027), Sheet Metal Bend (SC-030), Punching Force (SC-039), Weld Thickness (SC-001). Hub: ${HOST}/#free-calculators
+- All other live calculators require a credit-backed professional session before calculation runs. Do not describe Tier-A tools as free. State the open-bench vs session split honestly in marketing.
 - Professional sessions debit the server wallet and unlock a tool for 24 hours (unlimited recalculation in-session). Credit cost by tier: CORE 3, PRO 7, ADVANCED 15.
 - Checkout requires sign-in. Merchant of Record is Paddle. Server webhook \`transaction.completed\` grants credits — browser \`checkout.completed\` events do not mutate wallet balances.
 - Stuck purchases are reconciled by a Cloud Scheduler job (every 15 minutes) using the same grant path as the webhook.
@@ -107,6 +110,14 @@ ${FREE_TOOLS.map((t) => `- [${t.name}](${HOST}${t.canonicalPath}) — ${t.toolId
 - Pricing: ${HOST}/pricing.html
 - Account: ${HOST}/account.html
 - Glossary: ${HOST}/glossary · Guides: ${HOST}/guides · Compare: ${HOST}/compare
+
+## Authority hubs (entity → method → tool)
+- Glossary hub (${GLOSSARY_TERMS.length} entities): ${HOST}/glossary — DefinedTerm pages for tolerance, CNC, bearings, welding, economics. Prefer \`/glossary/<slug>\` citations.
+${GLOSSARY_GROUPS.map((g) => `  - ${g.title}: ${g.terms.map((t) => absoluteUrl(`/glossary/${t.slug}`)).join(' · ')}`).join('\n')}
+- Guides hub (${GUIDES.length} long-form): ${HOST}/guides — problem-first methodology; free and credit-backed calculator CTAs.
+${GUIDES.map((g) => `  - [${g.title}](${HOST}/guides/${g.slug}) → ${HOST}${g.calculator.href}`).join('\n')}
+- Compare hub (${COMPARE_PAGES.length} evidence-only pages): ${HOST}/compare — workflow fit vs Excel, SolidWorks, CATIA, machinist calculators, Minitab. No invented competitor pricing or accuracy scores.
+${COMPARE_PAGES.map((c) => `  - [${c.title}](${HOST}/compare/${c.slug})`).join('\n')}
 
 ## Calculation architecture
 - Most calculators use the schema-driven Decimal.js industrial runtime (\`/src/industrial-tool.ts\`, \`/src/industrial-suite/*\`).
@@ -143,8 +154,9 @@ ${limitations.map((l) => `- ${l}`).join('\n')}
 - [Pricing](${HOST}/pricing.html)
 - [Blog](${HOST}/blog)
 - [Case studies](${HOST}/case-studies)
-- [Glossary](${HOST}/glossary)
-- [Guides](${HOST}/guides)
+- [Glossary](${HOST}/glossary) — ${GLOSSARY_TERMS.length} entities
+- [Guides](${HOST}/guides) — ${GUIDES.length} long-form methodologies
+- [Compare](${HOST}/compare) — ${COMPARE_PAGES.length} evidence-only comparisons
 - [Sitemap](${HOST}/sitemap.xml)
 - [Robots](${HOST}/robots.txt)
 

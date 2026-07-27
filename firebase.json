@@ -3,22 +3,12 @@
     {
       "source": "functions",
       "codebase": "sectorcalc-billing",
-      "ignore": [
-        "node_modules",
-        ".git",
-        "firebase-debug.log",
-        "firebase-debug.*.log",
-        "*.local"
-      ]
+      "ignore": ["node_modules", ".git", "firebase-debug.log", "firebase-debug.*.log", "*.local"]
     }
   ],
   "hosting": {
     "public": "dist",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "cleanUrls": false,
     "trailingSlash": false,
     "redirects": [
@@ -355,6 +345,26 @@
       {
         "source": "/guides/weld-sizing-complete.html",
         "destination": "/guides/weld-sizing-complete",
+        "type": 301
+      },
+      {
+        "source": "/guides/iso-286-fits-complete.html",
+        "destination": "/guides/iso-286-fits-complete",
+        "type": 301
+      },
+      {
+        "source": "/guides/surface-finish-complete.html",
+        "destination": "/guides/surface-finish-complete",
+        "type": 301
+      },
+      {
+        "source": "/guides/sheet-metal-bend-complete.html",
+        "destination": "/guides/sheet-metal-bend-complete",
+        "type": 301
+      },
+      {
+        "source": "/guides/punching-force-complete.html",
+        "destination": "/guides/punching-force-complete",
         "type": 301
       },
       {
@@ -785,6 +795,22 @@
         "destination": "/guides/weld-sizing-complete.html"
       },
       {
+        "source": "/guides/iso-286-fits-complete",
+        "destination": "/guides/iso-286-fits-complete.html"
+      },
+      {
+        "source": "/guides/surface-finish-complete",
+        "destination": "/guides/surface-finish-complete.html"
+      },
+      {
+        "source": "/guides/sheet-metal-bend-complete",
+        "destination": "/guides/sheet-metal-bend-complete.html"
+      },
+      {
+        "source": "/guides/punching-force-complete",
+        "destination": "/guides/punching-force-complete.html"
+      },
+      {
         "source": "/guides",
         "destination": "/guides/index.html"
       },
@@ -875,13 +901,7 @@
     {
       "source": "functions",
       "codebase": "sectorcalc",
-      "ignore": [
-        "node_modules",
-        ".git",
-        "firebase-debug.log",
-        "firebase-debug.*.log",
-        "*.local"
-      ]
+      "ignore": ["node_modules", ".git", "firebase-debug.log", "firebase-debug.*.log", "*.local"]
     }
   ]
 }

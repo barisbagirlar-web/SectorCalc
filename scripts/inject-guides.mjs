@@ -14,7 +14,11 @@ const MAP = [
   { page: 'quote-pro.html', guide: 'content/guides/sc012.html', mode: 'before-body' },
   { page: 'weld-pro.html', guide: 'content/guides/sc001.html', mode: 'before-body' },
   { page: 'machining-pro.html', guide: 'content/guides/sc020.html', mode: 'before-footer' },
-  { page: 'bearing-pro.html', guide: 'content/guides/sc021.html', mode: 'before-footer' }
+  { page: 'bearing-pro.html', guide: 'content/guides/sc021.html', mode: 'before-footer' },
+  { page: 'fits-pro.html', guide: 'content/guides/sc027.html', mode: 'before-footer' },
+  { page: 'surface-finish-pro.html', guide: 'content/guides/sc028.html', mode: 'before-footer' },
+  { page: 'bend-pro.html', guide: 'content/guides/sc030.html', mode: 'before-footer' },
+  { page: 'punching-pro.html', guide: 'content/guides/sc039.html', mode: 'before-footer' },
 ];
 
 const GUIDE_ASSETS_V = 3;

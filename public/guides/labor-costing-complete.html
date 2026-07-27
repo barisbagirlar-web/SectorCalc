@@ -1,173 +1,1314 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Complete Guide to True Labor Costing | SectorCalc Engineering</title>
-  <meta name="description" content="A complete engineering guide to True Labor Costing: methodology, standards, formulas, common mistakes, and a deterministic calculator with full audit trail.">
-  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
-  <link rel="canonical" href="https://sectorcalc.com/guides/labor-costing-complete">
-  <link rel="stylesheet" href="/css/seo-content.css">
-  <link rel="stylesheet" href="/sc-theme.css">
-  <meta property="og:title" content="Complete Guide to True Labor Costing | SectorCalc">
-  <meta property="og:description" content="Engineering methodology, standards, and deterministic calculator.">
-  <meta property="og:url" content="https://sectorcalc.com/guides/labor-costing-complete">
-  <meta property="og:type" content="article">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Labor Costing Complete Guide | SectorCalc</title>
+    <meta
+      name="description"
+      content="If labor in the quote looks cheap against payroll reality, true labor cost is the fully loaded employer hour — grossed-up pay plus employer social charges, be"
+    />
+    <link rel="canonical" href="https://sectorcalc.com/guides/labor-costing-complete" />
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1" />
+    <meta property="og:title" content="Labor Costing Complete Guide | SectorCalc" />
+    <meta
+      property="og:description"
+      content="Net wage is not what the employer pays. Quoting on payslip numbers understates cost by the hidden burden you never wrote down."
+    />
+    <meta property="og:url" content="https://sectorcalc.com/guides/labor-costing-complete" />
+    <meta property="og:type" content="article" />
+    <meta
+      property="og:image"
+      content="https://sectorcalc.com/assets/images/og-default-1200x630.jpg"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="stylesheet" href="/css/seo-content.css" />
+    <link rel="stylesheet" href="/sc-theme.css?v=12" />
+    <link rel="stylesheet" href="/sc-site-nav.css?v=5" />
+    <link rel="stylesheet" href="/sc-tool-guide.css?v=3" />
+    <link rel="stylesheet" href="/css/sc-guides.css?v=3" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Sans:wght@400;600;700&family=JetBrains+Mono:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="/sc-theme.js?v=12" defer></script>
+    <script src="/sc-site-nav.js?v=2" defer></script>
+    <script src="/sc-tool-guide.js?v=3" defer></script>
+    <script type="module" src="/src/auth-nav.ts"></script>
+    <script type="application/ld+json">
       {
-        "@type": "Organization",
-        "@id": "https://sectorcalc.com/#organization",
-        "name": "SectorCalc",
-        "url": "https://sectorcalc.com/"
-      },
-      {
-        "@type": "Article",
-        "@id": "https://sectorcalc.com/guides/labor-costing-complete#article",
-        "url": "https://sectorcalc.com/guides/labor-costing-complete",
-        "headline": "Complete Guide to True Labor Costing",
-        "description": "Engineering guide to True Labor Costing with methodology and calculator.",
-        "datePublished": "2026-07-26",
-        "dateModified": "2026-07-26",
-        "author": { "@id": "https://sectorcalc.com/#person-neela-nataraj" },
-        "wordCount": 2500
-      },
-      {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sectorcalc.com/" },
-          { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://sectorcalc.com/guides/" },
-          { "@type": "ListItem", "position": 3, "name": "True Labor Costing", "item": "https://sectorcalc.com/guides/labor-costing-complete" }
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://sectorcalc.com/#organization",
+            "name": "SectorCalc",
+            "url": "https://sectorcalc.com/"
+          },
+          {
+            "@type": "TechArticle",
+            "@id": "https://sectorcalc.com/guides/labor-costing-complete#article",
+            "url": "https://sectorcalc.com/guides/labor-costing-complete",
+            "headline": "Complete Guide to True Labor Cost & Shop Rate Economics",
+            "description": "If labor in the quote looks cheap against payroll reality, true labor cost is the fully loaded employer hour — grossed-up pay plus employer social charges, benefits, severance accrual, overtime, and amortized recruitment — not the net wage on the payslip.",
+            "datePublished": "2026-07-26",
+            "dateModified": "2026-07-28",
+            "author": {
+              "@id": "https://sectorcalc.com/#organization"
+            },
+            "publisher": {
+              "@id": "https://sectorcalc.com/#organization"
+            },
+            "isAccessibleForFree": false,
+            "inLanguage": "en-US",
+            "about": "Manufacturing economics",
+            "speakable": {
+              "@type": "SpeakableSpecification",
+              "cssSelector": [".sc-aeo-empathy", ".sc-direct-answer", "h1", "#aeo-methodology"]
+            }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://sectorcalc.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Guides",
+                "item": "https://sectorcalc.com/guides"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Labor Costing Complete Guide",
+                "item": "https://sectorcalc.com/guides/labor-costing-complete"
+              }
+            ]
+          },
+          {
+            "@type": "HowTo",
+            "name": "How to use Labor Costing Complete Guide",
+            "step": [
+              {
+                "@type": "HowToStep",
+                "position": 1,
+                "name": "Read the problem",
+                "text": "Net wage is not what the employer pays. Quoting on payslip numbers understates cost by the hidden burden you never wrote down."
+              },
+              {
+                "@type": "HowToStep",
+                "position": 2,
+                "name": "Open the calculator",
+                "text": "Open SC-010 True Labor Cost (session) at https://sectorcalc.com/calculator/true-labor-cost"
+              },
+              {
+                "@type": "HowToStep",
+                "position": 3,
+                "name": "Apply methodology",
+                "text": "Normalize net → monthly, gross-up by employee rate, add employer charges and benefits, accrue severance, add overtime and amortized recruitment, then divide by paid hours."
+              },
+              {
+                "@type": "HowToStep",
+                "position": 4,
+                "name": "Keep A1–A5 notes",
+                "text": "Steps and conservation lock provide the reproducible trail from net pay to true monthly/hourly cost."
+              }
+            ]
+          }
         ]
       }
-    ]
-  }
-  </script>
-</head>
-<body class="theme-calc-sheet">
-  <header class="sc-header">
-    <a href="/" class="sc-logo">SectorCalc</a>
-    <nav class="sc-nav">
-      <a href="/tools.html">Tools</a>
-      <a href="/pro.html">Pro</a>
-      <a href="/pricing.html">Pricing</a>
-      <a href="/blog/">Blog</a>
-    </nav>
-  </header>
-  <main class="sc-guide-page">
-    <nav class="sc-breadcrumb" aria-label="Breadcrumb">
-      <ol>
-        <li><a href="/">Home</a></li>
-        <li><a href="/guides/">Guides</a></li>
-        <li aria-current="page">True Labor Costing</li>
-      </ol>
-    </nav>
-    <article>
-      <h1>Complete Guide to <span class="highlight">True Labor Costing</span></h1>
-      <p class="lead">True labor costing includes not just net salary but statutory burden, benefits, overhead allocation, and indirect time. This guide explains how to build the real cost per hour for accurate quoting.</p>
-      <div class="sc-guide-toc">
-        <h2>Table of Contents</h2>
+    </script>
+  </head>
+  <body class="sc-guides-shell sc-guides-exclusive">
+    <!--SC-SITE-NAV-START-->
+    <header class="site-header" id="siteHeader" role="banner">
+      <a href="/" class="brand" aria-label="SectorCalc Home"
+        ><span class="brand-mark"
+          ><img
+            class="logo-light"
+            src="/sectorcalc-logo-214.w.png"
+            srcset="/sectorcalc-logo-214.w.png 214w, /sectorcalc-logo-428.w.png 428w"
+            sizes="183px"
+            width="183"
+            height="48"
+            alt="SectorCalc"
+            decoding="async" /><img
+            class="logo-dark"
+            src="/sectorcalc-logo-dark-214.w.png"
+            srcset="/sectorcalc-logo-dark-214.w.png 214w, /sectorcalc-logo-dark-428.w.png 428w"
+            sizes="183px"
+            width="183"
+            height="48"
+            alt=""
+            aria-hidden="true"
+            decoding="async" /></span
+      ></a>
+      <nav class="main-nav" role="navigation" aria-label="Main navigation">
+        <ul>
+          <li><a href="/tools.html" data-nav="tools">Tools</a></li>
+          <li><a href="/glossary" data-nav="glossary">Glossary</a></li>
+          <li><a href="/guides" data-nav="guides">Guides</a></li>
+          <li><a href="/compare" data-nav="compare">Compare</a></li>
+          <li><a href="/pricing.html" data-nav="pricing">Pricing</a></li>
+          <li><a href="/account.html" data-nav="account">Account</a></li>
+        </ul>
+        <span class="sc-nav-tool" aria-hidden="true"></span>
+        <a href="/login.html" class="btn btn-primary" data-nav="login">Sign in</a>
+      </nav>
+      <button
+        class="theme-toggle"
+        id="themeToggle"
+        type="button"
+        aria-label="Toggle color theme"
+        aria-pressed="false"
+        title="Toggle light / dark theme"
+      >
+        <svg
+          data-theme-icon="moon"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          aria-hidden="true"
+        >
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+        </svg>
+        <svg
+          data-theme-icon="sun"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          aria-hidden="true"
+        >
+          <circle cx="12" cy="12" r="5" />
+          <path
+            d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"
+          />
+        </svg>
+      </button>
+      <button
+        class="mobile-menu-btn"
+        id="mobileMenuBtn"
+        type="button"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="mobileNav"
+      >
+        <span></span><span></span><span></span>
+      </button>
+    </header>
+    <div
+      class="mobile-nav-overlay"
+      id="mobileNav"
+      role="dialog"
+      aria-label="Mobile menu"
+      aria-hidden="true"
+    >
+      <a href="/tools.html" data-nav="tools">All Tools</a>
+      <a href="/glossary" data-nav="glossary">Glossary</a>
+      <a href="/guides" data-nav="guides">Guides</a>
+      <a href="/compare" data-nav="compare">Compare</a>
+      <a href="/pricing.html" data-nav="pricing">Pricing</a>
+      <a href="/account.html" data-nav="account">Account</a>
+      <a href="/login.html" class="btn-primary" data-nav="login">Sign in</a>
+    </div>
+    <!--SC-SITE-NAV-END-->
+    <main class="sc-guides-main sc-guide-article" id="main-content">
+      <nav class="sc-breadcrumb" aria-label="Breadcrumb">
         <ol>
-          <li><a href="#what-is">What is True Labor Costing?</a></li>
-          <li><a href="#standards">Applicable Standards</a></li>
-          <li><a href="#methodology">Methodology & Formulas</a></li>
-          <li><a href="#calculator">Using the Deterministic Calculator</a></li>
-          <li><a href="#common-mistakes">Common Mistakes & How to Avoid Them</a></li>
-          <li><a href="#case-study">Real-World Case Study</a></li>
-          <li><a href="#faq">FAQ</a></li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/guides">Guides</a></li>
+          <li aria-current="page">Labor Costing Complete Guide</li>
         </ol>
-      </div>
-      <section id="what-is">
-        <h2>1. What is True Labor Costing?</h2>
-        <p>True labor costing is the process of calculating the fully loaded cost of an hour of labor, including all direct and indirect costs that the employer actually pays.</p>
-        <p>Net salary is only 40-60 percent of true labor cost. The remainder includes payroll taxes, health insurance, retirement contributions, paid time off, training, and shop overhead allocation.</p>
-        <p>Understating labor cost leads to unprofitable quotes. Overstating it loses bids. The deterministic calculator breaks down every component with visible formulas.</p>
+      </nav>
+
+      <header class="sc-guide-hero-block">
+        <p class="sc-guides-kicker">
+          Manufacturing economics · Decision tool · credit session · SC-010
+        </p>
+        <h1>Complete Guide to True Labor Cost &amp; Shop Rate Economics</h1>
+        <div class="sc-aeo-empathy" data-aeo-step="empathy" id="aeo-empathy">
+          <p>
+            <strong>The problem:</strong> Net wage is not what the employer pays. Quoting on payslip
+            numbers understates cost by the hidden burden you never wrote down.
+          </p>
+          <p>
+            <strong>What you get:</strong> Convert net pay into a fully loaded true hourly cost you
+            can defend to finance.
+          </p>
+        </div>
+        <p class="sc-direct-answer" data-aeo-step="direct-answer" id="aeo-direct-answer">
+          If labor in the quote looks cheap against payroll reality, true labor cost is the fully
+          loaded employer hour — grossed-up pay plus employer social charges, benefits, severance
+          accrual, overtime, and amortized recruitment — not the net wage on the payslip.
+        </p>
+        <nav class="sc-aeo-rail" aria-label="Answer engine chain">
+          <a href="#aeo-empathy" data-aeo-rail="empathy">Problem</a
+          ><a href="#aeo-direct-answer" data-aeo-rail="direct-answer">Direct answer</a
+          ><a href="#aeo-explanation" data-aeo-rail="explanation">Explanation</a
+          ><a href="#aeo-methodology" data-aeo-rail="methodology">Methodology</a
+          ><a href="#aeo-evidence" data-aeo-rail="evidence">Evidence</a
+          ><a href="#aeo-accountability" data-aeo-rail="accountability">A1–A5</a
+          ><a href="#aeo-related-problems" data-aeo-rail="related-problems">Related</a>
+        </nav>
+        <p class="sc-guide-access-note">
+          Unlock a credit session for 24-hour recalculation with A1–A5 audit trail. No subscription.
+        </p>
+        <a class="sc-btn-primary" href="/calculator/true-labor-cost"
+          >Open SC-010 True Labor Cost (session) →</a
+        >
+      </header>
+
+      <section class="sc-guide-block" data-aeo-step="explanation" id="aeo-explanation-decision">
+        <h2>Explanation — decision this supports</h2>
+        <p>
+          Price labor honestly into machine rates and quotes, compare country burden, and see the
+          hidden cost percentage above net pay.
+        </p>
       </section>
-      <section id="standards">
-        <h2>2. Applicable Standards</h2>
-        <ul class="sc-standards-list">
-          <li><strong>Local labor law:</strong> Statutory employer costs (taxes, social insurance) that must enter true burden calculations.</li>
-          <li><strong>Company policy:</strong> Internal benefits, overtime rules, and indirect-time definitions that change billable hours.</li>
-          <li><strong>GAAP / IFRS:</strong> Accounting frameworks for allocating overhead consistently into product cost.</li>
+      <section class="sc-guide-block" data-aeo-step="explanation" id="aeo-explanation-inputs">
+        <h2>Required inputs</h2>
+        <p>
+          Country profile, net pay and frequency, hours/week, optional rate overrides, benefits,
+          bonus, overtime, recruitment cost and tenure.
+        </p>
+      </section>
+      <section class="sc-guide-block" data-aeo-step="methodology" id="aeo-methodology">
+        <h2>Methodology — formula &amp; method</h2>
+        <div class="sc-formula-block">
+          <code
+            >Normalize net → monthly, gross-up by employee rate, add employer charges and benefits,
+            accrue severance, add overtime and amortized recruitment, then divide by paid
+            hours.</code
+          >
+        </div>
+      </section>
+      <section class="sc-guide-block" data-aeo-step="evidence" id="worked-example">
+        <h2>Evidence — worked example</h2>
+        <p>
+          Production SC-010 converts net pay into true employer cost including employer social
+          charges, benefits, severance accrual, and amortized recruitment.
+        </p>
+        <p class="sc-money-engine">
+          Engine source: <code>src/tools/SC-010-labor-cost/v1.0.0/formula.ts</code> · tool
+          <code>SC-010</code>
+        </p>
+        <div class="sc-guide-split">
+          <div>
+            <h3>Inputs</h3>
+            <ul>
+              <li><strong>country:</strong> DE</li>
+              <li><strong>netSalary:</strong> 3200</li>
+              <li><strong>payFrequency:</strong> monthly</li>
+              <li><strong>hoursPerWeek:</strong> 40</li>
+              <li><strong>healthMonthly:</strong> 120</li>
+              <li><strong>mealMonthly:</strong> 80</li>
+              <li><strong>transportMonthly:</strong> 50</li>
+              <li><strong>annualBonus:</strong> 2400</li>
+              <li><strong>recruitmentCost:</strong> 4500</li>
+              <li><strong>tenureYears:</strong> 3</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Outputs</h3>
+            <ul>
+              <li><strong>trueMonthlyCost:</strong> <code>5425.00</code></li>
+              <li><strong>trueHourlyCost:</strong> <code>31.32</code></li>
+              <li><strong>costMultiplier:</strong> <code>1.70</code></li>
+              <li><strong>hiddenCostPct:</strong> <code>69.5</code></li>
+              <li><strong>currency:</strong> <code>EUR</code></li>
+            </ul>
+          </div>
+        </div>
+        <p>
+          <em
+            >SectorCalc does not publish invented customer ROI. These numbers come from the
+            deterministic engine fixture.</em
+          >
+        </p>
+      </section>
+      <section class="sc-guide-block" data-aeo-step="explanation">
+        <h2>What the result means</h2>
+        <p>
+          Cost multiplier &gt; 1.5 is common. If your quote uses net wage as labor €/h, you are
+          understating cost by the hidden percentage the engine reports.
+        </p>
+      </section>
+      <section class="sc-guide-block" data-aeo-step="explanation">
+        <h2>What moves the result</h2>
+        <p>
+          Employer social rates and net pay dominate. Recruitment amortization matters on short
+          tenure. Overtime multiplies quickly.
+        </p>
+      </section>
+      <section class="sc-guide-block" data-aeo-step="methodology">
+        <h2>Assumptions</h2>
+        <p>
+          Country defaults are reference profiles. Overrides replace defaults when provided. Tenure
+          amortizes recruitment linearly.
+        </p>
+      </section>
+      <section class="sc-guide-block" data-aeo-step="methodology">
+        <h2>Model boundaries</h2>
+        <p>
+          Not payroll, tax advice, or a CBA interpreter. Local statutory rules can differ from the
+          screening profile.
+        </p>
+      </section>
+      <section class="sc-guide-block" data-aeo-step="evidence">
+        <h2>Common engineering mistakes</h2>
+        <p>
+          Using net instead of true hourly cost in quotes; ignoring employer charges; setting tenure
+          to zero.
+        </p>
+      </section>
+      <section class="sc-guide-block" data-aeo-step="evidence">
+        <h2>Evidence — standard &amp; reference scope</h2>
+        <p>
+          Cost-engineering labor burden model. Not a claim of full statutory payroll compliance for
+          every jurisdiction.
+        </p>
+      </section>
+      <section class="sc-guide-block" data-aeo-step="accountability" id="aeo-accountability">
+        <h2>Accountability — A1–A5 audit trail</h2>
+        <p>
+          Steps and conservation lock provide the reproducible trail from net pay to true
+          monthly/hourly cost.
+        </p>
+        <ol class="sc-a15">
+          <li><strong>A1</strong> Engine identity / version</li>
+          <li><strong>A2</strong> Inputs snapshot</li>
+          <li><strong>A3</strong> Formula path</li>
+          <li><strong>A4</strong> Assumptions</li>
+          <li><strong>A5</strong> Warnings / out-of-band flags</li>
+        </ol>
+      </section>
+
+      <section class="sc-guide-deep" id="deep-methodology" aria-label="Deep methodology">
+        <h2 class="sc-guide-deep-title">Deep methodology library</h2>
+        <p class="sc-guide-deep-lead">
+          The long-form reference below is the same engineering depth injected beside the live
+          calculator — expanded here as a standalone guide for answer engines and humans.
+        </p>
+        <section
+          class="sc-guide"
+          id="sc-guide"
+          data-tool-id="SC-010"
+          data-tool-name="True Labor Cost Calculator (SC-010)"
+          data-tool-url="https://sectorcalc.com/labor-pro.html"
+          itemscope
+          itemtype="https://schema.org/FAQPage"
+        >
+          <nav class="sc-guide-toc" aria-label="Table of contents">
+            <div class="t">On this page</div>
+            <ul>
+              <li><a href="#overview">Why net salary is not your cost</a></li>
+              <li><a href="#net-to-gross">Net to gross salary conversion</a></li>
+              <li><a href="#employer-burden">Employer social security and unemployment</a></li>
+              <li><a href="#benefits">Benefits and allowances</a></li>
+              <li><a href="#severance">Severance accrual</a></li>
+              <li><a href="#burden-rate">Burden rate and cost multiplier</a></li>
+              <li><a href="#fully-loaded">Fully loaded hourly cost</a></li>
+              <li><a href="#country-rates">Country-rate caveats</a></li>
+              <li><a href="#quoting">Using loaded labor in quotes</a></li>
+              <li><a href="#faq">Frequently asked questions</a></li>
+            </ul>
+          </nav>
+
+          <p class="sc-guide-lede">
+            <b>True labor cost</b> is what an employer actually spends to keep one worker productive
+            for one hour — not the net salary on a payslip. SC-010 grosses up take-home pay, adds
+            statutory employer contributions, benefits, severance accrual, overtime, and amortized
+            recruitment, then returns a <b>conservation-locked monthly total</b> and a
+            <b>fully loaded hourly rate</b> suitable for job costing and quoting.
+          </p>
+
+          <p class="note">
+            Engineering preview · Client-side deterministic Decimal engine · Reference country rates
+            are estimates — verify with local payroll law before production use · Not for statutory
+            payroll filing or production approval.
+          </p>
+
+          <h2 id="overview">Why net salary is not your cost</h2>
+
+          <p>
+            Shop owners and estimators often anchor on the number the employee sees: monthly net
+            pay. That figure excludes employee-side income tax and social deductions already
+            withheld, and it completely ignores employer-side statutory contributions, health
+            premiums, meal and transport allowances, bonus accruals, severance provisions, overtime
+            premiums, and hiring costs spread over tenure.
+          </p>
+
+          <p>
+            When you quote a weldment or machined part using net pay divided by 160 hours, you
+            systematically under-recover cost. The gap — sometimes called <b>hidden labor cost</b> —
+            routinely runs 30–80% above net depending on jurisdiction and benefit package. SC-010
+            makes that gap explicit with a line-item breakdown and a cost multiplier (true monthly
+            cost ÷ net monthly).
+          </p>
+
+          <h2 id="net-to-gross">Net to gross salary conversion</h2>
+
+          <p>
+            Most payroll systems work from gross; estimators often know net. SC-010 reverses the
+            employee burden with a simplified gross-up:
+          </p>
+
+          <div class="sc-formula">grossMonthly = netMonthly / (1 − employeeRate)</div>
+
+          <p>
+            Where <b>employeeRate</b> is the combined employee-side deduction ratio (income tax +
+            employee social contributions). The tool accepts net salary as hourly, weekly,
+            bi-weekly, or monthly and normalizes to a monthly net first using 4.33 weeks per month
+            (52 ÷ 12).
+          </p>
+
+          <div class="sc-formula">netMonthly (hourly) = netHourly × hoursPerWeek × 4.33</div>
+
+          <p>
+            The gross-up is a planning estimate, not a tax return. Progressive tax brackets, caps,
+            and allowances are not modeled in v1.0.0. For a single effective rate that matches
+            observed payslips, adjust <b>employeeRate</b> manually until gross reconciles with
+            payroll.
+          </p>
+
+          <h2 id="employer-burden">Employer social security and unemployment</h2>
+
+          <p>
+            After gross salary is estimated, employer statutory costs apply on the gross base (not
+            net):
+          </p>
+
+          <div class="sc-formula">
+            employerSS = gross × employerSSRate employerUnemployment = gross × employerUnempRate
+          </div>
+
+          <p>
+            In the United States reference preset, employer FICA (6.2% + 1.45%) and an approximate
+            FUTA/SUTA unemployment burden are represented. Germany, France, Turkey, and other
+            presets carry different combined employer rates. Wage bases, ceilings, and
+            experience-rated unemployment taxes are not fully modeled — the rates are
+            <b>reference estimates</b> for engineering preview only.
+          </p>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Component</th>
+                <th>Typical base</th>
+                <th>Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Employer social security</td>
+                <td>Gross wages</td>
+                <td>Often capped annually (e.g. SS wage base in US)</td>
+              </tr>
+              <tr>
+                <td>Employer unemployment</td>
+                <td>Gross wages (partial)</td>
+                <td>FUTA capped; SUTA varies by state and experience</td>
+              </tr>
+              <tr>
+                <td>Workers' compensation</td>
+                <td>Not in SC-010 v1.0.0</td>
+                <td>
+                  Add manually via benefits or overhead in
+                  <a href="/calculator/quote-pricing">SC-012 Quote Pricing</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2 id="benefits">Benefits and allowances</h2>
+
+          <p>
+            Employer-paid benefits enter as fixed monthly amounts plus annual bonus spread over
+            twelve months:
+          </p>
+
+          <div class="sc-formula">
+            benefitsMonthly = health + meal + transport + (annualBonus / 12)
+          </div>
+
+          <p>
+            Health insurance, meal vouchers, and commuting allowances are common in EU and Turkish
+            shops; US shops often add employer health premiums separately from gross. Bonus accrual
+            smooths a lump-sum payment into monthly job cost — useful for quoting even when bonus is
+            discretionary.
+          </p>
+
+          <div class="sc-tip">
+            <span class="ico" aria-hidden="true">💡</span>
+            <div>
+              After SC-010 gives you <b>trueHourlyCost</b>, paste it into the labor rate field in
+              <a href="/calculator/quote-pricing">SC-012 Quote Pricing</a> — do not re-use net
+              hourly pay. For machine burden (depreciation, maintenance, floor space), use a
+              separate machine hourly rate or shop overhead in SC-012.
+            </div>
+          </div>
+
+          <h2 id="severance">Severance accrual</h2>
+
+          <p>
+            In jurisdictions with statutory severance (e.g. Turkey: roughly one month gross per year
+            of service), SC-010 accrues severance monthly as a ratio of gross:
+          </p>
+
+          <div class="sc-formula">severanceMonthly = gross × severanceRate</div>
+
+          <p>
+            For Turkey the reference <b>severanceRate</b> is 0.0833 (1 ÷ 12 of one month's gross per
+            year). US and UK presets use zero statutory severance; contractual redundancy or WARN
+            costs are not auto-included. Treat severance accrual as a long-run average — actual
+            payout depends on tenure at separation.
+          </p>
+
+          <h2 id="burden-rate">Burden rate and cost multiplier</h2>
+
+          <p>
+            The <b>burden rate</b> (or labor burden) is the ratio of total employer cost to gross or
+            to net, depending on convention. SC-010 reports:
+          </p>
+
+          <div class="sc-formula">
+            costMultiplier = trueMonthlyCost / netMonthly hiddenCostPct = (trueMonthlyCost −
+            netMonthly) / netMonthly × 100
+          </div>
+
+          <p>
+            A multiplier of 1.65 means the employer spends 65% more than the employee's take-home.
+            This is the number production controllers watch when net wages rise but quotes stay
+            flat. Overtime and recruitment amortization inflate the multiplier further when those
+            inputs are non-zero.
+          </p>
+
+          <h2 id="fully-loaded">Fully loaded hourly cost</h2>
+
+          <p>
+            The hourly rate used in routing sheets and CNC time studies should include every monthly
+            component divided by productive hours:
+          </p>
+
+          <div class="sc-formula">trueHourlyCost = trueMonthlyCost / (hoursPerWeek × 4.33)</div>
+
+          <p>
+            Overtime is modeled separately: average monthly overtime hours × base hourly × overtime
+            multiplier (default 1.5×). Base hourly for overtime is derived from gross, not from true
+            hourly — a conservative simplification. Paid leave, training, and non-productive time
+            are not subtracted from the denominator in v1.0.0; if only 85% of paid hours are
+            billable, divide true monthly cost by billable hours instead, or inflate overhead in
+            SC-012.
+          </p>
+
+          <div class="sc-formula">
+            trueMonthlyCost = gross + employerSS + employerUnemp + benefits + severance + overtime +
+            recruitmentMonthly
+          </div>
+
+          <p>
+            The engine enforces <b>conservation</b>: the sum of breakdown line items must equal true
+            monthly cost within 1×10⁻⁹; a mismatch throws an error rather than shipping a wrong
+            total.
+          </p>
+
+          <h2 id="country-rates">Country-rate caveats</h2>
+
+          <p>
+            Built-in presets (US, TR, DE, GB, IN, FR) ship reference rates as Decimal strings for
+            reproducibility. They are starting points from public summaries, not legal advice:
+          </p>
+
+          <ul>
+            <li>
+              <b>US</b> — FICA employer 7.65%; FUTA ~6% on first $7k is averaged, not wage-base
+              capped.
+            </li>
+            <li><b>TR</b> — SGK employer ~20.5%; severance accrual 8.33%/month of gross.</li>
+            <li>
+              <b>DE / FR</b> — High employer social ratios; local surcharges and industry funds
+              omitted.
+            </li>
+            <li><b>GB</b> — Employer NIC 13.8% above threshold simplified to flat ratio.</li>
+            <li><b>IN</b> — EPF/ESI approximate; gratuity after five years not accrued.</li>
+          </ul>
+
+          <p>
+            Always reconcile one employee against actual payroll before rolling rates across the
+            shop. Update inputs when law changes; SC-010 does not fetch live statutory tables.
+          </p>
+
+          <h2 id="quoting">Using loaded labor in quotes</h2>
+
+          <p>
+            Job quoting requires <b>fully absorbed</b> labor: loaded hourly × run hours, plus setup
+            at the same or a higher setup rate, plus scrap, overhead, and margin. Workflow:
+          </p>
+
+          <ol>
+            <li>
+              Run SC-010 for each trade or use a blended shop rate (weighted average of true hourly
+              costs).
+            </li>
+            <li>
+              Copy <b>trueHourlyCost</b> into <a href="/calculator/quote-pricing">SC-012</a> as
+              <b>laborHourlyCost</b>.
+            </li>
+            <li>
+              Add machine hours at machine burden, material with scrap yield, shop overhead rate,
+              and target margin on sell price.
+            </li>
+            <li>
+              For tolerance-sensitive or weld-critical jobs, cross-check process assumptions with
+              <a href="/calculator/tolerance-stack-up">SC-008 Tolerance Stack-Up</a> and
+              <a href="/calculator/weld-thickness">SC-001 Weld Thickness</a>.
+            </li>
+          </ol>
+
+          <p>
+            Never mix net pay in SC-012 and loaded pay in overhead — that double-counts or
+            under-counts depending on how overhead was calibrated. Pick one labor philosophy per
+            quote and stay consistent.
+          </p>
+
+          <div class="sc-guide-faq" id="faq">
+            <h2>Frequently asked questions</h2>
+
+            <div class="q" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+              <h3 itemprop="name">
+                What is the difference between burden rate and cost multiplier in SC-010?
+              </h3>
+              <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <div itemprop="text">
+                  <p>
+                    SC-010's <b>costMultiplier</b> is true monthly employer cost divided by net
+                    monthly pay. A burden rate in cost accounting sometimes means employer cost
+                    divided by gross wages only. Both express how much extra you pay above a
+                    reference wage; always note which base (net vs gross) your ERP uses before
+                    comparing numbers.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="q" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+              <h3 itemprop="name">Why does SC-010 use 4.33 weeks per month?</h3>
+              <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <div itemprop="text">
+                  <p>
+                    52 weeks ÷ 12 months = 4.333… weeks. Using 4.33 keeps hourly normalization
+                    deterministic and aligned with the engine's Decimal constants. Some payroll
+                    systems use 4.35 or calendar days; if your shop standard differs, adjust hours
+                    per week or scale the result.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="q" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+              <h3 itemprop="name">Can I use SC-010 output directly in SC-012 Quote Pricing?</h3>
+              <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <div itemprop="text">
+                  <p>
+                    Yes — that is the intended handoff. Enter SC-010's <b>trueHourlyCost</b> as
+                    SC-012's labor hourly cost. SC-012 does not auto-fetch SC-010; rates must be
+                    copied manually so you control blending and revision dates.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="q" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+              <h3 itemprop="name">Are country presets legally certified payroll rates?</h3>
+              <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <div itemprop="text">
+                  <p>
+                    No. Presets are reference estimates for engineering preview and quoting
+                    sensitivity. Wage bases, caps, industry funds, and progressive tax are
+                    simplified. Verify against your payroll provider and local law before
+                    contractual or statutory use.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="q" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+              <h3 itemprop="name">How should overtime affect my quoted hourly rate?</h3>
+              <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <div itemprop="text">
+                  <p>
+                    Enter average monthly overtime hours and multiplier in SC-010 to bake overtime
+                    into true hourly cost, or keep overtime out and add a contingency line in
+                    SC-012. Mixing both without adjusting hours double-counts. For spike workloads,
+                    run a what-if with higher overtime hours before committing a fixed shop rate.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <details class="related">
+            <summary>Related calculators</summary>
+            <ul>
+              <li>
+                <a href="/calculator/quote-pricing">SC-012 Quote Pricing</a> — full absorption
+                quoting with margin on sell price
+              </li>
+              <li>
+                <a href="/calculator/cnc-feeds-speeds">SC-020 CNC Feeds &amp; Speeds</a> — cycle
+                time for labor hours input
+              </li>
+              <li>
+                <a href="/calculator/weld-thickness">SC-001 Weld Thickness</a> — weld sizing for
+                fabrication quotes
+              </li>
+              <li>
+                <a href="/calculator/tolerance-stack-up">SC-008 Tolerance Stack-Up</a> — predicted
+                fit risk on tight assemblies
+              </li>
+              <li><a href="/tools.html">All calculators</a></li>
+            </ul>
+          </details>
+
+          <script type="application/ld+json">
+            {
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "What is the difference between burden rate and cost multiplier in SC-010?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "SC-010's costMultiplier is true monthly employer cost divided by net monthly pay. A burden rate in cost accounting sometimes means employer cost divided by gross wages only. Both express how much extra you pay above a reference wage; always note which base (net vs gross) your ERP uses before comparing numbers."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Why does SC-010 use 4.33 weeks per month?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "52 weeks divided by 12 months equals 4.333 weeks. Using 4.33 keeps hourly normalization deterministic and aligned with the engine's Decimal constants. Some payroll systems use 4.35 or calendar days; if your shop standard differs, adjust hours per week or scale the result."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Can I use SC-010 output directly in SC-012 Quote Pricing?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes — that is the intended handoff. Enter SC-010's trueHourlyCost as SC-012's labor hourly cost. SC-012 does not auto-fetch SC-010; rates must be copied manually so you control blending and revision dates."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Are country presets legally certified payroll rates?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. Presets are reference estimates for engineering preview and quoting sensitivity. Wage bases, caps, industry funds, and progressive tax are simplified. Verify against your payroll provider and local law before contractual or statutory use."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "How should overtime affect my quoted hourly rate?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Enter average monthly overtime hours and multiplier in SC-010 to bake overtime into true hourly cost, or keep overtime out and add a contingency line in SC-012. Mixing both without adjusting hours double-counts. For spike workloads, run a what-if with higher overtime hours before committing a fixed shop rate."
+                  }
+                }
+              ]
+            }
+          </script>
+        </section>
+        <hr class="sc-guide-body-split" />
+        <section
+          class="sc-guide"
+          id="sc-guide"
+          data-tool-id="SC-012"
+          data-tool-name="Quote Pricing Calculator (SC-012)"
+          data-tool-url="https://sectorcalc.com/quote-pro.html"
+          itemscope
+          itemtype="https://schema.org/FAQPage"
+        >
+          <nav class="sc-guide-toc" aria-label="Table of contents">
+            <div class="t">On this page</div>
+            <ul>
+              <li><a href="#overview">Full absorption quoting model</a></li>
+              <li><a href="#material-scrap">Material cost and scrap yield</a></li>
+              <li><a href="#labor-machine">Labor, machine, and setup</a></li>
+              <li><a href="#overhead">Shop overhead absorption</a></li>
+              <li><a href="#finance">Payment terms and finance charge</a></li>
+              <li><a href="#margin-markup">Margin vs markup on sell price</a></li>
+              <li><a href="#sell-cost">Sell price, unit price, and profit</a></li>
+              <li><a href="#contingency">Risk contingencies</a></li>
+              <li><a href="#sc010-rates">When to use SC-010 loaded labor rates</a></li>
+              <li><a href="#faq">Frequently asked questions</a></li>
+            </ul>
+          </nav>
+
+          <p class="sc-guide-lede">
+            <b>Quote pricing</b> under full absorption adds every direct cost — material with scrap,
+            labor, machine time, setup, energy, consumables, shipping — applies shop overhead,
+            charges finance for payment terms, then sets <b>sell price</b> from a target
+            <b>margin on price</b>. SC-012 conservation-locks nine cost components so the breakdown
+            always sums to total cost before margin is applied.
+          </p>
+
+          <p class="note">
+            Engineering preview · Margin-on-price (not markup-on-cost) · Simple interest on payment
+            days · Cross-tool feed from SC-010 is manual · Not a contract pricing system or ERP
+            replacement.
+          </p>
+
+          <h2 id="overview">Full absorption quoting model</h2>
+
+          <p>
+            Variable costing quotes only direct material and direct labor. Full absorption (full
+            costing) also allocates shop overhead and financing so the quote recovers fixed rent,
+            supervision, QA, and working-capital cost. SC-012 implements a practical job-shop stack:
+          </p>
+
+          <ol>
+            <li>Effective material (scrap-adjusted)</li>
+            <li>Direct labor, machine, and setup time at hourly burdens</li>
+            <li>Energy, consumables, and shipping as lump direct costs</li>
+            <li>Overhead as a rate on direct cost</li>
+            <li>Finance charge from customer payment days</li>
+            <li>Sell price from target margin</li>
+          </ol>
+
+          <div class="sc-formula">
+            totalCost = effMaterial + labor + machine + setup + energy + consumables + shipping +
+            overhead + finance
+          </div>
+
+          <p>
+            The runtime engine verifies that these nine items sum exactly to <b>totalCost</b>. Any
+            accounting drift triggers a conservation error — the tool refuses to return an
+            inconsistent quote.
+          </p>
+
+          <h2 id="material-scrap">Material cost and scrap yield</h2>
+
+          <p>
+            Raw material quotes rarely yield 100% good parts. Nesting loss, saw kerf, bar ends,
+            casting risers, and first-off scrap inflate purchased weight. SC-012 uses a standard
+            yield model:
+          </p>
+
+          <div class="sc-formula">effectiveMaterial = materialCost / (1 − scrapRate)</div>
+
+          <p>
+            With <b>scrapRate</b> = 0.10, a €100 net material becomes €111.11 effective (10% loss).
+            Enter scrap as a ratio (0.10), not percent (10). The guard
+            <b>scrapRate &lt; 1</b> prevents divide-by-zero.
+          </p>
+
+          <p>
+            Non-uniform scrap (one expensive setup piece vs recurring runner loss) is not modeled
+            per-part in v1.0.0. For highly asymmetric scrap, increase material cost or add a
+            contingency line before margin.
+          </p>
+
+          <div class="sc-tip">
+            <span class="ico" aria-hidden="true">💡</span>
+            <div>
+              Pair material yield with process risk from
+              <a href="/calculator/cnc-feeds-speeds">SC-020 CNC Feeds &amp; Speeds</a> (tool
+              breakage, roughing scrap) and
+              <a href="/calculator/weld-thickness">SC-001 Weld Thickness</a> (weld repair loops).
+              Tighter tolerances from <a href="/calculator/tolerance-stack-up">SC-008</a> often
+              increase scrap and inspection labor — reflect that in scrap rate or overhead.
+            </div>
+          </div>
+
+          <h2 id="labor-machine">Labor, machine, and setup</h2>
+
+          <p>Direct conversion cost is time × rate:</p>
+
+          <div class="sc-formula">
+            labor = laborHours × laborHourlyCost machine = machineHours × machineHourlyCost setup =
+            (setupMinutes / 60) × setupHourlyCost
+          </div>
+
+          <p>
+            <b>Labor hours</b> should come from routings, CAM estimates, or time studies — not
+            guesswork. <b>Machine hours</b> may track spindle time separately from labor (unattended
+            machining). Setup is amortized over the quote quantity inside SC-012 only if you enter
+            total setup minutes for the job; per-unit setup allocation is implicit when you quote
+            batch quantity in the margin step.
+          </p>
+
+          <p>
+            Machine hourly burden typically includes depreciation, maintenance, power, and floor
+            space. Do not embed the same fixed costs again in overhead unless your chart of accounts
+            is designed for that split.
+          </p>
+
+          <h2 id="overhead">Shop overhead absorption</h2>
+
+          <p>
+            Overhead recovers indirect costs: rent, utilities, management, quality, IT, and shop
+            supplies not tagged to the job.
+          </p>
+
+          <div class="sc-formula">
+            overhead = directCost × overheadRate directCost = effMaterial + labor + machine + setup
+            + energy + consumables + shipping
+          </div>
+
+          <p>
+            A 25% overhead rate on direct cost means €1,000 direct becomes €250 overhead.
+            Activity-based costing (ABC) is not implemented — one flat rate assumes homogeneous job
+            mix. Mixed low- and high-intensity jobs may need separate overhead rates or manual
+            adjustment.
+          </p>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Absorption element</th>
+                <th>Typical input in SC-012</th>
+                <th>Common pitfall</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Material + scrap</td>
+                <td>materialCost, scrapRate</td>
+                <td>Forgetting bar-end and nesting loss</td>
+              </tr>
+              <tr>
+                <td>Labor</td>
+                <td>laborHours × laborHourlyCost</td>
+                <td>Using net pay instead of loaded rate</td>
+              </tr>
+              <tr>
+                <td>Machine</td>
+                <td>machineHours × machineHourlyCost</td>
+                <td>Double-counting depreciation in overhead</td>
+              </tr>
+              <tr>
+                <td>Shop burden</td>
+                <td>overheadRate on direct</td>
+                <td>Rate calibrated on revenue, not direct cost</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2 id="finance">Payment terms and finance charge</h2>
+
+          <p>
+            When customers pay net 30, net 60, or longer, your working capital carries interest.
+            SC-012 applies simple interest:
+          </p>
+
+          <div class="sc-formula">
+            financeCharge = (directCost + overhead) × monthlyInterestRate × (paymentDays / 30)
+          </div>
+
+          <p>
+            This is a planning estimate, not compound interest or letter-of-credit fees. Increase
+            <b>monthlyInterestRate</b> for risky accounts or currency exposure. Zero payment days
+            removes finance from the stack.
+          </p>
+
+          <h2 id="margin-markup">Margin vs markup on sell price</h2>
+
+          <p>
+            SC-012 uses <b>margin on sell price</b> (also called gross margin percentage of price):
+          </p>
+
+          <div class="sc-formula">sellPrice = totalCost / (1 − targetMargin)</div>
+
+          <p>
+            With total cost €800 and target margin 0.25 (25% of sell price), sell = €800 / 0.75 =
+            €1,066.67. Profit = €266.67, which is exactly 25% of sell — not 25% of cost.
+          </p>
+
+          <p>
+            <b>Markup on cost</b> would be sell = cost × (1 + markup). A 25% markup on €800 gives
+            €1,000 sell — lower than margin-on-price. Confusing the two is a classic quoting error;
+            SC-012 enforces margin-on-price consistently. The guard
+            <b>targetMargin &lt; 1</b> prevents invalid inputs.
+          </p>
+
+          <div class="sc-formula">
+            markupOnCost equivalent: markup = targetMargin / (1 − targetMargin) (for margin 0.25 →
+            markup = 0.333… on cost)
+          </div>
+
+          <h2 id="sell-cost">Sell price, unit price, and profit</h2>
+
+          <div class="sc-formula">
+            unitPrice = sellPrice / quantity profit = sellPrice − totalCost profitPerUnit = profit /
+            quantity
+          </div>
+
+          <p>
+            Quantity must be positive. For prototype qty 1, setup dominates unit price; for
+            production qty 500, setup spreads thin. Run SC-012 twice when presenting both prototype
+            and production tiers.
+          </p>
+
+          <h2 id="contingency">Risk contingencies</h2>
+
+          <p>SC-012 has no dedicated contingency field — risk is absorbed by adjusting inputs:</p>
+
+          <ul>
+            <li><b>Scrap rate</b> — technical risk, new material, tight tolerances</li>
+            <li><b>Overhead rate</b> — inspection, rework, engineering support</li>
+            <li><b>Labor hours</b> — learning curve, manual deburr, secondary ops</li>
+            <li><b>Target margin</b> — commercial risk, warranty, customer volatility</li>
+            <li><b>Finance charge</b> — slow pay, export, bonding</li>
+          </ul>
+
+          <p>
+            Document which knob carries which risk so repricing stays auditable. Avoid stacking the
+            same risk into scrap, overhead, and margin without labeling — that over-prices
+            competitively sensitive jobs.
+          </p>
+
+          <h2 id="sc010-rates">When to use SC-010 loaded labor rates</h2>
+
+          <p>
+            Always use <b>true hourly cost</b> from
+            <a href="/calculator/true-labor-cost">SC-010 True Labor Cost</a> as SC-012's
+            <b>laborHourlyCost</b> when labor is shop employees on payroll. SC-010 grosses net pay,
+            adds employer SS/unemployment, benefits, severance accrual, overtime, and recruitment —
+            the same dollars payroll actually spends.
+          </p>
+
+          <p>Use cases:</p>
+
+          <ul>
+            <li>
+              <b>Welding / fabrication</b> — load SC-010 welder rate; estimate hours from weld
+              length and WPS or use SC-001 for sizing context
+            </li>
+            <li>
+              <b>Machining</b> — operator labor at SC-010 rate; machine spindle at separate machine
+              burden; cycle time from SC-020
+            </li>
+            <li>
+              <b>Blended shop rate</b> — weighted average of SC-010 outputs by headcount when
+              routings are not detailed
+            </li>
+          </ul>
+
+          <p>
+            Do not use SC-010 for subcontractor invoices quoted as lump sum — enter those as
+            material or a direct line. Do not use net pay: you will under-recover roughly 30–80%
+            depending on country preset.
+          </p>
+
+          <div class="sc-tip">
+            <span class="ico" aria-hidden="true">💡</span>
+            <div>
+              Workflow: SC-010 → copy <b>trueHourlyCost</b> → SC-012 labor field → add SC-020 cycle
+              times for hours → set margin last after all direct and overhead costs are locked.
+              Browse <a href="/tools.html">all calculators</a> for linked tools.
+            </div>
+          </div>
+
+          <div class="sc-guide-faq" id="faq">
+            <h2>Frequently asked questions</h2>
+
+            <div class="q" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+              <h3 itemprop="name">Does SC-012 use margin or markup?</h3>
+              <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <div itemprop="text">
+                  <p>
+                    Margin on sell price: sell = totalCost / (1 − targetMargin). A 30% target margin
+                    means 30% of the invoice is gross profit, not 30% added on top of cost.
+                    Markup-on-cost would use sell = cost × (1 + markup) and yields a lower sell
+                    price for the same nominal percentage.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="q" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+              <h3 itemprop="name">How do I enter scrap — percent or ratio?</h3>
+              <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <div itemprop="text">
+                  <p>
+                    Enter scrap as a ratio between 0 and 1. Ten percent scrap is 0.10, not 10. The
+                    formula material / (1 − scrapRate) blows up as scrap approaches 100%; the engine
+                    rejects scrapRate ≥ 1.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="q" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+              <h3 itemprop="name">Why doesn't SC-012 pull labor rate automatically from SC-010?</h3>
+              <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <div itemprop="text">
+                  <p>
+                    Tools stay independent in v1.0.0 so quotes remain reproducible and offline. Copy
+                    trueHourlyCost manually and note the date and preset in your quote worksheet.
+                    Automatic cross-tool linking may come in a later release.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="q" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+              <h3 itemprop="name">Where do setup costs go for a quantity of 100?</h3>
+              <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <div itemprop="text">
+                  <p>
+                    Enter total setup minutes for the job and setup hourly rate; SC-012 adds full
+                    setup to job total cost, then divides sell price by quantity for unit price.
+                    Setup is not auto-spread — the quantity field only affects unit price after
+                    total sell is computed.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="q" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+              <h3 itemprop="name">Is overhead double-counted if I use loaded labor from SC-010?</h3>
+              <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <div itemprop="text">
+                  <p>
+                    SC-010 loaded labor includes employer taxes and benefits, not shop rent or plant
+                    supervision. Overhead in SC-012 still applies unless your SC-010 inputs already
+                    embed plant burden — which would be non-standard. Keep employer burden in SC-010
+                    and facility burden in SC-012 overhead.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <details class="related">
+            <summary>Related calculators</summary>
+            <ul>
+              <li>
+                <a href="/calculator/true-labor-cost">SC-010 True Labor Cost</a> — fully loaded
+                hourly for labor input
+              </li>
+              <li>
+                <a href="/calculator/cnc-feeds-speeds">SC-020 CNC Feeds &amp; Speeds</a> — cycle
+                time and tool life for hour estimates
+              </li>
+              <li>
+                <a href="/calculator/weld-thickness">SC-001 Weld Thickness</a> — weld leg sizing for
+                fab quotes
+              </li>
+              <li>
+                <a href="/calculator/tolerance-stack-up">SC-008 Tolerance Stack-Up</a> — fit risk
+                driving scrap and rework
+              </li>
+              <li><a href="/tools.html">All calculators</a></li>
+            </ul>
+          </details>
+
+          <script type="application/ld+json">
+            {
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "Does SC-012 use margin or markup?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Margin on sell price: sell equals totalCost divided by (1 minus targetMargin). A 30% target margin means 30% of the invoice is gross profit, not 30% added on top of cost. Markup-on-cost would use sell equals cost times (1 plus markup) and yields a lower sell price for the same nominal percentage."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "How do I enter scrap — percent or ratio?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Enter scrap as a ratio between 0 and 1. Ten percent scrap is 0.10, not 10. The formula material divided by (1 minus scrapRate) blows up as scrap approaches 100%; the engine rejects scrapRate greater than or equal to 1."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Why doesn't SC-012 pull labor rate automatically from SC-010?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Tools stay independent in v1.0.0 so quotes remain reproducible and offline. Copy trueHourlyCost manually and note the date and preset in your quote worksheet. Automatic cross-tool linking may come in a later release."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Where do setup costs go for a quantity of 100?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Enter total setup minutes for the job and setup hourly rate; SC-012 adds full setup to job total cost, then divides sell price by quantity for unit price. Setup is not auto-spread — the quantity field only affects unit price after total sell is computed."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Is overhead double-counted if I use loaded labor from SC-010?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "SC-010 loaded labor includes employer taxes and benefits, not shop rent or plant supervision. Overhead in SC-012 still applies unless your SC-010 inputs already embed plant burden — which would be non-standard. Keep employer burden in SC-010 and facility burden in SC-012 overhead."
+                  }
+                }
+              ]
+            }
+          </script>
+        </section>
+      </section>
+
+      <section class="sc-guide-block" data-aeo-step="related-problems" id="aeo-related-problems">
+        <h2>Related entities &amp; query fan-out</h2>
+        <h3>Glossary</h3>
+        <ul>
+          <li><a href="/glossary/labor-burden-rate">labor burden rate</a></li>
+          <li><a href="/glossary/machine-hour-rate">machine hour rate</a></li>
+        </ul>
+        <h3>Calculators, topics, sibling guides</h3>
+        <ul>
+          <li><a href="/calculator/true-labor-cost">/calculator/true-labor-cost</a></li>
+          <li><a href="/calculator/machine-hour-rate">/calculator/machine-hour-rate</a></li>
+          <li><a href="/calculator/quote-pricing">/calculator/quote-pricing</a></li>
+          <li><a href="/calculator/oee-teep">/calculator/oee-teep</a></li>
+        </ul>
+        <h3>Queries this guide owns in the cluster</h3>
+        <ul class="sc-fanout">
+          <li>true labor cost calculator</li>
+          <li>machine hourly rate calculator</li>
+          <li>manufacturing quote calculator</li>
         </ul>
       </section>
-      <section id="methodology">
-        <h2>3. Methodology & Formulas</h2>
-        <p>This guide explains how to calculate loaded labor cost from base salary through burden, benefits, and overhead. The deterministic engine ensures no component is hidden.</p>
-        <h3>3.1 Base Cost</h3>
-        <div class="sc-formula-block">
-          <code>Base = Gross Salary / Billable Hours</code>
-          <p>Converts annual or monthly pay into a productive hourly base before burden.</p>
-        </div>
-        <h3>3.2 Burden Multiplier</h3>
-        <div class="sc-formula-block">
-          <code>Burden = (Taxes + Insurance + Benefits) / Gross Salary</code>
-          <p>Employer on-cost ratio applied on top of base wage.</p>
-        </div>
-        <h3>3.3 Overhead Allocation</h3>
-        <div class="sc-formula-block">
-          <code>Overhead = (Shop Rent + Utilities + Admin) / Total Labor Hours</code>
-          <p>Facility and support allocation per labor hour for full absorption costing.</p>
-        </div>
+
+      <section class="sc-cta-panel" data-aeo-step="related-problems">
+        <h2>Commercial next step</h2>
+        <p>
+          Feed true hourly cost into machine-hour and quote tools, then keep the burden breakdown
+          when finance asks why shop labor is not “just the wage”.
+        </p>
+        <a class="sc-btn-primary" href="/calculator/true-labor-cost"
+          >Open SC-010 True Labor Cost (session) →</a
+        >
+        <p class="sc-cta-secondary">
+          <a href="/guides">← All engineering guides</a> ·
+          <a href="/#free-calculators">Open reference bench</a>
+        </p>
       </section>
-      <section id="calculator">
-        <h2>4. Using the Deterministic Calculator</h2>
-        <p>Open the SC-010 calculator and enter your labor cost structure.</p>
-        <ol class="sc-step-list">
-          <li><strong>Step 1:</strong> Enter gross annual salary and local statutory burden rates.</li>
-          <li><strong>Step 2:</strong> Input benefits, bonuses, and retirement contributions.</li>
-          <li><strong>Step 3:</strong> Enter annual paid time off, training days, and estimated admin time.</li>
-          <li><strong>Step 4:</strong> Add shop overhead (rent, utilities, equipment) and total headcount.</li>
-          <li><strong>Step 5:</strong> Review true loaded cost per hour with breakdown: base, burden, benefits, overhead.</li>
-        </ol>
-        <div class="sc-cta-inline">
-          <a href="/calculator/true-labor-cost" class="sc-btn-primary">Open SC-010 True Labor Cost -></a>
-        </div>
-      </section>
-      <section id="common-mistakes">
-        <h2>5. Common Mistakes & How to Avoid Them</h2>
-        <div class="sc-mistake-card">
-          <h3>Mistake 1: Using net salary as labor cost</h3>
-          <p>Net salary is what the employee receives, not what the employer pays. Using net salary for quoting guarantees under-billing.</p>
-          <p><strong>Fix:</strong> Always use gross salary plus burden. The calculator shows the difference explicitly.</p>
-        </div>
-        <div class="sc-mistake-card">
-          <h3>Mistake 2: Ignoring non-productive time</h3>
-          <p>An employee with 15 days PTO, 10 holidays, and 5 training days has only about 220 billable days. Using 260 days overstates capacity by 18 percent.</p>
-          <p><strong>Fix:</strong> Enter all non-productive time in the calculator. It automatically reduces billable hours.</p>
-        </div>
-        <div class="sc-mistake-card">
-          <h3>Mistake 3: Averaging overhead across all employees</h3>
-          <p>A senior machinist using a $200K CNC machine should carry more overhead than a junior inspector. Averaging distorts both quotes.</p>
-          <p><strong>Fix:</strong> Use activity-based costing where possible. The calculator supports per-role overhead allocation.</p>
-        </div>
-      </section>
-      <section id="case-study">
-        <h2>6. Real-World Case Study</h2>
-        <p><strong>Industry:</strong> Precision Machining (Michigan Job Shop)</p>
-        <p><strong>Problem:</strong> A job shop was losing money on complex jobs despite competitive labor rates. The owner used net salary plus 20 percent as labor cost.</p>
-        <p><strong>Solution:</strong> Using SC-010, the shop discovered true loaded cost was 2.3x net salary. Quotes were revised with accurate burden and overhead. Marginal jobs were rejected.</p>
-        <p><strong>Result:</strong> Quote accuracy improved from 68 percent to 94 percent. Gross margin increased 11 percentage points. Two unprofitable contracts were renegotiated successfully.</p>
-      </section>
-      <section id="faq" class="sc-faq-section">
-        <h2>7. Frequently Asked Questions</h2>
-        <details class="sc-faq-item"><summary>What is the most common mistake when calculating True Labor Costing?</summary><p>The most common mistake is using net salary as labor cost. Always use gross salary plus burden. The calculator shows the difference explicitly.</p></details>
-        <details class="sc-faq-item"><summary>Which standard governs True Labor Costing in international practice?</summary><p>Local labor law is the primary international standard. Company policy provides additional guidance for specific applications.</p></details>
-        <details class="sc-faq-item"><summary>Can SectorCalc replace manual True Labor Costing calculations entirely?</summary><p>SectorCalc provides deterministic, audit-ready calculations with visible formulas. However, final production release remains subject to the governing code edition, certified material data, and competent engineering review.</p></details>
-        <details class="sc-faq-item"><summary>How do I calibrate the calculator for my specific shop conditions?</summary><p>Use the A4 assumptions section to document your shop-specific parameters. The deterministic engine ensures that once calibrated, all future calculations use the same basis.</p></details>
-        <details class="sc-faq-item"><summary>Is the audit report accepted for customer review?</summary><p>The A1-A5 audit trail includes engine identity, inputs, formulas, assumptions, and warnings. It is designed for engineering review and customer audit. It does not replace a licensed engineer sign-off.</p></details>
-      </section>
-      <section class="sc-cta-panel">
-        <h2>Calculate True Labor Costing Deterministically</h2>
-        <p>Free preview. Full A1-A5 audit report unlocks with credits. No subscription.</p>
-        <a href="/calculator/true-labor-cost" class="sc-btn-primary">Open SC-010 True Labor Cost -></a>
-      </section>
-    </article>
-  </main>
-  <footer class="sc-footer">
-    <p>Copyright 2026 SectorCalc. Deterministic industrial engineering calculators.</p>
-  </footer>
-</body>
+    </main>
+    <footer class="sc-footer sc-guides-site-footer">
+      <p>© 2026 SectorCalc · Deterministic industrial calculators · A1–A5 audit language</p>
+      <p>
+        <a href="/#free-calculators">Free tools</a> · <a href="/tools.html">All tools</a> ·
+        <a href="/topics">Topics</a> · <a href="/pricing.html">Pricing</a> ·
+        <a href="/llms.txt">llms.txt</a>
+      </p>
+    </footer>
+  </body>
 </html>
