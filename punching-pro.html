@@ -520,9 +520,9 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
 <!--SC-SEO-SCHEMA-END-->
 <link rel="stylesheet" href="/sc-related-tools.css?v=1">
                                                     <link rel="stylesheet" href="/sc-free-tools.css?v=2">
-                <link rel="stylesheet" href="/sc-calc-sheet.css?v=2">
+                    <link rel="stylesheet" href="/sc-calc-sheet.css?v=3">
   <!--SC-CALC-SHEET-START-->
-  <!-- calc-sheet theme: theme-calc-sheet -->
+  <!-- calc-sheet theme: theme-calc-sheet v3 -->
   <!--SC-CALC-SHEET-END-->
 </head>
 <body data-tool-badge="SC-039 · Punching Force & Die Clearance" class="theme-calc-sheet">
@@ -559,6 +559,7 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
   <a href="/login.html" class="btn-primary" data-nav="login">Sign in</a>
 </div>
 <!--SC-SITE-NAV-END-->
+
 
 
 
@@ -836,120 +837,221 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
   
 <!--SC-GUIDE-START-->
 <div class="sc-guide-shell">
-<section class="sc-guide" id="sc-guide" data-tool-id="SC-039" data-tool-name="Punching Force Calculator (SC-039)">
+  <section
+    class="sc-guide"
+    id="sc-guide"
+    data-tool-id="SC-039"
+    data-tool-name="Punching Force Calculator (SC-039)"
+  >
+    <nav class="sc-guide-toc" aria-label="Table of contents">
+      <h2 class="sc-guide-toc-title">Contents</h2>
+      <ol>
+        <li><a href="#why-force">Why guessed tonnage fails</a></li>
+        <li><a href="#formula">Force estimate and units</a></li>
+        <li><a href="#geometry">Perimeter geometry matters</a></li>
+        <li><a href="#capacity">Capacity screening</a></li>
+        <li><a href="#clearance">Die clearance and edge quality</a></li>
+        <li><a href="#worked">Worked pattern: before tooling buy</a></li>
+        <li><a href="#failure-modes">Common failure modes</a></li>
+        <li><a href="#decision-table">Decision table</a></li>
+        <li><a href="#faqs">Frequently asked questions</a></li>
+      </ol>
+    </nav>
 
-<nav class="sc-guide-toc" aria-label="Table of contents">
-  <h2 class="sc-guide-toc-title">Contents</h2>
-  <ol>
-    <li><a href="#why-force">Why guessed tonnage fails</a></li>
-    <li><a href="#formula">Force estimate and units</a></li>
-    <li><a href="#geometry">Perimeter geometry matters</a></li>
-    <li><a href="#capacity">Capacity screening</a></li>
-    <li><a href="#clearance">Die clearance and edge quality</a></li>
-    <li><a href="#worked">Worked pattern: before tooling buy</a></li>
-    <li><a href="#failure-modes">Common failure modes</a></li>
-    <li><a href="#decision-table">Decision table</a></li>
-    <li><a href="#faqs">Frequently asked questions</a></li>
-  </ol>
-</nav>
+    <p class="sc-guide-lede">
+      Punching force estimates the press load needed to shear a perimeter through thickness at a
+      given shear strength. Guessing tonnage from habit breaks punches and rings frames. SectorCalc
+      <strong>SC-039</strong> screens force from perimeter, thickness, and shear strength with
+      explicit units — free. Manufacturer capacity charts and required safety factors still govern
+      final selection.
+    </p>
 
-<p class="sc-guide-lede">Punching force estimates the press load needed to shear a perimeter through thickness at a given shear strength. Guessing tonnage from habit breaks punches and rings frames. SectorCalc <strong>SC-039</strong> screens force from perimeter, thickness, and shear strength with explicit units — free. Manufacturer capacity charts and required safety factors still govern final selection.</p>
+    <h2 id="why-force">Why guessed tonnage fails</h2>
+    <p>
+      Habit-based tonnage ignores perimeter growth on complex punches and material state (annealed
+      vs hard). Downtime shows up as broken tooling, not just scrap.
+    </p>
 
-<h2 id="why-force">Why guessed tonnage fails</h2>
-<p>Habit-based tonnage ignores perimeter growth on complex punches and material state (annealed vs hard). Downtime shows up as broken tooling, not just scrap.</p>
+    <h2 id="formula">Force estimate and units</h2>
+    <div class="sc-formula">F ≈ perimeter × thickness × shear strength</div>
+    <p>
+      Handle units explicitly (N·mm vs tonf·in). Apply the safety factors required by your press
+      standard before release.
+    </p>
 
-<h2 id="formula">Force estimate and units</h2>
-<div class="sc-formula">F ≈ perimeter × thickness × shear strength</div>
-<p>Handle units explicitly (N·mm vs tonf·in). Apply the safety factors required by your press standard before release.</p>
+    <h2 id="geometry">Perimeter geometry matters</h2>
+    <p>
+      Slots, windows, and irregular contours are not “same as a round hole of equal area.” Effective
+      shear length drives force. Measure or CAD-extract the true perimeter.
+    </p>
 
-<h2 id="geometry">Perimeter geometry matters</h2>
-<p>Slots, windows, and irregular contours are not “same as a round hole of equal area.” Effective shear length drives force. Measure or CAD-extract the true perimeter.</p>
+    <h2 id="capacity">Capacity screening</h2>
+    <p>
+      Compare estimated force to press and tooling ratings. Near the limit, redesign the hit
+      sequence or tool before steel is ordered. OEM charts win for purchase decisions.
+    </p>
 
-<h2 id="capacity">Capacity screening</h2>
-<p>Compare estimated force to press and tooling ratings. Near the limit, redesign the hit sequence or tool before steel is ordered. OEM charts win for purchase decisions.</p>
+    <h2 id="clearance">Die clearance and edge quality</h2>
+    <p>
+      Force and edge quality both depend on clearance practice. Document clearance intent beside the
+      force result so tooling and QC share one story.
+    </p>
 
-<h2 id="clearance">Die clearance and edge quality</h2>
-<p>Force and edge quality both depend on clearance practice. Document clearance intent beside the force result so tooling and QC share one story.</p>
+    <h2 id="worked">Worked pattern: before tooling buy</h2>
+    <ol>
+      <li>Extract perimeter and thickness; confirm shear strength for material state.</li>
+      <li>Run open <a href="/calculator/punching-force">SC-039</a>.</li>
+      <li>Compare F to press/tool ratings with required safety factor.</li>
+      <li>Document clearance practice and material state on the traveler.</li>
+      <li>If forming follows, open free <a href="/calculator/sheet-metal-bend">SC-030</a>.</li>
+    </ol>
 
-<h2 id="worked">Worked pattern: before tooling buy</h2>
-<ol>
-  <li>Extract perimeter and thickness; confirm shear strength for material state.</li>
-  <li>Run open <a href="/calculator/punching-force">SC-039</a>.</li>
-  <li>Compare F to press/tool ratings with required safety factor.</li>
-  <li>Document clearance practice and material state on the traveler.</li>
-  <li>If forming follows, open free <a href="/calculator/sheet-metal-bend">SC-030</a>.</li>
-</ol>
+    <h2 id="failure-modes">Common failure modes</h2>
+    <ul>
+      <li>Ignoring complex perimeter</li>
+      <li>Wrong shear strength basis</li>
+      <li>No clearance plan</li>
+      <li>Skipping OEM tonnage charts</li>
+    </ul>
 
-<h2 id="failure-modes">Common failure modes</h2>
-<ul>
-  <li>Ignoring complex perimeter</li>
-  <li>Wrong shear strength basis</li>
-  <li>No clearance plan</li>
-  <li>Skipping OEM tonnage charts</li>
-</ul>
+    <h2 id="decision-table">Decision table</h2>
+    <table class="sc-guide-table">
+      <thead>
+        <tr>
+          <th>Question</th>
+          <th>Authority</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Rough force screen</td>
+          <td>SC-039</td>
+        </tr>
+        <tr>
+          <td>Press purchase / final tonnage</td>
+          <td>OEM capacity charts</td>
+        </tr>
+        <tr>
+          <td>Blank length after punch</td>
+          <td>SC-030</td>
+        </tr>
+      </tbody>
+    </table>
 
-<h2 id="decision-table">Decision table</h2>
-<table class="sc-guide-table">
-  <thead><tr><th>Question</th><th>Authority</th></tr></thead>
-  <tbody>
-    <tr><td>Rough force screen</td><td>SC-039</td></tr>
-    <tr><td>Press purchase / final tonnage</td><td>OEM capacity charts</td></tr>
-    <tr><td>Blank length after punch</td><td>SC-030</td></tr>
-  </tbody>
-</table>
+    <h2 id="faqs">Frequently asked questions</h2>
+    <div class="q">
+      <h3>Is SC-039 free?</h3>
+      <p>Yes.</p>
+    </div>
+    <div class="q">
+      <h3>Replace OEM charts?</h3>
+      <p>No — screens before tooling; OEM data wins for release.</p>
+    </div>
+    <div class="q">
+      <h3>Units?</h3>
+      <p>Stay consistent; convert carefully.</p>
+    </div>
+    <div class="q">
+      <h3>Cite alone for press purchase?</h3>
+      <p>No — use as screening estimate only.</p>
+    </div>
+    <div class="q">
+      <h3>Related?</h3>
+      <p>
+        <a href="/guides/sheet-metal-bend-complete">Bend guide</a>,
+        <a href="/topics/sheet-metal-fabrication">topic hub</a>.
+      </p>
+    </div>
+    <div class="q">
+      <h3>Shear strength source?</h3>
+      <p>Material datasheet for the actual state (annealed/hard).</p>
+    </div>
+    <div class="q">
+      <h3>Multiple hits?</h3>
+      <p>Sequence and stripper loads can change peak demand — screen each critical hit.</p>
+    </div>
+    <div class="q">
+      <h3>Safety factor?</h3>
+      <p>Use your press standard — do not invent a factor in the traveler.</p>
+    </div>
 
-<h2 id="faqs">Frequently asked questions</h2>
-<div class="q"><h3>Is SC-039 free?</h3><p>Yes.</p></div>
-<div class="q"><h3>Replace OEM charts?</h3><p>No — screens before tooling; OEM data wins for release.</p></div>
-<div class="q"><h3>Units?</h3><p>Stay consistent; convert carefully.</p></div>
-<div class="q"><h3>Cite alone for press purchase?</h3><p>No — use as screening estimate only.</p></div>
-<div class="q"><h3>Related?</h3><p><a href="/guides/sheet-metal-bend-complete">Bend guide</a>, <a href="/topics/sheet-metal-fabrication">topic hub</a>.</p></div>
-<div class="q"><h3>Shear strength source?</h3><p>Material datasheet for the actual state (annealed/hard).</p></div>
-<div class="q"><h3>Multiple hits?</h3><p>Sequence and stripper loads can change peak demand — screen each critical hit.</p></div>
-<div class="q"><h3>Safety factor?</h3><p>Use your press standard — do not invent a factor in the traveler.</p></div>
+    <h2 id="shear-strength">Shear strength discipline</h2>
+    <p>
+      Shear strength is not ultimate tensile strength and not “whatever the last job used.” Use the
+      value for the material state on the router (annealed, cold-worked, stainless condition). Wrong
+      shear strength is the quietest way to under-size a press.
+    </p>
 
+    <h2 id="hit-sequence">Hit sequence and stripper loads</h2>
+    <p>
+      A single-hit force screen is necessary but not always sufficient. Progressive dies and
+      multi-hit patterns change peak demand and stripper requirements. When the estimate is near
+      capacity, involve tooling engineering before steel is ordered — do not “hope the frame is
+      fine.”
+    </p>
 
-<h2 id="shear-strength">Shear strength discipline</h2>
-<p>Shear strength is not ultimate tensile strength and not “whatever the last job used.” Use the value for the material state on the router (annealed, cold-worked, stainless condition). Wrong shear strength is the quietest way to under-size a press.</p>
+    <h2 id="energy">Force vs energy</h2>
+    <p>
+      Some presses are energy-limited at speed even when peak force looks acceptable. SC-039 screens
+      force. Confirm energy and stroke with OEM data for high-speed or thick work.
+    </p>
 
-<h2 id="hit-sequence">Hit sequence and stripper loads</h2>
-<p>A single-hit force screen is necessary but not always sufficient. Progressive dies and multi-hit patterns change peak demand and stripper requirements. When the estimate is near capacity, involve tooling engineering before steel is ordered — do not “hope the frame is fine.”</p>
+    <h2 id="edge-quality">Edge quality and secondary ops</h2>
+    <p>
+      Die clearance changes breakout and rollover. If the print demands a machined edge after punch,
+      say so on the traveler so force screening and finishing plans stay aligned.
+    </p>
 
-<h2 id="energy">Force vs energy</h2>
-<p>Some presses are energy-limited at speed even when peak force looks acceptable. SC-039 screens force. Confirm energy and stroke with OEM data for high-speed or thick work.</p>
+    <h2 id="traveler">Traveler package</h2>
+    <ul>
+      <li>Perimeter source (CAD / measured)</li>
+      <li>Thickness + material state</li>
+      <li>Shear strength source</li>
+      <li>Estimated F + safety factor basis</li>
+      <li>Press/tool rating comparison</li>
+      <li>Clearance intent</li>
+      <li>Link to <a href="/calculator/sheet-metal-bend">SC-030</a> when forming follows</li>
+    </ul>
 
-<h2 id="edge-quality">Edge quality and secondary ops</h2>
-<p>Die clearance changes breakout and rollover. If the print demands a machined edge after punch, say so on the traveler so force screening and finishing plans stay aligned.</p>
+    <h2 id="more-faq">Additional FAQ</h2>
+    <div class="q">
+      <h3>What about shear factor &lt; 1.0?</h3>
+      <p>
+        Some tooling practices apply a shear factor for angled punches. If you use one, document it
+        — do not hide it inside an unexplained force number.
+      </p>
+    </div>
+    <div class="q">
+      <h3>Stainless vs mild steel?</h3>
+      <p>Do not reuse mild-steel habit numbers. Update shear strength and expect higher force.</p>
+    </div>
+    <div class="q">
+      <h3>Can I size the press from SC-039 alone?</h3>
+      <p>No. Use it to screen, then confirm with OEM capacity and your safety policy.</p>
+    </div>
+    <div class="q">
+      <h3>Related guides?</h3>
+      <p>
+        <a href="/guides/sheet-metal-bend-complete">Bend</a> and
+        <a href="/guides/cnc-optimization-complete">CNC</a> when machining follows.
+      </p>
+    </div>
 
-<h2 id="traveler">Traveler package</h2>
-<ul>
-  <li>Perimeter source (CAD / measured)</li>
-  <li>Thickness + material state</li>
-  <li>Shear strength source</li>
-  <li>Estimated F + safety factor basis</li>
-  <li>Press/tool rating comparison</li>
-  <li>Clearance intent</li>
-  <li>Link to <a href="/calculator/sheet-metal-bend">SC-030</a> when forming follows</li>
-</ul>
-
-<h2 id="more-faq">Additional FAQ</h2>
-<div class="q"><h3>What about shear factor &lt; 1.0?</h3><p>Some tooling practices apply a shear factor for angled punches. If you use one, document it — do not hide it inside an unexplained force number.</p></div>
-<div class="q"><h3>Stainless vs mild steel?</h3><p>Do not reuse mild-steel habit numbers. Update shear strength and expect higher force.</p></div>
-<div class="q"><h3>Can I size the press from SC-039 alone?</h3><p>No. Use it to screen, then confirm with OEM capacity and your safety policy.</p></div>
-<div class="q"><h3>Related guides?</h3><p><a href="/guides/sheet-metal-bend-complete">Bend</a> and <a href="/guides/cnc-optimization-complete">CNC</a> when machining follows.</p></div>
-
-
-<h2 id="tool-steel">Tool steel and punch life</h2>
-<p>Force screening prevents frame overload; it does not pick punch steel. When estimated force is high, expect heat and wear — involve tooling materials early. A “cheap” punch that snaps mid-lot costs more than the OEM chart review you skipped.</p>
-<h2 id="qa-punch">QA checkpoints</h2>
-<ul>
-  <li>Perimeter source attached to the traveler</li>
-  <li>Shear strength citation for material state</li>
-  <li>Force vs press rating with safety factor</li>
-  <li>Clearance intent signed by tooling</li>
-  <li>Edge requirement vs secondary machine plan</li>
-</ul>
-</section>
+    <h2 id="tool-steel">Tool steel and punch life</h2>
+    <p>
+      Force screening prevents frame overload; it does not pick punch steel. When estimated force is
+      high, expect heat and wear — involve tooling materials early. A “cheap” punch that snaps
+      mid-lot costs more than the OEM chart review you skipped.
+    </p>
+    <h2 id="qa-punch">QA checkpoints</h2>
+    <ul>
+      <li>Perimeter source attached to the traveler</li>
+      <li>Shear strength citation for material state</li>
+      <li>Force vs press rating with safety factor</li>
+      <li>Clearance intent signed by tooling</li>
+      <li>Edge requirement vs secondary machine plan</li>
+    </ul>
+  </section>
 </div>
 <!--SC-GUIDE-END-->
 <footer>
@@ -1294,7 +1396,7 @@ calculate();
 <aside class="sc-calc-sheet-titleblock" aria-hidden="true">
   <div class="tb-row"><span class="tb-label">DWG</span><span class="tb-value">SC-039-001</span></div>
   <div class="tb-row"><span class="tb-label">FMT</span><span class="tb-value">CALC SHEET</span></div>
-  <div class="tb-row"><span class="tb-label">REV</span><span class="tb-value">A</span></div>
+  <div class="tb-row"><span class="tb-label">REV</span><span class="tb-value">B</span></div>
   <div class="tb-row"><span class="tb-label">DATE</span><span class="tb-value">2026-07-27</span></div>
 </aside>
 <!--SC-CALC-SHEET-TB-END-->

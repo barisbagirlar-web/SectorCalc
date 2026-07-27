@@ -197,8 +197,8 @@ for (const [route, file] of contentRoutes) {
     fail('tools.html Engineering Resources must be inside .wrap before <footer> (orphan body child breaks layout)');
   }
   if (!tools.includes('sc-seo-sprint-links')) fail('tools.html missing sc-seo-sprint-links class');
-  if (!/sc-calc-sheet\.css\?v=2/.test(tools) && !tools.includes('/sc-calc-sheet.css?v=2')) {
-    fail('tools.html must load sc-calc-sheet.css?v=2 (Engineering Resources styles)');
+  if (!/sc-calc-sheet\.css\?v=3/.test(tools) && !tools.includes('/sc-calc-sheet.css?v=3')) {
+    fail('tools.html must load sc-calc-sheet.css?v=3 (Enterprise engineering paper)');
   }
   const distTools = join(ROOT, 'dist/tools.html');
   if (existsSync(distTools)) {

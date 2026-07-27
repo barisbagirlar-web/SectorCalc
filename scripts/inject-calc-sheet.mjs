@@ -1,15 +1,17 @@
 #!/usr/bin/env node
 /**
- * Inject calculation-sheet / drawing-index / BOM theme overlays.
- * Targets: *-pro.html, tools.html, pricing.html
+ * Inject Enterprise/Exclusive engineering graph-paper overlays.
+ * Targets: *-pro.html, tools.html, pricing.html, account/login/ops,
+ *          public/glossary/*.html, public/compare/*.html (term pages),
+ *          and ensures CSS link on guide/hub shells via builders.
  * FORBIDDEN: index.html, public/sc-hero-*.js
  */
 import { readFileSync, writeFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 
 const ROOT = process.cwd();
-const CSS_HREF = '/sc-calc-sheet.css?v=2';
-const CSS_HREF_ISOLATED = '/css/calculation-sheet.css?v=1';
+const CSS_HREF = '/sc-calc-sheet.css?v=3';
+const CSS_HREF_ISOLATED = '/css/calculation-sheet.css?v=2';
 const LINK = `<link rel="stylesheet" href="${CSS_HREF}">`;
 const LINK_ISOLATED = `<link rel="stylesheet" href="${CSS_HREF_ISOLATED}">`;
 const START = '<!--SC-CALC-SHEET-START-->';
@@ -19,6 +21,15 @@ const TB_END = '<!--SC-CALC-SHEET-TB-END-->';
 
 /** SC-008 uses isolated cs-prefix theme (sectorcalc-calc-sheet-theme pack). */
 const ISOLATED_CALC_PAGES = new Set(['sc008-pro.html']);
+
+const FORBIDDEN = new Set([
+  'index.html',
+  'calculator.html',
+  'calculator2.html',
+  'calculator3.html',
+  'calculator4.html',
+  'pro.html',
+]);
 
 const TOOL_DWG = Object.freeze({
   'sc008-pro.html': 'SC-008-001',
@@ -45,7 +56,7 @@ const TOOL_DWG = Object.freeze({
   'oee-pro.html': 'SC-037-001',
   'machine-rate-pro.html': 'SC-038-001',
   'punching-pro.html': 'SC-039-001',
-  'hydraulic-pro.html': 'SC-040-001'
+  'hydraulic-pro.html': 'SC-040-001',
 });
 
 const TODAY = new Date().toISOString().slice(0, 10);
@@ -68,7 +79,7 @@ function ensureCssLink(html, { isolated = false } = {}) {
   return out;
 }
 
-function setBodyTheme(html, themeClass, { isolated = false } = {}) {
+function setBodyTheme(html, themeClass, { isolated = false, preserveGuidesShell = false } = {}) {
   const addClasses = themeClass.split(/\s+/).filter(Boolean);
   return html.replace(/<body([^>]*)>/i, (full, attrs) => {
     let a = attrs || '';
@@ -76,10 +87,12 @@ function setBodyTheme(html, themeClass, { isolated = false } = {}) {
       const cleaned = cls
         .split(/\s+/)
         .filter(Boolean)
-        .filter((c) => !/^theme-(calc-sheet|drawing-index|bom|blueprint)$/.test(c))
+        .filter((c) => !/^theme-(calc-sheet|drawing-index|bom|blueprint|eng-paper)$/.test(c))
         .filter((c) => c !== 'calc-sheet' && c !== 'has-grid');
       if (isolated) {
         cleaned.push('calc-sheet', 'has-grid');
+      } else if (preserveGuidesShell && cleaned.includes('sc-guides-shell')) {
+        // Paper comes from sc-guides-shell selector in CSS — keep exclusive modifiers
       } else {
         cleaned.push(...addClasses);
       }
@@ -99,7 +112,7 @@ function titleBlock(dwg, kind) {
 <aside class="sc-calc-sheet-titleblock" aria-hidden="true">
   <div class="tb-row"><span class="tb-label">DWG</span><span class="tb-value">${dwg}</span></div>
   <div class="tb-row"><span class="tb-label">FMT</span><span class="tb-value">${kind}</span></div>
-  <div class="tb-row"><span class="tb-label">REV</span><span class="tb-value">A</span></div>
+  <div class="tb-row"><span class="tb-label">REV</span><span class="tb-value">B</span></div>
   <div class="tb-row"><span class="tb-label">DATE</span><span class="tb-value">${TODAY}</span></div>
 </aside>
 ${TB_END}`;
@@ -114,24 +127,34 @@ function injectTitleBlock(html, dwg, kind) {
   return `${out}\n${block}\n`;
 }
 
-function processPage(file, themeClass, dwg, kind) {
+function processPage(file, themeClass, dwg, kind, opts = {}) {
   const path = join(ROOT, file);
   if (!existsSync(path)) {
     console.warn(`[WARN] missing ${file}`);
     return false;
   }
-  if (file === 'index.html') {
+  const base = file.split('/').pop();
+  if (file === 'index.html' || (base === 'index.html' && !file.includes('/'))) {
     throw new Error('inject-calc-sheet refused to touch index.html');
   }
-  const isolated = ISOLATED_CALC_PAGES.has(file);
-  const markerTheme = isolated ? 'calc-sheet has-grid (isolated)' : themeClass;
+  if (FORBIDDEN.has(base) && !file.includes('/')) {
+    throw new Error(`inject-calc-sheet refused to touch ${file}`);
+  }
+
+  const isolated = ISOLATED_CALC_PAGES.has(base);
+  const preserveGuidesShell = opts.preserveGuidesShell === true;
+  const markerTheme = isolated
+    ? 'calc-sheet has-grid (isolated v2)'
+    : preserveGuidesShell
+      ? 'sc-guides-shell + eng-paper v3'
+      : `${themeClass} v3`;
+
   let html = readFileSync(path, 'utf8');
   const before = html;
   html = stripMarkers(html, START, END);
   html = ensureCssLink(html, { isolated });
-  html = setBodyTheme(html, themeClass, { isolated });
+  html = setBodyTheme(html, themeClass, { isolated, preserveGuidesShell });
   html = injectTitleBlock(html, dwg, kind);
-  // mark applied (comment only — CSS already linked)
   if (!html.includes(START)) {
     html = html.replace(
       /<\/head>/i,
@@ -140,11 +163,19 @@ function processPage(file, themeClass, dwg, kind) {
   }
   if (html !== before) {
     writeFileSync(path, html);
-    console.log(`[OK] calc-sheet → ${file} (${markerTheme})`);
+    console.log(`[OK] eng-paper → ${file} (${markerTheme})`);
     return true;
   }
   console.log(`[SKIP] ${file} already themed`);
   return false;
+}
+
+function listHtml(dir) {
+  const abs = join(ROOT, dir);
+  if (!existsSync(abs)) return [];
+  return readdirSync(abs)
+    .filter((f) => f.endsWith('.html'))
+    .map((f) => join(dir, f).replace(/\\/g, '/'));
 }
 
 function assertHomepageUntouched() {
@@ -155,9 +186,10 @@ function assertHomepageUntouched() {
     html.includes('calculation-sheet.css') ||
     html.includes('theme-calc-sheet') ||
     html.includes('theme-blueprint') ||
+    html.includes('theme-eng-paper') ||
     /\bclass=["'][^"']*\bcalc-sheet\b/.test(html)
   ) {
-    throw new Error('GUARD: index.html must not receive calc-sheet / blueprint theme');
+    throw new Error('GUARD: index.html must not receive calc-sheet / blueprint / eng-paper theme');
   }
   if (!html.includes('sc-hero-cell-v24.js') && !html.includes('sc-hero-cell')) {
     throw new Error('GUARD: index.html missing sc-hero-cell — abort');
@@ -178,9 +210,38 @@ function main() {
   }
   if (processPage('tools.html', 'theme-drawing-index', 'SC-TOOLS-001', 'DRAWING INDEX')) n += 1;
   if (processPage('pricing.html', 'theme-bom', 'SC-BOM-001', 'BOM')) n += 1;
+  if (processPage('account.html', 'theme-eng-paper', 'SC-ACCT-001', 'ACCOUNT')) n += 1;
+  if (processPage('login.html', 'theme-eng-paper', 'SC-AUTH-001', 'AUTH')) n += 1;
+  if (processPage('sc-ops.html', 'theme-eng-paper', 'SC-OPS-001', 'OPS')) n += 1;
+
+  for (const file of listHtml('public/glossary')) {
+    if (file.endsWith('/index.html')) {
+      if (processPage(file, 'sc-guides-shell', 'SC-GLOSS-HUB', 'GLOSSARY HUB', { preserveGuidesShell: true })) n += 1;
+      continue;
+    }
+    const slug = file.split('/').pop().replace(/\.html$/, '').toUpperCase().slice(0, 12);
+    if (processPage(file, 'theme-eng-paper', `SC-GL-${slug}`, 'GLOSSARY')) n += 1;
+  }
+
+  for (const file of listHtml('public/compare')) {
+    if (file.endsWith('/index.html')) {
+      if (processPage(file, 'sc-guides-shell', 'SC-CMP-HUB', 'COMPARE HUB', { preserveGuidesShell: true })) n += 1;
+      continue;
+    }
+    const slug = file.split('/').pop().replace(/\.html$/, '').toUpperCase().slice(0, 12);
+    if (processPage(file, 'theme-eng-paper', `SC-CMP-${slug}`, 'COMPARE')) n += 1;
+  }
+
+  for (const file of listHtml('public/guides')) {
+    if (processPage(file, 'sc-guides-shell', 'SC-GUIDE', 'GUIDE', { preserveGuidesShell: true })) n += 1;
+  }
+
+  for (const file of listHtml('public/blog')) {
+    if (processPage(file, 'theme-eng-paper', 'SC-BLOG', 'BLOG')) n += 1;
+  }
 
   assertHomepageUntouched();
-  console.log(`[PASS] Calculation sheet overlay applied (${n} writes this run)`);
+  console.log(`[PASS] Enterprise engineering paper overlay applied (${n} writes this run)`);
 }
 
 main();
