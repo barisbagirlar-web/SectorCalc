@@ -10,7 +10,7 @@ const ROOT = process.cwd();
 const PARTIAL = join(ROOT, 'content/partials/academic-oversight.html');
 const EVIDENCE = join(ROOT, 'seo/evidence/expert-relationships.json');
 const EEAT_CSS_V = 3;
-const CSS_LINK = `<link rel="stylesheet" href="./sc-eeat.css?v=${EEAT_CSS_V}">`;
+const CSS_LINK = `<link rel="stylesheet" href="/sc-eeat.css?v=${EEAT_CSS_V}">`;
 const START = '<!--SC-EEAT-START-->';
 const END = '<!--SC-EEAT-END-->';
 

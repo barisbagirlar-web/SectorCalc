@@ -88,6 +88,31 @@ if (/\/\s*month|per\s*month|renews\s*monthly/i.test(pricingBlob) && /credit/i.te
   console.log('OK: no monthly wording gate on credit packs');
 }
 
+// Firebase rewrites serve *-pro.html at /calculator/<slug>. Relative ./assets break there.
+const relativeAssetRe = /\b(?:href|src)=["']\.\//;
+const calculatorHtml = files.filter((f) => /\/[^/]+-pro\.html$/.test(f.replace(/\\/g, '/')));
+let relativeHits = 0;
+for (const f of calculatorHtml) {
+  const html = readFileSync(f, 'utf8');
+  if (relativeAssetRe.test(html)) {
+    console.error(`FAIL: relative ./ asset path in ${f.split(/[/\\]/).pop()} (breaks /calculator/* rewrites)`);
+    relativeHits += 1;
+  }
+}
+if (relativeHits) {
+  failed += relativeHits;
+} else {
+  console.log(`OK: no relative ./ assets in ${calculatorHtml.length} calculator HTML entries`);
+}
+
+const viteConfig = readFileSync(join(process.cwd(), 'vite.config.js'), 'utf8');
+if (!/base:\s*['"]\/['"]/.test(viteConfig)) {
+  console.error("FAIL: vite.config.js must set base: '/' for /calculator/* Firebase rewrites");
+  failed += 1;
+} else {
+  console.log("OK: vite base is '/'");
+}
+
 if (failed) {
   console.error(`\nProduction bundle verification failed (${failed})`);
   process.exit(1);

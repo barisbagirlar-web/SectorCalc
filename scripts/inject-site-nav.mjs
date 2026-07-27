@@ -16,21 +16,21 @@ const THEME_VERSION = 12;
 const NAV_VERSION = 5;
 const AUTH_NAV_SCRIPT = `<script type="module" src="/src/auth-nav.ts"></script>`;
 const NAV_ASSETS = `
-<link rel="stylesheet" href="./sc-site-nav.css?v=${NAV_VERSION}">
-<script src="./sc-site-nav.js?v=2" defer></script>
+<link rel="stylesheet" href="/sc-site-nav.css?v=${NAV_VERSION}">
+<script src="/sc-site-nav.js?v=2" defer></script>
 ${AUTH_NAV_SCRIPT}
 `.trim();
 const THEME_ASSETS = `
-<link rel="stylesheet" href="./sc-theme.css?v=${THEME_VERSION}">
-<script src="./sc-theme.js?v=${THEME_VERSION}" defer></script>
+<link rel="stylesheet" href="/sc-theme.css?v=${THEME_VERSION}">
+<script src="/sc-theme.js?v=${THEME_VERSION}" defer></script>
 `.trim();
 
 const FORM_FIELDS_ASSET =
-  `<link rel="stylesheet" href="./sc-form-fields.css?v=${FORM_FIELDS_VERSION}">`;
+  `<link rel="stylesheet" href="/sc-form-fields.css?v=${FORM_FIELDS_VERSION}">`;
 
 const STUDY_ASSETS = `
-<link rel="stylesheet" href="./sc-study.css?v=${STUDY_VERSION}">
-<script src="./sc-study.js?v=${STUDY_VERSION}" defer></script>
+<link rel="stylesheet" href="/sc-study.css?v=${STUDY_VERSION}">
+<script src="/sc-study.js?v=${STUDY_VERSION}" defer></script>
 `.trim();
 
 /** Explicit page configs (nav strip + tool badge). New tools auto-register below. */
@@ -107,12 +107,19 @@ function autoRegisterProPages() {
 
 function ensureAssets(html, page = '') {
   let out = html;
+  // Root-absolute shared assets — relative ./ breaks under /calculator/* rewrites.
+  out = out
+    .replace(/\b(href|src)=(["'])\.\/(sc-(?:theme|site-nav|form-fields|study|tool-guide|billing|account|ops|eeat)\.(?:css|js)[^"']*)\2/gi, '$1=$2/$3$2')
+    .replace(/\b(href|src)=(["'])\.\/(assets\/[^"']+)\2/gi, '$1=$2/$3$2')
+    .replace(/\b(href|src)=(["'])\.\/(sectorcalc-[^"']+)\2/gi, '$1=$2/$3$2')
+    .replace(/\b(href|src)=(["'])\.\/(favicon[^"']*|icon-[^"']*|apple-touch[^"']*|site\.webmanifest[^"']*)\2/gi, '$1=$2/$3$2');
   // Drop legacy body-end auth-nav mounts (SEO/CVW injects rewrite </body> and can wipe them)
   out = out.replace(/\s*<script type="module" src="\/src\/auth-nav\.ts"><\/script>\s*/g, '\n');
   if (!out.includes('sc-site-nav.css')) {
     out = out.replace('</head>', `${NAV_ASSETS}\n</head>`);
   } else {
-    out = out.replace(/sc-site-nav\.css\?v=\d+/g, `sc-site-nav.css?v=${NAV_VERSION}`);
+    out = out.replace(/(href=["'])(?:\.\/)?sc-site-nav\.css\?v=\d+/g, `$1/sc-site-nav.css?v=${NAV_VERSION}`);
+    out = out.replace(/(src=["'])(?:\.\/)?sc-site-nav\.js[^"']*/g, `$1/sc-site-nav.js?v=2`);
     if (!out.includes('auth-nav')) {
       if (/sc-site-nav\.js[^"']*["'][^>]*>/.test(out)) {
         out = out.replace(
@@ -128,16 +135,16 @@ function ensureAssets(html, page = '') {
     out = out.replace('</head>', `${THEME_ASSETS}\n</head>`);
   } else {
     out = out
-      .replace(/sc-theme\.css\?v=\d+/g, `sc-theme.css?v=${THEME_VERSION}`)
-      .replace(/sc-theme\.js\?v=\d+/g, `sc-theme.js?v=${THEME_VERSION}`);
+      .replace(/(href=["'])(?:\.\/)?sc-theme\.css\?v=\d+/g, `$1/sc-theme.css?v=${THEME_VERSION}`)
+      .replace(/(src=["'])(?:\.\/)?sc-theme\.js\?v=\d+/g, `$1/sc-theme.js?v=${THEME_VERSION}`);
   }
   // Always ensure form-field readability CSS (independent of nav)
   if (!out.includes('sc-form-fields.css')) {
     out = out.replace('</head>', `${FORM_FIELDS_ASSET}\n</head>`);
   } else {
     out = out.replace(
-      /sc-form-fields\.css\?v=\d+/g,
-      `sc-form-fields.css?v=${FORM_FIELDS_VERSION}`
+      /(href=["'])(?:\.\/)?sc-form-fields\.css\?v=\d+/g,
+      `$1/sc-form-fields.css?v=${FORM_FIELDS_VERSION}`
     );
   }
   // Study toolbar only on calculator pages (not home/tools/pricing that merely link to *-pro)
@@ -146,13 +153,13 @@ function ensureAssets(html, page = '') {
       out = out.replace('</head>', `${STUDY_ASSETS}\n</head>`);
     } else {
       out = out
-        .replace(/sc-study\.css\?v=\d+/g, `sc-study.css?v=${STUDY_VERSION}`)
-        .replace(/sc-study\.js\?v=\d+/g, `sc-study.js?v=${STUDY_VERSION}`);
+        .replace(/(href=["'])(?:\.\/)?sc-study\.css\?v=\d+/g, `$1/sc-study.css?v=${STUDY_VERSION}`)
+        .replace(/(src=["'])(?:\.\/)?sc-study\.js\?v=\d+/g, `$1/sc-study.js?v=${STUDY_VERSION}`);
     }
   } else {
     out = out
-      .replace(/\s*<link rel="stylesheet" href="\.\/sc-study\.css[^"]*">\s*/g, '\n')
-      .replace(/\s*<script src="\.\/sc-study\.js[^"]*" defer><\/script>\s*/g, '\n');
+      .replace(/\s*<link rel="stylesheet" href="(?:\.\/|\/)sc-study\.css[^"]*">\s*/g, '\n')
+      .replace(/\s*<script src="(?:\.\/|\/)sc-study\.js[^"]*" defer><\/script>\s*/g, '\n');
   }
   return out;
 }

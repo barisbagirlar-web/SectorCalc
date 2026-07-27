@@ -43,6 +43,19 @@ jobs:
           npm run build
           npm run verify:seo
 
+      - name: Deploy billing Cloud Functions + Firestore rules
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+        run: |
+          set -euo pipefail
+          npm --prefix functions ci --no-audit --no-fund
+          npm --prefix functions run build
+          npx --yes firebase-tools@14 deploy \
+            --only functions,firestore:rules,firestore:indexes \
+            --project sectorcalc-prod \
+            --token "$FIREBASE_TOKEN" \
+            --non-interactive
+
       - name: Deploy immutable candidate to Firebase preview channel
         id: preview
         env:
@@ -95,6 +108,26 @@ jobs:
           SEO_GUARD_HOST: https://sectorcalc.com
           SEO_GUARD_MODE: live
         run: node scripts/seo-live-guard.mjs
+
+      - name: Post-promotion billing health seal
+        run: |
+          set -euo pipefail
+          BODY="$(curl -fsS https://sectorcalc.com/api/billing/health)"
+          echo "$BODY"
+          echo "$BODY" | grep -q '"ok":true'
+          echo "$BODY" | grep -q '"RECONCILIATION_SCHEDULER_MISSING":"NO"'
+          echo "$BODY" | grep -q '"creditMonetizationEnabled":true'
+
+      - name: Post-promotion calculator asset seal
+        run: |
+          set -euo pipefail
+          HTML="$(curl -fsS https://sectorcalc.com/calculator/tolerance-stack-up)"
+          echo "$HTML" | grep -E 'src="/assets/[^"]+\.js"' >/dev/null
+          ! echo "$HTML" | grep -E 'src="\./assets/' >/dev/null
+          ASSET="$(echo "$HTML" | grep -Eo 'src="/assets/[^"]+\.js"' | head -1 | sed 's/src="//;s/"$//')"
+          test -n "$ASSET"
+          CODE="$(curl -sS -o /dev/null -w '%{http_code}' "https://sectorcalc.com${ASSET}")"
+          test "$CODE" = "200"
 
       - name: Post-promotion host parity seal
         run: npm run verify:host-parity

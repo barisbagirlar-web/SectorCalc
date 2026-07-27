@@ -6,6 +6,7 @@ const steps = [
   ['node', ['scripts/export-seo-registry.mjs']],
   ['node', ['scripts/generate-sitemap.mjs']],
   ['node', ['scripts/generate-llm-discovery.mjs']],
+  ['node', ['scripts/normalize-root-assets.mjs', '--check']],
   ['node', ['scripts/verify-seo.mjs']],
   ['node', ['scripts/verify-schema.mjs']],
   ['node', ['scripts/verify-tool-content-identity.mjs']],

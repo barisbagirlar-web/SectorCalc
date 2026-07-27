@@ -23,12 +23,12 @@
 <!--SC-SEO-SECURITY-END-->
 <script>(function(){try{var k='sectorcalc-theme';var t=localStorage.getItem(k);if(t!=='dark'&&t!=='light')t=(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';document.documentElement.setAttribute('data-theme',t);document.documentElement.style.colorScheme=t;var raw=localStorage.getItem('sectorcalc-theme-pos');if(raw){var p=JSON.parse(raw);if(p&&typeof p.leftPct==='number'&&typeof p.topPct==='number'){var s=document.createElement('style');s.id='sc-theme-pos-boot';var w=Math.max(0,(window.innerWidth||0)-48);var h=Math.max(0,(window.innerHeight||0)-48);var L=Math.min(w,Math.max(0,(p.leftPct/100)*w));var T=Math.min(h,Math.max(0,(p.topPct/100)*h));s.textContent='#themeToggle{left:'+L+'px!important;top:'+T+'px!important;right:auto!important;bottom:auto!important}';document.documentElement.appendChild(s);document.documentElement.setAttribute('data-sc-pos-boot','1');}}}catch(e){}})();</script>
 <meta charset="UTF-8">
-<link rel="icon" href="./favicon.ico?v=20260724c" sizes="any">
-<link rel="icon" type="image/svg+xml" href="./favicon.svg?v=20260724c">
-<link rel="icon" type="image/png" sizes="32x32" href="./favicon-32.png?v=20260724c">
-<link rel="icon" type="image/png" sizes="192x192" href="./icon-192.png?v=20260724c">
-<link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png?v=20260724c">
-<link rel="manifest" href="./site.webmanifest?v=20260724c">
+<link rel="icon" href="/favicon.ico?v=20260724c" sizes="any">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=20260724c">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=20260724c">
+<link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png?v=20260724c">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=20260724c">
+<link rel="manifest" href="/site.webmanifest?v=20260724c">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>SC-008 Tolerance Stack-Up Calculator | Deterministic Monte Carlo | SectorCalc</title>
 <meta name="description" content="Deterministic 1D tolerance stack-up with worst-case, RSS, and seeded Monte Carlo (10,000 iterations). Predicted Cpk, PPM, and full A1-A5 audit trail. Client-side only.">
@@ -154,16 +154,16 @@
   .sc-footer{text-align:center;padding:24px;color:var(--text-dim);font-size:10px;font-family:var(--font-mono);border-top:1px solid var(--border-subtle);margin-top:20px}
   @media(max-width:768px){.sc-layout{grid-template-columns:1fr}.sc-sidebar{position:relative;top:0;height:auto;border-right:none;border-bottom:1px solid var(--border-subtle)}.sc-cards,.sc-whatif{grid-template-columns:1fr}.sc-header-sub{display:none}}
 </style>
-<link rel="stylesheet" href="./sc-theme.css?v=12">
-<script src="./sc-theme.js?v=12" defer></script>
-<link rel="stylesheet" href="./sc-billing.css?v=1">
-<link rel="stylesheet" href="./sc-tool-guide.css?v=3">
-<link rel="stylesheet" href="./sc-eeat.css?v=3">
-<link rel="stylesheet" href="./sc-study.css?v=4">
-<script src="./sc-tool-guide.js?v=3" defer></script>
-<script src="./sc-study.js?v=4" defer></script>
-<link rel="stylesheet" href="./sc-site-nav.css?v=5">
-<script src="./sc-site-nav.js?v=2" defer></script>
+<link rel="stylesheet" href="/sc-theme.css?v=12">
+<script src="/sc-theme.js?v=12" defer></script>
+<link rel="stylesheet" href="/sc-billing.css?v=1">
+<link rel="stylesheet" href="/sc-tool-guide.css?v=3">
+<link rel="stylesheet" href="/sc-eeat.css?v=3">
+<link rel="stylesheet" href="/sc-study.css?v=4">
+<script src="/sc-tool-guide.js?v=3" defer></script>
+<script src="/sc-study.js?v=4" defer></script>
+<link rel="stylesheet" href="/sc-site-nav.css?v=5">
+<script src="/sc-site-nav.js?v=2" defer></script>
 <script type="module" src="/src/auth-nav.ts"></script>
 <!--SC-GUIDE-START-->
 <div class="sc-guide-shell">
@@ -491,7 +491,7 @@
 </section>
 </div>
 <!--SC-GUIDE-END-->
-<link rel="stylesheet" href="./sc-form-fields.css?v=5">
+<link rel="stylesheet" href="/sc-form-fields.css?v=5">
 <!--SC-SEO-META-START-->
 <link rel="canonical" href="https://sectorcalc.com/calculator/tolerance-stack-up">
 <link rel="alternate" hreflang="x-default" href="https://sectorcalc.com/calculator/tolerance-stack-up">
@@ -835,7 +835,7 @@
 <!--SC-SCHEMA-VIDEO-END-->
 <link rel="stylesheet" href="/sc-related-tools.css?v=1">
                               <link rel="stylesheet" href="/sc-money.css?v=1">
-              <link rel="stylesheet" href="/css/calculation-sheet.css?v=1">
+                            <link rel="stylesheet" href="/css/calculation-sheet.css?v=1">
   <!--SC-CALC-SHEET-START-->
   <!-- calc-sheet theme: calc-sheet has-grid (isolated) -->
   <!--SC-CALC-SHEET-END-->
@@ -875,6 +875,14 @@
 </div>
 <!--SC-SITE-NAV-END-->
 <div class="sc-tool-strip"><b>SC-008 · Tolerance Stack-Up</b><span>Engineering preview · Decimal engine · Not for production approval</span></div>
+
+
+
+
+
+
+
+
 
 
 
@@ -1018,8 +1026,8 @@
 <section class="sc-money-block" data-money-block="11"><h2>Common engineering mistakes</h2><p>Treating every drawing ± block as uniform; mixing absolute and deviation limits; forgetting sign direction; trusting Monte Carlo without fixing the seed for audits.</p></section>
 <section class="sc-money-block" data-money-block="12"><h2>Standard / reference scope</h2><p>Uses classical WC/RSS stack arithmetic and statistical tolerancing ideas aligned with common ASME Y14.5 practice. It does not claim full Y14.5 compliance for complex datum schemes.</p></section>
 <section class="sc-money-block" data-money-block="13"><h2>A1–A5 audit trail</h2><p>A1 identifies the engine and seed. A2 snapshots inputs. A3 records WC/RSS/MC formulas. A4 states distribution assumptions. A5 lists warnings when predictions leave validated bands.</p></section>
-<section class="sc-money-block" data-money-block="14"><h2>Related glossary</h2><ul><li><a href="/glossary/tolerance-stack-up">/glossary/tolerance-stack-up</a></li><li><a href="/glossary/rss-tolerance">/glossary/rss-tolerance</a></li><li><a href="/glossary/monte-carlo-simulation">/glossary/monte-carlo-simulation</a></li></ul></section>
-<section class="sc-money-block" data-money-block="15"><h2>Related guide &amp; calculators</h2><p><a href="/guides/tolerance-stack-up-complete">/guides/tolerance-stack-up-complete</a></p><ul><li><a href="/calculator/iso-286-fits">/calculator/iso-286-fits</a></li><li><a href="/calculator/surface-finish">/calculator/surface-finish</a></li></ul></section>
+<section class="sc-money-block" data-money-block="14"><h2>Related glossary</h2><ul><li><a href="/glossary/tolerance-stack-up">Tolerance stack-up</a></li><li><a href="/glossary/rss-tolerance">RSS tolerance</a></li><li><a href="/glossary/monte-carlo-simulation">Monte Carlo simulation</a></li></ul></section>
+<section class="sc-money-block" data-money-block="15"><h2>Related guide &amp; calculators</h2><p><a href="/guides/tolerance-stack-up-complete">Tolerance stack-up complete guide</a></p><ul><li><a href="/calculator/iso-286-fits">SC-027 Fits &amp; Clearances</a></li><li><a href="/calculator/surface-finish">SC-028 Surface Finish Converter</a></li></ul></section>
 <section class="sc-money-block sc-money-cta" data-money-block="16"><h2>Commercial next step</h2><p>Run the stack, read the predicted risk, then open the A1–A5 trail when you need a shareable audit for drawing release. Credit packs unlock full report workflows without inventing fake certifications.</p>
 <p class="sc-money-cta-actions"><a class="sc-money-link" href="/pricing.html" data-sc-funnel="pricing">View pricing</a>
 <a class="sc-money-link" href="/pro.html">Pro hub</a></p></section>
