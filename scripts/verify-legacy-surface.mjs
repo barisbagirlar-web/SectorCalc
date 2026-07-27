@@ -17,7 +17,7 @@ const WWW = (process.env.LEGACY_SURFACE_WWW || 'https://www.sectorcalc.com').rep
 const inventory = JSON.parse(readFileSync(join(ROOT, 'seo/legacy-surface.json'), 'utf8'));
 const hostingSsot = existsSync(join(ROOT, 'seo/hosting-ssot.json'))
   ? JSON.parse(readFileSync(join(ROOT, 'seo/hosting-ssot.json'), 'utf8'))
-  : { discoverySsot: { liveTools: 25, sitemapHtmlUrls: 82 } };
+  : { discoverySsot: { liveTools: 25, sitemapHtmlUrls: 86 } };
 
 const errors = [];
 const fail = (m) => errors.push(m);
@@ -92,7 +92,7 @@ function verifyLocal() {
     else {
       const sitemap = readFileSync(sitemapPath, 'utf8');
       const locs = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
-      const expected = hostingSsot.discoverySsot?.sitemapHtmlUrls ?? 82;
+      const expected = hostingSsot.discoverySsot?.sitemapHtmlUrls ?? 86;
       if (locs.length !== expected) fail(`dist/sitemap.xml expected ${expected} locs, got ${locs.length}`);
       if (sitemap.includes('https://www.sectorcalc.com')) fail('dist/sitemap.xml contains www URLs');
       for (const banned of ['/tr/', '/categories', '/developer-showcase', '/en/', '/es/']) {

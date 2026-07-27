@@ -31,7 +31,7 @@
         "description": "Engineering guide to CNC Optimization with methodology and calculator.",
         "datePublished": "2026-07-26",
         "dateModified": "2026-07-26",
-        "author": { "@id": "https://sectorcalc.com/#person-neela-nataraj" },
+        "author": { "@id": "https://sectorcalc.com/#organization" },
         "wordCount": 2500
       },
       {
@@ -45,18 +45,51 @@
     ]
   }
   </script>
+<link rel="stylesheet" href="/css/sc-guides.css?v=1">
+<link rel="stylesheet" href="/sc-site-nav.css?v=5">
+<script src="/sc-site-nav.js?v=2" defer></script>
+<script type="module" src="/src/auth-nav.ts"></script>
 </head>
-<body class="theme-calc-sheet">
-  <header class="sc-header">
-    <a href="/" class="sc-logo">SectorCalc</a>
-    <nav class="sc-nav">
-      <a href="/tools.html">Tools</a>
-      <a href="/pro.html">Pro</a>
-      <a href="/pricing.html">Pricing</a>
-      <a href="/blog/">Blog</a>
-    </nav>
-  </header>
-  <main class="sc-guide-page">
+<body class="theme-calc-sheet sc-guides-shell">
+<!--SC-SITE-NAV-START-->
+<header class="site-header" id="siteHeader" role="banner">
+  <a href="/" class="brand" aria-label="SectorCalc Home"><span class="brand-mark"><img class="logo-light" src="/sectorcalc-logo-214.w.png" srcset="/sectorcalc-logo-214.w.png 214w, /sectorcalc-logo-428.w.png 428w" sizes="183px" width="183" height="48" alt="SectorCalc" decoding="async"><img class="logo-dark" src="/sectorcalc-logo-dark-214.w.png" srcset="/sectorcalc-logo-dark-214.w.png 214w, /sectorcalc-logo-dark-428.w.png 428w" sizes="183px" width="183" height="48" alt="" aria-hidden="true" decoding="async"></span></a>
+  <nav class="main-nav" role="navigation" aria-label="Main navigation">
+    <ul>
+      <li><a href="/tools.html" data-nav="tools">Tools</a></li>
+      <li><a href="/glossary" data-nav="glossary">Glossary</a></li>
+      <li><a href="/guides" data-nav="guides">Guides</a></li>
+      <li><a href="/compare" data-nav="compare">Compare</a></li>
+      <li><a href="/pricing.html" data-nav="pricing">Pricing</a></li>
+      <li><a href="/account.html" data-nav="account">Account</a></li>
+    </ul>
+    <span class="sc-nav-tool" aria-hidden="true"></span>
+    <a href="/login.html" class="btn btn-primary" data-nav="login">Sign in</a>
+  </nav>
+  <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme" aria-pressed="false" title="Toggle light / dark theme">
+    <svg data-theme-icon="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    <svg data-theme-icon="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+  </button>
+  <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+<div class="mobile-nav-overlay" id="mobileNav" role="dialog" aria-label="Mobile menu" aria-hidden="true">
+  <a href="/tools.html" data-nav="tools">All Tools</a>
+  <a href="/glossary" data-nav="glossary">Glossary</a>
+  <a href="/guides" data-nav="guides">Guides</a>
+  <a href="/compare" data-nav="compare">Compare</a>
+  <a href="/pricing.html" data-nav="pricing">Pricing</a>
+  <a href="/account.html" data-nav="account">Account</a>
+  <a href="/login.html" class="btn-primary" data-nav="login">Sign in</a>
+</div>
+<!--SC-SITE-NAV-END-->
+
+
+
+
+  
+  <main class="sc-guide-page sc-guides-main sc-guide-article">
     <nav class="sc-breadcrumb" aria-label="Breadcrumb">
       <ol>
         <li><a href="/">Home</a></li>
@@ -66,6 +99,8 @@
     </nav>
     <article>
       <h1>Complete Guide to <span class="highlight">CNC Optimization</span></h1>
+      <p class="sc-aeo-problem"><strong>The problem:</strong> Will this cut release on the spindle you actually own — or burn a tool and stall the machine?</p>
+      <p class="sc-direct-answer">Set feeds, speeds, chip thinning, and power checks with deterministic formulas on SC-020. Credit session unlocks full recalculation with audit trail.</p>
       <p class="lead">CNC optimization balances material removal rate, surface finish, and tool life through cutting speed, feed rate, and depth of cut. This guide covers the Taylor tool life equation, chip thinning, and deterministic calculation for shop-floor decisions.</p>
       <div class="sc-guide-toc">
         <h2>Table of Contents</h2>
@@ -145,11 +180,10 @@
         </div>
       </section>
       <section id="case-study">
-        <h2>6. Real-World Case Study</h2>
-        <p><strong>Industry:</strong> Precision Machining (Michigan Job Shop)</p>
-        <p><strong>Problem:</strong> A CNC job shop was replacing inserts every 8 hours on a titanium job. Catalog speeds were conservative, but the shop feared pushing harder would scrap parts.</p>
-        <p><strong>Solution:</strong> Using SC-020, the shop recalibrated Taylor constants from actual wear data. Chip thinning compensation allowed 23 percent higher feed in adaptive clearing paths. Tool life extended to 12 hours.</p>
-        <p><strong>Result:</strong> 23 percent tooling cost reduction ($47,000 annually). Cycle time reduced by 18 percent. Scrap rate unchanged.</p>
+        <h2>6. Worked decision pattern</h2>
+        <p><strong>Problem pattern:</strong> Will this cut release on the spindle you actually own — or burn a tool and stall the machine?</p>
+        <p><strong>Method:</strong> Use the calculator linked below with documented inputs, then keep A4 assumptions and A5 warnings with the result. SectorCalc does not publish invented customer ROI percentages.</p>
+        <p><strong>Next step:</strong> <a href="/calculator/cnc-feeds-speeds">Open SC-020 CNC Feeds &amp; Speeds</a></p>
       </section>
       <section id="faq" class="sc-faq-section">
         <h2>7. Frequently Asked Questions</h2>
@@ -159,9 +193,10 @@
         <details class="sc-faq-item"><summary>How do I calibrate the calculator for my specific shop conditions?</summary><p>Use the A4 assumptions section to document your shop-specific parameters. The deterministic engine ensures that once calibrated, all future calculations use the same basis.</p></details>
         <details class="sc-faq-item"><summary>Is the audit report accepted for customer review?</summary><p>The A1-A5 audit trail includes engine identity, inputs, formulas, assumptions, and warnings. It is designed for engineering review and customer audit. It does not replace a licensed engineer sign-off.</p></details>
       </section>
+      <section class="sc-guide-related" data-guide-related="1"><h2>Related entities</h2><ul><li><a href="/calculator/cnc-feeds-speeds">/calculator/cnc-feeds-speeds</a></li><li><a href="/calculator/cycle-time-cost">/calculator/cycle-time-cost</a></li><li><a href="/guides/punching-force-complete">/guides/punching-force-complete</a></li><li><a href="/glossary/cnc-feeds-and-speeds">/glossary/cnc-feeds-and-speeds</a></li><li><a href="/glossary/chip-thinning">/glossary/chip-thinning</a></li></ul></section>
       <section class="sc-cta-panel">
         <h2>Calculate CNC Optimization Deterministically</h2>
-        <p>Free preview. Full A1-A5 audit report unlocks with credits. No subscription.</p>
+        <p>Unlock a credit session for 24-hour recalculation with A1–A5 audit trail. No subscription.</p>
         <a href="/calculator/cnc-feeds-speeds" class="sc-btn-primary">Open SC-020 CNC Feeds & Speeds -></a>
       </section>
     </article>
