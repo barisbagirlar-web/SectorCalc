@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sheet Metal Bend &amp; K-Factor Complete Guide | SectorCalc</title>
-  <meta name="description" content="Compute bend allowance, bend deduction, and flat length from thickness, angle, inside radius, and K-factor — then calibrate against your brake and material lot with the free SC-030 calculator.">
+  <meta name="description" content="SC-030 computes bend allowance, deduction, and flat length from thickness, angle, inside radius, and K-factor — free — then you calibrate K-factor on your bra">
   <link rel="canonical" href="https://sectorcalc.com/guides/sheet-metal-bend-complete">
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
   <meta property="og:title" content="Sheet Metal Bend &amp; K-Factor Complete Guide | SectorCalc">
-  <meta property="og:description" content="Compute bend allowance, bend deduction, and flat length from thickness, angle, inside radius, and K-factor — then calibrate against your brake and material lot with the free SC-030 calculator.">
+  <meta property="og:description" content="Flat pattern wrong by a few millimetres means the brake setup already failed.">
   <meta property="og:url" content="https://sectorcalc.com/guides/sheet-metal-bend-complete">
   <meta property="og:type" content="article">
   <meta property="og:image" content="https://sectorcalc.com/assets/images/og-default-1200x630.jpg">
@@ -16,12 +16,14 @@
   <link rel="stylesheet" href="/css/seo-content.css">
 <link rel="stylesheet" href="/sc-theme.css?v=12">
 <link rel="stylesheet" href="/sc-site-nav.css?v=5">
-<link rel="stylesheet" href="/css/sc-guides.css?v=2">
+<link rel="stylesheet" href="/sc-tool-guide.css?v=3">
+<link rel="stylesheet" href="/css/sc-guides.css?v=3">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Sans:wght@400;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 <script src="/sc-theme.js?v=12" defer></script>
 <script src="/sc-site-nav.js?v=2" defer></script>
+<script src="/sc-tool-guide.js?v=3" defer></script>
 <script type="module" src="/src/auth-nav.ts"></script>
   <script type="application/ld+json">
 {
@@ -34,13 +36,13 @@
       "url": "https://sectorcalc.com/"
     },
     {
-      "@type": "Article",
+      "@type": "TechArticle",
       "@id": "https://sectorcalc.com/guides/sheet-metal-bend-complete#article",
       "url": "https://sectorcalc.com/guides/sheet-metal-bend-complete",
       "headline": "Complete Guide to Sheet Metal Bend Allowance & K-Factor",
-      "description": "Compute bend allowance, bend deduction, and flat length from thickness, angle, inside radius, and K-factor — then calibrate against your brake and material lot with the free SC-030 calculator.",
-      "datePublished": "2026-07-27",
-      "dateModified": "2026-07-27",
+      "description": "SC-030 computes bend allowance, deduction, and flat length from thickness, angle, inside radius, and K-factor — free — then you calibrate K-factor on your brake.",
+      "datePublished": "2026-07-26",
+      "dateModified": "2026-07-28",
       "author": {
         "@id": "https://sectorcalc.com/#organization"
       },
@@ -49,60 +51,16 @@
       },
       "isAccessibleForFree": true,
       "inLanguage": "en-US",
+      "about": "Welding & fabrication",
       "speakable": {
         "@type": "SpeakableSpecification",
         "cssSelector": [
-          ".sc-aeo-problem",
+          ".sc-aeo-empathy",
           ".sc-direct-answer",
-          "h1"
+          "h1",
+          "#aeo-methodology"
         ]
       }
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://sectorcalc.com/guides/sheet-metal-bend-complete#faq",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Is the bend calculator free?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. SC-030 calculates without credits."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Does this replace a forming simulation?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "No — it screens blank length before first hit."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Where do I get K-factor?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Start from tooling charts, then calibrate with a coupon on your brake."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can I link this to punching force?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes — both SC-030 and SC-039 are free and listed under sheet-metal fabrication topics."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What if the customer locks deduction method?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Follow the customer method; use SectorCalc to cross-check, not to override the contract."
-          }
-        }
-      ]
     },
     {
       "@type": "BreadcrumbList",
@@ -134,26 +92,26 @@
         {
           "@type": "HowToStep",
           "position": 1,
-          "name": "Step 1",
-          "text": "Open free SC-030 Sheet Metal Bend — no sign-in."
+          "name": "Read the problem",
+          "text": "Flat pattern wrong by a few millimetres means the brake setup already failed."
         },
         {
           "@type": "HowToStep",
           "position": 2,
-          "name": "Step 2",
-          "text": "Enter thickness, bend angle, inside radius, and K-factor (shop-proven when available)."
+          "name": "Open the calculator",
+          "text": "Open free Sheet Metal Bend calculator at https://sectorcalc.com/calculator/sheet-metal-bend"
         },
         {
           "@type": "HowToStep",
           "position": 3,
-          "name": "Step 3",
-          "text": "Review bend allowance / deduction and flat length."
+          "name": "Apply methodology",
+          "text": "Flat ≈ legs + BA (or legs − BD) with K-factor locating the neutral axis."
         },
         {
           "@type": "HowToStep",
           "position": 4,
-          "name": "Step 4",
-          "text": "Update traveler with the K-factor basis used; recalibrate after material or tooling changes."
+          "name": "Keep A1–A5 notes",
+          "text": "Record K-factor basis, radius, and accounting style with the nest."
         }
       ]
     }
@@ -161,7 +119,7 @@
 }
   </script>
 </head>
-<body class="sc-guides-shell">
+<body class="sc-guides-shell sc-guides-exclusive">
 <!--SC-SITE-NAV-START-->
 <header class="site-header" id="siteHeader" role="banner">
   <a href="/" class="brand" aria-label="SectorCalc Home"><span class="brand-mark"><img class="logo-light" src="/sectorcalc-logo-214.w.png" srcset="/sectorcalc-logo-214.w.png 214w, /sectorcalc-logo-428.w.png 428w" sizes="183px" width="183" height="48" alt="SectorCalc" decoding="async"><img class="logo-dark" src="/sectorcalc-logo-dark-214.w.png" srcset="/sectorcalc-logo-dark-214.w.png 214w, /sectorcalc-logo-dark-428.w.png 428w" sizes="183px" width="183" height="48" alt="" aria-hidden="true" decoding="async"></span></a>
@@ -203,79 +161,211 @@
       <li aria-current="page">Sheet Metal Bend &amp; K-Factor Complete Guide</li>
     </ol>
   </nav>
-  <article>
-    <p class="sc-guides-kicker">Welding &amp; fabrication · Free calculator · no sign-in</p>
+
+  <header class="sc-guide-hero-block">
+    <p class="sc-guides-kicker">Welding &amp; fabrication · Free calculator · no sign-in · SC-030</p>
     <h1>Complete Guide to Sheet Metal Bend Allowance &amp; K-Factor</h1>
-    <p class="sc-aeo-problem"><strong>The problem:</strong> Flat pattern wrong by a few millimetres means the brake setup already failed.</p>
-    <p class="sc-direct-answer" data-aeo-step="direct-answer">Compute bend allowance, bend deduction, and flat length from thickness, angle, inside radius, and K-factor — then calibrate against your brake and material lot with the free SC-030 calculator. This calculator is free — no sign-in, instant results.</p>
-    <div class="sc-guide-toc">
-      <h2>Table of contents</h2>
-      <ol>
-        <li><a href="#what-is">What this covers</a></li>
-        <li><a href="#standards">Applicable standards</a></li>
-        <li><a href="#methodology">Methodology</a></li>
-        <li><a href="#calculator">Calculator workflow</a></li>
-        <li><a href="#common-mistakes">Common mistakes</a></li>
-        <li><a href="#worked-pattern">Worked decision pattern</a></li>
-        <li><a href="#faq">FAQ</a></li>
-        <li><a href="#related">Related entities</a></li>
-      </ol>
+    <div class="sc-aeo-empathy" data-aeo-step="empathy" id="aeo-empathy">
+      <p><strong>The problem:</strong> Flat pattern wrong by a few millimetres means the brake setup already failed.</p>
+      
     </div>
-    <section id="what-is"><h2>1. What this covers</h2><p>Bend allowance and bend deduction translate a 3D bend into a flat blank. Wrong K-factor or inside radius assumptions produce parts that miss the brake setup by millimetres — expensive when the blank is already nested.</p>
-        <p>This guide covers the inputs that matter, flat-length workflow, when to calibrate K-factor against your brake, and how free SC-030 computes allowance and deduction with visible formulas.</p></section>
-    <section id="standards"><h2>2. Applicable standards &amp; references</h2><ul class="sc-standards-list">
-          <li><strong>Shop brake manufacturer charts:</strong> Often govern practical K-factor and minimum flange lengths for your tooling.</li>
-          <li><strong>Material supplier data:</strong> Alloy temper and thickness tolerance change springback and allowance.</li>
-          <li><strong>Customer flat-pattern specifications:</strong> Some OEMs lock K-factor or deduction method on the print.</li>
-        </ul></section>
-    <section id="methodology"><h2>3. Methodology</h2><h3>3.1 Inputs that matter</h3>
-        <p>Thickness, bend angle, inside radius, and K-factor drive allowance. Material and tooling change K-factor in the real shop. Catalog defaults are a starting point — not a substitute for your brake’s proven values.</p>
-        <h3>3.2 Flat length</h3>
-        <div class="sc-formula-block"><code>Flat ≈ legs + bend allowance (or legs − bend deduction)</code>
-        <p>Pick one accounting style and stick to it across the nest. Mixing allowance and deduction without documenting the method creates blank chaos.</p></div>
-        <h3>3.3 Calibrate</h3>
-        <p>Run a coupon on the production brake, measure developed length, and back-calculate an effective K-factor for that alloy/tooling pair. Store it where programmers can find it.</p>
-        <h3>3.4 Adjacent checks</h3>
-        <p>When die work follows, pair bend with the free punching force calculator so press capacity is screened before tooling.</p></section>
-    <section id="calculator">
-      <h2>4. Calculator workflow</h2>
-      <ol class="sc-step-list"><li><strong>Step 1:</strong> Open free SC-030 Sheet Metal Bend — no sign-in.</li>
-<li><strong>Step 2:</strong> Enter thickness, bend angle, inside radius, and K-factor (shop-proven when available).</li>
-<li><strong>Step 3:</strong> Review bend allowance / deduction and flat length.</li>
-<li><strong>Step 4:</strong> Update traveler with the K-factor basis used; recalibrate after material or tooling changes.</li></ol>
-      <div class="sc-cta-inline"><a class="sc-btn-primary" href="/calculator/sheet-metal-bend">Open free Sheet Metal Bend calculator →</a></div>
-    </section>
-    <section id="common-mistakes"><h2>5. Common mistakes</h2><div class="sc-mistake-card"><h3>Mistake 1: Using one K-factor for every alloy</h3><p><strong>Fix:</strong> Calibrate against your brake and material lot.</p></div>
-<div class="sc-mistake-card"><h3>Mistake 2: Ignoring inside radius growth</h3><p><strong>Fix:</strong> Radius changes move allowance nonlinearly.</p></div>
-<div class="sc-mistake-card"><h3>Mistake 3: Skipping punch capacity check</h3><p><strong>Fix:</strong> Pair bend with the free punching force calculator when die work follows.</p></div>
-<div class="sc-mistake-card"><h3>Mistake 4: Mixing BA and BD without a method note</h3><p><strong>Fix:</strong> Document which accounting style the nest uses.</p></div></section>
-    <section id="worked-pattern">
-      <h2>6. Worked decision pattern</h2>
-      <p><strong>Problem pattern:</strong> Flat pattern wrong by a few millimetres means the brake setup already failed.</p>
-      <p><strong>Method:</strong> Follow the methodology above, run SC-030, and keep assumptions + warnings with the result. SectorCalc does not publish invented customer ROI percentages.</p>
-      <p><strong>Next step:</strong> <a href="/calculator/sheet-metal-bend">Open free Sheet Metal Bend calculator</a></p>
-    </section>
-    <section id="faq" class="sc-faq-section"><h2>7. FAQ</h2><details class="sc-faq-item"><summary>Is the bend calculator free?</summary><p>Yes. SC-030 calculates without credits.</p></details>
-<details class="sc-faq-item"><summary>Does this replace a forming simulation?</summary><p>No — it screens blank length before first hit.</p></details>
-<details class="sc-faq-item"><summary>Where do I get K-factor?</summary><p>Start from tooling charts, then calibrate with a coupon on your brake.</p></details>
-<details class="sc-faq-item"><summary>Can I link this to punching force?</summary><p>Yes — both SC-030 and SC-039 are free and listed under sheet-metal fabrication topics.</p></details>
-<details class="sc-faq-item"><summary>What if the customer locks deduction method?</summary><p>Follow the customer method; use SectorCalc to cross-check, not to override the contract.</p></details></section>
-    <section id="related" class="sc-guide-related"><h2>8. Related entities</h2><ul><li><a href="/calculator/sheet-metal-bend">calculator · sheet-metal-bend</a></li>
-<li><a href="/calculator/punching-force">calculator · punching-force</a></li>
-<li><a href="/topics/sheet-metal-fabrication">topics · sheet-metal-fabrication</a></li>
-<li><a href="/guides/punching-force-complete">guides · punching-force-complete</a></li>
-<li><a href="/guides/weld-sizing-complete">guides · weld-sizing-complete</a></li></ul></section>
-    <section class="sc-cta-panel">
-      <h2>Calculate now</h2>
-      <p>This calculator is free — no sign-in, instant results.</p>
-      <a class="sc-btn-primary" href="/calculator/sheet-metal-bend">Open free Sheet Metal Bend calculator →</a>
-      <p style="margin-top:0.75rem"><a href="/guides">← All engineering guides</a></p>
-    </section>
-  </article>
+    <p class="sc-direct-answer" data-aeo-step="direct-answer" id="aeo-direct-answer">SC-030 computes bend allowance, deduction, and flat length from thickness, angle, inside radius, and K-factor — free — then you calibrate K-factor on your brake.</p>
+    <nav class="sc-aeo-rail" aria-label="Answer engine chain"><a href="#aeo-empathy" data-aeo-rail="empathy">Problem</a><a href="#aeo-direct-answer" data-aeo-rail="direct-answer">Direct answer</a><a href="#aeo-explanation" data-aeo-rail="explanation">Explanation</a><a href="#aeo-methodology" data-aeo-rail="methodology">Methodology</a><a href="#aeo-evidence" data-aeo-rail="evidence">Evidence</a><a href="#aeo-accountability" data-aeo-rail="accountability">A1–A5</a><a href="#aeo-related-problems" data-aeo-rail="related-problems">Related</a></nav>
+    <p class="sc-guide-access-note">This calculator is free — no sign-in, instant results.</p>
+    <a class="sc-btn-primary" href="/calculator/sheet-metal-bend">Open free Sheet Metal Bend calculator →</a>
+  </header>
+
+  
+<section class="sc-guide-block" data-aeo-step="explanation" id="aeo-explanation-decision">
+  <h2>Explanation — decision this supports</h2>
+  <p>Release a blank length credible enough for first hit before nesting steel.</p>
+</section>
+<section class="sc-guide-block" data-aeo-step="explanation" id="aeo-explanation-inputs">
+  <h2>Required inputs</h2>
+  <p>Thickness, bend angle, inside radius, K-factor, and chosen BA vs BD accounting style.</p>
+</section>
+<section class="sc-guide-block" data-aeo-step="methodology" id="aeo-methodology">
+  <h2>Methodology — formula &amp; method</h2>
+  <div class="sc-formula-block"><code>Flat ≈ legs + BA (or legs − BD) with K-factor locating the neutral axis.</code></div>
+</section>
+
+<section class="sc-guide-block" data-aeo-step="explanation">
+  <h2>What the result means</h2>
+  <p>Catalog K-factors are starts. Coupon-calibrated K-factors own production.</p>
+</section>
+<section class="sc-guide-block" data-aeo-step="explanation">
+  <h2>What moves the result</h2>
+  <p>Inside radius and K-factor move allowance nonlinearly; alloy temper changes springback.</p>
+</section>
+<section class="sc-guide-block" data-aeo-step="methodology">
+  <h2>Assumptions</h2>
+  <p>Single-bend screening model; shop K-factor overrides defaults when provided.</p>
+</section>
+<section class="sc-guide-block" data-aeo-step="methodology">
+  <h2>Model boundaries</h2>
+  <p>Not a full forming simulation; does not replace OEM minimum flange charts.</p>
+</section>
+<section class="sc-guide-block" data-aeo-step="evidence">
+  <h2>Common engineering mistakes</h2>
+  <p>One K-factor for all alloys; mixing BA/BD; skipping punch capacity checks.</p>
+</section>
+<section class="sc-guide-block" data-aeo-step="evidence">
+  <h2>Evidence — standard &amp; reference scope</h2>
+  <p>Shop tooling practice + customer flat-pattern specs when locked on the print.</p>
+</section>
+<section class="sc-guide-block" data-aeo-step="accountability" id="aeo-accountability">
+  <h2>Accountability — A1–A5 audit trail</h2>
+  <p>Record K-factor basis, radius, and accounting style with the nest.</p>
+  <ol class="sc-a15">
+    <li><strong>A1</strong> Engine identity / version</li>
+    <li><strong>A2</strong> Inputs snapshot</li>
+    <li><strong>A3</strong> Formula path</li>
+    <li><strong>A4</strong> Assumptions</li>
+    <li><strong>A5</strong> Warnings / out-of-band flags</li>
+  </ol>
+</section>
+
+  <section class="sc-guide-deep" id="deep-methodology" aria-label="Deep methodology">
+    <h2 class="sc-guide-deep-title">Deep methodology library</h2>
+    <p class="sc-guide-deep-lead">The long-form reference below is the same engineering depth injected beside the live calculator — expanded here as a standalone guide for answer engines and humans.</p>
+    <section class="sc-guide" id="sc-guide" data-tool-id="SC-030" data-tool-name="Sheet Metal Bend Calculator (SC-030)">
+
+<nav class="sc-guide-toc" aria-label="Table of contents">
+  <h2 class="sc-guide-toc-title">Contents</h2>
+  <ol>
+    <li><a href="#why-blank">Why blank length fails first</a></li>
+    <li><a href="#inputs">Inputs that actually matter</a></li>
+    <li><a href="#ba-bd">Bend allowance vs bend deduction</a></li>
+    <li><a href="#k-factor">K-factor calibration</a></li>
+    <li><a href="#worked">Worked pattern: first-hit screening</a></li>
+    <li><a href="#pair-punch">Pair with punching force</a></li>
+    <li><a href="#failure-modes">Common failure modes</a></li>
+    <li><a href="#decision-table">Decision table</a></li>
+    <li><a href="#faqs">Frequently asked questions</a></li>
+  </ol>
+</nav>
+
+<p class="sc-guide-lede">Bend allowance and bend deduction translate a 3D bend into a flat blank. Wrong <strong>K-factor</strong> or inside-radius assumptions miss the brake by millimetres — expensive when the nest is already cut. SectorCalc <strong>SC-030</strong> computes allowance, deduction, and flat length from thickness, angle, inside radius, and K-factor — free, formula-visible. Catalog defaults start the conversation; your brake and material lot own production K-factors.</p>
+
+<h2 id="why-blank">Why blank length fails first</h2>
+<p>If the flat is wrong, every downstream hit compounds the error. Brake setup cannot “absorb” a systematically short blank without flange growth fights. Screen blank length before nesting.</p>
+
+<h2 id="inputs">Inputs that actually matter</h2>
+<ul>
+  <li>Thickness and material temper</li>
+  <li>Bend angle</li>
+  <li>Inside radius (tooling reality, not CAD wish)</li>
+  <li>K-factor (shop-proven when available)</li>
+</ul>
+
+<h2 id="ba-bd">Bend allowance vs bend deduction</h2>
+<div class="sc-formula">Flat ≈ legs + bend allowance &nbsp;|&nbsp; Flat ≈ legs − bend deduction</div>
+<p>Pick one accounting style for the nest and document it. Mixing BA and BD without a method note creates blank chaos across programmers.</p>
+
+<h2 id="k-factor">K-factor calibration</h2>
+<p>Run a coupon on the production brake, measure developed length, and back-calculate an effective K-factor for that alloy/tooling pair. Store it where programmers can find it. Re-calibrate after material lot or tooling changes.</p>
+
+<h2 id="worked">Worked pattern: first-hit screening</h2>
+<ol>
+  <li>Collect thickness, angle, inside radius, and starting K-factor.</li>
+  <li>Open free <a href="/calculator/sheet-metal-bend">SC-030</a>.</li>
+  <li>Review BA/BD and flat length; paste the K-factor basis on the traveler.</li>
+  <li>Cut a coupon; compare measured vs predicted; update K-factor.</li>
+  <li>If die work follows, open free <a href="/calculator/punching-force">SC-039</a>.</li>
+</ol>
+
+<h2 id="pair-punch">Pair with punching force</h2>
+<p>Many sheet-metal jobs punch then bend. Keep both free calculators in the same traveler package under <a href="/topics/sheet-metal-fabrication">sheet-metal fabrication</a>.</p>
+
+<h2 id="failure-modes">Common failure modes</h2>
+<ul>
+  <li>One K-factor for every alloy</li>
+  <li>Ignoring inside radius growth</li>
+  <li>Mixing BA and BD methods</li>
+  <li>Skipping press capacity checks before die purchase</li>
+</ul>
+
+<h2 id="decision-table">Decision table</h2>
+<table class="sc-guide-table">
+  <thead><tr><th>Need</th><th>Tool</th></tr></thead>
+  <tbody>
+    <tr><td>Flat length / BA / BD</td><td>SC-030 free</td></tr>
+    <tr><td>Press tonnage screen</td><td>SC-039 free</td></tr>
+    <tr><td>Weld throat after form</td><td>SC-001 free</td></tr>
+  </tbody>
+</table>
+
+<h2 id="faqs">Frequently asked questions</h2>
+<div class="q"><h3>Is SC-030 free?</h3><p>Yes.</p></div>
+<div class="q"><h3>Does this replace forming simulation?</h3><p>No — it screens blank length before first hit.</p></div>
+<div class="q"><h3>Where do I get K-factor?</h3><p>Tooling charts first, then coupon calibration on your brake.</p></div>
+<div class="q"><h3>Customer locks deduction method?</h3><p>Follow the contract method; use SectorCalc to cross-check.</p></div>
+<div class="q"><h3>Related guide?</h3><p><a href="/guides/punching-force-complete">Punching force guide</a>.</p></div>
+<div class="q"><h3>Springback?</h3><p>Allowance models length; springback compensation is a separate process control step.</p></div>
+<div class="q"><h3>Minimum flange?</h3><p>Follow tooling OEM charts — calculator length does not override flange rules.</p></div>
+<div class="q"><h3>Units?</h3><p>Stay consistent (mm or in) end-to-end.</p></div>
+
+
+<h2 id="neutral-axis">Neutral axis intuition</h2>
+<p>K-factor locates the neutral axis inside the thickness as a fraction from the inside surface. Soft materials and large radii push the neutral axis; tight radii and work-hardening alloys pull it. That is why a single catalog K destroys nests when the alloy or tooling changes.</p>
+
+<h2 id="multi-bend">Multi-bend flats</h2>
+<p>SC-030 screens a bend. Multi-bend parts need consistent accounting across every bend in the chain. Document order of bends when sequence changes developed length through prior strain. When in doubt, coupon the critical bend first, then expand.</p>
+
+<h2 id="cad-vs-shop">CAD defaults vs shop reality</h2>
+<p>CAD bend tables are starting guesses. If your brake’s proven K-factor library disagrees with the CAD default, the shop library wins for released nests — and the disagreement belongs in the ECO notes so design stops re-injecting the wrong default.</p>
+
+<h2 id="springback-note">Springback is separate</h2>
+<p>Allowance models material length in the bend. Springback compensation overbends the angle. Do not “fix” angle error by silently changing K-factor — that corrupts blank length while masking the real process control gap.</p>
+
+<h2 id="traveler">Traveler package</h2>
+<ul>
+  <li>Thickness + alloy + temper</li>
+  <li>Inside radius (tool ID)</li>
+  <li>K-factor + calibration date</li>
+  <li>BA or BD method flag</li>
+  <li>Link to <a href="/calculator/punching-force">SC-039</a> when punched before bend</li>
+</ul>
+
+<h2 id="more-faq">Additional FAQ</h2>
+<div class="q"><h3>Air bend vs bottoming?</h3><p>Tooling mode changes radius and force. Recalibrate K-factor when the process mode changes.</p></div>
+<div class="q"><h3>Imperial nests?</h3><p>Keep units consistent. Do not mix mm thickness with inch flanges without conversion control.</p></div>
+<div class="q"><h3>Hemming?</h3><p>Hems are special tooling cases — do not force a simple V-bend K-factor without coupon proof.</p></div>
+<div class="q"><h3>Related topic hub?</h3><p><a href="/topics/sheet-metal-fabrication">Sheet-metal fabrication</a>.</p></div>
+
+
+<h2 id="material-tables">Material tables vs coupons</h2>
+<p>Published K-factor tables are population averages. Your coil lot, grain direction, and tooling wear move the effective neutral axis. Coupon calibration is not optional for precision nests — it is how you stop arguing with the brake after every ECO.</p>
+<p>When a customer locks a deduction method, follow it even if your internal K-factor library differs. Document the dual system: contract method for release, internal method for process learning.</p>
+<h2 id="qa-bend">QA checkpoints</h2>
+<ul>
+  <li>First-article flat length vs SC-030 prediction</li>
+  <li>Flange lengths after springback compensation</li>
+  <li>Inside radius achieved vs programmed</li>
+  <li>K-factor revision recorded on traveler</li>
+</ul>
+</section>
+  </section>
+
+  <section class="sc-guide-block" data-aeo-step="related-problems" id="aeo-related-problems">
+  <h2>Related entities &amp; query fan-out</h2>
+  
+  <h3>Calculators, topics, sibling guides</h3>
+  <ul><li><a href="/calculator/sheet-metal-bend">/calculator/sheet-metal-bend</a></li><li><a href="/calculator/punching-force">/calculator/punching-force</a></li><li><a href="/topics/sheet-metal-fabrication">/topics/sheet-metal-fabrication</a></li><li><a href="/guides/punching-force-complete">/guides/punching-force-complete</a></li><li><a href="/guides/weld-sizing-complete">/guides/weld-sizing-complete</a></li></ul>
+  <h3>Queries this guide owns in the cluster</h3>
+  <ul class="sc-fanout"><li>k factor bend calculator</li><li>bend allowance formula</li><li>sheet metal flat pattern</li></ul>
+</section>
+
+  <section class="sc-cta-panel" data-aeo-step="related-problems">
+    <h2>Commercial next step</h2>
+    <p>Free on SC-030. Pair with free punching force before die spend.</p>
+    <a class="sc-btn-primary" href="/calculator/sheet-metal-bend">Open free Sheet Metal Bend calculator →</a>
+    <p class="sc-cta-secondary"><a href="/guides">← All engineering guides</a> · <a href="/#free-calculators">Five free calculators</a></p>
+  </section>
 </main>
-<footer class="sc-footer" style="max-width:1100px;margin:0 auto;padding:1.25rem;border-top:1px solid rgba(11,28,44,.12);display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between">
-  <p style="margin:0;color:#3d5366">© 2026 SectorCalc · Deterministic industrial calculators</p>
-  <p style="margin:0"><a href="/#free-calculators">Free tools</a> · <a href="/tools.html">All tools</a> · <a href="/pricing.html">Pricing</a></p>
+<footer class="sc-footer sc-guides-site-footer">
+  <p>© 2026 SectorCalc · Deterministic industrial calculators · A1–A5 audit language</p>
+  <p><a href="/#free-calculators">Free tools</a> · <a href="/tools.html">All tools</a> · <a href="/topics">Topics</a> · <a href="/pricing.html">Pricing</a> · <a href="/llms.txt">llms.txt</a></p>
 </footer>
 </body>
 </html>
