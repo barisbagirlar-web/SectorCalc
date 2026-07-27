@@ -143,6 +143,24 @@ for (const page of pages) {
   if (!/<h1[\s>]/i.test(t)) fail(`${page} missing h1`);
   if (!t.includes('SC-SEO-HOST')) fail(`${page} missing SEO host marker`);
   if (!t.includes('SC-SEO-SECURITY')) fail(`${page} missing security head block`);
+  // Meta CSP intersects with header CSP — Auth fails if meta omits securetoken.
+  const cspMeta = t.match(/http-equiv=["']Content-Security-Policy["'][^>]*\scontent="([^"]+)"/i)
+    || t.match(/\scontent="([^"]+)"[^>]*http-equiv=["']Content-Security-Policy["']/i)
+    || t.match(/http-equiv=["']Content-Security-Policy["'][^>]*\scontent='([^']+)'/i);
+  if (!cspMeta) fail(`${page} missing CSP meta`);
+  const csp = cspMeta[1];
+  for (const host of [
+    'https://securetoken.googleapis.com',
+    'https://identitytoolkit.googleapis.com',
+    'https://firestore.googleapis.com',
+    'https://*.cloudfunctions.net',
+    'https://apis.google.com',
+  ]) {
+    if (!csp.includes(host)) fail(`${page} CSP meta missing required host ${host}`);
+  }
+  if (/frame-ancestors/i.test(csp)) {
+    fail(`${page} CSP meta must not include frame-ancestors (header-only directive)`);
+  }
   if (page.endsWith('-pro.html')) {
     const slug = page.replace('.html', '');
     if (!t.includes(`sc-schema-tool-${slug}`)) fail(`${page} missing tool schema`);

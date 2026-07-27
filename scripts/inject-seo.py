@@ -20,19 +20,28 @@ HOST = "https://sectorcalc.com"
 OG_DEFAULT = f"{HOST}/assets/images/og-default-1200x630.jpg"
 OG_HOME = f"{HOST}/assets/images/sectorcalc-og-1200x630.jpg"
 
-# CSP must allow existing CDN / fonts / optional GA4 / Paddle checkout (do not tighten blindly).
+# CSP meta MUST stay at least as permissive as firebase.json Content-Security-Policy header.
+# Browsers enforce the intersection of header + meta; a tight meta blocks Auth/Firestore even when
+# the header allows it (auth/network-request-failed → securetoken.googleapis.com).
+# Do NOT put frame-ancestors in meta — browsers ignore it there (console warning only).
+# Keep in sync with firebase.json hosting headers CSP.
 CSP_CONTENT = (
     "default-src 'self'; "
     "script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: https://cdnjs.cloudflare.com "
-    "https://www.googletagmanager.com https://www.google-analytics.com https://cdn.paddle.com; "
+    "https://www.googletagmanager.com https://www.google-analytics.com https://cdn.paddle.com "
+    "https://apis.google.com https://www.gstatic.com https://www.google.com; "
     "worker-src 'self' blob:; "
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://*.paddle.com; "
     "font-src 'self' https://fonts.gstatic.com data:; "
     "img-src 'self' data: blob: https:; "
     "connect-src 'self' https://www.google-analytics.com https://analytics.google.com "
-    "https://region1.google-analytics.com https://www.googletagmanager.com https://*.paddle.com; "
-    "frame-src 'self' https://*.paddle.com; "
-    "frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://*.paddle.com; "
+    "https://region1.google-analytics.com https://www.googletagmanager.com https://*.paddle.com "
+    "https://*.googleapis.com https://*.firebaseio.com wss://*.googleapis.com wss://*.firebaseio.com "
+    "https://*.cloudfunctions.net https://identitytoolkit.googleapis.com "
+    "https://securetoken.googleapis.com https://firestore.googleapis.com https://www.googleapis.com; "
+    "frame-src 'self' https://*.paddle.com https://*.firebaseapp.com https://accounts.google.com "
+    "https://*.google.com; "
+    "base-uri 'self'; form-action 'self' https://*.paddle.com https://accounts.google.com; "
     "upgrade-insecure-requests"
 )
 
