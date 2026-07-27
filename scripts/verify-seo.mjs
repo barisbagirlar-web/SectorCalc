@@ -184,6 +184,32 @@ for (const [route, file] of contentRoutes) {
   if (!/<h1[\s>]/i.test(t)) fail(`${file} missing h1`);
 }
 
+// tools.html Engineering Resources must sit inside .wrap before footer (never orphan body child).
+{
+  const tools = read('tools.html');
+  const start = '<!--SC-SEO-SPRINT-LINKS-START-->';
+  const wrapIdx = tools.indexOf('class="wrap"');
+  const blockIdx = tools.indexOf(start);
+  const footerIdx = tools.indexOf('<footer>');
+  if (blockIdx < 0) fail('tools.html missing Engineering Resources (SC-SEO-SPRINT-LINKS) block');
+  if (wrapIdx < 0 || footerIdx < 0) fail('tools.html missing wrap/footer anchors for resources placement');
+  if (!(wrapIdx < blockIdx && blockIdx < footerIdx)) {
+    fail('tools.html Engineering Resources must be inside .wrap before <footer> (orphan body child breaks layout)');
+  }
+  if (!tools.includes('sc-seo-sprint-links')) fail('tools.html missing sc-seo-sprint-links class');
+  if (!/sc-calc-sheet\.css\?v=2/.test(tools) && !tools.includes('/sc-calc-sheet.css?v=2')) {
+    fail('tools.html must load sc-calc-sheet.css?v=2 (Engineering Resources styles)');
+  }
+  const distTools = join(ROOT, 'dist/tools.html');
+  if (existsSync(distTools)) {
+    const dt = readFileSync(distTools, 'utf8');
+    const dBlock = dt.indexOf(start);
+    const dWrap = dt.indexOf('class="wrap"');
+    const dFoot = dt.indexOf('<footer>');
+    if (!(dWrap < dBlock && dBlock < dFoot)) fail('dist/tools.html Engineering Resources placement drifted outside .wrap');
+  }
+}
+
 const fj = JSON.parse(read('firebase.json'));
 if ((fj.hosting?.rewrites || []).some((r) => r.destination === '/index.html')) fail('firebase SPA catch-all would create soft 404s');
 for (const [oldFile, pretty] of Object.entries(TOOL_CANONICAL)) {

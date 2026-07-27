@@ -8,7 +8,7 @@ import { readFileSync, writeFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 
 const ROOT = process.cwd();
-const CSS_HREF = '/sc-calc-sheet.css?v=1';
+const CSS_HREF = '/sc-calc-sheet.css?v=2';
 const CSS_HREF_ISOLATED = '/css/calculation-sheet.css?v=1';
 const LINK = `<link rel="stylesheet" href="${CSS_HREF}">`;
 const LINK_ISOLATED = `<link rel="stylesheet" href="${CSS_HREF_ISOLATED}">`;
