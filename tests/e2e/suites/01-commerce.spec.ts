@@ -21,7 +21,9 @@ test.describe('Commerce — pricing & checkout @commerce @critical', () => {
     for (const key of ['STARTER', 'WORKSHOP', 'PROFESSIONAL', 'TEAM_WALLET']) {
       await expect(page.locator(`#packages #${key}, #packages .pack#${key}`).first()).toBeVisible();
     }
-    await expect(page.getByRole('link', { name: /Get credits/i }).first()).toBeVisible();
+    await expect(
+      page.getByRole('link', { name: /Commission credits|Get credits/i }).first()
+    ).toBeVisible();
     expect(errors.hard()).toEqual([]);
   });
 

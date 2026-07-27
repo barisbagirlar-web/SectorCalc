@@ -128,7 +128,9 @@ export async function expectFreeToolSurface(page: Page, toolId: string): Promise
     timeout: 15_000
   });
   await expect(page.locator('#sc-pro-gate-root .sc-pro-gate')).toHaveCount(0);
-  await expect(page.locator('body')).toContainText(/Free · no sign-in/i);
+  await expect(page.locator('body')).toContainText(
+    /Open · no sign-in|Open instrument|Free · no sign-in|no credits/i
+  );
 }
 
 export async function expectToolChrome(page: Page): Promise<void> {

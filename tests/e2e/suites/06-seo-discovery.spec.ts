@@ -56,7 +56,7 @@ test.describe('SEO discovery @seo @critical', () => {
     expect(a).toContain('/calculator/tolerance-stack-up');
     expect(a).toContain('OAI-SearchBot');
     expect(a).toContain('PerplexityBot');
-    expect(a).toMatch(/Five free reference calculators/i);
+    expect(a).toMatch(/Five open reference instruments|Five free reference calculators/i);
     for (const id of catalog.freeToolIds) {
       expect(a).toContain(id);
     }
