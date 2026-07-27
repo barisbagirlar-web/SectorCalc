@@ -107,8 +107,8 @@ ${FREE_TOOLS.map((t) => `- [${t.name}](${HOST}${t.canonicalPath}) — ${t.toolId
 - Calculator identity: ${HOST}/calculator/<slug> (pretty routes only — e.g. ${HOST}/calculator/tolerance-stack-up)
 - Pricing CTA and hub links open the same \`/calculator/<slug>\` surface. Free tools calculate immediately; other tools require a credit session before calculation runs.
 - Legacy \`*-pro.html\` file URLs permanently redirect to pretty calculator URLs and must not be used as primary citations.
-- Tools index: ${HOST}/tools.html — search-first drawing-index catalog (omni-search + category tiles). Open-bench / problem-map marketing lives on ${HOST}/topics and ${HOST}/#free-calculators — not prepended on Tools.
-- Pricing: ${HOST}/pricing.html
+- Tools index: ${HOST}/tools.html — search-first drawing-index catalog (omni-search + category tiles) with in-wrap Engineering Resources rail. Open-bench / problem-map marketing lives on ${HOST}/topics and ${HOST}/#free-calculators — not prepended on Tools.
+- Pricing: ${HOST}/pricing.html — one-time credit packs / BOM commerce surface (no AEO problem-map chrome; discovery hubs own that)
 - Account: ${HOST}/account.html
 - Glossary: ${HOST}/glossary · Guides: ${HOST}/guides · Compare: ${HOST}/compare · Topics: ${HOST}/topics
 
