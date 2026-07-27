@@ -114,8 +114,13 @@ ${FREE_TOOLS.map((t) => `- [${t.name}](${HOST}${t.canonicalPath}) — ${t.toolId
 ## Authority hubs (entity → method → tool)
 - Glossary hub (${GLOSSARY_TERMS.length} entities): ${HOST}/glossary — DefinedTerm pages for tolerance, CNC, bearings, welding, economics. Prefer \`/glossary/<slug>\` citations.
 ${GLOSSARY_GROUPS.map((g) => `  - ${g.title}: ${g.terms.map((t) => absoluteUrl(`/glossary/${t.slug}`)).join(' · ')}`).join('\n')}
-- Guides hub (${GUIDES.length} long-form): ${HOST}/guides — problem-first methodology; free and credit-backed calculator CTAs.
-${GUIDES.map((g) => `  - [${g.title}](${HOST}/guides/${g.slug}) → ${HOST}${g.calculator.href}`).join('\n')}
+- Guides hub (${GUIDES.length} exclusive methodologies): ${HOST}/guides — money-parity answer-engine chain (empathy → direct answer → methodology → evidence → A1–A5 accountability → related fan-out → deep methodology library). No fabricated ROI or Review/AggregateRating schema.
+${GUIDES.map((g) => {
+  const access =
+    g.access === 'free' ? 'free calculator' : g.access === 'mixed' ? 'mixed free/credits' : 'credits session';
+  return `  - [${g.title}](${HOST}/guides/${g.slug}) → ${HOST}${g.calculator.href} (${g.calculator.toolId}, ${access})`;
+}).join('\n')}
+- Guide editorial contract mirrors Tier-A calculator pages: problem, direct answer, decision, inputs, formula, worked engine evidence when available, interpretation, sensitivity, assumptions, boundaries, mistakes, standards scope, A1–A5, related entities.
 - Compare hub (${COMPARE_PAGES.length} evidence-only pages): ${HOST}/compare — workflow fit vs Excel, SolidWorks, CATIA, machinist calculators, Minitab. No invented competitor pricing or accuracy scores.
 ${COMPARE_PAGES.map((c) => `  - [${c.title}](${HOST}/compare/${c.slug})`).join('\n')}
 
@@ -137,7 +142,9 @@ Topic → subtopic → entity → internal links. Use these clusters for retriev
 ${topicalLines}
 
 ## Answer-engine page chain
-Critical calculator URLs follow: Empathy/Problem → Direct Answer → Calculation → Explanation → Methodology → Evidence → Accountability (A1–A5) → Related Problems / topical map. Five free tools calculate immediately; Tier-A tools require a credit session before calculation.
+- Critical calculator URLs follow: Empathy/Problem → Direct Answer → Calculation → Explanation → Methodology → Evidence → Accountability (A1–A5) → Related Problems / topical map.
+- Exclusive guide URLs under ${HOST}/guides follow the same chain without inventing a second primary query owner, then deepen into the shared methodology library used beside live calculators.
+- Five free tools calculate immediately; Tier-A tools require a credit session before calculation.
 
 ## Model limits that must not be hidden
 ${limitations.map((l) => `- ${l}`).join('\n')}
@@ -155,7 +162,7 @@ ${limitations.map((l) => `- ${l}`).join('\n')}
 - [Blog](${HOST}/blog)
 - [Case studies](${HOST}/case-studies)
 - [Glossary](${HOST}/glossary) — ${GLOSSARY_TERMS.length} entities
-- [Guides](${HOST}/guides) — ${GUIDES.length} long-form methodologies
+- [Guides](${HOST}/guides) — ${GUIDES.length} exclusive money-parity methodologies
 - [Compare](${HOST}/compare) — ${COMPARE_PAGES.length} evidence-only comparisons
 - [Sitemap](${HOST}/sitemap.xml)
 - [Robots](${HOST}/robots.txt)
