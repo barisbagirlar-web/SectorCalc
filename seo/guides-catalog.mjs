@@ -17,7 +17,7 @@ export const GUIDES = Object.freeze([
     calculator: {
       toolId: 'SC-027',
       href: '/calculator/iso-286-fits',
-      label: 'Open free ISO 286 Fits calculator',
+      label: 'Run open ISO 286 Fits instrument',
     },
     related: [
       '/calculator/iso-286-fits',
@@ -43,7 +43,7 @@ export const GUIDES = Object.freeze([
     calculator: {
       toolId: 'SC-028',
       href: '/calculator/surface-finish',
-      label: 'Open free Surface Finish calculator',
+      label: 'Run open Surface Finish instrument',
     },
     related: [
       '/calculator/surface-finish',
@@ -68,7 +68,7 @@ export const GUIDES = Object.freeze([
     calculator: {
       toolId: 'SC-030',
       href: '/calculator/sheet-metal-bend',
-      label: 'Open free Sheet Metal Bend calculator',
+      label: 'Run open Sheet Metal Bend instrument',
     },
     related: [
       '/calculator/sheet-metal-bend',
@@ -92,7 +92,7 @@ export const GUIDES = Object.freeze([
     calculator: {
       toolId: 'SC-039',
       href: '/calculator/punching-force',
-      label: 'Open free Punching Force calculator',
+      label: 'Run open Punching Force instrument',
     },
     related: [
       '/calculator/punching-force',
@@ -116,7 +116,7 @@ export const GUIDES = Object.freeze([
     calculator: {
       toolId: 'SC-008',
       href: '/calculator/tolerance-stack-up',
-      label: 'Open SC-008 Tolerance Stack-Up',
+      label: 'Open SC-008 Tolerance Stack-Up (session)',
     },
     related: [
       '/calculator/tolerance-stack-up',
@@ -140,7 +140,7 @@ export const GUIDES = Object.freeze([
     calculator: {
       toolId: 'SC-020',
       href: '/calculator/cnc-feeds-speeds',
-      label: 'Open SC-020 CNC Feeds & Speeds',
+      label: 'Open SC-020 CNC Feeds & Speeds (session)',
     },
     related: [
       '/calculator/cnc-feeds-speeds',
@@ -164,7 +164,7 @@ export const GUIDES = Object.freeze([
     calculator: {
       toolId: 'SC-021',
       href: '/calculator/bearing-life-l10',
-      label: 'Open SC-021 Bearing Life L10',
+      label: 'Open SC-021 Bearing Life L10 (session)',
     },
     related: [
       '/calculator/bearing-life-l10',
@@ -187,7 +187,7 @@ export const GUIDES = Object.freeze([
     calculator: {
       toolId: 'SC-010',
       href: '/calculator/true-labor-cost',
-      label: 'Open SC-010 True Labor Cost',
+      label: 'Open SC-010 True Labor Cost (session)',
     },
     related: [
       '/calculator/true-labor-cost',
@@ -211,7 +211,7 @@ export const GUIDES = Object.freeze([
     calculator: {
       toolId: 'SC-001',
       href: '/calculator/weld-thickness',
-      label: 'Open free Weld Thickness calculator',
+      label: 'Run open Weld Thickness instrument',
     },
     related: [
       '/calculator/weld-thickness',
