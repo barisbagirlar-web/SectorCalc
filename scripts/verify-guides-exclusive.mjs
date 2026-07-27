@@ -70,6 +70,12 @@ if (!llm.includes('exclusive money-parity') && !llm.includes('exclusive methodol
 if (!llm.includes('money-parity answer-engine chain')) {
   fail('llms.txt missing money-parity answer-engine chain for guides');
 }
+if (!llm.includes('## Enterprise discovery contract')) {
+  fail('llms.txt missing Enterprise discovery contract section');
+}
+if (!llm.includes('Playwright `@critical`') && !llm.includes('Playwright @critical')) {
+  fail('llms.txt missing preview Playwright @critical promote seal language');
+}
 for (const g of GUIDE_ASSEMBLY) {
   if (!llm.includes(`${HOST}/guides/${g.slug}`)) fail(`llms.txt missing guide ${g.slug}`);
   if (!llm.includes(`${HOST}${g.calculator.href}`)) fail(`llms.txt missing calculator CTA for ${g.slug}`);
