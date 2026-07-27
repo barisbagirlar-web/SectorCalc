@@ -29,6 +29,7 @@ import {
   type CreditMovement
 } from './auth/index.js';
 import { readCredits } from './payments/paddle/credits.js';
+import { fetchWallet } from './billing/api.js';
 import type { User } from 'firebase/auth';
 
 const TAB_META: Record<string, { title: string; sub: string }> = {
@@ -313,7 +314,20 @@ async function render(user: User): Promise<void> {
     /* keep */
   }
   const guest = inspecting ? 0 : readCredits().balance;
-  const display = inspecting ? cloud : Math.max(cloud, guest);
+  let serverSpendable: number | null = null;
+  if (!inspecting) {
+    try {
+      const w = await fetchWallet();
+      serverSpendable = w.spendableCredits;
+    } catch {
+      serverSpendable = null;
+    }
+  }
+  const display = inspecting
+    ? cloud
+    : serverSpendable != null
+      ? serverSpendable
+      : Math.max(cloud, guest);
   await loadPremiumData(user, display, inspecting ? subjectUid : undefined);
 
   const lifetime = purchases.reduce((n, p) => n + p.credits, 0);

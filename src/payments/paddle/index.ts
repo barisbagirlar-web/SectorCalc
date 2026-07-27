@@ -1,10 +1,9 @@
 /**
- * Paddle sandbox barrel — MoR only (see DECISIONS.md #3).
+ * Paddle MoR barrel — client never grants credits.
  */
 export {
-  PADDLE_SANDBOX_PRICE_IDS,
+  INVALID_PADDLE_PRICE_IDS,
   getPaddlePublicConfig,
-  resolveSandboxPriceId,
   type PaddleEnvironment,
   type PaddlePublicConfig
 } from './config.js';
@@ -13,8 +12,8 @@ export {
   isCheckoutConfigured,
   ensurePaddleReady,
   preloadPaddle,
-  openCreditCheckout,
-  type PaddleCheckoutItem
+  openPreparedCheckout,
+  openCreditCheckout
 } from './checkout.js';
 
 export {

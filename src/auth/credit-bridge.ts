@@ -1,8 +1,9 @@
 /**
- * Bridge guest localStorage credits into the signed-in Firestore profile (max).
+ * Bridge guest localStorage into UI cache only.
+ * NEVER promote browser-local balances into Firestore — fraud vector (mandate §41).
  */
 import { readCredits, writeCredits } from '../payments/paddle/credits.js';
-import { readUserProfile, setUserCredits } from './profile.js';
+import { readUserProfile } from './profile.js';
 
 export async function mergeGuestCreditsOnLogin(uid: string): Promise<number> {
   const guest = readCredits().balance;
@@ -13,21 +14,17 @@ export async function mergeGuestCreditsOnLogin(uid: string): Promise<number> {
   } catch {
     cloud = 0;
   }
-  const merged = Math.max(guest, cloud);
+  // Display cache may show max for UX continuity, but cloud is never raised from guest.
+  const display = Math.max(guest, cloud);
   writeCredits({
-    balance: merged,
+    balance: display,
     updatedAt: new Date().toISOString(),
     lastTxnId: readCredits().lastTxnId
   });
-  try {
-    if (merged !== cloud) await setUserCredits(uid, merged);
-  } catch {
-    /* Firestore rules may block until deployed — local balance still updated */
-  }
-  return merged;
+  return cloud;
 }
 
-export async function pushLocalCreditsToCloud(uid: string): Promise<void> {
-  const { balance } = readCredits();
-  await setUserCredits(uid, balance);
+/** @deprecated Server wallet is authoritative — do not push local balances. */
+export async function pushLocalCreditsToCloud(_uid: string): Promise<void> {
+  throw new Error('pushLocalCreditsToCloud disabled — server wallet is authoritative');
 }

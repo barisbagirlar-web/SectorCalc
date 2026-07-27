@@ -1,20 +1,10 @@
 /**
- * Paddle.js v2 overlay checkout for SectorCalc credit packs.
- * Never pass successUrl in overlay mode — Paddle returns HTTP 500.
+ * Paddle.js v2 overlay checkout — opens server-prepared transactionId only.
  */
 import { getPaddlePublicConfig } from './config.js';
-import { getPackageByPriceId } from '../../lib/pricing-packages.js';
-import {
-  fulfillCheckoutCompleted,
-  type PaddleCheckoutEvent
-} from './fulfill.js';
+import { fulfillCheckoutCompleted, type PaddleCheckoutEvent } from './fulfill.js';
 
 const PADDLE_SCRIPT = 'https://cdn.paddle.com/paddle/v2/paddle.js';
-
-export interface PaddleCheckoutItem {
-  priceId: string;
-  quantity: number;
-}
 
 interface PaddleSdk {
   Environment?: { set: (env: 'sandbox' | 'production') => void };
@@ -24,7 +14,8 @@ interface PaddleSdk {
   }) => void | Promise<void>;
   Checkout: {
     open: (opts: {
-      items: PaddleCheckoutItem[];
+      transactionId?: string;
+      items?: Array<{ priceId: string; quantity: number }>;
       settings?: { displayMode?: 'overlay' | 'inline'; theme?: 'light' | 'dark' };
       customData?: Record<string, string>;
     }) => void;
@@ -38,7 +29,7 @@ declare global {
 }
 
 let initPromise: Promise<PaddleSdk> | null = null;
-let pendingCredits = 0;
+let pendingPurchaseId = '';
 
 function loadScript(): Promise<void> {
   if (window.Paddle) return Promise.resolve();
@@ -63,39 +54,39 @@ function loadScript(): Promise<void> {
 
 function onPaddleEvent(event: PaddleCheckoutEvent): void {
   if (event.name === 'checkout.closed') {
-    pendingCredits = 0;
-    window.dispatchEvent(new CustomEvent('sectorcalc-checkout', { detail: { name: event.name } }));
+    window.dispatchEvent(
+      new CustomEvent('sectorcalc-checkout', {
+        detail: { name: event.name, purchaseId: pendingPurchaseId }
+      })
+    );
+    pendingPurchaseId = '';
     return;
   }
   if (event.name === 'checkout.error') {
-    pendingCredits = 0;
     window.dispatchEvent(
       new CustomEvent('sectorcalc-checkout', {
-        detail: { name: event.name, error: event.data }
+        detail: { name: event.name, error: event.data, purchaseId: pendingPurchaseId }
       })
     );
+    pendingPurchaseId = '';
     return;
   }
   if (event.name !== 'checkout.completed') return;
 
-  const result = fulfillCheckoutCompleted(event, pendingCredits);
-  pendingCredits = 0;
+  const result = fulfillCheckoutCompleted(event);
+  const purchaseId = pendingPurchaseId;
+  pendingPurchaseId = '';
   window.dispatchEvent(
     new CustomEvent('sectorcalc-checkout', {
       detail: {
         name: event.name,
         transactionId: result.txnId,
-        ...result
+        purchaseId,
+        pendingActivation: result.pendingActivation,
+        granted: 0
       }
     })
   );
-  if (result.granted > 0) {
-    window.dispatchEvent(
-      new CustomEvent('sectorcalc-credits', {
-        detail: { granted: result.granted, txnId: result.txnId, source: result.source }
-      })
-    );
-  }
 }
 
 export function isCheckoutConfigured(): boolean {
@@ -113,7 +104,6 @@ export async function ensurePaddleReady(): Promise<PaddleSdk> {
     await loadScript();
     const paddle = window.Paddle;
     if (!paddle) throw new Error('Paddle.js loaded but window.Paddle is missing');
-    // Environment MUST be set before Initialize.
     if (environment === 'sandbox' && paddle.Environment?.set) {
       paddle.Environment.set('sandbox');
     }
@@ -136,7 +126,6 @@ export async function ensurePaddleReady(): Promise<PaddleSdk> {
   }
 }
 
-/** Warm the SDK so the first Buy click is fast. */
 export function preloadPaddle(): void {
   if (!isCheckoutConfigured()) return;
   void ensurePaddleReady().catch(() => {
@@ -144,26 +133,34 @@ export function preloadPaddle(): void {
   });
 }
 
-export async function openCreditCheckout(priceId: string): Promise<void> {
-  if (!priceId.startsWith('pri_')) {
-    throw new Error('Invalid Paddle price id');
+/** Open checkout for a server-prepared Paddle transaction. */
+export async function openPreparedCheckout(input: {
+  paddleTransactionId: string;
+  purchaseId: string;
+}): Promise<void> {
+  if (!input.paddleTransactionId.startsWith('txn_')) {
+    throw new Error('Invalid Paddle transaction id');
   }
-  const pack = getPackageByPriceId(priceId);
-  if (!pack) throw new Error(`Unknown price id: ${priceId}`);
   const paddle = await ensurePaddleReady();
-  pendingCredits = pack.credits;
-  const customData: Record<string, string> = {
-    product: 'credit_pack',
-    credits: String(pack.credits)
-  };
+  pendingPurchaseId = input.purchaseId;
   window.dispatchEvent(
     new CustomEvent('sectorcalc-checkout', {
-      detail: { name: 'checkout.open', priceId, credits: pack.credits }
+      detail: {
+        name: 'checkout.open',
+        purchaseId: input.purchaseId,
+        transactionId: input.paddleTransactionId
+      }
     })
   );
   paddle.Checkout.open({
-    items: [{ priceId, quantity: 1 }],
-    settings: { displayMode: 'overlay', theme: 'light' },
-    customData
+    transactionId: input.paddleTransactionId,
+    settings: { displayMode: 'overlay', theme: 'light' }
   });
+}
+
+/**
+ * @deprecated Client must not open checkout by priceId.
+ */
+export async function openCreditCheckout(_priceId: string): Promise<void> {
+  throw new Error('Client priceId checkout is disabled. Use server-prepared transactionId flow.');
 }

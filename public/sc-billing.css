@@ -1,0 +1,37 @@
+.sc-pro-gate{
+  margin:16px 0 20px;
+  padding:20px 22px;
+  border:1.5px solid #C8C8C0;
+  background:linear-gradient(180deg,#fff,#F7F7F2);
+  font-family:Inter,system-ui,sans-serif;
+}
+.sc-pro-gate-kicker{
+  margin:0 0 6px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:#0055A4;
+  font-weight:700;
+}
+.sc-pro-gate-title{
+  margin:0 0 10px;
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:28px;
+  font-weight:800;
+  letter-spacing:0.02em;
+  text-transform:uppercase;
+  color:#1A1A1A;
+}
+.sc-pro-gate-copy{ margin:0 0 8px; color:#3D3D3D; font-size:14px; line-height:1.5; }
+.sc-pro-gate-active{ margin:0 0 6px; color:#1B6B3A; font-weight:700; }
+.sc-pro-gate-meta{ margin:0 0 14px; padding-left:18px; color:#3D3D3D; font-size:14px; }
+.sc-pro-gate-actions{ display:flex; flex-wrap:wrap; gap:10px; align-items:center; }
+.sc-pro-gate-btn{
+  display:inline-flex; align-items:center; justify-content:center;
+  padding:10px 16px; border:1.5px solid #C8C8C0; background:#fff;
+  color:#1A1A1A; text-decoration:none; font-weight:700; font-size:13px; cursor:pointer;
+}
+.sc-pro-gate-btn-primary{ background:#0055A4; border-color:#0055A4; color:#fff; }
+.sc-pro-gate-err{ color:#9B1C1C; font-weight:600; margin:8px 0; }
+.sc-pro-gate-status{ margin-top:10px; }
