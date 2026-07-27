@@ -16,9 +16,16 @@ import {
   listSessions,
   revokeSession,
   touchSession,
+  listCloudLedger,
+  readLocalLedger,
+  mergeMovements,
+  withRunningBalance,
+  ledgerTotals,
+  purchasesAsMovements,
   type PurchaseRecord,
   type DeviceSession,
-  type AccountPrefs
+  type AccountPrefs,
+  type CreditMovement
 } from './auth/index.js';
 import { readCredits } from './payments/paddle/credits.js';
 import type { User } from 'firebase/auth';
@@ -26,7 +33,10 @@ import type { User } from 'firebase/auth';
 const TAB_META: Record<string, { title: string; sub: string }> = {
   overview: { title: 'Overview', sub: 'Balance, receipts, and session posture for your SectorCalc identity.' },
   billing: { title: 'Billing', sub: 'Purchase receipts from Paddle checkout (browser + cloud).' },
-  credits: { title: 'Credits', sub: 'Balance breakdown and entitlement policy.' },
+  credits: {
+    title: 'Credits',
+    sub: 'Credit statement — purchases, spends, and adjustments with date and time.'
+  },
   security: { title: 'Security', sub: 'Identity plate and registered device sessions.' },
   preferences: { title: 'Preferences', sub: 'Notification and workspace density settings.' },
   workspace: { title: 'Workspace', sub: 'Jump into calculators and the credit store.' }
@@ -36,6 +46,7 @@ let activeTab = 'overview';
 let current: User | null = null;
 let purchases: PurchaseRecord[] = [];
 let sessions: DeviceSession[] = [];
+let movements: CreditMovement[] = [];
 
 function $(id: string): HTMLElement | null {
   return document.getElementById(id);
@@ -62,6 +73,58 @@ function providerLabel(raw: string): string {
 function fmtDate(iso: string): string {
   if (!iso) return '—';
   return iso.replace('T', ' ').slice(0, 19);
+}
+
+
+function kindLabel(kind: CreditMovement['kind']): string {
+  switch (kind) {
+    case 'purchase':
+      return 'Purchase';
+    case 'spend':
+      return 'Spend';
+    case 'refund':
+      return 'Refund';
+    case 'admin':
+      return 'Admin';
+    case 'promo':
+      return 'Promo';
+    case 'sync':
+      return 'Sync';
+    default:
+      return 'Movement';
+  }
+}
+
+function renderLedger(): void {
+  const tbody = $('ledger-tbody');
+  const empty = $('ledger-empty');
+  if (!tbody) return;
+  const totals = ledgerTotals(movements);
+  setText('acc-ledger-purchased', String(totals.purchased));
+  setText('acc-ledger-spent', String(totals.spent));
+  setText('acc-ledger-count', String(movements.length));
+  if (!movements.length) {
+    tbody.innerHTML = '';
+    if (empty) empty.hidden = false;
+    return;
+  }
+  if (empty) empty.hidden = true;
+  tbody.innerHTML = movements
+    .map((m) => {
+      const amtClass = m.delta > 0 ? 'acc-amt-credit' : 'acc-amt-debit';
+      const amt = m.delta > 0 ? `+${m.delta}` : String(m.delta);
+      const bal = m.balanceAfter == null ? '—' : String(m.balanceAfter);
+      const detail = m.detail ? `<div class="acc-muted">${m.detail}</div>` : '';
+      return `<tr>
+        <td class="mono">${fmtDate(m.at)}</td>
+        <td><span class="acc-kind acc-kind-${m.kind}">${kindLabel(m.kind)}</span></td>
+        <td><strong>${m.label}</strong>${detail}</td>
+        <td class="mono ${amtClass}">${amt}</td>
+        <td class="mono">${bal}</td>
+        <td><code class="mono">${m.txnId}</code></td>
+      </tr>`;
+    })
+    .join('');
 }
 
 function initialsFor(user: User): string {
@@ -170,7 +233,7 @@ function fillPrefs(prefs: AccountPrefs): void {
   document.documentElement.dataset.accCompact = prefs.compactWorkspace ? '1' : '0';
 }
 
-async function loadPremiumData(user: User): Promise<void> {
+async function loadPremiumData(user: User, displayBalance: number): Promise<void> {
   let cloudPurchases: PurchaseRecord[] = [];
   try {
     cloudPurchases = await listCloudPurchases(user.uid);
@@ -178,6 +241,18 @@ async function loadPremiumData(user: User): Promise<void> {
     cloudPurchases = [];
   }
   purchases = mergePurchases(cloudPurchases, readLocalPurchases());
+
+  let cloudLedger: CreditMovement[] = [];
+  try {
+    cloudLedger = await listCloudLedger(user.uid);
+  } catch {
+    cloudLedger = [];
+  }
+  movements = withRunningBalance(
+    mergeMovements(cloudLedger, readLocalLedger(), purchasesAsMovements(purchases)),
+    displayBalance
+  );
+
   try {
     await touchSession(user);
     sessions = await listSessions(user.uid);
@@ -186,6 +261,7 @@ async function loadPremiumData(user: User): Promise<void> {
   }
   fillPrefs(readPrefs());
   renderBilling();
+  renderLedger();
   renderDevices();
 }
 
@@ -201,7 +277,7 @@ async function render(user: User): Promise<void> {
     /* keep */
   }
   const display = Math.max(cloud, guest);
-  await loadPremiumData(user);
+  await loadPremiumData(user, display);
 
   const lifetime = purchases.reduce((n, p) => n + p.credits, 0);
   const providers = user.providerData.map((p) => providerLabel(p.providerId));
@@ -224,6 +300,7 @@ async function render(user: User): Promise<void> {
   setText('acc-credits', String(display));
   setText('acc-credits-hero', String(display));
   setText('acc-lifetime', String(lifetime));
+  setText('acc-ledger-available', String(display));
   setText('acc-device-count', String(sessions.length));
   setText('acc-cloud-detail', String(cloud));
   setText('acc-local-detail', String(guest));
@@ -261,12 +338,27 @@ function bind(): void {
   });
   $('sign-out')?.addEventListener('click', () => void doSignOut());
   $('sign-out-sec')?.addEventListener('click', () => void doSignOut());
-  $('billing-refresh')?.addEventListener('click', async () => {
+  const refreshLedger = async () => {
     if (!current) return;
-    toast('Refreshing billing…');
-    await loadPremiumData(current);
-    toast('Billing updated.', 'ok');
-  });
+    toast('Refreshing statement…');
+    const guest = readCredits().balance;
+    let cloud = guest;
+    try {
+      const profile = await readUserProfile(current.uid);
+      if (profile) cloud = profile.credits;
+    } catch {
+      /* keep */
+    }
+    const display = Math.max(cloud, guest);
+    await loadPremiumData(current, display);
+    setText('acc-ledger-available', String(display));
+    setText('acc-cloud-detail', String(cloud));
+    setText('acc-local-detail', String(guest));
+    setText('acc-display-detail', String(display));
+    toast('Statement updated.', 'ok');
+  };
+  $('billing-refresh')?.addEventListener('click', () => void refreshLedger());
+  $('ledger-refresh')?.addEventListener('click', () => void refreshLedger());
   $('copy-uid')?.addEventListener('click', async () => {
     const uid = $('acc-uid')?.textContent?.trim();
     if (!uid) return;

@@ -99,6 +99,7 @@ export async function adminSetUserCredits(
 ): Promise<UserProfile> {
   const before = await readUserProfile(uid);
   if (!before) throw new Error('User profile not found in Firestore');
+  const delta = credits - before.credits;
   await setUserCredits(uid, credits);
   await writeOpsAudit(actor, {
     action: 'credits.set',
@@ -106,6 +107,25 @@ export async function adminSetUserCredits(
     targetEmail: before.email,
     detail: `${before.credits} → ${credits}${reason ? ` · ${reason}` : ''}`
   });
+  if (delta !== 0) {
+    try {
+      await addDoc(collection(getFirebaseDb(), 'users', uid, 'ledger'), {
+        kind: 'admin',
+        delta,
+        label: delta > 0 ? `Admin credit +${delta}` : `Admin debit ${delta}`,
+        detail: reason || `${before.credits} → ${credits}`,
+        toolId: '',
+        txnId: `admin_${uid}_${before.credits}_to_${credits}_${Date.now()}`,
+        balanceAfter: credits,
+        at: serverTimestamp(),
+        email: before.email || '',
+        actorUid: actor.uid,
+        actorEmail: actor.email || ''
+      });
+    } catch {
+      /* ledger mirror best-effort */
+    }
+  }
   const after = await readUserProfile(uid);
   if (!after) throw new Error('User profile missing after update');
   return after;

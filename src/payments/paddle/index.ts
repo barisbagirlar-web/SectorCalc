@@ -21,6 +21,7 @@ export {
   readCredits,
   writeCredits,
   grantCredits,
+  spendCredits,
   type CreditLedger
 } from './credits.js';
 

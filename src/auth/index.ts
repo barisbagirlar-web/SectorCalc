@@ -43,6 +43,20 @@ export {
 } from './account-data.js';
 
 export {
+  readLocalLedger,
+  listCloudLedger,
+  mergeMovements,
+  withRunningBalance,
+  ledgerTotals,
+  purchasesAsMovements,
+  recordPurchaseMovement,
+  recordSpendMovement,
+  persistMovement,
+  type CreditMovement,
+  type CreditMovementKind
+} from './credit-ledger.js';
+
+export {
   getOpsAdminEmails,
   isOpsGateConfigured,
   isOpsUnlocked,

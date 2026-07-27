@@ -5,7 +5,7 @@ import {
   readCredits,
   getPaddlePublicConfig
 } from './payments/paddle/index.js';
-import { currentUser, recordLocalPurchase, recordCloudPurchase } from './auth/index.js';
+import { currentUser, recordLocalPurchase, recordCloudPurchase, persistMovement } from './auth/index.js';
 
 function renderBalance(): void {
   const el = document.querySelector('#credit-balance');
@@ -19,7 +19,16 @@ async function persistPurchase(detail: { granted?: number; txnId?: string; sourc
   const credits = Number(detail.granted) || 0;
   if (credits <= 0) return;
   recordLocalPurchase({ credits, txnId: detail.txnId, source: detail.source });
+  const balanceAfter = readCredits().balance;
   const user = currentUser();
+  await persistMovement(user, {
+    kind: 'purchase',
+    delta: credits,
+    label: `Purchased ${credits} credits`,
+    detail: detail.source || 'checkout',
+    txnId: detail.txnId || `purchase_${Date.now()}`,
+    balanceAfter
+  });
   if (!user) return;
   try {
     await recordCloudPurchase(user, { credits, txnId: detail.txnId, source: detail.source });
