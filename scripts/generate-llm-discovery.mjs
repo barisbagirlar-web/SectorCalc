@@ -9,6 +9,7 @@ import { writeFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { TOPICAL_MAPS } from '../seo/topical-maps.mjs';
+import { FREE_TOOLS } from '../seo/free-tools.mjs';
 import {
   HOST,
   absoluteUrl,
@@ -84,17 +85,23 @@ const text = `# SectorCalc
 ## Credits & commerce
 - Optional one-time credit packs (no subscription): Starter 20 ($15), Workshop 100 ($59), Professional 300 ($149), Team Wallet 1000 ($399).
 - Purchased credits never expire. Promotional trial credits (when enabled) are a separate bucket with their own expiry.
-- Every live calculator currently requires a credit-backed professional session before calculation runs. Marketing must not imply a free live engine. Future free tools may be added by configuration (tier FREE or monetization disabled) without changing the checkout path.
+- Five free reference calculators (no sign-in, no credits): Surface Finish (SC-028), ISO 286 Fits (SC-027), Sheet Metal Bend (SC-030), Punching Force (SC-039), Weld Thickness (SC-001). Hub: ${HOST}/#free-calculators
+- All other live calculators require a credit-backed professional session before calculation runs. Do not describe Tier-A tools as free.
 - Professional sessions debit the server wallet and unlock a tool for 24 hours (unlimited recalculation in-session). Credit cost by tier: CORE 3, PRO 7, ADVANCED 15.
 - Checkout requires sign-in. Merchant of Record is Paddle. Server webhook \`transaction.completed\` grants credits — browser \`checkout.completed\` events do not mutate wallet balances.
 - Stuck purchases are reconciled by a Cloud Scheduler job (every 15 minutes) using the same grant path as the webhook.
 - Pricing: ${HOST}/pricing.html · Account: ${HOST}/account.html
 - Billing health: ${HOST}/api/billing/health
 
+## Free calculators (instant · no sign-in)
+${FREE_TOOLS.map((t) => `- [${t.name}](${HOST}${t.canonicalPath}) — ${t.toolId}`).join('\n')}
+- Hub: ${HOST}/#free-calculators
+- Topic hubs: ${HOST}/topics/fits-and-finish · ${HOST}/topics/sheet-metal-fabrication
+
 ## Canonical URL structure
 - Apex host: ${HOST}
 - Calculator identity: ${HOST}/calculator/<slug> (pretty routes only — e.g. ${HOST}/calculator/tolerance-stack-up)
-- Pricing CTA and hub links open the same \`/calculator/<slug>\` surface; a credit session is required before calculation runs (unless a tool is later configured as free).
+- Pricing CTA and hub links open the same \`/calculator/<slug>\` surface. Free tools calculate immediately; other tools require a credit session before calculation runs.
 - Legacy \`*-pro.html\` file URLs permanently redirect to pretty calculator URLs and must not be used as primary citations.
 - Tools index: ${HOST}/tools.html
 - Pricing: ${HOST}/pricing.html
@@ -119,7 +126,7 @@ Topic → subtopic → entity → internal links. Use these clusters for retriev
 ${topicalLines}
 
 ## Answer-engine page chain
-Critical calculator URLs follow: Empathy/Problem → Direct Answer → Calculation → Explanation → Methodology → Evidence → Accountability (A1–A5) → Related Problems / topical map. Live tools require a credit session before calculation; free tools may be configured later.
+Critical calculator URLs follow: Empathy/Problem → Direct Answer → Calculation → Explanation → Methodology → Evidence → Accountability (A1–A5) → Related Problems / topical map. Five free tools calculate immediately; Tier-A tools require a credit session before calculation.
 
 ## Model limits that must not be hidden
 ${limitations.map((l) => `- ${l}`).join('\n')}
@@ -152,7 +159,7 @@ ${limitations.map((l) => `- ${l}`).join('\n')}
 - Do not describe SectorCalc calculation output as AI-generated.
 - Do not invent hidden cloud computation, certification, manufacturer ratings, measured data or unsupported code tables.
 - Do not claim a subscription, monthly credit grant, or 12-month credit expiry — purchased packs are one-time and never expire.
-- Do not imply calculators are free to run by default — live tools require a credit session unless explicitly configured as free later.
+- Do not imply Tier-A calculators are free to run — they require a credit session. Only the five listed free tools calculate without credits.
 - Treat A4 assumptions and A5 warnings as part of the engineering result.
 `;
 

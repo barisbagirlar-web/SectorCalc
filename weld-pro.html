@@ -445,7 +445,10 @@ finalLeg = max(legFromLoad, minLegFromTable)</div>
       "slogan": "Stop Guessing. Start Defending Your Numbers.",
       "foundingDate": "2024",
       "sameAs": [
-        "https://github.com/barisbagirlar-web/SectorCalc"
+        "https://github.com/barisbagirlar-web/SectorCalc",
+        "https://sectorcalc.com",
+        "https://sectorcalc.com/about",
+        "https://sectorcalc.com/tools.html"
       ],
       "contactPoint": {
         "@type": "ContactPoint",
@@ -534,15 +537,17 @@ finalLeg = max(legFromLoad, minLegFromTable)</div>
       "operatingSystem": "Any (Client-side Browser)",
       "offers": {
         "@type": "Offer",
-        "name": "24-hour calculator session (credits)",
-        "description": "Unlock with SectorCalc credits. Session cost by tool tier: CORE 3, PRO 7, or ADVANCED 15 credits for 24 hours of unlimited recalculation. One-time credit packs — no subscription.",
-        "url": "https://sectorcalc.com/pricing.html",
+        "name": "Free instant calculation",
+        "description": "No sign-in and no credits required. Enter inputs and calculate immediately. Results run client-side.",
+        "url": "https://sectorcalc.com/calculator/weld-thickness",
+        "price": "0",
         "priceCurrency": "USD",
         "availability": "https://schema.org/InStock",
         "seller": {
           "@id": "https://sectorcalc.com/#organization"
         }
       },
+      "isAccessibleForFree": true,
       "description": "Fillet weld throat and leg sizing per AWS D1.1 and ISO standards. Deterministic formula visibility.",
       "featureList": [
         "Deterministic engine — same inputs, same result",
@@ -592,9 +597,10 @@ finalLeg = max(legFromLoad, minLegFromTable)</div>
       },
       "offers": {
         "@type": "Offer",
-        "name": "Credit-unlocked calculation session",
-        "description": "Live calculators require a credit-backed 24-hour session before results run. Buy one-time packs on Pricing.",
-        "url": "https://sectorcalc.com/pricing.html",
+        "name": "Free calculator access",
+        "description": "This calculator is free. Instant results with visible formulas — no credit session.",
+        "url": "https://sectorcalc.com/calculator/weld-thickness",
+        "price": "0",
         "priceCurrency": "USD",
         "availability": "https://schema.org/InStock",
         "seller": {
@@ -606,12 +612,12 @@ finalLeg = max(legFromLoad, minLegFromTable)</div>
       "@type": "HowTo",
       "@id": "https://sectorcalc.com/calculator/weld-thickness#howto",
       "name": "How to run Weld Thickness on SectorCalc",
-      "description": "Open the calculator, enter inputs with units, then calculate and review the audit trail for SC-001 Weld Thickness.",
+      "description": "Open the free calculator, enter inputs with units, then calculate and review results for SC-001 Weld Thickness.",
       "totalTime": "PT3M",
       "estimatedCost": {
         "@type": "MonetaryAmount",
         "currency": "USD",
-        "value": "15"
+        "value": "0"
       },
       "tool": [
         {
@@ -623,8 +629,8 @@ finalLeg = max(legFromLoad, minLegFromTable)</div>
         {
           "@type": "HowToStep",
           "position": 1,
-          "name": "Sign in and unlock a session",
-          "text": "Open https://sectorcalc.com/calculator/weld-thickness, sign in, and confirm a credit debit for a 24-hour session on this tool (tier cost applies).",
+          "name": "Open the free calculator",
+          "text": "Open https://sectorcalc.com/calculator/weld-thickness. No sign-in and no credits are required for this tool.",
           "url": "https://sectorcalc.com/calculator/weld-thickness"
         },
         {
@@ -637,8 +643,8 @@ finalLeg = max(legFromLoad, minLegFromTable)</div>
         {
           "@type": "HowToStep",
           "position": 3,
-          "name": "Calculate and audit",
-          "text": "Run Calculate & Audit / Generate Report. Review formulas, warnings, engine version, and export if needed. Recalculate freely until the session expires.",
+          "name": "Calculate instantly",
+          "text": "Run Calculate. Review formulas, warnings, and results immediately. Export where provided.",
           "url": "https://sectorcalc.com/calculator/weld-thickness"
         }
       ],
@@ -693,7 +699,7 @@ finalLeg = max(legFromLoad, minLegFromTable)</div>
     "@id": "https://sectorcalc.com/#organization"
   },
   "license": "https://sectorcalc.com/terms.html",
-  "isAccessibleForFree": false,
+  "isAccessibleForFree": true,
   "distribution": {
     "@type": "DataDownload",
     "encodingFormat": "application/pdf",
@@ -747,7 +753,8 @@ finalLeg = max(legFromLoad, minLegFromTable)</div>
 </script>
 <!--SC-SEO-SCHEMA-END-->
 <link rel="stylesheet" href="/sc-related-tools.css?v=1">
-                                                    <link rel="stylesheet" href="/sc-calc-sheet.css?v=1">
+                                                    <link rel="stylesheet" href="/sc-free-tools.css?v=1">
+  <link rel="stylesheet" href="/sc-calc-sheet.css?v=1">
   <!--SC-CALC-SHEET-START-->
   <!-- calc-sheet theme: theme-calc-sheet -->
   <!--SC-CALC-SHEET-END-->
@@ -833,6 +840,7 @@ finalLeg = max(legFromLoad, minLegFromTable)</div>
 
 
 
+
 <!--SC-SEO-BREADCRUMB-START-->
 <nav aria-label="Breadcrumb" class="sc-breadcrumb">
   <ol itemscope itemtype="https://schema.org/BreadcrumbList">
@@ -872,7 +880,17 @@ finalLeg = max(legFromLoad, minLegFromTable)</div>
 
 
 <div class="sc-header">
-  <div class="sc-header-left"><a href="/" class="sc-logo" title="SectorCalc home" aria-label="SectorCalc home"><img class="logo-light" src="/sectorcalc-logo.png" alt="SectorCalc" width="160" height="42"><img class="logo-dark" src="/sectorcalc-logo-dark.png?v=2" alt="" width="160" height="42" aria-hidden="true"></a><div class="sc-header-brand"><h1 class="sc-header-title">Weld Thickness Calculator</h1><div class="sc-header-sub">Engineering preview · Client-side · Deterministic Decimal engine · Not for production approval</div></div></div>
+  <div class="sc-header-left"><a href="/" class="sc-logo" title="SectorCalc home" aria-label="SectorCalc home"><img class="logo-light" src="/sectorcalc-logo.png" alt="SectorCalc" width="160" height="42"><img class="logo-dark" src="/sectorcalc-logo-dark.png?v=2" alt="" width="160" height="42" aria-hidden="true"></a><div class="sc-header-brand"><h1 class="sc-header-title">Weld Thickness Calculator</h1>
+<!--SC-FREE-AEO-START-->
+<aside class="sc-free-aeo" data-free-aeo="1" data-tool-id="SC-001" data-aeo-chain="empathy-direct-calc-upsell" data-access="free">
+  <p class="sc-free-badge">Free · no sign-in · no credits</p>
+  <p class="sc-aeo-problem"><strong>The problem:</strong> Throat and leg look interchangeable until the drawing review rejects the callout.</p>
+  <p class="sc-direct-answer" data-aeo-step="direct-answer">Size fillet weld throat and leg relationships with formula-visible checks aligned to common AWS/ISO sizing language. Use it for early weld-size screening — not as a WPS/PQR or code stamp substitute. Heat-input / t8/5 lives on the credit-backed SC-029 tool.</p>
+  <p class="sc-free-aeo-note">Enter inputs below and press Calculate — results unlock immediately.</p>
+  <p class="sc-free-aeo-upsell"><a href="/calculator/weld-heat-input">Need heat input / t8/5? Open SC-029 (credits) →</a></p>
+</aside>
+<!--SC-FREE-AEO-END-->
+<div class="sc-header-sub">Engineering preview · Client-side · Deterministic Decimal engine · Not for production approval</div></div></div>
   <div class="sc-header-right"><a href="/" class="sc-btn sc-btn-ghost" style="margin-right:10px;text-decoration:none">All tools</a><a href="/pricing.html" class="sc-btn sc-btn-ghost" style="margin-right:10px;text-decoration:none">Pricing</a><div class="sc-badge sc-badge-cost">Weld</div></div>
 </div>
 <div class="sc-layout">

@@ -211,7 +211,10 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
       "slogan": "Stop Guessing. Start Defending Your Numbers.",
       "foundingDate": "2024",
       "sameAs": [
-        "https://github.com/barisbagirlar-web/SectorCalc"
+        "https://github.com/barisbagirlar-web/SectorCalc",
+        "https://sectorcalc.com",
+        "https://sectorcalc.com/about",
+        "https://sectorcalc.com/tools.html"
       ],
       "contactPoint": {
         "@type": "ContactPoint",
@@ -300,15 +303,17 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
       "operatingSystem": "Any (Client-side Browser)",
       "offers": {
         "@type": "Offer",
-        "name": "24-hour calculator session (credits)",
-        "description": "Unlock with SectorCalc credits. Session cost by tool tier: CORE 3, PRO 7, or ADVANCED 15 credits for 24 hours of unlimited recalculation. One-time credit packs — no subscription.",
-        "url": "https://sectorcalc.com/pricing.html",
+        "name": "Free instant calculation",
+        "description": "No sign-in and no credits required. Enter inputs and calculate immediately. Results run client-side.",
+        "url": "https://sectorcalc.com/calculator/punching-force",
+        "price": "0",
         "priceCurrency": "USD",
         "availability": "https://schema.org/InStock",
         "seller": {
           "@id": "https://sectorcalc.com/#organization"
         }
       },
+      "isAccessibleForFree": true,
       "description": "Punching force, stripping force, and die clearance for sheet metal operations. Deterministic.",
       "featureList": [
         "Deterministic engine — same inputs, same result",
@@ -358,9 +363,10 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
       },
       "offers": {
         "@type": "Offer",
-        "name": "Credit-unlocked calculation session",
-        "description": "Live calculators require a credit-backed 24-hour session before results run. Buy one-time packs on Pricing.",
-        "url": "https://sectorcalc.com/pricing.html",
+        "name": "Free calculator access",
+        "description": "This calculator is free. Instant results with visible formulas — no credit session.",
+        "url": "https://sectorcalc.com/calculator/punching-force",
+        "price": "0",
         "priceCurrency": "USD",
         "availability": "https://schema.org/InStock",
         "seller": {
@@ -372,12 +378,12 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
       "@type": "HowTo",
       "@id": "https://sectorcalc.com/calculator/punching-force#howto",
       "name": "How to run Punching Force on SectorCalc",
-      "description": "Open the calculator, enter inputs with units, then calculate and review the audit trail for SC-039 Punching Force & Die Clearance.",
+      "description": "Open the free calculator, enter inputs with units, then calculate and review results for SC-039 Punching Force & Die Clearance.",
       "totalTime": "PT3M",
       "estimatedCost": {
         "@type": "MonetaryAmount",
         "currency": "USD",
-        "value": "15"
+        "value": "0"
       },
       "tool": [
         {
@@ -389,8 +395,8 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
         {
           "@type": "HowToStep",
           "position": 1,
-          "name": "Sign in and unlock a session",
-          "text": "Open https://sectorcalc.com/calculator/punching-force, sign in, and confirm a credit debit for a 24-hour session on this tool (tier cost applies).",
+          "name": "Open the free calculator",
+          "text": "Open https://sectorcalc.com/calculator/punching-force. No sign-in and no credits are required for this tool.",
           "url": "https://sectorcalc.com/calculator/punching-force"
         },
         {
@@ -403,8 +409,8 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
         {
           "@type": "HowToStep",
           "position": 3,
-          "name": "Calculate and audit",
-          "text": "Run Calculate & Audit / Generate Report. Review formulas, warnings, engine version, and export if needed. Recalculate freely until the session expires.",
+          "name": "Calculate instantly",
+          "text": "Run Calculate. Review formulas, warnings, and results immediately. Export where provided.",
           "url": "https://sectorcalc.com/calculator/punching-force"
         }
       ],
@@ -459,7 +465,7 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
     "@id": "https://sectorcalc.com/#organization"
   },
   "license": "https://sectorcalc.com/terms.html",
-  "isAccessibleForFree": false,
+  "isAccessibleForFree": true,
   "distribution": {
     "@type": "DataDownload",
     "encodingFormat": "application/pdf",
@@ -513,7 +519,8 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
 </script>
 <!--SC-SEO-SCHEMA-END-->
 <link rel="stylesheet" href="/sc-related-tools.css?v=1">
-                                                    <link rel="stylesheet" href="/sc-calc-sheet.css?v=1">
+                                                    <link rel="stylesheet" href="/sc-free-tools.css?v=1">
+  <link rel="stylesheet" href="/sc-calc-sheet.css?v=1">
   <!--SC-CALC-SHEET-START-->
   <!-- calc-sheet theme: theme-calc-sheet -->
   <!--SC-CALC-SHEET-END-->
@@ -598,6 +605,7 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
 
 
 
+
 <!--SC-SEO-BREADCRUMB-START-->
 <nav aria-label="Breadcrumb" class="sc-breadcrumb">
   <ol itemscope itemtype="https://schema.org/BreadcrumbList">
@@ -626,6 +634,15 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
   <div class="head">
     <div>
       <h1>Punching Force &amp; Die Clearance — Press Working (SC-039)</h1>
+<!--SC-FREE-AEO-START-->
+<aside class="sc-free-aeo" data-free-aeo="1" data-tool-id="SC-039" data-aeo-chain="empathy-direct-calc-upsell" data-access="free">
+  <p class="sc-free-badge">Free · no sign-in · no credits</p>
+  <p class="sc-aeo-problem"><strong>The problem:</strong> Press tonnage guessed from habit is how punches snap and frames ring.</p>
+  <p class="sc-direct-answer" data-aeo-step="direct-answer">Estimate punching force from perimeter, thickness, and shear strength with clear unit handling. Use it to screen die and press capacity before tooling — not as a replacement for manufacturer tonnage charts or safety factors required by your press standard.</p>
+  <p class="sc-free-aeo-note">Enter inputs below and press Calculate — results unlock immediately.</p>
+  <p class="sc-free-aeo-upsell"><a href="/calculator/sheet-metal-bend">Also free: sheet metal bend calculator →</a></p>
+</aside>
+<!--SC-FREE-AEO-END-->
       <p>Sheet-metal punching engine for toolmakers and press shops: cutting force from shear strength and cut perimeter, stripping load, required press tonnage with safety factor, per-side die clearance by material group and thickness band, punch slenderness and minimum-feature checks — every input with <b>selectable universal units</b> and <b>reference-standard values</b>, every report with the full audit trail.</p>
     </div>
     <div>

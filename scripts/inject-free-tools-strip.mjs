@@ -1,0 +1,107 @@
+#!/usr/bin/env node
+/**
+ * Inject homepage + tools free-calculators strip (idempotent).
+ * Does NOT modify sacred .sc-hero markup beyond post-hero insertion.
+ */
+import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import { join } from 'node:path';
+import { FREE_TOOLS } from '../seo/free-tools.mjs';
+
+const ROOT = process.cwd();
+const CSS = '/sc-free-tools.css?v=1';
+const START = '<!--SC-FREE-TOOLS-START-->';
+const END = '<!--SC-FREE-TOOLS-END-->';
+
+function esc(s) {
+  return String(s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+function stripHtml() {
+  const cards = FREE_TOOLS.map(
+    (t) => `<article class="sc-free-card" data-free-tool="${esc(t.toolId)}" data-entity="${esc(t.entity)}">
+  <p class="sc-free-badge">Free · no sign-in</p>
+  <h3>${esc(t.name)}</h3>
+  <p class="sc-free-problem">${esc(t.problem)}</p>
+  <a class="sc-free-cta" href="${esc(t.canonicalPath)}">Calculate free →</a>
+</article>`,
+  ).join('\n');
+
+  return `${START}
+<section class="sc-free-tools" id="free-calculators" aria-labelledby="free-calculators-heading" data-aeo-hub="free">
+  <div class="sc-free-inner">
+    <p class="sc-free-kicker">Link + citation bait · instant results</p>
+    <h2 id="free-calculators-heading">Five free calculators — no credits, no login</h2>
+    <p class="sc-free-lead">Shop-floor reference tools you can run immediately. Tier-A decision tools (stack-up, feeds &amp; speeds, quoting, OEE, pressure, heat input) still unlock with credits.</p>
+    <div class="sc-free-grid">
+${cards}
+    </div>
+  </div>
+</section>
+${END}`;
+}
+
+function ensureCss(html) {
+  if (html.includes('sc-free-tools.css')) {
+    return html.replace(/sc-free-tools\.css\?v=\d+/g, 'sc-free-tools.css?v=1');
+  }
+  return html.replace(/<\/head>/i, `<link rel="stylesheet" href="${CSS}">\n</head>`);
+}
+
+function strip(html) {
+  return html.replace(new RegExp(`${START}[\\s\\S]*?${END}\\n?`, 'g'), '');
+}
+
+function injectHome(html) {
+  html = strip(html);
+  html = ensureCss(html);
+  const block = stripHtml();
+  // After sacred hero section, before trust-strip
+  if (/class="sc-hero"/.test(html) && /trust-strip/.test(html)) {
+    return html.replace(
+      /(<\/section>\s*\n\s*)(<!-- ================= TRUST STRIP|<div class="trust-strip")/,
+      `$1${block}\n\n  $2`,
+    );
+  }
+  return html;
+}
+
+function injectTools(html) {
+  html = strip(html);
+  html = ensureCss(html);
+  const block = stripHtml();
+  if (/<!--SC-SITE-NAV-END-->/.test(html)) {
+    return html.replace(/<!--SC-SITE-NAV-END-->/, `<!--SC-SITE-NAV-END-->\n${block}`);
+  }
+  if (/<!--SC-AEO-HUB-END-->/.test(html)) {
+    return html.replace(/<!--SC-AEO-HUB-END-->/, `<!--SC-AEO-HUB-END-->\n${block}`);
+  }
+  return html.replace(/<main\b[^>]*>/i, (m) => `${m}\n${block}`);
+}
+
+const targets = [
+  { page: 'index.html', fn: injectHome },
+  { page: 'tools.html', fn: injectTools },
+];
+
+let n = 0;
+for (const { page, fn } of targets) {
+  const path = join(ROOT, page);
+  if (!existsSync(path)) {
+    console.warn(`[SKIP] missing ${page}`);
+    continue;
+  }
+  const html = readFileSync(path, 'utf8');
+  const next = fn(html);
+  if (next !== html) {
+    writeFileSync(path, next);
+    n += 1;
+    console.log(`[OK] free-tools strip → ${page}`);
+  } else {
+    console.log(`[OK] free-tools strip unchanged ${page}`);
+  }
+}
+console.log(`[PASS] free-tools strip on ${n}/${targets.length} pages`);

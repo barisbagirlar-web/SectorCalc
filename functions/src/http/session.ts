@@ -65,7 +65,7 @@ export async function handleProfessionalSession(req: Request, res: Response, too
         toolId,
         pricingTier: pricing.tier,
         creditCost: pricing.creditCost,
-        monetizationEnabled: true,
+        monetizationEnabled: pricing.monetizationEnabled,
         existingActive: existing,
         nowMs,
         idFactory: newId
