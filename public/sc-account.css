@@ -347,3 +347,14 @@ html[data-acc-compact="1"] .acc-stat-value{ font-size:18px; }
 .acc-kind-spend{ border-color:rgba(180,35,24,0.3); color:#b42318; background:rgba(180,35,24,0.06); }
 .acc-kind-admin{ border-color:rgba(0,85,164,0.3); color:var(--acc-blue-deep); background:rgba(0,85,164,0.08); }
 .acc-ledger-table td strong{ font-weight:600; }
+
+.acc-inspect-banner{
+  display:flex; justify-content:space-between; gap:16px; align-items:center; flex-wrap:wrap;
+  margin:0 0 16px; padding:14px 16px;
+  border:1.5px solid rgba(0,85,164,0.35); background:rgba(0,85,164,0.08);
+}
+.acc-inspect-banner[hidden]{ display:none !important; }
+.acc-inspect-banner strong{
+  display:block; font-family:var(--acc-display); font-size:16px; text-transform:uppercase; letter-spacing:0.04em;
+}
+.acc-inspect-banner span{ color:var(--acc-ink2); font-size:13.5px; }
