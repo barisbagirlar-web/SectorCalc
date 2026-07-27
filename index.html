@@ -61,9 +61,10 @@
   --iso-red-dim:   #751B1A;
   --iso-yellow:    #F1C40F;
   --iso-yellow-light:#FFF8E6;
-  --sheet-white:   #F5F5F0;
-  --sheet-paper:   #FFFFFF;
-  --sheet-grid:    #E0E0D8;
+  --sheet-white:   #eef1f4;
+  --sheet-paper:   #fbfcfd;
+  --sheet-grid:    rgba(26, 58, 92, 0.125);
+  --sheet-grid-minor: rgba(26, 58, 92, 0.06);
   --sheet-line:    #C5C5BE;
   --sheet-line-strong:#999994;
   --sheet-line-hair:#D8D8D0;
@@ -81,9 +82,10 @@
 }
 
 [data-theme="dark"] {
-  --sheet-white:   #14171A;
-  --sheet-paper:   #1B1F23;
-  --sheet-grid:    #2E343A;
+  --sheet-white:   #0c1219;
+  --sheet-paper:   #131a23;
+  --sheet-grid:    rgba(127, 179, 232, 0.11);
+  --sheet-grid-minor: rgba(127, 179, 232, 0.05);
   --sheet-line:    #3A4046;
   --sheet-line-strong:#555C64;
   --sheet-line-hair:#2E343A;
@@ -118,7 +120,7 @@ html{ scroll-behavior: smooth; }
 
 body{
   margin:0;
-  background: var(--sheet-white);
+  background: transparent;
   color: var(--sheet-text);
   font-family: var(--f-body);
   font-size: 16px;
@@ -266,11 +268,14 @@ h1,h2,h3,h4{
 
 .blueprint-grid{
   position:absolute; inset:0;
+  /* Locked to eng-paper v4 rhythm: 8px minor · 40px major (1:5) */
   background-image:
-    linear-gradient(var(--sheet-grid) 1px, transparent 1px),
-    linear-gradient(90deg, var(--sheet-grid) 1px, transparent 1px);
-  background-size: 48px 48px;
-  opacity: 0.5;
+    linear-gradient(var(--sheet-grid) 1.5px, transparent 1.5px),
+    linear-gradient(90deg, var(--sheet-grid) 1.5px, transparent 1.5px),
+    linear-gradient(var(--sheet-grid-minor) 1px, transparent 1px),
+    linear-gradient(90deg, var(--sheet-grid-minor) 1px, transparent 1px);
+  background-size: 40px 40px, 40px 40px, 8px 8px, 8px 8px;
+  opacity: 0.72;
   mask-image: linear-gradient(to bottom, black, transparent 88%);
   pointer-events: none;
 }
@@ -1886,8 +1891,12 @@ select:focus-visible{
 <!--SC-SEO-SCHEMA-END-->
 <link rel="stylesheet" href="/sc-aeo-hub.css?v=1">
 <link rel="stylesheet" href="/sc-free-tools.css?v=2">
+    <link rel="stylesheet" href="/sc-calc-sheet.css?v=4">
+  <!--SC-CALC-SHEET-START-->
+  <!-- eng-paper: sc-eng-paper v4 (background only) -->
+  <!--SC-CALC-SHEET-END-->
 </head>
-<body>
+<body class="sc-eng-paper">
 <!--SC-SITE-NAV-START-->
 <header class="site-header" id="siteHeader" role="banner">
   <a href="/" class="brand" aria-label="SectorCalc Home"><span class="brand-mark"><img class="logo-light" src="/sectorcalc-logo-214.w.png" srcset="/sectorcalc-logo-214.w.png 214w, /sectorcalc-logo-428.w.png 428w" sizes="183px" width="183" height="48" alt="SectorCalc" decoding="async"><img class="logo-dark" src="/sectorcalc-logo-dark-214.w.png" srcset="/sectorcalc-logo-dark-214.w.png 214w, /sectorcalc-logo-dark-428.w.png 428w" sizes="183px" width="183" height="48" alt="" aria-hidden="true" decoding="async"></span></a>
@@ -1921,6 +1930,7 @@ select:focus-visible{
   <a href="/login.html" class="btn-primary" data-nav="login">Sign in</a>
 </div>
 <!--SC-SITE-NAV-END-->
+
 
 
 
@@ -2107,6 +2117,7 @@ select:focus-visible{
     </div>
   </section>
 
+  
   
   
   
