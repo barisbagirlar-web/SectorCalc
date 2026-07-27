@@ -30,7 +30,7 @@ test.describe('Pricing & Checkout', () => {
     await expect(page.locator('#packages .pack')).toHaveCount(4, { timeout: 12_000 });
     await expect(page.locator('#packages')).toContainText(/ONE-TIME|one-time|No subscription/i);
     await expect(page.locator('#packages')).toContainText(/USD|CREDIT|credits/i);
-    await expect(page.getByRole('link', { name: /Get credits/i }).first()).toBeVisible();
+    await expect(page.getByRole('link', { name: /Commission credits|Get credits/i }).first()).toBeVisible();
   });
 
   test('unsigned buy routes to login before Paddle', async ({ page }) => {
@@ -60,7 +60,7 @@ test.describe('Authentication', () => {
   });
 });
 
-test.describe('Calculator Tools — Free SEO-bait set', () => {
+test.describe('Calculator Tools — Open reference bench', () => {
   test('surface finish calculates without credit gate', async ({ page }) => {
     await page.goto('/calculator/surface-finish');
     const free = page.locator('[data-access="free"], .sc-free-aeo').first();
@@ -71,12 +71,12 @@ test.describe('Calculator Tools — Free SEO-bait set', () => {
     } catch {
       test.skip(
         Boolean(process.env.BASE_URL),
-        'Free SEO-bait markers not yet on live host (awaiting promote)'
+        'Open-bench markers not yet on live host (awaiting promote)'
       );
       throw new Error('Expected free-tool markers on local Vite surface-finish page');
     }
     await expect(gate).toHaveCount(0);
-    await expect(page.locator('body')).toContainText(/Free · no sign-in/i);
+    await expect(page.locator('body')).toContainText(/Open instrument|Free · no sign-in|no credits/i);
   });
 });
 
