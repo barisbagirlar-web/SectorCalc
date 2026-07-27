@@ -60,6 +60,7 @@ if not _REGISTRY_PATH.exists():
 _REGISTRY = json.loads(_REGISTRY_PATH.read_text(encoding="utf-8"))
 TOOL_CANONICAL = dict(_REGISTRY["toolCanonicalBySlug"])
 TOOL_META = dict(_REGISTRY["toolMetaBySlug"])
+FREE_TOOL_SLUGS = set(_REGISTRY.get("freeToolSlugs") or [])
 
 def eeat_claim_allowed() -> bool:
     evidence = ROOT / "seo" / "evidence" / "expert-relationships.json"
@@ -120,6 +121,9 @@ def schema_global() -> str:
                 "foundingDate": "2024",
                 "sameAs": [
                     "https://github.com/barisbagirlar-web/SectorCalc",
+                    "https://sectorcalc.com",
+                    "https://sectorcalc.com/about",
+                    "https://sectorcalc.com/tools.html",
                 ],
                 "contactPoint": {
                     "@type": "ContactPoint",
@@ -207,6 +211,98 @@ def schema_global() -> str:
 
 def schema_tool(slug: str, meta: dict) -> str:
     url = tool_url(slug)
+    is_free = slug in FREE_TOOL_SLUGS
+    if is_free:
+        soft_offer = {
+            "@type": "Offer",
+            "name": "Free instant calculation",
+            "description": "No sign-in and no credits required. Enter inputs and calculate immediately. Results run client-side.",
+            "url": url,
+            "price": "0",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock",
+            "seller": {"@id": f"{HOST}/#organization"},
+        }
+        product_offer = {
+            "@type": "Offer",
+            "name": "Free calculator access",
+            "description": "This calculator is free. Instant results with visible formulas — no credit session.",
+            "url": url,
+            "price": "0",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock",
+            "seller": {"@id": f"{HOST}/#organization"},
+        }
+        howto_steps = [
+            {
+                "@type": "HowToStep",
+                "position": 1,
+                "name": "Open the free calculator",
+                "text": f"Open {url}. No sign-in and no credits are required for this tool.",
+                "url": url,
+            },
+            {
+                "@type": "HowToStep",
+                "position": 2,
+                "name": "Enter inputs",
+                "text": "Fill each field using the selectable units. Check reference hints and validation banners before running.",
+                "url": url,
+            },
+            {
+                "@type": "HowToStep",
+                "position": 3,
+                "name": "Calculate instantly",
+                "text": "Run Calculate. Review formulas, warnings, and results immediately. Export where provided.",
+                "url": url,
+            },
+        ]
+        howto_cost = {"@type": "MonetaryAmount", "currency": "USD", "value": "0"}
+        howto_desc = f"Open the free calculator, enter inputs with units, then calculate and review results for {meta['name']}."
+    else:
+        soft_offer = {
+            "@type": "Offer",
+            "name": "24-hour calculator session (credits)",
+            "description": "Unlock with SectorCalc credits. Session cost by tool tier: CORE 3, PRO 7, or ADVANCED 15 credits for 24 hours of unlimited recalculation. One-time credit packs — no subscription.",
+            "url": f"{HOST}/pricing.html",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock",
+            "seller": {"@id": f"{HOST}/#organization"},
+        }
+        product_offer = {
+            "@type": "Offer",
+            "name": "Credit-unlocked calculation session",
+            "description": "This calculator requires a credit-backed 24-hour session before results run. Buy one-time packs on Pricing.",
+            "url": f"{HOST}/pricing.html",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock",
+            "seller": {"@id": f"{HOST}/#organization"},
+        }
+        howto_steps = [
+            {
+                "@type": "HowToStep",
+                "position": 1,
+                "name": "Sign in and unlock a session",
+                "text": f"Open {url}, sign in, and confirm a credit debit for a 24-hour session on this tool (tier cost applies).",
+                "url": url,
+            },
+            {
+                "@type": "HowToStep",
+                "position": 2,
+                "name": "Enter inputs",
+                "text": "Fill each field using the selectable units. Check reference hints and validation banners before running.",
+                "url": url,
+            },
+            {
+                "@type": "HowToStep",
+                "position": 3,
+                "name": "Calculate and audit",
+                "text": "Run Calculate & Audit / Generate Report. Review formulas, warnings, engine version, and export if needed. Recalculate freely until the session expires.",
+                "url": url,
+            },
+        ]
+        howto_cost = {"@type": "MonetaryAmount", "currency": "USD", "value": "15"}
+        howto_desc = f"Open the calculator, enter inputs with units, then calculate and review the audit trail for {meta['name']}."
+
     data = {
         "@context": "https://schema.org",
         "@graph": [
@@ -239,15 +335,8 @@ def schema_tool(slug: str, meta: dict) -> str:
                 "applicationCategory": "EngineeringApplication",
                 "applicationSubCategory": meta["sub"],
                 "operatingSystem": "Any (Client-side Browser)",
-                "offers": {
-                    "@type": "Offer",
-                    "name": "24-hour calculator session (credits)",
-                    "description": "Unlock with SectorCalc credits. Session cost by tool tier: CORE 3, PRO 7, or ADVANCED 15 credits for 24 hours of unlimited recalculation. One-time credit packs — no subscription.",
-                    "url": f"{HOST}/pricing.html",
-                    "priceCurrency": "USD",
-                    "availability": "https://schema.org/InStock",
-                    "seller": {"@id": f"{HOST}/#organization"},
-                },
+                "offers": soft_offer,
+                "isAccessibleForFree": is_free,
                 "description": meta["desc"],
                 "featureList": [
                     "Deterministic engine — same inputs, same result",
@@ -279,47 +368,17 @@ def schema_tool(slug: str, meta: dict) -> str:
                 "brand": {"@id": f"{HOST}/#organization"},
                 "category": "Engineering Software",
                 "isRelatedTo": {"@id": f"{url}#software"},
-                "offers": {
-                    "@type": "Offer",
-                    "name": "Credit-unlocked calculation session",
-                    "description": "Live calculators require a credit-backed 24-hour session before results run. Buy one-time packs on Pricing.",
-                    "url": f"{HOST}/pricing.html",
-                    "priceCurrency": "USD",
-                    "availability": "https://schema.org/InStock",
-                    "seller": {"@id": f"{HOST}/#organization"},
-                },
+                "offers": product_offer,
             },
             {
                 "@type": "HowTo",
                 "@id": f"{url}#howto",
                 "name": f"How to run {meta['short']} on SectorCalc",
-                "description": f"Open the calculator, enter inputs with units, then calculate and review the audit trail for {meta['name']}.",
+                "description": howto_desc,
                 "totalTime": "PT3M",
-                "estimatedCost": {"@type": "MonetaryAmount", "currency": "USD", "value": "15"},
+                "estimatedCost": howto_cost,
                 "tool": [{"@type": "HowToTool", "name": meta["name"]}],
-                "step": [
-                    {
-                        "@type": "HowToStep",
-                        "position": 1,
-                        "name": "Sign in and unlock a session",
-                        "text": f"Open {url}, sign in, and confirm a credit debit for a 24-hour session on this tool (tier cost applies).",
-                        "url": url,
-                    },
-                    {
-                        "@type": "HowToStep",
-                        "position": 2,
-                        "name": "Enter inputs",
-                        "text": "Fill each field using the selectable units. Check reference hints and validation banners before running.",
-                        "url": url,
-                    },
-                    {
-                        "@type": "HowToStep",
-                        "position": 3,
-                        "name": "Calculate and audit",
-                        "text": "Run Calculate & Audit / Generate Report. Review formulas, warnings, engine version, and export if needed. Recalculate freely until the session expires.",
-                        "url": url,
-                    },
-                ],
+                "step": howto_steps,
                 "isPartOf": {"@id": f"{url}#software"},
             },
             {
@@ -407,7 +466,7 @@ def schema_dataset(slug: str, meta: dict) -> str:
         "creator": {"@id": f"{HOST}/#organization"},
         "publisher": {"@id": f"{HOST}/#organization"},
                 "license": f"{HOST}/terms.html",
-        "isAccessibleForFree": False,
+        "isAccessibleForFree": slug in FREE_TOOL_SLUGS,
         "distribution": {
             "@type": "DataDownload",
             "encodingFormat": "application/pdf",

@@ -111,7 +111,7 @@ const REWRITE_TARGETS = {
 function resolveTarget(target) {
   if (REWRITE_TARGETS[target]) return REWRITE_TARGETS[target];
   // /glossary/slug -> public/glossary/slug.html
-  for (const folder of ['glossary', 'compare', 'guides', 'blog', 'case-studies', 'about', 'contact', 'privacy', 'terms', 'resources']) {
+  for (const folder of ['glossary', 'compare', 'guides', 'blog', 'topics', 'case-studies', 'about', 'contact', 'privacy', 'terms', 'resources']) {
     if (target === folder || target.startsWith(`${folder}/`)) {
       if (target === folder) return `public/${folder}/index.html`;
       const rest = target.slice(folder.length + 1).replace(/\/$/, '');

@@ -60,6 +60,17 @@ test.describe('Authentication', () => {
   });
 });
 
+test.describe('Calculator Tools — Free SEO-bait set', () => {
+  test('surface finish calculates without credit gate', async ({ page }) => {
+    await page.goto('/calculator/surface-finish');
+    await expect(page.locator('[data-access="free"], .sc-free-aeo').first()).toBeVisible({
+      timeout: 15_000
+    });
+    await expect(page.locator('#sc-pro-gate-root .sc-pro-gate')).toHaveCount(0);
+    await expect(page.locator('body')).toContainText(/Free · no sign-in/i);
+  });
+});
+
 test.describe('Calculator Tools — Credit Gate Surface', () => {
   const calculators = [
     {

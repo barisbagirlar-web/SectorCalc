@@ -34,7 +34,7 @@ function init(): void {
   const freeTier = document.querySelector('#free-tier');
   if (freeTier) {
     freeTier.innerHTML = isCheckoutConfigured()
-      ? `<b>Paddle ${paddle.environment} checkout is ready.</b> Every live calculator requires a credit session before results run (CORE 3 / PRO 7 / ADVANCED 15 · 24h). Purchased credits do not expire.`
+      ? `<b>Paddle ${paddle.environment} checkout is ready.</b> Five reference tools are free (surface finish, ISO fits, bend, punching, weld thickness). Other tools require a credit session (CORE 3 / PRO 7 / ADVANCED 15 · 24h). Purchased credits do not expire.`
       : `<b>Checkout is not configured.</b> Set VITE_PADDLE_CLIENT_TOKEN. Purchased credits do not expire.`;
   }
 

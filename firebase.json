@@ -411,6 +411,21 @@
         "source": "/case-studies/index.html",
         "destination": "/case-studies",
         "type": 301
+      },
+      {
+        "source": "/topics/fits-and-finish.html",
+        "destination": "/topics/fits-and-finish",
+        "type": 301
+      },
+      {
+        "source": "/topics/sheet-metal-fabrication.html",
+        "destination": "/topics/sheet-metal-fabrication",
+        "type": 301
+      },
+      {
+        "source": "/topics/index.html",
+        "destination": "/topics",
+        "type": 301
       }
     ],
     "headers": [
@@ -828,6 +843,22 @@
       {
         "source": "/resources/",
         "destination": "/resources/index.html"
+      },
+      {
+        "source": "/topics/fits-and-finish",
+        "destination": "/topics/fits-and-finish.html"
+      },
+      {
+        "source": "/topics/sheet-metal-fabrication",
+        "destination": "/topics/sheet-metal-fabrication.html"
+      },
+      {
+        "source": "/topics",
+        "destination": "/topics/index.html"
+      },
+      {
+        "source": "/topics/",
+        "destination": "/topics/index.html"
       },
       {
         "source": "/api/**",

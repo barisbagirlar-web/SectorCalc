@@ -27,9 +27,11 @@ const pages = ['index.html', 'tools.html', 'pro.html', 'pricing.html', ...toolPa
 const contentRoutes = [
   ['/blog', 'public/blog/index.html'],
   ['/blog/tolerance-stack-up-rss-vs-monte-carlo.html', 'public/blog/tolerance-stack-up-rss-vs-monte-carlo.html'],
-  ['/case-studies', 'public/case-studies/index.html'],
 ];
-for (const folder of ['glossary', 'compare', 'guides', 'about', 'contact', 'privacy', 'terms', 'resources']) {
+const noindexAllowedRoutes = new Set(['/case-studies']);
+// Case studies hub is intentionally noindex until verified studies ship.
+contentRoutes.push(['/case-studies', 'public/case-studies/index.html']);
+for (const folder of ['glossary', 'compare', 'guides', 'about', 'contact', 'privacy', 'terms', 'resources', 'topics']) {
   const dir = join(ROOT, 'public', folder);
   if (!existsSync(dir)) continue;
   contentRoutes.push([`/${folder}`, `public/${folder}/index.html`]);
@@ -174,8 +176,9 @@ for (const page of pages) {
 
 for (const [route, file] of contentRoutes) {
   const t = read(file);
+  if (/noindex/i.test(t) && !noindexAllowedRoutes.has(route)) fail(`${file} has noindex`);
+  if (noindexAllowedRoutes.has(route) && !/noindex/i.test(t)) fail(`${file} must stay noindex until verified case studies ship`);
   const canonical = `${HOST}${route}`;
-  if (/noindex/i.test(t)) fail(`${file} has noindex`);
   if (!t.includes(`rel="canonical" href="${canonical}"`)) fail(`${file} canonical mismatch; expected ${canonical}`);
   if (!/name=["']description["']/.test(t)) fail(`${file} missing meta description`);
   if (!/<h1[\s>]/i.test(t)) fail(`${file} missing h1`);

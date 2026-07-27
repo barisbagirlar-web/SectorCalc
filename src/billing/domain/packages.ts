@@ -61,14 +61,14 @@ export const TIER_CREDITS: Record<PricingTier, number> = {
 
 /**
  * Tool monetization map (server + client SSOT).
- * Mandate (2026-07-27): every live tool requires credits for calculation.
- * Future free tools: set monetizationEnabled:false OR tier:'FREE' (creditCost 0).
+ * Free SEO-bait set (Tier-B, not revenue gates): SC-001, SC-027, SC-028, SC-030, SC-039.
+ * Keep in sync with seo/free-tools.mjs + functions/src/domain/packages.ts.
  */
 export const TOOL_PRICING: Record<string, { tier: PricingTier; monetizationEnabled: boolean }> = {
-  'SC-001': { tier: 'CORE', monetizationEnabled: true },
+  'SC-001': { tier: 'FREE', monetizationEnabled: false },
   'SC-010': { tier: 'CORE', monetizationEnabled: true },
   'SC-012': { tier: 'CORE', monetizationEnabled: true },
-  'SC-028': { tier: 'CORE', monetizationEnabled: true },
+  'SC-028': { tier: 'FREE', monetizationEnabled: false },
   'SC-037': { tier: 'CORE', monetizationEnabled: true },
   'SC-038': { tier: 'CORE', monetizationEnabled: true },
   'SC-021': { tier: 'PRO', monetizationEnabled: true },
@@ -77,12 +77,12 @@ export const TOOL_PRICING: Record<string, { tier: PricingTier; monetizationEnabl
   'SC-024': { tier: 'PRO', monetizationEnabled: true },
   'SC-025': { tier: 'PRO', monetizationEnabled: true },
   'SC-026': { tier: 'PRO', monetizationEnabled: true },
-  'SC-027': { tier: 'PRO', monetizationEnabled: true },
-  'SC-030': { tier: 'PRO', monetizationEnabled: true },
+  'SC-027': { tier: 'FREE', monetizationEnabled: false },
+  'SC-030': { tier: 'FREE', monetizationEnabled: false },
   'SC-031': { tier: 'PRO', monetizationEnabled: true },
   'SC-032': { tier: 'PRO', monetizationEnabled: true },
   'SC-035': { tier: 'PRO', monetizationEnabled: true },
-  'SC-039': { tier: 'PRO', monetizationEnabled: true },
+  'SC-039': { tier: 'FREE', monetizationEnabled: false },
   'SC-040': { tier: 'PRO', monetizationEnabled: true },
   'SC-008': { tier: 'ADVANCED', monetizationEnabled: true },
   'SC-020': { tier: 'ADVANCED', monetizationEnabled: true },

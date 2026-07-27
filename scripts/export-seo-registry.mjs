@@ -16,6 +16,7 @@ import {
   publishedCalculators,
   validateRegistryInvariants,
 } from '../seo/registry.mjs';
+import { FREE_TOOLS, FREE_TOOL_SLUGS } from '../seo/free-tools.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const outDir = join(ROOT, 'seo');
@@ -36,6 +37,14 @@ const payload = {
   toolCanonicalBySourceFile: toolCanonicalBySourceFile(),
   sitemapLocs: sitemapLocs(),
   publishedToolCount: publishedCalculators().length,
+  freeToolSlugs: [...FREE_TOOL_SLUGS],
+  freeTools: FREE_TOOLS.map((t) => ({
+    toolId: t.toolId,
+    sourceSlug: t.sourceSlug,
+    entity: t.entity,
+    canonicalPath: t.canonicalPath,
+    name: t.name,
+  })),
 };
 
 const out = join(outDir, 'registry.generated.json');
