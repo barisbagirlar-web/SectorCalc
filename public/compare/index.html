@@ -1,38 +1,318 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SectorCalc Comparisons | SectorCalc</title>
-  <meta name="description" content="How SectorCalc compares to spreadsheets, CAD modules, and classic shop calculators.">
+  <meta name="description" content="Compare SectorCalc to Excel tolerance spreadsheets, SolidWorks, CATIA, classic machinist calculators, and Minitab. Evidence-only workflow comparisons with links to live deterministic calculators.">
   <link rel="canonical" href="https://sectorcalc.com/compare">
-  <meta name="robots" content="index,follow">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+  <meta property="og:title" content="SectorCalc Comparisons | SectorCalc">
+  <meta property="og:description" content="Honest product-category comparisons — no invented competitor pricing or fake accuracy scores.">
+  <meta property="og:url" content="https://sectorcalc.com/compare">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://sectorcalc.com/assets/images/og-default-1200x630.jpg">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="stylesheet" href="/css/seo-content.css">
+<link rel="stylesheet" href="/sc-theme.css?v=12">
+<link rel="stylesheet" href="/sc-site-nav.css?v=5">
+<link rel="stylesheet" href="/css/sc-guides.css?v=2">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Sans:wght@400;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<script src="/sc-theme.js?v=12" defer></script>
+<script src="/sc-site-nav.js?v=2" defer></script>
+<script type="module" src="/src/auth-nav.ts"></script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": "https://sectorcalc.com/compare#webpage",
+      "url": "https://sectorcalc.com/compare",
+      "name": "SectorCalc Comparisons | SectorCalc",
+      "description": "Honest comparisons of SectorCalc against Excel tolerance spreadsheets, SolidWorks, CATIA, classic machinist calculators, and Minitab — evidence-only, no invented competitor benchmarks.",
+      "isPartOf": {
+        "@id": "https://sectorcalc.com/#website"
+      },
+      "publisher": {
+        "@id": "https://sectorcalc.com/#organization"
+      },
+      "inLanguage": "en-US",
+      "about": [
+        "SectorCalc vs Excel for Tolerance Stack-Up",
+        "SectorCalc vs SolidWorks for Design and Simulation",
+        "SectorCalc vs CATIA for GD&T and Tolerance Analysis",
+        "SectorCalc vs Machinist Calculator for Shop Floor Calculations",
+        "SectorCalc vs Minitab for Statistical Analysis"
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://sectorcalc.com/compare#itemlist",
+      "name": "SectorCalc product comparisons",
+      "numberOfItems": 5,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "SectorCalc vs Excel for Tolerance Stack-Up",
+          "url": "https://sectorcalc.com/compare/sectorcalc-vs-excel-tolerance"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "SectorCalc vs SolidWorks for Design and Simulation",
+          "url": "https://sectorcalc.com/compare/sectorcalc-vs-solidworks"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "SectorCalc vs CATIA for GD&T and Tolerance Analysis",
+          "url": "https://sectorcalc.com/compare/sectorcalc-vs-catia"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "SectorCalc vs Machinist Calculator for Shop Floor Calculations",
+          "url": "https://sectorcalc.com/compare/sectorcalc-vs-machinist-calculator"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "SectorCalc vs Minitab for Statistical Analysis",
+          "url": "https://sectorcalc.com/compare/sectorcalc-vs-minitab"
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://sectorcalc.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Compare",
+          "item": "https://sectorcalc.com/compare"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://sectorcalc.com/compare#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does SectorCalc invent competitor pricing or accuracy scores?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Compare pages describe workflow fit and product category differences only. They do not invent competitor pricing, adoption counts, accuracy benchmarks, or AggregateRating schema."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "When should I use SectorCalc instead of Excel?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "When you need visible formulas, unit-safe Decimal math, seeded Monte Carlo bounds for stack-up, and an A1–A5 audit trail — not an unprotected spreadsheet template."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does SectorCalc replace CAD or SPC suites?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. CAD owns geometry. SPC suites own capability studies. SectorCalc owns focused industrial calculators with portable audit output."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
 </head>
-<body>
-  <header class="sc-header">
-    <a href="/" class="sc-logo">SectorCalc</a>
-    <nav class="sc-nav">
-      <a href="/tools.html">Tools</a>
-      <a href="/glossary/">Glossary</a>
-      <a href="/compare/">Compare</a>
-      <a href="/guides/">Guides</a>
-      <a href="/pricing.html">Pricing</a>
-    </nav>
-  </header>
-  <main class="sc-content-page">
-    <h1>SectorCalc Comparisons</h1>
-    <p class="lead-definition">How SectorCalc compares to spreadsheets, CAD modules, and classic shop calculators.</p>
+<body class="sc-guides-shell">
+<!--SC-SITE-NAV-START-->
+<header class="site-header" id="siteHeader" role="banner">
+  <a href="/" class="brand" aria-label="SectorCalc Home"><span class="brand-mark"><img class="logo-light" src="/sectorcalc-logo-214.w.png" srcset="/sectorcalc-logo-214.w.png 214w, /sectorcalc-logo-428.w.png 428w" sizes="183px" width="183" height="48" alt="SectorCalc" decoding="async"><img class="logo-dark" src="/sectorcalc-logo-dark-214.w.png" srcset="/sectorcalc-logo-dark-214.w.png 214w, /sectorcalc-logo-dark-428.w.png 428w" sizes="183px" width="183" height="48" alt="" aria-hidden="true" decoding="async"></span></a>
+  <nav class="main-nav" role="navigation" aria-label="Main navigation">
     <ul>
-        <li><a href="/compare/sectorcalc-vs-catia">sectorcalc vs catia</a></li>
-        <li><a href="/compare/sectorcalc-vs-excel-tolerance">sectorcalc vs excel tolerance</a></li>
-        <li><a href="/compare/sectorcalc-vs-machinist-calculator">sectorcalc vs machinist calculator</a></li>
-        <li><a href="/compare/sectorcalc-vs-minitab">sectorcalc vs minitab</a></li>
-        <li><a href="/compare/sectorcalc-vs-solidworks">sectorcalc vs solidworks</a></li>
+      <li><a href="/tools.html" data-nav="tools">Tools</a></li>
+      <li><a href="/glossary" data-nav="glossary">Glossary</a></li>
+      <li><a href="/guides" data-nav="guides">Guides</a></li>
+      <li><a href="/compare" data-nav="compare">Compare</a></li>
+      <li><a href="/pricing.html" data-nav="pricing">Pricing</a></li>
+      <li><a href="/account.html" data-nav="account">Account</a></li>
     </ul>
-  </main>
-  <footer class="sc-footer">
-    <p>Copyright 2026 SectorCalc. Deterministic industrial engineering calculators.</p>
-  </footer>
+    <span class="sc-nav-tool" aria-hidden="true"></span>
+    <a href="/login.html" class="btn btn-primary" data-nav="login">Sign in</a>
+  </nav>
+  <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme" aria-pressed="false" title="Toggle light / dark theme">
+    <svg data-theme-icon="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    <svg data-theme-icon="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+  </button>
+  <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+<div class="mobile-nav-overlay" id="mobileNav" role="dialog" aria-label="Mobile menu" aria-hidden="true">
+  <a href="/tools.html" data-nav="tools">All Tools</a>
+  <a href="/glossary" data-nav="glossary">Glossary</a>
+  <a href="/guides" data-nav="guides">Guides</a>
+  <a href="/compare" data-nav="compare">Compare</a>
+  <a href="/pricing.html" data-nav="pricing">Pricing</a>
+  <a href="/account.html" data-nav="account">Account</a>
+  <a href="/login.html" class="btn-primary" data-nav="login">Sign in</a>
+</div>
+<!--SC-SITE-NAV-END-->
+<main class="sc-guides-main" id="main-content">
+  <header class="sc-guides-hero">
+    <p class="sc-guides-kicker">Answer engine · decision aid</p>
+    <h1>Compare SectorCalc without invented benchmarks</h1>
+    <p class="sc-guides-lead">These pages help engineers choose the right tool category for a job: spreadsheet, CAD suite, classic shop calculator, SPC package, or SectorCalc’s deterministic industrial calculators. Every comparison stays evidence-only — workflow fit, formula visibility, audit trails, and privacy — never fabricated competitor pricing or accuracy scores.</p>
+    <div class="sc-guides-stats" aria-label="Compare library stats">
+      <div class="sc-guides-stat"><b>5</b><span>Comparisons</span></div>
+      <div class="sc-guides-stat"><b>0</b><span>Invented scores</span></div>
+      <div class="sc-guides-stat"><b>A1–A5</b><span>Audit language</span></div>
+      <div class="sc-guides-stat"><b>5</b><span>Free calculators</span></div>
+    </div>
+  </header>
+
+  <section class="sc-guides-section" aria-labelledby="cmp-why">
+    <h2 id="cmp-why">How to read these comparisons</h2>
+    <div class="sc-guides-prose">
+      <p>Buyers often search “SectorCalc vs Excel”, “vs SolidWorks”, or “vs Minitab” because they already own those tools. The honest answer is rarely a total replacement. Excel remains useful for custom one-off tables. CAD remains the system of record for geometry. Minitab remains strong for statistical process control. Classic machinist calculators remain fast for a single RPM or feed check.</p>
+      <p>SectorCalc is built for a different ownership model: client-side industrial decision math with visible formulas, unit-safe Decimal engines where applicable, seeded Monte Carlo bounds for SC-008, and A1–A5 audit trails that travel with the report. Five free reference calculators run without sign-in. Tier-A decision tools unlock with one-time credit packs — purchased credits never expire.</p>
+      <p>If you need a glossary entity first, open <a href="/glossary">Glossary</a>. If you need the full methodology before calculating, open <a href="/guides">Guides</a>. If you need the live engine, open the linked calculator and inspect the formulas on the page.</p>
+    </div>
+  </section>
+
+  <section class="sc-guides-section" aria-labelledby="cmp-policy">
+    <h2 id="cmp-policy">Evidence policy</h2>
+    <div class="sc-guides-chain">
+      <p>Every SectorCalc comparison page follows the same fail-closed policy:</p>
+      <ol>
+        <li><strong>No invented competitor pricing</strong> — we do not quote or invent rival price lists.</li>
+        <li><strong>No fake accuracy shootouts</strong> — we do not publish unsupported ppm or “X% more accurate” claims.</li>
+        <li><strong>No AggregateRating / Review schema</strong> — stars and testimonials are not fabricated for SEO.</li>
+        <li><strong>Workflow contrast only</strong> — formula visibility, audit trails, privacy, and tool category fit.</li>
+        <li><strong>Live proof preferred</strong> — evaluate SectorCalc by running the calculator and reading A1–A5 output.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="sc-guides-section" aria-labelledby="cmp-grid">
+    <h2 id="cmp-grid">All comparisons</h2>
+    <p>Open a page for the full workflow contrast, then jump to the related calculator.</p>
+    <div class="sc-guides-grid">
+<article class="sc-guide-card" data-compare="sectorcalc-vs-excel-tolerance">
+  <p class="sc-guide-badge" data-access="credits">Evidence-only comparison</p>
+  <h3>SectorCalc vs Excel for Tolerance Stack-Up</h3>
+  <p class="sc-guide-problem"><strong>Problem:</strong> Spreadsheet stacks hide formulas, unit conversions, and seed assumptions until a review meeting exposes them.</p>
+  <p class="sc-guide-meta">Vs Excel spreadsheets</p>
+  <a class="sc-guide-cta" href="/compare/sectorcalc-vs-excel-tolerance">Open comparison →</a>
+  <a class="sc-guide-cta" href="/calculator/tolerance-stack-up">Open related calculator →</a>
+</article>
+<article class="sc-guide-card" data-compare="sectorcalc-vs-solidworks">
+  <p class="sc-guide-badge" data-access="credits">Evidence-only comparison</p>
+  <h3>SectorCalc vs SolidWorks for Design and Simulation</h3>
+  <p class="sc-guide-problem"><strong>Problem:</strong> CAD owns geometry and assembly context; shop-floor decision math still needs a separate audit trail outside the model tree.</p>
+  <p class="sc-guide-meta">Vs SolidWorks / CAD modules</p>
+  <a class="sc-guide-cta" href="/compare/sectorcalc-vs-solidworks">Open comparison →</a>
+  <a class="sc-guide-cta" href="/tools.html">Open related calculator →</a>
+</article>
+<article class="sc-guide-card" data-compare="sectorcalc-vs-catia">
+  <p class="sc-guide-badge" data-access="credits">Evidence-only comparison</p>
+  <h3>SectorCalc vs CATIA for GD&amp;T and Tolerance Analysis</h3>
+  <p class="sc-guide-problem"><strong>Problem:</strong> Enterprise CAD suites excel at product definition; they are not always the fastest path for a deterministic shop calculation with portable audit output.</p>
+  <p class="sc-guide-meta">Vs CATIA / PLM CAD suites</p>
+  <a class="sc-guide-cta" href="/compare/sectorcalc-vs-catia">Open comparison →</a>
+  <a class="sc-guide-cta" href="/calculator/tolerance-stack-up">Open related calculator →</a>
+</article>
+<article class="sc-guide-card" data-compare="sectorcalc-vs-machinist-calculator">
+  <p class="sc-guide-badge" data-access="credits">Evidence-only comparison</p>
+  <h3>SectorCalc vs Machinist Calculator for Shop Floor Calculations</h3>
+  <p class="sc-guide-problem"><strong>Problem:</strong> Pocket and app calculators are fast for one number — weak when the traveler needs assumptions, warnings, and engine identity.</p>
+  <p class="sc-guide-meta">Vs Classic machinist calculators</p>
+  <a class="sc-guide-cta" href="/compare/sectorcalc-vs-machinist-calculator">Open comparison →</a>
+  <a class="sc-guide-cta" href="/calculator/cnc-feeds-speeds">Open related calculator →</a>
+</article>
+<article class="sc-guide-card" data-compare="sectorcalc-vs-minitab">
+  <p class="sc-guide-badge" data-access="credits">Evidence-only comparison</p>
+  <h3>SectorCalc vs Minitab for Statistical Analysis</h3>
+  <p class="sc-guide-problem"><strong>Problem:</strong> SPC suites own capability studies and control charts; they are not a replacement for deterministic machine, weld, or rate calculators.</p>
+  <p class="sc-guide-meta">Vs Minitab / SPC suites</p>
+  <a class="sc-guide-cta" href="/compare/sectorcalc-vs-minitab">Open comparison →</a>
+  <a class="sc-guide-cta" href="/calculator/oee-teep">Open related calculator →</a>
+</article>
+    </div>
+  </section>
+
+  <section class="sc-guides-section" aria-labelledby="cmp-detail">
+    <h2 id="cmp-detail">Decision angles at a glance</h2>
+    <div class="sc-guides-prose">
+      <p>Use these short angles when an answer engine needs a one-paragraph routing decision. Each angle expands on its dedicated compare page with a feature table and evidence policy callout.</p>
+    </div>
+<article class="sc-guides-chain" style="margin:0.85rem 0">
+  <h3 style="margin:0 0 0.4rem;font-size:1.05rem">SectorCalc vs Excel for Tolerance Stack-Up</h3>
+  <p style="margin:0 0 0.45rem;color:#3d5366">When you need visible formulas, unit-safe Decimal math, seeded Monte Carlo bounds, and an A1–A5 audit trail you can defend — not another unprotected workbook.</p>
+  <p style="margin:0;font-size:0.9rem"><strong>Best for:</strong> Engineers replacing tribal Excel stack templates with auditable client-side calculation. · <a href="/compare/sectorcalc-vs-excel-tolerance">Full comparison</a></p>
+</article>
+<article class="sc-guides-chain" style="margin:0.85rem 0">
+  <h3 style="margin:0 0 0.4rem;font-size:1.05rem">SectorCalc vs SolidWorks for Design and Simulation</h3>
+  <p style="margin:0 0 0.45rem;color:#3d5366">Use CAD for design intent. Use SectorCalc when the question is feeds, stack-up, rates, weld size, or bearing life with formulas you can export to a traveler.</p>
+  <p style="margin:0;font-size:0.9rem"><strong>Best for:</strong> Designers and manufacturing engineers who need calculation evidence alongside CAD models. · <a href="/compare/sectorcalc-vs-solidworks">Full comparison</a></p>
+</article>
+<article class="sc-guides-chain" style="margin:0.85rem 0">
+  <h3 style="margin:0 0 0.4rem;font-size:1.05rem">SectorCalc vs CATIA for GD&amp;T and Tolerance Analysis</h3>
+  <p style="margin:0 0 0.45rem;color:#3d5366">SectorCalc does not replace CATIA product definition. It owns focused industrial calculators with visible formulas and credit-backed Tier-A sessions.</p>
+  <p style="margin:0;font-size:0.9rem"><strong>Best for:</strong> Teams that already live in CATIA but still need portable, equation-visible engineering previews. · <a href="/compare/sectorcalc-vs-catia">Full comparison</a></p>
+</article>
+<article class="sc-guides-chain" style="margin:0.85rem 0">
+  <h3 style="margin:0 0 0.4rem;font-size:1.05rem">SectorCalc vs Machinist Calculator for Shop Floor Calculations</h3>
+  <p style="margin:0 0 0.45rem;color:#3d5366">SectorCalc keeps the shop-floor speed of a calculator while exposing formulas, units, warnings, and report hashes for review.</p>
+  <p style="margin:0;font-size:0.9rem"><strong>Best for:</strong> Machinists and programmers who need both speed and defendable calculation records. · <a href="/compare/sectorcalc-vs-machinist-calculator">Full comparison</a></p>
+</article>
+<article class="sc-guides-chain" style="margin:0.85rem 0">
+  <h3 style="margin:0 0 0.4rem;font-size:1.05rem">SectorCalc vs Minitab for Statistical Analysis</h3>
+  <p style="margin:0 0 0.45rem;color:#3d5366">Keep Minitab for statistical process work. Use SectorCalc when the job is engineering math with A1–A5 accountability, not a DOE worksheet.</p>
+  <p style="margin:0;font-size:0.9rem"><strong>Best for:</strong> QA and process engineers who separate capability analysis from engineering calculators. · <a href="/compare/sectorcalc-vs-minitab">Full comparison</a></p>
+</article>
+  </section>
+
+  <section class="sc-guides-section" aria-labelledby="cmp-when">
+    <h2 id="cmp-when">When SectorCalc is the right category</h2>
+    <div class="sc-guides-prose">
+      <p>Choose SectorCalc when the job is industrial decision math that must survive a review: tolerance stack-up with worst-case / RSS / Monte Carlo, CNC feeds and speeds with chip thinning awareness, bearing L10 screening, weld throat or heat-input estimates, true labor cost, machine hour rate, OEE, ISO 286 fits, surface finish conversion, bend allowance, or punching force screening. Prefer spreadsheets for ad-hoc tables you will never audit. Prefer CAD for geometry. Prefer SPC suites for capability studies and control charts.</p>
+      <p>Production release still requires the governing code edition, certified material data, manufacturer ratings, and competent engineering review. SectorCalc outputs are engineering previews with explicit assumptions and warnings — never a silent substitute for measured data.</p>
+    </div>
+  </section>
+
+  <section class="sc-guides-section" aria-labelledby="cmp-faq">
+    <h2 id="cmp-faq">Compare hub FAQ</h2>
+    <details class="sc-faq-item"><summary>Are comparisons free to read?</summary><p>Yes. Reading is free. Some linked calculators require a credit session.</p></details>
+    <details class="sc-faq-item"><summary>Why no competitor scorecards?</summary><p>Unsupported accuracy and pricing claims create trust debt. We document workflow fit and send you to live calculators instead.</p></details>
+    <details class="sc-faq-item"><summary>Where do I start after reading a comparison?</summary><p>Open the linked calculator, or start with a free tool on the <a href="/#free-calculators">homepage free hub</a>.</p></details>
+  </section>
+
+  <nav class="sc-guides-footer-links" aria-label="Related hubs">
+    <a href="/#free-calculators">Five free calculators</a>
+    <a href="/glossary">Glossary</a>
+    <a href="/guides">Guides</a>
+    <a href="/tools.html">All calculators</a>
+    <a href="/pricing.html">Pricing</a>
+    <a href="/llms.txt">llms.txt discovery</a>
+  </nav>
+</main>
+<footer class="sc-footer" style="max-width:1100px;margin:0 auto;padding:1.25rem;border-top:1px solid rgba(11,28,44,.12);display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between">
+  <p style="margin:0;color:#3d5366">© 2026 SectorCalc · Deterministic industrial calculators</p>
+  <p style="margin:0"><a href="/#free-calculators">Free tools</a> · <a href="/tools.html">All tools</a> · <a href="/pricing.html">Pricing</a></p>
+</footer>
 </body>
 </html>

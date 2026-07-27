@@ -1967,24 +1967,32 @@
       "publicationStatus": "published",
       "indexDirective": "index,follow",
       "sitemapEligible": true,
-      "llmEligible": false,
-      "title": "glossary — SectorCalc",
-      "description": "SectorCalc glossary for industrial engineering calculators.",
-      "h1": "glossary",
-      "primaryIntent": "glossary — sectorcalc",
+      "llmEligible": true,
+      "title": "Engineering Glossary | SectorCalc",
+      "description": "Industrial engineering glossary for tolerance stack-up, ISO 286 fits, CNC feeds, bearing L10, weld throat, labor burden, OEE, and manufacturing economics.",
+      "h1": "Engineering glossary built for retrieval, not filler",
+      "primaryIntent": "engineering glossary sectorcalc",
       "queryCluster": "glossary-hub",
       "primaryEntity": "glossary",
       "topicalCluster": "site",
       "revenueTier": "C",
       "conversionEvent": null,
       "parentHub": "/",
-      "relatedRoutes": [],
+      "relatedRoutes": [
+        "/guides",
+        "/compare",
+        "/tools.html",
+        "/#free-calculators"
+      ],
       "contentSources": [
         "/glossary"
       ],
       "schemaTypes": [
-        "WebPage",
-        "BreadcrumbList"
+        "CollectionPage",
+        "DefinedTermSet",
+        "ItemList",
+        "BreadcrumbList",
+        "FAQPage"
       ],
       "imageAssets": [],
       "quality": {
@@ -3059,24 +3067,31 @@
       "publicationStatus": "published",
       "indexDirective": "index,follow",
       "sitemapEligible": true,
-      "llmEligible": false,
-      "title": "compare — SectorCalc",
-      "description": "SectorCalc compare for industrial engineering calculators.",
-      "h1": "compare",
-      "primaryIntent": "compare — sectorcalc",
+      "llmEligible": true,
+      "title": "SectorCalc Comparisons | SectorCalc",
+      "description": "Compare SectorCalc to Excel, SolidWorks, CATIA, machinist calculators, and Minitab — evidence-only workflow comparisons linked to live calculators.",
+      "h1": "Compare SectorCalc without invented benchmarks",
+      "primaryIntent": "sectorcalc vs excel solidworks catia",
       "queryCluster": "compare-hub",
       "primaryEntity": "compare",
       "topicalCluster": "site",
       "revenueTier": "C",
       "conversionEvent": null,
       "parentHub": "/",
-      "relatedRoutes": [],
+      "relatedRoutes": [
+        "/glossary",
+        "/guides",
+        "/tools.html",
+        "/pricing.html"
+      ],
       "contentSources": [
         "/compare"
       ],
       "schemaTypes": [
-        "WebPage",
-        "BreadcrumbList"
+        "CollectionPage",
+        "ItemList",
+        "BreadcrumbList",
+        "FAQPage"
       ],
       "imageAssets": [],
       "quality": {
