@@ -1,11 +1,15 @@
 /**
- * Credit package definitions — single source of truth for the pricing page.
- * Sandbox Paddle price IDs (Sectorcalc10 test catalog).
+ * Credit package definitions — display SSOT for pricing UI.
+ * Server maps packageKey → Paddle price ID. Browser never owns price IDs for checkout.
  */
+export type CreditPackageKey = 'STARTER' | 'WORKSHOP' | 'PROFESSIONAL' | 'TEAM_WALLET';
+
 export interface CreditPackage {
+  key: CreditPackageKey;
   credits: number;
   price: string;
   perCredit: string;
+  /** @deprecated Client must not checkout by price ID. Kept empty intentionally. */
   paddlePriceId: string;
   badge?: string;
   featured?: boolean;
@@ -13,49 +17,51 @@ export interface CreditPackage {
 
 export const PACKAGES: CreditPackage[] = [
   {
-    credits: 1,
-    price: '$1.99',
-    perCredit: '$1.99',
-    paddlePriceId: 'pri_01kvv1wpnq508nkg37f9vy0aqy',
-    badge: 'TRY ONCE'
+    key: 'STARTER',
+    credits: 20,
+    price: '$15',
+    perCredit: '$0.75',
+    paddlePriceId: ''
   },
   {
-    credits: 5,
-    price: '$4.99',
-    perCredit: '$1.00',
-    paddlePriceId: 'pri_01kvv20wppf64fht2tn82wq8wc'
-  },
-  {
-    credits: 15,
-    price: '$7.99',
-    perCredit: '$0.53',
-    paddlePriceId: 'pri_01kvv24222vst09fyh7rxv3ck8',
+    key: 'WORKSHOP',
+    credits: 100,
+    price: '$59',
+    perCredit: '$0.59',
+    paddlePriceId: '',
     badge: 'MOST POPULAR',
     featured: true
   },
   {
-    credits: 30,
-    price: '$11.99',
-    perCredit: '$0.40',
-    paddlePriceId: 'pri_01kvv27axkgbd5ddmd9c6gaaj9',
+    key: 'PROFESSIONAL',
+    credits: 300,
+    price: '$149',
+    perCredit: '$0.50',
+    paddlePriceId: '',
     badge: 'BEST VALUE'
   },
   {
-    credits: 100,
-    price: '$24.99',
-    perCredit: '$0.25',
-    paddlePriceId: 'pri_01kvv28x31xas1q8pdrqqa4hr7',
-    badge: 'MAX SAVINGS'
+    key: 'TEAM_WALLET',
+    credits: 1000,
+    price: '$399',
+    perCredit: '$0.40',
+    paddlePriceId: ''
   }
 ];
 
-export const FREE_MONTHLY_CREDITS = '3-5';
-export const CREDIT_VALIDITY = '12 months';
+/** Purchased credits do not expire (mandate). Promotional credits are separate. */
+export const FREE_MONTHLY_CREDITS = '0';
+export const CREDIT_VALIDITY = 'never expire';
 
-export function getPackageByPriceId(priceId: string): CreditPackage | undefined {
-  return PACKAGES.find((p) => p.paddlePriceId === priceId);
+export function getPackageByKey(key: string): CreditPackage | undefined {
+  return PACKAGES.find((p) => p.key === key);
 }
 
 export function getPackageByCredits(credits: number): CreditPackage | undefined {
   return PACKAGES.find((p) => p.credits === credits);
+}
+
+/** @deprecated Prefer getPackageByKey — price IDs are server-only. */
+export function getPackageByPriceId(_priceId: string): CreditPackage | undefined {
+  return undefined;
 }

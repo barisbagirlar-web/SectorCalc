@@ -1,4 +1,20 @@
 {
+  "functions": [
+    {
+      "source": "functions",
+      "codebase": "sectorcalc-billing",
+      "predeploy": [
+        "npm --prefix \"$RESOURCE_DIR\" run build"
+      ],
+      "ignore": [
+        "node_modules",
+        ".git",
+        "firebase-debug.log",
+        "firebase-debug.*.log",
+        "*.local"
+      ]
+    }
+  ],
   "hosting": {
     "public": "dist",
     "ignore": [
@@ -815,6 +831,10 @@
       {
         "source": "/resources/",
         "destination": "/resources/index.html"
+      },
+      {
+        "source": "/api/**",
+        "function": "api"
       }
     ]
   },

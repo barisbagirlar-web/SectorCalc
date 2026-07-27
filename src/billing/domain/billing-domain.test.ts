@@ -1,0 +1,212 @@
+import { describe, it, expect } from 'vitest';
+import {
+  CREDIT_PACKAGES,
+  INVALID_PADDLE_PRICE_IDS,
+  assertNoInvalidPriceMapping,
+  resolveToolCost
+} from './packages.js';
+import { applyPurchaseGrant, applyPurchaseReversal } from './grant.js';
+import { openProfessionalSession } from './session.js';
+import { emptyWallet } from './types.js';
+import { sanitizeReturnTo } from './return-to.js';
+
+let n = 0;
+const idFactory = () => `id_${++n}`;
+
+describe('packages SSOT', () => {
+  it('defines mandate packs', () => {
+    expect(CREDIT_PACKAGES.STARTER.credits).toBe(20);
+    expect(CREDIT_PACKAGES.WORKSHOP.credits).toBe(100);
+    expect(CREDIT_PACKAGES.PROFESSIONAL.credits).toBe(300);
+    expect(CREDIT_PACKAGES.TEAM_WALLET.credits).toBe(1000);
+    expect(CREDIT_PACKAGES.STARTER.expectedMinorUnits).toBe('1500');
+  });
+
+  it('rejects INVALID monthly/unlocked price IDs', () => {
+    const errs = assertNoInvalidPriceMapping({
+      STARTER: INVALID_PADDLE_PRICE_IDS[0],
+      WORKSHOP: 'pri_ok_workshop',
+      PROFESSIONAL: 'pri_ok_pro',
+      TEAM_WALLET: 'pri_ok_team'
+    });
+    expect(errs.some((e) => e.includes('INVALID'))).toBe(true);
+  });
+
+  it('SC-008/SC-020 are ADVANCED 15 with monetization enabled', () => {
+    expect(resolveToolCost('SC-020')).toEqual({
+      tier: 'ADVANCED',
+      creditCost: 15,
+      monetizationEnabled: true
+    });
+    expect(resolveToolCost('SC-008')?.creditCost).toBe(15);
+  });
+});
+
+describe('applyPurchaseGrant', () => {
+  it('grants purchased credits', () => {
+    const now = '2026-07-27T12:00:00.000Z';
+    const { wallet, ledger } = applyPurchaseGrant({
+      wallet: emptyWallet('u1', now),
+      grantCredits: 100,
+      sourceId: 'txn_1',
+      nowIso: now,
+      idFactory
+    });
+    expect(wallet.purchasedCredits).toBe(100);
+    expect(ledger.filter((l) => l.type === 'PURCHASE_GRANT')).toHaveLength(1);
+  });
+
+  it('settles debt before granting remainder', () => {
+    const now = '2026-07-27T12:00:00.000Z';
+    const base = { ...emptyWallet('u1', now), creditDebt: 30 };
+    const { wallet, ledger } = applyPurchaseGrant({
+      wallet: base,
+      grantCredits: 100,
+      sourceId: 'txn_2',
+      nowIso: now,
+      idFactory
+    });
+    expect(wallet.creditDebt).toBe(0);
+    expect(wallet.purchasedCredits).toBe(70);
+    expect(ledger.some((l) => l.type === 'DEBT_SETTLED')).toBe(true);
+  });
+});
+
+describe('applyPurchaseReversal', () => {
+  it('full unused refund clears purchased', () => {
+    const now = '2026-07-27T12:00:00.000Z';
+    const base = { ...emptyWallet('u1', now), purchasedCredits: 100 };
+    const { wallet } = applyPurchaseReversal({
+      wallet: base,
+      reverseCredits: 100,
+      sourceId: 'adj_1',
+      nowIso: now,
+      idFactory,
+      kind: 'REFUND_REVERSAL'
+    });
+    expect(wallet.purchasedCredits).toBe(0);
+    expect(wallet.creditDebt).toBe(0);
+  });
+
+  it('spent refund creates debt', () => {
+    const now = '2026-07-27T12:00:00.000Z';
+    const base = { ...emptyWallet('u1', now), purchasedCredits: 85 };
+    const { wallet } = applyPurchaseReversal({
+      wallet: base,
+      reverseCredits: 100,
+      sourceId: 'adj_2',
+      nowIso: now,
+      idFactory,
+      kind: 'REFUND_REVERSAL'
+    });
+    expect(wallet.purchasedCredits).toBe(0);
+    expect(wallet.creditDebt).toBe(15);
+  });
+});
+
+describe('openProfessionalSession concurrency semantics', () => {
+  it('debits 15 once then reuses', () => {
+    const now = Date.parse('2026-07-27T12:00:00.000Z');
+    const base = { ...emptyWallet('u1', new Date(now).toISOString()), purchasedCredits: 100 };
+    const first = openProfessionalSession({
+      wallet: base,
+      userId: 'u1',
+      toolId: 'SC-020',
+      pricingTier: 'ADVANCED',
+      creditCost: 15,
+      monetizationEnabled: true,
+      existingActive: null,
+      nowMs: now,
+      idFactory
+    });
+    expect(first.ok).toBe(true);
+    if (!first.ok) return;
+    expect(first.debit).toBe(15);
+    expect(first.wallet.purchasedCredits).toBe(85);
+
+    const second = openProfessionalSession({
+      wallet: first.wallet,
+      userId: 'u1',
+      toolId: 'SC-020',
+      pricingTier: 'ADVANCED',
+      creditCost: 15,
+      monetizationEnabled: true,
+      existingActive: first.session,
+      nowMs: now + 1000,
+      idFactory
+    });
+    expect(second.ok).toBe(true);
+    if (!second.ok) return;
+    expect(second.reused).toBe(true);
+    expect(second.debit).toBe(0);
+    expect(second.wallet.purchasedCredits).toBe(85);
+  });
+
+  it('promo spends before purchased', () => {
+    const now = Date.parse('2026-07-27T12:00:00.000Z');
+    const base = {
+      ...emptyWallet('u1', new Date(now).toISOString()),
+      purchasedCredits: 20,
+      promotionalCredits: 5,
+      promotionalExpiresAt: new Date(now + 86400000).toISOString()
+    };
+    const res = openProfessionalSession({
+      wallet: base,
+      userId: 'u1',
+      toolId: 'SC-020',
+      pricingTier: 'ADVANCED',
+      creditCost: 15,
+      monetizationEnabled: true,
+      existingActive: null,
+      nowMs: now,
+      idFactory
+    });
+    expect(res.ok).toBe(true);
+    if (!res.ok) return;
+    expect(res.wallet.promotionalCredits).toBe(0);
+    expect(res.wallet.purchasedCredits).toBe(10);
+  });
+
+  it('blocks on debt', () => {
+    const now = Date.now();
+    const base = { ...emptyWallet('u1', new Date(now).toISOString()), purchasedCredits: 100, creditDebt: 1 };
+    const res = openProfessionalSession({
+      wallet: base,
+      userId: 'u1',
+      toolId: 'SC-020',
+      pricingTier: 'ADVANCED',
+      creditCost: 15,
+      monetizationEnabled: true,
+      existingActive: null,
+      nowMs: now,
+      idFactory
+    });
+    expect(res.ok).toBe(false);
+    if (res.ok) return;
+    expect(res.code).toBe('BILLING_DEBT');
+  });
+});
+
+describe('sanitizeReturnTo', () => {
+  it('allows relative same-origin paths only', () => {
+    expect(sanitizeReturnTo('/calculator/cnc-machining-cost', [])).toBe('/calculator/cnc-machining-cost');
+    expect(sanitizeReturnTo('https://evil.com', ['https://sectorcalc.com'])).toBe(null);
+    expect(sanitizeReturnTo('//evil.com', [])).toBe(null);
+  });
+});
+
+describe('webhook replay grant uniqueness (domain)', () => {
+  it('applying grant twice would double — callers must gate; single apply is +100', () => {
+    const now = '2026-07-27T12:00:00.000Z';
+    const once = applyPurchaseGrant({
+      wallet: emptyWallet('u1', now),
+      grantCredits: 100,
+      sourceId: 'txn_replay',
+      nowIso: now,
+      idFactory
+    });
+    expect(once.wallet.purchasedCredits).toBe(100);
+    // Domain is pure; idempotency is persistence-layer. Document expected final.
+    expect(once.ledger.filter((l) => l.type === 'PURCHASE_GRANT').length).toBe(1);
+  });
+});
