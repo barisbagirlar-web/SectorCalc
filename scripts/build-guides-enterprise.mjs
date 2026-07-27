@@ -29,7 +29,7 @@ function headLinks() {
   return `<link rel="stylesheet" href="/css/seo-content.css">
 <link rel="stylesheet" href="/sc-theme.css?v=12">
 <link rel="stylesheet" href="/sc-site-nav.css?v=5">
-<link rel="stylesheet" href="/css/sc-guides.css?v=1">
+<link rel="stylesheet" href="/css/sc-guides.css?v=2">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Sans:wght@400;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
@@ -121,6 +121,14 @@ function hubHtml() {
               text: 'Each guide owns one primary calculator CTA and related entities (glossary, topics, sibling tools) so answer engines can retrieve a closed problem–method–tool chain.',
             },
           },
+          {
+            '@type': 'Question',
+            name: 'Do guides claim certifications or ROI?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'No. Guides document problem → method → tool. SectorCalc does not publish fabricated ROI percentages or AggregateRating/Review schema.',
+            },
+          },
         ],
       },
     ],
@@ -177,6 +185,15 @@ ${paid.map(card).join('\n')}
     </div>
   </section>
 
+  <section class="sc-guides-section" aria-labelledby="why-guides-heading">
+    <h2 id="why-guides-heading">Why SectorCalc guides start with the problem</h2>
+    <div class="sc-guides-prose">
+      <p>Most engineering “guides” open with a standard number and bury the decision that actually hurts. SectorCalc inverts that order. Each guide begins with the shop-floor question that creates scrap, rework, stalled spindles, rejected first articles, or quietly eroded quote margin — then delivers the direct answer, methodology, calculator CTA, common mistakes, FAQ, and related entities.</p>
+      <p>That structure is intentional for Google and LLM retrieval. Answer engines expand a query from entity → method → tool. The glossary names the entity. The guide owns the method. The calculator owns the equation. This hub is the index of those long-form methods: free reference workflows for ISO 286 fits, surface finish, bend allowance, and punching force; credit-backed decision workflows for tolerance stack-up, CNC feeds &amp; speeds, bearing L10 life, labor costing, and weld sizing.</p>
+      <p>Guides never invent certifications, PE stamps, AggregateRating stars, or fabricated customer ROI percentages. Free guides calculate instantly with no sign-in. Tier-A decision calculators unlock with a one-time credit pack session — purchased credits never expire. Production release still requires the governing code edition, certified material data, manufacturer ratings, and competent engineering review.</p>
+    </div>
+  </section>
+
   <section class="sc-guides-section" aria-labelledby="chain-heading">
     <h2 id="chain-heading">How every SectorCalc guide is structured</h2>
     <div class="sc-guides-chain">
@@ -192,11 +209,20 @@ ${paid.map(card).join('\n')}
     </div>
   </section>
 
+  <section class="sc-guides-section" aria-labelledby="hub-routing-heading">
+    <h2 id="hub-routing-heading">How to route a query into the right surface</h2>
+    <div class="sc-guides-prose">
+      <p>If the user only needs a definition (“what is L10 life?”, “what is chip thinning?”), send them to the <a href="/glossary">Glossary</a>. If they need category fit (“SectorCalc vs Excel for stack-up”), send them to <a href="/compare">Compare</a>. If they need the full methodology with formulas and failure modes, stay on this Guides hub and open the matching long-form page. If they already know the job and need the engine, open the calculator CTA on the guide card — free tools calculate immediately; Tier-A tools require a credit session before calculation runs.</p>
+      <p>Topic hubs under <a href="/topics">/topics</a> cluster free tools and fan-out blogs for query expansion. Guides remain the long-form methodology owners. Calculators remain the computation owners. Do not invent a second primary owner for the same primary intent.</p>
+    </div>
+  </section>
+
   <section class="sc-guides-section" aria-labelledby="hub-faq-heading">
     <h2 id="hub-faq-heading">Guides hub FAQ</h2>
     <details class="sc-faq-item"><summary>Are guides free to read?</summary><p>Yes. Reading is free. Calculator access depends on the linked tool: five free calculators need no sign-in; Tier-A tools unlock with credits.</p></details>
     <details class="sc-faq-item"><summary>Why separate free and decision guides?</summary><p>Free guides own high-traffic reference queries. Decision guides own high-stakes release math where an A1–A5 audit trail matters.</p></details>
     <details class="sc-faq-item"><summary>Where do topic hubs fit?</summary><p>Topic hubs cluster free tools and fan-out blogs. Guides carry the long-form methodology. Calculators own the computation.</p></details>
+    <details class="sc-faq-item"><summary>Do guides claim certifications or ROI?</summary><p>No. Guides document problem → method → tool. SectorCalc does not publish fabricated ROI percentages or AggregateRating/Review schema.</p></details>
   </section>
 
   <nav class="sc-guides-footer-links" aria-label="Related hubs">
@@ -549,7 +575,7 @@ function polishExisting(path, g) {
   html = html.replace(/<div class="mobile-nav-overlay" id="mobileNav"[\s\S]*?<\/div>\s*/i, '');
 
   if (!html.includes('sc-guides.css')) {
-    html = html.replace(/<\/head>/i, `<link rel="stylesheet" href="/css/sc-guides.css?v=1">\n</head>`);
+    html = html.replace(/<\/head>/i, `<link rel="stylesheet" href="/css/sc-guides.css?v=2">\n</head>`);
   }
   if (!html.includes('sc-site-nav.css')) {
     html = html.replace(

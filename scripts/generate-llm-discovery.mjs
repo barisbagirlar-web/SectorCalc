@@ -10,6 +10,9 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { TOPICAL_MAPS } from '../seo/topical-maps.mjs';
 import { FREE_TOOLS } from '../seo/free-tools.mjs';
+import { GLOSSARY_GROUPS, GLOSSARY_TERMS } from '../seo/glossary-catalog.mjs';
+import { COMPARE_PAGES } from '../seo/compare-catalog.mjs';
+import { GUIDES } from '../seo/guides-catalog.mjs';
 import {
   HOST,
   absoluteUrl,
@@ -108,6 +111,14 @@ ${FREE_TOOLS.map((t) => `- [${t.name}](${HOST}${t.canonicalPath}) — ${t.toolId
 - Account: ${HOST}/account.html
 - Glossary: ${HOST}/glossary · Guides: ${HOST}/guides · Compare: ${HOST}/compare
 
+## Authority hubs (entity → method → tool)
+- Glossary hub (${GLOSSARY_TERMS.length} entities): ${HOST}/glossary — DefinedTerm pages for tolerance, CNC, bearings, welding, economics. Prefer \`/glossary/<slug>\` citations.
+${GLOSSARY_GROUPS.map((g) => `  - ${g.title}: ${g.terms.map((t) => absoluteUrl(`/glossary/${t.slug}`)).join(' · ')}`).join('\n')}
+- Guides hub (${GUIDES.length} long-form): ${HOST}/guides — problem-first methodology; free and credit-backed calculator CTAs.
+${GUIDES.map((g) => `  - [${g.title}](${HOST}/guides/${g.slug}) → ${HOST}${g.calculator.href}`).join('\n')}
+- Compare hub (${COMPARE_PAGES.length} evidence-only pages): ${HOST}/compare — workflow fit vs Excel, SolidWorks, CATIA, machinist calculators, Minitab. No invented competitor pricing or accuracy scores.
+${COMPARE_PAGES.map((c) => `  - [${c.title}](${HOST}/compare/${c.slug})`).join('\n')}
+
 ## Calculation architecture
 - Most calculators use the schema-driven Decimal.js industrial runtime (\`/src/industrial-tool.ts\`, \`/src/industrial-suite/*\`).
 - SC-008 Tolerance Stack-Up retains dedicated UX for seeded Monte Carlo simulation under the same deterministic Decimal philosophy.
@@ -143,8 +154,9 @@ ${limitations.map((l) => `- ${l}`).join('\n')}
 - [Pricing](${HOST}/pricing.html)
 - [Blog](${HOST}/blog)
 - [Case studies](${HOST}/case-studies)
-- [Glossary](${HOST}/glossary)
-- [Guides](${HOST}/guides)
+- [Glossary](${HOST}/glossary) — ${GLOSSARY_TERMS.length} entities
+- [Guides](${HOST}/guides) — ${GUIDES.length} long-form methodologies
+- [Compare](${HOST}/compare) — ${COMPARE_PAGES.length} evidence-only comparisons
 - [Sitemap](${HOST}/sitemap.xml)
 - [Robots](${HOST}/robots.txt)
 
