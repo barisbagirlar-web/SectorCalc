@@ -217,7 +217,11 @@ function main() {
 
   for (const dir of EXTRA_SURFACE_DIRS) {
     for (const file of listHtml(dir)) {
-      // Topics / legal / resources / case-studies: shared paper + light chrome
+      // Topics hub shares guides-shell paper islands; leaf topics stay theme-eng-paper.
+      if (file === 'public/topics/index.html') {
+        if (processPage(file, null, { preserveGuidesShell: true })) n += 1;
+        continue;
+      }
       if (processPage(file, 'theme-eng-paper')) n += 1;
     }
   }

@@ -30,7 +30,7 @@ function headLinks() {
   return `<!--SC-HEAD-ASSETS-START-->
 ${HEAD_ASSETS}
 <!--SC-HEAD-ASSETS-END-->
-<link rel="stylesheet" href="/css/sc-guides.css?v=9">
+<link rel="stylesheet" href="/css/sc-guides.css?v=10">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Sans:wght@400;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
@@ -508,7 +508,7 @@ function topicsHubHtml() {
   ];
 
   return `<!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -536,7 +536,7 @@ ${headLinks()}
     },
   })}</script>
 </head>
-<body>
+<body class="sc-guides-shell">
 ${HEADER}
 <main class="sc-guides-hub" id="topics-hub">
   <nav class="sc-breadcrumb" aria-label="Breadcrumb">

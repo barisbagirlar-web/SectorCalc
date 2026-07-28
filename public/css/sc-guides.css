@@ -421,13 +421,14 @@
 }
 
 /*
- * Dark theme:
- * - Paper islands (stats / contract / cards / topic rail / FAQ) = white + black copy
- * - Links stay brand blue
- * - Hero / section chrome on dark eng-paper = light ink (black-on-dark was invisible)
- * !important beats late-injected seo-content/theme cascade.
+ * Dark theme SSOT (guides / glossary / compare / topics hubs + exclusive guides):
+ * - Paper islands = white + black copy
+ * - Links = brand blue
+ * - Hero / section chrome on eng-paper = light ink
+ * Roots: .sc-guides-shell (body) and .sc-guides-hub (topics main)
  */
-html[data-theme='dark'] .sc-guides-shell {
+html[data-theme='dark'] .sc-guides-shell,
+html[data-theme='dark'] .sc-guides-hub {
   color: #e8eef5;
 }
 
@@ -440,6 +441,10 @@ html[data-theme='dark'] .sc-guides-shell .sc-guide-block,
 html[data-theme='dark'] .sc-guides-shell .sc-guides-prose,
 html[data-theme='dark'] .sc-guides-shell .sc-faq-item,
 html[data-theme='dark'] .sc-guides-shell details.sc-faq-item,
+html[data-theme='dark'] .sc-guides-hub .sc-guide-card,
+html[data-theme='dark'] .sc-guides-hub .sc-guides-prose,
+html[data-theme='dark'] .sc-guides-hub .sc-faq-item,
+html[data-theme='dark'] .sc-guides-hub details.sc-faq-item,
 html[data-theme='dark'] .sc-guide-article .sc-guide-toc,
 html[data-theme='dark'] .sc-guide-article .sc-cta-panel,
 html[data-theme='dark'] .sc-guide-article .sc-formula-block,
@@ -456,9 +461,10 @@ html[data-theme='dark'] .sc-guide-article .sc-faq-item {
   --sg-navy: #000000;
 }
 
-/* Guides hub FAQ — explicit white paper (beats theme color-scheme:dark on <details>) */
 html[data-theme='dark'] .sc-guides-shell details.sc-faq-item,
-html[data-theme='dark'] .sc-guides-shell details.sc-faq-item summary {
+html[data-theme='dark'] .sc-guides-shell details.sc-faq-item summary,
+html[data-theme='dark'] .sc-guides-hub details.sc-faq-item,
+html[data-theme='dark'] .sc-guides-hub details.sc-faq-item summary {
   background: #ffffff !important;
   color: #000000 !important;
   color-scheme: light;
@@ -473,6 +479,12 @@ html[data-theme='dark'] .sc-guides-shell .sc-guide-block :not(a),
 html[data-theme='dark'] .sc-guides-shell .sc-guides-prose :not(a),
 html[data-theme='dark'] .sc-guides-shell .sc-faq-item :not(a),
 html[data-theme='dark'] .sc-guides-shell .sc-faq-item summary,
+html[data-theme='dark'] .sc-guides-shell .sc-guide-queries :not(a),
+html[data-theme='dark'] .sc-guides-hub .sc-guide-card :not(a),
+html[data-theme='dark'] .sc-guides-hub .sc-guides-prose :not(a),
+html[data-theme='dark'] .sc-guides-hub .sc-faq-item :not(a),
+html[data-theme='dark'] .sc-guides-hub .sc-faq-item summary,
+html[data-theme='dark'] .sc-guides-hub .sc-guide-queries :not(a),
 html[data-theme='dark'] .sc-guide-article .sc-faq-item :not(a),
 html[data-theme='dark'] .sc-guide-article .sc-faq-item summary {
   color: #000000 !important;
@@ -488,16 +500,29 @@ html[data-theme='dark'] .sc-guides-shell .sc-faq-item a,
 html[data-theme='dark'] .sc-guides-shell .sc-guide-cta,
 html[data-theme='dark'] .sc-guides-shell .sc-guides-footer-links a,
 html[data-theme='dark'] .sc-guides-shell .sc-guides-site-footer a,
+html[data-theme='dark'] .sc-guides-hub .sc-guide-card a,
+html[data-theme='dark'] .sc-guides-hub .sc-guides-prose a,
+html[data-theme='dark'] .sc-guides-hub .sc-faq-item a,
+html[data-theme='dark'] .sc-guides-hub .sc-guide-cta,
+html[data-theme='dark'] .sc-guides-hub .sc-guides-footer-links a,
+html[data-theme='dark'] .sc-guides-hub a.sc-guide-cta,
 html[data-theme='dark'] .sc-guide-article .sc-faq-item a {
   color: var(--g-blue) !important;
 }
 
-html[data-theme='dark'] .sc-guides-shell .sc-guide-badge[data-access='free'] {
+html[data-theme='dark'] .sc-guides-shell .sc-guide-badge,
+html[data-theme='dark'] .sc-guides-hub .sc-guide-badge {
+  color: #000000 !important;
+}
+html[data-theme='dark'] .sc-guides-shell .sc-guide-badge[data-access='free'],
+html[data-theme='dark'] .sc-guides-hub .sc-guide-badge[data-access='free'] {
   background: #eef6f2 !important;
   color: #000000 !important;
 }
 html[data-theme='dark'] .sc-guides-shell .sc-guide-badge[data-access='credits'],
-html[data-theme='dark'] .sc-guides-shell .sc-guide-badge[data-access='mixed'] {
+html[data-theme='dark'] .sc-guides-shell .sc-guide-badge[data-access='mixed'],
+html[data-theme='dark'] .sc-guides-hub .sc-guide-badge[data-access='credits'],
+html[data-theme='dark'] .sc-guides-hub .sc-guide-badge[data-access='mixed'] {
   background: #fff4e8 !important;
   color: #000000 !important;
 }
@@ -505,12 +530,25 @@ html[data-theme='dark'] .sc-guides-shell .sc-guide-badge[data-access='mixed'] {
 /* Readable chrome on dark eng-paper (not paper islands) */
 html[data-theme='dark'] .sc-guides-shell .sc-guides-hero h1,
 html[data-theme='dark'] .sc-guides-shell .sc-guides-lead,
+html[data-theme='dark'] .sc-guides-shell .lead-definition,
 html[data-theme='dark'] .sc-guides-shell .sc-guides-section > h2,
 html[data-theme='dark'] .sc-guides-shell .sc-guides-section > p,
-html[data-theme='dark'] .sc-guides-shell .sc-guides-site-footer {
+html[data-theme='dark'] .sc-guides-shell .sc-guides-site-footer,
+html[data-theme='dark'] .sc-guides-hub .sc-guides-hero h1,
+html[data-theme='dark'] .sc-guides-hub .sc-guides-lead,
+html[data-theme='dark'] .sc-guides-hub .lead-definition,
+html[data-theme='dark'] .sc-guides-hub .sc-guides-section > h2,
+html[data-theme='dark'] .sc-guides-hub .sc-guides-section > p {
   color: #e8eef5 !important;
 }
-html[data-theme='dark'] .sc-guides-shell .sc-guides-kicker {
+html[data-theme='dark'] .sc-guides-shell .sc-guides-kicker,
+html[data-theme='dark'] .sc-guides-hub .sc-guides-kicker {
+  color: #7eb6e8 !important;
+}
+html[data-theme='dark'] .sc-guides-hub .lead-definition a,
+html[data-theme='dark'] .sc-guides-shell .lead-definition a,
+html[data-theme='dark'] .sc-guides-hub .sc-guides-section > p a,
+html[data-theme='dark'] .sc-guides-shell .sc-guides-section > p a {
   color: #7eb6e8 !important;
 }
 html[data-theme='dark'] .sc-aeo-rail a {
