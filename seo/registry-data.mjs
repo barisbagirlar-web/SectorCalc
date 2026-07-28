@@ -1886,23 +1886,30 @@ export const PAGES = [
     "publicationStatus": "published",
     "indexDirective": "index,follow",
     "sitemapEligible": true,
-    "llmEligible": false,
-    "title": "Case Studies (Coming Soon) — SectorCalc",
-    "description": "Verified SectorCalc case studies hub — evidence policy and links to live tools until citable studies ship.",
-    "h1": "Case studies",
-    "primaryIntent": "sectorcalc case studies",
+    "llmEligible": true,
+    "title": "Industrial Engineering Case Studies — Evidence Framework | SectorCalc",
+    "description": "Academic evidence framework for industrial engineering case studies: measured vs calculated data, A1–A5 audit trails, domain protocols, and an honest empty inventory until citable studies ship.",
+    "h1": "Industrial engineering case studies: an evidence framework for citable outcomes",
+    "primaryIntent": "industrial engineering case studies evidence framework",
     "queryCluster": "case-studies-hub",
     "primaryEntity": "case-studies",
     "topicalCluster": "site",
-    "revenueTier": "C",
+    "revenueTier": "B",
     "conversionEvent": null,
     "parentHub": "/",
-    "relatedRoutes": [],
+    "relatedRoutes": [
+      "/guides",
+      "/glossary",
+      "/tools.html",
+      "/compare",
+      "/resources/tolerance-stackup-audit-template"
+    ],
     "contentSources": [
       "/case-studies"
     ],
     "schemaTypes": [
-      "WebPage",
+      "CollectionPage",
+      "FAQPage",
       "BreadcrumbList"
     ],
     "imageAssets": [],

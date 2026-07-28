@@ -297,3 +297,66 @@ html[data-theme='dark'] .sc-trust-table td {
   color: var(--text);
   font-weight: 700;
 }
+
+/* Case studies academic hub */
+.sc-kicker {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 0.5rem;
+}
+.sc-byline {
+  font-size: 0.92rem;
+  color: var(--muted);
+  margin: 0.75rem 0 1.25rem;
+}
+.sc-direct-answer {
+  font-size: 1.05rem;
+  border-left: 3px solid var(--blue);
+  padding-left: 1rem;
+  margin: 1rem 0 1.25rem;
+}
+.sc-toc {
+  background: #fff;
+  border: 1px solid var(--border);
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0 2rem;
+}
+.sc-toc-title {
+  margin: 0 0 0.6rem;
+  font-size: 0.95rem;
+}
+.sc-toc ol {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+.sc-toc li {
+  margin: 0.35rem 0;
+}
+.sc-case-studies-hub dl {
+  margin: 1rem 0 1.5rem;
+}
+.sc-case-studies-hub dt {
+  font-weight: 700;
+  margin-top: 0.75rem;
+}
+.sc-case-studies-hub dd {
+  margin: 0.25rem 0 0.5rem;
+  color: var(--muted);
+}
+.sc-compare-evidence {
+  background: rgba(0, 85, 164, 0.06);
+  border: 1px solid rgba(0, 85, 164, 0.22);
+  padding: 0.9rem 1.1rem;
+  margin: 1.25rem 0;
+}
+.sc-faq-section details {
+  border-bottom: 1px solid var(--border);
+  padding: 0.75rem 0;
+}
+.sc-faq-section summary {
+  cursor: pointer;
+  font-weight: 600;
+}
