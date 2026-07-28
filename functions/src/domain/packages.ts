@@ -62,7 +62,8 @@ export const TIER_CREDITS: Record<PricingTier, number> = {
 /**
  * Tool monetization map (server SSOT).
  * Free SEO-bait set (Tier-B, not revenue gates): SC-001, SC-027, SC-028, SC-030, SC-039.
- * Keep in sync with seo/free-tools.mjs + src/billing/domain/packages.ts.
+ * Keep in sync with seo/free-tools.mjs + seo/tool-pricing.mjs + src/billing/domain/packages.ts.
+ * Guard: scripts/verify-tool-pricing-ssot.mjs
  *
  * Tier rubric (higher when all rise): defendable-decision stakes × engine depth × cost-of-being-wrong.
  * - FREE: reference / lookup shop instruments (SEO bait)

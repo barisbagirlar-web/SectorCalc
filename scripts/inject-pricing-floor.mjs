@@ -10,6 +10,7 @@ import {
   DECISION_TOOL_CHIPS,
   assertFreeUpsellsAreTierA,
 } from '../seo/free-tools.mjs';
+import { resolveToolCost } from '../seo/tool-pricing.mjs';
 
 const ROOT = process.cwd();
 const PAGE = join(ROOT, 'pricing.html');
@@ -31,10 +32,15 @@ function esc(s) {
 }
 
 function chip(href, code, name, blurb, access) {
-  const badge =
-    access === 'free'
-      ? '<span class="chip-access chip-free">Open bench · no session</span>'
-      : '<span class="chip-access chip-paid">Tier-A · 24h session</span>';
+  let badge;
+  if (access === 'free') {
+    badge = '<span class="chip-access chip-free">Open bench · no session</span>';
+  } else {
+    const pricing = resolveToolCost(code);
+    const tier = pricing?.tier || 'PRO';
+    const cost = pricing?.creditCost ?? 7;
+    badge = `<span class="chip-access chip-paid">${tier} · ${cost} cr · 24h</span>`;
+  }
   return `<a class="tool-chip" data-access="${esc(access)}" href="${esc(href)}"><span class="sc">${esc(code)}</span>${badge}<span class="nm">${esc(name)}</span><span class="ds">${esc(blurb)}</span></a>`;
 }
 
@@ -52,7 +58,7 @@ const block = `${START}
         ${freeChips}
       </div>
       <p class="floor-note">These five tools are free SEO-bait / shop reference instruments. Instant results — no login, no debit. They are not Tier-A decision engines.</p>
-      <div class="section-label" style="margin-top:18px"><strong>03 · Decision tools</strong><span>Tier-A · credit session required before results run</span></div>
+      <div class="section-label" style="margin-top:18px"><strong>03 · Decision tools</strong><span>CORE 3 · PRO 7 · ADVANCED 15 · 24h session before results run</span></div>
       <div class="tools-grid" data-pricing-floor="paid" aria-label="Tier-A decision calculators">
         ${paidChips}
       </div>

@@ -113,7 +113,13 @@ for (const t of FREE_TOOLS) {
 const tools = readFileSync(join(ROOT, 'tools.html'), 'utf8');
 if (/<!--SC-FREE-TOOLS-START-->/.test(tools)) fail('tools.html must not host free marketing strip');
 if (!/access-plate--bench|Open bench/.test(tools)) fail('tools.html missing Open bench access plates');
-if (!/access-plate--tier|Tier-A/.test(tools)) fail('tools.html missing Tier-A access plates');
+if (!/access-plate--tier/.test(tools)) fail('tools.html missing session-tier access plates');
+if (!/data-tier="CORE"|data-tier="PRO"|data-tier="ADVANCED"/.test(tools)) {
+  fail('tools.html missing CORE/PRO/ADVANCED data-tier on paid cards');
+}
+if (!/>CORE<|>PRO<|>ADVANCED</.test(tools)) {
+  fail('tools.html missing visible CORE/PRO/ADVANCED access plate labels');
+}
 if (/badge-l">Live</.test(tools) && /badge-s">Credits</.test(tools)) {
   fail('tools.html still uses basic Live+Credits dual chips');
 }

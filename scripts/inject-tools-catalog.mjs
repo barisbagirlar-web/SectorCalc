@@ -7,6 +7,7 @@
 import { readFileSync, writeFileSync, existsSync, mkdirSync, copyFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { isFreeToolId } from '../seo/free-tools.mjs';
+import { resolveToolCost } from '../seo/tool-pricing.mjs';
 
 const ROOT = process.cwd();
 const DATA_PATH = join(ROOT, 'src/data/tools-catalog.json');
@@ -77,11 +78,14 @@ function renderCatalog(categories, tools) {
       const status = t.live ? 'live' : 'pipeline';
       const title = `${t.code} ${t.name}`.replace(/\s+/g, ' ').trim();
       const free = isFreeToolId(t.code);
+      const pricing = resolveToolCost(t.code);
       const accessBadge = free
         ? `<span class="access-plate access-plate--bench" title="Open reference instrument — calculate immediately, no session debit"><span class="access-k">Access</span><span class="access-v">Open bench</span><span class="access-s">No session debit</span></span>`
-        : t.live
-          ? `<span class="access-plate access-plate--tier" title="Tier-A decision instrument — one credit unlocks a 24-hour deterministic session"><span class="access-k">Access</span><span class="access-v">Tier-A</span><span class="access-s">Credit session · 24h</span></span>`
-          : '';
+        : t.live && pricing && pricing.creditCost > 0
+          ? `<span class="access-plate access-plate--tier" data-tier="${esc(pricing.tier)}" data-credit-cost="${pricing.creditCost}" title="${esc(pricing.tier)} session — ${pricing.creditCost} credits unlock 24 hours of deterministic recalculation"><span class="access-k">Access</span><span class="access-v">${esc(pricing.tier)}</span><span class="access-s">${pricing.creditCost} credits · 24h</span></span>`
+          : t.live
+            ? `<span class="access-plate access-plate--tier" title="Tier-A decision instrument — credit session required"><span class="access-k">Access</span><span class="access-v">Tier-A</span><span class="access-s">Credit session · 24h</span></span>`
+            : '';
       const body = t.live
         ? `<a href="${esc(t.url)}"><h3>${esc(title)}</h3></a>
         <p>${esc(t.blurb || '')}</p>
@@ -89,7 +93,12 @@ function renderCatalog(categories, tools) {
         : `<h3 class="planned-i">${esc(title)}</h3>
         <p>${esc(t.blurb || '')}</p>
         <span class="access-plate access-plate--planned" title="In the drawing index but not commissioned yet"><span class="access-k">Status</span><span class="access-v">Planned</span><span class="access-s">Not commissioned</span></span>`;
-      lines.push(`<article class="tool-card" data-status="${status}" data-cat="${esc(t.c)}" data-code="${esc(t.code)}" data-kw="${esc(t.kw || '')}" data-live="${t.live ? '1' : '0'}"${free ? ' data-access="free"' : ' data-access="credits"'}>
+      const accessAttr = free
+        ? ' data-access="free"'
+        : pricing
+          ? ` data-access="credits" data-tier="${esc(pricing.tier)}" data-credit-cost="${pricing.creditCost}"`
+          : ' data-access="credits"';
+      lines.push(`<article class="tool-card" data-status="${status}" data-cat="${esc(t.c)}" data-code="${esc(t.code)}" data-kw="${esc(t.kw || '')}" data-live="${t.live ? '1' : '0'}"${accessAttr}>
         ${body}
       </article>`);
     }
