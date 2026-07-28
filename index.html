@@ -753,6 +753,9 @@ h1,h2,h3,h4{
   
   
   
+  
+  
+  
   <!--SC-FREE-TOOLS-START-->
 <section class="sc-free-tools" id="free-calculators" aria-labelledby="free-calculators-heading" data-aeo-hub="free">
   <div class="sc-free-inner">
@@ -804,14 +807,6 @@ h1,h2,h3,h4{
   </div>
 </section>
 <!--SC-FREE-TOOLS-END-->
-
-  <!-- ================= TRUST STRIP ================= -->
-  <div class="trust-strip" role="region" aria-label="Trust indicators">
-    <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>ISO 3864 Compliant Colors</div>
-    <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Client-Side Only &mdash; Zero Upload</div>
-    <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>394 Automated Tests Passing</div>
-    <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>Audit-Ready PDF Reports</div>
-  </div>
 
   <!-- ================= SPEC STRIP ================= -->
   <div class="spec-strip" role="region" aria-label="Key specifications">
@@ -1210,34 +1205,26 @@ h1,h2,h3,h4{
     </div>
   </section>
 
-  <!-- ================= FLAGSHIP ================= -->
+  <!-- ================= FLAGSHIP (checklist only — live numbers live in #run) ================= -->
   <section class="section" id="evidence" aria-labelledby="evidence-heading">
     <div class="container">
       <div class="section-head">
         <h2 id="evidence-heading"><span class="section-kicker">Flagship</span><br>Statistical tolerance stack-up</h2>
-        <p class="lede">The hardest everyday question on the floor &mdash; will the assembled dimensions stay within spec? Three methods, one deterministic engine.</p>
+        <p class="lede">Will assembled dimensions stay in spec? Worst-case, RSS, and seeded Monte Carlo in one deterministic SC-008 engine. Live numbers are in the demo above.</p>
       </div>
-      <div class="flagship" data-reveal>
+      <div class="flagship flagship-slim" data-reveal>
         <div>
           <span class="badge warn">Engineering preview &middot; not for production approval</span>
           <ul class="checklist">
             <li>Per-part distribution: normal, uniform, truncated-normal, triangular</li>
             <li>Real sample histogram &mdash; not a decorative bell curve</li>
             <li>Predicted Cpk &amp; PPM with a 95% confidence interval</li>
-            <li>Deterministic: same inputs + seed + engine version &rarr; same report</li>
-            <li>Full report in the SC-008 tool: charts, warnings and share integrity</li>
+            <li>Same inputs + seed + engine version &rarr; same report</li>
+            <li>Full SC-008 report: charts, warnings, and share integrity</li>
           </ul>
-          <a href="/calculator/tolerance-stack-up" class="btn btn-primary">Open the calculator &rarr;</a>
-        </div>
-        <div class="report-card">
-          <div class="report-card-head"><span>SC-008 &middot; PREDICTED ANALYSIS</span><span>ENGINE V1.0.0</span></div>
-          <div class="report-card-body">
-            <div class="report-row"><span class="k">Worst-case</span><span class="v">&plusmn;0.1150 mm</span></div>
-            <div class="report-row"><span class="k">RSS</span><span class="v" style="color:var(--iso-blue)">&plusmn;0.0687 mm</span></div>
-            <div class="report-row"><span class="k">Monte Carlo (n=10,000)</span><span class="v" style="color:var(--iso-orange)">&plusmn;0.0671 mm</span></div>
-            <div class="report-row"><span class="k">Predicted Cpk</span><span class="v">2.18</span></div>
-            <div class="report-row"><span class="k">Top contributor</span><span class="v">Spacer Width &middot; 53%</span></div>
-            <div class="report-verdict">Predicted in spec &mdash; verify with measured data before release</div>
+          <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:var(--sp-5);">
+            <a href="/calculator/tolerance-stack-up" class="btn btn-primary">Open SC-008 &rarr;</a>
+            <a href="#run" class="btn btn-ghost">Back to live demo</a>
           </div>
         </div>
       </div>
@@ -1249,7 +1236,7 @@ h1,h2,h3,h4{
     <div class="container">
       <div class="section-head">
         <h2 id="modules-heading"><span class="section-kicker">The set</span><br>Cost, quality and risk &mdash; one engine</h2>
-        <p class="lede">Every tool shares the same spine: structured inputs, full-precision math, visible assumptions, and a result you can defend.</p>
+        <p class="lede">Same spine across tools: structured inputs, Decimal math, visible assumptions, defendable result.</p>
       </div>
       <div class="modules" data-reveal>
         <div class="module">
@@ -1279,14 +1266,14 @@ h1,h2,h3,h4{
     <div class="container">
       <div class="section-head">
         <h2 id="prove-heading"><span class="section-kicker">Proof</span><br>How we prove it</h2>
-        <p class="lede">One place for the trust stack: how the engine behaves, how a report is built, what a sample record looks like, and the standards limits we will not blur. No anonymous quotes.</p>
+        <p class="lede">Engine behaviour, report layers, a sample record, and standards limits — no anonymous quotes.</p>
       </div>
 
       <div id="testimonials" class="prove-block">
         <h3 class="prove-subhead">Engine guarantees</h3>
         <div class="testimonials-grid" data-reveal>
         <div class="testimonial-card">
-          <p class="testimonial-quote">Same inputs, seed, and engine version produce the same report. Reviewers can re-run the number instead of trusting a black box.</p>
+          <p class="testimonial-quote">Same inputs, seed, and engine version &rarr; same report. Re-run instead of trusting a black box.</p>
           <div class="testimonial-author">
             <div class="testimonial-avatar" aria-hidden="true">01</div>
             <div>
@@ -1297,7 +1284,7 @@ h1,h2,h3,h4{
           <div class="testimonial-metric">Identical outputs for identical inputs</div>
         </div>
         <div class="testimonial-card">
-          <p class="testimonial-quote">After you unlock a session, the engine runs in your browser. Inputs for core math stay on device — not uploaded to SectorCalc servers.</p>
+          <p class="testimonial-quote">After session unlock, core math runs in the browser — inputs stay on device.</p>
           <div class="testimonial-author">
             <div class="testimonial-avatar" aria-hidden="true">02</div>
             <div>
@@ -1308,7 +1295,7 @@ h1,h2,h3,h4{
           <div class="testimonial-metric">Core calc data stays in your browser</div>
         </div>
         <div class="testimonial-card">
-          <p class="testimonial-quote">Production tools use Decimal.js with Decimal128 semantics. The homepage demo is a seeded preview; open SC-008 for the full engine.</p>
+          <p class="testimonial-quote">Tools use Decimal.js (Decimal128). Homepage demo is a seeded Number preview.</p>
           <div class="testimonial-author">
             <div class="testimonial-avatar" aria-hidden="true">03</div>
             <div>
@@ -1323,34 +1310,32 @@ h1,h2,h3,h4{
 
       <div id="method" class="prove-block">
         <h3 class="prove-subhead">How a result gets built</h3>
-        <p class="prove-note">A result is only useful if you can defend it. Every report carries four layers from input to decision.</p>
         <div class="method-rail" data-reveal>
         <div class="method-step">
           <div class="method-num">01</div>
           <h3>Recommended action</h3>
-          <p>Primary result, pass / warning / fail, and the operational or commercial impact &mdash; stated up front.</p>
+          <p>Primary result, pass / warning / fail, and impact &mdash; stated up front.</p>
         </div>
         <div class="method-step">
           <div class="method-num">02</div>
           <h3>Inputs &amp; formula</h3>
-          <p>Every input with units, derived values, the formula used and the assumptions made. Nothing hidden.</p>
+          <p>Every input with units, derived values, formula, and assumptions. Nothing hidden.</p>
         </div>
         <div class="method-step">
           <div class="method-num">03</div>
           <h3>Checks &amp; warnings</h3>
-          <p>Input consistency checks, outlier warnings, applicable standard and edition, and engine version.</p>
+          <p>Consistency checks, outliers, standard edition, and engine version.</p>
         </div>
         <div class="method-step">
           <div class="method-num">04</div>
           <h3>Audit trail</h3>
-          <p>Executive result, detailed calculation, deviations, deterministic hashes and a shareable PDF record.</p>
+          <p>Executive result, calculation detail, hashes, and a shareable PDF record.</p>
         </div>
       </div>
       </div>
 
       <div id="verify" class="prove-block">
         <h3 class="prove-subhead">What a report actually looks like</h3>
-        <p class="prove-note">Not a black-box number — a traceable record you can hand to a reviewer or attach to a design file.</p>
         <div class="report-card" style="max-width:640px" data-reveal>
         <div class="report-card-head"><span>CALC ID SC008-7A3F1C9E</span><span>INPUT 7a3f1c9e / OUTPUT 4d8b2e61</span></div>
         <div class="report-card-body">
@@ -1371,7 +1356,6 @@ h1,h2,h3,h4{
 
       <div id="standards" class="prove-block">
         <h3 class="prove-subhead">Standards &amp; honesty</h3>
-        <p class="prove-note">Trust comes from stating limits as clearly as capabilities.</p>
         <div class="standards-grid" data-reveal>
         <div class="standards-col">
           <h3>Referenced methodology</h3>
@@ -1409,17 +1393,13 @@ h1,h2,h3,h4{
     <div class="container">
       <div class="section-head">
         <h2 id="pricing-heading"><span class="section-kicker">Decision stock</span><br>Commission the hours you need.<br>Own the stock forever.</h2>
-        <p class="lede">This is not a seat license. You commission one-time credit stock — like certified bar on the rack — then spend only when a Tier-A job needs a number that will be challenged. One debit opens that engine for 24 hours. Purchased credits never expire.</p>
+        <p class="lede">Not a seat license. One-time credit stock; one debit unlocks a Tier-A engine for 24 hours. Recalculate all day, export the A1–A5 trail, same seed and formula. Purchased credits never expire.</p>
       </div>
       <div class="credit-band" data-reveal>
         <div class="credit-header">
           <div><span class="badge info">ONE-TIME COMMISSION &middot; 24h SESSION &middot; NEVER EXPIRES</span></div>
           <div class="credit-balance">Session cost · CORE 3 · PRO 7 · ADVANCED 15</div>
         </div>
-
-        <p style="margin:0 0 var(--sp-5);max-width:54rem;color:var(--sheet-text-2);font-size:15px;line-height:1.6;">
-          When tolerance stack-up, feeds &amp; speeds, L10 life, quote margin, OEE, or heat input decides scrap versus ship, you do not rent a monthly cloud seat — you unlock a deterministic session. Confirm once. Recalculate all day. Export the A1–A5 trail. Walk into the review with the same seed, the same formula, the same engine version.
-        </p>
 
         <div class="credit-packages">
           <div class="credit-card" data-package-key="STARTER" role="group" aria-label="Starter pack — 20 credits for 15 dollars">
