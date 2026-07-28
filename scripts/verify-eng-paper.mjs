@@ -2,7 +2,7 @@
 /**
  * Enterprise eng-paper coverage gate.
  * Every registry sourceFile must load hashed sc-calc-sheet.<hash>.css and body.sc-eng-paper.
- * Homepage may not carry theme-calc-sheet / titleblock.
+ * Fixed DWG titleblock stamp must not appear on any surface (including homepage).
  */
 import { readFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
@@ -57,6 +57,9 @@ for (const p of pages) {
   }
   if (!html.includes(CSS_PIN)) {
     fail(`${file}: missing <link> ${CSS_PIN}`);
+  }
+  if (html.includes('sc-calc-sheet-titleblock') || html.includes('<!--SC-CALC-SHEET-TB-START-->')) {
+    fail(`${file}: retired titleblock stamp must be removed`);
   }
 }
 

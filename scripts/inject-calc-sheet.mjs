@@ -2,7 +2,8 @@
 /**
  * Inject ONE engineering graph-paper SSOT (body.sc-eng-paper).
  * All pages including index.html get BACKGROUND paper only via sc-eng-paper.
- * Theme chrome (wrap/titleblock) stays off the homepage.
+ * Theme chrome (wrap) stays off the homepage.
+ * Titleblock stamp is retired sitewide — always strip, never inject.
  * FORBIDDEN on index: theme-calc-sheet, theme-blueprint, titleblock, hero rewrites.
  */
 import { readFileSync, writeFileSync, readdirSync, existsSync } from 'node:fs';
@@ -40,39 +41,23 @@ const EXTRA_SURFACE_DIRS = Object.freeze([
   'public/case-studies',
 ]);
 
-const TOOL_DWG = Object.freeze({
-  'sc008-pro.html': 'SC-008-001',
-  'weld-pro.html': 'SC-001-001',
-  'labor-pro.html': 'SC-010-001',
-  'quote-pro.html': 'SC-012-001',
-  'machining-pro.html': 'SC-020-001',
-  'bearing-pro.html': 'SC-021-001',
-  'tap-thread-pro.html': 'SC-022-001',
-  'cycle-cost-pro.html': 'SC-023-001',
-  'bearing-freq-pro.html': 'SC-024-001',
-  'belt-chain-pro.html': 'SC-025-001',
-  'shaft-pro.html': 'SC-026-001',
-  'fits-pro.html': 'SC-027-001',
-  'surface-finish-pro.html': 'SC-028-001',
-  'heat-input-pro.html': 'SC-029-001',
-  'bend-pro.html': 'SC-030-001',
-  'sling-pro.html': 'SC-031-001',
-  'shackle-eyebolt-pro.html': 'SC-032-001',
-  'pressure-vessel-pro.html': 'SC-033-001',
-  'pipe-wall-pro.html': 'SC-034-001',
-  'bolt-pro.html': 'SC-035-001',
-  'bolted-joint-pro.html': 'SC-036-001',
-  'oee-pro.html': 'SC-037-001',
-  'machine-rate-pro.html': 'SC-038-001',
-  'punching-pro.html': 'SC-039-001',
-  'hydraulic-pro.html': 'SC-040-001',
-});
-
-const TODAY = new Date().toISOString().slice(0, 10);
-
 function stripMarkers(html, start, end) {
   const re = new RegExp(`${start}[\\s\\S]*?${end}\\n?`, 'g');
   return html.replace(re, '');
+}
+
+/** Remove retired DWG titleblock stamp (markers + any leftover markup). */
+function stripTitleBlock(html) {
+  let out = stripMarkers(html, TB_START, TB_END);
+  out = out.replace(
+    /<footer\b[^>]*\bsc-calc-sheet-titleblock\b[^>]*>[\s\S]*?<\/footer>\s*/gi,
+    '',
+  );
+  out = out.replace(
+    /<aside\b[^>]*\bsc-calc-sheet-titleblock\b[^>]*>[\s\S]*?<\/aside>\s*/gi,
+    '',
+  );
+  return out;
 }
 
 function ensureCssLink(html, { isolated = false } = {}) {
@@ -109,27 +94,7 @@ function setBodyClasses(html, extraClasses, { isolated = false } = {}) {
   });
 }
 
-function titleBlock(dwg, kind) {
-  return `${TB_START}
-<footer class="sc-title-block sc-calc-sheet-titleblock" aria-hidden="true">
-  <div class="tb-row"><span class="tb-label">DWG NO</span><span class="tb-value">${dwg}</span></div>
-  <div class="tb-row"><span class="tb-label">FMT</span><span class="tb-value">${kind}</span></div>
-  <div class="tb-row"><span class="tb-label">REV</span><span class="tb-value">C</span></div>
-  <div class="tb-row"><span class="tb-label">DATE</span><span class="tb-value">${TODAY}</span></div>
-</footer>
-${TB_END}`;
-}
-
-function injectTitleBlock(html, dwg, kind) {
-  let out = stripMarkers(html, TB_START, TB_END);
-  const block = titleBlock(dwg, kind);
-  if (/<\/body>/i.test(out)) {
-    return out.replace(/<\/body>/i, `${block}\n</body>`);
-  }
-  return `${out}\n${block}\n`;
-}
-
-function processPage(file, themeClass, dwg, kind, opts = {}) {
+function processPage(file, themeClass, opts = {}) {
   const path = join(ROOT, file);
   if (!existsSync(path)) {
     console.warn(`[WARN] missing ${file}`);
@@ -165,15 +130,9 @@ function processPage(file, themeClass, dwg, kind, opts = {}) {
   let html = readFileSync(path, 'utf8');
   const before = html;
   html = stripMarkers(html, START, END);
-  if (paperOnly) {
-    // Homepage: never leave a titleblock behind
-    html = stripMarkers(html, TB_START, TB_END);
-  }
+  html = stripTitleBlock(html);
   html = ensureCssLink(html, { isolated });
   html = setBodyClasses(html, extra, { isolated });
-  if (!paperOnly) {
-    html = injectTitleBlock(html, dwg, kind);
-  }
   if (!html.includes(START)) {
     html = html.replace(
       /<\/head>/i,
@@ -218,62 +177,58 @@ function assertHomepageHeroSafe() {
 function main() {
   let n = 0;
 
-  // Homepage: identical paper BACKGROUND only — never wrap/titleblock/theme
-  if (processPage('index.html', null, null, null, { paperOnly: true })) n += 1;
+  // Homepage: identical paper BACKGROUND only — never wrap/theme
+  if (processPage('index.html', null, { paperOnly: true })) n += 1;
 
   const pros = readdirSync(ROOT).filter((f) => f.endsWith('-pro.html')).sort();
   for (const file of pros) {
-    const dwg = TOOL_DWG[file] || file.replace(/-pro\.html$/, '').toUpperCase();
-    if (processPage(file, 'theme-calc-sheet', dwg, 'CALC SHEET')) n += 1;
+    if (processPage(file, 'theme-calc-sheet')) n += 1;
   }
-  if (processPage('tools.html', 'theme-drawing-index', 'SC-TOOLS-001', 'DRAWING INDEX')) n += 1;
-  if (processPage('pricing.html', 'theme-bom', 'SC-BOM-001', 'BOM')) n += 1;
-  if (processPage('pro.html', 'theme-drawing-index', 'SC-PRO-001', 'PRO CATALOG')) n += 1;
-  if (processPage('account.html', 'theme-eng-paper', 'SC-ACCT-001', 'ACCOUNT')) n += 1;
-  if (processPage('login.html', 'theme-eng-paper', 'SC-AUTH-001', 'AUTH')) n += 1;
-  if (processPage('sc-ops.html', 'theme-eng-paper', 'SC-OPS-001', 'OPS')) n += 1;
+  if (processPage('tools.html', 'theme-drawing-index')) n += 1;
+  if (processPage('pricing.html', 'theme-bom')) n += 1;
+  if (processPage('pro.html', 'theme-drawing-index')) n += 1;
+  if (processPage('account.html', 'theme-eng-paper')) n += 1;
+  if (processPage('login.html', 'theme-eng-paper')) n += 1;
+  if (processPage('sc-ops.html', 'theme-eng-paper')) n += 1;
 
   for (const file of listHtml('public/glossary')) {
     if (file.endsWith('/index.html')) {
-      if (processPage(file, null, 'SC-GLOSS-HUB', 'GLOSSARY HUB', { preserveGuidesShell: true })) n += 1;
+      if (processPage(file, null, { preserveGuidesShell: true })) n += 1;
       continue;
     }
-    const slug = file.split('/').pop().replace(/\.html$/, '').toUpperCase().slice(0, 12);
-    if (processPage(file, 'theme-eng-paper', `SC-GL-${slug}`, 'GLOSSARY')) n += 1;
+    if (processPage(file, 'theme-eng-paper')) n += 1;
   }
 
   for (const file of listHtml('public/compare')) {
     if (file.endsWith('/index.html')) {
-      if (processPage(file, null, 'SC-CMP-HUB', 'COMPARE HUB', { preserveGuidesShell: true })) n += 1;
+      if (processPage(file, null, { preserveGuidesShell: true })) n += 1;
       continue;
     }
-    const slug = file.split('/').pop().replace(/\.html$/, '').toUpperCase().slice(0, 12);
-    if (processPage(file, 'theme-eng-paper', `SC-CMP-${slug}`, 'COMPARE')) n += 1;
+    if (processPage(file, 'theme-eng-paper')) n += 1;
   }
 
   for (const file of listHtml('public/guides')) {
-    if (processPage(file, null, 'SC-GUIDE', 'GUIDE', { preserveGuidesShell: true })) n += 1;
+    if (processPage(file, null, { preserveGuidesShell: true })) n += 1;
   }
 
   for (const file of listHtml('public/blog')) {
-    if (processPage(file, 'theme-eng-paper', 'SC-BLOG', 'BLOG')) n += 1;
+    if (processPage(file, 'theme-eng-paper')) n += 1;
   }
 
   for (const dir of EXTRA_SURFACE_DIRS) {
     for (const file of listHtml(dir)) {
-      const slug = file.replace(/^public\//, '').replace(/\.html$/, '').toUpperCase().replace(/[^A-Z0-9]+/g, '-').slice(0, 18);
       // Topics / legal / resources / case-studies: shared paper + light chrome
-      if (processPage(file, 'theme-eng-paper', `SC-${slug}`, 'SURFACE')) n += 1;
+      if (processPage(file, 'theme-eng-paper')) n += 1;
     }
   }
 
   // Product 404 surface (not always in registry, still must match site DNA)
   if (existsSync(join(ROOT, 'public/404.html'))) {
-    if (processPage('public/404.html', 'theme-eng-paper', 'SC-404', 'ERROR', { paperOnly: false })) n += 1;
+    if (processPage('public/404.html', 'theme-eng-paper')) n += 1;
   }
 
   assertHomepageHeroSafe();
-  console.log(`[PASS] Unified eng-paper v4 applied (${n} writes this run)`);
+  console.log(`[PASS] Unified eng-paper v4 applied (${n} writes this run; titleblock stripped)`);
 }
 
 main();
