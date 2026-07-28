@@ -28,8 +28,7 @@ const contentRoutes = [
   ['/blog', 'public/blog/index.html'],
   ['/blog/tolerance-stack-up-rss-vs-monte-carlo.html', 'public/blog/tolerance-stack-up-rss-vs-monte-carlo.html'],
 ];
-const noindexAllowedRoutes = new Set(['/case-studies']);
-// Case studies hub is intentionally noindex until verified studies ship.
+// Case studies hub is indexable + sitemapEligible (task 5). No special noindex carve-out.
 contentRoutes.push(['/case-studies', 'public/case-studies/index.html']);
 for (const folder of ['glossary', 'compare', 'guides', 'about', 'contact', 'privacy', 'terms', 'resources', 'topics']) {
   const dir = join(ROOT, 'public', folder);
@@ -176,8 +175,7 @@ for (const page of pages) {
 
 for (const [route, file] of contentRoutes) {
   const t = read(file);
-  if (/noindex/i.test(t) && !noindexAllowedRoutes.has(route)) fail(`${file} has noindex`);
-  if (noindexAllowedRoutes.has(route) && !/noindex/i.test(t)) fail(`${file} must stay noindex until verified case studies ship`);
+  if (/noindex/i.test(t)) fail(`${file} has noindex`);
   const canonical = `${HOST}${route}`;
   if (!t.includes(`rel="canonical" href="${canonical}"`)) fail(`${file} canonical mismatch; expected ${canonical}`);
   if (!/name=["']description["']/.test(t)) fail(`${file} missing meta description`);

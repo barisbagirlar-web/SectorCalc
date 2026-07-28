@@ -1888,7 +1888,7 @@ export const PAGES = [
     "sitemapEligible": true,
     "llmEligible": false,
     "title": "Case Studies (Coming Soon) — SectorCalc",
-    "description": "Verified SectorCalc case studies only — hub is noindex until real citable outcomes ship.",
+    "description": "Verified SectorCalc case studies hub — evidence policy and links to live tools until citable studies ship.",
     "h1": "Case studies",
     "primaryIntent": "sectorcalc case studies",
     "queryCluster": "case-studies-hub",
