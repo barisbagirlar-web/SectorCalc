@@ -459,11 +459,12 @@ ${footer()}
 
 function topicsHubHtml() {
   const freeCards = FREE_TOOLS.map(
-    (t) => `<article class="sc-guide-card" data-free-tool="${esc(t.toolId)}" data-entity="${esc(t.entity)}">
-  <p class="sc-guide-badge" data-access="free">Open · no sign-in</p>
-  <h3>${esc(t.name)}</h3>
+    (t) => `<article class="sc-guide-card" data-free-tool="${esc(t.toolId)}" data-entity="${esc(t.entity)}" data-access="free">
+  <p class="sc-guide-badge" data-access="free">Open · no sign-in · no credits</p>
+  <h3>${esc(t.toolId)} · ${esc(t.name)}</h3>
   <p class="sc-guide-problem">${esc(t.problem)}</p>
-  <a class="sc-guide-cta" href="${esc(t.canonicalPath)}">Run this instrument →</a>
+  <a class="sc-guide-cta" href="${esc(t.canonicalPath)}">Run free · ${esc(t.toolId)} →</a>
+  <a class="sc-guide-cta" href="${esc(t.upsell.href)}">${esc(t.upsell.label)} →</a>
 </article>`
   ).join('\n');
 

@@ -39,7 +39,10 @@ export const FREE_TOOLS = Object.freeze([
     problem: 'Flat pattern wrong by a few millimetres means the brake setup already failed.',
     directAnswer:
       'Compute bend allowance, bend deduction, and flat length from thickness, angle, inside radius, and K-factor. Use it to release a blank before the first hit — not as a substitute for shop-proven K-factors on your exact material and tooling.',
-    upsell: { href: '/calculator/punching-force', label: 'Also free: punching force calculator' },
+    upsell: {
+      href: '/calculator/cycle-time-cost',
+      label: 'Blank locked? Cost the cycle — open SC-023 (credits)',
+    },
   },
   {
     toolId: 'SC-039',
@@ -50,7 +53,10 @@ export const FREE_TOOLS = Object.freeze([
     problem: 'Press tonnage guessed from habit is how punches snap and frames ring.',
     directAnswer:
       'Estimate punching force from perimeter, thickness, and shear strength with clear unit handling. Use it to screen die and press capacity before tooling — not as a replacement for manufacturer tonnage charts or safety factors required by your press standard.',
-    upsell: { href: '/calculator/sheet-metal-bend', label: 'Also free: sheet metal bend calculator' },
+    upsell: {
+      href: '/calculator/quote-pricing',
+      label: 'Capacity screened? Price the job — open SC-012 (credits)',
+    },
   },
   {
     toolId: 'SC-001',
@@ -70,6 +76,46 @@ export const FREE_TOOL_SLUGS = Object.freeze(new Set(FREE_TOOLS.map((t) => t.sou
 export const FREE_TOOL_ENTITIES = Object.freeze(new Set(FREE_TOOLS.map((t) => t.entity)));
 export const FREE_TOOL_PATHS = Object.freeze(new Set(FREE_TOOLS.map((t) => t.canonicalPath)));
 
+/** Tier-A decision chips shown on Pricing (credits required — not open bench). */
+export const DECISION_TOOL_CHIPS = Object.freeze([
+  {
+    toolId: 'SC-008',
+    href: '/calculator/tolerance-stack-up',
+    name: 'Tolerance stack-up',
+    blurb: 'Worst-case · RSS · Monte Carlo · credits',
+  },
+  {
+    toolId: 'SC-020',
+    href: '/calculator/cnc-feeds-speeds',
+    name: 'Feeds & speeds',
+    blurb: 'Taylor · Kienzle · spindle check · credits',
+  },
+  {
+    toolId: 'SC-021',
+    href: '/calculator/bearing-life-l10',
+    name: 'Bearing life L10',
+    blurb: 'ISO 281 modified rating life · credits',
+  },
+  {
+    toolId: 'SC-012',
+    href: '/calculator/quote-pricing',
+    name: 'Quote pricing',
+    blurb: 'Margin and sell / cost · credits',
+  },
+  {
+    toolId: 'SC-010',
+    href: '/calculator/true-labor-cost',
+    name: 'True labor cost',
+    blurb: 'Loaded labor burden · credits',
+  },
+  {
+    toolId: 'SC-023',
+    href: '/calculator/cycle-time-cost',
+    name: 'Cycle time & cost',
+    blurb: 'Batch cycle · cost per part · credits',
+  },
+]);
+
 export function isFreeToolId(toolId) {
   return FREE_TOOL_IDS.has(toolId);
 }
@@ -80,4 +126,21 @@ export function isFreeToolSlug(slug) {
 
 export function freeToolBySlug(slug) {
   return FREE_TOOLS.find((t) => t.sourceSlug === slug) || null;
+}
+
+/** Fail-closed: every free-tool upsell must land on a Tier-A path (never free→free). */
+export function assertFreeUpsellsAreTierA() {
+  const errors = [];
+  for (const t of FREE_TOOLS) {
+    if (FREE_TOOL_PATHS.has(t.upsell.href)) {
+      errors.push(`${t.toolId} upsell ${t.upsell.href} points at another free tool`);
+    }
+    if (!/^\/calculator\//.test(t.upsell.href)) {
+      errors.push(`${t.toolId} upsell must be a /calculator/* path`);
+    }
+    if (!/\(credits\)/i.test(t.upsell.label)) {
+      errors.push(`${t.toolId} upsell label must disclose (credits)`);
+    }
+  }
+  return errors;
 }

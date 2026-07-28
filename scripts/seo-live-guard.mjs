@@ -189,9 +189,36 @@ if (!llmTxt.includes(`**${CURRENT_INDEXABLE_BASELINE}**`)) {
 if (!llmTxt.includes(`## Live tools — ${[...sitemap.text.matchAll(/<loc>[^<]*\/calculator\//g)].length}`) && !llmTxt.includes('## Live tools — 25')) {
   fail('llms.txt live tools count missing/unexpected');
 }
+if (!/Free calculators \(instant/i.test(llmTxt)) fail('llms.txt missing Free calculators section');
+for (const path of [
+  '/calculator/surface-finish',
+  '/calculator/iso-286-fits',
+  '/calculator/sheet-metal-bend',
+  '/calculator/punching-force',
+  '/calculator/weld-thickness',
+]) {
+  if (!llmTxt.includes(`${CANONICAL_HOST}${path}`)) fail(`llms.txt missing free tool ${path}`);
+}
+if (!llmTxt.includes(`${CANONICAL_HOST}/#free-calculators`)) fail('llms.txt missing homepage open-bench hub');
+
+const home = await get(remote('/'));
+if (home.res.status !== 200) fail(`home HTTP ${home.res.status}`);
+if (!/id="free-calculators"/.test(home.text)) fail('homepage missing #free-calculators open bench');
+if (!/Open · no sign-in|Open · no credits/i.test(home.text)) fail('homepage missing open-bench access badge');
+
+const toolsPage = await get(remote('/tools.html'));
+if (toolsPage.res.status !== 200) fail(`tools.html HTTP ${toolsPage.res.status}`);
+if (!/Open · no credits/.test(toolsPage.text)) fail('tools.html missing Open · no credits badges');
+if (!/data-access="free"/.test(toolsPage.text)) fail('tools.html missing data-access=free cards');
+
+const pricingPage = await get(remote('/pricing.html'));
+if (pricingPage.res.status !== 200) fail(`pricing.html HTTP ${pricingPage.res.status}`);
+if (!/data-pricing-floor="free"/.test(pricingPage.text) || !/data-pricing-floor="paid"/.test(pricingPage.text)) {
+  fail('pricing.html missing open-bench vs decision-tools floor split');
+}
 
 if (errors.length) {
   console.error(`[FAIL] ${MODE} SEO guard for ${FETCH_HOST}:\n` + errors.map((e) => `  - ${e}`).join('\n'));
   process.exit(1);
 }
-console.log(`[PASS] ${MODE} SEO guard: ${locs.length} canonical URLs, image sitemap parents, HTTP/indexability/canonical invariants, bot edge access, locale quarantine, legacy routing and LLM parity verified at ${FETCH_HOST}`);
+console.log(`[PASS] ${MODE} SEO guard: ${locs.length} canonical URLs, image sitemap parents, HTTP/indexability/canonical invariants, bot edge access, locale quarantine, legacy routing, LLM parity, and open-bench freemium surface verified at ${FETCH_HOST}`);

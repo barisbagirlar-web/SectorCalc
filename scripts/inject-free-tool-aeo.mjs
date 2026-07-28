@@ -6,12 +6,18 @@
  */
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
-import { FREE_TOOLS } from '../seo/free-tools.mjs';
+import { FREE_TOOLS, assertFreeUpsellsAreTierA } from '../seo/free-tools.mjs';
+
+const upsellErrors = assertFreeUpsellsAreTierA();
+if (upsellErrors.length) {
+  console.error('[FAIL] free upsells:\n' + upsellErrors.map((e) => `  - ${e}`).join('\n'));
+  process.exit(1);
+}
 
 const ROOT = process.cwd();
 const START = '<!--SC-FREE-AEO-START-->';
 const END = '<!--SC-FREE-AEO-END-->';
-const CSS = '/sc-free-tools.css?v=2';
+const CSS = '/sc-free-tools.css?v=3';
 
 function esc(s) {
   return String(s)
@@ -39,7 +45,7 @@ ${END}`;
 
 function ensureCss(html) {
   if (html.includes('sc-free-tools.css')) {
-    return html.replace(/sc-free-tools\.css\?v=\d+/g, 'sc-free-tools.css?v=2');
+    return html.replace(/sc-free-tools\.css\?v=\d+/g, 'sc-free-tools.css?v=3');
   }
   return html.replace(/<\/head>/i, `<link rel="stylesheet" href="${CSS}">\n</head>`);
 }

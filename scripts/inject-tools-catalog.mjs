@@ -6,6 +6,7 @@
  */
 import { readFileSync, writeFileSync, existsSync, mkdirSync, copyFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
+import { isFreeToolId } from '../seo/free-tools.mjs';
 
 const ROOT = process.cwd();
 const DATA_PATH = join(ROOT, 'src/data/tools-catalog.json');
@@ -75,14 +76,20 @@ function renderCatalog(categories, tools) {
     for (const t of catTools) {
       const status = t.live ? 'live' : 'pipeline';
       const title = `${t.code} ${t.name}`.replace(/\s+/g, ' ').trim();
+      const free = isFreeToolId(t.code);
+      const accessBadge = free
+        ? `<span class="badge-f" title="Open reference bench">Open · no credits</span>`
+        : t.live
+          ? `<span class="badge-s" title="Tier-A decision tool">Credits</span>`
+          : '';
       const body = t.live
         ? `<a href="${esc(t.url)}"><h3>${esc(title)}</h3></a>
         <p>${esc(t.blurb || '')}</p>
-        <span class="badge-l">Live</span>`
+        <span class="badge-l">Live</span>${accessBadge}`
         : `<h3 class="planned-i">${esc(title)}</h3>
         <p>${esc(t.blurb || '')}</p>
         <span class="badge-p">Planned</span>`;
-      lines.push(`<article class="tool-card" data-status="${status}" data-cat="${esc(t.c)}" data-code="${esc(t.code)}" data-kw="${esc(t.kw || '')}" data-live="${t.live ? '1' : '0'}">
+      lines.push(`<article class="tool-card" data-status="${status}" data-cat="${esc(t.c)}" data-code="${esc(t.code)}" data-kw="${esc(t.kw || '')}" data-live="${t.live ? '1' : '0'}"${free ? ' data-access="free"' : ' data-access="credits"'}>
         ${body}
       </article>`);
     }
@@ -93,8 +100,31 @@ function renderCatalog(categories, tools) {
 }
 
 function ensureCss(html) {
-  if (html.includes('.tool-card{') || html.includes('.tool-card {')) return html;
-  const css = `
+  // Idempotent: strip prior access/hint CSS, then re-append once.
+  html = html.replace(/\.tool-card \.badge-f,\.tool-card \.badge-s\{[^}]*\}\n?/g, '');
+  html = html.replace(/\.tool-card \.badge-f\{[^}]*\}\n?/g, '');
+  html = html.replace(/\.tool-card \.badge-s\{[^}]*\}\n?/g, '');
+  html = html.replace(/\.tool-card\[data-access="free"\]\{[^}]*\}\n?/g, '');
+  html = html.replace(/\.tools-free-hint\{[^}]*\}\n?/g, '');
+  html = html.replace(/\.tools-free-hint strong\{[^}]*\}\n?/g, '');
+  html = html.replace(/\.tools-free-hint a\{[^}]*\}\n?/g, '');
+
+  const accessCss = `.tool-card .badge-f,.tool-card .badge-s{font-size:9px;font-weight:800;letter-spacing:.6px;border-radius:9px;padding:1px 6px;text-transform:uppercase;margin-right:6px}
+.tool-card .badge-f{color:#0a7a3e;border:1px solid #0a7a3e;background:color-mix(in srgb,#0a7a3e 8%,transparent)}
+.tool-card .badge-s{color:var(--accent);border:1px solid color-mix(in srgb,var(--accent) 45%,var(--line))}
+.tool-card[data-access="free"]{border-color:color-mix(in srgb,#0a7a3e 35%,var(--line));box-shadow:inset 3px 0 0 #0a7a3e}
+.tools-free-hint{margin:14px 0 4px;padding:10px 12px;border:1px dashed color-mix(in srgb,#0a7a3e 45%,var(--line));background:color-mix(in srgb,#0a7a3e 6%,var(--panel));font-size:13px;line-height:1.45;color:var(--ink)}
+.tools-free-hint strong{color:#0a7a3e}
+.tools-free-hint a{color:var(--accent);font-weight:700}
+`;
+
+  if (html.includes('.tool-card{') || html.includes('.tool-card {')) {
+    if (/\.tool-card \.badge-p\{[^}]+\}/.test(html)) {
+      return html.replace(/\.tool-card \.badge-p\{[^}]+\}/, (m) => `${m}\n${accessCss}`);
+    }
+    return html.replace('</style>', `${accessCss}\n</style>`);
+  }
+  const cssBits = `
 /* ---- prerendered tool cards (AEO-visible) ---- */
 .tool-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin-top:8px}
 .tool-card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 16px 14px;break-inside:avoid}
@@ -106,9 +136,19 @@ html[data-theme="dark"] .tool-card h3{color:var(--ink)}
 .tool-card .badge-l,.tool-card .badge-p{font-size:9px;font-weight:800;letter-spacing:.6px;border-radius:9px;padding:1px 6px;text-transform:uppercase}
 .tool-card .badge-l{color:var(--ok);border:1px solid var(--ok)}
 .tool-card .badge-p{color:var(--mut);border:1px solid var(--line)}
-.tool-card[hidden],.catsec[hidden],.tile[hidden]{display:none!important}
+${accessCss}.tool-card[hidden],.catsec[hidden],.tile[hidden]{display:none!important}
 `;
-  return html.replace('</style>', `${css}\n</style>`);
+  return html.replace('</style>', `${cssBits}\n</style>`);
+}
+
+const HINT_START = '<!--SC-TOOLS-FREE-HINT-START-->';
+const HINT_END = '<!--SC-TOOLS-FREE-HINT-END-->';
+
+function renderFreeHint() {
+  return `<aside class="tools-free-hint" data-tools-free-hint="1" aria-label="Open instruments on this catalog">
+  <strong>Open · no credits:</strong> five reference instruments (SC-028, SC-027, SC-030, SC-039, SC-001) calculate immediately — look for the green badge on cards.
+  <a href="/topics">Open-bench map</a> · <a href="/#free-calculators">Homepage bench</a>
+</aside>`;
 }
 
 function main() {
@@ -137,6 +177,15 @@ function main() {
 
   let html = readFileSync(PAGE, 'utf8');
   html = ensureCss(html);
+
+  // Compact free-access hint AFTER search/stats (never between nav and H1 — catalog DNA).
+  html = html.replace(new RegExp(`${HINT_START}[\\s\\S]*?${HINT_END}\\n?`, 'g'), '');
+  const hintBlock = `${HINT_START}\n${renderFreeHint()}\n${HINT_END}`;
+  if (/<div class="tiles" id="tiles">/.test(html)) {
+    html = html.replace(/<div class="tiles" id="tiles">/, `${hintBlock}\n    <div class="tiles" id="tiles">`);
+  } else if (/id="tiles"/.test(html)) {
+    html = html.replace(/<div[^>]*id="tiles"[^>]*>/, (m) => `${hintBlock}\n    ${m}`);
+  }
 
   // Stats block
   if (!html.includes('id="stLive"') && !html.includes(STATS_START)) {
