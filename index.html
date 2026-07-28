@@ -614,6 +614,8 @@ h1,h2,h3,h4{
 
 
 
+
+
 <a href="#main-content" class="skip-link">Skip to main content</a>
 
 <div class="sheet">
@@ -724,6 +726,8 @@ h1,h2,h3,h4{
     </div>
   </section>
 
+  
+  
   
   
   
@@ -1014,51 +1018,6 @@ h1,h2,h3,h4{
     </div>
   </section>
 
-  <!-- ================= TRUST / METHOD PROOF ================= -->
-  <section class="section testimonials-section" id="testimonials" aria-labelledby="testimonials-heading">
-    <div class="container">
-      <div class="section-head">
-        <h2 id="testimonials-heading"><span class="section-kicker">Trusted</span><br>by how the work is built</h2>
-        <p class="lede">No anonymous quotes. Trust comes from method, client-side execution, and results you can reproduce.</p>
-      </div>
-      <div class="testimonials-grid" data-reveal>
-        <div class="testimonial-card">
-          <p class="testimonial-quote">Same inputs, seed, and engine version produce the same report. Reviewers can re-run the number instead of trusting a black box.</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar" aria-hidden="true">01</div>
-            <div>
-              <div class="testimonial-name">Deterministic engine</div>
-              <div class="testimonial-role">Reproducible by seed</div>
-            </div>
-          </div>
-          <div class="testimonial-metric">Identical outputs for identical inputs</div>
-        </div>
-        <div class="testimonial-card">
-          <p class="testimonial-quote">After you unlock a session, the engine runs in your browser. Inputs for core math stay on device — not uploaded to SectorCalc servers.</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar" aria-hidden="true">02</div>
-            <div>
-              <div class="testimonial-name">Client-side engine</div>
-              <div class="testimonial-role">Session unlock · local math</div>
-            </div>
-          </div>
-          <div class="testimonial-metric">Core calc data stays in your browser</div>
-        </div>
-        <div class="testimonial-card">
-          <p class="testimonial-quote">Production tools use Decimal.js with Decimal128 semantics. The homepage demo is a seeded preview; open SC-008 for the full engine.</p>
-          <div class="testimonial-author">
-            <div class="testimonial-avatar" aria-hidden="true">03</div>
-            <div>
-              <div class="testimonial-name">Full-precision tools</div>
-              <div class="testimonial-role">SC-008 / SC-010 / SC-012 / SC-001</div>
-            </div>
-          </div>
-          <div class="testimonial-metric">394 automated tests in CI</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ================= BEFORE / AFTER COMPARISON ================= -->
   <section class="section comparison-section" aria-labelledby="comparison-heading">
     <div class="container">
@@ -1315,14 +1274,57 @@ h1,h2,h3,h4{
     </div>
   </section>
 
-  <!-- ================= METHOD RAIL ================= -->
-  <section class="section" id="method" aria-labelledby="method-heading">
+  <!-- ================= PROOF (deduped: trust + method + sample + standards) ================= -->
+  <section class="section prove-section" id="prove" aria-labelledby="prove-heading">
     <div class="container">
       <div class="section-head">
-        <h2 id="method-heading"><span class="section-kicker">Method</span><br>How a result gets built</h2>
-        <p class="lede">A result is only useful if you can defend it. Every report carries four layers, so a reviewer can follow the number from input to decision.</p>
+        <h2 id="prove-heading"><span class="section-kicker">Proof</span><br>How we prove it</h2>
+        <p class="lede">One place for the trust stack: how the engine behaves, how a report is built, what a sample record looks like, and the standards limits we will not blur. No anonymous quotes.</p>
       </div>
-      <div class="method-rail" data-reveal>
+
+      <div id="testimonials" class="prove-block">
+        <h3 class="prove-subhead">Engine guarantees</h3>
+        <div class="testimonials-grid" data-reveal>
+        <div class="testimonial-card">
+          <p class="testimonial-quote">Same inputs, seed, and engine version produce the same report. Reviewers can re-run the number instead of trusting a black box.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" aria-hidden="true">01</div>
+            <div>
+              <div class="testimonial-name">Deterministic engine</div>
+              <div class="testimonial-role">Reproducible by seed</div>
+            </div>
+          </div>
+          <div class="testimonial-metric">Identical outputs for identical inputs</div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-quote">After you unlock a session, the engine runs in your browser. Inputs for core math stay on device — not uploaded to SectorCalc servers.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" aria-hidden="true">02</div>
+            <div>
+              <div class="testimonial-name">Client-side engine</div>
+              <div class="testimonial-role">Session unlock · local math</div>
+            </div>
+          </div>
+          <div class="testimonial-metric">Core calc data stays in your browser</div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-quote">Production tools use Decimal.js with Decimal128 semantics. The homepage demo is a seeded preview; open SC-008 for the full engine.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" aria-hidden="true">03</div>
+            <div>
+              <div class="testimonial-name">Full-precision tools</div>
+              <div class="testimonial-role">SC-008 / SC-010 / SC-012 / SC-001</div>
+            </div>
+          </div>
+          <div class="testimonial-metric">394 automated tests in CI</div>
+        </div>
+      </div>
+      </div>
+
+      <div id="method" class="prove-block">
+        <h3 class="prove-subhead">How a result gets built</h3>
+        <p class="prove-note">A result is only useful if you can defend it. Every report carries four layers from input to decision.</p>
+        <div class="method-rail" data-reveal>
         <div class="method-step">
           <div class="method-num">01</div>
           <h3>Recommended action</h3>
@@ -1344,17 +1346,12 @@ h1,h2,h3,h4{
           <p>Executive result, detailed calculation, deviations, deterministic hashes and a shareable PDF record.</p>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ================= EVIDENCE / SAMPLE REPORT ================= -->
-  <section class="section" id="verify" aria-labelledby="verify-heading">
-    <div class="container">
-      <div class="section-head">
-        <h2 id="verify-heading"><span class="section-kicker">Evidence</span><br>What a report actually looks like</h2>
-        <p class="lede">Not a black-box number. A traceable record &mdash; the kind you hand to a reviewer or attach to a design file.</p>
       </div>
-      <div class="report-card" style="max-width:640px" data-reveal>
+
+      <div id="verify" class="prove-block">
+        <h3 class="prove-subhead">What a report actually looks like</h3>
+        <p class="prove-note">Not a black-box number — a traceable record you can hand to a reviewer or attach to a design file.</p>
+        <div class="report-card" style="max-width:640px" data-reveal>
         <div class="report-card-head"><span>CALC ID SC008-7A3F1C9E</span><span>INPUT 7a3f1c9e / OUTPUT 4d8b2e61</span></div>
         <div class="report-card-body">
           <div class="report-row"><span class="k">Engine</span><span class="v">SC008-2026.07-formula-v1.0.0+dist</span></div>
@@ -1370,17 +1367,12 @@ h1,h2,h3,h4{
           View Sample PDF Report
         </button>
       </div>
-    </div>
-  </section>
-
-  <!-- ================= STANDARDS ================= -->
-  <section class="section" id="standards" aria-labelledby="standards-heading">
-    <div class="container">
-      <div class="section-head">
-        <h2 id="standards-heading"><span class="section-kicker">Standards &amp; honesty</span><br>What we reference &mdash; and what we are not</h2>
-        <p class="lede">Trust comes from stating limits as clearly as capabilities.</p>
       </div>
-      <div class="standards-grid" data-reveal>
+
+      <div id="standards" class="prove-block">
+        <h3 class="prove-subhead">Standards &amp; honesty</h3>
+        <p class="prove-note">Trust comes from stating limits as clearly as capabilities.</p>
+        <div class="standards-grid" data-reveal>
         <div class="standards-col">
           <h3>Referenced methodology</h3>
           <ul>
@@ -1407,6 +1399,7 @@ h1,h2,h3,h4{
             <li>Results are predicted from drawing tolerances &mdash; an engineering preview, not a substitute for measured SPC or a licensed engineer&apos;s sign-off, and not valid for production approval on their own.</li>
           </ul>
         </div>
+      </div>
       </div>
     </div>
   </section>
@@ -1509,7 +1502,7 @@ h1,h2,h3,h4{
       </div>
       <div>
         <h3>Method</h3>
-        <ul><li><a href="#method">How results are built</a></li><li><a href="#standards">Standards</a></li><li><a href="#evidence">Evidence</a></li><li><a href="#verify">Sample report</a></li></ul>
+        <ul><li><a href="#prove">How we prove it</a></li><li><a href="#verify">Sample report</a></li><li><a href="#standards">Standards &amp; limits</a></li><li><a href="#evidence">Flagship SC-008</a></li></ul>
       </div>
       <div>
         <h3>Product</h3>
@@ -2038,7 +2031,7 @@ h1,h2,h3,h4{
     populatePdfModal();
     openPdfModal();
   });
-  // Hero "View a Sample Report" scrolls to #evidence (native anchor). Modal is on the Evidence section button.
+  // Hero sample-report CTA may scroll to #evidence (flagship) or open the modal on #verify.
   // Close on backdrop click
   if (pdfModal) {
     pdfModal.addEventListener('click', function(e){

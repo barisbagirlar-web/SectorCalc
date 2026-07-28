@@ -37,7 +37,7 @@ const EXPECTED = {
       '/compare',
       '/guides',
       '#decide',
-      '#method',
+      '#prove',
       '#standards',
       '#evidence',
       '#verify'
@@ -46,6 +46,7 @@ const EXPECTED = {
     mustHaveIds: [
       'main-content',
       'decide',
+      'prove',
       'method',
       'standards',
       'pricing',

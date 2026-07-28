@@ -2839,3 +2839,25 @@ select:focus-visible {
     inset: 8px;
   }
 }
+
+/* Homepage proof stack (deduped trust sections) */
+.prove-block {
+  margin-top: var(--sp-8, 2.5rem);
+}
+.prove-subhead {
+  font-family: var(--font-display, 'Barlow Condensed', sans-serif);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 1.15rem;
+  margin: 0 0 0.75rem;
+}
+.prove-note {
+  color: var(--sheet-text-2, #3d5366);
+  max-width: 54rem;
+  margin: 0 0 1.25rem;
+  font-size: 15px;
+  line-height: 1.6;
+}
+.prove-section .testimonials-grid {
+  margin-top: 0.5rem;
+}
