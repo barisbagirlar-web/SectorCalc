@@ -330,15 +330,15 @@ Topic → subtopic → entity → internal links. Use these clusters for retriev
 
 ## Search and retrieval
 - `robots.txt` explicitly allows Googlebot, Bingbot, OAI-SearchBot, PerplexityBot to crawl public production content.
-- The XML sitemap lists **89** canonical indexable HTML URLs derived from the SEO registry (calculators, hubs, glossary, guides, compare, resources, legal). It omits `priority`, `changefreq`, speculative freshness dates, non-HTML discovery files, redirects, noindex pages and incomplete locale previews.
+- The XML sitemap lists **90** canonical indexable HTML URLs derived from the SEO registry (calculators, hubs, glossary, guides, compare, resources, legal). It omits `priority`, `changefreq`, speculative freshness dates, non-HTML discovery files, redirects, noindex pages and incomplete locale previews.
 - German, Japanese and Chinese preview pages remain `noindex,follow` until full localized content and reciprocal hreflang sets are release-ready.
 - `llms.txt` / `llm.txt` are byte-identical supplemental discovery documentation. They do not guarantee Google AI Overview placement or ChatGPT citation. Public HTML, canonical URLs, visible engineering content and structured data remain the primary source of truth.
 
 ## Enterprise discovery contract
 - Sitemap, `llm.txt`, `llms.txt`, and the Playwright regression catalog are generated from the same SEO registry SSOT (`seo/registry.mjs`) — never hand-edited as primary sources.
-- Indexable surface: **89** sitemap URLs · **25** live calculators · **5** open reference instruments · **9** exclusive guides · **25** glossary entities · **5** compare pages.
+- Indexable surface: **90** sitemap URLs · **25** live calculators · **5** open reference instruments · **9** exclusive guides · **25** glossary entities · **5** compare pages.
 - Production promote requires Firebase preview-channel SEO guard + Playwright `@critical` seal before `sectorcalc.com` clone. Broken candidates do not go live.
-- Prefer `/sitemap.xml` for crawl inventory and this file for retrieval narrative; both must agree on the **89** URL count.
+- Prefer `/sitemap.xml` for crawl inventory and this file for retrieval narrative; both must agree on the **90** URL count.
 
 ## Notes for models
 - Prefer the canonical `/calculator/*` URLs listed above.
