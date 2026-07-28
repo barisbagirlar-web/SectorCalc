@@ -32,46 +32,8 @@ jobs:
         run: |
           node scripts/verify-nav.mjs
           node scripts/guard-head-ssot.mjs
-          name: Canonical Gates
-
-on:
-  push:
-  pull_request:
-
-permissions:
-  contents: read
-
-jobs:
-  canonical-gate:
-    name: Canonical quality gate
-    runs-on: ubuntu-latest
-    timeout-minutes: 30
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version-file: '.nvmrc'
-          cache: npm
-      - name: Install locked dependencies
-        run: npm ci --no-audit --no-fund
-      - name: English-only language gate
-        run: node scripts/check-language.mjs --strict
-      - name: Unit + golden tests
-        run: npm test
-      - name: Typecheck
-        run: npm run typecheck
-      - name: Production build (injects nav + guides, verifies form fields)
-        run: npm run build
-      - name: Post-build audits
-        run: |
-          node scripts/verify-nav.mjs
-          node scripts/guard-head-ssot.mjs
           node scripts/guard-tools-prerender.mjs --dist
           node scripts/guard-sitemap-coverage.mjs
-          node scripts/verify-form-fields.mjs
-          LEGACY_SURFACE_MODE=local npm run verify:legacy-surface
-      - name: Live host parity seal
-        run: npm run verify:host-parity
           node scripts/verify-form-fields.mjs
           LEGACY_SURFACE_MODE=local npm run verify:legacy-surface
       - name: Live host parity seal
