@@ -112,7 +112,11 @@ for (const t of FREE_TOOLS) {
 // tools.html must badge free cards without hosting the marketing strip
 const tools = readFileSync(join(ROOT, 'tools.html'), 'utf8');
 if (/<!--SC-FREE-TOOLS-START-->/.test(tools)) fail('tools.html must not host free marketing strip');
-if (!/Open · no credits/.test(tools)) fail('tools.html missing Open · no credits badges');
+if (!/access-plate--bench|Open bench/.test(tools)) fail('tools.html missing Open bench access plates');
+if (!/access-plate--tier|Tier-A/.test(tools)) fail('tools.html missing Tier-A access plates');
+if (/badge-l">Live</.test(tools) && /badge-s">Credits</.test(tools)) {
+  fail('tools.html still uses basic Live+Credits dual chips');
+}
 if (!/data-tools-free-hint="1"/.test(tools)) fail('tools.html missing free-access hint');
 for (const t of FREE_TOOLS) {
   const re = new RegExp(`data-code="${t.toolId}"[^>]*data-access="free"|data-access="free"[^>]*data-code="${t.toolId}"`);

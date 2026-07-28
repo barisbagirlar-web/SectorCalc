@@ -78,17 +78,17 @@ function renderCatalog(categories, tools) {
       const title = `${t.code} ${t.name}`.replace(/\s+/g, ' ').trim();
       const free = isFreeToolId(t.code);
       const accessBadge = free
-        ? `<span class="badge-f" title="Open reference bench">Open · no credits</span>`
+        ? `<span class="access-plate access-plate--bench" title="Open reference instrument — calculate immediately, no session debit"><span class="access-k">Access</span><span class="access-v">Open bench</span><span class="access-s">No session debit</span></span>`
         : t.live
-          ? `<span class="badge-s" title="Tier-A decision tool">Credits</span>`
+          ? `<span class="access-plate access-plate--tier" title="Tier-A decision instrument — one credit unlocks a 24-hour deterministic session"><span class="access-k">Access</span><span class="access-v">Tier-A</span><span class="access-s">Credit session · 24h</span></span>`
           : '';
       const body = t.live
         ? `<a href="${esc(t.url)}"><h3>${esc(title)}</h3></a>
         <p>${esc(t.blurb || '')}</p>
-        <span class="badge-l">Live</span>${accessBadge}`
+        ${accessBadge}`
         : `<h3 class="planned-i">${esc(title)}</h3>
         <p>${esc(t.blurb || '')}</p>
-        <span class="badge-p">Planned</span>`;
+        <span class="access-plate access-plate--planned" title="In the drawing index but not commissioned yet"><span class="access-k">Status</span><span class="access-v">Planned</span><span class="access-s">Not commissioned</span></span>`;
       lines.push(`<article class="tool-card" data-status="${status}" data-cat="${esc(t.c)}" data-code="${esc(t.code)}" data-kw="${esc(t.kw || '')}" data-live="${t.live ? '1' : '0'}"${free ? ' data-access="free"' : ' data-access="credits"'}>
         ${body}
       </article>`);
@@ -100,7 +100,7 @@ function renderCatalog(categories, tools) {
 }
 
 function ensureCss(html) {
-  // Idempotent: strip prior access/hint CSS, then re-append once.
+  // Idempotent: strip prior access/hint CSS (legacy badges + access plates), then re-append once.
   html = html.replace(/\.tool-card \.badge-f,\.tool-card \.badge-s\{[^}]*\}\n?/g, '');
   html = html.replace(/\.tool-card \.badge-f\{[^}]*\}\n?/g, '');
   html = html.replace(/\.tool-card \.badge-s\{[^}]*\}\n?/g, '');
@@ -108,14 +108,23 @@ function ensureCss(html) {
   html = html.replace(/\.tools-free-hint\{[^}]*\}\n?/g, '');
   html = html.replace(/\.tools-free-hint strong\{[^}]*\}\n?/g, '');
   html = html.replace(/\.tools-free-hint a\{[^}]*\}\n?/g, '');
+  html = html.replace(/\/\* SC-ACCESS-PLATES \*\/[\s\S]*?\/\* SC-ACCESS-PLATES-END \*\//g, '');
 
-  const accessCss = `.tool-card .badge-f,.tool-card .badge-s{font-size:9px;font-weight:800;letter-spacing:.6px;border-radius:9px;padding:1px 6px;text-transform:uppercase;margin-right:6px}
-.tool-card .badge-f{color:#0a7a3e;border:1px solid #0a7a3e;background:color-mix(in srgb,#0a7a3e 8%,transparent)}
-.tool-card .badge-s{color:var(--accent);border:1px solid color-mix(in srgb,var(--accent) 45%,var(--line))}
+  const accessCss = `/* SC-ACCESS-PLATES */
+.tool-card .access-plate{display:inline-grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto;column-gap:8px;row-gap:1px;align-items:baseline;margin-top:2px;padding:6px 8px;border:1px solid var(--line);background:color-mix(in srgb,var(--panel) 92%,var(--ink));font-family:var(--mono, 'JetBrains Mono', ui-monospace, monospace);line-height:1.2;max-width:100%}
+.tool-card .access-k{grid-column:1;grid-row:1 / span 2;align-self:center;font-size:8px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);writing-mode:horizontal-tb;border-right:1px solid var(--line);padding-right:8px}
+.tool-card .access-v{grid-column:2;font-size:11px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:var(--ink)}
+.tool-card .access-s{grid-column:2;font-size:9px;font-weight:500;letter-spacing:.02em;color:var(--mut)}
+.tool-card .access-plate--bench{border-color:color-mix(in srgb,#0a7a3e 55%,var(--line));box-shadow:inset 3px 0 0 #0a7a3e}
+.tool-card .access-plate--bench .access-v{color:#0a7a3e}
+.tool-card .access-plate--tier{border-color:color-mix(in srgb,var(--accent) 50%,var(--line));box-shadow:inset 3px 0 0 var(--accent)}
+.tool-card .access-plate--tier .access-v{color:var(--accent)}
+.tool-card .access-plate--planned{opacity:.85}
 .tool-card[data-access="free"]{border-color:color-mix(in srgb,#0a7a3e 35%,var(--line));box-shadow:inset 3px 0 0 #0a7a3e}
-.tools-free-hint{margin:14px 0 4px;padding:10px 12px;border:1px dashed color-mix(in srgb,#0a7a3e 45%,var(--line));background:color-mix(in srgb,#0a7a3e 6%,var(--panel));font-size:13px;line-height:1.45;color:var(--ink)}
-.tools-free-hint strong{color:#0a7a3e}
+.tools-free-hint{margin:14px 0 4px;padding:10px 12px;border:1px solid color-mix(in srgb,#0a7a3e 40%,var(--line));border-left:3px solid #0a7a3e;background:color-mix(in srgb,#0a7a3e 6%,var(--panel));font-size:13px;line-height:1.45;color:var(--ink)}
+.tools-free-hint strong{color:#0a7a3e;font-family:var(--mono,'JetBrains Mono',ui-monospace,monospace);font-size:11px;letter-spacing:.06em;text-transform:uppercase}
 .tools-free-hint a{color:var(--accent);font-weight:700}
+/* SC-ACCESS-PLATES-END */
 `;
 
   if (html.includes('.tool-card{') || html.includes('.tool-card {')) {
@@ -145,8 +154,8 @@ const HINT_START = '<!--SC-TOOLS-FREE-HINT-START-->';
 const HINT_END = '<!--SC-TOOLS-FREE-HINT-END-->';
 
 function renderFreeHint() {
-  return `<aside class="tools-free-hint" data-tools-free-hint="1" aria-label="Open instruments on this catalog">
-  <strong>Open · no credits:</strong> five reference instruments (SC-028, SC-027, SC-030, SC-039, SC-001) calculate immediately — look for the green badge on cards.
+  return `<aside class="tools-free-hint" data-tools-free-hint="1" aria-label="Open bench instruments on this catalog">
+  <strong>Open bench</strong> — five reference instruments (SC-028, SC-027, SC-030, SC-039, SC-001) calculate immediately with no session debit. Look for the Open bench access plate on cards.
   <a href="/topics">Open-bench map</a> · <a href="/#free-calculators">Homepage bench</a>
 </aside>`;
 }
