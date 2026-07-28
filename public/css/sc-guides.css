@@ -436,11 +436,20 @@ html[data-theme='dark'] .sc-guide-article .sc-faq-item {
   background: #ffffff !important;
   color: #000000 !important;
   border-color: rgba(11, 28, 44, 0.12);
+  color-scheme: light;
   --g-ink: #000000;
   --g-muted: #000000;
   --sg-ink: #000000;
   --sg-mut: #000000;
   --sg-navy: #000000;
+}
+
+/* Guides hub FAQ — explicit white paper (beats theme color-scheme:dark on <details>) */
+html[data-theme='dark'] .sc-guides-shell details.sc-faq-item,
+html[data-theme='dark'] .sc-guides-shell details.sc-faq-item summary {
+  background: #ffffff !important;
+  color: #000000 !important;
+  color-scheme: light;
 }
 
 html[data-theme='dark'] .sc-guides-shell .sc-guides-stat :not(a),

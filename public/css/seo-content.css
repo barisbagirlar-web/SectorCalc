@@ -228,9 +228,25 @@ html[data-theme='dark'] .sc-cta-panel,
 html[data-theme='dark'] .sc-facts-table,
 html[data-theme='dark'] .sc-term-card,
 html[data-theme='dark'] .compare-card,
-html[data-theme='dark'] .sc-faq-item,
 html[data-theme='dark'] .sc-btn-secondary {
   background: #131a23;
+}
+/* FAQ stays paper-white in dark mode (guides/glossary hubs + articles).
+   Do not force #131a23 here — native <details> + color-scheme:dark washes it. */
+html[data-theme='dark'] .sc-faq-item,
+html[data-theme='dark'] details.sc-faq-item {
+  background: #ffffff;
+  color: #000000;
+  color-scheme: light;
+  border-color: rgba(11, 28, 44, 0.12);
+}
+html[data-theme='dark'] .sc-faq-item summary,
+html[data-theme='dark'] .sc-faq-item p,
+html[data-theme='dark'] .sc-faq-item code {
+  color: #000000;
+}
+html[data-theme='dark'] .sc-faq-item a {
+  color: var(--blue, #0055a4);
 }
 html[data-theme='dark'] .sc-logo {
   color: #e8eef5;
