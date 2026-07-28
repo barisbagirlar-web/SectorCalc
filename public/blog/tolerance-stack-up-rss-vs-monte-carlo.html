@@ -150,7 +150,7 @@ article a:hover { text-decoration: underline; }
 
 @media (max-width: 640px) { .container { padding: 1rem; } header h1 { font-size: 1.75rem; } }
 </style>
-                      <!--SC-CALC-SHEET-START-->
+                          <!--SC-CALC-SHEET-START-->
   <!-- eng-paper: theme-eng-paper + sc-eng-paper v4 -->
   <!--SC-CALC-SHEET-END-->
 <!--SC-HEAD-ASSETS-START-->
@@ -164,6 +164,41 @@ article a:hover { text-decoration: underline; }
 <!--SC-HEAD-ASSETS-END-->
 </head>
 <body class="sc-eng-paper theme-eng-paper">
+<!--SC-SITE-NAV-START-->
+<header class="site-header" id="siteHeader" role="banner">
+  <a href="/" class="brand" aria-label="SectorCalc Home"><span class="brand-mark"><img class="logo-light" src="/sectorcalc-logo-214.w.png" srcset="/sectorcalc-logo-214.w.png 214w, /sectorcalc-logo-428.w.png 428w" sizes="183px" width="183" height="48" alt="SectorCalc" decoding="async"><img class="logo-dark" src="/sectorcalc-logo-dark-214.w.png" srcset="/sectorcalc-logo-dark-214.w.png 214w, /sectorcalc-logo-dark-428.w.png 428w" sizes="183px" width="183" height="48" alt="" aria-hidden="true" decoding="async"></span></a>
+  <nav class="main-nav" role="navigation" aria-label="Main navigation">
+    <ul>
+      <li><a href="/tools.html" data-nav="tools">Tools</a></li>
+      <li><a href="/glossary" data-nav="glossary">Glossary</a></li>
+      <li><a href="/guides" data-nav="guides">Guides</a></li>
+      <li><a href="/compare" data-nav="compare">Compare</a></li>
+      <li><a href="/pricing.html" data-nav="pricing">Pricing</a></li>
+      <li><a href="/account.html" data-nav="account">Account</a></li>
+    </ul>
+    <span class="sc-nav-tool" aria-hidden="true"></span>
+    <a href="/login.html" class="btn btn-primary" data-nav="login">Sign in</a>
+  </nav>
+  <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle color theme" aria-pressed="false" title="Toggle light / dark theme">
+    <svg data-theme-icon="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    <svg data-theme-icon="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+  </button>
+  <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+<div class="mobile-nav-overlay" id="mobileNav" role="dialog" aria-label="Mobile menu" aria-hidden="true">
+  <a href="/tools.html" data-nav="tools">All Tools</a>
+  <a href="/glossary" data-nav="glossary">Glossary</a>
+  <a href="/guides" data-nav="guides">Guides</a>
+  <a href="/compare" data-nav="compare">Compare</a>
+  <a href="/pricing.html" data-nav="pricing">Pricing</a>
+  <a href="/account.html" data-nav="account">Account</a>
+  <a href="/login.html" class="btn-primary" data-nav="login">Sign in</a>
+</div>
+<!--SC-SITE-NAV-END-->
+
+
 <div class="container">
   <nav class="breadcrumb" aria-label="Breadcrumb">
     <a href="https://sectorcalc.com/">Home</a> / <a href="https://sectorcalc.com/blog">Blog</a> / <span aria-current="page">RSS vs Monte Carlo</span>
@@ -319,12 +354,12 @@ article a:hover { text-decoration: underline; }
 </footer>
 <!--SC-SITE-FOOTER-END-->
 <!--SC-CALC-SHEET-TB-START-->
-<aside class="sc-calc-sheet-titleblock" aria-hidden="true">
-  <div class="tb-row"><span class="tb-label">DWG</span><span class="tb-value">SC-BLOG</span></div>
+<footer class="sc-title-block sc-calc-sheet-titleblock" aria-hidden="true">
+  <div class="tb-row"><span class="tb-label">DWG NO</span><span class="tb-value">SC-BLOG</span></div>
   <div class="tb-row"><span class="tb-label">FMT</span><span class="tb-value">BLOG</span></div>
   <div class="tb-row"><span class="tb-label">REV</span><span class="tb-value">C</span></div>
   <div class="tb-row"><span class="tb-label">DATE</span><span class="tb-value">2026-07-28</span></div>
-</aside>
+</footer>
 <!--SC-CALC-SHEET-TB-END-->
 </body>
 </html>

@@ -112,12 +112,12 @@ function setBodyClasses(html, extraClasses, { isolated = false } = {}) {
 
 function titleBlock(dwg, kind) {
   return `${TB_START}
-<aside class="sc-calc-sheet-titleblock" aria-hidden="true">
-  <div class="tb-row"><span class="tb-label">DWG</span><span class="tb-value">${dwg}</span></div>
+<footer class="sc-title-block sc-calc-sheet-titleblock" aria-hidden="true">
+  <div class="tb-row"><span class="tb-label">DWG NO</span><span class="tb-value">${dwg}</span></div>
   <div class="tb-row"><span class="tb-label">FMT</span><span class="tb-value">${kind}</span></div>
   <div class="tb-row"><span class="tb-label">REV</span><span class="tb-value">C</span></div>
   <div class="tb-row"><span class="tb-label">DATE</span><span class="tb-value">${TODAY}</span></div>
-</aside>
+</footer>
 ${TB_END}`;
 }
 
