@@ -12,18 +12,9 @@ const PARTIAL = readFileSync(join(ROOT, 'content/partials/site-header.html'), 'u
 
 const FORM_FIELDS_VERSION = 5;
 const STUDY_VERSION = 4;
-const THEME_VERSION = 12;
-const NAV_VERSION = 5;
 const AUTH_NAV_SCRIPT = `<script type="module" src="/src/auth-nav.ts"></script>`;
-const NAV_ASSETS = `
-<link rel="stylesheet" href="/sc-site-nav.css?v=${NAV_VERSION}">
-<script src="/sc-site-nav.js?v=2" defer></script>
-${AUTH_NAV_SCRIPT}
-`.trim();
-const THEME_ASSETS = `
-<link rel="stylesheet" href="/sc-theme.css?v=${THEME_VERSION}">
-<script src="/sc-theme.js?v=${THEME_VERSION}" defer></script>
-`.trim();
+// Core theme/nav/calc-sheet/seo-content CSS+JS live in content/partials/head-assets.html
+// (injected by scripts/inject-head-assets.mjs). Do not re-inline them here.
 
 const FORM_FIELDS_ASSET =
   `<link rel="stylesheet" href="/sc-form-fields.css?v=${FORM_FIELDS_VERSION}">`;
@@ -32,7 +23,6 @@ const STUDY_ASSETS = `
 <link rel="stylesheet" href="/sc-study.css?v=${STUDY_VERSION}">
 <script src="/sc-study.js?v=${STUDY_VERSION}" defer></script>
 `.trim();
-
 /** Explicit page configs (nav strip + tool badge). New tools auto-register below. */
 const PAGES = [
   { page: 'index.html', strip: 'home', badge: null },
@@ -115,28 +105,9 @@ function ensureAssets(html, page = '') {
     .replace(/\b(href|src)=(["'])\.\/(favicon[^"']*|icon-[^"']*|apple-touch[^"']*|site\.webmanifest[^"']*)\2/gi, '$1=$2/$3$2');
   // Drop legacy body-end auth-nav mounts (SEO/CVW injects rewrite </body> and can wipe them)
   out = out.replace(/\s*<script type="module" src="\/src\/auth-nav\.ts"><\/script>\s*/g, '\n');
-  if (!out.includes('sc-site-nav.css')) {
-    out = out.replace('</head>', `${NAV_ASSETS}\n</head>`);
-  } else {
-    out = out.replace(/(href=["'])(?:\.\/)?sc-site-nav\.css\?v=\d+/g, `$1/sc-site-nav.css?v=${NAV_VERSION}`);
-    out = out.replace(/(src=["'])(?:\.\/)?sc-site-nav\.js[^"']*/g, `$1/sc-site-nav.js?v=2`);
-    if (!out.includes('auth-nav')) {
-      if (/sc-site-nav\.js[^"']*["'][^>]*>/.test(out)) {
-        out = out.replace(
-          /(<script[^>]+sc-site-nav\.js[^>]*><\/script>)/,
-          `$1\n${AUTH_NAV_SCRIPT}`
-        );
-      } else {
-        out = out.replace('</head>', `${AUTH_NAV_SCRIPT}\n</head>`);
-      }
-    }
-  }
-  if (!out.includes('sc-theme.css')) {
-    out = out.replace('</head>', `${THEME_ASSETS}\n</head>`);
-  } else {
-    out = out
-      .replace(/(href=["'])(?:\.\/)?sc-theme\.css\?v=\d+/g, `$1/sc-theme.css?v=${THEME_VERSION}`)
-      .replace(/(src=["'])(?:\.\/)?sc-theme\.js\?v=\d+/g, `$1/sc-theme.js?v=${THEME_VERSION}`);
+  // auth-nav is page-chrome (not head-assets SSOT) — keep it next to </head>
+  if (!out.includes('auth-nav')) {
+    out = out.replace('</head>', `${AUTH_NAV_SCRIPT}\n</head>`);
   }
   // Always ensure form-field readability CSS (independent of nav)
   if (!out.includes('sc-form-fields.css')) {

@@ -160,230 +160,11 @@
   @media(max-width:768px){.sc-layout{grid-template-columns:1fr}.sc-sidebar{position:relative;top:0;height:auto;border-right:none;border-bottom:1px solid var(--border-subtle)}.sc-main-inner{padding:20px 16px 40px;max-width:100%}.sc-header{padding:0 16px}.sc-header-sub{display:none}.sc-cards{grid-template-columns:1fr 1fr}.sc-whatif{grid-template-columns:1fr}.sc-report-hd{flex-direction:column;gap:16px}.sc-report-hd-right{width:100%}.sc-report-hd-right .sc-btn{flex:1;justify-content:center}}
   @media(max-width:480px){.sc-presets{gap:4px}.sc-preset{padding:5px 10px;font-size:10px}.sc-field{padding:12px 16px}.sc-live{margin:12px 16px}.sc-sidebar-ft{padding:12px 16px}.sc-cards{grid-template-columns:1fr}}
 </style>
-<link rel="stylesheet" href="/sc-theme.css?v=12">
-<script src="/sc-theme.js?v=12" defer></script>
 <link rel="stylesheet" href="/sc-tool-guide.css?v=3">
 <link rel="stylesheet" href="/sc-eeat.css?v=3">
 <link rel="stylesheet" href="/sc-study.css?v=4">
 <script src="/sc-tool-guide.js?v=3" defer></script>
 <script src="/sc-study.js?v=4" defer></script>
-<link rel="stylesheet" href="/sc-site-nav.css?v=5">
-<script src="/sc-site-nav.js?v=2" defer></script>
-<script type="module" src="/src/auth-nav.ts"></script>
-<!--SC-GUIDE-START-->
-<div class="sc-guide-shell">
-<section class="sc-guide" id="sc-guide" data-tool-id="SC-001" data-tool-name="Weld Thickness Calculator (SC-001)" data-tool-url="https://sectorcalc.com/weld-pro.html" itemscope itemtype="https://schema.org/FAQPage">
-
-<nav class="sc-guide-toc" aria-label="Table of contents">
-  <div class="t">On this page</div>
-  <ul>
-    <li><a href="#overview">Fillet leg vs throat thickness</a></li>
-    <li><a href="#geometry">Throat = 0.707 × leg (equal-leg fillet)</a></li>
-    <li><a href="#strength">Strength check from design load</a></li>
-    <li><a href="#utilization">Utilization ratio</a></li>
-    <li><a href="#code-min">Code minimum legs (AWS / ISO framing)</a></li>
-    <li><a href="#effective-throat">When effective throat matters</a></li>
-    <li><a href="#governing">Governing leg selection</a></li>
-    <li><a href="#quoting">Welding in quotes and labor hours</a></li>
-    <li><a href="#faq">Frequently asked questions</a></li>
-  </ul>
-</nav>
-
-<p class="sc-guide-lede"><b>Weld thickness sizing</b> balances structural demand against code minimums. SC-001 computes required <b>throat thickness</b> from design load and allowable shear, converts to <b>fillet leg</b> for equal-leg joints, compares against interpolated <b>AWS D1.1 Table 2.1</b> minimum legs, and reports <b>utilization</b> — all as deterministic preview calculations, not certified WPS or PE-stamped designs.</p>
-
-<p class="note">Engineering preview · Reference AWS D1.1 minimum legs are approximate table nodes · ISO 5817 quality levels not auto-selected · Verify with the code edition in force and qualified procedures before fabrication · Not for production approval or regulatory submission.</p>
-
-<h2 id="overview">Fillet leg vs throat thickness</h2>
-
-<p>On drawings, fillet welds are usually specified by <b>leg size</b> (z) — the length of each leg on an equal-leg fillet. Structural capacity, however, is governed by <b>throat thickness</b> (a) — the minimum cross-section through the weld root to face, measured along the bisector of the legs.</p>
-
-<p>For an equal-leg fillet with legs at 90°, the theoretical throat lies at 45° and:</p>
-
-<div class="sc-formula">throat a = leg z × cos(45°) = leg z × 0.707</div>
-
-<p>SC-001 uses factor 0.707 for fillet joints. Butt joints in full-penetration idealization use factor 1.0 (throat equals leg input path). Always confirm joint type on the drawing — a fillet callout sized as leg is not interchangeable with a throat dimension.</p>
-
-<h2 id="geometry">Throat = 0.707 × leg (equal-leg fillet)</h2>
-
-<p>Rearranging for sizing from required throat:</p>
-
-<div class="sc-formula">leg z = requiredThroat / 0.707</div>
-
-<p>Example: if structural analysis demands 5.0 mm effective throat, leg ≈ 5.0 / 0.707 ≈ 7.07 mm → round up to shop practice (8 mm leg is common). SC-001 returns two decimal places; fabrication still requires rounding to available wire size, WPS limits, and access constraints.</p>
-
-<div class="sc-tip"><span class="ico" aria-hidden="true">💡</span><div>After sizing welds, estimate fab hours and feed <a href="/calculator/true-labor-cost">SC-010 True Labor Cost</a> welder rates into <a href="/calculator/quote-pricing">SC-012 Quote Pricing</a>. For assembly fit risk on welded fixtures, review stack tolerances with <a href="/calculator/tolerance-stack-up">SC-008 Tolerance Stack-Up</a>.</div></div>
-
-<h2 id="strength">Strength check from design load</h2>
-
-<p>SC-001 uses a simplified shear-capacity model on the design throat area:</p>
-
-<div class="sc-formula">allowableShear = weldStrengthMpa / safetyFactor
-requiredThroat = designLoadN / (weldLengthMm × allowableShear)</div>
-
-<p>Where <b>weldStrengthMpa</b> is the nominal weld metal strength ( electrode / process dependent ), and <b>safetyFactor</b> captures code partial factors and engineering margin. Allowable shear is treated as nominal strength divided by safety factor — a planning simplification; code clauses may specify different φ factors, directional loading, or combined stress.</p>
-
-<p><b>designLoadN</b> is total force transferred through the weld group in newtons; <b>weldLengthMm</b> is total effective weld length. For linear fillets along one edge, length is the weld run length. Complex weld groups (eccentric shear, parallel and transverse components) require manual equivalent load — SC-001 is single-result preview, not a full weld-group solver.</p>
-
-<h2 id="utilization">Utilization ratio</h2>
-
-<div class="sc-formula">utilization = requiredThroat / (finalLeg × factor)</div>
-
-<p>Utilization compares demand throat to capacity throat implied by the governing leg. Values near 1.0 mean the selected leg closely matches demand; low utilization means code minimum or rounding governs; utilization &gt; 1.0 would indicate insufficient leg — SC-001 selects max(load leg, code min) so final designs should not exceed 1.0 after governing.</p>
-
-<p>Use utilization to spot overweight welds (low value → save wire, heat, distortion) or margin-tight designs (high value → verify load path and NDT).</p>
-
-<h2 id="code-min">Code minimum legs (AWS / ISO framing)</h2>
-
-<p>Structural codes specify minimum fillet legs from base metal thickness to prevent under-welding thin members and excessive heat on thick ones. SC-001 interpolates <b>approximate</b> AWS D1.1 Table 2.1 nodes:</p>
-
-<table>
-  <thead>
-    <tr><th>Material thickness (mm)</th><th>Minimum fillet leg (mm, ref.)</th></tr>
-  </thead>
-  <tbody>
-    <tr><td>≤ 6</td><td>3</td></tr>
-    <tr><td>6 – 12</td><td>5 (interpolated)</td></tr>
-    <tr><td>12 – 20</td><td>6 (interpolated)</td></tr>
-    <tr><td>&gt; 20</td><td>8 (interpolated)</td></tr>
-  </tbody>
-</table>
-
-<p>Step interpolation between nodes means a 10 mm plate yields a minimum between 5 and 6 mm — not a discontinuous jump. These nodes are <b>reference estimates</b> for v1.0.0; the AWS D1.1 edition adopted on the project, joint type, and special provisions (tubular, seismic, bridge) may differ.</p>
-
-<p><b>ISO 2553</b> symbol conventions and <b>ISO 5817</b> quality levels (B, C, D) govern acceptance criteria and throat execution tolerance — SC-001 does not map quality level to effective throat reduction. Frame ISO requirements in the WPS and inspection plan separately.</p>
-
-<h2 id="effective-throat">When effective throat matters</h2>
-
-<p><b>Theoretical throat</b> (0.707 × leg) assumes perfect fusion to the root with full face height. Real welds may have:</p>
-
-<ul>
-  <li>Concave profile — reduced effective throat</li>
-  <li>Root lack of fusion or gap — reduced capacity</li>
-  <li>Oversized leg with unchanged throat — wasted heat input</li>
-  <li>Deep penetration beyond root — increased effective throat (benefit, if qualified)</li>
-</ul>
-
-<p>When quality level C or B under ISO 5817 applies, inspectors measure actual throat; underrun relative to theoretical throat increases utilization in service. For fatigue-critical joints, use qualified effective throat from procedure qualification records (PQR), not leg alone.</p>
-
-<p>SC-001 sizes on theoretical throat and code minimum leg — appropriate for preliminary design and quoting. Final substantiation requires WPS, qualified welders, and NDT per contract code.</p>
-
-<h2 id="governing">Governing leg selection</h2>
-
-<div class="sc-formula">legFromLoad = requiredThroat / factor
-finalLeg = max(legFromLoad, minLegFromTable)</div>
-
-<p>The calculator reports both contributors: <b>legFromLoadMm</b> and <b>minLegMm</b>. Whichever is larger governs. Thin, lightly loaded plates often govern on code minimum; heavy loads on thick plate govern on structural demand.</p>
-
-<p>Output includes <b>finalLegMm</b> and <b>finalLegIn</b> via deterministic unit conversion — exercises dimensional consistency in the engine. Round up to standard leg increments (1 mm or 1/16 in) before detailing.</p>
-
-<h2 id="quoting">Welding in quotes and labor hours</h2>
-
-<p>Weld size drives deposition volume, passes, distortion control, and inspection scope — all hour drivers. Use SC-001 early in estimating to avoid under-specifying legs that fail code check or over-specifying legs that inflate wire and heat. Translate weld length × passes × travel speed into labor hours, then apply loaded welder cost from SC-010 in SC-012.</p>
-
-<p>For CNC-cut plate with tight fit-up, distortion may interact with tolerance stack — link weld sizing with <a href="/calculator/cnc-feeds-speeds">SC-020</a> plate prep time and <a href="/calculator/tolerance-stack-up">SC-008</a> gap sensitivity. Browse <a href="/tools.html">all calculators</a> for the full SectorCalc toolkit.</p>
-
-<div class="sc-guide-faq" id="faq">
-  <h2>Frequently asked questions</h2>
-
-  <div class="q" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-    <h3 itemprop="name">Is SC-001 certified to AWS D1.1?</h3>
-    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-      <div itemprop="text"><p>No. SC-001 uses approximate AWS D1.1 Table 2.1 minimum leg nodes for engineering preview. It does not replace code compliance review, WPS qualification, or inspector acceptance. Always use the code edition specified on the contract.</p></div>
-    </div>
-  </div>
-
-  <div class="q" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-    <h3 itemprop="name">Why is cos(45°) equal to 0.707 for fillet welds?</h3>
-    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-      <div itemprop="text"><p>On an equal-leg fillet, the theoretical throat lies along the 45° bisector between legs. Throat equals leg × cos(45°) ≈ leg × 0.707. Unequal-leg filts or skewed joints need geometry-specific throat calculation — not the default 0.707 factor.</p></div>
-    </div>
-  </div>
-
-  <div class="q" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-    <h3 itemprop="name">What safety factor should I use?</h3>
-    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-      <div itemprop="text"><p>Depends on code, load type (static vs fatigue), and risk category. SC-001 defaults are user-entered; a reference starting point for static preview is 1.5–2.0 on nominal weld strength. Seismic, crane, and pressure applications need code-specific factors — do not rely on a generic preview value.</p></div>
-    </div>
-  </div>
-
-  <div class="q" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-    <h3 itemprop="name">When does code minimum govern over load-based leg?</h3>
-    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-      <div itemprop="text"><p>When minLegFromTable exceeds legFromLoad — common on thin members with moderate loads. SC-001 returns max of both. Check utilization: low values indicate code or rounding governs; required throat is well inside provided capacity.</p></div>
-    </div>
-  </div>
-
-  <div class="q" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-    <h3 itemprop="name">Does SC-001 handle butt welds?</h3>
-    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-      <div itemprop="text"><p>Butt joint type uses factor 1.0 instead of 0.707 — throat equals the computed required dimension along the butt path. AWS minimum fillet table does not apply to butt joints; min leg from table is fillet-specific. Select joint type explicitly in the tool.</p></div>
-    </div>
-  </div>
-</div>
-
-<details class="related">
-  <summary>Related calculators</summary>
-  <ul>
-    <li><a href="/calculator/quote-pricing">SC-012 Quote Pricing</a> — fabrication quoting with labor and overhead</li>
-    <li><a href="/calculator/true-labor-cost">SC-010 True Labor Cost</a> — loaded welder hourly rate</li>
-    <li><a href="/calculator/tolerance-stack-up">SC-008 Tolerance Stack-Up</a> — assembly fit and gap control</li>
-    <li><a href="/calculator/cnc-feeds-speeds">SC-020 CNC Feeds &amp; Speeds</a> — plate prep and machining time</li>
-    <li><a href="/tools.html">All calculators</a></li>
-  </ul>
-</details>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Is SC-001 certified to AWS D1.1?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. SC-001 uses approximate AWS D1.1 Table 2.1 minimum leg nodes for engineering preview. It does not replace code compliance review, WPS qualification, or inspector acceptance. Always use the code edition specified on the contract."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Why is cos(45°) equal to 0.707 for fillet welds?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "On an equal-leg fillet, the theoretical throat lies along the 45° bisector between legs. Throat equals leg times cos(45°), approximately leg times 0.707. Unequal-leg fillets or skewed joints need geometry-specific throat calculation — not the default 0.707 factor."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What safety factor should I use?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Depends on code, load type (static vs fatigue), and risk category. SC-001 defaults are user-entered; a reference starting point for static preview is 1.5 to 2.0 on nominal weld strength. Seismic, crane, and pressure applications need code-specific factors — do not rely on a generic preview value."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "When does code minimum govern over load-based leg?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "When minLegFromTable exceeds legFromLoad — common on thin members with moderate loads. SC-001 returns the maximum of both. Check utilization: low values indicate code or rounding governs; required throat is well inside provided capacity."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Does SC-001 handle butt welds?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Butt joint type uses factor 1.0 instead of 0.707 — throat equals the computed required dimension along the butt path. AWS minimum fillet table does not apply to butt joints; min leg from table is fillet-specific. Select joint type explicitly in the tool."
-      }
-    }
-  ]
-}
-</script>
-
-</section>
-</div>
-<!--SC-GUIDE-END-->
 <link rel="stylesheet" href="/sc-form-fields.css?v=5">
 <!--SC-SEO-META-START-->
 <link rel="canonical" href="https://sectorcalc.com/calculator/weld-thickness">
@@ -754,10 +535,233 @@ finalLeg = max(legFromLoad, minLegFromTable)</div>
 <!--SC-SEO-SCHEMA-END-->
 <link rel="stylesheet" href="/sc-related-tools.css?v=1">
                                                     <link rel="stylesheet" href="/sc-free-tools.css?v=2">
-                            <link rel="stylesheet" href="/sc-calc-sheet.css?v=4">
+                            <!--SC-GUIDE-START-->
+<div class="sc-guide-shell">
+<section class="sc-guide" id="sc-guide" data-tool-id="SC-001" data-tool-name="Weld Thickness Calculator (SC-001)" data-tool-url="https://sectorcalc.com/weld-pro.html" itemscope itemtype="https://schema.org/FAQPage">
+
+<nav class="sc-guide-toc" aria-label="Table of contents">
+  <div class="t">On this page</div>
+  <ul>
+    <li><a href="#overview">Fillet leg vs throat thickness</a></li>
+    <li><a href="#geometry">Throat = 0.707 × leg (equal-leg fillet)</a></li>
+    <li><a href="#strength">Strength check from design load</a></li>
+    <li><a href="#utilization">Utilization ratio</a></li>
+    <li><a href="#code-min">Code minimum legs (AWS / ISO framing)</a></li>
+    <li><a href="#effective-throat">When effective throat matters</a></li>
+    <li><a href="#governing">Governing leg selection</a></li>
+    <li><a href="#quoting">Welding in quotes and labor hours</a></li>
+    <li><a href="#faq">Frequently asked questions</a></li>
+  </ul>
+</nav>
+
+<p class="sc-guide-lede"><b>Weld thickness sizing</b> balances structural demand against code minimums. SC-001 computes required <b>throat thickness</b> from design load and allowable shear, converts to <b>fillet leg</b> for equal-leg joints, compares against interpolated <b>AWS D1.1 Table 2.1</b> minimum legs, and reports <b>utilization</b> — all as deterministic preview calculations, not certified WPS or PE-stamped designs.</p>
+
+<p class="note">Engineering preview · Reference AWS D1.1 minimum legs are approximate table nodes · ISO 5817 quality levels not auto-selected · Verify with the code edition in force and qualified procedures before fabrication · Not for production approval or regulatory submission.</p>
+
+<h2 id="overview">Fillet leg vs throat thickness</h2>
+
+<p>On drawings, fillet welds are usually specified by <b>leg size</b> (z) — the length of each leg on an equal-leg fillet. Structural capacity, however, is governed by <b>throat thickness</b> (a) — the minimum cross-section through the weld root to face, measured along the bisector of the legs.</p>
+
+<p>For an equal-leg fillet with legs at 90°, the theoretical throat lies at 45° and:</p>
+
+<div class="sc-formula">throat a = leg z × cos(45°) = leg z × 0.707</div>
+
+<p>SC-001 uses factor 0.707 for fillet joints. Butt joints in full-penetration idealization use factor 1.0 (throat equals leg input path). Always confirm joint type on the drawing — a fillet callout sized as leg is not interchangeable with a throat dimension.</p>
+
+<h2 id="geometry">Throat = 0.707 × leg (equal-leg fillet)</h2>
+
+<p>Rearranging for sizing from required throat:</p>
+
+<div class="sc-formula">leg z = requiredThroat / 0.707</div>
+
+<p>Example: if structural analysis demands 5.0 mm effective throat, leg ≈ 5.0 / 0.707 ≈ 7.07 mm → round up to shop practice (8 mm leg is common). SC-001 returns two decimal places; fabrication still requires rounding to available wire size, WPS limits, and access constraints.</p>
+
+<div class="sc-tip"><span class="ico" aria-hidden="true">💡</span><div>After sizing welds, estimate fab hours and feed <a href="/calculator/true-labor-cost">SC-010 True Labor Cost</a> welder rates into <a href="/calculator/quote-pricing">SC-012 Quote Pricing</a>. For assembly fit risk on welded fixtures, review stack tolerances with <a href="/calculator/tolerance-stack-up">SC-008 Tolerance Stack-Up</a>.</div></div>
+
+<h2 id="strength">Strength check from design load</h2>
+
+<p>SC-001 uses a simplified shear-capacity model on the design throat area:</p>
+
+<div class="sc-formula">allowableShear = weldStrengthMpa / safetyFactor
+requiredThroat = designLoadN / (weldLengthMm × allowableShear)</div>
+
+<p>Where <b>weldStrengthMpa</b> is the nominal weld metal strength ( electrode / process dependent ), and <b>safetyFactor</b> captures code partial factors and engineering margin. Allowable shear is treated as nominal strength divided by safety factor — a planning simplification; code clauses may specify different φ factors, directional loading, or combined stress.</p>
+
+<p><b>designLoadN</b> is total force transferred through the weld group in newtons; <b>weldLengthMm</b> is total effective weld length. For linear fillets along one edge, length is the weld run length. Complex weld groups (eccentric shear, parallel and transverse components) require manual equivalent load — SC-001 is single-result preview, not a full weld-group solver.</p>
+
+<h2 id="utilization">Utilization ratio</h2>
+
+<div class="sc-formula">utilization = requiredThroat / (finalLeg × factor)</div>
+
+<p>Utilization compares demand throat to capacity throat implied by the governing leg. Values near 1.0 mean the selected leg closely matches demand; low utilization means code minimum or rounding governs; utilization &gt; 1.0 would indicate insufficient leg — SC-001 selects max(load leg, code min) so final designs should not exceed 1.0 after governing.</p>
+
+<p>Use utilization to spot overweight welds (low value → save wire, heat, distortion) or margin-tight designs (high value → verify load path and NDT).</p>
+
+<h2 id="code-min">Code minimum legs (AWS / ISO framing)</h2>
+
+<p>Structural codes specify minimum fillet legs from base metal thickness to prevent under-welding thin members and excessive heat on thick ones. SC-001 interpolates <b>approximate</b> AWS D1.1 Table 2.1 nodes:</p>
+
+<table>
+  <thead>
+    <tr><th>Material thickness (mm)</th><th>Minimum fillet leg (mm, ref.)</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>≤ 6</td><td>3</td></tr>
+    <tr><td>6 – 12</td><td>5 (interpolated)</td></tr>
+    <tr><td>12 – 20</td><td>6 (interpolated)</td></tr>
+    <tr><td>&gt; 20</td><td>8 (interpolated)</td></tr>
+  </tbody>
+</table>
+
+<p>Step interpolation between nodes means a 10 mm plate yields a minimum between 5 and 6 mm — not a discontinuous jump. These nodes are <b>reference estimates</b> for v1.0.0; the AWS D1.1 edition adopted on the project, joint type, and special provisions (tubular, seismic, bridge) may differ.</p>
+
+<p><b>ISO 2553</b> symbol conventions and <b>ISO 5817</b> quality levels (B, C, D) govern acceptance criteria and throat execution tolerance — SC-001 does not map quality level to effective throat reduction. Frame ISO requirements in the WPS and inspection plan separately.</p>
+
+<h2 id="effective-throat">When effective throat matters</h2>
+
+<p><b>Theoretical throat</b> (0.707 × leg) assumes perfect fusion to the root with full face height. Real welds may have:</p>
+
+<ul>
+  <li>Concave profile — reduced effective throat</li>
+  <li>Root lack of fusion or gap — reduced capacity</li>
+  <li>Oversized leg with unchanged throat — wasted heat input</li>
+  <li>Deep penetration beyond root — increased effective throat (benefit, if qualified)</li>
+</ul>
+
+<p>When quality level C or B under ISO 5817 applies, inspectors measure actual throat; underrun relative to theoretical throat increases utilization in service. For fatigue-critical joints, use qualified effective throat from procedure qualification records (PQR), not leg alone.</p>
+
+<p>SC-001 sizes on theoretical throat and code minimum leg — appropriate for preliminary design and quoting. Final substantiation requires WPS, qualified welders, and NDT per contract code.</p>
+
+<h2 id="governing">Governing leg selection</h2>
+
+<div class="sc-formula">legFromLoad = requiredThroat / factor
+finalLeg = max(legFromLoad, minLegFromTable)</div>
+
+<p>The calculator reports both contributors: <b>legFromLoadMm</b> and <b>minLegMm</b>. Whichever is larger governs. Thin, lightly loaded plates often govern on code minimum; heavy loads on thick plate govern on structural demand.</p>
+
+<p>Output includes <b>finalLegMm</b> and <b>finalLegIn</b> via deterministic unit conversion — exercises dimensional consistency in the engine. Round up to standard leg increments (1 mm or 1/16 in) before detailing.</p>
+
+<h2 id="quoting">Welding in quotes and labor hours</h2>
+
+<p>Weld size drives deposition volume, passes, distortion control, and inspection scope — all hour drivers. Use SC-001 early in estimating to avoid under-specifying legs that fail code check or over-specifying legs that inflate wire and heat. Translate weld length × passes × travel speed into labor hours, then apply loaded welder cost from SC-010 in SC-012.</p>
+
+<p>For CNC-cut plate with tight fit-up, distortion may interact with tolerance stack — link weld sizing with <a href="/calculator/cnc-feeds-speeds">SC-020</a> plate prep time and <a href="/calculator/tolerance-stack-up">SC-008</a> gap sensitivity. Browse <a href="/tools.html">all calculators</a> for the full SectorCalc toolkit.</p>
+
+<div class="sc-guide-faq" id="faq">
+  <h2>Frequently asked questions</h2>
+
+  <div class="q" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">Is SC-001 certified to AWS D1.1?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text"><p>No. SC-001 uses approximate AWS D1.1 Table 2.1 minimum leg nodes for engineering preview. It does not replace code compliance review, WPS qualification, or inspector acceptance. Always use the code edition specified on the contract.</p></div>
+    </div>
+  </div>
+
+  <div class="q" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">Why is cos(45°) equal to 0.707 for fillet welds?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text"><p>On an equal-leg fillet, the theoretical throat lies along the 45° bisector between legs. Throat equals leg × cos(45°) ≈ leg × 0.707. Unequal-leg filts or skewed joints need geometry-specific throat calculation — not the default 0.707 factor.</p></div>
+    </div>
+  </div>
+
+  <div class="q" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">What safety factor should I use?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text"><p>Depends on code, load type (static vs fatigue), and risk category. SC-001 defaults are user-entered; a reference starting point for static preview is 1.5–2.0 on nominal weld strength. Seismic, crane, and pressure applications need code-specific factors — do not rely on a generic preview value.</p></div>
+    </div>
+  </div>
+
+  <div class="q" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">When does code minimum govern over load-based leg?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text"><p>When minLegFromTable exceeds legFromLoad — common on thin members with moderate loads. SC-001 returns max of both. Check utilization: low values indicate code or rounding governs; required throat is well inside provided capacity.</p></div>
+    </div>
+  </div>
+
+  <div class="q" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <h3 itemprop="name">Does SC-001 handle butt welds?</h3>
+    <div itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+      <div itemprop="text"><p>Butt joint type uses factor 1.0 instead of 0.707 — throat equals the computed required dimension along the butt path. AWS minimum fillet table does not apply to butt joints; min leg from table is fillet-specific. Select joint type explicitly in the tool.</p></div>
+    </div>
+  </div>
+</div>
+
+<details class="related">
+  <summary>Related calculators</summary>
+  <ul>
+    <li><a href="/calculator/quote-pricing">SC-012 Quote Pricing</a> — fabrication quoting with labor and overhead</li>
+    <li><a href="/calculator/true-labor-cost">SC-010 True Labor Cost</a> — loaded welder hourly rate</li>
+    <li><a href="/calculator/tolerance-stack-up">SC-008 Tolerance Stack-Up</a> — assembly fit and gap control</li>
+    <li><a href="/calculator/cnc-feeds-speeds">SC-020 CNC Feeds &amp; Speeds</a> — plate prep and machining time</li>
+    <li><a href="/tools.html">All calculators</a></li>
+  </ul>
+</details>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is SC-001 certified to AWS D1.1?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. SC-001 uses approximate AWS D1.1 Table 2.1 minimum leg nodes for engineering preview. It does not replace code compliance review, WPS qualification, or inspector acceptance. Always use the code edition specified on the contract."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is cos(45°) equal to 0.707 for fillet welds?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "On an equal-leg fillet, the theoretical throat lies along the 45° bisector between legs. Throat equals leg times cos(45°), approximately leg times 0.707. Unequal-leg fillets or skewed joints need geometry-specific throat calculation — not the default 0.707 factor."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What safety factor should I use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depends on code, load type (static vs fatigue), and risk category. SC-001 defaults are user-entered; a reference starting point for static preview is 1.5 to 2.0 on nominal weld strength. Seismic, crane, and pressure applications need code-specific factors — do not rely on a generic preview value."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When does code minimum govern over load-based leg?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "When minLegFromTable exceeds legFromLoad — common on thin members with moderate loads. SC-001 returns the maximum of both. Check utilization: low values indicate code or rounding governs; required throat is well inside provided capacity."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does SC-001 handle butt welds?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Butt joint type uses factor 1.0 instead of 0.707 — throat equals the computed required dimension along the butt path. AWS minimum fillet table does not apply to butt joints; min leg from table is fillet-specific. Select joint type explicitly in the tool."
+      }
+    }
+  ]
+}
+</script>
+
+</section>
+</div>
+<!--SC-GUIDE-END-->
+<script type="module" src="/src/auth-nav.ts"></script>
   <!--SC-CALC-SHEET-START-->
   <!-- eng-paper: theme-calc-sheet + sc-eng-paper v4 -->
   <!--SC-CALC-SHEET-END-->
+<!--SC-HEAD-ASSETS-START-->
+<!-- SSOT: single source of truth for all page assets. Do not inline <link> in pages. -->
+<link rel="stylesheet" href="/sc-theme.css?v=12">
+<link rel="stylesheet" href="/sc-site-nav.css?v=5">
+<link rel="stylesheet" href="/sc-calc-sheet.css?v=4">
+<link rel="stylesheet" href="/css/seo-content.css?v=1">
+<script src="/sc-theme.js?v=12" defer></script>
+<script src="/sc-site-nav.js?v=2" defer></script>
+<!--SC-HEAD-ASSETS-END-->
 </head>
 <body data-tool-badge="SC-001 · Weld Thickness" class="sc-eng-paper theme-calc-sheet">
 <!--SC-SITE-NAV-START-->
@@ -794,6 +798,8 @@ finalLeg = max(legFromLoad, minLegFromTable)</div>
 </div>
 <!--SC-SITE-NAV-END-->
 <div class="sc-tool-strip"><b>SC-001 · Weld Thickness</b><span>Engineering preview · Decimal engine · Not for production approval</span></div>
+
+
 
 
 
