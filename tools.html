@@ -196,6 +196,20 @@ html[data-theme="dark"] .tlist a{color:#7fb3e8}
 .noresults .big{font-size:20px;font-weight:700;color:var(--steel);margin-bottom:6px}
 .hidden{display:none!important}
 .backbtn{margin:34px auto 0;display:block}
+
+/* ---- prerendered tool cards (AEO-visible) ---- */
+.tool-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin-top:8px}
+.tool-card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 16px 14px;break-inside:avoid}
+.tool-card h3{font-size:15px;line-height:1.35;color:var(--navy);font-family:'Barlow Condensed',sans-serif;letter-spacing:.3px;margin:0 0 6px}
+html[data-theme="dark"] .tool-card h3{color:var(--ink)}
+.tool-card a{color:inherit;text-decoration:none}
+.tool-card a:hover h3{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+.tool-card p{font-size:12.5px;color:var(--mut);line-height:1.45;margin:0 0 10px}
+.tool-card .badge-l,.tool-card .badge-p{font-size:9px;font-weight:800;letter-spacing:.6px;border-radius:9px;padding:1px 6px;text-transform:uppercase}
+.tool-card .badge-l{color:var(--ok);border:1px solid var(--ok)}
+.tool-card .badge-p{color:var(--mut);border:1px solid var(--line)}
+.tool-card[hidden],.catsec[hidden],.tile[hidden]{display:none!important}
+
 </style>
 <link rel="stylesheet" href="/sc-eeat.css?v=3">
 <link rel="stylesheet" href="/sc-form-fields.css?v=5">
@@ -446,6 +460,8 @@ html[data-theme="dark"] .tlist a{color:#7fb3e8}
 
 
 
+
+
 <!--SC-SEO-BREADCRUMB-START-->
 <nav aria-label="Breadcrumb" class="sc-breadcrumb">
   <ol itemscope itemtype="https://schema.org/BreadcrumbList">
@@ -488,23 +504,252 @@ html[data-theme="dark"] .tlist a{color:#7fb3e8}
       <div class="omni-suggest" id="suggest" role="listbox" hidden aria-label="Matching calculators"></div>
     </div>
     <div class="stats">
-      <div><div class="n" id="stLive">0</div><div class="l">Live tools</div></div>
+<!--SC-TOOLS-STATS-START-->
+<div><div class="n" id="stLive">25</div><div class="l">Live tools</div></div>
       <div><div class="n" id="stPipe">0</div><div class="l">In pipeline</div></div>
       <div><div class="n">100%</div><div class="l">Deterministic</div></div>
       <div><div class="n">A1–A5</div><div class="l">Audit trail</div></div>
       <div><div class="n">0</div><div class="l">Data leaves browser</div></div>
-    </div>
-  </div>
+<!--SC-TOOLS-STATS-END-->
+</div>
 
-  <div class="tiles" id="tiles"></div>
-  <div id="catalog"></div>
-  <div class="noresults hidden" id="nores">
+<div class="tiles" id="tiles">
+<!--SC-TOOLS-TILES-START-->
+<div class="tile" data-cat="machining" role="button" tabindex="0">
+      <svg viewBox="0 0 42 42" aria-hidden="true"><circle cx="21" cy="21" r="7"/><path d="M21 6v4M21 32v4M6 21h4M32 21h4M10.4 10.4l2.8 2.8M28.8 28.8l2.8 2.8M10.4 31.6l2.8-2.8M28.8 13.2l2.8-2.8"/></svg>
+      <div class="tn">Machining</div>
+      <div class="tc">3 calculators</div>
+      <div class="tp">cutting parameters, tool life, cycle cost.</div>
+    </div>
+<div class="tile" data-cat="rotating" role="button" tabindex="0">
+      <svg viewBox="0 0 42 42" aria-hidden="true"><circle cx="21" cy="21" r="12"/><circle cx="21" cy="21" r="4"/><circle cx="21" cy="12.5" r="1.6"/><circle cx="21" cy="29.5" r="1.6"/><circle cx="12.5" cy="21" r="1.6"/><circle cx="29.5" cy="21" r="1.6"/></svg>
+      <div class="tn">Rotating Equipment</div>
+      <div class="tc">4 calculators</div>
+      <div class="tp">bearings, shafts, drives, vibration, lubrication.</div>
+    </div>
+<div class="tile" data-cat="tolerance" role="button" tabindex="0">
+      <svg viewBox="0 0 42 42" aria-hidden="true"><path d="M6 30L30 6M6 30l6 6 24-24-6-6z"/><path d="M14 22l3 3M19 17l3 3M24 12l3 3"/></svg>
+      <div class="tn">Tolerances</div>
+      <div class="tc">3 calculators</div>
+      <div class="tp">fits, stack</div>
+    </div>
+<div class="tile" data-cat="welding" role="button" tabindex="0">
+      <svg viewBox="0 0 42 42" aria-hidden="true"><path d="M10 32l10-10M18 8l4 6-8 8-6-4z"/><path d="M26 20l2 2M30 16l2 2M24 26l2 2M32 22l2 2"/><path d="M14 26l-4 4 6 2z"/></svg>
+      <div class="tn">Welding</div>
+      <div class="tc">4 calculators</div>
+      <div class="tp">sizing, heat input, cost, bending.</div>
+    </div>
+<div class="tile" data-cat="lifting" role="button" tabindex="0">
+      <svg viewBox="0 0 42 42" aria-hidden="true"><path d="M21 6v12"/><path d="M21 18c-5 0-8 3.5-8 7.5S16.5 34 21 34s8-4.5 8-8.5"/><path d="M17 6h8"/></svg>
+      <div class="tn">Lifting &amp; Rigging</div>
+      <div class="tc">2 calculators</div>
+      <div class="tp">slings, shackles, angles, safe working loads.</div>
+    </div>
+<div class="tile" data-cat="pressure" role="button" tabindex="0">
+      <svg viewBox="0 0 42 42" aria-hidden="true"><rect x="12" y="8" width="18" height="26" rx="6"/><path d="M12 20h18M21 8V4M17 34v4M25 34v4"/></svg>
+      <div class="tn">Pressure Equipment</div>
+      <div class="tc">3 calculators</div>
+      <div class="tp">vessels, pipe wall, flanges, codes.</div>
+    </div>
+<div class="tile" data-cat="fasteners" role="button" tabindex="0">
+      <svg viewBox="0 0 42 42" aria-hidden="true"><path d="M25 6l11 11-9 9-11-11z"/><path d="M20 11l11 11M14 25l-6 6 5 5 6-6"/><path d="M28 14l2 2"/></svg>
+      <div class="tn">Fasteners</div>
+      <div class="tc">2 calculators</div>
+      <div class="tp">torque, preload, joint verification.</div>
+    </div>
+<div class="tile" data-cat="costing" role="button" tabindex="0">
+      <svg viewBox="0 0 42 42" aria-hidden="true"><path d="M8 34h26M12 34V22M20 34V14M28 34V24M36 34V10"/><path d="M10 14l8-6 6 4 8-6"/></svg>
+      <div class="tn">Costing</div>
+      <div class="tc">4 calculators</div>
+      <div class="tp">labor burden, quotes, OEE, machine rates.</div>
+    </div>
+<!--SC-TOOLS-TILES-END-->
+</div>
+  <div class="catalog" id="catalog">
+<!--SC-TOOLS-CATALOG-START-->
+<!-- BUILD-GENERATED — do not edit by hand -->
+<section class="catsec" id="cat-machining" data-cat="machining">
+      <h2>Machining &amp; Manufacturing calculators</h2>
+      <div class="cp">For machinists, CNC programmers and process engineers — cutting parameters, tool life, cycle cost.</div>
+      <div class="tool-grid">
+<article class="tool-card" data-status="live" data-cat="machining" data-code="SC-020" data-kw="cnc milling turning drilling feeds speeds tool life taylor spindle rpm chip thinning hem cutting speed" data-live="1">
+        <a href="/calculator/cnc-feeds-speeds"><h3>SC-020 CNC Feeds &amp; Speeds + Tool Life Calculator</h3></a>
+        <p>Cutting speed, feed, spindle RPM, chip thinning and Taylor tool life for milling and turning.</p>
+        <span class="badge-l">Live</span>
+      </article>
+<article class="tool-card" data-status="live" data-cat="machining" data-code="SC-022" data-kw="tap thread milling tapping torque drill size unc metric" data-live="1">
+        <a href="/calculator/tap-thread-milling"><h3>SC-022 Tap &amp; Thread Milling Calculator</h3></a>
+        <p>Tap drill sizes, tapping torque and thread milling parameters for UNC and metric threads.</p>
+        <span class="badge-l">Live</span>
+      </article>
+<article class="tool-card" data-status="live" data-cat="machining" data-code="SC-023" data-kw="cycle time cost per part machining batch setup" data-live="1">
+        <a href="/calculator/cycle-time-cost"><h3>SC-023 Cycle Time &amp; Cost per Part Calculator</h3></a>
+        <p>Batch cycle time, setup amortization and cost per part for machining jobs.</p>
+        <span class="badge-l">Live</span>
+      </article>
+</div>
+    </section>
+<section class="catsec" id="cat-rotating" data-cat="rotating">
+      <h2>Rotating Equipment &amp; Reliability calculators</h2>
+      <div class="cp">For maintenance &amp; reliability engineers — bearings, shafts, drives, vibration, lubrication.</div>
+      <div class="tool-grid">
+<article class="tool-card" data-status="live" data-cat="rotating" data-code="SC-021" data-kw="bearing life l10 iso 281 skf fag lubrication kappa reliability maintenance" data-live="1">
+        <a href="/calculator/bearing-life-l10"><h3>SC-021 Bearing Life L10 Calculator (ISO 281)</h3></a>
+        <p>ISO 281 basic rating life with lubrication factor kappa for radial bearings.</p>
+        <span class="badge-l">Live</span>
+      </article>
+<article class="tool-card" data-status="live" data-cat="rotating" data-code="SC-024" data-kw="bearing frequencies bpfo bpfi bsf ftf vibration diagnosis defect" data-live="1">
+        <a href="/calculator/bearing-frequencies"><h3>SC-024 Bearing Frequencies Calculator (BPFO / BPFI)</h3></a>
+        <p>Defect frequencies BPFO, BPFI, BSF and FTF for vibration diagnosis.</p>
+        <span class="badge-l">Live</span>
+      </article>
+<article class="tool-card" data-status="live" data-cat="rotating" data-code="SC-025" data-kw="belt drive v-belt timing chain tension power transmission" data-live="1">
+        <a href="/calculator/belt-chain-drive"><h3>SC-025 Belt &amp; Chain Drive Sizing Calculator</h3></a>
+        <p>V-belt and chain drive power, tension and center distance sizing.</p>
+        <span class="badge-l">Live</span>
+      </article>
+<article class="tool-card" data-status="live" data-cat="rotating" data-code="SC-026" data-kw="shaft design diameter torsion bending asme goodman marin fatigue torque deflection keyway" data-live="1">
+        <a href="/calculator/shaft-design"><h3>SC-026 Shaft Design Calculator (Torsion + Bending)</h3></a>
+        <p>Shaft diameter under combined torsion and bending with fatigue checks.</p>
+        <span class="badge-l">Live</span>
+      </article>
+</div>
+    </section>
+<section class="catsec" id="cat-tolerance" data-cat="tolerance">
+      <h2>Tolerances &amp; Metrology calculators</h2>
+      <div class="cp">For design &amp; QA engineers — fits, stack-ups, GD&amp;T, measurement uncertainty.</div>
+      <div class="tool-grid">
+<article class="tool-card" data-status="live" data-cat="tolerance" data-code="SC-008" data-kw="tolerance stack up worst case rss monte carlo gd&amp;t gap analysis" data-live="1">
+        <a href="/calculator/tolerance-stack-up"><h3>SC-008 Tolerance Stack-Up Calculator</h3></a>
+        <p>Worst-case, RSS and seeded Monte Carlo with predicted Cpk.</p>
+        <span class="badge-l">Live</span>
+      </article>
+<article class="tool-card" data-status="live" data-cat="tolerance" data-code="SC-027" data-kw="fits clearances iso 286 h7 g6 hole shaft limits" data-live="1">
+        <a href="/calculator/iso-286-fits"><h3>SC-027 Fits &amp; Clearances Calculator (ISO 286)</h3></a>
+        <p>ISO 286 hole/shaft limits for clearance, transition and interference fits.</p>
+        <span class="badge-l">Live</span>
+      </article>
+<article class="tool-card" data-status="live" data-cat="tolerance" data-code="SC-028" data-kw="surface finish ra rz roughness converter n grade" data-live="1">
+        <a href="/calculator/surface-finish"><h3>SC-028 Surface Finish Converter (Ra / Rz)</h3></a>
+        <p>Convert between Ra, Rz and N-grade surface roughness values.</p>
+        <span class="badge-l">Live</span>
+      </article>
+</div>
+    </section>
+<section class="catsec" id="cat-welding" data-cat="welding">
+      <h2>Welding &amp; Fabrication calculators</h2>
+      <div class="cp">For weld engineers and fabricators — sizing, heat input, cost, bending.</div>
+      <div class="tool-grid">
+<article class="tool-card" data-status="live" data-cat="welding" data-code="SC-001" data-kw="weld fillet throat leg size utilization welding strength" data-live="1">
+        <a href="/calculator/weld-thickness"><h3>SC-001 Weld Thickness Calculator</h3></a>
+        <p>Fillet throat and leg size with utilization for weld strength checks.</p>
+        <span class="badge-l">Live</span>
+      </article>
+<article class="tool-card" data-status="live" data-cat="welding" data-code="SC-029" data-kw="heat input welding cooling rate t8/5 preheat" data-live="1">
+        <a href="/calculator/weld-heat-input"><h3>SC-029 Heat Input &amp; Cooling Rate Calculator</h3></a>
+        <p>Arc energy, heat input and t8/5 cooling estimates for weld procedures.</p>
+        <span class="badge-l">Live</span>
+      </article>
+<article class="tool-card" data-status="live" data-cat="welding" data-code="SC-030" data-kw="sheet metal bend allowance deduction k factor bending" data-live="1">
+        <a href="/calculator/sheet-metal-bend"><h3>SC-030 Sheet Metal Bend &amp; K-Factor Calculator</h3></a>
+        <p>Bend allowance, bend deduction and K-factor for sheet metal flats.</p>
+        <span class="badge-l">Live</span>
+      </article>
+<article class="tool-card" data-status="live" data-cat="welding" data-code="SC-039" data-kw="punching force die clearance press tonnage stamping pierce stripper punch die slug" data-live="1">
+        <a href="/calculator/punching-force"><h3>SC-039 Punching Force &amp; Die Clearance Calculator</h3></a>
+        <p>Press tonnage and die clearance for pierce and blank operations.</p>
+        <span class="badge-l">Live</span>
+      </article>
+</div>
+    </section>
+<section class="catsec" id="cat-lifting" data-cat="lifting">
+      <h2>Lifting &amp; Rigging calculators</h2>
+      <div class="cp">For riggers and site engineers — slings, shackles, angles, safe working loads.</div>
+      <div class="tool-grid">
+<article class="tool-card" data-status="live" data-cat="lifting" data-code="SC-031" data-kw="lifting sling capacity angle rigging wll crane" data-live="1">
+        <a href="/calculator/sling-capacity"><h3>SC-031 Sling Capacity &amp; Angle Calculator</h3></a>
+        <p>Sling WLL derating by angle for multi-leg lifts.</p>
+        <span class="badge-l">Live</span>
+      </article>
+<article class="tool-card" data-status="live" data-cat="lifting" data-code="SC-032" data-kw="shackle eye bolt wll derating lifting point" data-live="1">
+        <a href="/calculator/shackle-eyebolt"><h3>SC-032 Shackle &amp; Eye Bolt Check Calculator</h3></a>
+        <p>Shackle and eye-bolt WLL checks with angle derating.</p>
+        <span class="badge-l">Live</span>
+      </article>
+</div>
+    </section>
+<section class="catsec" id="cat-pressure" data-cat="pressure">
+      <h2>Pressure Equipment &amp; Piping calculators</h2>
+      <div class="cp">For mechanical &amp; piping engineers — vessels, pipe wall, flanges, codes.</div>
+      <div class="tool-grid">
+<article class="tool-card" data-status="live" data-cat="pressure" data-code="SC-033" data-kw="pressure vessel asme viii shell thickness head design" data-live="1">
+        <a href="/calculator/pressure-vessel-shell"><h3>SC-033 Pressure Vessel Shell Calculator (ASME VIII)</h3></a>
+        <p>ASME VIII shell and head thickness for internal pressure.</p>
+        <span class="badge-l">Live</span>
+      </article>
+<article class="tool-card" data-status="live" data-cat="pressure" data-code="SC-034" data-kw="pipe wall thickness asme b31 schedule pressure piping" data-live="1">
+        <a href="/calculator/pipe-wall-thickness"><h3>SC-034 Pipe Wall Thickness Calculator (ASME B31)</h3></a>
+        <p>ASME B31 pipe wall and schedule selection for design pressure.</p>
+        <span class="badge-l">Live</span>
+      </article>
+<article class="tool-card" data-status="live" data-cat="pressure" data-code="SC-040" data-kw="hydraulic cylinder sizing bore rod buckling euler force flow iso 3320 actuator stroke" data-live="1">
+        <a href="/calculator/hydraulic-cylinder"><h3>SC-040 Hydraulic Cylinder Sizing Calculator</h3></a>
+        <p>Bore, rod and buckling checks for hydraulic actuators.</p>
+        <span class="badge-l">Live</span>
+      </article>
+</div>
+    </section>
+<section class="catsec" id="cat-fasteners" data-cat="fasteners">
+      <h2>Fasteners &amp; Bolted Joints calculators</h2>
+      <div class="cp">For mechanical designers &amp; assembly — torque, preload, joint verification.</div>
+      <div class="tool-grid">
+<article class="tool-card" data-status="live" data-cat="fasteners" data-code="SC-035" data-kw="bolt torque preload tightening nut factor vdi 2230 assembly friction property class" data-live="1">
+        <a href="/calculator/bolt-torque-preload"><h3>SC-035 Bolt Torque &amp; Preload Calculator (VDI 2230)</h3></a>
+        <p>Tightening torque and preload from VDI 2230 friction factors.</p>
+        <span class="badge-l">Live</span>
+      </article>
+<article class="tool-card" data-status="live" data-cat="fasteners" data-code="SC-036" data-kw="bolted joint vdi 2230 verification fatigue preload" data-live="1">
+        <a href="/calculator/bolted-joint"><h3>SC-036 Bolted Joint Verification (VDI 2230)</h3></a>
+        <p>Joint diagram checks for preload, fatigue and clamping force.</p>
+        <span class="badge-l">Live</span>
+      </article>
+</div>
+    </section>
+<section class="catsec" id="cat-costing" data-cat="costing">
+      <h2>Costing &amp; Business calculators</h2>
+      <div class="cp">For estimators and shop owners — labor burden, quotes, OEE, machine rates.</div>
+      <div class="tool-grid">
+<article class="tool-card" data-status="live" data-cat="costing" data-code="SC-010" data-kw="labor cost burden rate employee true cost payroll" data-live="1">
+        <a href="/calculator/true-labor-cost"><h3>SC-010 True Labor Cost Calculator</h3></a>
+        <p>Fully burdened employee cost beyond base wage.</p>
+        <span class="badge-l">Live</span>
+      </article>
+<article class="tool-card" data-status="live" data-cat="costing" data-code="SC-012" data-kw="quote pricing quotation estimate margin sell price" data-live="1">
+        <a href="/calculator/quote-pricing"><h3>SC-012 Quote Pricing Calculator</h3></a>
+        <p>Quote sell price from cost, margin and burden inputs.</p>
+        <span class="badge-l">Live</span>
+      </article>
+<article class="tool-card" data-status="live" data-cat="costing" data-code="SC-037" data-kw="oee overall equipment effectiveness availability performance quality downtime" data-live="1">
+        <a href="/calculator/oee-teep"><h3>SC-037 OEE Calculator</h3></a>
+        <p>Availability × Performance × Quality overall equipment effectiveness.</p>
+        <span class="badge-l">Live</span>
+      </article>
+<article class="tool-card" data-status="live" data-cat="costing" data-code="SC-038" data-kw="machine hour rate hourly cost depreciation shop rate" data-live="1">
+        <a href="/calculator/machine-hour-rate"><h3>SC-038 Machine Hour Rate Calculator</h3></a>
+        <p>Shop machine hour rate from depreciation, overhead and utilization.</p>
+        <span class="badge-l">Live</span>
+      </article>
+</div>
+    </section>
+<!--SC-TOOLS-CATALOG-END-->
+</div>
+  <div class="noresults hidden" id="nores" hidden>
     <div class="big">No tool matches “<span id="nq"></span>”</div>
     <div>Try a broader term — or tell us which calculator you need: this pipeline is built from real shop-floor requests.</div>
   </div>
 
   
-              <!--SC-SEO-SPRINT-LINKS-START-->
+                  <!--SC-SEO-SPRINT-LINKS-START-->
 <section class="sc-seo-sprint-links" aria-label="Engineering resources">
   <h2>Engineering Resources</h2>
   <p>Glossary, comparison pages, and complete guides for shop-floor decision making.</p>
@@ -534,65 +779,16 @@ html[data-theme="dark"] .tlist a{color:#7fb3e8}
 </div>
 
 <script>
-/* ---------------- icons (inline SVG, stroke = ISO blue) ---------------- */
-const IC={
- machining:'<circle cx="21" cy="21" r="7"/><path d="M21 6v4M21 32v4M6 21h4M32 21h4M10.4 10.4l2.8 2.8M28.8 28.8l2.8 2.8M10.4 31.6l2.8-2.8M28.8 13.2l2.8-2.8"/>',
- rotating:'<circle cx="21" cy="21" r="12"/><circle cx="21" cy="21" r="4"/><circle cx="21" cy="12.5" r="1.6"/><circle cx="21" cy="29.5" r="1.6"/><circle cx="12.5" cy="21" r="1.6"/><circle cx="29.5" cy="21" r="1.6"/>',
- tolerance:'<path d="M6 30L30 6M6 30l6 6 24-24-6-6z"/><path d="M14 22l3 3M19 17l3 3M24 12l3 3"/>',
- welding:'<path d="M10 32l10-10M18 8l4 6-8 8-6-4z"/><path d="M26 20l2 2M30 16l2 2M24 26l2 2M32 22l2 2"/><path d="M14 26l-4 4 6 2z"/>',
- lifting:'<path d="M21 6v12"/><path d="M21 18c-5 0-8 3.5-8 7.5S16.5 34 21 34s8-4.5 8-8.5"/><path d="M17 6h8"/>',
- pressure:'<rect x="12" y="8" width="18" height="26" rx="6"/><path d="M12 20h18M21 8V4M17 34v4M25 34v4"/>',
- fasteners:'<path d="M25 6l11 11-9 9-11-11z"/><path d="M20 11l11 11M14 25l-6 6 5 5 6-6"/><path d="M28 14l2 2"/>',
- costing:'<path d="M8 34h26M12 34V22M20 34V14M28 34V24M36 34V10"/><path d="M10 14l8-6 6 4 8-6"/>'
-};
-/* ---------------- catalog ---------------- */
-const CATS=[
- {id:'machining',name:'Machining',full:'Machining & Manufacturing',purpose:'For machinists, CNC programmers and process engineers — cutting parameters, tool life, cycle cost.'},
- {id:'rotating',name:'Rotating Equipment',full:'Rotating Equipment & Reliability',purpose:'For maintenance & reliability engineers — bearings, shafts, drives, vibration, lubrication.'},
- {id:'tolerance',name:'Tolerances',full:'Tolerances & Metrology',purpose:'For design & QA engineers — fits, stack-ups, GD&T, measurement uncertainty.'},
- {id:'welding',name:'Welding',full:'Welding & Fabrication',purpose:'For weld engineers and fabricators — sizing, heat input, cost, bending.'},
- {id:'lifting',name:'Lifting & Rigging',full:'Lifting & Rigging',purpose:'For riggers and site engineers — slings, shackles, angles, safe working loads.'},
- {id:'pressure',name:'Pressure Equipment',full:'Pressure Equipment & Piping',purpose:'For mechanical & piping engineers — vessels, pipe wall, flanges, codes.'},
- {id:'fasteners',name:'Fasteners',full:'Fasteners & Bolted Joints',purpose:'For mechanical designers & assembly — torque, preload, joint verification.'},
- {id:'costing',name:'Costing',full:'Costing & Business',purpose:'For estimators and shop owners — labor burden, quotes, OEE, machine rates.'}
-];
-const TOOLS=[
- {c:'machining',code:'SC-020',name:'CNC Feeds & Speeds + Tool Life Calculator',live:true,url:'/calculator/cnc-feeds-speeds',kw:'cnc milling turning drilling feeds speeds tool life taylor spindle rpm chip thinning hem cutting speed'},
- {c:'machining',code:'SC-022',name:'Tap & Thread Milling Calculator',live:true,url:'/calculator/tap-thread-milling',kw:'tap thread milling tapping torque drill size unc metric'},
- {c:'machining',code:'SC-023',name:'Cycle Time & Cost per Part Calculator',live:true,url:'/calculator/cycle-time-cost',kw:'cycle time cost per part machining batch setup'},
- {c:'rotating',code:'SC-021',name:'Bearing Life L10 Calculator (ISO 281)',live:true,url:'/calculator/bearing-life-l10',kw:'bearing life l10 iso 281 skf fag lubrication kappa reliability maintenance'},
- {c:'rotating',code:'SC-024',name:'Bearing Frequencies Calculator (BPFO / BPFI)',live:true,url:'/calculator/bearing-frequencies',kw:'bearing frequencies bpfo bpfi bsf ftf vibration diagnosis defect'},
- {c:'rotating',code:'SC-025',name:'Belt & Chain Drive Sizing Calculator',live:true,url:'/calculator/belt-chain-drive',kw:'belt drive v-belt timing chain tension power transmission'},
- {c:'rotating',code:'SC-026',name:'Shaft Design Calculator (Torsion + Bending)',live:true,url:'/calculator/shaft-design',kw:'shaft design diameter torsion bending asme goodman marin fatigue torque deflection keyway'},
- {c:'tolerance',code:'SC-008',name:'Tolerance Stack-Up Calculator',live:true,url:'/calculator/tolerance-stack-up',kw:'tolerance stack up worst case rss monte carlo gd&t gap analysis'},
- {c:'tolerance',code:'SC-027',name:'Fits & Clearances Calculator (ISO 286)',live:true,url:'/calculator/iso-286-fits',kw:'fits clearances iso 286 h7 g6 hole shaft limits'},
- {c:'tolerance',code:'SC-028',name:'Surface Finish Converter (Ra / Rz)',live:true,url:'/calculator/surface-finish',kw:'surface finish ra rz roughness converter n grade'},
- {c:'welding',code:'SC-001',name:'Weld Thickness Calculator',live:true,url:'/calculator/weld-thickness',kw:'weld fillet throat leg size utilization welding strength'},
- {c:'welding',code:'SC-029',name:'Heat Input & Cooling Rate Calculator',live:true,url:'/calculator/weld-heat-input',kw:'heat input welding cooling rate t8/5 preheat'},
- {c:'welding',code:'SC-030',name:'Sheet Metal Bend & K-Factor Calculator',live:true,url:'/calculator/sheet-metal-bend',kw:'sheet metal bend allowance deduction k factor bending'},
- {c:'welding',code:'SC-039',name:'Punching Force & Die Clearance Calculator',live:true,url:'/calculator/punching-force',kw:'punching force die clearance press tonnage stamping pierce stripper punch die slug'},
- {c:'lifting',code:'SC-031',name:'Sling Capacity & Angle Calculator',live:true,url:'/calculator/sling-capacity',kw:'lifting sling capacity angle rigging wll crane'},
- {c:'lifting',code:'SC-032',name:'Shackle & Eye Bolt Check Calculator',live:true,url:'/calculator/shackle-eyebolt',kw:'shackle eye bolt wll derating lifting point'},
- {c:'pressure',code:'SC-033',name:'Pressure Vessel Shell Calculator (ASME VIII)',live:true,url:'/calculator/pressure-vessel-shell',kw:'pressure vessel asme viii shell thickness head design'},
- {c:'pressure',code:'SC-034',name:'Pipe Wall Thickness Calculator (ASME B31)',live:true,url:'/calculator/pipe-wall-thickness',kw:'pipe wall thickness asme b31 schedule pressure piping'},
- {c:'pressure',code:'SC-040',name:'Hydraulic Cylinder Sizing Calculator',live:true,url:'/calculator/hydraulic-cylinder',kw:'hydraulic cylinder sizing bore rod buckling euler force flow iso 3320 actuator stroke'},
- {c:'fasteners',code:'SC-035',name:'Bolt Torque & Preload Calculator (VDI 2230)',live:true,url:'/calculator/bolt-torque-preload',kw:'bolt torque preload tightening nut factor vdi 2230 assembly friction property class'},
- {c:'fasteners',code:'SC-036',name:'Bolted Joint Verification (VDI 2230)',live:true,url:'/calculator/bolted-joint',kw:'bolted joint vdi 2230 verification fatigue preload'},
- {c:'costing',code:'SC-010',name:'True Labor Cost Calculator',live:true,url:'/calculator/true-labor-cost',kw:'labor cost burden rate employee true cost payroll'},
- {c:'costing',code:'SC-012',name:'Quote Pricing Calculator',live:true,url:'/calculator/quote-pricing',kw:'quote pricing quotation estimate margin sell price'},
- {c:'costing',code:'SC-037',name:'OEE Calculator',live:true,url:'/calculator/oee-teep',kw:'oee overall equipment effectiveness availability performance quality downtime'},
- {c:'costing',code:'SC-038',name:'Machine Hour Rate Calculator',live:true,url:'/calculator/machine-hour-rate',kw:'machine hour rate hourly cost depreciation shop rate'}
-];
-
-/* ---------------- state & render ---------------- */
+/* Filter-only catalog. Cards are server-rendered from src/data/tools-catalog.json. */
 const g=id=>document.getElementById(id);
 let curCat='all', curQ='', suggestIdx=-1, suggestHits=[];
+let CATS=[], TOOLS=[];
 
 function norm(s){return String(s||'').toLowerCase().replace(/[–—−]/g,'-').replace(/\s+/g,' ').trim();}
 function tokens(q){return norm(q).split(/[^a-z0-9+./-]+/).filter(Boolean);}
 function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 function catOf(t){return CATS.find(c=>c.id===t.c);}
-/** Score a tool for query tokens. -1 = no match. Do NOT use category purpose (it pollutes, e.g. "CNC" in every machining blurb). */
+
 function scoreTool(t,toks){
   if(!toks.length)return 0;
   const cat=catOf(t);
@@ -607,61 +803,53 @@ function scoreTool(t,toks){
     else return -1;
   }
   if(t.live) score+=8;
-  // Prefer earlier name hits
   if(toks[0]&&name.startsWith(toks[0])) score+=20;
   return score;
 }
-function matchTool(t,q){return scoreTool(t,tokens(q))>=0;}
 function rankedTools(q){
   const toks=tokens(q);
   if(!toks.length)return [];
-  return TOOLS
-    .map(t=>({t,s:scoreTool(t,toks)}))
-    .filter(x=>x.s>=0)
-    .sort((a,b)=>b.s-a.s||a.t.name.localeCompare(b.t.name))
-    .map(x=>x.t);
+  return TOOLS.map(t=>({t,s:scoreTool(t,toks)})).filter(x=>x.s>=0)
+    .sort((a,b)=>b.s-a.s||a.t.name.localeCompare(b.t.name)).map(x=>x.t);
 }
-function catTools(id,q){
-  const toks=tokens(q);
-  return TOOLS
-    .filter(t=>t.c===id&&scoreTool(t,toks)>=0)
-    .sort((a,b)=>scoreTool(b,toks)-scoreTool(a,toks));
+function cardMatches(card, toks, filterCat){
+  if(filterCat!=='all' && card.dataset.cat!==filterCat) return false;
+  if(!toks.length) return true;
+  const hay = norm([card.dataset.kw, card.dataset.code, card.textContent].join(' '));
+  return toks.every(tok => hay.includes(tok));
 }
-function renderTiles(){
-  const tiles=g('tiles'); if(!tiles)return;
-  const searching=!!curQ.trim();
-  tiles.innerHTML=CATS.map(c=>{
-    const n=catTools(c.id,curQ).length;
-    if(searching&&n===0)return'';
-    const blurb=(c.purpose.split(/[—–-]/)[1]||c.purpose).trim();
-    return `<div class="tile ${!searching&&curCat===c.id?'on':''}" data-cat="${c.id}" role="button" tabindex="0">
-      <svg viewBox="0 0 42 42">${IC[c.id]}</svg>
-      <div class="tn">${c.name}</div>
-      <div class="tc">${n} calculator${n!==1?'s':''}</div>
-      <div class="tp">${blurb}</div>
-    </div>`;}).join('');
-}
-function toolItem(t){
-  if(t.live)return `<li><a href="${t.url}">${t.name}</a><span class="badge-l">Live</span></li>`;
-  return `<li><span class="planned-i">${t.name}</span><span class="badge-p">Planned</span></li>`;
-}
-function renderCatalog(){
-  const catalog=g('catalog'), nores=g('nores'); if(!catalog||!nores)return;
+function applyFilter(){
+  const toks=tokens(curQ);
+  const filterCat=curQ.trim()?'all':curCat;
+  const cards=[...document.querySelectorAll('#catalog .tool-card')];
+  const sections=[...document.querySelectorAll('#catalog .catsec')];
+  const tiles=[...document.querySelectorAll('#tiles .tile')];
   let shown=0;
-  // While searching, always show every matching category (ignore tile filter).
-  const filterCat=curQ.trim()? 'all' : curCat;
-  catalog.innerHTML=CATS.map(c=>{
-    if(filterCat!=='all'&&c.id!==filterCat)return'';
-    const tools=catTools(c.id,curQ);
-    if(!tools.length)return'';
-    shown+=tools.length;
-    return `<section class="catsec" id="cat-${c.id}">
-      <h2>${c.full} calculators</h2>
-      <div class="cp">${c.purpose}</div>
-      <ul class="tlist">${tools.map(toolItem).join('')}</ul>
-    </section>`;}).join('');
-  nores.classList.toggle('hidden',shown>0);
-  if(!shown){const nq=g('nq'); if(nq)nq.textContent=curQ;}
+  for(const card of cards){
+    const hit=cardMatches(card,toks,filterCat);
+    card.hidden=!hit;
+    if(hit) shown++;
+  }
+  for(const sec of sections){
+    const any=[...sec.querySelectorAll('.tool-card')].some(c=>!c.hidden);
+    sec.hidden=!any;
+  }
+  for(const tile of tiles){
+    const id=tile.getAttribute('data-cat');
+    const n=cards.filter(c=>c.dataset.cat===id && !c.hidden).length;
+    const tc=tile.querySelector('.tc');
+    if(tc) tc.textContent=n+' calculator'+(n!==1?'s':'');
+    const hideSearchEmpty=!!curQ.trim() && n===0;
+    tile.hidden=hideSearchEmpty;
+    tile.classList.toggle('on', !curQ.trim() && curCat===id);
+  }
+  const nores=g('nores'), nq=g('nq');
+  if(nores){
+    const empty=shown===0;
+    nores.hidden=!empty;
+    nores.classList.toggle('hidden',!empty);
+    if(empty&&nq) nq.textContent=curQ;
+  }
 }
 function setSuggestOpen(open){
   const box=g('suggest'), qEl=g('q');
@@ -677,25 +865,22 @@ function renderSuggest(){
   suggestHits=rankedTools(q);
   const top=suggestHits.slice(0,8);
   if(!top.length){
-    box.innerHTML=`<div class="sg-hd">Matches</div><div class="sg-empty">No calculator matches “${esc(q)}”</div>`;
-    setSuggestOpen(true);
-    suggestIdx=-1;
-    return;
+    box.innerHTML='<div class="sg-hd">Matches</div><div class="sg-empty">No calculator matches “'+esc(q)+'”</div>';
+    setSuggestOpen(true); suggestIdx=-1; return;
   }
   const total=suggestHits.length;
-  box.innerHTML=`<div class="sg-hd">${total} match${total!==1?'es':''}</div>`+
+  box.innerHTML='<div class="sg-hd">'+total+' match'+(total!==1?'es':'')+'</div>'+
     top.map((t,i)=>{
       const meta=t.live?'<span class="sg-meta live">Live</span>':'<span class="sg-meta planned">Planned</span>';
       const tag=t.live?'a':'button';
-      const href=t.live?` href="${t.url}"`:' type="button"';
-      return `<${tag} class="sg-item${i===suggestIdx?' on':''}" role="option" data-i="${i}"${href} id="sg-${i}">
-        <span class="sg-code">${esc(t.code)}</span>
-        <span class="sg-name">${esc(t.name)}</span>
-        ${meta}
-      </${tag}>`;
+      const href=t.live?' href="'+t.url+'"':' type="button"';
+      return '<'+tag+' class="sg-item'+(i===suggestIdx?' on':'')+'" role="option" data-i="'+i+'"'+href+' id="sg-'+i+'">'+
+        '<span class="sg-code">'+esc(t.code)+'</span><span class="sg-name">'+esc(t.name)+'</span>'+meta+
+      '</'+tag+'>';
     }).join('')+
-    (total>top.length?`<div class="sg-foot">Showing top ${top.length} of ${total} — catalog below lists all matches</div>`:
-      `<div class="sg-foot">Catalog below updates as you type</div>`);
+    (total>top.length
+      ?'<div class="sg-foot">Showing top '+top.length+' of '+total+' — catalog below lists all matches</div>'
+      :'<div class="sg-foot">Catalog below updates as you type</div>');
   setSuggestOpen(true);
 }
 function activateSuggest(i){
@@ -705,10 +890,9 @@ function activateSuggest(i){
   const sec=g('cat-'+t.c);
   if(sec)sec.scrollIntoView({behavior:'smooth',block:'start'});
 }
-function renderAll(){renderTiles();renderCatalog();renderSuggest();}
+function renderAll(){applyFilter();renderSuggest();}
 function pickCat(id){
   curCat=(curCat===id)?'all':id;
-  // Category pick clears search so the tile filter is visible again
   const qEl=g('q');
   if(qEl&&curQ.trim()){qEl.value=''; curQ='';}
   renderAll();
@@ -717,10 +901,21 @@ function pickCat(id){
 }
 window.pickCat=pickCat;
 
-(function initCatalog(){
-  const stLive=g('stLive'), stPipe=g('stPipe');
-  if(stLive)stLive.textContent=String(TOOLS.filter(t=>t.live).length);
-  if(stPipe)stPipe.textContent=String(TOOLS.filter(t=>!t.live).length);
+async function boot(){
+  try{
+    const res=await fetch('/data/tools-catalog.json',{cache:'no-cache'});
+    const data=await res.json();
+    CATS=data.categories||[];
+    TOOLS=data.tools||[];
+  }catch(e){
+    // Fallback: derive from prerendered DOM so search still works offline-ish
+    TOOLS=[...document.querySelectorAll('#catalog .tool-card')].map(card=>({
+      c:card.dataset.cat, code:card.dataset.code, name:(card.querySelector('h3')||{}).textContent||'',
+      live:card.dataset.live==='1', url:(card.querySelector('a')||{}).getAttribute?.('href')||'',
+      kw:card.dataset.kw||''
+    }));
+    CATS=[...document.querySelectorAll('#tiles .tile')].map(t=>({id:t.getAttribute('data-cat'),name:(t.querySelector('.tn')||{}).textContent||'',full:'',purpose:''}));
+  }
 
   const qEl=g('q');
   const tiles=g('tiles');
@@ -754,13 +949,11 @@ window.pickCat=pickCat;
     };
     const apply=()=>{
       curQ=qEl.value;
-      // Typing clears category lock so queries search the full catalog.
       if(curQ.trim()) curCat='all';
       suggestIdx=-1;
       renderAll();
       syncUrl();
     };
-    // Hydrate SearchAction / shared links: tools.html?q=
     try{
       const bootQ=(new URL(location.href)).searchParams.get('q');
       if(bootQ){ qEl.value=bootQ; curQ=bootQ; curCat='all'; }
@@ -771,18 +964,10 @@ window.pickCat=pickCat;
     qEl.addEventListener('keydown',e=>{
       const open=box&&!box.hidden;
       const max=Math.min(8,suggestHits.length)-1;
-      if(e.key==='ArrowDown'&&open&&max>=0){
-        e.preventDefault();
-        suggestIdx=suggestIdx<max?suggestIdx+1:0;
-        renderSuggest();
-      }else if(e.key==='ArrowUp'&&open&&max>=0){
-        e.preventDefault();
-        suggestIdx=suggestIdx>0?suggestIdx-1:max;
-        renderSuggest();
-      }else if(e.key==='Enter'&&open&&suggestIdx>=0){
-        e.preventDefault();
-        activateSuggest(suggestIdx);
-      }else if(e.key==='Escape'){
+      if(e.key==='ArrowDown'&&open&&max>=0){e.preventDefault();suggestIdx=suggestIdx<max?suggestIdx+1:0;renderSuggest();}
+      else if(e.key==='ArrowUp'&&open&&max>=0){e.preventDefault();suggestIdx=suggestIdx>0?suggestIdx-1:max;renderSuggest();}
+      else if(e.key==='Enter'&&open&&suggestIdx>=0){e.preventDefault();activateSuggest(suggestIdx);}
+      else if(e.key==='Escape'){
         if(open){e.preventDefault(); setSuggestOpen(false); return;}
         qEl.value=''; curQ=''; curCat='all'; renderAll(); syncUrl(); qEl.blur();
       }
@@ -800,8 +985,8 @@ window.pickCat=pickCat;
   }
   renderAll();
   setSuggestOpen(false);
-})();
-
+}
+boot();
 </script>
 <!--SC-SEO-CVW-->
 <script src="/assets/js/sc-ga4-id.js"></script>
