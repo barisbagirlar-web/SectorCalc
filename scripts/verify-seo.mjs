@@ -226,6 +226,30 @@ for (const [route, file] of contentRoutes) {
   }
 }
 
+// Hub category pages must ship the same full-bleed breadcrumb strip as tools/pricing.
+{
+  const hubs = [
+    ['public/glossary/index.html', 'Glossary'],
+    ['public/guides/index.html', 'Guides'],
+    ['public/compare/index.html', 'Compare'],
+  ];
+  for (const [file, label] of hubs) {
+    const html = read(file);
+    if (!html.includes('class="sc-breadcrumb"')) {
+      fail(`${file} missing breadcrumb nav under site header`);
+    }
+    const navEnd = html.indexOf('<!--SC-SITE-NAV-END-->');
+    const bc = html.indexOf('sc-breadcrumb');
+    const main = html.indexOf('<main');
+    if (navEnd < 0 || bc < 0 || main < 0 || !(navEnd < bc && bc < main)) {
+      fail(`${file} breadcrumb must be between site header and <main> (full-bleed)`);
+    }
+    if (!new RegExp(`aria-current="page">\\s*${label}\\s*<`, 'i').test(html)) {
+      fail(`${file} breadcrumb missing current page label ${label}`);
+    }
+  }
+}
+
 const fj = JSON.parse(read('firebase.json'));
 if ((fj.hosting?.rewrites || []).some((r) => r.destination === '/index.html')) fail('firebase SPA catch-all would create soft 404s');
 for (const [oldFile, pretty] of Object.entries(TOOL_CANONICAL)) {
