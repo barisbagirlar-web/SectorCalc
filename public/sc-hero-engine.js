@@ -1,5 +1,5 @@
-/* sc-hero-engine.js — SectorCalc Live Deck v30
-   TRUE Seiko akar saniye: constant velocity, sub-step continuous thumb, never ticks.
+/* sc-hero-engine.js — SectorCalc Live Deck v31
+   Seiko sweep + LIVE histogram morph (counter and graph move together).
 */
 (function () {
   'use strict';
@@ -33,10 +33,22 @@
 
   function runEngine(t1) {
     var t0 = performance.now();
-    var tols = [t1].concat(FIXED.map(function (p) { return p.tol; }));
-    var wc = tols.reduce(function (a, b) { return a + b; }, 0);
-    var sig = tols.map(function (t) { return t / 3; });
-    var sS = Math.sqrt(sig.reduce(function (a, s) { return a + s * s; }, 0));
+    var tols = [t1].concat(
+      FIXED.map(function (p) {
+        return p.tol;
+      })
+    );
+    var wc = tols.reduce(function (a, b) {
+      return a + b;
+    }, 0);
+    var sig = tols.map(function (t) {
+      return t / 3;
+    });
+    var sS = Math.sqrt(
+      sig.reduce(function (a, s) {
+        return a + s * s;
+      }, 0)
+    );
     var rss = 3 * sS;
     var rnd = mulberry32(SEED);
     var s = new Float64Array(N);
@@ -73,15 +85,27 @@
   var raf = null;
   var current = null;
   var RANGE = 0.15; // histogram ±mm window
+  var baseSamples = null;
+  var baseMc = 0;
+  var liveScale = 1;
+  var paintLive = false;
+
+  var lastCssW = 0;
+  var lastDpr = 0;
 
   function sizeC() {
     var r = canvas.getBoundingClientRect();
     var d = Math.min(devicePixelRatio || 1, 2);
     var w = Math.max(1, r.width);
     var h = 120;
-    canvas.width = w * d;
-    canvas.height = h * d;
-    ctx.setTransform(d, 0, 0, d, 0, 0);
+    // Only reset backing store when size/DPR changes — avoids blank flicker mid-frame.
+    if (w !== lastCssW || d !== lastDpr || canvas.width !== ((w * d) | 0)) {
+      lastCssW = w;
+      lastDpr = d;
+      canvas.width = w * d;
+      canvas.height = h * d;
+      ctx.setTransform(d, 0, 0, d, 0, 0);
+    }
     return { w: w, h: h };
   }
 
@@ -89,35 +113,61 @@
     return ((val + RANGE) / (2 * RANGE)) * w;
   }
 
-  function build(samples) {
+  /** Build particle cloud from samples (optionally scaled). rain=false = settled morph. */
+  function layoutDots(samples, scale, rain) {
     var size = sizeC();
     var w = size.w;
     var h = size.h;
     var B = 72;
     var bins = new Array(B).fill(0);
-    for (var i = 0; i < N; i++) {
-      var b = Math.floor(((samples[i] + RANGE) / (2 * RANGE)) * B);
+    var step = 4;
+    var vals = new Float64Array(Math.ceil(N / step));
+    var vi = 0;
+    for (var i = 0; i < N; i += step) {
+      var val = samples[i] * scale;
+      vals[vi++] = val;
+      var b = Math.floor(((val + RANGE) / (2 * RANGE)) * B);
       bins[Math.max(0, Math.min(B - 1, b))]++;
     }
     var mx = Math.max.apply(null, bins) || 1;
     var cnt = new Array(B).fill(0);
     dots = [];
-    // Subsample for visual density (premium rain, not 10k rects)
-    var step = 4;
+    vi = 0;
     for (var i2 = 0; i2 < N; i2 += step) {
-      var b2 = Math.max(0, Math.min(B - 1, Math.floor(((samples[i2] + RANGE) / (2 * RANGE)) * B)));
+      var v2 = vals[vi++];
+      var b2 = Math.max(0, Math.min(B - 1, Math.floor(((v2 + RANGE) / (2 * RANGE)) * B)));
       var k = cnt[b2]++;
       var rnd = mulberry32(SEED + i2)();
       dots.push({
-        x: ((b2 + 0.5) / B) * w + (rnd - 0.5) * (w / B * 0.75),
+        x: ((b2 + 0.5) / B) * w + (rnd - 0.5) * ((w / B) * 0.75),
         y: h - 18 - (k / mx) * (h - 36),
-        delay: (i2 / N) * 900,
-        inSpec: Math.abs(samples[i2]) <= SPEC
+        delay: rain ? (i2 / N) * 900 : 0,
+        inSpec: Math.abs(v2) <= SPEC
       });
     }
-    animStart = performance.now();
-    if (raf) cancelAnimationFrame(raf);
+    animStart = rain ? performance.now() : performance.now() - 2000;
+  }
+
+  function ensureDraw() {
+    if (raf) return;
     raf = requestAnimationFrame(draw);
+  }
+
+  function build(samples) {
+    baseSamples = samples;
+    baseMc = current && current.mc ? current.mc : 1;
+    liveScale = 1;
+    layoutDots(samples, 1, true);
+    paintLive = true;
+    ensureDraw();
+  }
+
+  /** Live morph — rescale last MC cloud to match analytical sigma. No rain restart. */
+  function remorph(scale) {
+    if (!baseSamples) return;
+    liveScale = scale;
+    layoutDots(baseSamples, scale, false);
+    ensureDraw();
   }
 
   function draw(now) {
@@ -128,7 +178,6 @@
     var bg = dark ? '#1B1F23' : '#F4F6F8';
     var ink = dark ? 'rgba(232,234,236,.55)' : 'rgba(26,26,26,.45)';
     var blue = '#0055A4';
-    var green = '#007A33';
     var red = '#C8102E';
 
     ctx.fillStyle = bg;
@@ -179,9 +228,9 @@
     }
     ctx.globalAlpha = 1;
 
-    // Normal curve overlay
+    // Normal curve overlay — always tracks live mc/sigma
     if (current) {
-      var s = current.mc / 3;
+      var s = Math.max(1e-6, current.mc / 3);
       ctx.beginPath();
       ctx.strokeStyle = dark ? 'rgba(232,119,34,.9)' : '#E87722';
       ctx.lineWidth = 1.6;
@@ -202,7 +251,11 @@
     ctx.fillText('0', x0 - 3, h - 4);
     ctx.fillText('USL', Math.min(w - 22, xU + 4), h - 4);
 
-    if (t < 1500) raf = requestAnimationFrame(draw);
+    if (paintLive || t < 1500) {
+      raf = requestAnimationFrame(draw);
+    } else {
+      raf = null;
+    }
   }
 
   var needle = document.getElementById('needle');
@@ -246,8 +299,12 @@
     return { key: 'fail', label: 'OUT OF SPEC', tone: 'bad' };
   }
 
-  var f4 = function (v) { return '±' + v.toFixed(4); };
-  var f2 = function (v) { return v.toFixed(2); };
+  var f4 = function (v) {
+    return '±' + v.toFixed(4);
+  };
+  var f2 = function (v) {
+    return v.toFixed(2);
+  };
   var inTol = document.getElementById('inTol');
   var oTol = document.getElementById('oTol');
   var cpkStatusEl = document.getElementById('cpkStatus');
@@ -262,7 +319,14 @@
       for (var i = 0; i < parts.length; i++) {
         var el = parts[i];
         var id = el.getAttribute('data-part');
-        var tol = id === 'spacer' ? t1 : (FIXED.find(function (p) { return p.id === id; }) || { tol: 0 }).tol;
+        var tol =
+          id === 'spacer'
+            ? t1
+            : (
+                FIXED.find(function (p) {
+                  return p.id === id;
+                }) || { tol: 0 }
+              ).tol;
         el.style.flexGrow = String(Math.max(tol / max, 0.08) * 100);
         var lab = el.querySelector('b');
         if (lab) lab.textContent = '±' + tol.toFixed(3);
@@ -286,10 +350,22 @@
   }
 
   function analytical(t1) {
-    var tols = [t1].concat(FIXED.map(function (p) { return p.tol; }));
-    var wc = tols.reduce(function (a, b) { return a + b; }, 0);
-    var sig = tols.map(function (t) { return t / 3; });
-    var sS = Math.sqrt(sig.reduce(function (a, s) { return a + s * s; }, 0));
+    var tols = [t1].concat(
+      FIXED.map(function (p) {
+        return p.tol;
+      })
+    );
+    var wc = tols.reduce(function (a, b) {
+      return a + b;
+    }, 0);
+    var sig = tols.map(function (t) {
+      return t / 3;
+    });
+    var sS = Math.sqrt(
+      sig.reduce(function (a, s) {
+        return a + s * s;
+      }, 0)
+    );
     var rss = 3 * sS;
     // During scrub, RSS is the closed-form stand-in for MC — no particle rebuild.
     var mc = rss;
@@ -309,10 +385,22 @@
       var elRSS = document.getElementById('vRSS');
       var elMC = document.getElementById('vMC');
       var elCpk = document.getElementById('cpkVal');
-      if (elWC) { elWC._v = r.wc; elWC.textContent = f4(r.wc); }
-      if (elRSS) { elRSS._v = r.rss; elRSS.textContent = f4(r.rss); }
-      if (elMC) { elMC._v = r.mc; elMC.textContent = f4(r.mc); }
-      if (elCpk) { elCpk._v = r.cpk; elCpk.textContent = f2(r.cpk); }
+      if (elWC) {
+        elWC._v = r.wc;
+        elWC.textContent = f4(r.wc);
+      }
+      if (elRSS) {
+        elRSS._v = r.rss;
+        elRSS.textContent = f4(r.rss);
+      }
+      if (elMC) {
+        elMC._v = r.mc;
+        elMC.textContent = f4(r.mc);
+      }
+      if (elCpk) {
+        elCpk._v = r.cpk;
+        elCpk.textContent = f2(r.cpk);
+      }
     }
     var ct = document.getElementById('calcTime');
     if (ct) ct.textContent = r.ms === '—' ? 'preview' : r.ms + ' ms';
@@ -330,24 +418,31 @@
     paintStack(t1, r);
   }
 
-  /** Soft live preview — continuous µm, no 5-step quantize (that caused tick-tick). */
+  /** Soft live preview — readout + live histogram morph (graph moves with counter). */
   function previewTol(tMicron) {
     var t1 = Math.max(0.01, Math.min(0.1, tMicron / 1000));
     if (inTol) inTol.value = String(tMicron);
     var r = analytical(t1);
-    if (current && current.samples) {
+    if (current && baseSamples) {
       current = {
         wc: r.wc,
         rss: r.rss,
         mc: r.mc,
         cpk: r.cpk,
-        samples: current.samples,
+        samples: baseSamples,
         ms: '—'
       };
     } else {
       current = r;
     }
     applyReadout(t1, r, { tween: false });
+    paintLive = true;
+    if (baseSamples && baseMc > 0) {
+      remorph(r.mc / baseMc);
+    } else {
+      // Curve-only redraw until first MC settle exists
+      ensureDraw();
+    }
   }
 
   /** Full commit — seeded MC + one cinematic histogram settle. */
@@ -357,6 +452,9 @@
     var t1 = +inTol.value / 1000;
     var r = runEngine(t1);
     current = r;
+    baseSamples = r.samples;
+    baseMc = r.mc;
+    liveScale = 1;
     applyReadout(t1, r, { tween: opts.tween !== false });
     if (opts.histo !== false) build(r.samples);
   }
@@ -429,10 +527,13 @@
     autoRaf = null;
     setSceneLabel('MANUAL INPUT', false);
     if (resumeTimer) clearTimeout(resumeTimer);
-    resumeTimer = setTimeout(function () {
-      userPinned = false;
-      startAuto();
-    }, calm ? 16000 : 12000);
+    resumeTimer = setTimeout(
+      function () {
+        userPinned = false;
+        startAuto();
+      },
+      calm ? 16000 : 12000
+    );
   }
 
   function autoTick(now) {
@@ -447,14 +548,14 @@
     if (zone !== lastZone) lastZone = zone;
     setSceneLabel(zone, true);
 
-    // Engine readout ~20Hz (every 3 frames) — thumb already moved every frame.
+    // Engine readout + histogram morph ~20Hz — graph tracks the hand.
     var um = Math.round(v * 10) / 10;
     if (um !== lastPreviewUm && frameN % 3 === 0) {
       lastPreviewUm = um;
       previewTol(v);
     }
 
-    // Background MC settle — never blocks the hand.
+    // Background full MC settle — refreshes particle seed base, never freezes graph.
     if (now - lastSettleAt > 20000) {
       lastSettleAt = now;
       if (inTol) inTol.value = String(Math.round(v * 10) / 10);
@@ -478,8 +579,10 @@
     lastSettleAt = 0;
     lastZone = '';
     frameN = 0;
+    paintLive = true;
     setSceneLabel(zoneName(clamped), true);
     autoRaf = requestAnimationFrame(autoTick);
+    ensureDraw();
   }
 
   if (inTol) {
@@ -488,7 +591,9 @@
       pinUser();
       previewTol(+inTol.value);
       clearTimeout(deb);
-      deb = setTimeout(function () { recalc({ tween: true, histo: true }); }, 220);
+      deb = setTimeout(function () {
+        recalc({ tween: true, histo: true });
+      }, 220);
     });
     inTol.addEventListener('change', function () {
       pinUser();
@@ -499,16 +604,20 @@
   var deckRoot = document.querySelector('.sc-hero .deck');
   if (deckRoot) {
     deckRoot.addEventListener('pointerdown', function (e) {
-      if (e.target && (e.target.id === 'inTol' || (e.target.closest && e.target.closest('.e-ctrl')))) pinUser();
+      if (
+        e.target &&
+        (e.target.id === 'inTol' || (e.target.closest && e.target.closest('.e-ctrl')))
+      )
+        pinUser();
     });
   }
 
   addEventListener('resize', function () {
-    if (current && current.samples) build(current.samples);
+    if (baseSamples) remorph(liveScale);
   });
   if (typeof ResizeObserver !== 'undefined') {
     var ro = new ResizeObserver(function () {
-      if (current && current.samples) build(current.samples);
+      if (baseSamples) remorph(liveScale);
     });
     ro.observe(canvas.parentElement || canvas);
   }
@@ -516,14 +625,20 @@
   try {
     var cell = document.querySelector('.sc-hero .cell') || deckRoot;
     if (cell && typeof IntersectionObserver !== 'undefined') {
-      var visIO = new IntersectionObserver(function (entries) {
-        var on = entries.some(function (en) { return en.isIntersecting; });
-        if (!on) {
-          if (autoRaf) cancelAnimationFrame(autoRaf);
-          autoRaf = null;
-          setSceneLabel('STANDBY', false);
-        } else if (!userPinned) startAuto();
-      }, { threshold: 0.2 });
+      var visIO = new IntersectionObserver(
+        function (entries) {
+          var on = entries.some(function (en) {
+            return en.isIntersecting;
+          });
+          if (!on) {
+            if (autoRaf) cancelAnimationFrame(autoRaf);
+            autoRaf = null;
+            paintLive = false;
+            setSceneLabel('STANDBY', false);
+          } else if (!userPinned) startAuto();
+        },
+        { threshold: 0.2 }
+      );
       visIO.observe(cell);
     }
   } catch (e2) {}
@@ -532,6 +647,7 @@
     if (document.hidden) {
       if (autoRaf) cancelAnimationFrame(autoRaf);
       autoRaf = null;
+      paintLive = false;
     } else if (!userPinned) startAuto();
   });
 
@@ -540,6 +656,6 @@
     if (!userPinned) startAuto();
   }, 1200);
   document.addEventListener('sectorcalc-theme', function () {
-    if (current && current.samples) build(current.samples);
+    if (baseSamples) remorph(liveScale);
   });
 })();
