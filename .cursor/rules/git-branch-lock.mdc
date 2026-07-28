@@ -1,0 +1,42 @@
+---
+description: Abort git checkout/branch switches when current branch is unexpected (anti checkout-theft)
+alwaysApply: true
+---
+
+# Git branch lock — concurrent agents
+
+Multiple Cursor chats share this clone and steal each other's branch via `git checkout`. Prevent that.
+
+## Before any branch-changing git command
+
+Commands that change HEAD or branch tip: `checkout`, `switch`, `pull`, `merge`, `rebase`, `reset`, `cherry-pick`, `worktree` (when it moves this tree).
+
+1. Run `git branch --show-current` (and prefer `git status -sb`).
+2. Compare to the **expected** branch for this chat:
+   - Explicit branch named in the user task / PR, **or**
+   - The branch you created earlier in this conversation for this task.
+3. **Mismatch → ABORT.** Do not checkout, stash-pop onto foreign work, commit, or push.
+4. Tell the user: current branch, expected branch, and that another agent likely owns this working tree. Suggest a dedicated `git worktree` instead of fighting over `SECTORCAL_2`.
+
+## When starting work
+
+- Create/use a task branch from `main` only after confirming you are on a clean expected base.
+- Prefer **one chat = one worktree** (`git worktree add ../SectorCalc-<task> -b agent/<task> origin/main`).
+- Never `git checkout` a branch another active chat listed in `git worktree list` without user OK.
+
+## Commits / push
+
+- Immediately before `git add` / `commit` / `push`: re-check `git branch --show-current`.
+- If wrong branch: stop; do not amend or move commits onto the foreign branch.
+
+## Examples
+
+```bash
+# ✅ Before switching or committing
+git branch --show-current   # must equal fix/home-tighten-copy (this chat)
+git status -sb
+
+# ❌ BAD — blind switch while another agent may own the tree
+git checkout main
+git checkout agent/other-chat-branch
+```
