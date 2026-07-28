@@ -121,6 +121,18 @@ export async function expectLockedGate(page: Page, toolId: string): Promise<void
   await expect(page.locator('.sc-pro-gate-title')).toContainText(/CREDITS/i);
 }
 
+/**
+ * Tier-A locked workspace: demo teaser only — Reset off, inputs locked.
+ * Call only when waitForGateState === 'locked' (monetization enforced).
+ */
+export async function expectDemoLockedWorkspace(page: Page): Promise<void> {
+  await expect(page.locator('[data-sc-study="blank"]')).toBeDisabled({ timeout: 15_000 });
+  await expect(page.locator('[data-sc-study-slot]')).toHaveAttribute('data-access-mode', 'locked');
+  await expect(page.locator('body.sc-demo-locked, html.sc-demo-locked').first()).toBeAttached();
+  const lockedInputs = page.locator('[data-sc-gate-lock="1"]');
+  await expect(lockedInputs.first()).toBeAttached({ timeout: 15_000 });
+}
+
 export async function expectFreeToolSurface(page: Page, toolId: string): Promise<void> {
   // Free AEO strip may sit inside .sc-header which CSS-hides under body.has-site-header.
   // Contract: marker exists in DOM, no credit gate, free copy present.
