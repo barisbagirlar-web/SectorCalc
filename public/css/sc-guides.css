@@ -419,7 +419,6 @@ html[data-theme='dark'] .sc-guides-shell {
 html[data-theme='dark'] .sc-guides-stat,
 html[data-theme='dark'] .sc-guides-chain,
 html[data-theme='dark'] .sc-guide-card,
-html[data-theme='dark'] .sc-faq-item,
 html[data-theme='dark'] .sc-topic-rail-card,
 html[data-theme='dark'] .sc-guides-contract,
 html[data-theme='dark'] .sc-guide-block,
@@ -429,6 +428,25 @@ html[data-theme='dark'] .sc-guide-article .sc-formula-block,
 html[data-theme='dark'] .sc-guide-article .sc-mistake-card {
   background: #ffffff;
   color: #000000;
+}
+/* Beat seo-content.css dark .sc-faq-item { background:#131a23 } */
+html[data-theme='dark'] .sc-guides-shell .sc-faq-item,
+html[data-theme='dark'] .sc-guides-shell details.sc-faq-item,
+html[data-theme='dark'] .sc-guide-article .sc-faq-item {
+  background: #ffffff !important;
+  color: #000000;
+  border-color: rgba(11, 28, 44, 0.12);
+}
+html[data-theme='dark'] .sc-guides-shell .sc-faq-item summary,
+html[data-theme='dark'] .sc-guides-shell .sc-faq-item p,
+html[data-theme='dark'] .sc-guides-shell .sc-faq-item code,
+html[data-theme='dark'] .sc-guide-article .sc-faq-item summary,
+html[data-theme='dark'] .sc-guide-article .sc-faq-item p {
+  color: #000000;
+}
+html[data-theme='dark'] .sc-guides-shell .sc-faq-item a,
+html[data-theme='dark'] .sc-guide-article .sc-faq-item a {
+  color: var(--g-blue);
 }
 html[data-theme='dark'] .sc-guides-hero h1,
 html[data-theme='dark'] .sc-guides-lead,
