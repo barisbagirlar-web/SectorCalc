@@ -88,6 +88,17 @@ describe('packages SSOT', () => {
     });
     expect(resolveToolCost('SC-008')?.creditCost).toBe(15);
     expect(resolveToolCost('SC-021')?.creditCost).toBe(7);
+    // Rubric rebalance (decision stakes × engine depth × cost-of-wrong)
+    expect(resolveToolCost('SC-012')).toEqual({
+      tier: 'PRO',
+      creditCost: 7,
+      monetizationEnabled: true
+    });
+    expect(resolveToolCost('SC-023')?.creditCost).toBe(3);
+    expect(resolveToolCost('SC-024')?.creditCost).toBe(3);
+    expect(resolveToolCost('SC-026')?.creditCost).toBe(15);
+    expect(resolveToolCost('SC-031')?.creditCost).toBe(15);
+    expect(resolveToolCost('SC-032')?.creditCost).toBe(15);
   });
 });
 
@@ -218,7 +229,11 @@ describe('openProfessionalSession concurrency semantics', () => {
 
   it('blocks on debt', () => {
     const now = Date.now();
-    const base = { ...emptyWallet('u1', new Date(now).toISOString()), purchasedCredits: 100, creditDebt: 1 };
+    const base = {
+      ...emptyWallet('u1', new Date(now).toISOString()),
+      purchasedCredits: 100,
+      creditDebt: 1
+    };
     const res = openProfessionalSession({
       wallet: base,
       userId: 'u1',
@@ -238,7 +253,9 @@ describe('openProfessionalSession concurrency semantics', () => {
 
 describe('sanitizeReturnTo', () => {
   it('allows relative same-origin paths only', () => {
-    expect(sanitizeReturnTo('/calculator/cnc-machining-cost', [])).toBe('/calculator/cnc-machining-cost');
+    expect(sanitizeReturnTo('/calculator/cnc-machining-cost', [])).toBe(
+      '/calculator/cnc-machining-cost'
+    );
     expect(sanitizeReturnTo('https://evil.com', ['https://sectorcalc.com'])).toBe(null);
     expect(sanitizeReturnTo('//evil.com', [])).toBe(null);
   });

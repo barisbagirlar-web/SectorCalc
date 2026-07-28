@@ -63,24 +63,31 @@ export const TIER_CREDITS: Record<PricingTier, number> = {
  * Tool monetization map (server + client SSOT).
  * Free SEO-bait set (Tier-B, not revenue gates): SC-001, SC-027, SC-028, SC-030, SC-039.
  * Keep in sync with seo/free-tools.mjs + functions/src/domain/packages.ts.
+ *
+ * Tier rubric (higher when all rise): defendable-decision stakes × engine depth × cost-of-being-wrong.
+ * - FREE: reference / lookup shop instruments (SEO bait)
+ * - CORE (3): shop costing & ops KPIs + diagnostic utilities
+ * - PRO (7): component sizing / commercial quoting decisions
+ * - ADVANCED (15): multi-criteria / code-heavy / life-safety decision engines
+ * - DECISION (30): reserved — no tools assigned yet
  */
 export const TOOL_PRICING: Record<string, { tier: PricingTier; monetizationEnabled: boolean }> = {
   'SC-001': { tier: 'FREE', monetizationEnabled: false },
   'SC-010': { tier: 'CORE', monetizationEnabled: true },
-  'SC-012': { tier: 'CORE', monetizationEnabled: true },
+  'SC-012': { tier: 'PRO', monetizationEnabled: true }, // commercial sell-price decision
   'SC-028': { tier: 'FREE', monetizationEnabled: false },
   'SC-037': { tier: 'CORE', monetizationEnabled: true },
   'SC-038': { tier: 'CORE', monetizationEnabled: true },
   'SC-021': { tier: 'PRO', monetizationEnabled: true },
   'SC-022': { tier: 'PRO', monetizationEnabled: true },
-  'SC-023': { tier: 'PRO', monetizationEnabled: true },
-  'SC-024': { tier: 'PRO', monetizationEnabled: true },
+  'SC-023': { tier: 'CORE', monetizationEnabled: true }, // shop cycle costing (with SC-010/037/038)
+  'SC-024': { tier: 'CORE', monetizationEnabled: true }, // vibration diagnostic utility
   'SC-025': { tier: 'PRO', monetizationEnabled: true },
-  'SC-026': { tier: 'PRO', monetizationEnabled: true },
+  'SC-026': { tier: 'ADVANCED', monetizationEnabled: true }, // ASME + DE-Goodman fatigue depth
   'SC-027': { tier: 'FREE', monetizationEnabled: false },
   'SC-030': { tier: 'FREE', monetizationEnabled: false },
-  'SC-031': { tier: 'PRO', monetizationEnabled: true },
-  'SC-032': { tier: 'PRO', monetizationEnabled: true },
+  'SC-031': { tier: 'ADVANCED', monetizationEnabled: true }, // life-safety rigging
+  'SC-032': { tier: 'ADVANCED', monetizationEnabled: true }, // life-safety lifting hardware
   'SC-035': { tier: 'PRO', monetizationEnabled: true },
   'SC-039': { tier: 'FREE', monetizationEnabled: false },
   'SC-040': { tier: 'PRO', monetizationEnabled: true },
@@ -96,7 +103,9 @@ export function isCreditPackageKey(v: unknown): v is CreditPackageKey {
   return typeof v === 'string' && v in CREDIT_PACKAGES;
 }
 
-export function resolveToolCost(toolId: string): { tier: PricingTier; creditCost: number; monetizationEnabled: boolean } | null {
+export function resolveToolCost(
+  toolId: string
+): { tier: PricingTier; creditCost: number; monetizationEnabled: boolean } | null {
   const row = TOOL_PRICING[toolId];
   if (!row) return null;
   return {
@@ -114,7 +123,9 @@ export function isCreditRequired(toolId: string): boolean {
   return row.monetizationEnabled;
 }
 
-export function assertNoInvalidPriceMapping(priceByKey: Partial<Record<CreditPackageKey, string>>): string[] {
+export function assertNoInvalidPriceMapping(
+  priceByKey: Partial<Record<CreditPackageKey, string>>
+): string[] {
   const errors: string[] = [];
   for (const key of PACKAGE_KEYS) {
     const id = priceByKey[key];
