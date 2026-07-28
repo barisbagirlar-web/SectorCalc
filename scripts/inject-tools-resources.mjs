@@ -14,8 +14,10 @@ const END = '<!--SC-SEO-SPRINT-LINKS-END-->';
 const BLOCK = `${START}
 <section class="sc-seo-sprint-links" aria-label="Engineering resources">
   <h2>Engineering Resources</h2>
-  <p>Glossary, comparison pages, and complete guides for shop-floor decision making.</p>
+  <p>Open reference bench first, then glossary, comparisons, and complete guides for shop-floor decision making.</p>
   <ul>
+    <li><a href="/#free-calculators"><strong>Open · no credits</strong> — five free instruments</a></li>
+    <li><a href="/topics">Open-bench topic hubs</a></li>
     <li><a href="/glossary">Engineering Glossary</a></li>
     <li><a href="/compare">SectorCalc vs Alternatives</a></li>
     <li><a href="/guides">Complete Engineering Guides</a></li>

@@ -14,6 +14,7 @@ import {
   CURRENT_INDEXABLE_BASELINE,
   validateRegistryInvariants,
 } from '../seo/registry.mjs';
+import { FREE_TOOLS } from '../seo/free-tools.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -33,13 +34,16 @@ if (locs.length < Math.floor(CURRENT_INDEXABLE_BASELINE * 0.5)) {
   process.exit(1);
 }
 
-// Stable order: core hubs first (as previous production), then calculators alpha, then content alpha.
+// Stable order: hubs → topics → free open-bench calculators → other calculators → content.
 const pages = sitemapPages();
+const freePaths = new Set(FREE_TOOLS.map((t) => t.canonicalPath));
 const rank = (p) => {
   if (p.canonicalPath === '/') return 0;
   if (['/tools.html', '/pro.html', '/pricing.html'].includes(p.canonicalPath)) return 1;
-  if (p.role === 'calculator') return 2;
-  return 3;
+  if (p.canonicalPath === '/topics' || p.canonicalPath.startsWith('/topics/')) return 2;
+  if (p.role === 'calculator' && freePaths.has(p.canonicalPath)) return 3;
+  if (p.role === 'calculator') return 4;
+  return 5;
 };
 pages.sort((a, b) => {
   const ra = rank(a);
@@ -48,7 +52,9 @@ pages.sort((a, b) => {
   return a.canonicalPath.localeCompare(b.canonicalPath);
 });
 
-const ordered = pages.map((p) => (p.canonicalPath === '/' ? 'https://sectorcalc.com/' : `https://sectorcalc.com${p.canonicalPath}`));
+const ordered = pages.map((p) =>
+  p.canonicalPath === '/' ? 'https://sectorcalc.com/' : `https://sectorcalc.com${p.canonicalPath}`,
+);
 
 const body = ordered
   .map(
@@ -66,4 +72,6 @@ ${body}
 `;
 
 writeFileSync(join(ROOT, 'public/sitemap.xml'), xml);
-console.log(`[OK] sitemap.xml written: ${ordered.length} URLs (registry sitemapEligible indexable)`);
+console.log(
+  `[OK] sitemap.xml written: ${ordered.length} URLs (${FREE_TOOLS.length} open-bench calculators prioritized)`,
+);

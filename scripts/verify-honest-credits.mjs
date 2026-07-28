@@ -8,11 +8,13 @@
 import { readFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { FREE_TOOL_SLUGS, FREE_TOOLS } from '../seo/free-tools.mjs';
+import { FREE_TOOL_SLUGS, FREE_TOOLS, FREE_TOOL_PATHS, assertFreeUpsellsAreTierA } from '../seo/free-tools.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const errors = [];
 const fail = (m) => errors.push(m);
+
+for (const e of assertFreeUpsellsAreTierA()) fail(e);
 
 const bannedEverywhere = [
   /Every live calculator currently requires/i,
@@ -92,8 +94,41 @@ for (const tool of FREE_TOOLS) {
 // Homepage must emphasize free strip
 const index = readFileSync(join(ROOT, 'index.html'), 'utf8');
 if (!/id="free-calculators"/.test(index)) fail('index.html missing #free-calculators strip');
+if (!/sc-free-actions|Start with /.test(index)) fail('index.html free strip missing primary CTA actions');
 for (const t of FREE_TOOLS) {
   if (!index.includes(t.canonicalPath)) fail(`index.html free strip missing ${t.canonicalPath}`);
+}
+
+// Pricing must separate open bench from decision tools
+const pricing = readFileSync(join(ROOT, 'pricing.html'), 'utf8');
+if (!/data-pricing-floor="free"/.test(pricing)) fail('pricing.html missing open-bench floor (data-pricing-floor=free)');
+if (!/data-pricing-floor="paid"/.test(pricing)) fail('pricing.html missing decision-tools floor (data-pricing-floor=paid)');
+if (/02 · Start on the floor/i.test(pricing)) fail('pricing.html still uses ambiguous Start on the floor label');
+for (const t of FREE_TOOLS) {
+  if (!pricing.includes(t.canonicalPath)) fail(`pricing.html open bench missing ${t.canonicalPath}`);
+  if (!pricing.includes(t.toolId)) fail(`pricing.html open bench missing ${t.toolId}`);
+}
+
+// tools.html must badge free cards without hosting the marketing strip
+const tools = readFileSync(join(ROOT, 'tools.html'), 'utf8');
+if (/<!--SC-FREE-TOOLS-START-->/.test(tools)) fail('tools.html must not host free marketing strip');
+if (!/Open · no credits/.test(tools)) fail('tools.html missing Open · no credits badges');
+if (!/data-tools-free-hint="1"/.test(tools)) fail('tools.html missing free-access hint');
+for (const t of FREE_TOOLS) {
+  const re = new RegExp(`data-code="${t.toolId}"[^>]*data-access="free"|data-access="free"[^>]*data-code="${t.toolId}"`);
+  // attribute order is data-code then data-access in inject
+  if (!tools.includes(`data-code="${t.toolId}"`) || !new RegExp(`data-code="${t.toolId}"[\\s\\S]{0,220}?data-access="free"`).test(tools)) {
+    fail(`tools.html free card missing data-access=free for ${t.toolId}`);
+  }
+}
+
+// Free AEO upsells must disclose credits and not loop free→free
+for (const t of FREE_TOOLS) {
+  const rel = `${t.sourceSlug}.html`;
+  const text = readFileSync(join(ROOT, rel), 'utf8');
+  if (!text.includes(t.upsell.href)) fail(`${rel} missing Tier-A upsell href ${t.upsell.href}`);
+  if (/Also free:/i.test(text)) fail(`${rel} still has free→free Also free upsell`);
+  if (FREE_TOOL_PATHS.has(t.upsell.href)) fail(`${rel} upsell still points at free path`);
 }
 
 if (errors.length) {
@@ -101,5 +136,5 @@ if (errors.length) {
   process.exit(1);
 }
 console.log(
-  `[PASS] Honest credit copy guard: ${FREE_TOOLS.length} free tools allowed; all-paid lies banned; free strip present`,
+  `[PASS] Honest credit copy guard: ${FREE_TOOLS.length} free tools; Tier-A upsells; pricing floors; tools badges`,
 );
