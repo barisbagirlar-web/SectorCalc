@@ -34,14 +34,14 @@ const SKIP_FILE = new Set([
   'calculator4.html',
 ]);
 
-/** Strip hand-written / stale copies of core assets (any version / relative path). */
+/** Strip hand-written / stale copies of core assets (any version / hashed / relative path). */
 const CORE_STRIP = [
-  /<link[^>]+href=["'][^"']*sc-theme\.css[^"']*["'][^>]*>\s*/gi,
-  /<link[^>]+href=["'][^"']*sc-site-nav\.css[^"']*["'][^>]*>\s*/gi,
-  /<link[^>]+href=["'][^"']*sc-calc-sheet\.css[^"']*["'][^>]*>\s*/gi,
-  /<link[^>]+href=["'][^"']*(?:\.\/|\/)?css\/seo-content\.css[^"']*["'][^>]*>\s*/gi,
-  /<script[^>]+src=["'][^"']*sc-theme\.js[^"']*["'][^>]*><\/script>\s*/gi,
-  /<script[^>]+src=["'][^"']*sc-site-nav\.js[^"']*["'][^>]*><\/script>\s*/gi,
+  /<link[^>]+href=["'][^"']*sc-theme(?:\.[a-f0-9]{8})?\.css[^"']*["'][^>]*>\s*/gi,
+  /<link[^>]+href=["'][^"']*sc-site-nav(?:\.[a-f0-9]{8})?\.css[^"']*["'][^>]*>\s*/gi,
+  /<link[^>]+href=["'][^"']*sc-calc-sheet(?:\.[a-f0-9]{8})?\.css[^"']*["'][^>]*>\s*/gi,
+  /<link[^>]+href=["'][^"']*(?:\.\/|\/)?css\/seo-content(?:\.[a-f0-9]{8})?\.css[^"']*["'][^>]*>\s*/gi,
+  /<script[^>]+src=["'][^"']*sc-theme(?:\.[a-f0-9]{8})?\.js[^"']*["'][^>]*><\/script>\s*/gi,
+  /<script[^>]+src=["'][^"']*sc-site-nav(?:\.[a-f0-9]{8})?\.js[^"']*["'][^>]*><\/script>\s*/gi,
 ];
 
 function walkHtml(dir, out = []) {
@@ -88,8 +88,14 @@ function main() {
     process.exit(1);
   }
   const block = readFileSync(PARTIAL_PATH, 'utf8').trim();
-  if (!block.includes('sc-theme.css?v=12') || !block.includes('sc-site-nav.css?v=5')) {
-    console.error('[FAIL] head-assets partial missing required versioned core links');
+  const hashedOk =
+    /sc-theme\.[a-f0-9]{8}\.css/.test(block) &&
+    /sc-site-nav\.[a-f0-9]{8}\.css/.test(block) &&
+    /sc-calc-sheet\.[a-f0-9]{8}\.css/.test(block) &&
+    /sc-theme\.[a-f0-9]{8}\.js/.test(block) &&
+    /sc-site-nav\.[a-f0-9]{8}\.js/.test(block);
+  if (!hashedOk || /\?v=\d+/.test(block)) {
+    console.error('[FAIL] head-assets partial must use content-hashed hrefs (run hash-head-assets.mjs)');
     process.exit(1);
   }
 

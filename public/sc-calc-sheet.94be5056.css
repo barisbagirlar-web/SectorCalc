@@ -1,0 +1,495 @@
+/* ============================================================
+   SectorCalc Engineering Graph Paper v4 — ONE rhythm, ALL pages
+   SSOT class: body.sc-eng-paper
+   Dual-scale: 8px minor · 40px major (exact 1:5). Same grain, same
+   registration marks, same wash — homepage + tools + calculators.
+   Homepage may load this for BACKGROUND ONLY (no wrap/titleblock).
+   Never rewrite live-cell hero markup/scripts.
+   ============================================================ */
+
+:root {
+  --iso-blue: #0055a4;
+  --iso-green: #009639;
+  --iso-yellow: #f9a800;
+  --iso-orange: #e16a00;
+  --iso-red: #c8102e;
+
+  /* Locked drafting paper — identical on every surface */
+  --cs-bg: #eef1f4;
+  --cs-paper: #fbfcfd;
+  --cs-border: #1a3a5c;
+  --cs-accent: #1a3a5c;
+  --cs-grid-minor: rgba(26, 58, 92, 0.06);
+  --cs-grid-major: rgba(26, 58, 92, 0.125);
+  --cs-grid-frame: rgba(26, 58, 92, 0.16);
+  --cs-grain: rgba(26, 58, 92, 0.022);
+  --cs-mark: rgba(26, 58, 92, 0.5);
+  --cs-vignette: rgba(255, 255, 255, 0.62);
+
+  --ds-bg: var(--cs-bg);
+  --ds-border: var(--cs-border);
+  --ds-accent: #0055a4;
+  --bom-bg: var(--cs-bg);
+  --bom-border: var(--cs-border);
+  --bom-header: var(--cs-accent);
+
+  --sc-sheet-mono: 'JetBrains Mono', 'SF Mono', 'Fira Code', Consolas, monospace;
+  /* Millimeter rhythm LOCKED — do not fork per page */
+  --sc-sheet-minor: 8px;
+  --sc-sheet-major: 40px;
+  --sc-sheet-grid: var(--sc-sheet-minor);
+  --sc-sheet-mark: 18px;
+  --sc-sheet-frame-shadow: 0 0 0 1px rgba(255, 255, 255, 0.65) inset,
+    0 0 0 6px rgba(26, 58, 92, 0.04), 0 8px 28px rgba(26, 58, 92, 0.07);
+}
+
+/* ---------- ONE paper layer (homepage + every other page) ---------- */
+body.sc-eng-paper {
+  position: relative;
+  isolation: isolate;
+  background: transparent !important;
+}
+
+/*
+  ::before — dual-scale graph paper + wash + micro-grain (identical everywhere)
+  ::after  — ISO registration marks (identical everywhere)
+*/
+body.sc-eng-paper::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-color: var(--cs-bg);
+  background-image: radial-gradient(circle at 12% 18%, var(--cs-grain) 0.55px, transparent 0.65px),
+    radial-gradient(circle at 68% 42%, var(--cs-grain) 0.5px, transparent 0.6px),
+    radial-gradient(circle at 38% 78%, var(--cs-grain) 0.55px, transparent 0.65px),
+    radial-gradient(circle at 86% 88%, var(--cs-grain) 0.45px, transparent 0.55px),
+    linear-gradient(var(--cs-grid-major) 1.5px, transparent 1.5px),
+    linear-gradient(90deg, var(--cs-grid-major) 1.5px, transparent 1.5px),
+    linear-gradient(var(--cs-grid-minor) 1px, transparent 1px),
+    linear-gradient(90deg, var(--cs-grid-minor) 1px, transparent 1px),
+    radial-gradient(125% 95% at 50% -5%, var(--cs-vignette), transparent 55%),
+    linear-gradient(180deg, #f8fafc 0%, var(--cs-bg) 38%, #e6ebf0 100%);
+  background-size:
+    40px 40px,
+    48px 48px,
+    36px 36px,
+    52px 52px,
+    var(--sc-sheet-major) var(--sc-sheet-major),
+    var(--sc-sheet-major) var(--sc-sheet-major),
+    var(--sc-sheet-minor) var(--sc-sheet-minor),
+    var(--sc-sheet-minor) var(--sc-sheet-minor),
+    100% 100%,
+    100% 100%;
+  background-position: 0 0;
+}
+
+body.sc-eng-paper::after {
+  content: '';
+  position: fixed;
+  inset: 10px;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    linear-gradient(var(--cs-mark), var(--cs-mark)) top left / var(--sc-sheet-mark) 1.5px no-repeat,
+    linear-gradient(var(--cs-mark), var(--cs-mark)) top left / 1.5px var(--sc-sheet-mark) no-repeat,
+    linear-gradient(var(--cs-mark), var(--cs-mark)) top right / var(--sc-sheet-mark) 1.5px no-repeat,
+    linear-gradient(var(--cs-mark), var(--cs-mark)) top right / 1.5px var(--sc-sheet-mark) no-repeat,
+    linear-gradient(var(--cs-mark), var(--cs-mark)) bottom left / var(--sc-sheet-mark) 1.5px
+      no-repeat,
+    linear-gradient(var(--cs-mark), var(--cs-mark)) bottom left / 1.5px var(--sc-sheet-mark)
+      no-repeat,
+    linear-gradient(var(--cs-mark), var(--cs-mark)) bottom right / var(--sc-sheet-mark) 1.5px
+      no-repeat,
+    linear-gradient(var(--cs-mark), var(--cs-mark)) bottom right / 1.5px var(--sc-sheet-mark)
+      no-repeat;
+  opacity: 0.58;
+}
+
+body.sc-eng-paper > *:not(.sc-calc-sheet-titleblock) {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- Calculation sheet ( *-pro.html ) ---------- */
+body.theme-calc-sheet .wrap,
+body.theme-calc-sheet .sc-layout {
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  background: var(--cs-paper);
+  border: 2px solid var(--cs-border);
+  box-shadow: var(--sc-sheet-frame-shadow);
+  position: relative;
+}
+
+/* Inner drawing border (double-line sheet) — same inset everywhere */
+body.theme-calc-sheet .wrap::before,
+body.theme-calc-sheet .sc-layout::before {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border: 1px solid var(--cs-grid-frame);
+  pointer-events: none;
+  z-index: 0;
+}
+
+body.theme-calc-sheet .wrap {
+  padding: 20px 22px 28px;
+}
+
+body.theme-calc-sheet .sc-layout {
+  overflow: hidden;
+}
+
+body.theme-calc-sheet .panel {
+  border-radius: 2px !important;
+  border-color: rgba(26, 58, 92, 0.22) !important;
+}
+
+body.theme-calc-sheet .panel-h {
+  border-radius: 0 !important;
+  letter-spacing: 0.08em !important;
+  font-family: var(--sc-sheet-mono) !important;
+  font-size: 11px !important;
+}
+
+body.theme-calc-sheet .head h1,
+body.theme-calc-sheet .sc-header-title {
+  letter-spacing: 0.02em;
+}
+
+body.theme-calc-sheet .formula,
+body.theme-calc-sheet .sc-formula,
+body.theme-calc-sheet .audit .body {
+  font-family: var(--sc-sheet-mono);
+}
+
+body.theme-calc-sheet .verdict {
+  border-radius: 2px !important;
+}
+
+body.theme-calc-sheet .btn,
+body.theme-calc-sheet .btn2,
+body.theme-calc-sheet .btn3,
+body.theme-calc-sheet .sc-btn {
+  border-radius: 2px !important;
+}
+
+body.theme-calc-sheet .sc-card,
+body.theme-calc-sheet .sc-sec,
+body.theme-calc-sheet .sc-report-hd {
+  border-radius: 2px;
+}
+
+body.theme-calc-sheet .sc-sidebar {
+  border-right: 1px solid rgba(26, 58, 92, 0.15);
+}
+
+/* ---------- Drawing index ( tools.html ) ---------- */
+body.theme-drawing-index .wrap {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  background: var(--cs-paper);
+  border: 2px solid var(--cs-border);
+  box-shadow: var(--sc-sheet-frame-shadow);
+  padding: 28px 32px 36px;
+  position: relative;
+}
+
+body.theme-drawing-index .wrap::before {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border: 1px solid var(--cs-grid-frame);
+  pointer-events: none;
+}
+
+/* Engineering Resources rail — must live inside .wrap (never orphan body child) */
+.sc-seo-sprint-links {
+  margin: 2rem 0 0;
+  padding: 1.35rem 1.25rem 1.4rem;
+  border: 1px solid rgba(26, 58, 92, 0.18);
+  border-left: 3px solid var(--cs-accent, #0055a4);
+  background: linear-gradient(180deg, rgba(0, 85, 164, 0.04), transparent 42%), #fff;
+  max-width: 100%;
+}
+.sc-seo-sprint-links h2 {
+  margin: 0 0 0.4rem;
+  font:
+    700 1.05rem/1.25 'IBM Plex Sans',
+    'Segoe UI',
+    sans-serif;
+  letter-spacing: 0.02em;
+  color: #0b1c2c;
+  text-transform: none;
+}
+.sc-seo-sprint-links > p {
+  margin: 0 0 0.95rem;
+  color: #3d5366;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  max-width: 42rem;
+}
+.sc-seo-sprint-links ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.65rem 1rem;
+}
+.sc-seo-sprint-links li {
+  margin: 0;
+}
+.sc-seo-sprint-links a {
+  display: block;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid rgba(26, 58, 92, 0.14);
+  background: #f7fafc;
+  color: #0055a4;
+  font-weight: 650;
+  text-decoration: none;
+  line-height: 1.3;
+}
+.sc-seo-sprint-links a:hover,
+.sc-seo-sprint-links a:focus-visible {
+  border-color: rgba(0, 85, 164, 0.45);
+  background: #eef5fb;
+  outline: none;
+}
+html[data-theme='dark'] .sc-seo-sprint-links {
+  background: linear-gradient(180deg, rgba(127, 179, 232, 0.08), transparent 42%), #131a23;
+  border-color: rgba(127, 179, 232, 0.28);
+}
+html[data-theme='dark'] .sc-seo-sprint-links h2 {
+  color: #e8eef5;
+}
+html[data-theme='dark'] .sc-seo-sprint-links > p {
+  color: #9db8d4;
+}
+html[data-theme='dark'] .sc-seo-sprint-links a {
+  background: #0f151d;
+  border-color: rgba(127, 179, 232, 0.22);
+  color: #9db8d4;
+}
+
+body.theme-drawing-index .hero h1 {
+  font-family: var(--sc-sheet-mono);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: clamp(1.35rem, 2.4vw, 1.75rem);
+}
+
+body.theme-drawing-index .tlist a,
+body.theme-drawing-index .catsec h2 {
+  font-variant-numeric: tabular-nums;
+}
+
+body.theme-drawing-index .catsec h2::before {
+  content: 'DWG · ';
+  font-family: var(--sc-sheet-mono);
+  font-size: 0.7em;
+  color: var(--ds-accent);
+  letter-spacing: 0.12em;
+}
+
+/* ---------- BOM ( pricing.html ) ---------- */
+body.theme-bom .wrap {
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  background: var(--cs-paper);
+  border: 2px solid var(--cs-border);
+  box-shadow: var(--sc-sheet-frame-shadow);
+  padding: 28px 32px 36px;
+  position: relative;
+}
+
+body.theme-bom .wrap::before {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border: 1px solid var(--cs-grid-frame);
+  pointer-events: none;
+}
+
+body.theme-bom .hero .eyebrow,
+body.theme-bom .hero h1 {
+  font-family: var(--sc-sheet-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+body.theme-bom .pack {
+  border-radius: 2px !important;
+  border: 1px solid rgba(44, 62, 80, 0.2) !important;
+}
+
+body.theme-bom .packs {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Content surfaces (glossary/compare/blog/account) ---------- */
+/* Paper comes only from body.sc-eng-paper — no per-theme forks. */
+
+/* Guides / hubs sheet frame — same border/shadow/inset as calculators */
+body.sc-guides-shell .sc-guides-main {
+  background: var(--cs-paper);
+  border: 2px solid var(--cs-border);
+  box-shadow: var(--sc-sheet-frame-shadow);
+  position: relative;
+}
+
+body.sc-guides-shell .sc-guides-main::before {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border: 1px solid var(--cs-grid-frame);
+  pointer-events: none;
+  z-index: 0;
+}
+
+body.sc-guides-shell .sc-guides-main > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- Title block (DWG stamp) — Exclusive ---------- */
+.sc-calc-sheet-titleblock {
+  position: fixed;
+  right: 0.75rem;
+  bottom: 0.75rem;
+  z-index: 40;
+  background: rgba(251, 252, 253, 0.97);
+  border: 1.5px solid var(--cs-border);
+  border-bottom-width: 3px;
+  padding: 0.55rem 0.85rem 0.6rem;
+  font-family: var(--sc-sheet-mono);
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--cs-accent);
+  line-height: 1.45;
+  pointer-events: none;
+  box-shadow:
+    -2px -2px 12px rgba(26, 58, 92, 0.06),
+    0 0 0 1px rgba(255, 255, 255, 0.8) inset;
+  min-width: 9.5rem;
+}
+
+.sc-calc-sheet-titleblock::before {
+  content: 'SECTORCALC · ENG SHEET';
+  display: block;
+  font-size: 0.52rem;
+  letter-spacing: 0.14em;
+  color: #6b7c8f;
+  border-bottom: 1px solid rgba(26, 58, 92, 0.18);
+  padding-bottom: 0.28rem;
+  margin-bottom: 0.15rem;
+}
+
+.sc-calc-sheet-titleblock .tb-row {
+  display: flex;
+  gap: 0.85rem;
+  border-bottom: 1px solid rgba(26, 58, 92, 0.12);
+  padding: 0.2rem 0;
+}
+
+.sc-calc-sheet-titleblock .tb-row:last-child {
+  border-bottom: none;
+}
+
+.sc-calc-sheet-titleblock .tb-label {
+  min-width: 3.2rem;
+  color: #6b7c8f;
+}
+
+.sc-calc-sheet-titleblock .tb-value {
+  color: var(--cs-accent);
+  font-weight: 600;
+}
+
+/* ---------- Dark theme ---------- */
+html[data-theme='dark'] body.sc-eng-paper {
+  --cs-bg: #0c1219;
+  --cs-paper: #131a23;
+  --cs-grid-minor: rgba(127, 179, 232, 0.05);
+  --cs-grid-major: rgba(127, 179, 232, 0.11);
+  --cs-grid-frame: rgba(127, 179, 232, 0.18);
+  --cs-grain: rgba(127, 179, 232, 0.035);
+  --cs-mark: rgba(157, 184, 212, 0.45);
+  --cs-vignette: rgba(19, 26, 35, 0.35);
+  --ds-bg: #0c1219;
+  --bom-bg: #0c1219;
+  --sc-sheet-frame-shadow: none;
+}
+
+html[data-theme='dark'] body.theme-calc-sheet .wrap,
+html[data-theme='dark'] body.theme-calc-sheet .sc-layout,
+html[data-theme='dark'] body.theme-drawing-index .wrap,
+html[data-theme='dark'] body.theme-bom .wrap,
+html[data-theme='dark'] body.sc-guides-shell .sc-guides-main {
+  background: var(--cs-paper);
+  border-color: rgba(127, 179, 232, 0.35);
+  box-shadow: none;
+}
+
+html[data-theme='dark'] .sc-calc-sheet-titleblock {
+  background: rgba(19, 26, 35, 0.96);
+  border-color: rgba(127, 179, 232, 0.35);
+  color: #9db8d4;
+}
+
+html[data-theme='dark'] .sc-calc-sheet-titleblock::before {
+  color: #7a93ab;
+  border-bottom-color: rgba(127, 179, 232, 0.22);
+}
+
+html[data-theme='dark'] .sc-calc-sheet-titleblock .tb-value {
+  color: #cfe0f2;
+}
+
+/* ---------- Reduced motion / print ---------- */
+@media (prefers-reduced-motion: reduce) {
+  body.sc-eng-paper::before {
+    background-attachment: scroll;
+  }
+}
+
+@media print {
+  body.sc-eng-paper::before,
+  body.sc-eng-paper::after {
+    display: none;
+  }
+
+  .sc-calc-sheet-titleblock {
+    position: static;
+    margin-top: 1rem;
+    box-shadow: none;
+  }
+}
+
+@media (max-width: 720px) {
+  .sc-calc-sheet-titleblock {
+    position: static;
+    margin: 1rem;
+    border: 1.5px solid var(--cs-border);
+  }
+
+  body.theme-drawing-index .wrap,
+  body.theme-bom .wrap,
+  body.theme-calc-sheet .wrap,
+  body.sc-guides-shell .sc-guides-main {
+    border-left: none;
+    border-right: none;
+    box-shadow: none;
+  }
+
+  body.sc-eng-paper::after {
+    inset: 6px;
+    opacity: 0.35;
+  }
+}
