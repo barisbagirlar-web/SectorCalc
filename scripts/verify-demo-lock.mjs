@@ -49,6 +49,9 @@ const ver = inject.match(/STUDY_VERSION\s*=\s*(\d+)/);
 if (!ver || Number(ver[1]) < 5) {
   fail('scripts/inject-site-nav.mjs STUDY_VERSION must be >= 5 (cache-bust sc-study lock UI)');
 }
+if (!inject.includes('|\\/)?sc-study') && !inject.includes('|\/)?sc-study')) {
+  fail('inject-site-nav must rewrite absolute /sc-study.js?v=N cache-bust URLs');
+}
 
 // Must NOT regress to wipe-to-"Locked" as the primary locked UX (kills demo teaser).
 const gate = readFileSync(join(ROOT, 'src/billing/boot-tool-gate.ts'), 'utf8');

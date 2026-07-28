@@ -11,7 +11,7 @@ const ROOT = process.cwd();
 const PARTIAL = readFileSync(join(ROOT, 'content/partials/site-nav.html'), 'utf8').trim();
 
 const FORM_FIELDS_VERSION = 5;
-const STUDY_VERSION = 5;
+const STUDY_VERSION = 6;
 const AUTH_NAV_SCRIPT = `<script type="module" src="/src/auth-nav.ts"></script>`;
 // Core theme/nav/calc-sheet/seo-content CSS+JS live in content/partials/head-assets.html
 // (injected by scripts/inject-head-assets.mjs). Do not re-inline them here.
@@ -124,8 +124,8 @@ function ensureAssets(html, page = '') {
       out = out.replace('</head>', `${STUDY_ASSETS}\n</head>`);
     } else {
       out = out
-        .replace(/(href=["'])(?:\.\/)?sc-study\.css\?v=\d+/g, `$1/sc-study.css?v=${STUDY_VERSION}`)
-        .replace(/(src=["'])(?:\.\/)?sc-study\.js\?v=\d+/g, `$1/sc-study.js?v=${STUDY_VERSION}`);
+        .replace(/(href=["'])(?:\.\/|\/)?sc-study\.css\?v=\d+/g, `$1/sc-study.css?v=${STUDY_VERSION}`)
+        .replace(/(src=["'])(?:\.\/|\/)?sc-study\.js\?v=\d+/g, `$1/sc-study.js?v=${STUDY_VERSION}`);
     }
   } else {
     out = out
