@@ -6,11 +6,11 @@
   "dns": {
     "nameservers": ["dahlia.ns.cloudflare.com", "apollo.ns.cloudflare.com"],
     "apex": {
-      "records": ["A → 199.36.158.100 (Firebase Hosting edge)"],
+      "records": ["A \u2192 199.36.158.100 (Firebase Hosting edge)"],
       "expectedTarget": "Firebase Hosting site sectorcalc-prod"
     },
     "www": {
-      "records": ["CNAME → sectorcalc-prod.web.app"],
+      "records": ["CNAME \u2192 sectorcalc-prod.web.app"],
       "expectedTarget": "Firebase Hosting site sectorcalc-prod"
     }
   },
@@ -20,11 +20,11 @@
     "defaultUrl": "https://sectorcalc-prod.web.app",
     "appHosting": false,
     "customDomains": ["sectorcalc.com", "www.sectorcalc.com"],
-    "wwwPolicy": "Firebase custom-domain primary redirect: www → apex, path-preserving, single-hop 301/308"
+    "wwwPolicy": "Firebase custom-domain primary redirect: www \u2192 apex, path-preserving, single-hop 301/308"
   },
   "discoverySsot": {
     "liveTools": 25,
-    "sitemapHtmlUrls": 86,
+    "sitemapHtmlUrls": 89,
     "calculatorCanonicalPrefix": "/calculator/",
     "llmFiles": ["/llms.txt", "/llm.txt"]
   }

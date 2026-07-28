@@ -165,6 +165,12 @@ ${limitations.map((l) => `- ${l}`).join('\n')}
 - [All tools — ${listedToolCount} live](${HOST}/tools.html)
 - [Pro hub](${HOST}/pro.html)
 - [Pricing](${HOST}/pricing.html)
+- [About](${HOST}/about)
+- [Security](${HOST}/security)
+- [Status](${HOST}/status)
+- [Refund](${HOST}/refund)
+- [Privacy](${HOST}/privacy)
+- [Terms](${HOST}/terms)
 - [Blog](${HOST}/blog)
 - [Case studies](${HOST}/case-studies)
 - [Glossary](${HOST}/glossary) — ${GLOSSARY_TERMS.length} entities

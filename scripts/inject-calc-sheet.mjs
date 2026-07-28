@@ -34,6 +34,9 @@ const EXTRA_SURFACE_DIRS = Object.freeze([
   'public/contact',
   'public/privacy',
   'public/terms',
+  'public/security',
+  'public/status',
+  'public/refund',
   'public/resources',
   'public/case-studies',
 ]);

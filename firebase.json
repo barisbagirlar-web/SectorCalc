@@ -393,6 +393,21 @@
         "type": 301
       },
       {
+        "source": "/security/index.html",
+        "destination": "/security",
+        "type": 301
+      },
+      {
+        "source": "/status/index.html",
+        "destination": "/status",
+        "type": 301
+      },
+      {
+        "source": "/refund/index.html",
+        "destination": "/refund",
+        "type": 301
+      },
+      {
         "source": "/resources/excel-to-sectorcalc-migration.html",
         "destination": "/resources/excel-to-sectorcalc-migration",
         "type": 301
@@ -849,6 +864,30 @@
       {
         "source": "/terms/",
         "destination": "/terms/index.html"
+      },
+      {
+        "source": "/security",
+        "destination": "/security/index.html"
+      },
+      {
+        "source": "/security/",
+        "destination": "/security/index.html"
+      },
+      {
+        "source": "/status",
+        "destination": "/status/index.html"
+      },
+      {
+        "source": "/status/",
+        "destination": "/status/index.html"
+      },
+      {
+        "source": "/refund",
+        "destination": "/refund/index.html"
+      },
+      {
+        "source": "/refund/",
+        "destination": "/refund/index.html"
       },
       {
         "source": "/resources/excel-to-sectorcalc-migration",

@@ -239,3 +239,30 @@ html[data-theme='dark'] code {
   color: #fbbf24;
   background: rgba(251, 191, 36, 0.1);
 }
+
+/* Trust / legal surfaces */
+.sc-trust-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.25rem 0 1.75rem;
+  font-size: 0.95rem;
+}
+.sc-trust-table th,
+.sc-trust-table td {
+  border: 1px solid rgba(11, 28, 44, 0.14);
+  padding: 0.7rem 0.85rem;
+  text-align: left;
+  vertical-align: top;
+}
+.sc-trust-table th {
+  width: 28%;
+  background: rgba(11, 28, 44, 0.04);
+  font-weight: 700;
+}
+html[data-theme='dark'] .sc-trust-table th {
+  background: rgba(255, 255, 255, 0.04);
+}
+html[data-theme='dark'] .sc-trust-table th,
+html[data-theme='dark'] .sc-trust-table td {
+  border-color: rgba(255, 255, 255, 0.12);
+}
