@@ -30,7 +30,7 @@ function headLinks() {
   return `<!--SC-HEAD-ASSETS-START-->
 ${HEAD_ASSETS}
 <!--SC-HEAD-ASSETS-END-->
-<link rel="stylesheet" href="/css/sc-guides.css?v=8">
+<link rel="stylesheet" href="/css/sc-guides.css?v=9">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Sans:wght@400;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
@@ -38,9 +38,9 @@ ${HEAD_ASSETS}
 }
 
 function footer() {
-  return `<footer class="sc-footer" style="max-width:1100px;margin:0 auto;padding:1.25rem;border-top:1px solid rgba(11,28,44,.12);display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between">
-  <p style="margin:0;color:#3d5366">© 2026 SectorCalc · Deterministic industrial calculators</p>
-  <p style="margin:0"><a href="/#free-calculators">Open bench</a> · <a href="/topics">Topics</a> · <a href="/tools.html">All tools</a> · <a href="/pricing.html">Pricing</a></p>
+  return `<footer class="sc-footer sc-guides-site-footer">
+  <p>© 2026 SectorCalc · Deterministic industrial calculators</p>
+  <p><a href="/#free-calculators">Open bench</a> · <a href="/topics">Topics</a> · <a href="/tools.html">All tools</a> · <a href="/pricing.html">Pricing</a></p>
 </footer>`;
 }
 
@@ -346,10 +346,10 @@ function compareHubHtml() {
   };
 
   const detailBlocks = COMPARE_PAGES.map(
-    (c) => `<article class="sc-guides-chain" style="margin:0.85rem 0">
-  <h3 style="margin:0 0 0.4rem;font-size:1.05rem">${esc(c.title)}</h3>
-  <p style="margin:0 0 0.45rem;color:#3d5366">${esc(c.angle)}</p>
-  <p style="margin:0;font-size:0.9rem"><strong>Best for:</strong> ${esc(c.bestFor)} · <a href="/compare/${esc(c.slug)}">Full comparison</a></p>
+    (c) => `<article class="sc-guides-chain sc-compare-angle" style="margin:0.85rem 0">
+  <h3 class="sc-compare-angle-title">${esc(c.title)}</h3>
+  <p class="sc-compare-angle-body">${esc(c.angle)}</p>
+  <p class="sc-compare-angle-meta"><strong>Best for:</strong> ${esc(c.bestFor)} · <a href="/compare/${esc(c.slug)}">Full comparison</a></p>
 </article>`
   ).join('\n');
 

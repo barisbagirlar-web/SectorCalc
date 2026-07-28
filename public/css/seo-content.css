@@ -223,33 +223,85 @@ html[data-theme='dark'] body {
 }
 html[data-theme='dark'] .sc-header,
 html[data-theme='dark'] .sc-footer,
+html[data-theme='dark'] .sc-btn-secondary {
+  background: #131a23;
+}
+/*
+ * Content paper (compare / glossary / blog leaves): white + black ink in dark mode.
+ * Matches /guides and /glossary hubs. Links stay blue.
+ */
+html[data-theme='dark'] .sc-glossary-page,
+html[data-theme='dark'] .sc-compare-page,
+html[data-theme='dark'] .sc-guide-page,
+html[data-theme='dark'] .sc-content-page,
+html[data-theme='dark'] .sc-blog-page {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border-color: rgba(11, 28, 44, 0.22);
+  color-scheme: light;
+  --text: #000000;
+  --muted: #000000;
+  --card: #ffffff;
+  --border: rgba(11, 28, 44, 0.14);
+}
+html[data-theme='dark'] .sc-glossary-page :not(a),
+html[data-theme='dark'] .sc-compare-page :not(a),
+html[data-theme='dark'] .sc-guide-page :not(a),
+html[data-theme='dark'] .sc-content-page :not(a),
+html[data-theme='dark'] .sc-blog-page :not(a) {
+  color: #000000 !important;
+}
+html[data-theme='dark'] .sc-glossary-page a,
+html[data-theme='dark'] .sc-compare-page a,
+html[data-theme='dark'] .sc-guide-page a,
+html[data-theme='dark'] .sc-content-page a,
+html[data-theme='dark'] .sc-blog-page a,
+html[data-theme='dark'] .sc-glossary-page a *,
+html[data-theme='dark'] .sc-compare-page a *,
+html[data-theme='dark'] .sc-guide-page a *,
+html[data-theme='dark'] .sc-content-page a *,
+html[data-theme='dark'] .sc-blog-page a * {
+  color: var(--blue, #0055a4) !important;
+}
 html[data-theme='dark'] .definition-box,
 html[data-theme='dark'] .sc-cta-panel,
 html[data-theme='dark'] .sc-facts-table,
 html[data-theme='dark'] .sc-term-card,
 html[data-theme='dark'] .compare-card,
-html[data-theme='dark'] .sc-btn-secondary {
-  background: #131a23;
+html[data-theme='dark'] .sc-compare-table,
+html[data-theme='dark'] .sc-compare-table th,
+html[data-theme='dark'] .sc-compare-table td {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border-color: rgba(11, 28, 44, 0.14);
 }
 /* FAQ stays paper-white in dark mode (guides/glossary hubs + articles).
    Do not force #131a23 here — native <details> + color-scheme:dark washes it. */
 html[data-theme='dark'] .sc-faq-item,
 html[data-theme='dark'] details.sc-faq-item {
-  background: #ffffff;
-  color: #000000;
+  background: #ffffff !important;
+  color: #000000 !important;
   color-scheme: light;
   border-color: rgba(11, 28, 44, 0.12);
 }
 html[data-theme='dark'] .sc-faq-item summary,
 html[data-theme='dark'] .sc-faq-item p,
 html[data-theme='dark'] .sc-faq-item code {
-  color: #000000;
+  color: #000000 !important;
 }
 html[data-theme='dark'] .sc-faq-item a {
-  color: var(--blue, #0055a4);
+  color: var(--blue, #0055a4) !important;
 }
 html[data-theme='dark'] .sc-logo {
   color: #e8eef5;
+}
+html[data-theme='dark'] .sc-glossary-page code,
+html[data-theme='dark'] .sc-compare-page code,
+html[data-theme='dark'] .sc-guide-page code,
+html[data-theme='dark'] .sc-content-page code,
+html[data-theme='dark'] .sc-blog-page code {
+  color: #8a4b12 !important;
+  background: rgba(232, 119, 34, 0.08);
 }
 html[data-theme='dark'] code {
   color: #fbbf24;
@@ -276,11 +328,12 @@ html[data-theme='dark'] code {
   font-weight: 700;
 }
 html[data-theme='dark'] .sc-trust-table th {
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(11, 28, 44, 0.04);
 }
 html[data-theme='dark'] .sc-trust-table th,
 html[data-theme='dark'] .sc-trust-table td {
-  border-color: rgba(255, 255, 255, 0.12);
+  border-color: rgba(11, 28, 44, 0.14);
+  color: #000000;
 }
 
 /* Shared drawing title-block (leaf + calc-sheet) */
