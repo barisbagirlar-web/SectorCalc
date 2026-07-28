@@ -76,6 +76,7 @@ if (!existsSync(FORM_CSS)) {
   issues.push(`public/${FORM_CSS_NAME}: FILE MISSING (canonical form layout)`);
 } else {
   const css = readFileSync(FORM_CSS, 'utf8');
+  const cssCompact = css.replace(/\s+/g, '');
   for (const need of [
     '.uwrap',
     'min-width:5.75rem',
@@ -83,7 +84,7 @@ if (!existsSync(FORM_CSS)) {
     'tabular-nums',
     '-webkit-appearance:none'
   ]) {
-    if (!css.includes(need)) {
+    if (!css.includes(need) && !cssCompact.includes(need.replace(/\s+/g, ''))) {
       issues.push(`public/${FORM_CSS_NAME}: missing required rule/token "${need}"`);
     }
   }

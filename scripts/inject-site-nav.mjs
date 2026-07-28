@@ -10,7 +10,7 @@ import { join } from 'node:path';
 const ROOT = process.cwd();
 const PARTIAL = readFileSync(join(ROOT, 'content/partials/site-nav.html'), 'utf8').trim();
 
-const FORM_FIELDS_VERSION = 5;
+const FORM_FIELDS_VERSION = 6;
 const STUDY_VERSION = 6;
 const AUTH_NAV_SCRIPT = `<script type="module" src="/src/auth-nav.ts"></script>`;
 // Core theme/nav/calc-sheet/seo-content CSS+JS live in content/partials/head-assets.html
