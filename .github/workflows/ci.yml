@@ -30,6 +30,7 @@ jobs:
       - run: npm run build
       - run: node scripts/verify-nav.mjs
       - run: node scripts/guard-head-ssot.mjs
+      - run: node scripts/guard-case-studies-academic.mjs
       - run: node scripts/guard-tools-prerender.mjs --dist
       - run: node scripts/guard-sitemap-coverage.mjs
       - name: Legacy surface (local)

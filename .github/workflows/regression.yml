@@ -60,6 +60,7 @@ jobs:
         run: |
           node scripts/verify-nav.mjs
           node scripts/guard-head-ssot.mjs
+          node scripts/guard-case-studies-academic.mjs
           node scripts/guard-tools-prerender.mjs --dist
           node scripts/guard-sitemap-coverage.mjs
           node scripts/verify-form-fields.mjs
