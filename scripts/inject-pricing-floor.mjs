@@ -33,13 +33,13 @@ function esc(s) {
 function chip(href, code, name, blurb, access) {
   const badge =
     access === 'free'
-      ? '<span class="chip-access chip-free">Open · no credits</span>'
-      : '<span class="chip-access chip-paid">Credits · 24h session</span>';
+      ? '<span class="chip-access chip-free">Open bench · no session</span>'
+      : '<span class="chip-access chip-paid">Tier-A · 24h session</span>';
   return `<a class="tool-chip" data-access="${esc(access)}" href="${esc(href)}"><span class="sc">${esc(code)}</span>${badge}<span class="nm">${esc(name)}</span><span class="ds">${esc(blurb)}</span></a>`;
 }
 
 const freeChips = FREE_TOOLS.map((t) =>
-  chip(t.canonicalPath, t.toolId, t.name, 'Open bench · no sign-in · no credits', 'free'),
+  chip(t.canonicalPath, t.toolId, t.name, 'Open bench · no sign-in · no session debit', 'free'),
 ).join('\n        ');
 
 const paidChips = DECISION_TOOL_CHIPS.map((t) =>
