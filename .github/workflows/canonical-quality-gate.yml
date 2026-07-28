@@ -31,6 +31,7 @@ jobs:
       - name: Post-build audits
         run: |
           node scripts/verify-nav.mjs
+          node scripts/guard-head-ssot.mjs
           node scripts/verify-form-fields.mjs
           LEGACY_SURFACE_MODE=local npm run verify:legacy-surface
       - name: Live host parity seal
