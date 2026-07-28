@@ -36,7 +36,7 @@ const IGNORE_FILES = new Set([
 ]);
 
 const BINARY_EXT = new Set([
-  '.png', '.jpg', '.jpeg', '.gif', '.webp', '.ico', '.svg',
+  '.png', '.jpg', '.jpeg', '.gif', '.webp', '.avif', '.ico', '.svg',
   '.woff', '.woff2', '.ttf', '.eot', '.otf',
   '.pdf', '.zip', '.gz', '.mp4', '.mp3'
 ]);
