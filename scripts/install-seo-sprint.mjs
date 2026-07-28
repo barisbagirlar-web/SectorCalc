@@ -277,7 +277,7 @@ function patchContentHtml(filePath) {
   let html = fs.readFileSync(filePath, "utf8");
   html = html.replace(
     /<link rel="stylesheet" href="\/assets\/css\/sectorcalc-base\.css">/g,
-    '<link rel="stylesheet" href="/css/seo-content.css">\n  <link rel="stylesheet" href="/sc-theme.css">',
+    '<link rel="stylesheet" href="/css/seo-content.css?v=1">',
   );
   // Prefer live calculator file URLs inside content CTAs only when rewrite not yet known by crawlers —
   // keep /calculator/* links; Firebase rewrites activate them.

@@ -13,6 +13,7 @@ import { AEO_EMPATHY } from '../seo/aeo-empathy.mjs';
 
 const ROOT = process.cwd();
 const HEADER = readFileSync(join(ROOT, 'content/partials/site-header.html'), 'utf8').trim();
+const HEAD_ASSETS = readFileSync(join(ROOT, 'content/partials/head-assets.html'), 'utf8').trim();
 const HOST = 'https://sectorcalc.com';
 const CSS_V = 4;
 const MIN_GUIDE_BYTES = 20000;
@@ -32,17 +33,14 @@ function accessBadge(access) {
 }
 
 function headLinks() {
-  return `<link rel="stylesheet" href="/css/seo-content.css">
-<link rel="stylesheet" href="/sc-theme.css?v=12">
-<link rel="stylesheet" href="/sc-site-nav.css?v=5">
+  return `<!--SC-HEAD-ASSETS-START-->
+${HEAD_ASSETS}
+<!--SC-HEAD-ASSETS-END-->
 <link rel="stylesheet" href="/sc-tool-guide.css?v=3">
 <link rel="stylesheet" href="/css/sc-guides.css?v=${CSS_V}">
-<link rel="stylesheet" href="/sc-calc-sheet.css?v=4">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Sans:wght@400;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
-<script src="/sc-theme.js?v=12" defer></script>
-<script src="/sc-site-nav.js?v=2" defer></script>
 <script src="/sc-tool-guide.js?v=3" defer></script>
 <script type="module" src="/src/auth-nav.ts"></script>`;
 }

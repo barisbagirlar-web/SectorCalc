@@ -29,6 +29,7 @@ jobs:
       - run: npm run typecheck
       - run: npm run build
       - run: node scripts/verify-nav.mjs
+      - run: node scripts/guard-head-ssot.mjs
       - name: Legacy surface (local)
         run: LEGACY_SURFACE_MODE=local npm run verify:legacy-surface
       - name: Host parity (live)

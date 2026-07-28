@@ -9,9 +9,9 @@ import { readFileSync, writeFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 
 const ROOT = process.cwd();
+// Shared sc-calc-sheet.css is owned by content/partials/head-assets.html (inject-head-assets).
 const CSS_HREF = '/sc-calc-sheet.css?v=4';
 const CSS_HREF_ISOLATED = '/css/calculation-sheet.css?v=2';
-const LINK = `<link rel="stylesheet" href="${CSS_HREF}">`;
 const LINK_ISOLATED = `<link rel="stylesheet" href="${CSS_HREF_ISOLATED}">`;
 const START = '<!--SC-CALC-SHEET-START-->';
 const END = '<!--SC-CALC-SHEET-END-->';
@@ -74,13 +74,9 @@ function stripMarkers(html, start, end) {
 }
 
 function ensureCssLink(html, { isolated = false } = {}) {
-  let out = html
-    .replace(/<link[^>]+sc-calc-sheet\.css[^>]*>\s*/gi, '')
-    .replace(/<link[^>]+calculation-sheet\.css[^>]*>\s*/gi, '');
-  // Always load the shared paper SSOT
-  if (/<\/head>/i.test(out)) {
-    out = out.replace(/<\/head>/i, `  ${LINK}\n</head>`);
-  }
+  // Shared sc-calc-sheet.css is injected by inject-head-assets (SSOT).
+  // Only the isolated SC-008 calculation-sheet remains page-specific here.
+  let out = html.replace(/<link[^>]+calculation-sheet\.css[^>]*>\s*/gi, '');
   if (isolated && /<\/head>/i.test(out)) {
     out = out.replace(/<\/head>/i, `  ${LINK_ISOLATED}\n</head>`);
   }
@@ -213,9 +209,8 @@ function assertHomepageHeroSafe() {
   if (!html.includes('sc-eng-paper')) {
     throw new Error('GUARD: index.html must use sc-eng-paper for shared background rhythm');
   }
-  if (!html.includes(CSS_HREF) && !html.includes('sc-calc-sheet.css?v=4')) {
-    throw new Error('GUARD: index.html must load sc-calc-sheet.css?v=4');
-  }
+  // Shared CSS link is owned by head-assets SSOT (may land after this script in the build).
+  // Eng-paper body class + hero immutability are the hard checks here.
 }
 
 function main() {
