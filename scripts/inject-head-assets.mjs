@@ -72,14 +72,44 @@ function stripCore(html) {
   return out;
 }
 
+/**
+ * Page-specific chrome (sc-guides / sc-tool-guide) must load AFTER core theme
+ * assets. inject() places SC-HEAD-ASSETS at </head>, so without this pin those
+ * sheets end up earlier and lose the dark-mode cascade fight.
+ */
+function pinPageCssAfterHeadAssets(html) {
+  const pins = [];
+  let out = html;
+  for (const re of [
+    /<link[^>]+href=["'][^"']*sc-tool-guide\.css[^"']*["'][^>]*>\s*/gi,
+    /<link[^>]+href=["'][^"']*\/css\/sc-guides\.css[^"']*["'][^>]*>\s*/gi,
+  ]) {
+    out = out.replace(re, (m) => {
+      pins.push(m.trim());
+      return '';
+    });
+  }
+  if (!pins.length) return html;
+  const pinBlock = `${pins.join('\n')}\n`;
+  if (out.includes(END)) {
+    return out.replace(END, `${END}\n${pinBlock}`);
+  }
+  if (/<\/head>/i.test(out)) {
+    return out.replace(/<\/head>/i, `${pinBlock}</head>`);
+  }
+  return `${out}\n${pinBlock}`;
+}
+
 function inject(html, block) {
   let out = stripMarkers(html);
   out = stripCore(out);
   const marked = `${START}\n${block}\n${END}`;
   if (/<\/head>/i.test(out)) {
-    return out.replace(/<\/head>/i, `${marked}\n</head>`);
+    out = out.replace(/<\/head>/i, `${marked}\n</head>`);
+  } else {
+    out = `${out}\n${marked}\n`;
   }
-  return `${out}\n${marked}\n`;
+  return pinPageCssAfterHeadAssets(out);
 }
 
 function main() {

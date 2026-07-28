@@ -30,7 +30,7 @@ function headLinks() {
   return `<!--SC-HEAD-ASSETS-START-->
 ${HEAD_ASSETS}
 <!--SC-HEAD-ASSETS-END-->
-<link rel="stylesheet" href="/css/sc-guides.css?v=6">
+<link rel="stylesheet" href="/css/sc-guides.css?v=7">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=IBM+Plex+Sans:wght@400;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
