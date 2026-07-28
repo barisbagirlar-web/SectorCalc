@@ -15,6 +15,7 @@ import {
   validateRegistryInvariants,
 } from '../seo/registry.mjs';
 import { FREE_TOOLS } from '../seo/free-tools.mjs';
+import { tierSitemapRank } from '../seo/tool-pricing.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -34,7 +35,7 @@ if (locs.length < Math.floor(CURRENT_INDEXABLE_BASELINE * 0.5)) {
   process.exit(1);
 }
 
-// Stable order: hubs → topics → free open-bench calculators → other calculators → content.
+// Stable order: hubs → topics → free → CORE → PRO → ADVANCED → other content.
 const pages = sitemapPages();
 const freePaths = new Set(FREE_TOOLS.map((t) => t.canonicalPath));
 const rank = (p) => {
@@ -42,8 +43,8 @@ const rank = (p) => {
   if (['/tools.html', '/pro.html', '/pricing.html'].includes(p.canonicalPath)) return 1;
   if (p.canonicalPath === '/topics' || p.canonicalPath.startsWith('/topics/')) return 2;
   if (p.role === 'calculator' && freePaths.has(p.canonicalPath)) return 3;
-  if (p.role === 'calculator') return 4;
-  return 5;
+  if (p.role === 'calculator') return 4 + tierSitemapRank(p.id);
+  return 10;
 };
 pages.sort((a, b) => {
   const ra = rank(a);
@@ -73,5 +74,5 @@ ${body}
 
 writeFileSync(join(ROOT, 'public/sitemap.xml'), xml);
 console.log(
-  `[OK] sitemap.xml written: ${ordered.length} URLs (${FREE_TOOLS.length} open-bench calculators prioritized)`,
+  `[OK] sitemap.xml written: ${ordered.length} URLs (free → CORE → PRO → ADVANCED calculator order)`,
 );

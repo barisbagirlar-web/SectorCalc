@@ -19,8 +19,9 @@ function monetizationUiEnabled(): boolean {
 }
 
 function esc(s: string): string {
-  return s.replace(/[&<>"']/g, (c) =>
-    ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!
+  return s.replace(
+    /[&<>"']/g,
+    (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!
   );
 }
 
@@ -31,6 +32,7 @@ export class ProfessionalGate {
   private entitledUntil: string | null = null;
   private balance: number | null = null;
   private cost: number;
+  private tier: string;
   private enforce: boolean;
 
   constructor(opts: ProfessionalGateOptions) {
@@ -39,6 +41,7 @@ export class ProfessionalGate {
     this.onEntitled = opts.onEntitled;
     const pricing = resolveToolCost(opts.toolId);
     this.cost = pricing?.creditCost ?? 15;
+    this.tier = pricing?.tier ?? 'ADVANCED';
     this.enforce = monetizationUiEnabled() && isCreditRequired(opts.toolId);
     this.render();
     void this.refresh();
@@ -88,7 +91,10 @@ export class ProfessionalGate {
       window.location.href = `/login.html?next=${encodeURIComponent(window.location.pathname + window.location.search)}`;
       return;
     }
-    trackBillingEvent('professional_session_requested', { toolId: this.toolId, creditCost: this.cost });
+    trackBillingEvent('professional_session_requested', {
+      toolId: this.toolId,
+      creditCost: this.cost
+    });
     try {
       const res = await openProfessionalSessionApi(this.toolId);
       if ('error' in res) {
@@ -106,7 +112,10 @@ export class ProfessionalGate {
         }
         if (res.error === 'BILLING_DEBT') {
           trackBillingEvent('professional_session_blocked_debt', { toolId: this.toolId });
-          this.renderError('Account has billing debt. Purchase credits to settle before unlocking.', false);
+          this.renderError(
+            'Account has billing debt. Purchase credits to settle before unlocking.',
+            false
+          );
           return;
         }
         this.renderError(String(res.error), false);
@@ -114,10 +123,13 @@ export class ProfessionalGate {
       }
       this.entitledUntil = res.expiresAt;
       this.balance = res.newWalletBalance;
-      trackBillingEvent(res.reused ? 'professional_session_reused' : 'professional_session_started', {
-        toolId: this.toolId,
-        creditCost: res.creditCost
-      });
+      trackBillingEvent(
+        res.reused ? 'professional_session_reused' : 'professional_session_started',
+        {
+          toolId: this.toolId,
+          creditCost: res.creditCost
+        }
+      );
       this.render();
       this.onEntitled?.({ expiresAt: res.expiresAt, reused: res.reused });
     } catch (err) {
@@ -145,7 +157,10 @@ export class ProfessionalGate {
       body = `<p class="sc-pro-gate-copy">This tool is free in the current configuration (no credit debit).</p>`;
     } else if (entitled) {
       const exp = this.entitledUntil
-        ? new Date(this.entitledUntil).toLocaleString(undefined, { dateStyle: 'medium', timeStyle: 'short' })
+        ? new Date(this.entitledUntil).toLocaleString(undefined, {
+            dateStyle: 'medium',
+            timeStyle: 'short'
+          })
         : '—';
       body = `
         <p class="sc-pro-gate-active">Session active — calculation unlocked</p>
@@ -155,6 +170,7 @@ export class ProfessionalGate {
       body = `
         <p class="sc-pro-gate-copy">Sign in and unlock a 24-hour session to run this calculator. One debit covers unlimited recalculation until expiry.</p>
         <ul class="sc-pro-gate-meta">
+          <li><strong>Tier:</strong> ${esc(this.tier)}</li>
           <li><strong>Cost:</strong> ${this.cost} credits</li>
           <li><strong>Current balance:</strong> ${esc(bal)} credits</li>
           <li><strong>After unlock:</strong> ${esc(after)} credits</li>
@@ -169,12 +185,14 @@ export class ProfessionalGate {
 
     this.mount.innerHTML = `
       <aside class="sc-pro-gate" data-tool="${esc(this.toolId)}">
-        <p class="sc-pro-gate-kicker">Credit unlock · ${esc(this.toolId)}</p>
-        <h2 class="sc-pro-gate-title">${this.cost} CREDITS</h2>
+        <p class="sc-pro-gate-kicker">Credit unlock · ${esc(this.toolId)} · ${esc(this.tier)}</p>
+        <h2 class="sc-pro-gate-title">${esc(this.tier)} · ${this.cost} CREDITS</h2>
         ${body}
       </aside>`;
 
-    this.mount.querySelector('[data-confirm-pro]')?.addEventListener('click', () => void this.startSession());
+    this.mount
+      .querySelector('[data-confirm-pro]')
+      ?.addEventListener('click', () => void this.startSession());
   }
 }
 

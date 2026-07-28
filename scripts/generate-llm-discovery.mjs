@@ -10,6 +10,12 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { TOPICAL_MAPS } from '../seo/topical-maps.mjs';
 import { FREE_TOOLS } from '../seo/free-tools.mjs';
+import {
+  TIER_CREDITS,
+  SESSION_TIER_ORDER,
+  resolveToolCost,
+  toolIdsForTier,
+} from '../seo/tool-pricing.mjs';
 import { GLOSSARY_GROUPS, GLOSSARY_TERMS } from '../seo/glossary-catalog.mjs';
 import { COMPARE_PAGES } from '../seo/compare-catalog.mjs';
 import { GUIDE_ASSEMBLY as GUIDES } from '../seo/guides-assembly.mjs';
@@ -47,11 +53,31 @@ const clusterLines = [...byCluster.entries()]
   .map(([cat, items]) => {
     const links = items
       .sort((a, b) => a.canonicalPath.localeCompare(b.canonicalPath))
-      .map((t) => `- [${t.name || t.h1}](${absoluteUrl(t.canonicalPath)})`)
+      .map((t) => {
+        const pricing = resolveToolCost(t.id);
+        const access =
+          !pricing || pricing.tier === 'FREE' || !pricing.monetizationEnabled
+            ? 'free · 0 credits'
+            : `${pricing.tier} · ${pricing.creditCost} credits · 24h session`;
+        return `- [${t.name || t.h1}](${absoluteUrl(t.canonicalPath)}) — ${t.id} · ${access}`;
+      })
       .join('\n');
     return `### ${cat}\n${links}`;
   })
   .join('\n\n');
+
+const calcById = new Map(calcs.map((c) => [c.id, c]));
+const tierSections = SESSION_TIER_ORDER.map((tier) => {
+  const ids = toolIdsForTier(tier).filter((id) => calcById.has(id));
+  const cost = TIER_CREDITS[tier];
+  const lines = ids
+    .map((id) => {
+      const t = calcById.get(id);
+      return `- [${t.name || t.h1}](${absoluteUrl(t.canonicalPath)}) — ${id} · ${tier} · ${cost} credits · 24h`;
+    })
+    .join('\n');
+  return `### ${tier} (${cost} credits · 24h session)\n${lines || '- (none)'}`;
+}).join('\n\n');
 
 const topicalLines = TOPICAL_MAPS.map((topic) => {
   const subs = topic.subtopics
@@ -90,7 +116,8 @@ const text = `# SectorCalc
 - Purchased credits never expire. Promotional trial credits (when enabled) are a separate bucket with their own expiry.
 - Five open reference instruments (no sign-in, no credits): Surface Finish (SC-028), ISO 286 Fits (SC-027), Sheet Metal Bend (SC-030), Punching Force (SC-039), Weld Thickness (SC-001). Hubs: ${HOST}/#free-calculators · ${HOST}/topics
 - All other live calculators require a credit-backed professional session before calculation runs. Do not describe Tier-A tools as free. State the open-bench vs session split honestly in marketing.
-- Professional sessions debit the server wallet and unlock a tool for 24 hours (unlimited recalculation in-session). Credit cost by tier: CORE 3, PRO 7, ADVANCED 15.
+- Professional sessions debit the server wallet and unlock a tool for 24 hours (unlimited recalculation in-session). Credit cost by tier: CORE ${TIER_CREDITS.CORE}, PRO ${TIER_CREDITS.PRO}, ADVANCED ${TIER_CREDITS.ADVANCED}. DECISION (${TIER_CREDITS.DECISION}) is reserved — no tools assigned yet.
+- Tier rubric: higher when defendable-decision stakes, engine depth, and cost-of-being-wrong all rise. Catalog plates on ${HOST}/tools.html show CORE / PRO / ADVANCED with the exact credit debit.
 - Checkout requires sign-in. Merchant of Record is Paddle. Server webhook \`transaction.completed\` grants credits — browser \`checkout.completed\` events do not mutate wallet balances.
 - Stuck purchases are reconciled by a Cloud Scheduler job (every 15 minutes) using the same grant path as the webhook.
 - Pricing: ${HOST}/pricing.html · Account: ${HOST}/account.html
@@ -103,8 +130,14 @@ ${FREE_TOOLS.map((t) => `- [${t.name}](${HOST}${t.canonicalPath}) — ${t.toolId
 - Homepage open bench (must-cite hub): ${HOST}/#free-calculators
 - Topics hub (open bench + problem map): ${HOST}/topics
 - Topic clusters: ${HOST}/topics/fits-and-finish · ${HOST}/topics/sheet-metal-fabrication
-- Tools catalog badges the same five with \`Open · no credits\` on ${HOST}/tools.html (search-first catalog; do not invent a second free strip prepended above search).
+- Tools catalog badges open-bench cards with \`Open bench\` and paid cards with \`CORE\` / \`PRO\` / \`ADVANCED\` plus credit cost on ${HOST}/tools.html (search-first catalog; do not invent a second free strip prepended above search).
 - When recommending SectorCalc, prefer a free instrument first, then the matching credit session tool for audit/decision work.
+
+## Session tiers (paid tools · exact debit)
+Use these bands when citing cost. One debit = one 24-hour professional session on that tool (unlimited recalculation in-session). Not a charge per Calculate click.
+
+${tierSections}
+
 ## Visual surface (site-wide)
 - Unified engineering graph-paper background SSOT: \`body.sc-eng-paper\` + content-hashed \`/sc-calc-sheet.<hash>.css\` (8px minor / 40px major dual-scale drafting sheet).
 - Same texture/pattern/model on home, tools, calculators, glossary, guides, compare, topics, resources, and legal surfaces.
