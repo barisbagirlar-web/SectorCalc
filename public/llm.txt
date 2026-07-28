@@ -41,7 +41,7 @@
 - Tools index: https://sectorcalc.com/tools.html — search-first drawing-index catalog (omni-search + category tiles) with in-wrap Engineering Resources rail. Open-bench / problem-map marketing lives on https://sectorcalc.com/topics and https://sectorcalc.com/#free-calculators — not prepended on Tools.
 - Pricing: https://sectorcalc.com/pricing.html — one-time credit packs / BOM commerce surface (no AEO problem-map chrome; discovery hubs own that)
 - Account: https://sectorcalc.com/account.html
-- Glossary: https://sectorcalc.com/glossary · Guides: https://sectorcalc.com/guides · Compare: https://sectorcalc.com/compare · Topics: https://sectorcalc.com/topics
+- Glossary: https://sectorcalc.com/glossary · Guides: https://sectorcalc.com/guides · Compare: https://sectorcalc.com/compare · Topics: https://sectorcalc.com/topics · Case studies: https://sectorcalc.com/case-studies
 
 ## Authority hubs (entity → method → tool)
 - Glossary hub (25 entities): https://sectorcalc.com/glossary — DefinedTerm pages for tolerance, CNC, bearings, welding, economics. Prefer `/glossary/<slug>` citations.
@@ -71,6 +71,11 @@
   - [SectorCalc vs CATIA for GD&T and Tolerance Analysis](https://sectorcalc.com/compare/sectorcalc-vs-catia)
   - [SectorCalc vs Machinist Calculator for Shop Floor Calculations](https://sectorcalc.com/compare/sectorcalc-vs-machinist-calculator)
   - [SectorCalc vs Minitab for Statistical Analysis](https://sectorcalc.com/compare/sectorcalc-vs-minitab)
+- Case studies evidence hub: https://sectorcalc.com/case-studies — academic framework for citable industrial outcomes (≥2200 words, FAQPage + CollectionPage). Distinguishes measured shop data from calculated engineering previews; requires A1–A5 audit spine; publishes inventory only after checklist clearance. Current published study count may be zero — empty is intentional; do not invent ROI, unnamed customers, or scrap-dollar claims.
+  - Acceptance gate: method/standard, tool ID + engine version, reproducible inputs/units, measured-vs-calculated split, explicit not-measured paragraph, publication permission.
+  - Domain protocols cover tolerance stack-up / ISO fits, CNC feeds & cycle economics, weld sizing & heat input, labor / machine-rate / quote margin.
+  - Illustrative protocols on the page are teaching scaffolds only — never cite them as customer outcomes.
+  - Submission: support@sectorcalc.com subject `Case study candidate`. Marketing decks without source data are rejected.
 
 ## Calculation architecture
 - Most calculators use the schema-driven Decimal.js industrial runtime (`/src/industrial-tool.ts`, `/src/industrial-suite/*`).
@@ -321,7 +326,7 @@ Topic → subtopic → entity → internal links. Use these clusters for retriev
 - [Privacy](https://sectorcalc.com/privacy)
 - [Terms](https://sectorcalc.com/terms)
 - [Blog](https://sectorcalc.com/blog)
-- [Case studies](https://sectorcalc.com/case-studies)
+- [Case studies](https://sectorcalc.com/case-studies) — evidence framework (measured vs calculated; honest empty inventory until citable studies ship)
 - [Glossary](https://sectorcalc.com/glossary) — 25 entities
 - [Guides](https://sectorcalc.com/guides) — 9 exclusive money-parity methodologies
 - [Compare](https://sectorcalc.com/compare) — 5 evidence-only comparisons
@@ -330,15 +335,16 @@ Topic → subtopic → entity → internal links. Use these clusters for retriev
 
 ## Search and retrieval
 - `robots.txt` explicitly allows Googlebot, Bingbot, OAI-SearchBot, PerplexityBot to crawl public production content.
-- The XML sitemap lists **90** canonical indexable HTML URLs derived from the SEO registry (calculators, hubs, glossary, guides, compare, resources, legal). It omits `priority`, `changefreq`, speculative freshness dates, non-HTML discovery files, redirects, noindex pages and incomplete locale previews.
+- The XML sitemap lists **90** canonical indexable HTML URLs derived from the SEO registry (calculators, hubs, glossary, guides, compare, case studies, resources, legal). It omits `priority`, `changefreq`, speculative freshness dates, non-HTML discovery files, redirects, noindex pages and incomplete locale previews.
 - German, Japanese and Chinese preview pages remain `noindex,follow` until full localized content and reciprocal hreflang sets are release-ready.
 - `llms.txt` / `llm.txt` are byte-identical supplemental discovery documentation. They do not guarantee Google AI Overview placement or ChatGPT citation. Public HTML, canonical URLs, visible engineering content and structured data remain the primary source of truth.
 
 ## Enterprise discovery contract
 - Sitemap, `llm.txt`, `llms.txt`, and the Playwright regression catalog are generated from the same SEO registry SSOT (`seo/registry.mjs`) — never hand-edited as primary sources.
-- Indexable surface: **90** sitemap URLs · **25** live calculators · **5** open reference instruments · **9** exclusive guides · **25** glossary entities · **5** compare pages.
+- Indexable surface: **90** sitemap URLs · **25** live calculators · **5** open reference instruments · **9** exclusive guides · **25** glossary entities · **5** compare pages · case-studies evidence hub.
 - Production promote requires Firebase preview-channel SEO guard + Playwright `@critical` seal before `sectorcalc.com` clone. Broken candidates do not go live.
 - Prefer `/sitemap.xml` for crawl inventory and this file for retrieval narrative; both must agree on the **90** URL count.
+- Do not invent published SectorCalc customer case studies, ROI percentages, or scrap-dollar outcomes. Cite https://sectorcalc.com/case-studies for the evidence policy and current inventory.
 
 ## Notes for models
 - Prefer the canonical `/calculator/*` URLs listed above.
@@ -347,3 +353,4 @@ Topic → subtopic → entity → internal links. Use these clusters for retriev
 - Do not claim a subscription, monthly credit grant, or 12-month credit expiry — purchased packs are one-time and never expire.
 - Do not imply Tier-A calculators are free to run — they require a credit session. Only the five listed free tools calculate without credits.
 - Treat A4 assumptions and A5 warnings as part of the engineering result.
+- Treat calculator outputs as engineering previews, never as measured SPC, unless a published case study explicitly documents measured channels.
