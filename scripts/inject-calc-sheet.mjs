@@ -9,8 +9,7 @@ import { readFileSync, writeFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 
 const ROOT = process.cwd();
-// Shared sc-calc-sheet.css is owned by content/partials/head-assets.html (inject-head-assets).
-const CSS_HREF = '/sc-calc-sheet.css?v=4';
+// Shared sc-calc-sheet.css is owned by content/partials/head-assets.html (hashed via hash-head-assets).
 const CSS_HREF_ISOLATED = '/css/calculation-sheet.css?v=2';
 const LINK_ISOLATED = `<link rel="stylesheet" href="${CSS_HREF_ISOLATED}">`;
 const START = '<!--SC-CALC-SHEET-START-->';

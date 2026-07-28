@@ -184,11 +184,11 @@ function checkPage(page) {
   // Site pages (not legacy calculator redirects) must ship the shared theme engine
   if (!page.startsWith('calculator')) {
     if (!html.includes('id="themeToggle"')) issues.push(`${page}: missing #themeToggle`);
-    if (!html.includes('sc-theme.css')) issues.push(`${page}: missing sc-theme.css`);
-    if (!html.includes('sc-theme.js')) issues.push(`${page}: missing sc-theme.js`);
+    if (!/sc-theme(?:\.[a-f0-9]{8})?\.css/.test(html)) issues.push(`${page}: missing sc-theme.css`);
+    if (!/sc-theme(?:\.[a-f0-9]{8})?\.js/.test(html)) issues.push(`${page}: missing sc-theme.js`);
     if (!html.includes('sectorcalc-theme')) issues.push(`${page}: missing theme boot key`);
-    if (!html.includes('sc-site-nav.css')) issues.push(`${page}: missing sc-site-nav.css`);
-    if (!html.includes('sc-site-nav.js')) issues.push(`${page}: missing sc-site-nav.js`);
+    if (!/sc-site-nav(?:\.[a-f0-9]{8})?\.css/.test(html)) issues.push(`${page}: missing sc-site-nav.css`);
+    if (!/sc-site-nav(?:\.[a-f0-9]{8})?\.js/.test(html)) issues.push(`${page}: missing sc-site-nav.js`);
     if (!html.includes('id="siteHeader"')) issues.push(`${page}: missing shared #siteHeader`);
     if (!html.includes('auth-nav')) issues.push(`${page}: missing auth-nav session module`);
     if (!/<link[^>]+sc-form-fields\.css/i.test(html)) issues.push(`${page}: missing sc-form-fields.css`);

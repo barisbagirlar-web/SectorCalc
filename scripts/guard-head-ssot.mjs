@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * FAIL the build if any page hand-writes a core asset link outside the SSOT markers,
- * or if a public HTML page is missing the head-assets block.
+ * or if a public HTML page is missing the hashed head-assets block from the manifest.
  */
 import { readFileSync, existsSync, readdirSync, statSync } from 'node:fs';
 import { join, relative } from 'node:path';
@@ -9,6 +9,7 @@ import { join, relative } from 'node:path';
 const ROOT = process.cwd();
 const START = '<!--SC-HEAD-ASSETS-START-->';
 const END = '<!--SC-HEAD-ASSETS-END-->';
+const MANIFEST = join(ROOT, 'seo/asset-manifest.json');
 
 const SKIP_DIR = new Set([
   'node_modules',
@@ -31,21 +32,12 @@ const SKIP_FILE = new Set([
 ]);
 
 const BANNED = [
-  /<link[^>]+href=["'][^"']*sc-theme\.css/,
-  /<link[^>]+href=["'][^"']*sc-site-nav\.css/,
-  /<link[^>]+href=["'][^"']*sc-calc-sheet\.css/,
-  /<link[^>]+href=["'][^"']*seo-content\.css/,
-  /<script[^>]+src=["'][^"']*sc-theme\.js/,
-  /<script[^>]+src=["'][^"']*sc-site-nav\.js/,
-];
-
-const REQUIRED = [
-  'sc-theme.css?v=12',
-  'sc-site-nav.css?v=5',
-  'sc-calc-sheet.css?v=4',
-  'seo-content.css?v=1',
-  'sc-theme.js?v=12',
-  'sc-site-nav.js?v=2',
+  /<link[^>]+href=["'][^"']*sc-theme(?:\.[a-f0-9]{8})?\.css/,
+  /<link[^>]+href=["'][^"']*sc-site-nav(?:\.[a-f0-9]{8})?\.css/,
+  /<link[^>]+href=["'][^"']*sc-calc-sheet(?:\.[a-f0-9]{8})?\.css/,
+  /<link[^>]+href=["'][^"']*seo-content(?:\.[a-f0-9]{8})?\.css/,
+  /<script[^>]+src=["'][^"']*sc-theme(?:\.[a-f0-9]{8})?\.js/,
+  /<script[^>]+src=["'][^"']*sc-site-nav(?:\.[a-f0-9]{8})?\.js/,
 ];
 
 function walkHtml(dir, out = []) {
@@ -69,6 +61,14 @@ function outsideMarkers(html) {
   return html.replace(new RegExp(`${START}[\\s\\S]*?${END}`, 'g'), '');
 }
 
+if (!existsSync(MANIFEST)) {
+  console.error('HEAD SSOT VIOLATION: missing seo/asset-manifest.json — run hash-head-assets first');
+  process.exit(1);
+}
+
+const manifest = JSON.parse(readFileSync(MANIFEST, 'utf8'));
+const REQUIRED = Object.values(manifest.files).map((f) => f.href.replace(/^\//, ''));
+
 const pages = [
   ...walkHtml(ROOT).filter((f) => relative(ROOT, f).split(/[\\/]/).length === 1),
   ...walkHtml(join(ROOT, 'public')),
@@ -83,6 +83,9 @@ for (const f of pages) {
     continue;
   }
   const block = s.slice(s.indexOf(START), s.indexOf(END) + END.length);
+  if (/\?v=\d+/.test(block)) {
+    bad.push(`${rel} :: head-assets still uses manual ?v= pins (content-hash required)`);
+  }
   for (const need of REQUIRED) {
     if (!block.includes(need)) bad.push(`${rel} :: head-assets missing ${need}`);
   }
@@ -96,4 +99,4 @@ if (bad.length) {
   console.error('HEAD SSOT VIOLATION:\n' + bad.join('\n'));
   process.exit(1);
 }
-console.log(`guard:head-ssot PASS (${pages.length} pages)`);
+console.log(`guard:head-ssot PASS (${pages.length} pages, hashed SSOT)`);

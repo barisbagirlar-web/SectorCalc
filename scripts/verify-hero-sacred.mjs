@@ -34,8 +34,8 @@ if (index.includes('sc-calc-sheet-titleblock')) {
 if (!index.includes('sc-eng-paper')) {
   fail('index.html must use body.sc-eng-paper for unified graph-paper background');
 }
-if (!/sc-calc-sheet\.css\?v=4/.test(index)) {
-  fail('index.html must load /sc-calc-sheet.css?v=4 (shared eng-paper SSOT)');
+if (!/sc-calc-sheet\.[a-f0-9]{8}\.css/.test(index)) {
+  fail('index.html must load content-hashed /sc-calc-sheet.<hash>.css (shared eng-paper SSOT)');
 }
 if (!index.includes('id="stage"') || !index.includes('class="sc-hero"')) fail('index.html missing live-cell stage markup');
 if (!index.includes('hero-cell-poster.png')) fail('index.html missing premium poster fallback image');

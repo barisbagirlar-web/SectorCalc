@@ -195,8 +195,8 @@ for (const [route, file] of contentRoutes) {
     fail('tools.html Engineering Resources must be inside .wrap before <footer> (orphan body child breaks layout)');
   }
   if (!tools.includes('sc-seo-sprint-links')) fail('tools.html missing sc-seo-sprint-links class');
-  if (!/sc-calc-sheet\.css\?v=4/.test(tools) && !tools.includes('/sc-calc-sheet.css?v=4')) {
-    fail('tools.html must load sc-calc-sheet.css?v=4 (unified eng-paper SSOT)');
+  if (!/sc-calc-sheet\.[a-f0-9]{8}\.css/.test(tools)) {
+    fail('tools.html must load content-hashed sc-calc-sheet.<hash>.css (unified eng-paper SSOT)');
   }
   const distTools = join(ROOT, 'dist/tools.html');
   if (existsSync(distTools)) {

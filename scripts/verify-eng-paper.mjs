@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * Enterprise eng-paper coverage gate.
- * Every registry sourceFile must load sc-calc-sheet.css?v=4 and body.sc-eng-paper.
+ * Every registry sourceFile must load hashed sc-calc-sheet.<hash>.css and body.sc-eng-paper.
  * Homepage may not carry theme-calc-sheet / titleblock.
  */
 import { readFileSync, existsSync } from 'node:fs';
@@ -9,9 +9,18 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const CSS_PIN = 'sc-calc-sheet.css?v=4';
+const manifestPath = join(ROOT, 'seo/asset-manifest.json');
 const errors = [];
 const fail = (m) => errors.push(m);
+
+let CSS_PIN = '';
+if (!existsSync(manifestPath)) {
+  fail('seo/asset-manifest.json missing — run hash-head-assets first');
+} else {
+  const manifest = JSON.parse(readFileSync(manifestPath, 'utf8'));
+  CSS_PIN = (manifest.files?.['sc-calc-sheet.css']?.href || '').replace(/^\//, '');
+  if (!CSS_PIN) fail('asset-manifest missing sc-calc-sheet.css');
+}
 
 const regPath = join(ROOT, 'seo/registry.generated.json');
 if (!existsSync(regPath)) {
@@ -61,7 +70,7 @@ if (existsSync(indexPath)) {
     fail('index.html must not carry calc-sheet titleblock');
   }
   if (!/\bsc-eng-paper\b/.test(index) || !index.includes(CSS_PIN)) {
-    fail('index.html must carry sc-eng-paper + CSS v4');
+    fail('index.html must carry sc-eng-paper + hashed sc-calc-sheet CSS');
   }
 }
 
