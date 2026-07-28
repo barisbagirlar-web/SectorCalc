@@ -2,7 +2,7 @@
  * Source of truth consumed by seo/registry.mjs
  */
 export const HOST = 'https://sectorcalc.com';
-export const CURRENT_INDEXABLE_BASELINE = 89;
+export const CURRENT_INDEXABLE_BASELINE = 90;
 export const CURRENT_CALCULATOR_COUNT = 25;
 
 export const PAGES = [
@@ -1884,11 +1884,11 @@ export const PAGES = [
     "role": "case-study",
     "locale": "en",
     "publicationStatus": "published",
-    "indexDirective": "noindex,follow",
-    "sitemapEligible": false,
+    "indexDirective": "index,follow",
+    "sitemapEligible": true,
     "llmEligible": false,
     "title": "Case Studies (Coming Soon) — SectorCalc",
-    "description": "Verified SectorCalc case studies only — hub is noindex until real citable outcomes ship.",
+    "description": "Verified SectorCalc case studies hub — evidence policy and links to live tools until citable studies ship.",
     "h1": "Case studies",
     "primaryIntent": "sectorcalc case studies",
     "queryCluster": "case-studies-hub",

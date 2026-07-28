@@ -61,6 +61,7 @@ jobs:
           node scripts/verify-nav.mjs
           node scripts/guard-head-ssot.mjs
           node scripts/guard-tools-prerender.mjs --dist
+          node scripts/guard-sitemap-coverage.mjs
           node scripts/verify-form-fields.mjs
           LEGACY_SURFACE_MODE=local npm run verify:legacy-surface
 
