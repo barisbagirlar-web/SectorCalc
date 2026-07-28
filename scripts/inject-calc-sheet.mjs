@@ -25,7 +25,17 @@ const FORBIDDEN_ROOT = new Set([
   'calculator2.html',
   'calculator3.html',
   'calculator4.html',
-  'pro.html',
+]);
+
+/** Live public surfaces that must share sc-eng-paper (registry + product chrome). */
+const EXTRA_SURFACE_DIRS = Object.freeze([
+  'public/topics',
+  'public/about',
+  'public/contact',
+  'public/privacy',
+  'public/terms',
+  'public/resources',
+  'public/case-studies',
 ]);
 
 const TOOL_DWG = Object.freeze({
@@ -221,6 +231,7 @@ function main() {
   }
   if (processPage('tools.html', 'theme-drawing-index', 'SC-TOOLS-001', 'DRAWING INDEX')) n += 1;
   if (processPage('pricing.html', 'theme-bom', 'SC-BOM-001', 'BOM')) n += 1;
+  if (processPage('pro.html', 'theme-drawing-index', 'SC-PRO-001', 'PRO CATALOG')) n += 1;
   if (processPage('account.html', 'theme-eng-paper', 'SC-ACCT-001', 'ACCOUNT')) n += 1;
   if (processPage('login.html', 'theme-eng-paper', 'SC-AUTH-001', 'AUTH')) n += 1;
   if (processPage('sc-ops.html', 'theme-eng-paper', 'SC-OPS-001', 'OPS')) n += 1;
@@ -249,6 +260,19 @@ function main() {
 
   for (const file of listHtml('public/blog')) {
     if (processPage(file, 'theme-eng-paper', 'SC-BLOG', 'BLOG')) n += 1;
+  }
+
+  for (const dir of EXTRA_SURFACE_DIRS) {
+    for (const file of listHtml(dir)) {
+      const slug = file.replace(/^public\//, '').replace(/\.html$/, '').toUpperCase().replace(/[^A-Z0-9]+/g, '-').slice(0, 18);
+      // Topics / legal / resources / case-studies: shared paper + light chrome
+      if (processPage(file, 'theme-eng-paper', `SC-${slug}`, 'SURFACE')) n += 1;
+    }
+  }
+
+  // Product 404 surface (not always in registry, still must match site DNA)
+  if (existsSync(join(ROOT, 'public/404.html'))) {
+    if (processPage('public/404.html', 'theme-eng-paper', 'SC-404', 'ERROR', { paperOnly: false })) n += 1;
   }
 
   assertHomepageHeroSafe();

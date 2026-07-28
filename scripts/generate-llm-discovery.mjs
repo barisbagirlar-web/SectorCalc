@@ -102,6 +102,11 @@ ${FREE_TOOLS.map((t) => `- [${t.name}](${HOST}${t.canonicalPath}) — ${t.toolId
 - Topics hub (open bench + problem map): ${HOST}/topics
 - Topic clusters: ${HOST}/topics/fits-and-finish · ${HOST}/topics/sheet-metal-fabrication
 
+## Visual surface (site-wide)
+- Unified engineering graph-paper background SSOT: \`body.sc-eng-paper\` + \`/sc-calc-sheet.css?v=4\` (8px minor / 40px major dual-scale drafting sheet).
+- Same texture/pattern/model on home, tools, calculators, glossary, guides, compare, topics, resources, and legal surfaces.
+- Homepage applies paper BACKGROUND only — live-cell 3D hero markup/scripts remain sacred and must not be replaced by theme chrome.
+
 ## Canonical URL structure
 - Apex host: ${HOST}
 - Calculator identity: ${HOST}/calculator/<slug> (pretty routes only — e.g. ${HOST}/calculator/tolerance-stack-up)
