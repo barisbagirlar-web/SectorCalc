@@ -43,9 +43,6 @@ function inject(html) {
   let out = html.replace(new RegExp(`${START}[\\s\\S]*?${END}\\n?`, 'g'), '');
   out = out.replace(/<footer class="sc-footer"[\s\S]*?<\/footer>\s*/gi, '');
   const block = `${START}\n${PARTIAL}\n${END}`;
-  if (/<!--SC-CALC-SHEET-TB-START-->/i.test(out)) {
-    return out.replace(/<!--SC-CALC-SHEET-TB-START-->/i, `${block}\n<!--SC-CALC-SHEET-TB-START-->`);
-  }
   if (/<\/body>/i.test(out)) {
     return out.replace(/<\/body>/i, `${block}\n</body>`);
   }

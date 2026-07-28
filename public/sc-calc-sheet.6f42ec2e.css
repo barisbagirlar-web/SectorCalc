@@ -3,7 +3,8 @@
    SSOT class: body.sc-eng-paper
    Dual-scale: 8px minor · 40px major (exact 1:5). Same grain, same
    registration marks, same wash — homepage + tools + calculators.
-   Homepage may load this for BACKGROUND ONLY (no wrap/titleblock).
+   Homepage may load this for BACKGROUND ONLY (no wrap).
+   Titleblock stamp retired — do not reintroduce fixed DWG chrome.
    Never rewrite live-cell hero markup/scripts.
    ============================================================ */
 
@@ -107,7 +108,7 @@ body.sc-eng-paper::after {
   opacity: 0.58;
 }
 
-body.sc-eng-paper > *:not(.sc-calc-sheet-titleblock) {
+body.sc-eng-paper > * {
   position: relative;
   z-index: 1;
 }
@@ -357,61 +358,6 @@ body.sc-guides-shell .sc-guides-main > * {
   z-index: 1;
 }
 
-/* ---------- Title block (DWG stamp) — Exclusive ---------- */
-.sc-calc-sheet-titleblock {
-  position: fixed;
-  right: 0.75rem;
-  bottom: 0.75rem;
-  z-index: 40;
-  background: rgba(251, 252, 253, 0.97);
-  border: 1.5px solid var(--cs-border);
-  border-bottom-width: 3px;
-  padding: 0.55rem 0.85rem 0.6rem;
-  font-family: var(--sc-sheet-mono);
-  font-size: 0.62rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--cs-accent);
-  line-height: 1.45;
-  pointer-events: none;
-  box-shadow:
-    -2px -2px 12px rgba(26, 58, 92, 0.06),
-    0 0 0 1px rgba(255, 255, 255, 0.8) inset;
-  min-width: 9.5rem;
-}
-
-.sc-calc-sheet-titleblock::before {
-  content: 'SECTORCALC · ENG SHEET';
-  display: block;
-  font-size: 0.52rem;
-  letter-spacing: 0.14em;
-  color: #6b7c8f;
-  border-bottom: 1px solid rgba(26, 58, 92, 0.18);
-  padding-bottom: 0.28rem;
-  margin-bottom: 0.15rem;
-}
-
-.sc-calc-sheet-titleblock .tb-row {
-  display: flex;
-  gap: 0.85rem;
-  border-bottom: 1px solid rgba(26, 58, 92, 0.12);
-  padding: 0.2rem 0;
-}
-
-.sc-calc-sheet-titleblock .tb-row:last-child {
-  border-bottom: none;
-}
-
-.sc-calc-sheet-titleblock .tb-label {
-  min-width: 3.2rem;
-  color: #6b7c8f;
-}
-
-.sc-calc-sheet-titleblock .tb-value {
-  color: var(--cs-accent);
-  font-weight: 600;
-}
-
 /* ---------- Dark theme ---------- */
 html[data-theme='dark'] body.sc-eng-paper {
   --cs-bg: #0c1219;
@@ -437,21 +383,6 @@ html[data-theme='dark'] body.sc-guides-shell .sc-guides-main {
   box-shadow: none;
 }
 
-html[data-theme='dark'] .sc-calc-sheet-titleblock {
-  background: rgba(19, 26, 35, 0.96);
-  border-color: rgba(127, 179, 232, 0.35);
-  color: #9db8d4;
-}
-
-html[data-theme='dark'] .sc-calc-sheet-titleblock::before {
-  color: #7a93ab;
-  border-bottom-color: rgba(127, 179, 232, 0.22);
-}
-
-html[data-theme='dark'] .sc-calc-sheet-titleblock .tb-value {
-  color: #cfe0f2;
-}
-
 /* ---------- Reduced motion / print ---------- */
 @media (prefers-reduced-motion: reduce) {
   body.sc-eng-paper::before {
@@ -464,21 +395,9 @@ html[data-theme='dark'] .sc-calc-sheet-titleblock .tb-value {
   body.sc-eng-paper::after {
     display: none;
   }
-
-  .sc-calc-sheet-titleblock {
-    position: static;
-    margin-top: 1rem;
-    box-shadow: none;
-  }
 }
 
 @media (max-width: 720px) {
-  .sc-calc-sheet-titleblock {
-    position: static;
-    margin: 1rem;
-    border: 1.5px solid var(--cs-border);
-  }
-
   body.theme-drawing-index .wrap,
   body.theme-bom .wrap,
   body.theme-calc-sheet .wrap,

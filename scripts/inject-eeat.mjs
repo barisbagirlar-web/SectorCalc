@@ -26,7 +26,7 @@ function stripBlock(html) {
   return html
     .replace(/<!--SC-EEAT-START-->[\s\S]*?<!--SC-EEAT-END-->\n?/g, '')
     .replace(
-      /<section class="sc-eeat-shell"[\s\S]*?<\/section>\s*(?=(?:<!--SC-GUIDE|<!--SC-RELATED|<script type="module"|<aside class="sc-calc-sheet-titleblock"|<\/body>))/i,
+      /<section class="sc-eeat-shell"[\s\S]*?<\/section>\s*(?=(?:<!--SC-GUIDE|<!--SC-RELATED|<script type="module"|<\/body>))/i,
       '',
     );
 }
@@ -51,12 +51,6 @@ function injectBlock(html, block) {
   }
   if (html.includes('<script type="module"')) {
     return html.replace(/<script type="module"/, `${block}\n<script type="module"`);
-  }
-  if (html.includes('sc-calc-sheet-titleblock')) {
-    return html.replace(
-      /<aside class="sc-calc-sheet-titleblock"/,
-      `${block}\n<aside class="sc-calc-sheet-titleblock"`,
-    );
   }
   return html.replace(/<\/body>/i, `${block}\n</body>`);
 }
