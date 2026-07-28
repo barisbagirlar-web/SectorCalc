@@ -713,16 +713,16 @@ def security_head_block() -> str:
 <meta http-equiv="Permissions-Policy" content="{PERMISSIONS_POLICY}">
 <link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
 <meta name="DC.title" content="SectorCalc — Deterministic Industrial Engineering Calculators">
-<meta name="DC.creator" content="SectorCalc Inc.">
+<meta name="DC.creator" content="SectorCalc">
 <meta name="DC.subject" content="Engineering Calculators, Tolerance Analysis, Monte Carlo Simulation">
 <meta name="DC.description" content="Deterministic industrial calculators with ISO audit trails">
-<meta name="DC.publisher" content="SectorCalc Inc.">
+<meta name="DC.publisher" content="SectorCalc">
 <meta name="DC.date" content="2026-07-25">
 <meta name="DC.type" content="Text">
 <meta name="DC.format" content="text/html">
 <meta name="DC.language" content="en">
 <meta name="DC.coverage" content="Global">
-<meta name="DC.rights" content="2024-2026 SectorCalc Inc.">
+<meta name="DC.rights" content="2024-2026 SectorCalc">
 <!--SC-SEO-SECURITY-END-->"""
 
 
