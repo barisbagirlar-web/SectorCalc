@@ -13,7 +13,7 @@ import { FREE_TOOLS } from '../seo/free-tools.mjs';
 import { TOPICAL_MAPS } from '../seo/topical-maps.mjs';
 
 const ROOT = process.cwd();
-const HEADER = readFileSync(join(ROOT, 'content/partials/site-header.html'), 'utf8').trim();
+const HEADER = readFileSync(join(ROOT, 'content/partials/site-nav.html'), 'utf8').trim();
 const HEAD_ASSETS = readFileSync(join(ROOT, 'content/partials/head-assets.html'), 'utf8').trim();
 const HOST = 'https://sectorcalc.com';
 const MIN_CHARS = 2000;

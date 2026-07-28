@@ -8,7 +8,7 @@ import { readFileSync, writeFileSync, existsSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 
 const ROOT = process.cwd();
-const PARTIAL = readFileSync(join(ROOT, 'content/partials/site-header.html'), 'utf8').trim();
+const PARTIAL = readFileSync(join(ROOT, 'content/partials/site-nav.html'), 'utf8').trim();
 
 const FORM_FIELDS_VERSION = 5;
 const STUDY_VERSION = 4;
