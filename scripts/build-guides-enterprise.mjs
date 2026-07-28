@@ -45,6 +45,16 @@ ${HEAD_ASSETS}
 <script type="module" src="/src/auth-nav.ts"></script>`;
 }
 
+/** Full-bleed breadcrumb strip directly under site header (tools/pricing DNA). */
+function hubBreadcrumb(currentLabel) {
+  return `<nav class="sc-breadcrumb" aria-label="Breadcrumb">
+  <ol>
+    <li><a href="/">Home</a></li>
+    <li aria-current="page">${esc(currentLabel)}</li>
+  </ol>
+</nav>`;
+}
+
 function footer() {
   return `<footer class="sc-footer sc-guides-site-footer">
   <p>© 2026 SectorCalc · Deterministic industrial calculators · A1–A5 audit language</p>
@@ -450,6 +460,7 @@ ${JSON.stringify(schema, null, 2)}
 </head>
 <body class="sc-guides-shell sc-guides-exclusive">
 ${HEADER}
+${hubBreadcrumb('Guides')}
 <main class="sc-guides-main" id="main-content">
   <header class="sc-guides-hero">
     <p class="sc-guides-kicker">Exclusive methodology library · answer-engine ready</p>

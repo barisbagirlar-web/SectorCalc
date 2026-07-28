@@ -44,6 +44,16 @@ function footer() {
 </footer>`;
 }
 
+/** Full-bleed breadcrumb strip directly under site header (tools/pricing DNA). */
+function hubBreadcrumb(currentLabel) {
+  return `<nav class="sc-breadcrumb" aria-label="Breadcrumb">
+  <ol>
+    <li><a href="/">Home</a></li>
+    <li aria-current="page">${esc(currentLabel)}</li>
+  </ol>
+</nav>`;
+}
+
 function stripText(html) {
   return html
     .replace(/<script[\s\S]*?<\/script>/gi, ' ')
@@ -195,6 +205,7 @@ ${JSON.stringify(schema, null, 2)}
 </head>
 <body class="sc-guides-shell">
 ${HEADER}
+${hubBreadcrumb('Glossary')}
 <main class="sc-guides-main" id="main-content">
   <header class="sc-guides-hero">
     <p class="sc-guides-kicker">Answer engine · entity library</p>
@@ -375,6 +386,7 @@ ${JSON.stringify(schema, null, 2)}
 </head>
 <body class="sc-guides-shell">
 ${HEADER}
+${hubBreadcrumb('Compare')}
 <main class="sc-guides-main" id="main-content">
   <header class="sc-guides-hero">
     <p class="sc-guides-kicker">Answer engine · decision aid</p>
@@ -538,14 +550,8 @@ ${headLinks()}
 </head>
 <body class="sc-guides-shell">
 ${HEADER}
+${hubBreadcrumb('Topics')}
 <main class="sc-guides-hub" id="topics-hub">
-  <nav class="sc-breadcrumb" aria-label="Breadcrumb">
-    <ol>
-      <li><a href="/">Home</a></li>
-      <li aria-current="page">Topics</li>
-    </ol>
-  </nav>
-
   <header class="sc-guides-hero">
     <p class="sc-guides-kicker">Open reference bench · problem-first routing</p>
     <h1>Prove the engine. Then name the shop problem.</h1>
