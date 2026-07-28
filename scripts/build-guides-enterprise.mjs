@@ -15,7 +15,7 @@ const ROOT = process.cwd();
 const HEADER = readFileSync(join(ROOT, 'content/partials/site-nav.html'), 'utf8').trim();
 const HEAD_ASSETS = readFileSync(join(ROOT, 'content/partials/head-assets.html'), 'utf8').trim();
 const HOST = 'https://sectorcalc.com';
-const CSS_V = 4;
+const CSS_V = 5;
 const MIN_GUIDE_BYTES = 20000;
 
 function esc(s) {
