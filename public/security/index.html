@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Security — SectorCalc</title>
+  <meta name="description" content="How SectorCalc handles calculation data, authentication, payments, and vulnerability reports.">
+  <link rel="canonical" href="https://sectorcalc.com/security">
+  <meta name="robots" content="index,follow">
+    <!--SC-CALC-SHEET-START-->
+  <!-- eng-paper: theme-eng-paper + sc-eng-paper v4 -->
+  <!--SC-CALC-SHEET-END-->
+<!--SC-HEAD-ASSETS-START-->
+<!-- SSOT: single source of truth for all page assets. Do not inline <link> in pages. -->
+<link rel="stylesheet" href="/sc-theme.css?v=12">
+<link rel="stylesheet" href="/sc-site-nav.css?v=5">
+<link rel="stylesheet" href="/sc-calc-sheet.css?v=4">
+<link rel="stylesheet" href="/css/seo-content.css?v=1">
+<script src="/sc-theme.js?v=12" defer></script>
+<script src="/sc-site-nav.js?v=2" defer></script>
+<!--SC-HEAD-ASSETS-END-->
+</head>
+<body class="sc-eng-paper theme-eng-paper">
+  <main class="sc-content-page">
+    <nav class="sc-breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="/">Home</a></li>
+        <li aria-current="page">Security</li>
+      </ol>
+    </nav>
+    <h1>Security</h1>
+    <p class="lead-definition">Last updated: 28 July 2026. Engineering math stays in the browser; account and billing events use third-party processors listed below.</p>
+
+    <h2>Calculation data</h2>
+    <p>After a tool is unlocked (or on free reference tools), core engineering calculations run in your browser with deterministic decimal arithmetic. Those calculation inputs and intermediate results for the core math path are not uploaded to SectorCalc servers. Export files you download stay on your device unless you choose to share them.</p>
+
+    <h2>Third parties that may process data</h2>
+    <ul>
+      <li><strong>Paddle</strong> — Merchant of Record for credit-pack payments and invoices.</li>
+      <li><strong>Firebase (Google)</strong> — authentication, session, and account/wallet records.</li>
+      <li><strong>Google Analytics 4</strong> — aggregate product and traffic analytics.</li>
+    </ul>
+    <p>See also the <a href="/privacy">Privacy Policy</a>.</p>
+
+    <h2>Passwords and sessions</h2>
+    <p>Sign-in uses Firebase Authentication. SectorCalc does not store plaintext passwords. Session cookies / tokens follow Firebase Auth defaults for the hosted web app. Sign out from Account when using a shared workstation.</p>
+
+    <h2>Transport and hosting</h2>
+    <p>sectorcalc.com is served over HTTPS. Security headers (CSP, HSTS, frame denial, referrer policy) are applied at the edge. Report header regressions to security mail below.</p>
+
+    <h2>Vulnerability reporting</h2>
+    <p>Responsible disclosure: <a href="mailto:security@sectorcalc.com">security@sectorcalc.com</a>. Include steps to reproduce, affected URL, and impact. Do not exfiltrate customer data while testing.</p>
+  </main>
+<!--SC-SITE-FOOTER-START-->
+<footer class="sc-footer">
+  <p>Copyright 2026 SectorCalc · Deterministic industrial calculators</p>
+  <nav aria-label="Legal and trust">
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+    <a href="/security">Security</a>
+    <a href="/status">Status</a>
+    <a href="/refund">Refund</a>
+    <a href="/privacy">Privacy</a>
+    <a href="/terms">Terms</a>
+  </nav>
+</footer>
+<!--SC-SITE-FOOTER-END-->
+<!--SC-CALC-SHEET-TB-START-->
+<aside class="sc-calc-sheet-titleblock" aria-hidden="true">
+  <div class="tb-row"><span class="tb-label">DWG</span><span class="tb-value">SC-SECURITY-INDEX</span></div>
+  <div class="tb-row"><span class="tb-label">FMT</span><span class="tb-value">SURFACE</span></div>
+  <div class="tb-row"><span class="tb-label">REV</span><span class="tb-value">C</span></div>
+  <div class="tb-row"><span class="tb-label">DATE</span><span class="tb-value">2026-07-28</span></div>
+</aside>
+<!--SC-CALC-SHEET-TB-END-->
+</body>
+</html>
