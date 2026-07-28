@@ -82,7 +82,7 @@ test.describe('Tier-A demo lock @gate @critical', () => {
   });
 
   test('free tool keeps Reset enabled (no Tier-A lock)', async ({ page }) => {
-    const tool = catalog.freeTools.find((t) => t.id === 'SC-028');
+    const tool = catalog.freeTools.find((t) => t.toolId === 'SC-028');
     if (!tool) throw new Error('SC-028 missing from catalog');
     await page.goto(tool.canonicalPath);
     await expect(page.locator('[data-sc-study="blank"]')).toBeEnabled({ timeout: 15_000 });
