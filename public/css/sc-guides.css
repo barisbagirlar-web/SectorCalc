@@ -409,89 +409,92 @@
 }
 
 /*
- * Dark theme: guide/glossary cards stay light paper surfaces.
- * Theme --ink goes white sitewide, which washes card copy — force near-black
- * body text. Linkable CTAs keep brand blue.
+ * Dark theme:
+ * - Paper islands (stats / contract / cards / topic rail / FAQ) = white + black copy
+ * - Links stay brand blue
+ * - Hero / section chrome on dark eng-paper = light ink (black-on-dark was invisible)
+ * !important beats late-injected seo-content/theme cascade.
  */
 html[data-theme='dark'] .sc-guides-shell {
-  color: #0b1c2c;
+  color: #e8eef5;
 }
-html[data-theme='dark'] .sc-guides-stat,
-html[data-theme='dark'] .sc-guides-chain,
-html[data-theme='dark'] .sc-guide-card,
-html[data-theme='dark'] .sc-topic-rail-card,
-html[data-theme='dark'] .sc-guides-contract,
-html[data-theme='dark'] .sc-guide-block,
+
+html[data-theme='dark'] .sc-guides-shell .sc-guides-stat,
+html[data-theme='dark'] .sc-guides-shell .sc-guides-chain,
+html[data-theme='dark'] .sc-guides-shell .sc-guides-contract,
+html[data-theme='dark'] .sc-guides-shell .sc-guide-card,
+html[data-theme='dark'] .sc-guides-shell .sc-topic-rail-card,
+html[data-theme='dark'] .sc-guides-shell .sc-guide-block,
+html[data-theme='dark'] .sc-guides-shell .sc-guides-prose,
+html[data-theme='dark'] .sc-guides-shell .sc-faq-item,
+html[data-theme='dark'] .sc-guides-shell details.sc-faq-item,
 html[data-theme='dark'] .sc-guide-article .sc-guide-toc,
 html[data-theme='dark'] .sc-guide-article .sc-cta-panel,
 html[data-theme='dark'] .sc-guide-article .sc-formula-block,
-html[data-theme='dark'] .sc-guide-article .sc-mistake-card {
-  background: #ffffff;
-  color: #000000;
-}
-/* Beat seo-content.css dark .sc-faq-item { background:#131a23 } */
-html[data-theme='dark'] .sc-guides-shell .sc-faq-item,
-html[data-theme='dark'] .sc-guides-shell details.sc-faq-item,
+html[data-theme='dark'] .sc-guide-article .sc-mistake-card,
 html[data-theme='dark'] .sc-guide-article .sc-faq-item {
   background: #ffffff !important;
-  color: #000000;
+  color: #000000 !important;
   border-color: rgba(11, 28, 44, 0.12);
+  --g-ink: #000000;
+  --g-muted: #000000;
+  --sg-ink: #000000;
+  --sg-mut: #000000;
+  --sg-navy: #000000;
 }
+
+html[data-theme='dark'] .sc-guides-shell .sc-guides-stat :not(a),
+html[data-theme='dark'] .sc-guides-shell .sc-guides-chain :not(a),
+html[data-theme='dark'] .sc-guides-shell .sc-guides-contract :not(a),
+html[data-theme='dark'] .sc-guides-shell .sc-guide-card :not(a),
+html[data-theme='dark'] .sc-guides-shell .sc-topic-rail-card :not(a),
+html[data-theme='dark'] .sc-guides-shell .sc-guide-block :not(a),
+html[data-theme='dark'] .sc-guides-shell .sc-guides-prose :not(a),
+html[data-theme='dark'] .sc-guides-shell .sc-faq-item :not(a),
 html[data-theme='dark'] .sc-guides-shell .sc-faq-item summary,
-html[data-theme='dark'] .sc-guides-shell .sc-faq-item p,
-html[data-theme='dark'] .sc-guides-shell .sc-faq-item code,
-html[data-theme='dark'] .sc-guide-article .sc-faq-item summary,
-html[data-theme='dark'] .sc-guide-article .sc-faq-item p {
-  color: #000000;
+html[data-theme='dark'] .sc-guide-article .sc-faq-item :not(a),
+html[data-theme='dark'] .sc-guide-article .sc-faq-item summary {
+  color: #000000 !important;
 }
+
+html[data-theme='dark'] .sc-guides-shell .sc-guides-stat a,
+html[data-theme='dark'] .sc-guides-shell .sc-guides-chain a,
+html[data-theme='dark'] .sc-guides-shell .sc-guide-card a,
+html[data-theme='dark'] .sc-guides-shell .sc-topic-rail-card a,
+html[data-theme='dark'] .sc-guides-shell .sc-guide-block a,
+html[data-theme='dark'] .sc-guides-shell .sc-guides-prose a,
 html[data-theme='dark'] .sc-guides-shell .sc-faq-item a,
+html[data-theme='dark'] .sc-guides-shell .sc-guide-cta,
+html[data-theme='dark'] .sc-guides-shell .sc-guides-footer-links a,
+html[data-theme='dark'] .sc-guides-shell .sc-guides-site-footer a,
 html[data-theme='dark'] .sc-guide-article .sc-faq-item a {
-  color: var(--g-blue);
+  color: var(--g-blue) !important;
 }
-html[data-theme='dark'] .sc-guides-hero h1,
-html[data-theme='dark'] .sc-guides-lead,
-html[data-theme='dark'] .sc-guides-kicker,
-html[data-theme='dark'] .sc-guides-stat b,
-html[data-theme='dark'] .sc-guides-stat span,
-html[data-theme='dark'] .sc-guides-section > h2,
-html[data-theme='dark'] .sc-guides-section > p,
-html[data-theme='dark'] .sc-guides-chain,
-html[data-theme='dark'] .sc-guides-chain p,
-html[data-theme='dark'] .sc-guides-chain li,
-html[data-theme='dark'] .sc-guides-chain strong,
-html[data-theme='dark'] .sc-guide-card,
-html[data-theme='dark'] .sc-guide-card h3,
-html[data-theme='dark'] .sc-guide-problem,
-html[data-theme='dark'] .sc-guide-meta,
-html[data-theme='dark'] .sc-guide-answer,
-html[data-theme='dark'] .sc-guide-badge,
-html[data-theme='dark'] .sc-guides-prose,
-html[data-theme='dark'] .sc-guides-prose p,
-html[data-theme='dark'] .sc-guides-prose strong,
-html[data-theme='dark'] .sc-faq-item summary,
-html[data-theme='dark'] .sc-faq-item p,
-html[data-theme='dark'] .sc-guides-site-footer,
-html[data-theme='dark'] .sc-guide-queries,
-html[data-theme='dark'] .sc-guide-fanout,
-html[data-theme='dark'] .sc-fanout {
-  color: #000000;
+
+html[data-theme='dark'] .sc-guides-shell .sc-guide-badge[data-access='free'] {
+  background: #eef6f2 !important;
+  color: #000000 !important;
 }
-html[data-theme='dark'] .sc-guide-badge[data-access='free'] {
-  background: #eef6f2;
-  color: #000000;
+html[data-theme='dark'] .sc-guides-shell .sc-guide-badge[data-access='credits'],
+html[data-theme='dark'] .sc-guides-shell .sc-guide-badge[data-access='mixed'] {
+  background: #fff4e8 !important;
+  color: #000000 !important;
 }
-html[data-theme='dark'] .sc-guide-badge[data-access='credits'],
-html[data-theme='dark'] .sc-guide-badge[data-access='mixed'] {
-  background: #fff4e8;
-  color: #000000;
+
+/* Readable chrome on dark eng-paper (not paper islands) */
+html[data-theme='dark'] .sc-guides-shell .sc-guides-hero h1,
+html[data-theme='dark'] .sc-guides-shell .sc-guides-lead,
+html[data-theme='dark'] .sc-guides-shell .sc-guides-section > h2,
+html[data-theme='dark'] .sc-guides-shell .sc-guides-section > p,
+html[data-theme='dark'] .sc-guides-shell .sc-guides-site-footer {
+  color: #e8eef5 !important;
 }
-html[data-theme='dark'] .sc-guides-shell a,
-html[data-theme='dark'] .sc-guide-cta,
-html[data-theme='dark'] .sc-guides-footer-links a,
-html[data-theme='dark'] .sc-guides-site-footer a,
-html[data-theme='dark'] .sc-aeo-rail a:hover {
-  color: var(--g-blue);
+html[data-theme='dark'] .sc-guides-shell .sc-guides-kicker {
+  color: #7eb6e8 !important;
 }
 html[data-theme='dark'] .sc-aeo-rail a {
   color: #3d5366;
+}
+html[data-theme='dark'] .sc-aeo-rail a:hover {
+  color: var(--g-blue);
 }
