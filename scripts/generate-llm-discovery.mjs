@@ -142,6 +142,7 @@ ${tierSections}
 - Unified engineering graph-paper background SSOT: \`body.sc-eng-paper\` + content-hashed \`/sc-calc-sheet.<hash>.css\` (8px minor / 40px major dual-scale drafting sheet).
 - Same texture/pattern/model on home, tools, calculators, glossary, guides, compare, topics, resources, and legal surfaces.
 - Homepage applies paper BACKGROUND only — live-cell 3D hero markup/scripts remain sacred and must not be replaced by theme chrome.
+- Dark-mode content contract (exclusive hubs + SEO leaves): paper islands stay **white background + black copy**; hyperlinks stay brand blue; hero/section chrome on eng-paper uses light ink. Applies to \`${HOST}/guides\`, \`${HOST}/glossary\`, \`${HOST}/compare\`, \`${HOST}/topics\`, exclusive guide articles, glossary/compare leaf pages, and FAQ \`<details>\` rows (color-scheme:light so native dark UA chrome cannot wash them).
 
 ## Canonical URL structure
 - Apex host: ${HOST}
