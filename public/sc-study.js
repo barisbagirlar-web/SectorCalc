@@ -3,11 +3,16 @@
  * Same control pattern as the reference demo toolbar (Load Demo Data / Reset / Demo scenario active).
  * Mounts at the start of each calculator form (left input panel). Tools may override via
  * window.SCStudy.register(). Default adapter: snapshot page-load values as golden demo.
+ *
+ * Access modes (set by boot-tool-gate on Tier-A tools):
+ * - open: full Load Demo + Reset + edit (default; free tools stay here)
+ * - locked: Load Demo OK, Reset disabled, edits rejected (demo teaser only)
  */
 (function () {
   const handlers = Object.create(null);
   let sampleSnapshot = null;
   let mode = 'demo'; // 'demo' | 'blank'
+  let accessMode = 'open'; // 'open' | 'locked'
   let editWired = false;
   let suppressing = false;
 
@@ -31,6 +36,16 @@
     }
   }
 
+  function withDemoCalcPass(fn) {
+    const prev = window.__scDemoCalcPass;
+    window.__scDemoCalcPass = true;
+    try {
+      fn();
+    } finally {
+      window.__scDemoCalcPass = prev;
+    }
+  }
+
   function toolMeta() {
     const guide = document.querySelector('#sc-guide, .sc-guide');
     return {
@@ -39,23 +54,20 @@
     };
   }
 
-  /** Left input column / main form root — never the whole page. */
   function formRoot() {
     const sidebarScroll = document.querySelector('.sc-sidebar-scroll');
     if (sidebarScroll) return sidebarScroll;
-
     const sidebar = document.querySelector('.sc-sidebar');
     if (sidebar) return sidebar;
-
     const calcBtn = document.getElementById('calcBtn');
     if (calcBtn) {
       const panel = calcBtn.closest('.panel, form');
       if (panel) return panel;
     }
-
-    const firstPanel = document.querySelector('.wrap .grid > .panel, .wrap > .grid > .panel, .wrap .panel');
+    const firstPanel = document.querySelector(
+      '.wrap .grid > .panel, .wrap > .grid > .panel, .wrap .panel'
+    );
     if (firstPanel) return firstPanel;
-
     return document.querySelector('.wrap') || document.body;
   }
 
@@ -74,7 +86,12 @@
       if (node.type === 'checkbox' || node.type === 'radio') {
         out.push({ key, id: node.id, type: node.type, checked: !!node.checked, value: node.value });
       } else {
-        out.push({ key, id: node.id, type: node.type || node.tagName.toLowerCase(), value: node.value });
+        out.push({
+          key,
+          id: node.id,
+          type: node.type || node.tagName.toLowerCase(),
+          value: node.value
+        });
       }
     });
     return out;
@@ -93,16 +110,27 @@
       byId.set(key, node);
       if (node.id) byId.set('#' + node.id, node);
     });
-    withSuppress(() => {
-      snap.forEach((item) => {
-        const node = (item.id && document.getElementById(item.id)) || byId.get(item.key);
-        if (!node) return;
-        if (item.type === 'checkbox' || item.type === 'radio') {
-          node.checked = !!item.checked;
-        } else {
-          node.value = item.value;
-        }
-        fireField(node);
+    withDemoCalcPass(() => {
+      withSuppress(() => {
+        snap.forEach((item) => {
+          const node = (item.id && document.getElementById(item.id)) || byId.get(item.key);
+          if (!node) return;
+          const wasLocked = node.getAttribute('data-sc-gate-lock') === '1';
+          const el = node;
+          if (wasLocked) {
+            if (el.tagName === 'SELECT' || el.type === 'checkbox' || el.type === 'radio')
+              el.disabled = false;
+            else el.readOnly = false;
+          }
+          if (item.type === 'checkbox' || item.type === 'radio') node.checked = !!item.checked;
+          else node.value = item.value;
+          fireField(node);
+          if (wasLocked) {
+            if (el.tagName === 'SELECT' || el.type === 'checkbox' || el.type === 'radio')
+              el.disabled = true;
+            else el.readOnly = true;
+          }
+        });
       });
     });
   }
@@ -129,41 +157,41 @@
     if (live) live.textContent = '—';
     if (sub) sub.innerHTML = '';
     const report = document.getElementById('reportArea');
-    if (report && !report.querySelector('.sc-empty')) {
-      report.innerHTML = '';
-    }
+    if (report && !report.querySelector('.sc-empty')) report.innerHTML = '';
     document.querySelectorAll('.kpi .v, .verdict, #verdictBanner, #auditBox').forEach((n) => {
       if (n.id === 'auditBox' || n.classList.contains('verdict')) n.innerHTML = '';
     });
   }
 
   function runCalc() {
-    if (typeof window.calculate === 'function') {
-      try {
-        window.calculate();
-        return;
-      } catch (e) {
-        console.warn(e);
+    withDemoCalcPass(() => {
+      if (typeof window.calculate === 'function') {
+        try {
+          window.calculate();
+          return;
+        } catch (e) {
+          console.warn(e);
+        }
       }
-    }
-    if (typeof window.validateAndCalc === 'function') {
-      try {
-        window.validateAndCalc();
-        return;
-      } catch (e) {
-        console.warn(e);
+      if (typeof window.validateAndCalc === 'function') {
+        try {
+          window.validateAndCalc();
+          return;
+        } catch (e) {
+          console.warn(e);
+        }
       }
-    }
-    if (typeof window.compute === 'function') {
-      try {
-        window.compute();
-        return;
-      } catch (e) {
-        console.warn(e);
+      if (typeof window.compute === 'function') {
+        try {
+          window.compute();
+          return;
+        } catch (e) {
+          console.warn(e);
+        }
       }
-    }
-    const btn = document.getElementById('calcBtn') || document.getElementById('genReport');
-    if (btn) btn.click();
+      const btn = document.getElementById('calcBtn') || document.getElementById('genReport');
+      if (btn) btn.click();
+    });
   }
 
   function setMode(next) {
@@ -172,14 +200,45 @@
       const key = btn.getAttribute('data-sc-study');
       btn.classList.toggle('is-active', key === next || (next === 'demo' && key === 'sample'));
     });
+    syncAccessUi();
+  }
+
+  function syncAccessUi() {
+    const resetBtn = document.querySelector('[data-sc-study="blank"]');
+    if (resetBtn) {
+      const locked = accessMode === 'locked';
+      resetBtn.disabled = locked;
+      resetBtn.setAttribute('aria-disabled', locked ? 'true' : 'false');
+      resetBtn.title = locked
+        ? 'Unlock with credits to reset and enter your own values'
+        : 'Clear inputs and start blank';
+      resetBtn.classList.toggle('is-locked', locked);
+    }
     const badge = document.querySelector('[data-sc-study-banner]');
     if (badge) {
-      badge.hidden = next !== 'demo';
+      if (accessMode === 'locked') {
+        badge.hidden = false;
+        badge.textContent = 'Demo preview · unlock to edit';
+        badge.classList.add('sc-study-badge--locked');
+      } else {
+        badge.classList.remove('sc-study-badge--locked');
+        badge.textContent = 'Demo scenario active';
+        badge.hidden = mode !== 'demo';
+      }
     }
+    document.querySelectorAll('[data-sc-study-slot]').forEach((bar) => {
+      bar.dataset.accessMode = accessMode;
+    });
+  }
+
+  function setAccessMode(next) {
+    accessMode = next === 'locked' ? 'locked' : 'open';
+    syncAccessUi();
   }
 
   function markEdited() {
     if (suppressing) return;
+    if (accessMode === 'locked') return;
     if (mode === 'demo') setMode('blank');
   }
 
@@ -206,9 +265,7 @@
   }
 
   function defaultLoadSample() {
-    if (!sampleSnapshot || !sampleSnapshot.length) {
-      sampleSnapshot = snapshotValues(formRoot());
-    }
+    if (!sampleSnapshot || !sampleSnapshot.length) sampleSnapshot = snapshotValues(formRoot());
     applySnapshot(sampleSnapshot);
     runCalc();
   }
@@ -231,13 +288,18 @@
   function loadSample() {
     const id = toolMeta().toolId;
     const custom = handlers[id] || handlers['*'];
-    if (custom && typeof custom.loadSample === 'function') custom.loadSample();
+    if (custom && typeof custom.loadSample === 'function')
+      withDemoCalcPass(() => custom.loadSample());
     else defaultLoadSample();
     setMode('demo');
     if (custom && typeof custom.afterApply === 'function') custom.afterApply('sample');
   }
 
   function startBlank() {
+    if (accessMode === 'locked') {
+      syncAccessUi();
+      return;
+    }
     const id = toolMeta().toolId;
     const custom = handlers[id] || handlers['*'];
     if (custom && typeof custom.startBlank === 'function') custom.startBlank();
@@ -246,59 +308,56 @@
     if (custom && typeof custom.afterApply === 'function') custom.afterApply('blank');
   }
 
-  /**
-   * Mount at the START of the calculation form (left input column),
-   * matching degerlet placement above the parameter fields.
-   */
+  function restoreDemoSnapshot() {
+    if (!sampleSnapshot || !sampleSnapshot.length) sampleSnapshot = snapshotValues(formRoot());
+    applySnapshot(sampleSnapshot);
+    setMode('demo');
+  }
+
   function ensureMount() {
     let host = document.querySelector('[data-sc-study-slot]');
     if (host) return host;
-
     host = el('<div class="sc-study-bar" data-sc-study-slot aria-label="Demo controls"></div>');
-
     const sidebarScroll = document.querySelector('.sc-sidebar-scroll');
     if (sidebarScroll) {
       sidebarScroll.insertBefore(host, sidebarScroll.firstChild);
       return host;
     }
-
-    const panelBody = document.querySelector('.wrap .grid > .panel .panel-b, .wrap .panel .panel-b');
+    const panelBody = document.querySelector(
+      '.wrap .grid > .panel .panel-b, .wrap .panel .panel-b'
+    );
     if (panelBody) {
       panelBody.insertBefore(host, panelBody.firstChild);
       return host;
     }
-
     const panel = document.querySelector('.wrap .grid > .panel, .wrap .panel');
     if (panel) {
       const heading = panel.querySelector('.panel-h');
-      if (heading && heading.nextSibling) {
-        panel.insertBefore(host, heading.nextSibling);
-      } else {
-        panel.insertBefore(host, panel.firstChild);
-      }
+      if (heading && heading.nextSibling) panel.insertBefore(host, heading.nextSibling);
+      else panel.insertBefore(host, panel.firstChild);
       return host;
     }
-
     const head = document.querySelector('.wrap > .head, .wrap .head');
     if (head && head.parentElement) {
       if (head.nextSibling) head.parentElement.insertBefore(host, head.nextSibling);
       else head.parentElement.appendChild(host);
       return host;
     }
-
     const wrap = document.querySelector('.wrap, .sc-layout');
     if (wrap) {
       wrap.insertBefore(host, wrap.firstChild);
       return host;
     }
-
     document.body.insertBefore(host, document.body.firstChild);
     return host;
   }
 
   function render() {
     const host = ensureMount();
-    if (host.dataset.ready === '1') return host;
+    if (host.dataset.ready === '1') {
+      syncAccessUi();
+      return host;
+    }
     host.dataset.ready = '1';
     host.innerHTML = `
       <div class="sc-study-bar__actions">
@@ -313,18 +372,22 @@
     `;
     host.querySelector('[data-sc-study="sample"]').addEventListener('click', loadSample);
     host.querySelector('[data-sc-study="blank"]').addEventListener('click', startBlank);
+    syncAccessUi();
     return host;
   }
 
   function boot() {
-    if (!/-pro\.html(?:$|\?)/.test(location.pathname) && !document.querySelector('.sc-tool-strip, #calcBtn, .sc-sidebar, .wrap .panel')) {
+    if (
+      !/-pro\.html(?:$|\?)/.test(location.pathname) &&
+      !document.querySelector('.sc-tool-strip, #calcBtn, .sc-sidebar, .wrap .panel')
+    ) {
       return;
     }
-    // Capture golden demo from authored HTML defaults before user edits.
     sampleSnapshot = snapshotValues(formRoot());
     render();
     wireEditClear();
     setMode('demo');
+    if (document.documentElement.classList.contains('sc-demo-locked')) setAccessMode('locked');
   }
 
   window.SCStudy = {
@@ -336,6 +399,11 @@
     startBlank,
     loadDemo: loadSample,
     reset: startBlank,
+    restoreDemoSnapshot,
+    setAccessMode,
+    getAccessMode() {
+      return accessMode;
+    },
     snapshot: () => sampleSnapshot,
     resnapshot() {
       sampleSnapshot = snapshotValues(formRoot());
@@ -344,10 +412,7 @@
   };
 
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-      // Allow module tools one turn to render dynamic fields before snapshot.
-      setTimeout(boot, 0);
-    });
+    document.addEventListener('DOMContentLoaded', () => setTimeout(boot, 0));
   } else {
     setTimeout(boot, 0);
   }
