@@ -66,12 +66,18 @@ function injectHome(html) {
   html = strip(html);
   html = ensureCss(html);
   const block = stripHtml();
-  // After sacred hero section, before trust-strip
-  if (/class="sc-hero"/.test(html) && /trust-strip/.test(html)) {
-    return html.replace(
-      /(<\/section>\s*\n\s*)(<!-- ================= TRUST STRIP|<div class="trust-strip")/,
-      `$1${block}\n\n  $2`,
-    );
+  // After sacred hero section, before the first post-hero rail.
+  // Prefer SPEC STRIP (current homepage); keep TRUST STRIP as legacy fallback.
+  if (!/class="sc-hero"/.test(html)) return html;
+  const anchors = [
+    /(<\/section>\s*\n\s*)(<!-- ================= SPEC STRIP|<div class="spec-strip")/,
+    /(<\/section>\s*\n\s*)(<!-- ================= TRUST STRIP|<div class="trust-strip")/,
+    /(<\/section>\s*\n\s*)(<!--SC-AEO-HUB-START-->)/,
+  ];
+  for (const re of anchors) {
+    if (re.test(html)) {
+      return html.replace(re, `$1${block}\n\n  $2`);
+    }
   }
   return html;
 }
