@@ -146,18 +146,40 @@ h1,h2,h3,h4{
 
 .skip-link{
   position: absolute;
-  top: -40px;
   left: 0;
+  top: 0;
+  z-index: 10000;
   background: var(--iso-blue);
   color: #fff;
-  padding: 8px 16px;
-  z-index: 10000;
   font-family: var(--f-mono);
   font-size: 12px;
   text-decoration: none;
-  transition: top 0.2s;
+  /* Fully off-screen until keyboard focus — top:-40px was leaking into the viewport */
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
 }
-.skip-link:focus{ top: 0; }
+.skip-link:focus,
+.skip-link:focus-visible{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: 8px 16px;
+  overflow: visible;
+  clip: auto;
+  clip-path: none;
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
 
 .theme-toggle{
   /* Docked styles live in sc-theme.css — keep a minimal fallback here */
