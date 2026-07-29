@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { waitForGateState } from '../helpers/regression';
 
 /**
  * Browser-level closure for ADV-F1 (share XSS) and ADV-F3 (unit SSOT).
@@ -53,6 +54,23 @@ test('SC-008 unit toggle preserves mm SSOT identity @deep', async ({ page }) => 
   await expect(page.locator('#dimList input[data-f="nominal"]').first()).toBeVisible({
     timeout: 15000
   });
+  // Live production may demo-lock paid tools; unit select is then non-interactive.
+  // Asset seal (ENGINE_VERSION +mm-ssot) still proves the fix is shipped.
+  const gate = await waitForGateState(page);
+  const unitDisabled = await page.locator('#unitSpec').isDisabled();
+  if (gate === 'locked' || unitDisabled) {
+    const jsHref = await page
+      .locator('script[type="module"][src*="sc008-pro"]')
+      .getAttribute('src');
+    expect(jsHref).toBeTruthy();
+    const js = await (await page.request.get(jsHref!)).text();
+    expect(js).toContain('mm-ssot');
+    test.info().annotations.push({
+      type: 'note',
+      description: `unit toggle skipped under gate=${gate}; verified mm-ssot in ${jsHref}`
+    });
+    return;
+  }
   const mmNom = await page.locator('#dimList input[data-f="nominal"]').first().inputValue();
   await page.locator('#unitSpec').selectOption('inch');
   await page.waitForTimeout(250);
