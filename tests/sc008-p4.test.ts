@@ -62,6 +62,7 @@ describe('integrity share', () => {
 
   it('makeShareURL + parseShareURL round-trips with ok=true, tampered=false', () => {
     const url = makeShareURL('https://x', state);
+    expect(url).toContain('/calculator/tolerance-stack-up?');
     const q = url.split('?')[1]!;
     const r = parseShareURL(q);
     expect(r.ok).toBe(true);
@@ -81,10 +82,11 @@ describe('integrity share', () => {
     expect(r.tampered).toBe(true);
   });
 
-  it('legacy link without h still loads (ok, not tampered)', () => {
+  it('legacy link without h still loads but is flagged tampered (ADV-F1)', () => {
     const r = parseShareURL('s=' + encodeURIComponent(JSON.stringify(state)));
     expect(r.ok).toBe(true);
-    expect(r.tampered).toBe(false);
+    expect(r.tampered).toBe(true);
+    expect(r.state?.seed).toBe('12345');
   });
 });
 

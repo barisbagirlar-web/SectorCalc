@@ -168,7 +168,7 @@ export class ProfessionalGate {
         <p class="sc-pro-gate-copy">Balance: ${esc(bal)} credits</p>`;
     } else {
       body = `
-        <p class="sc-pro-gate-copy">Sign in and unlock a 24-hour session to run this calculator. One debit covers unlimited recalculation until expiry.</p>
+        <p class="sc-pro-gate-copy">Sign in and unlock a 24-hour session for full editing and professional reports. One debit covers unlimited recalculation until expiry. Core math runs on-device in the page bundle — credits control the session UI, not a separate server-side engine.</p>
         <ul class="sc-pro-gate-meta">
           <li><strong>Tier:</strong> ${esc(this.tier)}</li>
           <li><strong>Cost:</strong> ${this.cost} credits</li>

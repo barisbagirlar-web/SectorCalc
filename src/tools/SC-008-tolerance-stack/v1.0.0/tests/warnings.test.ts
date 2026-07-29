@@ -7,7 +7,10 @@ const ok = {
     { name: 'A', nominal: 10, tol: 0.1, distribution: 'normal' as const },
     { name: 'B', nominal: 20, tol: 0.1, distribution: 'normal' as const }
   ],
-  usl: 31.5, lsl: 28.5, seed: 1, iterations: 500
+  usl: 31.5,
+  lsl: 28.5,
+  seed: 1,
+  iterations: 500
 };
 
 describe('SC-008 warnings', () => {
@@ -24,11 +27,21 @@ describe('SC-008 warnings', () => {
     expect(evaluateWarnings(i, calculate(i)).some((w) => w.code === 'WORST_CASE_OUT')).toBe(true);
   });
   it('no worst-case warning when spec wide', () => {
-    expect(evaluateWarnings(ok, calculate(ok)).some((w) => w.code === 'WORST_CASE_OUT')).toBe(false);
+    expect(evaluateWarnings(ok, calculate(ok)).some((w) => w.code === 'WORST_CASE_OUT')).toBe(
+      false
+    );
   });
   it('WARNING dominant contributor when one tol dominates', () => {
-    const i = { ...ok, components: [{ name: 'BIG', nominal: 10, tol: 1, distribution: 'normal' as const }, { name: 'small', nominal: 20, tol: 0.05, distribution: 'normal' as const }] };
-    expect(evaluateWarnings(i, calculate(i)).some((w) => w.code === 'DOMINANT_CONTRIBUTOR')).toBe(true);
+    const i = {
+      ...ok,
+      components: [
+        { name: 'BIG', nominal: 10, tol: 1, distribution: 'normal' as const },
+        { name: 'small', nominal: 20, tol: 0.05, distribution: 'normal' as const }
+      ]
+    };
+    expect(evaluateWarnings(i, calculate(i)).some((w) => w.code === 'DOMINANT_CONTRIBUTOR')).toBe(
+      true
+    );
   });
   it('INFO statistical gain present', () => {
     // STATISTICAL_GAIN needs mcRange < worstPlus; with equal tols that holds for n >= 5
@@ -41,7 +54,10 @@ describe('SC-008 warnings', () => {
         { name: 'D', nominal: 10, tol: 0.1, distribution: 'normal' as const },
         { name: 'E', nominal: 10, tol: 0.1, distribution: 'normal' as const }
       ],
-      usl: 52, lsl: 48, seed: 1, iterations: 500
+      usl: 52,
+      lsl: 48,
+      seed: 1,
+      iterations: 5000
     };
     expect(evaluateWarnings(i, calculate(i)).some((w) => w.code === 'STATISTICAL_GAIN')).toBe(true);
   });

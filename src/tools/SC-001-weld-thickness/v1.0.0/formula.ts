@@ -14,7 +14,9 @@ import { stepInterpolate } from '../../../core/interpolate.js';
 import { FILLET_FACTOR, BUTT_FACTOR, MIN_FILLET_LEG_XS, MIN_FILLET_LEG_YS } from './reference.js';
 
 const PLACES = 2;
-function mm(d: Decimal): string { return roundHalfUp(d, PLACES).toFixed(PLACES); }
+function mm(d: Decimal): string {
+  return roundHalfUp(d, PLACES).toFixed(PLACES);
+}
 
 export interface WeldInputs {
   designLoadN: Decimal.Value;
@@ -25,7 +27,12 @@ export interface WeldInputs {
   jointType?: 'fillet' | 'butt';
 }
 
-export interface Step { step: number; description: string; formula: string; result: string; }
+export interface Step {
+  step: number;
+  description: string;
+  formula: string;
+  result: string;
+}
 export interface WeldResult {
   finalLegMm: string;
   finalLegIn: string;
@@ -53,29 +60,61 @@ export function calculate(inputs: WeldInputs): WeldResult {
 
   // 1. allowable shear
   const allowable = strength.div(sf);
-  steps.push({ step: ++n, description: 'Allowable shear stress', formula: `weldStrength / safetyFactor = ${strength.toString()} / ${sf.toString()}`, result: mm(allowable) });
+  steps.push({
+    step: ++n,
+    description: 'Allowable shear stress',
+    formula: `weldStrength / safetyFactor = ${strength.toString()} / ${sf.toString()}`,
+    result: `${mm(allowable)} MPa`
+  });
 
   // 2. required throat (degenerate-safe: load 0 -> throat 0, no divide-by-zero)
   const requiredThroat = loadD.div(length.times(allowable));
-  steps.push({ step: ++n, description: 'Required throat from load', formula: 'designLoad / (weldLength * allowable)', result: mm(requiredThroat) });
+  steps.push({
+    step: ++n,
+    description: 'Required throat from load',
+    formula: 'designLoad / (weldLength * allowable)',
+    result: `${mm(requiredThroat)} mm`
+  });
 
   // 3. leg from load
   const legFromLoad = requiredThroat.div(factor);
-  steps.push({ step: ++n, description: `Leg from load (${joint})`, formula: `requiredThroat / ${factor.toString()}`, result: mm(legFromLoad) });
+  steps.push({
+    step: ++n,
+    description: `Leg from load (${joint})`,
+    formula: `requiredThroat / ${factor.toString()}`,
+    result: `${mm(legFromLoad)} mm`
+  });
 
-  // 4. minimum leg from AWS D1.1 table (step interpolation)
-  const minLeg = stepInterpolate(MIN_FILLET_LEG_XS, MIN_FILLET_LEG_YS, thickness);
-  steps.push({ step: ++n, description: 'Minimum leg from table', formula: 'stepInterpolate(AWS D1.1, thickness)', result: mm(minLeg) });
+  // 4. minimum leg — AWS D1.1 Table 2.1 applies to FILLET welds only.
+  // Butt/groove size is governed by load (and typically plate thickness for CJP — not this table).
+  const minLeg =
+    joint === 'fillet' ? stepInterpolate(MIN_FILLET_LEG_XS, MIN_FILLET_LEG_YS, thickness) : D(0);
+  steps.push({
+    step: ++n,
+    description:
+      joint === 'fillet'
+        ? 'Minimum fillet leg from AWS D1.1 table'
+        : 'Minimum leg (butt: fillet table not applied)',
+    formula:
+      joint === 'fillet' ? 'stepInterpolate(AWS D1.1 fillet, thickness)' : 'n/a for butt/groove',
+    result: `${mm(minLeg)} mm`
+  });
 
-  // 5. final leg = governing of the two
+  // 5. final leg = governing of the two (for butt, minLeg=0 so load always governs when >0)
   const finalLeg = legFromLoad.gt(minLeg) ? legFromLoad : minLeg;
-  steps.push({ step: ++n, description: 'Final leg (governing)', formula: 'max(legFromLoad, minLeg)', result: mm(finalLeg) });
+  steps.push({
+    step: ++n,
+    description: 'Final leg (governing)',
+    formula: 'max(legFromLoad, minLeg)',
+    result: `${mm(finalLeg)} mm`
+  });
 
   // 6. dimensional output: wrap as Quantity and convert mm -> in (exercises engine)
   const legQty = qty(finalLeg, 'mm', 'length');
   const legInQty = qconvert(legQty, 'in');
-  // finalLeg > 0 is guaranteed by the table (min leg >= 3), so no zero-guard needed.
-  const utilization = requiredThroat.div(finalLeg.times(factor));
+  // utilization = applied demand / capacity of the governing leg (load/capacity of sized weld)
+  const denom = finalLeg.times(factor);
+  const utilization = denom.gt(0) ? requiredThroat.div(denom) : D(0);
 
   return {
     finalLegMm: mm(finalLeg),

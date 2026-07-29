@@ -15,11 +15,23 @@ import { D, Decimal } from '../../../core/engine.js';
 import { CalcError } from '../../../core/guards.js';
 import { roundHalfUp } from '../../../core/rounding.js';
 import { tol, worstCaseSum, rssSum } from '../../../core/tolerance.js';
-import { mean as statsMean, stddevPopulation as statsStddevPop, percentile } from '../../../core/stats.js';
-import { lcg, sampleNormal, sampleUniform, sampleTruncatedNormal, sampleTriangular } from '../../../core/monte-carlo.js';
+import {
+  mean as statsMean,
+  stddevPopulation as statsStddevPop,
+  percentile
+} from '../../../core/stats.js';
+import {
+  lcg,
+  sampleNormal,
+  sampleUniform,
+  sampleTruncatedNormal,
+  sampleTriangular
+} from '../../../core/monte-carlo.js';
 
 const PLACES = 4;
-function num(d: Decimal): string { return roundHalfUp(d, PLACES).toFixed(PLACES); }
+function num(d: Decimal): string {
+  return roundHalfUp(d, PLACES).toFixed(PLACES);
+}
 
 export interface Component {
   name: string;
@@ -38,8 +50,16 @@ export interface StackInput {
   iterations?: number;
 }
 
-export interface ParetoRow { name: string; pct: string; }
-export interface Step { step: number; description: string; formula: string; result: string; }
+export interface ParetoRow {
+  name: string;
+  pct: string;
+}
+export interface Step {
+  step: number;
+  description: string;
+  formula: string;
+  result: string;
+}
 export interface StackResult {
   nominalSum: string;
   worstPlus: string;
@@ -68,11 +88,15 @@ export function simulateStack(components: Component[], input: StackInput): Decim
   const iterations = input.iterations ?? 5000;
   if (iterations < 1) throw new CalcError('E_INVALID_INPUT', 'iterations must be >= 1');
   const seed = input.seed ?? 12345;
-  const rng = lcg(seed);
+  // Per-component LCG substreams: consecutive components no longer share one lattice walk
+  // (closes ADV-D5 coupling). Same (seed, iterations, components) → identical results.
+  const rngs = components.map((_, j) => lcg(D(seed).plus(j * 7919)));
   const out: Decimal[] = [];
   for (let i = 0; i < iterations; i++) {
     let sum = D(0);
-    for (const c of components) {
+    for (let j = 0; j < components.length; j++) {
+      const c = components[j]!;
+      const rng = rngs[j]!;
       const nom = D(c.nominal);
       const t = D(c.tol);
       if (t.lt(0)) throw new CalcError('E_NEGATIVE', `tol of ${c.name} must be >= 0`);
@@ -98,7 +122,8 @@ export function calculate(input: StackInput, samples?: Decimal[]): StackResult {
   const steps: Step[] = [];
   let n = 0;
   const components = input.components;
-  if (!components || components.length === 0) throw new CalcError('E_INVALID_INPUT', 'stack needs >= 1 component');
+  if (!components || components.length === 0)
+    throw new CalcError('E_INVALID_INPUT', 'stack needs >= 1 component');
   const usl = D(input.usl);
   const lsl = D(input.lsl);
   if (usl.lte(lsl)) throw new CalcError('E_INVALID_INPUT', 'USL must be > LSL');
@@ -107,8 +132,18 @@ export function calculate(input: StackInput, samples?: Decimal[]): StackResult {
   const tols = components.map((c) => tol(c.nominal, c.tol, c.tol));
   const worst = worstCaseSum(tols);
   const rss = rssSum(tols);
-  steps.push({ step: ++n, description: 'Worst-case stack', formula: 'sum(tol)', result: num(worst.plus) });
-  steps.push({ step: ++n, description: 'RSS stack', formula: 'sqrt(sum(tol^2))', result: num(rss.plus) });
+  steps.push({
+    step: ++n,
+    description: 'Worst-case stack',
+    formula: 'sum(tol)',
+    result: num(worst.plus)
+  });
+  steps.push({
+    step: ++n,
+    description: 'RSS stack',
+    formula: 'sqrt(sum(tol^2))',
+    result: num(rss.plus)
+  });
 
   // 2. Monte Carlo (seeded Decimal); optional samples avoids a second simulation in the UI.
   const iterations = input.iterations ?? 5000;
@@ -121,25 +156,43 @@ export function calculate(input: StackInput, samples?: Decimal[]): StackResult {
   const max = sorted[sorted.length - 1]!;
   const p0013 = percentile(usedSamples, '0.0013');
   const p9987 = percentile(usedSamples, '0.9987');
-  steps.push({ step: ++n, description: `Monte Carlo (${iterations} runs, seed ${seed})`, formula: 'seeded LCG + inverse-CDF', result: `mean ${num(mean)}, std ${num(std)}` });
+  steps.push({
+    step: ++n,
+    description: `Monte Carlo (${iterations} runs, seed ${seed})`,
+    formula: 'seeded LCG + inverse-CDF',
+    result: `mean ${num(mean)}, std ${num(std)}`
+  });
 
   // 3. capability
   const cp = std.gt(0) ? usl.minus(lsl).div(std.times(6)) : D(0);
   const cpu = std.gt(0) ? usl.minus(mean).div(std.times(3)) : D(0);
   const cpl = std.gt(0) ? mean.minus(lsl).div(std.times(3)) : D(0);
   const cpk = cpu.lt(cpl) ? cpu : cpl;
-  steps.push({ step: ++n, description: 'Capability', formula: 'Cp=(USL-LSL)/6s, Cpk=min(CPU,CPL)', result: `Cp ${num(cp)}, Cpk ${num(cpk)}` });
+  steps.push({
+    step: ++n,
+    description: 'Capability',
+    formula: 'Cp=(USL-LSL)/6s, Cpk=min(CPU,CPL)',
+    result: `Cp ${num(cp)}, Cpk ${num(cpk)}`
+  });
 
   // 4. empirical defect ppm (no CDF needed)
   let outCount = 0;
   for (const s of usedSamples) if (s.gt(usl) || s.lt(lsl)) outCount++;
   const ppm = D(outCount).div(usedSamples.length).times(D('1000000'));
-  steps.push({ step: ++n, description: 'Empirical defect rate', formula: 'out-of-spec / runs * 1e6', result: `${num(ppm)} ppm` });
+  steps.push({
+    step: ++n,
+    description: 'Empirical defect rate',
+    formula: 'out-of-spec / runs * 1e6',
+    result: `${num(ppm)} ppm`
+  });
 
   // 5. contribution pareto (RSS-based)
   const totalSq = tols.reduce((acc, t) => acc.plus(t.plus.pow(2)), D(0));
   const pareto: ParetoRow[] = components
-    .map((c, i) => ({ name: c.name, pct: totalSq.gt(0) ? D(tols[i]!.plus).pow(2).div(totalSq).times(100) : D(0) }))
+    .map((c, i) => ({
+      name: c.name,
+      pct: totalSq.gt(0) ? D(tols[i]!.plus).pow(2).div(totalSq).times(100) : D(0)
+    }))
     .sort((a, b) => b.pct.cmp(a.pct))
     .map((r) => ({ name: r.name, pct: roundHalfUp(r.pct, 1).toFixed(1) }));
 
