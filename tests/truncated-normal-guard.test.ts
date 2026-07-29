@@ -1,6 +1,5 @@
 import { describe, it, expect } from 'vitest';
 import { lcg, sampleTruncatedNormal } from '../src/core/monte-carlo.js';
-import { D } from '../src/core/engine.js';
 
 describe('truncated-normal contract (P0 regression guard)', () => {
   it('never breaches [lo, hi] across 10_000 seeds', () => {

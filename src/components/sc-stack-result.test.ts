@@ -3,18 +3,61 @@ import { describe, it, expect } from 'vitest';
 import './sc-stack-result.js';
 import { ScStackResult } from './sc-stack-result.js';
 
-async function mount(el: ScStackResult): Promise<ScStackResult> { document.body.appendChild(el); await el.updateComplete; return el; }
+async function mount(el: ScStackResult): Promise<ScStackResult> {
+  document.body.appendChild(el);
+  await el.updateComplete;
+  return el;
+}
+
 const result = {
-  nominalSum: '30', worstPlus: '0.5', rssPlus: '0.36', mcMean: '30', mcStd: '0.18',
-  mcMin: '29.4', mcMax: '30.6', mcP0013: '29.46', mcP9987: '30.54', cp: '2.78', cpk: '2.70',
-  ppm: '0', pareto: [{ name: 'A', pct: '60' }], iterations: 5000, seed: 1, steps: [{ step: 1, description: 'd', formula: 'f', result: 'r' }]
+  nominalSum: '30',
+  worstPlus: '0.5',
+  rssPlus: '0.36',
+  mcMean: '30',
+  mcStd: '0.18',
+  mcMin: '29.4',
+  mcMax: '30.6',
+  mcP0013: '29.46',
+  mcP9987: '30.54',
+  cp: '2.78',
+  cpk: '2.70',
+  ppm: '0',
+  pareto: [{ name: 'A', pct: '60' }],
+  iterations: 5000,
+  seed: 1,
+  steps: [{ step: 1, description: 'd', formula: 'f', result: 'r' }],
+  warnings: [],
+  samples: [],
+  specHalf: '1.5',
+  rssInSpec: true,
+  ppmCiLow: '0',
+  ppmCiHigh: '1',
+  reportData: {
+    verdict: 'CAPABLE',
+    cpk: '2.70',
+    ppm: '0',
+    riskAnalysis: [
+      {
+        level: 'PASS',
+        code: 'CPK_CAPABLE',
+        message: 'Cpk is capable',
+        recommendation: 'Maintain current tolerances'
+      }
+    ],
+    insights: ['Tighten contributor A first'],
+    standards: ['ASME Y14.5']
+  }
 };
 
 describe('sc-stack-result', () => {
-  it('empty state', async () => { const el = await mount(new ScStackResult()); expect(el.shadowRoot?.querySelector('.empty')).not.toBeNull(); });
+  it('empty state', async () => {
+    const el = await mount(new ScStackResult());
+    expect(el.shadowRoot?.querySelector('.empty')).not.toBeNull();
+  });
   it('renders verdict, grid, pareto, steps', async () => {
     const el = await mount(new ScStackResult());
-    el.result = result as never; await el.updateComplete;
+    el.result = result as never;
+    await el.updateComplete;
     expect(el.shadowRoot?.querySelector('.verdict')?.textContent).toContain('CAPABLE');
     expect(el.shadowRoot?.querySelectorAll('.cell').length).toBe(6);
     expect(el.shadowRoot?.querySelector('table')?.textContent).toContain('A');
@@ -22,8 +65,10 @@ describe('sc-stack-result', () => {
   });
   it('renders risk analysis and actionable insights', async () => {
     const el = await mount(new ScStackResult());
-    el.result = result as never; await el.updateComplete;
+    el.result = result as never;
+    await el.updateComplete;
     expect(el.shadowRoot?.querySelector('.risk')).not.toBeNull();
     expect(el.shadowRoot?.textContent).toContain('Actionable insights');
+    expect(el.shadowRoot?.textContent).toContain('Tighten contributor A first');
   });
 });

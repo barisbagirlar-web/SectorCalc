@@ -19,7 +19,7 @@ concurrency:
 
 jobs:
   static-gates:
-    name: Static gates (lang + types + unit + SEO SSOT)
+    name: Static gates (lang + lint + types + unit + SEO SSOT)
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -29,8 +29,12 @@ jobs:
           node-version-file: '.nvmrc'
           cache: npm
       - run: npm ci --no-audit --no-fund
+      - name: Production dependency audit
+        run: npm run audit:prod
       - name: English-only language gate
         run: node scripts/check-language.mjs --strict
+      - name: JavaScript + TypeScript lint
+        run: npm run lint
       - name: Typecheck
         run: npm run typecheck
       - name: Unit + golden tests

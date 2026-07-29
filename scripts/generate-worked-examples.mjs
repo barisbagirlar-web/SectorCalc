@@ -1,5 +1,7 @@
 /**
  * Generate engine-backed worked-example fixtures for Tier-A money pages.
+ * SC-001/008/010/012 fixtures are frozen JSON maintained against the private
+ * server engine — this script must not import those proprietary formulas.
  * Run: npx vite-node scripts/generate-worked-examples.mjs
  */
 import { writeFileSync, mkdirSync } from 'node:fs';
@@ -14,114 +16,8 @@ function write(entity, payload) {
   console.log(`[OK] ${entity} → ${path}`);
 }
 
-// --- TS engines ---
-import { calculate as calcStack, simulateStack } from '../src/tools/SC-008-tolerance-stack/v1.0.0/formula.ts';
-import { calculate as calcLabor } from '../src/tools/SC-010-labor-cost/v1.0.0/formula.ts';
-import { calculate as calcQuote } from '../src/tools/SC-012-quote-pricing/v1.0.0/formula.ts';
 import { calculate as calcOee } from '../src/tools/SC-014-oee/v1.0.0/formula.ts';
 import { calculate as calcMachining } from '../src/tools/SC-020-feeds-speeds/v1.0.0/formula.ts';
-
-{
-  const inputs = {
-    components: [
-      { name: 'Housing bore depth', nominal: '50', tol: '0.05', distribution: 'normal' },
-      { name: 'Bearing width', nominal: '20', tol: '0.02', distribution: 'normal' },
-      { name: 'Spacer', nominal: '10', tol: '0.03', distribution: 'normal' },
-    ],
-    usl: '80.20',
-    lsl: '79.80',
-    seed: '42',
-    iterations: '2000',
-  };
-  const samples = simulateStack(inputs.components, inputs);
-  const r = calcStack(inputs, samples);
-  write('tolerance-stack-up', {
-    toolId: 'SC-008',
-    primaryEntity: 'tolerance-stack-up',
-    engineSource: 'src/tools/SC-008-tolerance-stack/v1.0.0/formula.ts',
-    title: 'Three-contributor gap stack (seeded)',
-    narrative:
-      'A housing depth, bearing width, and spacer close a 80.00 mm target gap band of ±0.20 mm. Worst-case, RSS, and seeded Monte Carlo are taken from the production SC-008 engine.',
-    inputs,
-    outputs: {
-      worstPlus: r.worstPlus,
-      rssPlus: r.rssPlus,
-      cpk: r.cpk,
-      mcStd: r.mcStd,
-    },
-  });
-}
-
-{
-  const inputs = {
-    country: 'DE',
-    netSalary: '3200',
-    payFrequency: 'monthly',
-    hoursPerWeek: '40',
-    healthMonthly: '120',
-    mealMonthly: '80',
-    transportMonthly: '50',
-    annualBonus: '2400',
-    recruitmentCost: '4500',
-    tenureYears: '3',
-  };
-  const r = calcLabor(inputs);
-  write('true-labor-cost', {
-    toolId: 'SC-010',
-    primaryEntity: 'true-labor-cost',
-    engineSource: 'src/tools/SC-010-labor-cost/v1.0.0/formula.ts',
-    title: 'German monthly net €3,200 fully loaded',
-    narrative:
-      'Production SC-010 converts net pay into true employer cost including employer social charges, benefits, severance accrual, and amortized recruitment.',
-    inputs,
-    outputs: {
-      trueMonthlyCost: r.trueMonthlyCost,
-      trueHourlyCost: r.trueHourlyCost,
-      costMultiplier: r.costMultiplier,
-      hiddenCostPct: r.hiddenCostPct,
-      currency: r.currency,
-    },
-  });
-}
-
-{
-  const inputs = {
-    materialCost: '42',
-    scrapRate: '0.05',
-    laborHours: '1.2',
-    laborHourlyCost: '48',
-    machineHours: '0.8',
-    machineHourlyCost: '85',
-    setupMinutes: '30',
-    setupHourlyCost: '95',
-    overheadRate: '0.18',
-    energyCost: '4.5',
-    consumablesCost: '6',
-    shippingCost: '12',
-    paymentDays: '45',
-    monthlyInterestRate: '0.01',
-    targetMargin: '0.25',
-    quantity: '50',
-    currency: 'EUR',
-  };
-  const r = calcQuote(inputs);
-  write('quote-pricing', {
-    toolId: 'SC-012',
-    primaryEntity: 'quote-pricing',
-    engineSource: 'src/tools/SC-012-quote-pricing/v1.0.0/formula.ts',
-    title: '50-piece job quote at 25% target margin',
-    narrative:
-      'SC-012 builds full cost (material with scrap, labor, machine, setup, overhead, finance) then marks up to the target margin. Outputs are production-engine sell and unit prices.',
-    inputs,
-    outputs: {
-      sellPrice: r.sellPrice,
-      unitPrice: r.unitPrice,
-      totalCost: r.totalCost,
-      profit: r.profit,
-      currency: r.currency,
-    },
-  });
-}
 
 {
   const inputs = {
@@ -129,7 +25,7 @@ import { calculate as calcMachining } from '../src/tools/SC-020-feeds-speeds/v1.
     runTime: '420',
     idealCycleTime: '1.2',
     totalCount: '300',
-    goodCount: '291',
+    goodCount: '291'
   };
   const r = calcOee(inputs);
   write('oee-teep', {
@@ -144,8 +40,8 @@ import { calculate as calcMachining } from '../src/tools/SC-020-feeds-speeds/v1.
       oeePct: r.oeePct,
       availabilityPct: r.availabilityPct,
       performancePct: r.performancePct,
-      qualityPct: r.qualityPct,
-    },
+      qualityPct: r.qualityPct
+    }
   });
 }
 
@@ -167,7 +63,7 @@ import { calculate as calcMachining } from '../src/tools/SC-020-feeds-speeds/v1.
     interruption: 'continuous',
     toolCost: '85',
     machineCostPerMin: '1.4',
-    currency: 'EUR',
+    currency: 'EUR'
   };
   const r = calcMachining(inputs);
   write('cnc-feeds-speeds', {
@@ -183,12 +79,10 @@ import { calculate as calcMachining } from '../src/tools/SC-020-feeds-speeds/v1.
       vfMmMin: r.vfMmMin,
       hmMm: r.hmMm,
       materialName: r.materialName,
-      verdict: r.verdict,
-    },
+      verdict: r.verdict
+    }
   });
 }
-
-// --- HTML-page engines extracted as pure functions (must match *-pro.html calculate) ---
 
 function machineHourRate(inp) {
   const dep = (inp.price - inp.resid) / inp.life;
@@ -209,7 +103,7 @@ function machineHourRate(inp) {
     machineH: +machineH.toFixed(4),
     laborH: +laborH.toFixed(4),
     totalH: +totalH.toFixed(4),
-    costPart: +costPart.toFixed(6),
+    costPart: +costPart.toFixed(6)
   };
 }
 
@@ -231,7 +125,7 @@ function machineHourRate(inp) {
     wage: 42,
     share: 1.5,
     oh: 18,
-    cycleS: 95,
+    cycleS: 95
   };
   write('machine-hour-rate', {
     toolId: 'SC-038',
@@ -241,12 +135,11 @@ function machineHourRate(inp) {
     narrative:
       'Ownership, space, maintenance, energy, attended labor, and overhead dilute into a total hourly rate and optional cost/part at the stated cycle time.',
     inputs,
-    outputs: machineHourRate(inputs),
+    outputs: machineHourRate(inputs)
   });
 }
 
 function bearingL10(inp) {
-  // ISO 281 basic rating life L10h = (C/P)^p * 1e6 / (60*n) with aISO approx via kappa/eC screening constants
   const p = inp.bearingType === 'roller' ? 10 / 3 : 3;
   const ratio = inp.C / inp.P;
   const L10rev = Math.pow(ratio, p) * 1e6;
@@ -257,7 +150,7 @@ function bearingL10(inp) {
     L10h: +L10h.toFixed(2),
     Lnmh: +Lnmh.toFixed(2),
     lifeRatio: +ratio.toFixed(4),
-    exponent: p,
+    exponent: p
   };
 }
 
@@ -271,12 +164,11 @@ function bearingL10(inp) {
     narrative:
       'Basic rating life from dynamic capacity and equivalent load, then modified life with the supplied aISO factor. Manufacturer catalog values remain authoritative for contract selection.',
     inputs,
-    outputs: bearingL10(inputs),
+    outputs: bearingL10(inputs)
   });
 }
 
 function boltTorque(inp) {
-  // T = K * F * d  (assembly torque estimate)
   const T = inp.K * inp.F * inp.d;
   const sigma = (inp.F * 4) / (Math.PI * inp.d * inp.d);
   return { torqueNm: +T.toFixed(3), meanStressMPa: +sigma.toFixed(2) };
@@ -292,7 +184,7 @@ function boltTorque(inp) {
     narrative:
       'Assembly torque from nut factor K, target preload, and nominal diameter. Friction scatter dominates — treat as screening, not a substitute for VDI 2230 joint design.',
     inputs,
-    outputs: boltTorque(inputs),
+    outputs: boltTorque(inputs)
   });
 }
 
@@ -304,7 +196,7 @@ function boltedJoint(inp) {
   return {
     loadFactor: +Phi.toFixed(4),
     FmaxN: +Fmax.toFixed(1),
-    FminN: +Fmin.toFixed(1),
+    FminN: +Fmin.toFixed(1)
   };
 }
 
@@ -318,12 +210,11 @@ function boltedJoint(inp) {
     narrative:
       'Force ratio Φ splits external load between bolt and clamped parts. Outputs max/min bolt force under working load for first-pass VDI-style screening.',
     inputs,
-    outputs: boltedJoint(inputs),
+    outputs: boltedJoint(inputs)
   });
 }
 
 function pipeWall(inp) {
-  // ASME B31.3 straight pipe under internal pressure (basic): t = P*D / (2*(S*E*W + P*Y))
   const t = (inp.P * inp.D) / (2 * (inp.S * inp.E * inp.W + inp.P * inp.Y));
   const tmin = t + inp.CA;
   return { tDesignMm: +(t * 1000).toFixed(3), tMinMm: +(tmin * 1000).toFixed(3) };
@@ -339,12 +230,11 @@ function pipeWall(inp) {
     narrative:
       'Basic B31.3 internal-pressure thickness plus corrosion allowance. External pressure, branch reinforcement, and material certificates are out of scope.',
     inputs,
-    outputs: pipeWall(inputs),
+    outputs: pipeWall(inputs)
   });
 }
 
 function vesselShell(inp) {
-  // ASME VIII Div.1 circ. stress screening: t = P*R / (S*E - 0.6*P)
   const t = (inp.P * inp.R) / (inp.S * inp.E - 0.6 * inp.P);
   return { tShellMm: +(t * 1000).toFixed(3) };
 }
@@ -359,12 +249,11 @@ function vesselShell(inp) {
     narrative:
       'Circumferential stress screening thickness for a cylindrical shell. Heads, nozzles, wind/seismic, and external pressure procedures are not included.',
     inputs,
-    outputs: vesselShell(inputs),
+    outputs: vesselShell(inputs)
   });
 }
 
 function heatInput(inp) {
-  // kJ/mm = (V * I * 60) / (1000 * travel_mm_per_min) * efficiency
   const HI = ((inp.V * inp.I * 60) / (1000 * inp.travel)) * inp.eta;
   return { heatInputKJperMm: +HI.toFixed(4) };
 }
@@ -379,8 +268,10 @@ function heatInput(inp) {
     narrative:
       'Arc energy from voltage, current, and travel speed with process efficiency. This does not replace WPS/PQR qualification or cooling-time metallurgy checks.',
     inputs,
-    outputs: heatInput(inputs),
+    outputs: heatInput(inputs)
   });
 }
 
-console.log('[PASS] worked-example fixtures generated');
+console.log(
+  '[PASS] worked-example fixtures generated (SC-008/010/012 remain frozen JSON from private engine)'
+);

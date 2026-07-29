@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { calculate } from './tools/SC-012-quote-pricing/v1.0.0/formula.js';
+import { LatestCalculation, engineErrorMessage } from './engine-api/client.js';
 import { readThemePalette, exportSurfaceBg, onThemeChange } from './lib/theme-palette.js';
 import { makeIntegrityShareURL, parseIntegrityShare } from './lib/share-integrity.js';
 import { parseInputNumber } from './lib/parse-number.js';
@@ -84,6 +84,7 @@ function setFieldState(f, ok, msg) {
 }
 
 let calcData = null;
+const requests = new LatestCalculation();
 
 function readInputs() {
   const input = {};
@@ -113,12 +114,12 @@ function toFormulaInput(i) {
   };
 }
 
-function validateAndCalc() {
+async function validateAndCalc() {
   if (window.__scProGate && !window.__scProGate.isEntitled()) {
     if ($('liveResult')) $('liveResult').textContent = 'Locked';
     if ($('liveSub'))
       $('liveSub').innerHTML =
-        '<span>Session unlock required for full editing (on-device math)</span>';
+        '<span>Session unlock required for the authenticated server engine</span>';
     return;
   }
   let hasError = false;
@@ -154,8 +155,12 @@ function validateAndCalc() {
   const input = readInputs();
   let r;
   let sell, unit, total, profit, marginPct, financing, engineRows;
+  $('liveResult').textContent = '…';
+  $('liveSub').innerHTML = '<span>Calculating securely…</span>';
   try {
-    r = calculate(toFormulaInput(input));
+    const response = await requests.run('SC-012', toFormulaInput(input));
+    if (!response) return;
+    r = response.result;
     sell = requirePick(
       r,
       ['sellPrice', 'price', 'sellingPrice', 'totalSellPrice', 'sell'],
@@ -175,7 +180,7 @@ function validateAndCalc() {
       : [];
   } catch (e) {
     $('liveResult').textContent = 'ERR';
-    $('liveSub').innerHTML = '<span>' + e.message + '</span>';
+    $('liveSub').innerHTML = '<span>' + engineErrorMessage(e) + '</span>';
     return;
   }
 
@@ -199,7 +204,7 @@ function loadPreset(key) {
   document
     .querySelectorAll('.sc-preset')
     .forEach((b) => b.classList.toggle('active', b.dataset.preset === key));
-  validateAndCalc();
+  void validateAndCalc();
 }
 function resetAll() {
   loadPreset('job');
@@ -240,7 +245,10 @@ function overallStatus(ratio) {
 }
 
 function generateReport(opts = {}) {
-  if (!calcData) validateAndCalc();
+  if (!calcData) {
+    void validateAndCalc();
+    return;
+  }
   const d = calcData;
   if (!d) return;
   const calcId =
@@ -256,30 +264,11 @@ function generateReport(opts = {}) {
   const paretoColors = [P.red, P.amber, P.blue, P.blue, P.blue, P.green];
   const top = d.engineRows[0];
 
-  const whatIfs = [
-    { label: 'Quantity x2', fn: (i) => ({ ...i, quantity: i.quantity * 2 }) },
-    {
-      label: 'Margin +5pp',
-      fn: (i) => ({ ...i, targetMargin: Math.min(0.9, i.targetMargin + 0.05) })
-    },
-    { label: 'Material +20%', fn: (i) => ({ ...i, materialCost: i.materialCost * 1.2 }) }
-  ].map((w) => {
-    let tr;
-    try {
-      tr = calculate(toFormulaInput(w.fn(d.input)));
-    } catch (e) {
-      return { label: w.label, newUnit: d.unit, delta: 0 };
-    }
-    const ns = requirePick(
-      tr,
-      ['sellPrice', 'price', 'sellingPrice', 'totalSellPrice', 'sell'],
-      'sellPrice'
-    );
-    const nu = requirePick(tr, ['unitPrice', 'pricePerUnit', 'sellPerUnit'], 'unitPrice');
+  const whatIfs = (d.r.sensitivity ?? []).map((item) => {
     const useUnit = d.unit > 0;
-    const newV = useUnit ? nu : ns;
-    const oldV = useUnit ? d.unit : d.sell;
-    return { label: w.label, newUnit: newV, delta: newV - oldV };
+    const newValue = Number(useUnit ? item.unitPrice : item.sellPrice);
+    const oldValue = useUnit ? d.unit : d.sell;
+    return { label: item.label, newUnit: newValue, delta: newValue - oldValue };
   });
 
   const recHTML =
@@ -293,7 +282,7 @@ function generateReport(opts = {}) {
     <div class="sc-rec"><div class="sc-rec-hd"><span class="sc-rec-num">2</span><span class="sc-rec-title">Document the build-up for the customer</span></div><div class="sc-rec-body">Calc ID ${calcId} reproducible from inputs.<br><span class="pos">-> Attach PDF as a transparent quote annex</span></div></div>`;
 
   const reportHTML = `
-    <div class="sc-report-hd"><div class="sc-report-hd-left"><div class="sc-report-title">SC-012 Quote Pricing Analysis</div><div class="sc-report-meta">Calculation ID: <span>${calcId}</span> &nbsp;|&nbsp; ${new Date().toISOString().replace('T', ' ').slice(0, 19)} UTC<br>Standard: GAAP revenue recognition | Full absorption costing<br>Method: Deterministic cost build-up + margin gross-up<br><span class="ok">Core calculation on-device — formulas/inputs stay in this browser session (page analytics may still load)</span></div></div>
+    <div class="sc-report-hd"><div class="sc-report-hd-left"><div class="sc-report-title">SC-012 Quote Pricing Analysis</div><div class="sc-report-meta">Calculation ID: <span>${calcId}</span> &nbsp;|&nbsp; ${new Date().toISOString().replace('T', ' ').slice(0, 19)} UTC<br>Standard: GAAP revenue recognition | Full absorption costing<br>Method: Deterministic cost build-up + margin gross-up<br><span class="ok">Calculation executed by the authenticated private server engine.</span></div></div>
       <div class="sc-report-hd-right"><button class="sc-btn sc-btn-ghost" onclick="exportPDF()">Export PDF</button><button class="sc-btn sc-btn-ghost" onclick="exportPDFGraphic()">Export Graphic PDF</button><button class="sc-btn sc-btn-primary" onclick="shareReport()">Share</button></div></div>
     <div class="sc-sec"><div class="sc-sec-hd">Risk Assessment</div>
       ${status === 'CRITICAL' ? `<div class="sc-alert sc-alert-crit"><div class="sc-alert-icon">!</div><div><div class="sc-alert-title">Critical - Sell price below cost</div><div class="sc-alert-body">Sell/cost ratio <strong>${ratio.toFixed(2)}</strong> (&lt; 1.0). This quote <strong>loses money</strong>.<br>Margin ${d.marginPct.toFixed(1)}%. Raise price or cut the top driver <strong>${top ? top.name : '—'}</strong>.</div></div></div>` : ''}
@@ -343,9 +332,9 @@ function generateReport(opts = {}) {
       <span>Full absorption costing</span> - material + labor + machine + overhead + financing<br>
       <span>Margin gross-up</span> - sell = total / (1 - targetMargin)<br>
       <span>Unit price</span> - sell / quantity; setup amortized across the batch<br>
-      <span>Deterministic</span> - same inputs always yield the same quote, client-side
+      <span>Deterministic</span> - same inputs and engine version yield the same result
     </div></div></div>
-    <div class="sc-footer">Generated by SectorCalc.com - Client-Side Only - Core calc on-device; page analytics may still load<br>Engineering preview · Client-side · Deterministic · Not for production approval</div>`;
+    <div class="sc-footer">Generated by SectorCalc.com - Authenticated private server engine<br>Engineering preview · Deterministic · Not for production approval</div>`;
   $('reportArea').innerHTML = reportHTML;
 }
 
@@ -377,7 +366,7 @@ function exportPDF() {
     '#666666'
   );
   line('Standard: GAAP revenue recognition | Full absorption costing', 9, '#666666');
-  line('Client-Side Only - core calc on-device (page analytics may still load)', 9, '#1a7f37');
+  line('Calculation executed by the authenticated private server engine', 9, '#1a7f37');
   y += 6;
   line(
     'VERDICT: ' +
@@ -451,7 +440,7 @@ async function exportPDFGraphic() {
       pdf.text(
         'SectorCalc.com | Calc ID ' +
           (window.calcId || 'SC-012') +
-          ' | Deterministic | Client-Side | Page ' +
+          ' | Deterministic | Private server engine | Page ' +
           i +
           '/' +
           pages,
@@ -500,4 +489,4 @@ window.resetAll = resetAll;
 window.validateAndCalc = validateAndCalc;
 
 loadFromURL();
-validateAndCalc();
+void validateAndCalc();

@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { sinDeg, cosDeg, tanDeg, expD, lnD, decimalPi } from '../src/industrial-suite/engine.js';
+import { sinDeg, cosDeg, tanDeg, expD, lnD } from '../src/industrial-suite/engine.js';
 import { D } from '../src/core/engine.js';
 
 describe('Decimal-native trig precision (P0 regression guard)', () => {
@@ -19,7 +19,12 @@ describe('Decimal-native trig precision (P0 regression guard)', () => {
     expect(expD(D(1)).minus('2.71828182845904523536').abs().lt('1e-18')).toBe(true);
   });
   it('ln(e) = 1 to 20 digits', () => {
-    expect(lnD(expD(D(1))).minus(1).abs().lt('1e-18')).toBe(true);
+    expect(
+      lnD(expD(D(1)))
+        .minus(1)
+        .abs()
+        .lt('1e-18')
+    ).toBe(true);
   });
   it('sin²(15°) + cos²(15°) = 1 to 25 digits', () => {
     const s = sinDeg(D(15));

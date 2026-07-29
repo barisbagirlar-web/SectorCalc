@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { calculate } from './tools/SC-001-weld-thickness/v1.0.0/formula.js';
+import { LatestCalculation, engineErrorMessage } from './engine-api/client.js';
 import { readThemePalette, exportSurfaceBg, onThemeChange } from './lib/theme-palette.js';
 import { makeIntegrityShareURL, parseIntegrityShare } from './lib/share-integrity.js';
 import { parseInputNumber } from './lib/parse-number.js';
@@ -65,6 +65,7 @@ function setFieldState(f, ok, msg) {
 }
 
 let calcData = null;
+const requests = new LatestCalculation();
 
 function readInputs() {
   const input = { jointType: $('jointType').value };
@@ -76,12 +77,12 @@ function readInputs() {
   return input;
 }
 
-function validateAndCalc() {
+async function validateAndCalc() {
   if (window.__scProGate && !window.__scProGate.isEntitled()) {
     if ($('liveResult')) $('liveResult').textContent = 'Locked';
     if ($('liveSub'))
       $('liveSub').innerHTML =
-        '<span>Session unlock required for full editing (on-device math)</span>';
+        '<span>Session unlock required for the authenticated server engine</span>';
     return;
   }
   let hasError = false;
@@ -110,8 +111,12 @@ function validateAndCalc() {
   const input = readInputs();
   let r;
   let leg, throat, minLeg, util, steps;
+  $('liveResult').textContent = '…';
+  $('liveSub').innerHTML = '<span>Calculating securely…</span>';
   try {
-    r = calculate(input);
+    const response = await requests.run('SC-001', input);
+    if (!response) return;
+    r = response.result;
     leg = requirePick(r, ['finalLegMm', 'legMm', 'requiredLegMm', 'leg'], 'finalLegMm');
     throat = requirePick(r, ['requiredThroatMm', 'throatMm', 'throat'], 'requiredThroatMm');
     minLeg = requirePick(r, ['minLegMm', 'codeMinLegMm', 'minLeg'], 'minLegMm');
@@ -119,7 +124,7 @@ function validateAndCalc() {
     steps = Array.isArray(r.steps) ? r.steps : [];
   } catch (e) {
     $('liveResult').textContent = 'ERR';
-    $('liveSub').innerHTML = '<span>' + e.message + '</span>';
+    $('liveSub').innerHTML = '<span>' + engineErrorMessage(e) + '</span>';
     return;
   }
 
@@ -143,7 +148,7 @@ function loadPreset(key) {
   document
     .querySelectorAll('.sc-preset')
     .forEach((b) => b.classList.toggle('active', b.dataset.preset === key));
-  validateAndCalc();
+  void validateAndCalc();
 }
 function resetAll() {
   loadPreset('struct');
@@ -181,7 +186,10 @@ function overallStatus(u) {
 }
 
 function generateReport(opts = {}) {
-  if (!calcData) validateAndCalc();
+  if (!calcData) {
+    void validateAndCalc();
+    return;
+  }
   const d = calcData;
   if (!d) return;
   const calcId =
@@ -194,23 +202,11 @@ function generateReport(opts = {}) {
   const gCol = gaugeColor(d.util);
   const gaugeAngle = Math.max(-90, Math.min(90, (d.util / 1.5) * 180 - 90));
 
-  const whatIfs = [
-    { label: 'Load +20%', fn: (i) => ({ ...i, designLoadN: i.designLoadN * 1.2 }) },
-    { label: 'Weld length +20%', fn: (i) => ({ ...i, weldLengthMm: i.weldLengthMm * 1.2 }) },
-    { label: 'Strength -10%', fn: (i) => ({ ...i, weldStrengthMpa: i.weldStrengthMpa * 0.9 }) }
-  ].map((w) => {
-    let tr;
-    try {
-      tr = calculate(w.fn(d.input));
-    } catch (e) {
-      return { label: w.label, leg: d.leg, util: d.util };
-    }
-    return {
-      label: w.label,
-      leg: requirePick(tr, ['finalLegMm', 'legMm', 'requiredLegMm', 'leg'], 'finalLegMm'),
-      util: requirePick(tr, ['utilization', 'util', 'ratio'], 'utilization')
-    };
-  });
+  const whatIfs = (d.r.sensitivity ?? []).map((item) => ({
+    label: item.label,
+    leg: Number(item.finalLegMm),
+    util: Number(item.utilization)
+  }));
 
   const stepsRows = d.steps.length
     ? d.steps
@@ -232,7 +228,7 @@ function generateReport(opts = {}) {
     <div class="sc-rec"><div class="sc-rec-hd"><span class="sc-rec-num">2</span><span class="sc-rec-title">Keep the audit trail</span></div><div class="sc-rec-body">Calc ID ${calcId} reproducible from inputs.<br><span class="pos">-> Attach PDF to the welding procedure / WPS package</span></div></div>`;
 
   const reportHTML = `
-    <div class="sc-report-hd"><div class="sc-report-hd-left"><div class="sc-report-title">SC-001 Weld Thickness Analysis</div><div class="sc-report-meta">Calculation ID: <span>${calcId}</span> &nbsp;|&nbsp; ${new Date().toISOString().replace('T', ' ').slice(0, 19)} UTC<br>Standard: AWS D1.1 structural welding | EN ISO 2553 weld symbols<br>Method: Deterministic load / weld-capacity check<br><span class="ok">Core calculation on-device — formulas/inputs stay in this browser session (page analytics may still load)</span></div></div>
+    <div class="sc-report-hd"><div class="sc-report-hd-left"><div class="sc-report-title">SC-001 Weld Thickness Analysis</div><div class="sc-report-meta">Calculation ID: <span>${calcId}</span> &nbsp;|&nbsp; ${new Date().toISOString().replace('T', ' ').slice(0, 19)} UTC<br>Standard: AWS D1.1 structural welding | EN ISO 2553 weld symbols<br>Method: Deterministic load / weld-capacity check<br><span class="ok">Calculation executed by the authenticated private server engine.</span></div></div>
       <div class="sc-report-hd-right"><button class="sc-btn sc-btn-ghost" onclick="exportPDF()">Export PDF</button><button class="sc-btn sc-btn-ghost" onclick="exportPDFGraphic()">Export Graphic PDF</button><button class="sc-btn sc-btn-primary" onclick="shareReport()">Share</button></div></div>
     <div class="sc-sec"><div class="sc-sec-hd">Risk Assessment</div>
       ${status === 'CRITICAL' ? `<div class="sc-alert sc-alert-crit"><div class="sc-alert-icon">!</div><div><div class="sc-alert-title">Critical - Weld undersized</div><div class="sc-alert-body">Utilization <strong>${(d.util * 100).toFixed(0)}%</strong> (&gt;= 100%). The weld <strong>cannot carry the load</strong>.<br>Required leg ${d.leg.toFixed(2)} mm. Increase weld length or leg immediately.</div></div></div>` : ''}
@@ -274,9 +270,9 @@ function generateReport(opts = {}) {
       <span>EN ISO 2553</span> - Weld symbols on drawings<br>
       <span>Throat relation</span> - fillet throat ~ 0.707 x leg<br>
       <span>Utilization</span> - applied stress / allowable; &gt;= 1.0 means undersized<br>
-      <span>Deterministic</span> - same inputs always yield the same leg, client-side
+      <span>Deterministic</span> - same inputs and engine version yield the same result
     </div></div></div>
-    <div class="sc-footer">Generated by SectorCalc.com - Client-Side Only - Core calc on-device; page analytics may still load<br>Engineering preview · Client-side · Deterministic · Not for production approval</div>`;
+    <div class="sc-footer">Generated by SectorCalc.com - Authenticated private server engine<br>Engineering preview · Deterministic · Not for production approval</div>`;
   $('reportArea').innerHTML = reportHTML;
 }
 
@@ -307,7 +303,7 @@ function exportPDF() {
     '#666666'
   );
   line('Standard: AWS D1.1 | EN ISO 2553', 9, '#666666');
-  line('Client-Side Only - core calc on-device (page analytics may still load)', 9, '#1a7f37');
+  line('Calculation executed by the authenticated private server engine', 9, '#1a7f37');
   y += 6;
   line(
     'VERDICT: ' +
@@ -387,7 +383,7 @@ async function exportPDFGraphic() {
       pdf.text(
         'SectorCalc.com | Calc ID ' +
           (window.calcId || 'SC-001') +
-          ' | Deterministic | Client-Side | Page ' +
+          ' | Deterministic | Private server engine | Page ' +
           i +
           '/' +
           pages,
@@ -439,4 +435,4 @@ if (window.SCStudy) {
 }
 
 loadFromURL();
-validateAndCalc();
+void validateAndCalc();

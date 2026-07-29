@@ -1,6 +1,5 @@
 // @ts-nocheck
-import { calculate } from './tools/SC-010-labor-cost/v1.0.0/formula.js';
-import { COUNTRIES } from './tools/SC-010-labor-cost/v1.0.0/reference.js';
+import { LatestCalculation, engineErrorMessage } from './engine-api/client.js';
 import { readThemePalette, exportSurfaceBg, onThemeChange } from './lib/theme-palette.js';
 import { makeIntegrityShareURL, parseIntegrityShare } from './lib/share-integrity.js';
 import { parseInputNumber } from './lib/parse-number.js';
@@ -81,6 +80,7 @@ function setFieldState(f, ok, msg) {
 }
 
 let calcData = null;
+const requests = new LatestCalculation();
 
 function readInputs() {
   const countryEl = $('country');
@@ -94,20 +94,15 @@ function readInputs() {
 }
 
 function applyCountryDefaults(code) {
-  const c = COUNTRIES[code];
-  if (!c) return;
-  if ($('employerSSRate')) $('employerSSRate').value = c.employerSSRate;
-  if ($('employerUnempRate')) $('employerUnempRate').value = c.employerUnempRate;
-  if ($('employeeRate')) $('employeeRate').value = c.employeeRate;
-  if ($('severanceRate')) $('severanceRate').value = c.severanceRate;
+  void code;
 }
 
-function validateAndCalc() {
+async function validateAndCalc() {
   if (window.__scProGate && !window.__scProGate.isEntitled()) {
     if ($('liveResult')) $('liveResult').textContent = 'Locked';
     if ($('liveSub'))
       $('liveSub').innerHTML =
-        '<span>Session unlock required for full editing (on-device math)</span>';
+        '<span>Session unlock required for the authenticated server engine</span>';
     return;
   }
   let hasError = false;
@@ -152,8 +147,12 @@ function validateAndCalc() {
   const input = readInputs();
   let r;
   let trueCost, mult, hiddenPct, gross, breakdown;
+  $('liveResult').textContent = '…';
+  $('liveSub').innerHTML = '<span>Calculating securely…</span>';
   try {
-    r = calculate(input);
+    const response = await requests.run('SC-010', input);
+    if (!response) return;
+    r = response.result;
     trueCost = requirePick(
       r,
       ['trueMonthlyCost', 'totalMonthlyCost', 'monthlyCost', 'trueCost', 'totalCost'],
@@ -175,7 +174,7 @@ function validateAndCalc() {
       : [];
   } catch (e) {
     $('liveResult').textContent = 'ERR';
-    $('liveSub').innerHTML = '<span>' + e.message + '</span>';
+    $('liveSub').innerHTML = '<span>' + engineErrorMessage(e) + '</span>';
     return;
   }
 
@@ -199,7 +198,7 @@ function loadPreset(key) {
   document
     .querySelectorAll('.sc-preset')
     .forEach((b) => b.classList.toggle('active', b.dataset.preset === key));
-  validateAndCalc();
+  void validateAndCalc();
 }
 function resetAll() {
   loadPreset('small');
@@ -239,7 +238,10 @@ function overallStatus(mult) {
 }
 
 function generateReport(opts = {}) {
-  if (!calcData) validateAndCalc();
+  if (!calcData) {
+    void validateAndCalc();
+    return;
+  }
   const d = calcData;
   if (!d) return;
   const now = new Date();
@@ -255,24 +257,9 @@ function generateReport(opts = {}) {
   const paretoColors = [P.red, P.amber, P.blue, P.blue, P.blue, P.green, P.blue, P.blue];
   const top = d.breakdown[0];
 
-  const whatIfs = [
-    { label: 'Hours +10%', field: 'hoursPerWeek', factor: 1.1 },
-    { label: 'Net salary +10%', field: 'netSalary', factor: 1.1 },
-    { label: 'Benefits +50%', field: 'healthMonthly', factor: 1.5 }
-  ].map((w) => {
-    const ti = { ...d.input, [w.field]: d.input[w.field] * w.factor };
-    let tr;
-    try {
-      tr = calculate(ti);
-    } catch (e) {
-      return { label: w.label, delta: 0, newCost: d.trueCost };
-    }
-    const nc = requirePick(
-      tr,
-      ['trueMonthlyCost', 'totalMonthlyCost', 'monthlyCost', 'trueCost', 'totalCost'],
-      'trueMonthlyCost'
-    );
-    return { label: w.label, delta: nc - d.trueCost, newCost: nc };
+  const whatIfs = (d.r.sensitivity ?? []).map((item) => {
+    const newCost = Number(item.trueMonthlyCost);
+    return { label: item.label, delta: newCost - d.trueCost, newCost };
   });
 
   const recHTML =
@@ -293,7 +280,7 @@ function generateReport(opts = {}) {
           Calculation ID: <span>${calcId}</span> &nbsp;|&nbsp; ${now.toISOString().replace('T', ' ').slice(0, 19)} UTC<br>
           Standard: IFRS labor cost recognition | Local statutory contributions<br>
           Method: Deterministic gross-up + statutory + benefit accumulation<br>
-          <span class="ok">Core calculation on-device — formulas/inputs stay in this browser session (page analytics may still load)</span>
+          <span class="ok">Calculation executed by the authenticated private server engine.</span>
         </div>
       </div>
       <div class="sc-report-hd-right">
@@ -351,9 +338,9 @@ function generateReport(opts = {}) {
       <span>Local labor law</span> - Statutory employer social-security and unemployment contributions<br>
       <span>Gross-up formula</span> - gross = net / (1 - employeeRate)<br>
       <span>True cost</span> - gross + employer statutory + benefits + prorated bonus + severance accrual<br>
-      <span>Deterministic</span> - same inputs always yield the same result, client-side
+      <span>Deterministic</span> - same inputs and engine version yield the same result
     </div></div></div>
-    <div class="sc-footer">Generated by SectorCalc.com - Client-Side Only - Core calc on-device; page analytics may still load<br>Engineering preview · Client-side · Deterministic · Not for production approval</div>`;
+    <div class="sc-footer">Generated by SectorCalc.com - Authenticated private server engine<br>Engineering preview · Deterministic · Not for production approval</div>`;
   $('reportArea').innerHTML = reportHTML;
 }
 
@@ -384,7 +371,7 @@ function exportPDF() {
     '#666666'
   );
   line('Standard: IFRS labor cost recognition | Local statutory contributions', 9, '#666666');
-  line('Client-Side Only - core calc on-device (page analytics may still load)', 9, '#1a7f37');
+  line('Calculation executed by the authenticated private server engine', 9, '#1a7f37');
   y += 6;
   line(
     'VERDICT: ' +
@@ -486,7 +473,7 @@ async function exportPDFGraphic() {
       pdf.text(
         'SectorCalc.com | Calc ID ' +
           (window.calcId || 'SC-010') +
-          ' | Deterministic | Client-Side | Page ' +
+          ' | Deterministic | Private server engine | Page ' +
           i +
           '/' +
           pages,
@@ -519,7 +506,7 @@ function shareReport() {
 
 try {
   loadFromURL();
-  validateAndCalc();
+  void validateAndCalc();
 } catch (e) {
   console.error(e);
 }

@@ -129,8 +129,10 @@ for (const page of proPages) {
     if (!/function\s+histogram\s*\(/.test(t) && !/histogram\s*\(samples/.test(t)) {
       fail('sc008-pro.ts: missing histogram(samples) binning');
     }
-    if (!/mySimulate\s*\(/.test(t)) {
-      fail('sc008-pro.ts: histogram path must use mySimulate() samples');
+    // Local mySimulate() was removed when Monte Carlo moved to the private engine API.
+    // Accept either legacy local simulation or server-authored result.samples.
+    if (!/mySimulate\s*\(/.test(t) && !/samplesNum\s*=\s*result\.samples/.test(t)) {
+      fail('sc008-pro.ts: histogram path must use mySimulate() or server result.samples');
     }
     if (!/actual sample histogram|not a fitted curve/i.test(t)) {
       fail('sc008-pro.ts: must label histogram as actual samples (not fitted curve)');

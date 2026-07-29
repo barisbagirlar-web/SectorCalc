@@ -1,7 +1,7 @@
 {
   "toolId": "SC-012",
   "primaryEntity": "quote-pricing",
-  "engineSource": "src/tools/SC-012-quote-pricing/v1.0.0/formula.ts",
+  "engineSource": "private server engine (SC-012)",
   "title": "50-piece job quote at 25% target margin",
   "narrative": "SC-012 builds full cost (material with scrap, labor, machine, setup, overhead, finance) then marks up to the target margin. Outputs are production-engine sell and unit prices.",
   "inputs": {
