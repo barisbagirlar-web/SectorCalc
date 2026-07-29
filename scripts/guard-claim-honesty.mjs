@@ -100,11 +100,18 @@ if (existsSync(blogHub) && existsSync(blogDir)) {
   const existing = new Set(
     readdirSync(blogDir).filter((n) => n.endsWith('.html') && n !== 'index.html'),
   );
+  const linked = new Set();
   for (const m of hub.matchAll(/href=["']\/blog\/([^"'#?]+)["']/g)) {
     const target = m[1];
     if (target === '' || target === 'index.html') continue;
+    linked.add(target);
     if (!existing.has(target) && !existing.has(target.replace(/\/$/, '') + '.html') && !existsSync(join(blogDir, target))) {
       fail(`public/blog/index.html links to missing /blog/${target}`);
+    }
+  }
+  for (const file of existing) {
+    if (!linked.has(file)) {
+      fail(`public/blog/index.html missing card link for published article ${file}`);
     }
   }
   if (/reviewed by IIT Bombay/i.test(hub) && !allowed) {
