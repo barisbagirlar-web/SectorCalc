@@ -47,13 +47,6 @@
         "priceCurrency": "USD",
         "description": "Unlock with SectorCalc credits. Session cost by tool tier (CORE 3 / PRO 7 / ADVANCED 15). One-time packs — no subscription."
       },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "ratingCount": "127",
-        "bestRating": "5",
-        "worstRating": "1"
-      },
       "featureList": "FEATURE_LIST",
       "softwareVersion": "v1.1.0",
       "url": "https://sectorcalc.com/calculator/TOOL_SLUG",
@@ -88,15 +81,6 @@
           "acceptedAnswer": { "@type": "Answer", "text": "FAQ_A3" }
         }
       ]
-    },
-    {
-      "@type": "Person",
-      "@id": "https://sectorcalc.com/#person-neela-nataraj",
-      "name": "Prof. Dr. Neela Nataraj",
-      "jobTitle": "Professor of Mathematics",
-      "worksFor": { "@type": "Organization", "name": "Indian Institute of Technology Bombay" },
-      "image": "https://sectorcalc.com/assets/images/neela-nataraj.jpg",
-      "sameAs": ["https://www.math.iitb.ac.in/~neela/"]
     }
   ]
 }
