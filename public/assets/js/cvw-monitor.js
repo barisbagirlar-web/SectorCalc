@@ -9,8 +9,7 @@
 
   const FALLBACK_ID = 'G-XXXXXXXXXX';
   const raw =
-    (typeof window.__SC_GA4_ID__ === 'string' && window.__SC_GA4_ID__.trim()) ||
-    FALLBACK_ID;
+    (typeof window.__SC_GA4_ID__ === 'string' && window.__SC_GA4_ID__.trim()) || FALLBACK_ID;
   const GA_MEASUREMENT_ID = raw.trim();
   const SEND_TO_GA =
     /^G-[A-Z0-9]+$/i.test(GA_MEASUREMENT_ID) &&
@@ -31,7 +30,16 @@
       };
       const s = document.createElement('script');
       s.async = true;
-      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(GA_MEASUREMENT_ID);
+      s.src =
+        'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(GA_MEASUREMENT_ID);
+      s.onload = function flushCvwQueue() {
+        const q = window.__cvw_queue || [];
+        window.__cvw_queue = [];
+        for (let i = 0; i < q.length; i++) {
+          const item = q[i];
+          window.gtag('event', item.eventName, item.params);
+        }
+      };
       document.head.appendChild(s);
       window.gtag('js', new Date());
       window.gtag('config', GA_MEASUREMENT_ID, { anonymize_ip: true, send_page_view: true });
@@ -40,7 +48,7 @@
 
   function sendToGA(eventName, params) {
     if (!SEND_TO_GA) return;
-    if (window.gtag) {
+    if (typeof window.gtag === 'function') {
       window.gtag('event', eventName, params);
     } else {
       window.__cvw_queue = window.__cvw_queue || [];
@@ -113,7 +121,7 @@
       sendToGA('cvw_lcp', {
         event_category: 'Core Web Vitals',
         value: Math.round(lcpValue),
-        cvw_rating: rating,
+        cvw_rating: rating
       });
       if (SEND_TO_CONSOLE) console.log('[CVW] LCP:', Math.round(lcpValue), 'ms —', rating);
     }
@@ -122,25 +130,30 @@
       sendToGA('cvw_cls', {
         event_category: 'Core Web Vitals',
         value: Math.round(clsValue * 1000) / 1000,
-        cvw_rating: rating,
+        cvw_rating: rating
       });
-      if (SEND_TO_CONSOLE) console.log('[CVW] CLS:', Math.round(clsValue * 1000) / 1000, '—', rating);
+      if (SEND_TO_CONSOLE)
+        console.log('[CVW] CLS:', Math.round(clsValue * 1000) / 1000, '—', rating);
     }
     if (inpValue > 0) {
+      // Approximation: max Event Timing duration with interactionId (not the official web-vitals INP p98).
       const rating = inpValue <= 200 ? 'good' : inpValue <= 500 ? 'needs-improvement' : 'poor';
-      sendToGA('cvw_inp', {
+      sendToGA('cvw_inp_approx', {
         event_category: 'Core Web Vitals',
         value: Math.round(inpValue),
         cvw_rating: rating,
+        metric_source: 'max_event_duration'
       });
-      if (SEND_TO_CONSOLE) console.log('[CVW] INP:', Math.round(inpValue), 'ms —', rating);
+      if (SEND_TO_CONSOLE) {
+        console.log('[CVW] INP≈ (max event duration):', Math.round(inpValue), 'ms —', rating);
+      }
     }
     if (ttfb > 0) {
       const rating = ttfb <= 800 ? 'good' : ttfb <= 1800 ? 'needs-improvement' : 'poor';
       sendToGA('cvw_ttfb', {
         event_category: 'Core Web Vitals',
         value: Math.round(ttfb),
-        cvw_rating: rating,
+        cvw_rating: rating
       });
       if (SEND_TO_CONSOLE) console.log('[CVW] TTFB:', Math.round(ttfb), 'ms —', rating);
     }
