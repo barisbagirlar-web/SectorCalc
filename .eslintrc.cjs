@@ -1,4 +1,4 @@
-/** ESLint 8 (legacy) — matches `npm run lint` → eslint src/ --ext .js */
+/** ESLint 8 — JavaScript + TypeScript static analysis. */
 module.exports = {
   root: true,
   env: {
@@ -11,6 +11,21 @@ module.exports = {
     sourceType: 'module'
   },
   ignorePatterns: ['dist/', 'node_modules/', 'coverage/'],
+  overrides: [
+    {
+      files: ['**/*.ts', '**/*.tsx'],
+      parser: '@typescript-eslint/parser',
+      plugins: ['@typescript-eslint'],
+      parserOptions: {
+        ecmaVersion: 'latest',
+        sourceType: 'module'
+      },
+      rules: {
+        'no-unused-vars': 'off',
+        '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }]
+      }
+    }
+  ],
   rules: {
     'no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
     'no-restricted-imports': [

@@ -6,6 +6,11 @@ npx tsc --noEmit || {
   exit 1
 }
 
+npm run lint || {
+  echo "[FAIL] JavaScript/TypeScript lint failed"
+  exit 1
+}
+
 node scripts/check-language.mjs --strict || {
   echo "[FAIL] English-only language gate failed"
   exit 1

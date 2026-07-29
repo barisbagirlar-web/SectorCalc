@@ -37,7 +37,7 @@ function stripHtml() {
   <div class="sc-free-inner">
     <p class="sc-free-kicker">Open reference bench · ${FREE_TOOLS.length} instruments · wallet not required</p>
     <h2 id="free-calculators-heading">Prove the engine before you commission a session</h2>
-    <p class="sc-free-lead"><strong>Start here — free.</strong> These ${FREE_TOOLS.length} shop instruments calculate immediately: surface finish, ISO fits, bend allowance, punching force, weld thickness. No login. No debit. When the decision must survive a design review (tolerance stack-up, feeds &amp; speeds, quoting, cycle cost, heat input), unlock a Tier-A credit session.</p>
+    <p class="sc-free-lead"><strong>Start here — free.</strong> These ${FREE_TOOLS.length} shop instruments calculate immediately: surface finish, ISO fits, bend allowance, punching force, weld thickness. The first four need no login; weld thickness requires Firebase sign-in. None debit credits. When the decision must survive a design review (tolerance stack-up, feeds &amp; speeds, quoting, cycle cost, heat input), unlock a Tier-A credit session.</p>
     <div class="sc-free-actions" role="group" aria-label="Open bench actions">
       <a class="sc-free-action sc-free-action-primary" href="${esc(FREE_TOOLS[0].canonicalPath)}">Start with ${esc(FREE_TOOLS[0].name)} →</a>
       <a class="sc-free-action" href="/topics">Topic hubs · open bench map</a>

@@ -1,13 +1,5 @@
 // @ts-nocheck
-import { calculate } from './tools/SC-008-tolerance-stack/v1.0.0/formula.js';
-import {
-  lcg,
-  sampleNormal,
-  sampleUniform,
-  sampleTruncatedNormal,
-  sampleTriangular
-} from './core/monte-carlo.js';
-import { D } from './core/engine.js';
+import { LatestCalculation, engineErrorMessage } from './engine-api/client.js';
 import {
   parseCSV,
   saveProject,
@@ -21,10 +13,7 @@ import { readThemePalette, exportSurfaceBg, onThemeChange } from './lib/theme-pa
 import { escapeHtml, escapeAttr } from './lib/html-escape.js';
 import { parseInputNumber } from './lib/parse-number.js';
 
-// Sampling lives here (composed from monte-carlo.ts primitives); the MATH lives in
-// formula.ts calculate(). calculate() receives the samples, so UI/PDF/share all agree.
 // Dimensions are stored ALWAYS in millimetres (SSOT). Unit toggles only change display.
-const ENGINE_VERSION = 'SC008-2026.07-formula-v1.1.0+dist+mm-ssot';
 function chartTheme() {
   const P = readThemePalette();
   return {
@@ -43,7 +32,7 @@ function chartTheme() {
     blueFill: P.blueFill
   };
 }
-const MC_RUNS = 10000;
+const REQUESTED_RUNS = 10000;
 const unitConv = {
   mm: { toMm: 1, fromMm: 1 },
   inch: { toMm: 25.4, fromMm: 1 / 25.4 },
@@ -98,6 +87,7 @@ const presets = {
 let currentUnit = 'mm';
 let dimensions = presets.standard.dims.map((d) => ({ ...d }));
 let calcData = null;
+const requests = new LatestCalculation();
 const $ = (id) => document.getElementById(id);
 let _reportSyncing = false;
 function reportIsOpen() {
@@ -173,28 +163,6 @@ function renderDims() {
     .join('');
 }
 
-// Distribution semantics are explicit: normal & truncated_normal treat tol as +/-3 sigma;
-// uniform & triangular treat tol as the hard half-range. This is the P2 contract made visible.
-function sampleComponent(rng, c) {
-  const nom = D(c.nominal),
-    tol = D(c.tol ?? c.tolerance);
-  if (c.dist === 'uniform') return sampleUniform(rng, nom.minus(tol), nom.plus(tol));
-  if (c.dist === 'triangular') return sampleTriangular(rng, nom.minus(tol), nom, nom.plus(tol));
-  if (c.dist === 'truncated_normal')
-    return sampleTruncatedNormal(rng, nom, tol.div(3), nom.minus(tol), nom.plus(tol));
-  return sampleNormal(rng, nom, tol.div(3));
-}
-function mySimulate(comps, seed, n) {
-  // Match formula.simulateStack: one LCG substream per component (seed + j*7919).
-  const rngs = comps.map((_, j) => lcg(D(seed).plus(j * 7919)));
-  const out = [];
-  for (let i = 0; i < n; i++) {
-    let s = D(0);
-    for (let j = 0; j < comps.length; j++) s = s.plus(sampleComponent(rngs[j], comps[j]));
-    out.push(s);
-  }
-  return out;
-}
 function histogram(samples, bins) {
   if (!samples.length) return [];
   const min = Math.min(...samples),
@@ -241,14 +209,12 @@ function buildInput() {
     nominalSum,
     usl,
     lsl,
-    uslD: D(usl),
-    lslD: D(lsl),
     input: {
       components,
       usl: String(usl),
       lsl: String(lsl),
       seed: String(seed),
-      iterations: String(MC_RUNS)
+      iterations: REQUESTED_RUNS
     }
   };
 }
@@ -294,7 +260,7 @@ function validate() {
   return ok;
 }
 
-function compute() {
+async function compute() {
   if (window.__scProGate && !window.__scProGate.isEntitled()) {
     if ($('liveResult')) $('liveResult').textContent = 'Locked';
     if ($('liveSub')) $('liveSub').innerHTML = '<span>Unlock with credits to calculate</span>';
@@ -306,14 +272,18 @@ function compute() {
     return;
   }
   const b = buildInput();
-  let result, samplesNum, samples;
+  let result, samplesNum, engineVersion;
+  $('liveResult').textContent = '…';
+  $('liveSub').innerHTML = '<span>Calculating securely…</span>';
   try {
-    samples = mySimulate(b.dims, b.seed, MC_RUNS); // distribution-aware Decimal samples
-    samplesNum = samples.map((s) => s.toNumber());
-    result = calculate(b.input, samples); // single math engine on those samples
+    const response = await requests.run('SC-008', b.input);
+    if (!response) return;
+    result = response.result;
+    samplesNum = result.samples;
+    engineVersion = response.engineVersion;
   } catch (e) {
     $('liveResult').textContent = 'ERR';
-    $('liveSub').innerHTML = '<span>' + e.message + '</span>';
+    $('liveSub').innerHTML = '<span>' + engineErrorMessage(e) + '</span>';
     return;
   }
   const rssTol = Number(result.rssPlus),
@@ -321,21 +291,18 @@ function compute() {
   const mcSpread = (Number(result.mcP9987) - Number(result.mcP0013)) / 2;
   const cpk = Number(result.cpk),
     ppm = Number(result.ppm);
-  // Governing half-band for asymmetric specs (ADV-D4): min of |upper| and |lower|
-  const specHalf = Math.min(Math.abs(b.su), Math.abs(b.sl));
+  // Prefer server-computed half-band; fall back to local deviation half-band.
+  const specHalf = Number.isFinite(Number(result.specHalf))
+    ? Number(result.specHalf)
+    : Math.min(Math.abs(b.su), Math.abs(b.sl));
   const rssInSpec =
-    rssTol <= specHalf &&
-    Number(result.nominalSum) + rssTol <= b.usl &&
-    Number(result.nominalSum) - rssTol >= b.lsl;
+    typeof result.rssInSpec === 'boolean'
+      ? result.rssInSpec
+      : rssTol <= specHalf && b.nominalSum + rssTol <= b.usl && b.nominalSum - rssTol >= b.lsl;
   const fromMm = unitConv[currentUnit].fromMm;
-  const hist = histogram(samplesNum, 28);
-  // 95% CI on the empirical defect rate (Decimal); kills the false-precision PPM claim.
-  const n = samples.length;
-  const outCount = samples.filter((s) => s.gt(b.uslD) || s.lt(b.lslD)).length;
-  const phatD = D(outCount).div(n);
-  const seD = phatD.times(D(1).minus(phatD)).div(n).sqrt();
-  const ciLo = Math.max(0, Number(phatD.minus(seD.times('1.96')))) * 1e6;
-  const ciHi = Number(phatD.plus(seD.times('1.96'))) * 1e6;
+  const hist = histogram(Array.isArray(samplesNum) ? samplesNum : [], 28);
+  const ciLo = Number.isFinite(Number(result.ppmCiLow)) ? Number(result.ppmCiLow) : 0;
+  const ciHi = Number.isFinite(Number(result.ppmCiHigh)) ? Number(result.ppmCiHigh) : ppm;
   const inputHash = fnv1a(
     JSON.stringify({
       c: b.input.components,
@@ -364,7 +331,8 @@ function compute() {
     hist,
     inputHash,
     outputHash,
-    calcId
+    calcId,
+    engineVersion
   };
   $('liveResult').textContent = '+/- ' + (rssTol * fromMm).toFixed(4) + ' ' + currentUnit;
   $('liveSub').innerHTML =
@@ -454,7 +422,10 @@ function radarAxes(d) {
 }
 
 function generateReport(_opts) {
-  if (!calcData) compute();
+  if (!calcData) {
+    void compute();
+    return;
+  }
   const d = calcData;
   if (!d) return;
   const TH = chartTheme();
@@ -475,36 +446,17 @@ function generateReport(_opts) {
     })
     .join('');
   const distUsed = [...new Set(d.b.dims.map((x) => x.dist))].join(', ');
-  const whatIfs = d.result.pareto.slice(0, 3).map((p) => {
-    const tighterComps = d.b.dims.map((c) =>
-      c.name === p.name ? { ...c, tolerance: c.tolerance * 0.9 } : c
-    );
-    let nr;
-    try {
-      const s = mySimulate(tighterComps, d.b.seed, MC_RUNS);
-      nr = calculate(
-        {
-          ...d.b.input,
-          components: tighterComps.map((c) => ({
-            name: c.name,
-            nominal: String(c.nominal),
-            tol: String(c.tolerance),
-            distribution: 'normal'
-          }))
-        },
-        s
-      );
-    } catch (e) {
-      return { name: p.name, cpk: d.cpk, ppm: d.ppm };
-    }
-    return { name: p.name, cpk: Number(nr.cpk), ppm: Number(nr.ppm) };
-  });
+  const whatIfs = (d.result.sensitivity ?? []).map((item) => ({
+    name: item.name,
+    cpk: Number(item.cpk),
+    ppm: Number(item.ppm)
+  }));
   const recHTML =
     overall !== 'PASS'
       ? `
     <div class="sc-rec"><div class="sc-rec-hd"><span class="sc-rec-num">1</span><span class="sc-rec-title">Tighten the top predicted contributor: ${top ? top.name : '—'}</span></div><div class="sc-rec-body">It drives ${top ? top.pct : '—'}% of predicted RSS variation.<br><span class="pos">-> See What-If for predicted Cpk after a 10% tightening (recomputed, no invented cost)</span></div></div>
     <div class="sc-rec"><div class="sc-rec-hd"><span class="sc-rec-num">2</span><span class="sc-rec-title">Check the distribution assumption per part</span></div><div class="sc-rec-body">Used: ${distUsed}. Predicted Cpk/PPM depend on this choice.<br><span class="neg">-> Replace the assumption with measured data where you have it</span></div></div>
-    <div class="sc-rec"><div class="sc-rec-hd"><span class="sc-rec-num">3</span><span class="sc-rec-title">This is a prediction — carry the hashes</span></div><div class="sc-rec-body">Engine ${ENGINE_VERSION}, input ${d.inputHash}, output ${d.outputHash}.<br><span class="pos">-> Record for an internal design-review trail; confirm with SPC before release</span></div></div>`
+    <div class="sc-rec"><div class="sc-rec-hd"><span class="sc-rec-num">3</span><span class="sc-rec-title">This is a prediction — carry the hashes</span></div><div class="sc-rec-body">Engine ${d.engineVersion}, input ${d.inputHash}, output ${d.outputHash}.<br><span class="pos">-> Record for an internal design-review trail; confirm with SPC before release</span></div></div>`
       : `
     <div class="sc-rec"><div class="sc-rec-hd"><span class="sc-rec-num">1</span><span class="sc-rec-title">Predicted stack looks sound — keep as a design estimate</span></div><div class="sc-rec-body">Predicted Cpk ${d.cpk.toFixed(2)} meets target ${d.b.cpkTarget}. Distributions: ${distUsed}.<br><span class="pos">-> Re-run when tolerances, the stack or a distribution choice changes</span></div></div>
     <div class="sc-rec"><div class="sc-rec-hd"><span class="sc-rec-num">2</span><span class="sc-rec-title">Verify with measured data before release</span></div><div class="sc-rec-body">Drawing-based prediction only.<br><span class="pos">-> Attach an observed capability study at PPAP/FAI stage (outside this tool)</span></div></div>`;
@@ -512,10 +464,10 @@ function generateReport(_opts) {
   $('reportArea').innerHTML = `
     <div class="sc-report-hd"><div><div class="sc-report-title">SC-008 Tolerance Stack-Up — Predicted Analysis</div>
       <div class="sc-report-meta">Calculation ID: <span>${d.calcId}</span> (deterministic from inputs) &nbsp;|&nbsp; ${new Date().toISOString().slice(0, 19)} UTC<br>
-      Engine: <span>${ENGINE_VERSION}</span> &nbsp;|&nbsp; input hash <span>${d.inputHash}</span> &nbsp;|&nbsp; output hash <span>${d.outputHash}</span><br>
-      Method: worst-case + RSS + seeded Monte Carlo (n=${MC_RUNS}, seed=${d.b.seed}) &nbsp;|&nbsp; per-part distributions: <span>${distUsed}</span><br>
+      Engine: <span>${d.engineVersion}</span> &nbsp;|&nbsp; input hash <span>${d.inputHash}</span> &nbsp;|&nbsp; output hash <span>${d.outputHash}</span><br>
+      Method: worst-case + RSS + seeded Monte Carlo (n=${d.result.iterations}, seed=${d.b.seed}) &nbsp;|&nbsp; per-part distributions: <span>${distUsed}</span><br>
       <span class="warn">Engineering preview — predicted from drawing tolerances and chosen distributions, NOT measured data. Not for production approval.</span><br>
-      <span class="ok">Core calculation runs on-device — formulas and stack inputs stay in this browser session. Analytics may still load on the page.</span></div></div>
+      <span class="ok">Calculation executed by the authenticated private server engine.</span></div></div>
       <div class="sc-report-hd-right">
         <button class="sc-btn sc-btn-ghost" id="pdfBtn">Export PDF</button>
         <button class="sc-btn sc-btn-ghost" id="gfxBtn">Export Graphic PDF</button>
@@ -552,7 +504,7 @@ function generateReport(_opts) {
       <text x="150" y="155" text-anchor="middle" fill="${TH.text}" font-size="10">${uL} (RSS)</text>
       <text x="30" y="168" fill="${TH.text}" font-size="9">0</text><text x="262" y="168" fill="${TH.text}" font-size="9">${(d.specHalf * u).toFixed(2)}</text>
     </svg></div></div></div>
-    <div class="sc-sec"><div class="sc-sec-hd">Monte Carlo Distribution (real samples, n=${MC_RUNS})</div><div class="sc-chart"><svg width="100%" height="200" viewBox="0 0 600 200" preserveAspectRatio="none">
+    <div class="sc-sec"><div class="sc-sec-hd">Monte Carlo Distribution (server samples, n=${d.result.iterations})</div><div class="sc-chart"><svg width="100%" height="200" viewBox="0 0 600 200" preserveAspectRatio="none">
       ${histBars}<line x1="50" y1="150" x2="550" y2="150" stroke="${TH.grid}"/>
       <text x="50" y="195" fill="${TH.text}" font-size="9">min ${(Math.min(...d.samplesNum) * u).toFixed(3)}</text>
       <text x="550" y="195" text-anchor="end" fill="${TH.text}" font-size="9">max ${(Math.max(...d.samplesNum) * u).toFixed(3)}</text>
@@ -577,7 +529,7 @@ function generateReport(_opts) {
     <div class="sc-sec"><div class="sc-sec-hd">Predicted Design Capability</div><div class="sc-cards">
       <div class="sc-card-res ${d.cpk >= d.b.cpkTarget ? 'pass' : 'warn'}"><div class="sc-card-res-label">Predicted Cpk</div><div class="sc-card-res-val">${d.cpk.toFixed(2)}</div><div class="sc-card-res-sub">target &gt;= ${d.b.cpkTarget}</div><span class="sc-card-res-badge ${d.cpk >= d.b.cpkTarget ? 'sc-badge-pass' : 'sc-badge-warn'}">${d.cpk >= d.b.cpkTarget ? 'PRED. CAPABLE' : 'PRED. BELOW'}</span></div>
       <div class="sc-card-res"><div class="sc-card-res-label">Predicted PPM</div><div class="sc-card-res-val">${d.ppm.toFixed(0)}</div><div class="sc-card-res-sub">95% CI ${d.ciLo.toFixed(0)}–${d.ciHi.toFixed(0)}</div></div>
-      <div class="sc-card-res"><div class="sc-card-res-label">Empirical P0.13 (estimate)</div><div class="sc-card-res-val">${Number(d.result.mcP0013).toFixed(3)}</div><div class="sc-card-res-sub">${uL} · order statistic, seed ${d.b.seed}, n=${MC_RUNS}</div></div>
+      <div class="sc-card-res"><div class="sc-card-res-label">Empirical P0.13 (estimate)</div><div class="sc-card-res-val">${Number(d.result.mcP0013).toFixed(3)}</div><div class="sc-card-res-sub">${uL} · order statistic, seed ${d.b.seed}, n=${d.result.iterations}</div></div>
       <div class="sc-card-res"><div class="sc-card-res-label">Predicted Yield</div><div class="sc-card-res-val">${(100 - d.ppm / 10000).toFixed(2)}%</div><div class="sc-card-res-sub">model estimate · P99.87 ${Number(d.result.mcP9987).toFixed(3)}</div></div>
     </div></div>
     <div class="sc-sec"><div class="sc-sec-hd">Computed Assessment Radar</div><div class="sc-chart"><div style="display:flex;justify-content:center"><svg width="300" height="300" viewBox="0 0 300 300">
@@ -635,7 +587,7 @@ function generateReport(_opts) {
       <span>Units</span> — internal SSOT is millimetres; unit toggles change display only and do not rewrite stored tolerances<br>
       <span>Reproducibility</span> — same inputs + distributions + seed + engine version reproduce this report exactly (hashes above)
     </div></div></div>
-    <div class="sc-footer">SectorCalc — Engineering preview. Client-side. Deterministic Decimal engine. Not for production approval.<br>Predicted from drawing tolerances and chosen distributions; verify with measured process data.</div>`;
+    <div class="sc-footer">SectorCalc — Engineering preview. Authenticated private server engine. Not for production approval.<br>Predicted from drawing tolerances and chosen distributions; verify with measured process data.</div>`;
   // Assign onclick (not addEventListener) so live report sync does not stack handlers
   const on = (id, fn) => {
     const el = $(id);
@@ -715,7 +667,7 @@ function exportPDF(graphic) {
             'SectorCalc | ' +
               d.calcId +
               ' | ' +
-              ENGINE_VERSION +
+              d.engineVersion +
               ' | preview, not for production | p' +
               i +
               '/' +
@@ -752,7 +704,7 @@ function exportPDF(graphic) {
       ' | ' +
       new Date().toISOString().slice(0, 19) +
       ' UTC | Engine ' +
-      ENGINE_VERSION,
+      d.engineVersion,
     9,
     '#666'
   );
@@ -771,11 +723,7 @@ function exportPDF(graphic) {
     9,
     '#b8860b'
   );
-  line(
-    'Core calculation on-device — formulas/inputs stay in this browser session (page analytics may still load).',
-    9,
-    '#1a7f37'
-  );
+  line('Calculation executed by the authenticated private server engine.', 9, '#1a7f37');
   y += 6;
   line(
     'VERDICT (predicted): ' +
@@ -801,7 +749,10 @@ function exportPDF(graphic) {
   line('METHOD COMPARISON', 11, '#111', true);
   line('Worst-case +/-' + (d.wcTol * u).toFixed(4) + ' ' + uL, 10);
   line('RSS +/-' + (d.rssTol * u).toFixed(4) + ' ' + uL, 10);
-  line('Monte Carlo +/-' + (d.mcSpread * u).toFixed(4) + ' ' + uL + ' (n=' + MC_RUNS + ')', 10);
+  line(
+    'Monte Carlo +/-' + (d.mcSpread * u).toFixed(4) + ' ' + uL + ' (n=' + d.result.iterations + ')',
+    10
+  );
   y += 8;
   line('STACK (nominal / tol / distribution / predicted contrib)', 11, '#111', true);
   d.b.dims.forEach((dim, i) => {
@@ -858,7 +809,7 @@ $('resetAll').addEventListener('click', () => loadPreset('standard'));
 $('genReport').addEventListener('click', async () => {
   if (window.__scProGate && !(await window.__scProGate.ensureEntitled())) {
     alert(
-      'Session unlock required for the full report UI. Core math ships in the page bundle (on-device); credits unlock editing and professional export.'
+      'An active session is required to calculate with the authenticated private server engine.'
     );
     $('sc-pro-gate-root')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
     return;

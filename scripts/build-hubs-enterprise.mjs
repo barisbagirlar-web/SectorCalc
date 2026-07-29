@@ -560,7 +560,7 @@ ${hubBreadcrumb('Topics')}
 
   <section class="sc-guides-section" id="free-calculators" aria-labelledby="topics-free-heading" data-aeo-hub="free">
     <h2 id="topics-free-heading">Open reference bench · five instruments · wallet not required</h2>
-    <p>These five shop instruments calculate immediately — surface finish, ISO fits, bend allowance, punching force, weld thickness. No login. No debit. When the decision must survive a design review (tolerance stack-up, feeds &amp; speeds, quoting, OEE, pressure, heat input), unlock a Tier-A credit session from <a href="/pricing.html">pricing</a>.</p>
+    <p>These five shop instruments calculate immediately — surface finish, ISO fits, bend allowance, punching force, weld thickness. The first four need no login; weld thickness requires Firebase sign-in. None debit credits. When the decision must survive a design review (tolerance stack-up, feeds &amp; speeds, quoting, OEE, pressure, heat input), unlock a Tier-A credit session from <a href="/pricing.html">pricing</a>.</p>
     <div class="sc-guides-grid">
 ${freeCards}
     </div>

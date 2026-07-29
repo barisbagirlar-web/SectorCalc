@@ -32,9 +32,13 @@ function block(tool) {
   if (words < 35 || words > 110) {
     throw new Error(`${tool.toolId} directAnswer word count ${words} outside 35–110`);
   }
+  const badge =
+    tool.toolId === 'SC-001'
+      ? 'Free instrument · sign-in required · no credits'
+      : 'Open instrument · no sign-in · no credits';
   return `${START}
 <aside class="sc-free-aeo" data-free-aeo="1" data-tool-id="${esc(tool.toolId)}" data-aeo-chain="empathy-direct-calc-upsell" data-access="free">
-  <p class="sc-free-badge">Open instrument · no sign-in · no credits</p>
+  <p class="sc-free-badge">${badge}</p>
   <p class="sc-aeo-problem"><strong>The floor problem:</strong> ${esc(tool.problem)}</p>
   <p class="sc-direct-answer" data-aeo-step="direct-answer">${esc(tool.directAnswer)}</p>
   <p class="sc-free-aeo-note">Enter inputs below and press Calculate — this open instrument returns results immediately.</p>
