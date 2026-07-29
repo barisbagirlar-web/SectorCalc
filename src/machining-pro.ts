@@ -18,22 +18,91 @@ const $ = (id) => document.getElementById(id);
 
 const presets = {
   steel: {
-    materialId: 'P2', diameter: 10, teeth: 4, vc: 150, fz: 0.05, ap: 5, ae: 2,
-    spindleKw: 7.5, spindleTorque: 50, stickOut: 30, nose: 0.8, efficiency: 0.8,
-    coolant: 'flood', interruption: 'continuous', toolCost: 45, machineCost: 1.2,
-    units: { diameter: 'mm', vc: 'm/min', fz: 'mm', ap: 'mm', ae: 'mm', power: 'kW', torque: 'N·m', stick: 'mm', nose: 'mm' }
+    materialId: 'P2',
+    diameter: 10,
+    teeth: 4,
+    vc: 150,
+    fz: 0.05,
+    ap: 5,
+    ae: 2,
+    spindleKw: 7.5,
+    spindleTorque: 50,
+    stickOut: 30,
+    nose: 0.8,
+    efficiency: 0.8,
+    coolant: 'flood',
+    interruption: 'continuous',
+    toolCost: 45,
+    machineCost: 1.2,
+    units: {
+      diameter: 'mm',
+      vc: 'm/min',
+      fz: 'mm',
+      ap: 'mm',
+      ae: 'mm',
+      power: 'kW',
+      torque: 'N·m',
+      stick: 'mm',
+      nose: 'mm'
+    }
   },
   alum: {
-    materialId: 'N1', diameter: 12, teeth: 3, vc: 500, fz: 0.08, ap: 4, ae: 3,
-    spindleKw: 11, spindleTorque: 70, stickOut: 25, nose: 0.4, efficiency: 0.85,
-    coolant: 'mql', interruption: 'light', toolCost: 60, machineCost: 1.5,
-    units: { diameter: 'mm', vc: 'm/min', fz: 'mm', ap: 'mm', ae: 'mm', power: 'kW', torque: 'N·m', stick: 'mm', nose: 'mm' }
+    materialId: 'N1',
+    diameter: 12,
+    teeth: 3,
+    vc: 500,
+    fz: 0.08,
+    ap: 4,
+    ae: 3,
+    spindleKw: 11,
+    spindleTorque: 70,
+    stickOut: 25,
+    nose: 0.4,
+    efficiency: 0.85,
+    coolant: 'mql',
+    interruption: 'light',
+    toolCost: 60,
+    machineCost: 1.5,
+    units: {
+      diameter: 'mm',
+      vc: 'm/min',
+      fz: 'mm',
+      ap: 'mm',
+      ae: 'mm',
+      power: 'kW',
+      torque: 'N·m',
+      stick: 'mm',
+      nose: 'mm'
+    }
   },
   ti: {
-    materialId: 'S1', diameter: 10, teeth: 4, vc: 45, fz: 0.04, ap: 3, ae: 1.5,
-    spindleKw: 15, spindleTorque: 90, stickOut: 22, nose: 0.8, efficiency: 0.8,
-    coolant: 'high_pressure', interruption: 'medium', toolCost: 120, machineCost: 2.0,
-    units: { diameter: 'mm', vc: 'm/min', fz: 'mm', ap: 'mm', ae: 'mm', power: 'kW', torque: 'N·m', stick: 'mm', nose: 'mm' }
+    materialId: 'S1',
+    diameter: 10,
+    teeth: 4,
+    vc: 45,
+    fz: 0.04,
+    ap: 3,
+    ae: 1.5,
+    spindleKw: 15,
+    spindleTorque: 90,
+    stickOut: 22,
+    nose: 0.8,
+    efficiency: 0.8,
+    coolant: 'high_pressure',
+    interruption: 'medium',
+    toolCost: 120,
+    machineCost: 2.0,
+    units: {
+      diameter: 'mm',
+      vc: 'm/min',
+      fz: 'mm',
+      ap: 'mm',
+      ae: 'mm',
+      power: 'kW',
+      torque: 'N·m',
+      stick: 'mm',
+      nose: 'mm'
+    }
   }
 };
 
@@ -46,7 +115,11 @@ function reportIsOpen() {
 function syncReportIfOpen() {
   if (_reportSyncing || !reportIsOpen() || !calcData) return;
   _reportSyncing = true;
-  try { generateReport({ sync: true }); } finally { _reportSyncing = false; }
+  try {
+    generateReport({ sync: true });
+  } finally {
+    _reportSyncing = false;
+  }
 }
 
 function setFieldState(f, ok, msg) {
@@ -175,11 +248,14 @@ function validateAndCalc() {
     ['machineCost', d.machineCost > 0, 'X machine cost > 0']
   ];
   for (const [f, ok, msg] of checks) {
-    if (!ok) { setFieldState(f, false, msg); hasError = true; }
-    else {
-      const hint = f === 'vc' && MATERIALS[d.materialId]
-        ? `OK | ref ${MATERIALS[d.materialId].refVc} m/min`
-        : 'OK';
+    if (!ok) {
+      setFieldState(f, false, msg);
+      hasError = true;
+    } else {
+      const hint =
+        f === 'vc' && MATERIALS[d.materialId]
+          ? `OK | ref ${MATERIALS[d.materialId].refVc} m/min`
+          : 'OK';
       setFieldState(f, true, hint);
     }
   }
@@ -224,8 +300,10 @@ function validateAndCalc() {
     `<span>δ ${r.deflectionUm} um</span>`;
   $('liveVerdict').textContent = r.verdict;
   $('liveVerdict').style.color =
-    r.verdict === 'RELEASED TO PRODUCTION' ? 'var(--accent-green)'
-      : r.verdict === 'RUN WITH CAUTION' ? 'var(--accent-amber)'
+    r.verdict === 'RELEASED TO PRODUCTION'
+      ? 'var(--accent-green)'
+      : r.verdict === 'RUN WITH CAUTION'
+        ? 'var(--accent-amber)'
         : 'var(--accent-red)';
   syncReportIfOpen();
 }
@@ -250,13 +328,17 @@ function loadPreset(key) {
   $('toolCost').value = p.toolCost;
   $('machineCost').value = p.machineCost;
   applyUnits(p.units);
-  document.querySelectorAll('.sc-preset').forEach((b) => b.classList.toggle('active', b.dataset.preset === key));
+  document
+    .querySelectorAll('.sc-preset')
+    .forEach((b) => b.classList.toggle('active', b.dataset.preset === key));
   const m = MATERIALS[p.materialId];
   if (m) $('val-materialId').textContent = `Ref Vc ${m.refVc} m/min | kc1 ${m.kc1}`;
   validateAndCalc();
 }
 
-function resetAll() { loadPreset('steel'); }
+function resetAll() {
+  loadPreset('steel');
+}
 
 function loadFromURL() {
   const s = new URLSearchParams(location.search).get('s');
@@ -268,7 +350,9 @@ function loadFromURL() {
       if ($(k) && o[k] !== undefined) $(k).value = o[k];
     });
     if (o.units) applyUnits(o.units);
-  } catch (e) { /* ignore bad share */ }
+  } catch (e) {
+    /* ignore bad share */
+  }
 }
 
 function verdictClass(v) {
@@ -282,7 +366,8 @@ function generateReport(opts = {}) {
   const d = calcData;
   if (!d) return;
   const now = new Date();
-  const calcId = (opts.sync && window.calcId) ? window.calcId : ('SC020-' + d.r.integrity.toUpperCase());
+  const calcId =
+    opts.sync && window.calcId ? window.calcId : 'SC020-' + d.r.integrity.toUpperCase();
   window.calcId = calcId;
   const P = readThemePalette();
   const r = d.r;
@@ -295,7 +380,11 @@ function generateReport(opts = {}) {
   const sens = [-10, 0, 10].map((pct) => {
     const si2 = { ...d.si, vcMPerMin: String(Number(d.si.vcMPerMin) * (1 + pct / 100)) };
     let rr;
-    try { rr = calculate(si2); } catch (e) { return { pct, life: '-', power: '-' }; }
+    try {
+      rr = calculate(si2);
+    } catch (e) {
+      return { pct, life: '-', power: '-' };
+    }
     return { pct, life: rr.toolLifeMin, power: rr.powerKw, verdict: rr.verdict };
   });
 
@@ -308,7 +397,12 @@ function generateReport(opts = {}) {
     ['ap', `${d.display.ap} ${d.display.uAp}`, `${d.si.apMm} mm`, 'mm'],
     ['ae', `${d.display.ae} ${d.display.uAe}`, `${d.si.aeMm} mm`, 'mm'],
     ['Spindle power', `${d.display.spindleKw} ${d.display.uPower}`, `${d.si.spindleKw} kW`, 'kW'],
-    ['Spindle torque', `${d.display.spindleTorque} ${d.display.uTorque}`, `${d.si.spindleTorqueNm} N·m`, 'N·m'],
+    [
+      'Spindle torque',
+      `${d.display.spindleTorque} ${d.display.uTorque}`,
+      `${d.si.spindleTorqueNm} N·m`,
+      'N·m'
+    ],
     ['Stick-out', `${d.display.stickOut} ${d.display.uStick}`, `${d.si.stickOutMm} mm`, 'mm'],
     ['Nose radius', `${d.display.nose} ${d.display.uNose}`, `${d.si.noseRadiusMm} mm`, 'mm'],
     ['Efficiency', String(d.display.efficiency), d.si.efficiency, 'ratio'],
@@ -332,7 +426,7 @@ function generateReport(opts = {}) {
           Calculation ID: <span>${calcId}</span> &nbsp;|&nbsp; ${now.toISOString().replace('T', ' ').slice(0, 19)} UTC<br>
           Engine: <span>${ENGINE_LABEL}</span> | Integrity <span>${r.integrity}</span><br>
           Material: ${r.isoGroup} / ${r.materialName}<br>
-          <span class="ok">OK Client-Side Only - your data never left your browser</span>
+          <span class="ok">Core calculation on-device — formulas/inputs stay in this browser session (page analytics may still load)</span>
         </div>
       </div>
       <div class="sc-report-hd-right">
@@ -367,11 +461,13 @@ function generateReport(opts = {}) {
       <div class="sc-whatif">${sens.map((s) => `<div class="sc-whatif-card"><div class="sc-whatif-lbl">Vc ${s.pct >= 0 ? '+' : ''}${s.pct}%</div><div class="sc-whatif-val">${s.life}</div><div class="sc-whatif-chg neu">min | Pc ${s.power} kW</div></div>`).join('')}</div>
       <svg width="100%" height="120" viewBox="0 0 360 120" style="margin-top:16px">
         <rect x="0" y="0" width="360" height="120" fill="${P.surface}"/>
-        ${sens.map((s, i) => {
-          const x = 40 + i * 110;
-          const h = Math.min(80, Math.max(8, Number(s.life) / 2));
-          return `<rect x="${x}" y="${100 - h}" width="40" height="${h}" fill="${P.blue}"/><text x="${x + 20}" y="114" text-anchor="middle" fill="${P.muted}" font-size="9">${s.pct}%</text>`;
-        }).join('')}
+        ${sens
+          .map((s, i) => {
+            const x = 40 + i * 110;
+            const h = Math.min(80, Math.max(8, Number(s.life) / 2));
+            return `<rect x="${x}" y="${100 - h}" width="40" height="${h}" fill="${P.blue}"/><text x="${x + 20}" y="114" text-anchor="middle" fill="${P.muted}" font-size="9">${s.pct}%</text>`;
+          })
+          .join('')}
       </svg>
     </div></div>
     <div class="sc-sec"><div class="sc-sec-hd">Audit / Review</div><div class="sc-card">
@@ -393,11 +489,15 @@ function generateReport(opts = {}) {
         ${r.assumptions.map((a) => `<li>${a}</li>`).join('')}
       </ul>
       <div class="sc-sec-hd" style="margin-top:18px">Warnings</div>
-      ${[...blocking, ...warning, ...notes].map((w) => `
+      ${[...blocking, ...warning, ...notes]
+        .map(
+          (w) => `
         <div class="sc-rec" style="margin-bottom:8px">
           <div class="sc-rec-hd"><span class="sc-rec-num">${w.severity === 'blocking' ? '!' : w.severity === 'warning' ? 'W' : 'N'}</span><span class="sc-rec-title">${w.code} | ${w.severity}</span></div>
           <div class="sc-rec-body">${w.message}<br><span class="neg">-> ${w.action}</span></div>
-        </div>`).join('')}
+        </div>`
+        )
+        .join('')}
     </div></div>
     <div class="sc-sec"><div class="sc-sec-hd">Standards &amp; References</div><div class="sc-card"><div class="sc-std">
       <span>ISO 513</span> - Material groups and specific cutting force mid-band reference<br>
@@ -406,7 +506,7 @@ function generateReport(opts = {}) {
       <span>Gilbert</span> - Minimum-cost cutting speed from Ct/Cm economics<br>
       <span>FS-ENGINE</span> - Deterministic SI core ${FS_ENGINE_VERSION} | build ${FS_ENGINE_BUILD_DATE}
     </div></div></div>
-    <div class="sc-footer">Generated by SectorCalc.com - Client-Side Only - Your data never leaves your browser<br>Engineering preview | FS-ENGINE | Deterministic | Not for production approval | Calibrate to supplier datasheets</div>`;
+    <div class="sc-footer">Generated by SectorCalc.com - Client-Side Only - Core calc on-device; page analytics may still load<br>Engineering preview | FS-ENGINE | Deterministic | Not for production approval | Calibrate to supplier datasheets</div>`;
   $('reportArea').innerHTML = reportHTML;
 }
 
@@ -431,7 +531,8 @@ function exportJSON() {
 }
 
 function exportPDF() {
-  const d = calcData; if (!d) return;
+  const d = calcData;
+  if (!d) return;
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF({ unit: 'pt', format: 'a4' });
   const calcId = window.calcId || 'SC-020';
@@ -443,52 +544,125 @@ function exportPDF() {
     const ls = doc.splitTextToSize(txt, 500);
     doc.text(ls, 48, y);
     y += ls.length * ((size || 10) + 4) + 2;
-    if (y > 780) { doc.addPage(); y = 48; }
+    if (y > 780) {
+      doc.addPage();
+      y = 48;
+    }
   };
   line('SC-020 CNC Feeds & Speeds + Tool Life', 16, '#111111', true);
-  line('Calc ID: ' + calcId + '   |   Integrity: ' + d.r.integrity + '   |   ' + new Date().toISOString().slice(0, 19) + ' UTC', 9, '#666666');
+  line(
+    'Calc ID: ' +
+      calcId +
+      '   |   Integrity: ' +
+      d.r.integrity +
+      '   |   ' +
+      new Date().toISOString().slice(0, 19) +
+      ' UTC',
+    9,
+    '#666666'
+  );
   line(ENGINE_LABEL, 9, '#666666');
-  line('Client-Side Only - your data never left your browser', 9, '#1a7f37');
+  line('Core calculation on-device (page analytics may still load)', 9, '#1a7f37');
   y += 6;
-  line('VERDICT: ' + d.r.verdict, 12, d.r.verdict === 'RELEASED TO PRODUCTION' ? '#1a7f37' : (d.r.verdict === 'RUN WITH CAUTION' ? '#b8860b' : '#c0392b'), true);
-  line(`n ${d.r.nRpm} rpm | Vf ${d.r.vfCompMmMin} mm/min | T ${d.r.toolLifeMin} min | Pc ${d.r.powerKw} kW (${d.r.powerUtilPct}%)`, 10);
-  line(`Fc ${d.r.fcN} N | Mc ${d.r.torqueNm} N.m | defl ${d.r.deflectionUm} um | Ra ${d.r.raUm} um`, 10);
+  line(
+    'VERDICT: ' + d.r.verdict,
+    12,
+    d.r.verdict === 'RELEASED TO PRODUCTION'
+      ? '#1a7f37'
+      : d.r.verdict === 'RUN WITH CAUTION'
+        ? '#b8860b'
+        : '#c0392b',
+    true
+  );
+  line(
+    `n ${d.r.nRpm} rpm | Vf ${d.r.vfCompMmMin} mm/min | T ${d.r.toolLifeMin} min | Pc ${d.r.powerKw} kW (${d.r.powerUtilPct}%)`,
+    10
+  );
+  line(
+    `Fc ${d.r.fcN} N | Mc ${d.r.torqueNm} N.m | defl ${d.r.deflectionUm} um | Ra ${d.r.raUm} um`,
+    10
+  );
   y += 8;
   line('INPUTS (SI)', 11, '#111111', true);
-  line(`mat ${d.si.materialId} | D ${d.si.diameterMm} | z ${d.si.teeth} | Vc ${d.si.vcMPerMin} | fz ${d.si.fzMm} | ap ${d.si.apMm} | ae ${d.si.aeMm}`, 9);
+  line(
+    `mat ${d.si.materialId} | D ${d.si.diameterMm} | z ${d.si.teeth} | Vc ${d.si.vcMPerMin} | fz ${d.si.fzMm} | ap ${d.si.apMm} | ae ${d.si.aeMm}`,
+    9
+  );
   y += 8;
-  line('Generated by SectorCalc.com - Engineering preview - Deterministic - Not for production approval', 8, '#999999');
+  line(
+    'Generated by SectorCalc.com - Engineering preview - Deterministic - Not for production approval',
+    8,
+    '#999999'
+  );
   doc.save('SC-020-' + calcId + '.pdf');
 }
 
 async function exportPDFGraphic() {
-  const el = $('reportArea'); if (!el || !calcData) { alert('Generate the report first.'); return; }
-  const btn = event && event.target; if (btn) { btn.textContent = 'Rendering...'; btn.disabled = true; }
+  const el = $('reportArea');
+  if (!el || !calcData) {
+    alert('Generate the report first.');
+    return;
+  }
+  const btn = event && event.target;
+  if (btn) {
+    btn.textContent = 'Rendering...';
+    btn.disabled = true;
+  }
   try {
-    const canvas = await html2canvas(el, { scale: 1.5, backgroundColor: exportSurfaceBg(), useCORS: true, logging: false });
+    const canvas = await html2canvas(el, {
+      scale: 1.5,
+      backgroundColor: exportSurfaceBg(),
+      useCORS: true,
+      logging: false
+    });
     const { jsPDF } = window.jspdf;
     const pdf = new jsPDF({ unit: 'pt', format: 'a4' });
-    const pageW = pdf.internal.pageSize.getWidth(), pageH = pdf.internal.pageSize.getHeight();
+    const pageW = pdf.internal.pageSize.getWidth(),
+      pageH = pdf.internal.pageSize.getHeight();
     const imgH = (canvas.height * pageW) / canvas.width;
     const imgData = canvas.toDataURL('image/jpeg', 0.82);
-    let heightLeft = imgH, position = 0;
-    pdf.addImage(imgData, 'JPEG', 0, position, pageW, imgH); heightLeft -= pageH;
-    while (heightLeft > 0) { position -= pageH; pdf.addPage(); pdf.addImage(imgData, 'JPEG', 0, position, pageW, imgH); heightLeft -= pageH; }
+    let heightLeft = imgH,
+      position = 0;
+    pdf.addImage(imgData, 'JPEG', 0, position, pageW, imgH);
+    heightLeft -= pageH;
+    while (heightLeft > 0) {
+      position -= pageH;
+      pdf.addPage();
+      pdf.addImage(imgData, 'JPEG', 0, position, pageW, imgH);
+      heightLeft -= pageH;
+    }
     const pages = pdf.getNumberOfPages();
     for (let i = 1; i <= pages; i++) {
-      pdf.setPage(i); pdf.setFontSize(7); pdf.setTextColor(120);
-      pdf.text('SectorCalc.com | ' + ENGINE_LABEL + ' | ' + (window.calcId || 'SC-020') + ' | Page ' + i + '/' + pages, 48, pageH - 16);
+      pdf.setPage(i);
+      pdf.setFontSize(7);
+      pdf.setTextColor(120);
+      pdf.text(
+        'SectorCalc.com | ' +
+          ENGINE_LABEL +
+          ' | ' +
+          (window.calcId || 'SC-020') +
+          ' | Page ' +
+          i +
+          '/' +
+          pages,
+        48,
+        pageH - 16
+      );
     }
     pdf.save('SC-020-' + (window.calcId || 'report') + '-graphic.pdf');
   } catch (err) {
     alert('Graphic PDF failed: ' + err.message + '. Use Export PDF instead.');
   } finally {
-    if (btn) { btn.textContent = 'Export Graphic PDF'; btn.disabled = false; }
+    if (btn) {
+      btn.textContent = 'Export Graphic PDF';
+      btn.disabled = false;
+    }
   }
 }
 
 function shareReport() {
-  const d = calcData; if (!d) return;
+  const d = calcData;
+  if (!d) return;
   const payload = {
     materialId: d.display.materialId,
     diameter: d.display.diameter,
@@ -520,7 +694,9 @@ function shareReport() {
     }
   };
   const s = encodeURIComponent(JSON.stringify(payload));
-  navigator.clipboard.writeText(location.origin + '/machining-pro.html?s=' + s).then(() => alert('Shareable URL copied'));
+  navigator.clipboard
+    .writeText(location.origin + '/machining-pro.html?s=' + s)
+    .then(() => alert('Shareable URL copied'));
 }
 
 try {
@@ -534,7 +710,9 @@ try {
 async function requirePro(action) {
   if (window.__scProGate && !(await window.__scProGate.ensureEntitled())) {
     alert('Unlock this tool with credits for professional report / export.');
-    document.getElementById('sc-pro-gate-root')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    document
+      .getElementById('sc-pro-gate-root')
+      ?.scrollIntoView({ behavior: 'smooth', block: 'center' });
     return;
   }
   return action();

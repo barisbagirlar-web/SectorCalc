@@ -36,12 +36,6 @@ function walkHtml(dir, out = []) {
   return out;
 }
 
-const published = [];
-for (const name of readdirSync(ROOT)) {
-  if (extname(name) === '.html') published.push(join(ROOT, name));
-}
-walkHtml(join(ROOT, 'public'), published);
-
 const bannedPatterns = [
   [/Valid\s+12\s+months/i, 'stale credit expiry "Valid 12 months" (SSOT: purchased credits never expire)'],
   [/credits?[^\n.]{0,40}valid\s+for\s+12\s+months/i, 'stale 12-month credit validity claim'],
@@ -50,8 +44,28 @@ const bannedPatterns = [
   [/https?:\/\/www\.youtube\.com\/(?:watch\?v=|embed\/)REPLACE_WITH_YOUTUBE_ID/i, 'placeholder YouTube VideoObject schema'],
   [/zero data leaves browser/i, 'absolute privacy claim contradicted by analytics'],
   [/Client-side,\s*nothing uploaded/i, 'absolute upload claim contradicted by analytics/session'],
+  [/data never left your browser/i, 'absolute privacy claim contradicted by analytics'],
+  [/data never leaves your browser/i, 'absolute privacy claim contradicted by analytics'],
   [/394 automated tests/i, 'stale test-count marketing (current suite is 505+)'],
 ];
+
+function walkTs(dir, out = []) {
+  if (!existsSync(dir)) return out;
+  for (const name of readdirSync(dir)) {
+    if (name === 'node_modules' || name === 'dist' || name === '.git') continue;
+    const p = join(dir, name);
+    const st = statSync(p);
+    if (st.isDirectory()) walkTs(p, out);
+    else if (extname(name) === '.ts' || extname(name) === '.tsx') out.push(p);
+  }
+  return out;
+}
+
+const published = [];
+for (const name of readdirSync(ROOT)) {
+  if (extname(name) === '.html') published.push(join(ROOT, name));
+}
+walkHtml(join(ROOT, 'public'), published);
 
 const allowed = claimAllowed();
 
@@ -68,6 +82,16 @@ for (const file of published) {
     if (/#person-neela-nataraj/.test(html)) {
       fail(`${rel}: publishes #person-neela-nataraj while evidence gate is closed`);
     }
+  }
+}
+
+// Report/PDF copy lives in src/*-pro.ts — must be scanned (ADV-G1)
+const srcTs = walkTs(join(ROOT, 'src'));
+for (const file of srcTs) {
+  const rel = relative(ROOT, file);
+  const src = readFileSync(file, 'utf8');
+  for (const [re, msg] of bannedPatterns) {
+    if (re.test(src)) fail(`${rel}: ${msg}`);
   }
 }
 

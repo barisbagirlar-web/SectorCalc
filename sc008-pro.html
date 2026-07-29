@@ -985,6 +985,9 @@
 
 
 
+
+
+
 <!--SC-SEO-BREADCRUMB-START-->
 <nav aria-label="Breadcrumb" class="sc-breadcrumb">
   <ol itemscope itemtype="https://schema.org/BreadcrumbList">
@@ -1083,7 +1086,7 @@
   <h3>Golden inputs</h3>
   <table class="sc-money-table"><tbody><tr><th scope="row">components</th><td><code>[{&quot;name&quot;:&quot;Housing bore depth&quot;,&quot;nominal&quot;:&quot;50&quot;,&quot;tol&quot;:&quot;0.05&quot;,&quot;distribution&quot;:&quot;normal&quot;},{&quot;name&quot;:&quot;Bearing width&quot;,&quot;nominal&quot;:&quot;20&quot;,&quot;tol&quot;:&quot;0.02&quot;,&quot;distribution&quot;:&quot;normal&quot;},{&quot;name&quot;:&quot;Spacer&quot;,&quot;nominal&quot;:&quot;10&quot;,&quot;tol&quot;:&quot;0.03&quot;,&quot;distribution&quot;:&quot;normal&quot;}]</code></td></tr><tr><th scope="row">usl</th><td><code>80.20</code></td></tr><tr><th scope="row">lsl</th><td><code>79.80</code></td></tr><tr><th scope="row">seed</th><td><code>42</code></td></tr><tr><th scope="row">iterations</th><td><code>2000</code></td></tr></tbody></table>
   <h3>Verified engine outputs</h3>
-  <table class="sc-money-table"><tbody><tr><th scope="row">worstPlus</th><td><code>0.1000</code></td></tr><tr><th scope="row">rssPlus</th><td><code>0.0616</code></td></tr><tr><th scope="row">cpk</th><td><code>3.2308</code></td></tr><tr><th scope="row">mcStd</th><td><code>0.0206</code></td></tr></tbody></table>
+  <table class="sc-money-table"><tbody><tr><th scope="row">worstPlus</th><td><code>0.1000</code></td></tr><tr><th scope="row">rssPlus</th><td><code>0.0616</code></td></tr><tr><th scope="row">cpk</th><td><code>3.2055</code></td></tr><tr><th scope="row">mcStd</th><td><code>0.0208</code></td></tr></tbody></table>
 </section>
 <section class="sc-money-block" data-money-block="07" data-aeo-step="explanation"><h2>What the result means</h2><p>Higher predicted Cpk means more margin to the gap limits under your distribution assumptions. A large WC–RSS gap signals rare simultaneous extremes. If Monte Carlo disagrees with RSS, at least one distribution is poorly approximated by ±3σ normal.</p></section>
 <section class="sc-money-block" data-money-block="08" data-aeo-step="explanation"><h2>What moves the result</h2><p>The largest tolerances and the loosest distributions move predicted PPM the most. Tightening a small contributor rarely helps if a single wide uniform contributor dominates the stack.</p></section>
