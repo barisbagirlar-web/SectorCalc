@@ -92,6 +92,35 @@ if (existsSync(videoPartial)) {
   }
 }
 
+// Blog hub must only link to articles that exist on disk (no ghost cards / fake pagination)
+const blogHub = join(ROOT, 'public/blog/index.html');
+const blogDir = join(ROOT, 'public/blog');
+if (existsSync(blogHub) && existsSync(blogDir)) {
+  const hub = readFileSync(blogHub, 'utf8');
+  const existing = new Set(
+    readdirSync(blogDir).filter((n) => n.endsWith('.html') && n !== 'index.html'),
+  );
+  for (const m of hub.matchAll(/href=["']\/blog\/([^"'#?]+)["']/g)) {
+    const target = m[1];
+    if (target === '' || target === 'index.html') continue;
+    if (!existing.has(target) && !existing.has(target.replace(/\/$/, '') + '.html') && !existsSync(join(blogDir, target))) {
+      fail(`public/blog/index.html links to missing /blog/${target}`);
+    }
+  }
+  if (/reviewed by IIT Bombay/i.test(hub) && !allowed) {
+    fail('public/blog/index.html still claims IIT Bombay review while evidence gate is closed');
+  }
+}
+
+// Image sitemap must not advertise unverified Academic Oversight portraits
+const imageSitemap = join(ROOT, 'public/sitemap-images.xml');
+if (existsSync(imageSitemap) && !allowed) {
+  const simg = readFileSync(imageSitemap, 'utf8');
+  if (/neela-nataraj\.jpg/i.test(simg) || /Academic Oversight/i.test(simg)) {
+    fail('public/sitemap-images.xml still advertises Neela / Academic Oversight while evidence gate is closed');
+  }
+}
+
 if (errors.length) {
   console.error('[FAIL] claim honesty guard:\n' + errors.map((e) => `  - ${e}`).join('\n'));
   process.exit(1);
