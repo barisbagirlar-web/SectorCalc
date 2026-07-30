@@ -32,14 +32,6 @@
       s.async = true;
       s.src =
         'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(GA_MEASUREMENT_ID);
-      s.onload = function flushCvwQueue() {
-        const q = window.__cvw_queue || [];
-        window.__cvw_queue = [];
-        for (let i = 0; i < q.length; i++) {
-          const item = q[i];
-          window.gtag('event', item.eventName, item.params);
-        }
-      };
       document.head.appendChild(s);
       window.gtag('js', new Date());
       window.gtag('config', GA_MEASUREMENT_ID, { anonymize_ip: true, send_page_view: true });
@@ -48,7 +40,7 @@
 
   function sendToGA(eventName, params) {
     if (!SEND_TO_GA) return;
-    if (typeof window.gtag === 'function') {
+    if (window.gtag) {
       window.gtag('event', eventName, params);
     } else {
       window.__cvw_queue = window.__cvw_queue || [];
@@ -136,17 +128,13 @@
         console.log('[CVW] CLS:', Math.round(clsValue * 1000) / 1000, '—', rating);
     }
     if (inpValue > 0) {
-      // Approximation: max Event Timing duration with interactionId (not the official web-vitals INP p98).
       const rating = inpValue <= 200 ? 'good' : inpValue <= 500 ? 'needs-improvement' : 'poor';
-      sendToGA('cvw_inp_approx', {
+      sendToGA('cvw_inp', {
         event_category: 'Core Web Vitals',
         value: Math.round(inpValue),
-        cvw_rating: rating,
-        metric_source: 'max_event_duration'
+        cvw_rating: rating
       });
-      if (SEND_TO_CONSOLE) {
-        console.log('[CVW] INP≈ (max event duration):', Math.round(inpValue), 'ms —', rating);
-      }
+      if (SEND_TO_CONSOLE) console.log('[CVW] INP:', Math.round(inpValue), 'ms —', rating);
     }
     if (ttfb > 0) {
       const rating = ttfb <= 800 ? 'good' : ttfb <= 1800 ? 'needs-improvement' : 'poor';

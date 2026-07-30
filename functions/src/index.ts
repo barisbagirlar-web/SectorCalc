@@ -6,7 +6,6 @@ import { initializeApp } from 'firebase-admin/app';
 import { setGlobalOptions } from 'firebase-functions/v2';
 import { onRequest } from 'firebase-functions/v2/https';
 import { onSchedule } from 'firebase-functions/v2/scheduler';
-import { defineSecret, defineString } from 'firebase-functions/params';
 import { handleCheckout } from './http/checkout';
 import { handleWallet, handleWalletTransactions } from './http/wallet';
 import { handlePurchaseStatus } from './http/purchase';
@@ -14,16 +13,6 @@ import { handleProfessionalSession } from './http/session';
 import { handlePaddleWebhook } from './http/webhook';
 import { handleHealth } from './http/health';
 import { runPurchaseReconciliation } from './http/reconcile';
-
-const paddleApiKey = defineSecret('PADDLE_API_KEY');
-const paddleWebhookSecret = defineSecret('PADDLE_WEBHOOK_SECRET');
-const paddleEnv = defineString('PADDLE_ENV', { default: 'sandbox' });
-const creditMonetization = defineString('CREDIT_MONETIZATION_ENABLED', { default: 'false' });
-const priceStarter = defineString('PADDLE_PRICE_STARTER');
-const priceWorkshop = defineString('PADDLE_PRICE_WORKSHOP');
-const priceProfessional = defineString('PADDLE_PRICE_PROFESSIONAL');
-const priceTeam = defineString('PADDLE_PRICE_TEAM_WALLET');
-const firestoreDb = defineString('FIRESTORE_DB', { default: 'sectorcalc-2' });
 
 initializeApp();
 setGlobalOptions({ region: 'us-central1', maxInstances: 20 });
@@ -41,22 +30,34 @@ function cors(res: { set: (k: string, v: string) => void }, origin: string | und
   ]);
   if (origin && allowed.has(origin)) {
     res.set('Access-Control-Allow-Origin', origin);
-    res.set('Vary', 'Origin');
+  } else {
+    res.set('Access-Control-Allow-Origin', 'https://sectorcalc.com');
   }
+  res.set('Vary', 'Origin');
   res.set('Access-Control-Allow-Headers', 'Authorization, Content-Type');
   res.set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
 }
 
 function hydrateEnv(): void {
-  process.env.PADDLE_API_KEY = paddleApiKey.value();
-  process.env.PADDLE_WEBHOOK_SECRET = paddleWebhookSecret.value();
-  process.env.PADDLE_ENV = paddleEnv.value();
-  process.env.CREDIT_MONETIZATION_ENABLED = creditMonetization.value();
-  process.env.PADDLE_PRICE_STARTER = priceStarter.value();
-  process.env.PADDLE_PRICE_WORKSHOP = priceWorkshop.value();
-  process.env.PADDLE_PRICE_PROFESSIONAL = priceProfessional.value();
-  process.env.PADDLE_PRICE_TEAM_WALLET = priceTeam.value();
-  process.env.FIRESTORE_DB = firestoreDb.value();
+  process.env.PADDLE_ENV = (process.env.PADDLE_ENV || 'sandbox').trim();
+  process.env.CREDIT_MONETIZATION_ENABLED = (
+    process.env.CREDIT_MONETIZATION_ENABLED || 'true'
+  ).trim();
+  process.env.PADDLE_API_KEY = (process.env.PADDLE_API_KEY || '').trim();
+  process.env.PADDLE_WEBHOOK_SECRET = (process.env.PADDLE_WEBHOOK_SECRET || '').trim();
+  process.env.PADDLE_PRICE_STARTER = (
+    process.env.PADDLE_PRICE_STARTER || 'pri_01kyhfb5q0jxrck07py0xxaqw7'
+  ).trim();
+  process.env.PADDLE_PRICE_WORKSHOP = (
+    process.env.PADDLE_PRICE_WORKSHOP || 'pri_01kyhfczs0aaj62smrthvc3my8'
+  ).trim();
+  process.env.PADDLE_PRICE_PROFESSIONAL = (
+    process.env.PADDLE_PRICE_PROFESSIONAL || 'pri_01kyhff4xx34m229w6ytpjpefs'
+  ).trim();
+  process.env.PADDLE_PRICE_TEAM_WALLET = (
+    process.env.PADDLE_PRICE_TEAM_WALLET || 'pri_01kyhfgk3ax50gz1m7zh877w9c'
+  ).trim();
+  process.env.FIRESTORE_DB = (process.env.FIRESTORE_DB || 'sectorcalc-2').trim();
 }
 
 function normalizePath(raw: string): string {
@@ -75,7 +76,7 @@ export const api = onRequest(
     invoker: 'public',
     memory: '512MiB',
     timeoutSeconds: 60,
-    secrets: [paddleApiKey, paddleWebhookSecret]
+    concurrency: 80
   },
   async (req, res) => {
     hydrateEnv();
@@ -88,7 +89,9 @@ export const api = onRequest(
     const path = normalizePath(req.path || '');
     try {
       if (path === '/health' || path === '/billing/health') {
-        await handleHealth(req, res, { reconciliationSchedulerDeployed: RECONCILIATION_SCHEDULER_DEPLOYED });
+        await handleHealth(req, res, {
+          reconciliationSchedulerDeployed: RECONCILIATION_SCHEDULER_DEPLOYED
+        });
         return;
       }
       if (path === '/billing/checkout' && req.method === 'POST') {
@@ -139,11 +142,9 @@ export const reconcilePurchases = onSchedule(
     region: 'us-central1',
     timeZone: 'UTC',
     memory: '512MiB',
-    timeoutSeconds: 120,
-    secrets: [paddleApiKey, paddleWebhookSecret]
+    timeoutSeconds: 120
   },
   async () => {
     await hydrateAndReconcileFactory()();
   }
 );
-

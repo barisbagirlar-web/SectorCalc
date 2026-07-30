@@ -9,7 +9,7 @@ import {
   CalcError,
   requireNonNegative,
   requirePositive,
-  requireInRange
+  requireLessThan
 } from '../../../core/guards.js';
 import { assertConservation, assertAllNonNegative } from '../../../core/conservation.js';
 import { roundHalfUp } from '../../../core/rounding.js';
@@ -111,11 +111,11 @@ export function calculate(inputs: LaborCostInputs): LaborCostResult {
     result: money(netMonthly)
   });
 
-  // 2. gross up — employeeRate ∈ [0, 0.95] (plausible payroll band; rejects negative and near-1 explosions)
+  // 2. gross up (employeeRate < 1)
   const empRate =
     inputs.employeeRate === undefined
       ? D(country.employeeRate)
-      : requireInRange(inputs.employeeRate, 0, '0.95', 'employeeRate');
+      : requireLessThan(inputs.employeeRate, 1, 'employeeRate');
   const gross = netMonthly.div(D(1).minus(empRate));
   steps.push({
     step: ++n,
@@ -213,10 +213,8 @@ export function calculate(inputs: LaborCostInputs): LaborCostResult {
   });
 
   // derived (degenerate-safe)
-  // trueHourlyCost MUST include overtime hours in the denominator when OT cost is in the numerator
   const workHoursMonth = hours.times(WEEKS_PER_MONTH);
-  const totalHoursWorked = workHoursMonth.plus(otHours);
-  const hourlyCost = totalHoursWorked.gt(0) ? total.div(totalHoursWorked) : D(0);
+  const hourlyCost = total.div(workHoursMonth);
   const multiplier = netMonthly.gt(0) ? total.div(netMonthly) : D(0);
   const hiddenPct = netMonthly.gt(0) ? total.minus(netMonthly).div(netMonthly).times(100) : D(0);
   const annual = total.times(12);

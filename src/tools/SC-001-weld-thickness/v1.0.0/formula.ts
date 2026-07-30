@@ -64,7 +64,7 @@ export function calculate(inputs: WeldInputs): WeldResult {
     step: ++n,
     description: 'Allowable shear stress',
     formula: `weldStrength / safetyFactor = ${strength.toString()} / ${sf.toString()}`,
-    result: `${mm(allowable)} MPa`
+    result: mm(allowable)
   });
 
   // 2. required throat (degenerate-safe: load 0 -> throat 0, no divide-by-zero)
@@ -73,7 +73,7 @@ export function calculate(inputs: WeldInputs): WeldResult {
     step: ++n,
     description: 'Required throat from load',
     formula: 'designLoad / (weldLength * allowable)',
-    result: `${mm(requiredThroat)} mm`
+    result: mm(requiredThroat)
   });
 
   // 3. leg from load
@@ -82,39 +82,32 @@ export function calculate(inputs: WeldInputs): WeldResult {
     step: ++n,
     description: `Leg from load (${joint})`,
     formula: `requiredThroat / ${factor.toString()}`,
-    result: `${mm(legFromLoad)} mm`
+    result: mm(legFromLoad)
   });
 
-  // 4. minimum leg — AWS D1.1 Table 2.1 applies to FILLET welds only.
-  // Butt/groove size is governed by load (and typically plate thickness for CJP — not this table).
-  const minLeg =
-    joint === 'fillet' ? stepInterpolate(MIN_FILLET_LEG_XS, MIN_FILLET_LEG_YS, thickness) : D(0);
+  // 4. minimum leg from AWS D1.1 table (step interpolation)
+  const minLeg = stepInterpolate(MIN_FILLET_LEG_XS, MIN_FILLET_LEG_YS, thickness);
   steps.push({
     step: ++n,
-    description:
-      joint === 'fillet'
-        ? 'Minimum fillet leg from AWS D1.1 table'
-        : 'Minimum leg (butt: fillet table not applied)',
-    formula:
-      joint === 'fillet' ? 'stepInterpolate(AWS D1.1 fillet, thickness)' : 'n/a for butt/groove',
-    result: `${mm(minLeg)} mm`
+    description: 'Minimum leg from table',
+    formula: 'stepInterpolate(AWS D1.1, thickness)',
+    result: mm(minLeg)
   });
 
-  // 5. final leg = governing of the two (for butt, minLeg=0 so load always governs when >0)
+  // 5. final leg = governing of the two
   const finalLeg = legFromLoad.gt(minLeg) ? legFromLoad : minLeg;
   steps.push({
     step: ++n,
     description: 'Final leg (governing)',
     formula: 'max(legFromLoad, minLeg)',
-    result: `${mm(finalLeg)} mm`
+    result: mm(finalLeg)
   });
 
   // 6. dimensional output: wrap as Quantity and convert mm -> in (exercises engine)
   const legQty = qty(finalLeg, 'mm', 'length');
   const legInQty = qconvert(legQty, 'in');
-  // utilization = applied demand / capacity of the governing leg (load/capacity of sized weld)
-  const denom = finalLeg.times(factor);
-  const utilization = denom.gt(0) ? requiredThroat.div(denom) : D(0);
+  // finalLeg > 0 is guaranteed by the table (min leg >= 3), so no zero-guard needed.
+  const utilization = requiredThroat.div(finalLeg.times(factor));
 
   return {
     finalLegMm: mm(finalLeg),

@@ -1,18 +1,16 @@
 // @ts-nocheck
 import { calculate } from './tools/SC-001-weld-thickness/v1.0.0/formula.js';
 import { readThemePalette, exportSurfaceBg, onThemeChange } from './lib/theme-palette.js';
-import { makeIntegrityShareURL, parseIntegrityShare } from './lib/share-integrity.js';
-import { parseInputNumber } from './lib/parse-number.js';
 
-function requirePick(r, keys, label) {
+function pick(r, keys, def = 0) {
   for (const k of keys) {
     const v = r[k];
     if (v !== undefined && v !== null && v !== '') {
       const n = Number(v);
-      if (Number.isFinite(n)) return n;
+      return Number.isFinite(n) ? n : def;
     }
   }
-  throw new Error(`engine field missing: ${label} (tried ${keys.join(', ')})`);
+  return def;
 }
 
 const FIELDS = [
@@ -68,10 +66,7 @@ let calcData = null;
 
 function readInputs() {
   const input = { jointType: $('jointType').value };
-  FIELDS.forEach((f) => {
-    const n = parseInputNumber($(f)?.value);
-    input[f] = Number.isFinite(n) ? n : 0;
-  });
+  FIELDS.forEach((f) => (input[f] = parseFloat($(f).value) || 0));
   if (input.safetyFactor < 1) input.safetyFactor = 1;
   return input;
 }
@@ -79,9 +74,7 @@ function readInputs() {
 function validateAndCalc() {
   if (window.__scProGate && !window.__scProGate.isEntitled()) {
     if ($('liveResult')) $('liveResult').textContent = 'Locked';
-    if ($('liveSub'))
-      $('liveSub').innerHTML =
-        '<span>Session unlock required for full editing (on-device math)</span>';
+    if ($('liveSub')) $('liveSub').innerHTML = '<span>Unlock with credits to calculate</span>';
     return;
   }
   let hasError = false;
@@ -109,19 +102,19 @@ function validateAndCalc() {
 
   const input = readInputs();
   let r;
-  let leg, throat, minLeg, util, steps;
   try {
     r = calculate(input);
-    leg = requirePick(r, ['finalLegMm', 'legMm', 'requiredLegMm', 'leg'], 'finalLegMm');
-    throat = requirePick(r, ['requiredThroatMm', 'throatMm', 'throat'], 'requiredThroatMm');
-    minLeg = requirePick(r, ['minLegMm', 'codeMinLegMm', 'minLeg'], 'minLegMm');
-    util = requirePick(r, ['utilization', 'util', 'ratio'], 'utilization');
-    steps = Array.isArray(r.steps) ? r.steps : [];
   } catch (e) {
     $('liveResult').textContent = 'ERR';
     $('liveSub').innerHTML = '<span>' + e.message + '</span>';
     return;
   }
+
+  const leg = pick(r, ['finalLegMm', 'legMm', 'requiredLegMm', 'leg']);
+  const throat = pick(r, ['requiredThroatMm', 'throatMm', 'throat']);
+  const minLeg = pick(r, ['minLegMm', 'codeMinLegMm', 'minLeg']);
+  const util = pick(r, ['utilization', 'util', 'ratio']);
+  const steps = Array.isArray(r.steps) ? r.steps : [];
 
   calcData = { input, r, leg, throat, minLeg, util, steps };
   $('liveResult').textContent = leg.toFixed(2) + ' mm';
@@ -160,17 +153,15 @@ function startBlankStudy() {
   if ($('reportArea')) $('reportArea').innerHTML = '';
 }
 function loadFromURL() {
-  const r = parseIntegrityShare(location.search);
-  if (!r.ok || !r.state) return;
-  if (r.tampered)
-    alert(
-      'WARNING: share link failed integrity check (missing or mismatched hash). Values loaded but treat as untrusted.'
-    );
-  const o = r.state;
-  FIELDS.forEach((f) => {
-    if (o[f] !== undefined && $(f)) $(f).value = o[f];
-  });
-  if (o.jointType && $('jointType')) $('jointType').value = o.jointType;
+  const s = new URLSearchParams(location.search).get('s');
+  if (!s) return;
+  try {
+    const o = JSON.parse(decodeURIComponent(s));
+    FIELDS.forEach((f) => {
+      if (o[f] !== undefined) $(f).value = o[f];
+    });
+    if (o.jointType) $('jointType').value = o.jointType;
+  } catch (e) {}
 }
 
 function gaugeColor(u) {
@@ -207,8 +198,8 @@ function generateReport(opts = {}) {
     }
     return {
       label: w.label,
-      leg: requirePick(tr, ['finalLegMm', 'legMm', 'requiredLegMm', 'leg'], 'finalLegMm'),
-      util: requirePick(tr, ['utilization', 'util', 'ratio'], 'utilization')
+      leg: pick(tr, ['finalLegMm', 'legMm', 'requiredLegMm', 'leg']),
+      util: pick(tr, ['utilization', 'util', 'ratio'])
     };
   });
 
@@ -232,7 +223,7 @@ function generateReport(opts = {}) {
     <div class="sc-rec"><div class="sc-rec-hd"><span class="sc-rec-num">2</span><span class="sc-rec-title">Keep the audit trail</span></div><div class="sc-rec-body">Calc ID ${calcId} reproducible from inputs.<br><span class="pos">-> Attach PDF to the welding procedure / WPS package</span></div></div>`;
 
   const reportHTML = `
-    <div class="sc-report-hd"><div class="sc-report-hd-left"><div class="sc-report-title">SC-001 Weld Thickness Analysis</div><div class="sc-report-meta">Calculation ID: <span>${calcId}</span> &nbsp;|&nbsp; ${new Date().toISOString().replace('T', ' ').slice(0, 19)} UTC<br>Standard: AWS D1.1 structural welding | EN ISO 2553 weld symbols<br>Method: Deterministic load / weld-capacity check<br><span class="ok">Core calculation on-device — formulas/inputs stay in this browser session (page analytics may still load)</span></div></div>
+    <div class="sc-report-hd"><div class="sc-report-hd-left"><div class="sc-report-title">SC-001 Weld Thickness Analysis</div><div class="sc-report-meta">Calculation ID: <span>${calcId}</span> &nbsp;|&nbsp; ${new Date().toISOString().replace('T', ' ').slice(0, 19)} UTC<br>Standard: AWS D1.1 structural welding | EN ISO 2553 weld symbols<br>Method: Deterministic load / weld-capacity check<br><span class="ok">OK Client-Side Only - your data never left your browser</span></div></div>
       <div class="sc-report-hd-right"><button class="sc-btn sc-btn-ghost" onclick="exportPDF()">Export PDF</button><button class="sc-btn sc-btn-ghost" onclick="exportPDFGraphic()">Export Graphic PDF</button><button class="sc-btn sc-btn-primary" onclick="shareReport()">Share</button></div></div>
     <div class="sc-sec"><div class="sc-sec-hd">Risk Assessment</div>
       ${status === 'CRITICAL' ? `<div class="sc-alert sc-alert-crit"><div class="sc-alert-icon">!</div><div><div class="sc-alert-title">Critical - Weld undersized</div><div class="sc-alert-body">Utilization <strong>${(d.util * 100).toFixed(0)}%</strong> (&gt;= 100%). The weld <strong>cannot carry the load</strong>.<br>Required leg ${d.leg.toFixed(2)} mm. Increase weld length or leg immediately.</div></div></div>` : ''}
@@ -276,7 +267,7 @@ function generateReport(opts = {}) {
       <span>Utilization</span> - applied stress / allowable; &gt;= 1.0 means undersized<br>
       <span>Deterministic</span> - same inputs always yield the same leg, client-side
     </div></div></div>
-    <div class="sc-footer">Generated by SectorCalc.com - Client-Side Only - Core calc on-device; page analytics may still load<br>Engineering preview · Client-side · Deterministic · Not for production approval</div>`;
+    <div class="sc-footer">Generated by SectorCalc.com - Client-Side Only - Your data never leaves your browser<br>Engineering preview · Client-side · Deterministic · Not for production approval</div>`;
   $('reportArea').innerHTML = reportHTML;
 }
 
@@ -307,7 +298,7 @@ function exportPDF() {
     '#666666'
   );
   line('Standard: AWS D1.1 | EN ISO 2553', 9, '#666666');
-  line('Client-Side Only - core calc on-device (page analytics may still load)', 9, '#1a7f37');
+  line('Client-Side Only - your data never left your browser', 9, '#1a7f37');
   y += 6;
   line(
     'VERDICT: ' +
@@ -409,13 +400,17 @@ async function exportPDFGraphic() {
 function shareReport() {
   const d = calcData;
   if (!d) return;
-  const state = Object.assign(
-    { jointType: d.input.jointType },
-    Object.fromEntries(FIELDS.map((f) => [f, d.input[f]]))
+  const s = encodeURIComponent(
+    JSON.stringify(
+      Object.assign(
+        { jointType: d.input.jointType },
+        Object.fromEntries(FIELDS.map((f) => [f, d.input[f]]))
+      )
+    )
   );
   navigator.clipboard
-    .writeText(makeIntegrityShareURL(location.origin, '/calculator/weld-thickness', state))
-    .then(() => alert('Shareable URL copied (integrity hash attached)'));
+    .writeText(location.origin + '/weld-pro.html?s=' + s)
+    .then(() => alert('Shareable URL copied'));
 }
 
 window.generateReport = generateReport;

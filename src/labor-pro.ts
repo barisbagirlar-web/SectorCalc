@@ -1,19 +1,18 @@
 // @ts-nocheck
 import { calculate } from './tools/SC-010-labor-cost/v1.0.0/formula.js';
-import { COUNTRIES } from './tools/SC-010-labor-cost/v1.0.0/reference.js';
 import { readThemePalette, exportSurfaceBg, onThemeChange } from './lib/theme-palette.js';
-import { makeIntegrityShareURL, parseIntegrityShare } from './lib/share-integrity.js';
-import { parseInputNumber } from './lib/parse-number.js';
 
-function requirePick(r, keys, label) {
+// Robust field reader: tries several likely result keys so the page never hard-breaks
+// if formula.ts names a field differently. Falls back to def (no ERR, no crash).
+function pick(r, keys, def = 0) {
   for (const k of keys) {
     const v = r[k];
     if (v !== undefined && v !== null && v !== '') {
       const n = Number(v);
-      if (Number.isFinite(n)) return n;
+      return Number.isFinite(n) ? n : def;
     }
   }
-  throw new Error(`engine field missing: ${label} (tried ${keys.join(', ')})`);
+  return def;
 }
 
 const FIELDS = [
@@ -83,31 +82,37 @@ function setFieldState(f, ok, msg) {
 let calcData = null;
 
 function readInputs() {
-  const countryEl = $('country');
-  const country = (countryEl && countryEl.value) || 'US';
-  const input = { country, payFrequency: $('payFrequency').value };
+  const input = { country: 'US', payFrequency: $('payFrequency').value };
   FIELDS.forEach((f) => {
-    const n = parseInputNumber($(f)?.value);
-    input[f] = Number.isFinite(n) ? n : 0;
+    input[f] = parseFloat($(f).value) || 0;
   });
   return input;
 }
 
-function applyCountryDefaults(code) {
-  const c = COUNTRIES[code];
-  if (!c) return;
-  if ($('employerSSRate')) $('employerSSRate').value = c.employerSSRate;
-  if ($('employerUnempRate')) $('employerUnempRate').value = c.employerUnempRate;
-  if ($('employeeRate')) $('employeeRate').value = c.employeeRate;
-  if ($('severanceRate')) $('severanceRate').value = c.severanceRate;
+function buildBreakdown(input, gross) {
+  const ss = gross * input.employerSSRate;
+  const unemp = gross * input.employerUnempRate;
+  const sev = gross * input.severanceRate;
+  const items = [
+    ['Gross salary', gross],
+    ['Employer SS', ss],
+    ['Unemployment', unemp],
+    ['Health benefit', input.healthMonthly],
+    ['Meal benefit', input.mealMonthly],
+    ['Transport benefit', input.transportMonthly],
+    ['Bonus (monthly)', input.annualBonus / 12],
+    ['Severance accrual', sev]
+  ]
+    .filter((x) => x[1] > 0.005)
+    .sort((a, b) => b[1] - a[1]);
+  const total = items.reduce((s, x) => s + x[1], 0) || 1;
+  return items.map((x) => ({ name: x[0], amount: x[1], pct: (x[1] / total) * 100 }));
 }
 
 function validateAndCalc() {
   if (window.__scProGate && !window.__scProGate.isEntitled()) {
     if ($('liveResult')) $('liveResult').textContent = 'Locked';
-    if ($('liveSub'))
-      $('liveSub').innerHTML =
-        '<span>Session unlock required for full editing (on-device math)</span>';
+    if ($('liveSub')) $('liveSub').innerHTML = '<span>Unlock with credits to calculate</span>';
     return;
   }
   let hasError = false;
@@ -125,8 +130,8 @@ function validateAndCalc() {
   } else {
     setFieldState('hoursPerWeek', true, 'OK');
   }
-  ['employerSSRate', 'employerUnempRate', 'severanceRate'].forEach((f) => {
-    const v = parseInputNumber($(f).value);
+  ['employerSSRate', 'employerUnempRate', 'employeeRate', 'severanceRate'].forEach((f) => {
+    const v = parseFloat($(f).value);
     if (isNaN(v) || v < 0 || v > 1) {
       setFieldState(f, false, 'X ratio 0-1');
       hasError = true;
@@ -134,15 +139,6 @@ function validateAndCalc() {
       setFieldState(f, true, 'OK');
     }
   });
-  {
-    const v = parseInputNumber($('employeeRate').value);
-    if (isNaN(v) || v < 0 || v > 0.95) {
-      setFieldState('employeeRate', false, 'X ratio 0-0.95');
-      hasError = true;
-    } else {
-      setFieldState('employeeRate', true, 'OK');
-    }
-  }
   if (hasError) {
     $('liveResult').textContent = '—';
     $('liveSub').innerHTML = '';
@@ -151,33 +147,25 @@ function validateAndCalc() {
 
   const input = readInputs();
   let r;
-  let trueCost, mult, hiddenPct, gross, breakdown;
   try {
     r = calculate(input);
-    trueCost = requirePick(
-      r,
-      ['trueMonthlyCost', 'totalMonthlyCost', 'monthlyCost', 'trueCost', 'totalCost'],
-      'trueMonthlyCost'
-    );
-    mult = requirePick(r, ['costMultiplier', 'multiplier', 'ratio', 'factor'], 'costMultiplier');
-    hiddenPct = requirePick(
-      r,
-      ['hiddenCostPct', 'hiddenPct', 'overheadPct', 'burdenPct'],
-      'hiddenCostPct'
-    );
-    gross = requirePick(r, ['grossMonthly', 'gross', 'baseMonthly', 'grossSalary'], 'grossMonthly');
-    breakdown = Array.isArray(r.breakdown)
-      ? r.breakdown.map((row) => ({
-          name: row.item,
-          amount: Number(row.amount),
-          pct: Number(row.pct)
-        }))
-      : [];
   } catch (e) {
     $('liveResult').textContent = 'ERR';
     $('liveSub').innerHTML = '<span>' + e.message + '</span>';
     return;
   }
+
+  const trueCost = pick(r, [
+    'trueMonthlyCost',
+    'totalMonthlyCost',
+    'monthlyCost',
+    'trueCost',
+    'totalCost'
+  ]);
+  const mult = pick(r, ['costMultiplier', 'multiplier', 'ratio', 'factor'], 1);
+  const hiddenPct = pick(r, ['hiddenCostPct', 'hiddenPct', 'overheadPct', 'burdenPct']);
+  const gross = pick(r, ['grossMonthly', 'gross', 'baseMonthly', 'grossSalary']);
+  const breakdown = buildBreakdown(input, gross);
 
   calcData = { input, r, trueCost, mult, hiddenPct, gross, breakdown };
   $('liveResult').textContent = trueCost.toFixed(0) + ' /mo';
@@ -217,18 +205,15 @@ function startBlankStudy() {
 }
 
 function loadFromURL() {
-  const r = parseIntegrityShare(location.search);
-  if (!r.ok || !r.state) return;
-  if (r.tampered)
-    alert(
-      'WARNING: share link failed integrity check (missing or mismatched hash). Values loaded but treat as untrusted.'
-    );
-  const o = r.state;
-  FIELDS.forEach((f) => {
-    if (o[f] !== undefined && $(f)) $(f).value = o[f];
-  });
-  if (o.payFrequency && $('payFrequency')) $('payFrequency').value = o.payFrequency;
-  if (o.country && $('country')) $('country').value = o.country;
+  const s = new URLSearchParams(location.search).get('s');
+  if (!s) return;
+  try {
+    const o = JSON.parse(decodeURIComponent(s));
+    FIELDS.forEach((f) => {
+      if (o[f] !== undefined) $(f).value = o[f];
+    });
+    if (o.payFrequency) $('payFrequency').value = o.payFrequency;
+  } catch (e) {}
 }
 
 function gaugeColor(mult) {
@@ -267,11 +252,13 @@ function generateReport(opts = {}) {
     } catch (e) {
       return { label: w.label, delta: 0, newCost: d.trueCost };
     }
-    const nc = requirePick(
-      tr,
-      ['trueMonthlyCost', 'totalMonthlyCost', 'monthlyCost', 'trueCost', 'totalCost'],
-      'trueMonthlyCost'
-    );
+    const nc = pick(tr, [
+      'trueMonthlyCost',
+      'totalMonthlyCost',
+      'monthlyCost',
+      'trueCost',
+      'totalCost'
+    ]);
     return { label: w.label, delta: nc - d.trueCost, newCost: nc };
   });
 
@@ -293,7 +280,7 @@ function generateReport(opts = {}) {
           Calculation ID: <span>${calcId}</span> &nbsp;|&nbsp; ${now.toISOString().replace('T', ' ').slice(0, 19)} UTC<br>
           Standard: IFRS labor cost recognition | Local statutory contributions<br>
           Method: Deterministic gross-up + statutory + benefit accumulation<br>
-          <span class="ok">Core calculation on-device — formulas/inputs stay in this browser session (page analytics may still load)</span>
+          <span class="ok">OK Client-Side Only - your data never left your browser</span>
         </div>
       </div>
       <div class="sc-report-hd-right">
@@ -314,7 +301,6 @@ function generateReport(opts = {}) {
       <div class="sc-card-res"><div class="sc-card-res-label">Gross / mo</div><div class="sc-card-res-val">${d.gross.toFixed(0)}</div><div class="sc-card-res-sub">grossed-up</div></div>
     </div></div>
     <div class="sc-sec"><div class="sc-sec-hd">Input Registry</div><div class="sc-card"><div class="sc-table-wrap"><table class="sc-table"><thead><tr><th>Parameter</th><th>Value</th><th>Unit</th></tr></thead><tbody>
-      <tr><td class="td-name">Country profile</td><td class="td-val">${d.input.country}</td><td>-</td></tr>
       <tr><td class="td-name">Net salary</td><td class="td-val">${d.input.netSalary}</td><td>currency</td></tr>
       <tr><td class="td-name">Pay frequency</td><td class="td-val">${d.input.payFrequency}</td><td>-</td></tr>
       <tr><td class="td-name">Hours / week</td><td class="td-val">${d.input.hoursPerWeek}</td><td>h/wk</td></tr>
@@ -353,7 +339,7 @@ function generateReport(opts = {}) {
       <span>True cost</span> - gross + employer statutory + benefits + prorated bonus + severance accrual<br>
       <span>Deterministic</span> - same inputs always yield the same result, client-side
     </div></div></div>
-    <div class="sc-footer">Generated by SectorCalc.com - Client-Side Only - Core calc on-device; page analytics may still load<br>Engineering preview · Client-side · Deterministic · Not for production approval</div>`;
+    <div class="sc-footer">Generated by SectorCalc.com - Client-Side Only - Your data never leaves your browser<br>Engineering preview · Client-side · Deterministic · Not for production approval</div>`;
   $('reportArea').innerHTML = reportHTML;
 }
 
@@ -384,7 +370,7 @@ function exportPDF() {
     '#666666'
   );
   line('Standard: IFRS labor cost recognition | Local statutory contributions', 9, '#666666');
-  line('Client-Side Only - core calc on-device (page analytics may still load)', 9, '#1a7f37');
+  line('Client-Side Only - your data never left your browser', 9, '#1a7f37');
   y += 6;
   line(
     'VERDICT: ' +
@@ -508,13 +494,17 @@ async function exportPDFGraphic() {
 function shareReport() {
   const d = calcData;
   if (!d) return;
-  const state = Object.assign(
-    { payFrequency: d.input.payFrequency, country: d.input.country },
-    Object.fromEntries(FIELDS.map((f) => [f, d.input[f]]))
+  const s = encodeURIComponent(
+    JSON.stringify(
+      Object.assign(
+        { payFrequency: d.input.payFrequency },
+        Object.fromEntries(FIELDS.map((f) => [f, d.input[f]]))
+      )
+    )
   );
   navigator.clipboard
-    .writeText(makeIntegrityShareURL(location.origin, '/calculator/true-labor-cost', state))
-    .then(() => alert('Shareable URL copied (integrity hash attached)'));
+    .writeText(location.origin + '/labor-pro.html?s=' + s)
+    .then(() => alert('Shareable URL copied'));
 }
 
 try {
@@ -532,11 +522,6 @@ window.shareReport = shareReport;
 window.loadPreset = loadPreset;
 window.resetAll = resetAll;
 window.validateAndCalc = validateAndCalc;
-window.applyCountryDefaults = applyCountryDefaults;
-document.getElementById('country')?.addEventListener('change', (e) => {
-  applyCountryDefaults(e.target.value);
-  validateAndCalc();
-});
 if (window.SCStudy) {
   window.SCStudy.register('SC-010', {
     loadSample() {

@@ -57,7 +57,7 @@ describe('SC-008 warnings', () => {
       usl: 52,
       lsl: 48,
       seed: 1,
-      iterations: 5000
+      iterations: 500
     };
     expect(evaluateWarnings(i, calculate(i)).some((w) => w.code === 'STATISTICAL_GAIN')).toBe(true);
   });

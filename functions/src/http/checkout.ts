@@ -11,13 +11,16 @@ import { checkRateLimit } from '../lib/rate-limit';
 export async function handleCheckout(req: Request, res: Response): Promise<void> {
   try {
     if (!monetizationEnabled()) {
-      res.status(503).json({ error: 'PADDLE_CONFIGURATION_ERROR', message: 'CREDIT_MONETIZATION_ENABLED=false' });
+      res.status(503).json({
+        error: 'PADDLE_CONFIGURATION_ERROR',
+        message: 'CREDIT_MONETIZATION_ENABLED=false'
+      });
       return;
     }
     getPriceMap();
 
     const user = await requireUser(req);
-    if (!checkRateLimit(`checkout:${user.uid}`, 10, 60_000)) {
+    if (!checkRateLimit(`checkout:${user.uid}`, 30, 60_000)) {
       res.status(429).json({ error: 'RATE_LIMITED' });
       return;
     }

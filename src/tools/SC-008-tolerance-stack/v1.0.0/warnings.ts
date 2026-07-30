@@ -51,13 +51,11 @@ export function evaluateWarnings(input: StackInput, result: StackResult): Warnin
     });
   }
 
-  // STATISTICAL_GAIN: Monte Carlo half-spread (≈99.7% band / 2) inside the worst-case bound.
-  const mcHalf = mcRange.div(2);
-  if (mcHalf.lt(worstPlus)) {
+  if (mcRange.lt(worstPlus.times(2).times('0.5'))) {
     out.push({
       code: 'STATISTICAL_GAIN',
       severity: 'INFO',
-      message: `Monte Carlo half-spread (${mcHalf.toFixed(4)}) is inside worst-case +/- ${result.worstPlus} (range ${result.mcP0013}..${result.mcP9987}).`,
+      message: `Monte Carlo spread (${result.mcP0013}..${result.mcP9987}) is well inside worst-case +/- ${result.worstPlus}.`,
       action: 'Statistical tolerancing is justified if contributors are independent and capable.',
       reference: 'NIST SEMATECH e-Handbook'
     });

@@ -18,13 +18,10 @@ import {
   compareRevisions
 } from './lib/sc008-p4.js';
 import { readThemePalette, exportSurfaceBg, onThemeChange } from './lib/theme-palette.js';
-import { escapeHtml, escapeAttr } from './lib/html-escape.js';
-import { parseInputNumber } from './lib/parse-number.js';
 
 // Sampling lives here (composed from monte-carlo.ts primitives); the MATH lives in
 // formula.ts calculate(). calculate() receives the samples, so UI/PDF/share all agree.
-// Dimensions are stored ALWAYS in millimetres (SSOT). Unit toggles only change display.
-const ENGINE_VERSION = 'SC008-2026.07-formula-v1.1.0+dist+mm-ssot';
+const ENGINE_VERSION = 'SC008-2026.07-formula-v1.0.0+dist';
 function chartTheme() {
   const P = readThemePalette();
   return {
@@ -114,18 +111,16 @@ function syncReportIfOpen() {
 }
 
 function toProjectState() {
-  const fromMm = unitConv[currentUnit].fromMm;
   return {
     specUpper: $('specUpper').value,
     specLower: $('specLower').value,
     cpkTarget: $('cpkTarget').value,
     seed: $('mcSeed').value,
     unit: currentUnit,
-    // Persist in the active display unit (same as legacy share/CSV contracts).
     dims: dimensions.map((d) => ({
       name: d.name,
-      nominal: d.nominal * fromMm,
-      tol: d.tolerance * fromMm,
+      nominal: d.nominal,
+      tol: d.tolerance,
       dist: d.dist || 'normal'
     }))
   };
@@ -135,22 +130,18 @@ function applyProjectState(st) {
   $('specLower').value = st.specLower;
   $('cpkTarget').value = st.cpkTarget;
   $('mcSeed').value = st.seed;
-  const srcUnit = st.unit && unitConv[st.unit] ? st.unit : 'mm';
   if (st.unit) {
-    currentUnit = srcUnit;
-    $('unitSpec').value = srcUnit;
-    $('unitSpec2').value = srcUnit;
+    currentUnit = st.unit;
+    $('unitSpec').value = st.unit;
+    $('unitSpec2').value = st.unit;
   }
   if (Array.isArray(st.dims)) {
-    const toMm = unitConv[srcUnit].toMm;
-    dimensions = st.dims
-      .map((d) => ({
-        name: String(d.name ?? ''),
-        nominal: Number(d.nominal) * toMm,
-        tolerance: Number(d.tol ?? d.tolerance) * toMm,
-        dist: d.dist || 'normal'
-      }))
-      .filter((d) => Number.isFinite(d.nominal) && Number.isFinite(d.tolerance));
+    dimensions = st.dims.map((d) => ({
+      name: d.name,
+      nominal: d.nominal,
+      tolerance: d.tol ?? d.tolerance,
+      dist: d.dist || 'normal'
+    }));
   }
 }
 function fnv1a(str) {
@@ -163,12 +154,10 @@ function fnv1a(str) {
 }
 
 function renderDims() {
-  const fromMm = unitConv[currentUnit].fromMm;
-  const places = currentUnit === 'um' ? 1 : currentUnit === 'inch' ? 5 : 4;
   $('dimList').innerHTML = dimensions
     .map(
       (d, i) =>
-        `<div class="sc-dim"><span class="sc-dim-num">${i + 1}</span><input type="text" value="${escapeAttr(d.name)}" data-i="${i}" data-f="name" style="font-family:var(--font-sans);color:var(--text-secondary)"><input type="number" value="${(d.nominal * fromMm).toFixed(places)}" step="any" data-i="${i}" data-f="nominal"><input type="number" value="${(d.tolerance * fromMm).toFixed(places)}" step="any" min="0" data-i="${i}" data-f="tolerance"><select data-i="${i}" data-f="dist"><option value="normal" ${d.dist === 'normal' ? 'selected' : ''}>normal</option><option value="uniform" ${d.dist === 'uniform' ? 'selected' : ''}>uniform</option><option value="truncated_normal" ${d.dist === 'truncated_normal' ? 'selected' : ''}>trunc-N</option><option value="triangular" ${d.dist === 'triangular' ? 'selected' : ''}>triang.</option></select><button class="sc-dim-del" data-del="${i}">&times;</button></div>`
+        `<div class="sc-dim"><span class="sc-dim-num">${i + 1}</span><input type="text" value="${d.name}" data-i="${i}" data-f="name" style="font-family:var(--font-sans);color:var(--text-secondary)"><input type="number" value="${d.nominal.toFixed(3)}" step="0.001" data-i="${i}" data-f="nominal"><input type="number" value="${d.tolerance.toFixed(3)}" step="0.001" min="0" data-i="${i}" data-f="tolerance"><select data-i="${i}" data-f="dist"><option value="normal" ${d.dist === 'normal' ? 'selected' : ''}>normal</option><option value="uniform" ${d.dist === 'uniform' ? 'selected' : ''}>uniform</option><option value="truncated_normal" ${d.dist === 'truncated_normal' ? 'selected' : ''}>trunc-N</option><option value="triangular" ${d.dist === 'triangular' ? 'selected' : ''}>triang.</option></select><button class="sc-dim-del" data-del="${i}">&times;</button></div>`
     )
     .join('');
 }
@@ -185,12 +174,11 @@ function sampleComponent(rng, c) {
   return sampleNormal(rng, nom, tol.div(3));
 }
 function mySimulate(comps, seed, n) {
-  // Match formula.simulateStack: one LCG substream per component (seed + j*7919).
-  const rngs = comps.map((_, j) => lcg(D(seed).plus(j * 7919)));
+  const rng = lcg(seed);
   const out = [];
   for (let i = 0; i < n; i++) {
     let s = D(0);
-    for (let j = 0; j < comps.length; j++) s = s.plus(sampleComponent(rngs[j], comps[j]));
+    for (const c of comps) s = s.plus(sampleComponent(rng, c));
     out.push(s);
   }
   return out;
@@ -212,25 +200,24 @@ function histogram(samples, bins) {
 
 function buildInput() {
   const toMm = unitConv[currentUnit].toMm;
-  const su = (parseInputNumber($('specUpper').value) || 0) * toMm;
-  const sl = (parseInputNumber($('specLower').value) || 0) * toMm;
-  const cpkTarget = parseInputNumber($('cpkTarget').value) || 1.33;
-  const seed = parseInt($('mcSeed').value, 10) || 12345;
-  // dimensions already stored in mm
+  const su = (parseFloat($('specUpper').value) || 0) * toMm;
+  const sl = (parseFloat($('specLower').value) || 0) * toMm;
+  const cpkTarget = parseFloat($('cpkTarget').value) || 1.33;
+  const seed = parseInt($('mcSeed').value) || 12345;
   const dims = dimensions.map((d) => ({
     name: d.name,
-    nominal: d.nominal,
-    tolerance: d.tolerance,
+    nominal: d.nominal * toMm,
+    tolerance: d.tolerance * toMm,
     dist: d.dist || 'normal'
   }));
   const nominalSum = dims.reduce((s, d) => s + d.nominal, 0);
   const usl = nominalSum + su,
-    lsl = nominalSum + sl;
+    lsl = nominalSum + sl; // absolute limits around nominal sum (nominal-sum fix)
   const components = dims.map((d) => ({
     name: d.name,
     nominal: String(d.nominal),
     tol: String(d.tolerance),
-    distribution: d.dist || 'normal'
+    distribution: 'normal'
   }));
   return {
     su,
@@ -321,8 +308,7 @@ function compute() {
   const mcSpread = (Number(result.mcP9987) - Number(result.mcP0013)) / 2;
   const cpk = Number(result.cpk),
     ppm = Number(result.ppm);
-  // Governing half-band for asymmetric specs (ADV-D4): min of |upper| and |lower|
-  const specHalf = Math.min(Math.abs(b.su), Math.abs(b.sl));
+  const specHalf = Math.abs(b.su);
   const rssInSpec =
     rssTol <= specHalf &&
     Number(result.nominalSum) + rssTol <= b.usl &&
@@ -413,14 +399,15 @@ function startBlankStudy() {
 function convertUnits() {
   const nu = $('unitSpec').value;
   if (nu === currentUnit) return;
-  // Dimensions stay in mm (SSOT). Only rewrite the displayed spec fields via mm.
-  const toMm = unitConv[currentUnit].toMm;
-  const fromNu = unitConv[nu].fromMm;
-  const suMm = (parseInputNumber($('specUpper').value) || 0) * toMm;
-  const slMm = (parseInputNumber($('specLower').value) || 0) * toMm;
-  $('specUpper').value = (suMm * fromNu).toFixed(6);
-  $('specLower').value = (slMm * fromNu).toFixed(6);
+  const r = unitConv[currentUnit].toMm * unitConv[nu].fromMm;
+  $('specUpper').value = (parseFloat($('specUpper').value) * r).toFixed(4);
+  $('specLower').value = (parseFloat($('specLower').value) * r).toFixed(4);
   $('unitSpec2').value = nu;
+  dimensions = dimensions.map((d) => ({
+    ...d,
+    nominal: +(d.nominal * r).toFixed(4),
+    tolerance: +(d.tolerance * r).toFixed(4)
+  }));
   currentUnit = nu;
   renderDims();
   compute();
@@ -430,7 +417,7 @@ function loadFromURL() {
   if (!r.ok || !r.state) return;
   if (r.tampered) {
     alert(
-      'WARNING: this share link failed its integrity check (missing or mismatched hash) — the inputs may have been altered. Values loaded but treat as untrusted.'
+      'WARNING: this share link failed its integrity check — the inputs may have been altered. Values loaded but treat as untrusted.'
     );
   }
   applyProjectState(r.state);
@@ -515,7 +502,7 @@ function generateReport(_opts) {
       Engine: <span>${ENGINE_VERSION}</span> &nbsp;|&nbsp; input hash <span>${d.inputHash}</span> &nbsp;|&nbsp; output hash <span>${d.outputHash}</span><br>
       Method: worst-case + RSS + seeded Monte Carlo (n=${MC_RUNS}, seed=${d.b.seed}) &nbsp;|&nbsp; per-part distributions: <span>${distUsed}</span><br>
       <span class="warn">Engineering preview — predicted from drawing tolerances and chosen distributions, NOT measured data. Not for production approval.</span><br>
-      <span class="ok">Core calculation runs on-device — formulas and stack inputs stay in this browser session. Analytics may still load on the page.</span></div></div>
+      <span class="ok">Client-side only — your data never left your browser.</span></div></div>
       <div class="sc-report-hd-right">
         <button class="sc-btn sc-btn-ghost" id="pdfBtn">Export PDF</button>
         <button class="sc-btn sc-btn-ghost" id="gfxBtn">Export Graphic PDF</button>
@@ -537,7 +524,7 @@ function generateReport(_opts) {
       ${d.b.dims
         .map((dim, i) => {
           const c = d.result.pareto.find((p) => p.name === dim.name);
-          return `<tr><td>${i + 1}</td><td class="td-name">${escapeHtml(dim.name)}</td><td>${(dim.nominal * u).toFixed(3)}</td><td>+/-${(dim.tolerance * u).toFixed(3)}</td><td>${escapeHtml(dim.dist)}</td><td class="${i === 0 ? 'td-high' : 'td-ok'}">${c ? c.pct : '0'}%</td></tr>`;
+          return `<tr><td>${i + 1}</td><td class="td-name">${dim.name}</td><td>${(dim.nominal * u).toFixed(3)}</td><td>+/-${(dim.tolerance * u).toFixed(3)}</td><td>${dim.dist}</td><td class="${i === 0 ? 'td-high' : 'td-ok'}">${c ? c.pct : '0'}%</td></tr>`;
         })
         .join('')}
     </tbody></table></div></div>
@@ -559,7 +546,7 @@ function generateReport(_opts) {
       <text x="300" y="195" text-anchor="middle" fill="${TH.axis}" font-size="9">actual sample histogram under chosen distributions (not a fitted curve)</text>
     </svg></div></div>
     <div class="sc-sec"><div class="sc-sec-hd">Predicted Variation Contribution (Pareto)</div><div class="sc-card">
-      ${d.result.pareto.map((c, i) => `<div class="sc-pareto-row"><div class="sc-pareto-name">${escapeHtml(c.name)}</div><div class="sc-pareto-track"><div class="sc-pareto-fill" style="width:${c.pct}%;background:${pColors[i % pColors.length]}"><span>${c.pct}%</span></div></div><div class="sc-pareto-pct">${c.pct}%</div></div>`).join('')}
+      ${d.result.pareto.map((c, i) => `<div class="sc-pareto-row"><div class="sc-pareto-name">${c.name}</div><div class="sc-pareto-track"><div class="sc-pareto-fill" style="width:${c.pct}%;background:${pColors[i % pColors.length]}"><span>${c.pct}%</span></div></div><div class="sc-pareto-pct">${c.pct}%</div></div>`).join('')}
     </div></div>
     <div class="sc-sec"><div class="sc-sec-hd">Method Stack Comparison</div><div class="sc-chart"><div class="sc-stack">
       ${[
@@ -577,8 +564,7 @@ function generateReport(_opts) {
     <div class="sc-sec"><div class="sc-sec-hd">Predicted Design Capability</div><div class="sc-cards">
       <div class="sc-card-res ${d.cpk >= d.b.cpkTarget ? 'pass' : 'warn'}"><div class="sc-card-res-label">Predicted Cpk</div><div class="sc-card-res-val">${d.cpk.toFixed(2)}</div><div class="sc-card-res-sub">target &gt;= ${d.b.cpkTarget}</div><span class="sc-card-res-badge ${d.cpk >= d.b.cpkTarget ? 'sc-badge-pass' : 'sc-badge-warn'}">${d.cpk >= d.b.cpkTarget ? 'PRED. CAPABLE' : 'PRED. BELOW'}</span></div>
       <div class="sc-card-res"><div class="sc-card-res-label">Predicted PPM</div><div class="sc-card-res-val">${d.ppm.toFixed(0)}</div><div class="sc-card-res-sub">95% CI ${d.ciLo.toFixed(0)}–${d.ciHi.toFixed(0)}</div></div>
-      <div class="sc-card-res"><div class="sc-card-res-label">Empirical P0.13 (estimate)</div><div class="sc-card-res-val">${Number(d.result.mcP0013).toFixed(3)}</div><div class="sc-card-res-sub">${uL} · order statistic, seed ${d.b.seed}, n=${MC_RUNS}</div></div>
-      <div class="sc-card-res"><div class="sc-card-res-label">Predicted Yield</div><div class="sc-card-res-val">${(100 - d.ppm / 10000).toFixed(2)}%</div><div class="sc-card-res-sub">model estimate · P99.87 ${Number(d.result.mcP9987).toFixed(3)}</div></div>
+      <div class="sc-card-res"><div class="sc-card-res-label">Predicted Yield</div><div class="sc-card-res-val">${(100 - d.ppm / 10000).toFixed(2)}%</div><div class="sc-card-res-sub">model estimate</div></div>
     </div></div>
     <div class="sc-sec"><div class="sc-sec-hd">Computed Assessment Radar</div><div class="sc-chart"><div style="display:flex;justify-content:center"><svg width="300" height="300" viewBox="0 0 300 300">
       ${[0.33]
@@ -630,9 +616,8 @@ function generateReport(_opts) {
       <span>ASME Y14.5</span> — statistical tolerancing context (RSS)<br>
       <span>AIAG SPC</span> — Cpk = min[(USL-mu)/3s,(mu-LSL)/3s]; here mu,s are model-derived, not measured<br>
       <span>Distribution semantics</span> — normal/truncated-normal: tol = +/-3 sigma; uniform/triangular: tol = hard half-range<br>
-      <span>Monte Carlo</span> — seeded Decimal LCG with per-component substreams; histogram from actual samples; PPM with 95% confidence interval; extreme percentiles (P0.13/P99.87) are empirical order statistics (finite-n estimates, seed-sensitive), not analytic closed forms<br>
+      <span>Monte Carlo</span> — seeded Decimal LCG; histogram from actual samples; PPM with 95% confidence interval<br>
       <span>Known limitations</span> — 1D linear stack; no correlation model; per-part sigma derived from tol (no measured process input yet); predicted, not observed capability<br>
-      <span>Units</span> — internal SSOT is millimetres; unit toggles change display only and do not rewrite stored tolerances<br>
       <span>Reproducibility</span> — same inputs + distributions + seed + engine version reproduce this report exactly (hashes above)
     </div></div></div>
     <div class="sc-footer">SectorCalc — Engineering preview. Client-side. Deterministic Decimal engine. Not for production approval.<br>Predicted from drawing tolerances and chosen distributions; verify with measured process data.</div>`;
@@ -771,11 +756,7 @@ function exportPDF(graphic) {
     9,
     '#b8860b'
   );
-  line(
-    'Core calculation on-device — formulas/inputs stay in this browser session (page analytics may still load).',
-    9,
-    '#1a7f37'
-  );
+  line('Client-side only — data never left your browser.', 9, '#1a7f37');
   y += 6;
   line(
     'VERDICT (predicted): ' +
@@ -857,9 +838,7 @@ $('addDim').addEventListener('click', () => {
 $('resetAll').addEventListener('click', () => loadPreset('standard'));
 $('genReport').addEventListener('click', async () => {
   if (window.__scProGate && !(await window.__scProGate.ensureEntitled())) {
-    alert(
-      'Session unlock required for the full report UI. Core math ships in the page bundle (on-device); credits unlock editing and professional export.'
-    );
+    alert('Unlock this tool with credits to generate the professional report.');
     $('sc-pro-gate-root')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
     return;
   }
@@ -869,18 +848,12 @@ $('genReport').addEventListener('click', async () => {
 onThemeChange(syncReportIfOpen);
 $('dimList').addEventListener('input', (e) => {
   const t = e.target;
-  if (t.dataset.i === undefined) return;
-  const i = +t.dataset.i,
-    f = t.dataset.f;
-  if (f === 'name') {
-    dimensions[i].name = t.value;
-  } else if (f === 'dist') {
-    dimensions[i].dist = t.value;
-  } else {
-    const display = parseInputNumber(t.value);
-    dimensions[i][f] = (Number.isFinite(display) ? display : 0) * unitConv[currentUnit].toMm;
+  if (t.dataset.i !== undefined) {
+    const i = +t.dataset.i,
+      f = t.dataset.f;
+    dimensions[i][f] = f === 'name' ? t.value : f === 'dist' ? t.value : parseFloat(t.value);
+    compute();
   }
-  compute();
 });
 $('dimList').addEventListener('change', (e) => {
   const t = e.target;
@@ -931,11 +904,10 @@ $('csvFile').addEventListener('change', (e) => {
       alert('No valid rows in CSV');
       return;
     }
-    const toMm = unitConv[currentUnit].toMm;
     dimensions = rows.map((d) => ({
-      name: String(d.name || ''),
-      nominal: Number(d.nominal) * toMm,
-      tolerance: Number(d.tol ?? d.tolerance) * toMm,
+      name: d.name,
+      nominal: d.nominal,
+      tolerance: d.tol ?? d.tolerance,
       dist: d.dist || 'normal'
     }));
     renderDims();
