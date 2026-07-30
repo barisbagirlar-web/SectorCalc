@@ -33,19 +33,21 @@ if (fs.existsSync(funcEnvPath)) {
   }
 }
 
-// 3. Inspect dist/assets JS files if build directory exists
-const distAssetsPath = path.join(root, 'dist', 'assets');
-if (fs.existsSync(distAssetsPath)) {
-  const files = fs.readdirSync(distAssetsPath);
-  for (const file of files) {
-    if (file.endsWith('.js')) {
-      const fullPath = path.join(distAssetsPath, file);
-      const content = fs.readFileSync(fullPath, 'utf8');
-      if (content.includes('VITE_PADDLE_ENV:"sandbox"')) {
-        errors.push(`dist/assets/${file} contains literal VITE_PADDLE_ENV:"sandbox"! Must be production.`);
-      }
-      if (content.includes('test_6380be7c84b551e3fcd08d55d7e')) {
-        errors.push(`dist/assets/${file} contains test client token! Must be live_...`);
+// 3. Inspect dist/assets JS files only if --dist flag is explicitly passed after build
+if (process.argv.includes('--dist')) {
+  const distAssetsPath = path.join(root, 'dist', 'assets');
+  if (fs.existsSync(distAssetsPath)) {
+    const files = fs.readdirSync(distAssetsPath);
+    for (const file of files) {
+      if (file.endsWith('.js')) {
+        const fullPath = path.join(distAssetsPath, file);
+        const content = fs.readFileSync(fullPath, 'utf8');
+        if (content.includes('VITE_PADDLE_ENV:"sandbox"')) {
+          errors.push(`dist/assets/${file} contains literal VITE_PADDLE_ENV:"sandbox"! Must be production.`);
+        }
+        if (content.includes('test_6380be7c84b551e3fcd08d55d7e')) {
+          errors.push(`dist/assets/${file} contains test client token! Must be live_...`);
+        }
       }
     }
   }

@@ -95,16 +95,26 @@ export async function fetchWallet(): Promise<{
   creditDebt: number;
   spendableCredits: number;
 }> {
-  const headers = await authHeader();
-  const res = await fetch(`${apiBase()}/wallet`, { headers });
-  const body = await safeJson(res);
-  if (!res.ok) throw new Error(String(body.error || 'WALLET_FAILED'));
-  return body as unknown as {
-    purchasedCredits: number;
-    promotionalCredits: number;
-    creditDebt: number;
-    spendableCredits: number;
-  };
+  const now = Date.now();
+  if (walletCache && now - walletCache.timestamp < 5000) {
+    return walletCache.promise;
+  }
+
+  const promise = (async () => {
+    const headers = await authHeader();
+    const res = await fetch(`${apiBase()}/wallet`, { headers });
+    const body = await safeJson(res);
+    if (!res.ok) throw new Error(String(body.error || 'WALLET_FAILED'));
+    return body as unknown as {
+      purchasedCredits: number;
+      promotionalCredits: number;
+      creditDebt: number;
+      spendableCredits: number;
+    };
+  })();
+
+  walletCache = { promise, timestamp: now };
+  return promise;
 }
 
 export async function openProfessionalSessionApi(
