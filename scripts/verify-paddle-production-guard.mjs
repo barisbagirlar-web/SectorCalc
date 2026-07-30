@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { execSync } from 'node:child_process';
 
 const root = process.cwd();
 
@@ -17,6 +18,9 @@ if (fs.existsSync(envProdPath)) {
   if (content.includes('test_')) {
     errors.push('.env.production contains a test token! Must be live_...');
   }
+  if (!content.includes('VITE_PADDLE_CLIENT_TOKEN=live_')) {
+    errors.push('.env.production client token must start with live_...');
+  }
 } else {
   errors.push('.env.production file is missing!');
 }
@@ -29,11 +33,40 @@ if (fs.existsSync(funcEnvPath)) {
     errors.push('functions/.env.sectorcalc-prod contains PADDLE_ENV=sandbox! Must be production.');
   }
   if (content.includes('pri_01ky')) {
-    errors.push('functions/.env.sectorcalc-prod contains sandbox price IDs (pri_01ky)! Must be live pri_01kv...');
+    errors.push(
+      'functions/.env.sectorcalc-prod contains sandbox price IDs (pri_01ky)! Must be live pri_01kv...'
+    );
+  }
+  if (content.includes('PADDLE_API_KEY')) {
+    errors.push('functions/.env.sectorcalc-prod contains PADDLE_API_KEY! Must use Firebase Secret Manager.');
+  }
+  const expectedPrices = [
+    'pri_01kvwh93mw594eqe3xcf6k6nbv',
+    'pri_01kvwhaef7k3t46qh7teqyfj9j',
+    'pri_01kvwhbg71jfp136ahdxea11f5',
+    'pri_01kvwhdvpxb7fqawahdcqtq5e9'
+  ];
+  for (const priceId of expectedPrices) {
+    if (!content.includes(priceId)) {
+      errors.push(`functions/.env.sectorcalc-prod missing required production price ID: ${priceId}`);
+    }
   }
 }
 
-// 3. Inspect dist/assets JS files only if --dist flag is explicitly passed after build
+// 3. Inspect git tracked files for hardcoded API keys
+try {
+  const gitGrepOutput = execSync(
+    "git grep -nE 'pdl_(live|sdbx)_apikey_[A-Za-z0-9_-]{20,}' -- ':!package-lock.json' ':!functions/package-lock.json'",
+    { encoding: 'utf8', cwd: root }
+  ).trim();
+  if (gitGrepOutput.length > 0) {
+    errors.push(`Tracked git files contain hardcoded API key secrets:\n${gitGrepOutput}`);
+  }
+} catch {
+  // Exit code 1 from git grep means zero matches (PASS)
+}
+
+// 4. Inspect dist/assets JS files if --dist flag is passed
 if (process.argv.includes('--dist')) {
   const distAssetsPath = path.join(root, 'dist', 'assets');
   if (fs.existsSync(distAssetsPath)) {
@@ -45,7 +78,7 @@ if (process.argv.includes('--dist')) {
         if (content.includes('VITE_PADDLE_ENV:"sandbox"')) {
           errors.push(`dist/assets/${file} contains literal VITE_PADDLE_ENV:"sandbox"! Must be production.`);
         }
-        if (content.includes('test_6380be7c84b551e3fcd08d55d7e')) {
+        if (content.includes('VITE_PADDLE_CLIENT_TOKEN:"test_')) {
           errors.push(`dist/assets/${file} contains test client token! Must be live_...`);
         }
       }
