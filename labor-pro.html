@@ -885,8 +885,6 @@ hiddenCostPct = (trueMonthlyCost − netMonthly) / netMonthly × 100</div>
 
 
 
-
-
 <!--SC-SEO-BREADCRUMB-START-->
 <nav aria-label="Breadcrumb" class="sc-breadcrumb">
   <ol itemscope itemtype="https://schema.org/BreadcrumbList">
@@ -947,7 +945,6 @@ hiddenCostPct = (trueMonthlyCost − netMonthly) / netMonthly × 100</div>
         <button class="sc-preset active" data-preset="small" onclick="loadPreset('small')">Small workshop</button>
         <button class="sc-preset" data-preset="mid" onclick="loadPreset('mid')">Mid factory</button>
       </div>
-      <div class="sc-field" id="fld-country"><div class="sc-field-label">Country profile<span class="sc-info">i<span class="sc-tooltip"><strong>Reference statutory profile</strong>Loads employer/employee rate defaults for US, TR, DE, GB, IN, or FR. Override any rate after selecting. Estimates — verify with local payroll law.</span></span></div><div class="sc-input-wrap"><select class="sc-input" id="country" onchange="applyCountryDefaults(this.value); validateAndCalc()"><option value="US">United States (US)</option><option value="TR">Turkey (TR)</option><option value="DE">Germany (DE)</option><option value="GB">United Kingdom (GB)</option><option value="IN">India (IN)</option><option value="FR">France (FR)</option></select></div></div>
       <div class="sc-field" id="fld-netSalary"><div class="sc-field-label">Net salary<span class="sc-info">i<span class="sc-tooltip"><strong>Monthly take-home pay</strong>The amount the employee receives after their own taxes. This is the starting point - true cost is always higher.</span></span></div><div class="sc-input-wrap"><input type="number" class="sc-input" id="netSalary" value="2500" step="50" oninput="validateAndCalc()"><select class="sc-unit" disabled><option>currency</option></select></div><div class="sc-val" id="val-netSalary"></div></div>
       <div class="sc-field"><div class="sc-field-label">Pay frequency<span class="sc-info">i<span class="sc-tooltip"><strong>How net salary is paid</strong>Monthly is default; weekly/hourly are normalized internally to a monthly figure.</span></span></div><div class="sc-input-wrap"><select class="sc-input" id="payFrequency" onchange="validateAndCalc()"><option value="monthly">monthly</option><option value="weekly">weekly</option><option value="biweekly">biweekly</option><option value="hourly">hourly</option></select></div></div>
       <div class="sc-field" id="fld-hoursPerWeek"><div class="sc-field-label">Hours / week<span class="sc-info">i<span class="sc-tooltip"><strong>Average worked hours/week</strong>Standard 40. Overtime raises the effective hourly cost and total burden.</span></span></div><div class="sc-input-wrap"><input type="number" class="sc-input" id="hoursPerWeek" value="40" step="1" oninput="validateAndCalc()"><select class="sc-unit" disabled><option>h/wk</option></select></div><div class="sc-val" id="val-hoursPerWeek"></div></div>

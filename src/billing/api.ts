@@ -15,7 +15,19 @@ async function authHeader(): Promise<Record<string, string>> {
   return { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' };
 }
 
-export async function createCheckout(packageKey: string, returnTo?: string): Promise<{
+async function safeJson(res: Response): Promise<Record<string, unknown>> {
+  try {
+    const text = await res.text();
+    return JSON.parse(text);
+  } catch {
+    return { error: `SERVER_ERROR_${res.status}` };
+  }
+}
+
+export async function createCheckout(
+  packageKey: string,
+  returnTo?: string
+): Promise<{
   purchaseId: string;
   paddleTransactionId: string;
 }> {
@@ -25,10 +37,10 @@ export async function createCheckout(packageKey: string, returnTo?: string): Pro
     headers,
     body: JSON.stringify({ packageKey, returnTo: returnTo || null })
   });
-  const body = await res.json();
-  if (!res.ok) throw new Error(body.error || body.message || 'CHECKOUT_FAILED');
+  const body = await safeJson(res);
+  if (!res.ok) throw new Error(String(body.error || body.message || 'CHECKOUT_FAILED'));
   trackBillingEvent('checkout_created', { packageKey });
-  return body;
+  return body as { purchaseId: string; paddleTransactionId: string };
 }
 
 export async function getPurchaseStatus(purchaseId: string): Promise<{
@@ -40,9 +52,9 @@ export async function getPurchaseStatus(purchaseId: string): Promise<{
   const res = await fetch(`${apiBase()}/billing/purchases/${encodeURIComponent(purchaseId)}`, {
     headers
   });
-  const body = await res.json();
-  if (!res.ok) throw new Error(body.error || 'PURCHASE_STATUS_FAILED');
-  return body;
+  const body = await safeJson(res);
+  if (!res.ok) throw new Error(String(body.error || 'PURCHASE_STATUS_FAILED'));
+  return body as unknown as { status: string; expectedCredits?: number; returnTo?: string | null };
 }
 
 export async function pollPurchaseCredited(
@@ -74,9 +86,14 @@ export async function fetchWallet(): Promise<{
 }> {
   const headers = await authHeader();
   const res = await fetch(`${apiBase()}/wallet`, { headers });
-  const body = await res.json();
-  if (!res.ok) throw new Error(body.error || 'WALLET_FAILED');
-  return body;
+  const body = await safeJson(res);
+  if (!res.ok) throw new Error(String(body.error || 'WALLET_FAILED'));
+  return body as unknown as {
+    purchasedCredits: number;
+    promotionalCredits: number;
+    creditDebt: number;
+    spendableCredits: number;
+  };
 }
 
 export async function openProfessionalSessionApi(toolId: string): Promise<
@@ -97,15 +114,25 @@ export async function openProfessionalSessionApi(toolId: string): Promise<
     headers,
     body: JSON.stringify({})
   });
-  const body = await res.json();
+  const body = await safeJson(res);
   if (!res.ok) {
     return {
-      error: body.error || 'SESSION_FAILED',
-      requiredCredits: body.requiredCredits,
-      availableCredits: body.availableCredits
+      error: String(
+        body.error || (res.status === 503 ? 'TOOL_NOT_MONETIZED' : `SERVER_ERROR_${res.status}`)
+      ),
+      requiredCredits: body.requiredCredits as number | undefined,
+      availableCredits: body.availableCredits as number | undefined
     };
   }
-  return body;
+  return body as unknown as {
+    sessionId: string;
+    toolId: string;
+    startedAt: string;
+    expiresAt: string;
+    creditCost: number;
+    reused: boolean;
+    newWalletBalance: number;
+  };
 }
 
 /** GA4 / dataLayer billing events — never send engineering inputs or secrets. */

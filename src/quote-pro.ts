@@ -1,18 +1,16 @@
 // @ts-nocheck
 import { calculate } from './tools/SC-012-quote-pricing/v1.0.0/formula.js';
 import { readThemePalette, exportSurfaceBg, onThemeChange } from './lib/theme-palette.js';
-import { makeIntegrityShareURL, parseIntegrityShare } from './lib/share-integrity.js';
-import { parseInputNumber } from './lib/parse-number.js';
 
-function requirePick(r, keys, label) {
+function pick(r, keys, def = 0) {
   for (const k of keys) {
     const v = r[k];
     if (v !== undefined && v !== null && v !== '') {
       const n = Number(v);
-      if (Number.isFinite(n)) return n;
+      return Number.isFinite(n) ? n : def;
     }
   }
-  throw new Error(`engine field missing: ${label} (tried ${keys.join(', ')})`);
+  return def;
 }
 
 const FIELDS = [
@@ -22,8 +20,7 @@ const FIELDS = [
   'laborHourlyCost',
   'machineHours',
   'machineHourlyCost',
-  'setupMinutes',
-  'setupHourlyCost',
+  'setupCost',
   'overheadRate',
   'financingRate',
   'targetMargin',
@@ -37,8 +34,7 @@ const presets = {
     laborHourlyCost: 40,
     machineHours: 3,
     machineHourlyCost: 60,
-    setupMinutes: 60,
-    setupHourlyCost: 150,
+    setupCost: 150,
     overheadRate: 0.25,
     financingRate: 0.02,
     targetMargin: 0.2,
@@ -51,8 +47,7 @@ const presets = {
     laborHourlyCost: 38,
     machineHours: 40,
     machineHourlyCost: 55,
-    setupMinutes: 60,
-    setupHourlyCost: 800,
+    setupCost: 800,
     overheadRate: 0.2,
     financingRate: 0.015,
     targetMargin: 0.15,
@@ -87,14 +82,12 @@ let calcData = null;
 
 function readInputs() {
   const input = {};
-  FIELDS.forEach((f) => {
-    input[f] = parseInputNumber($(f)?.value);
-    if (!Number.isFinite(input[f])) input[f] = 0;
-  });
+  FIELDS.forEach((f) => (input[f] = parseFloat($(f).value) || 0));
   if (input.quantity < 1) input.quantity = 1;
   return input;
 }
 
+// Map UI fields to SC-012 formula.ts inputs (setupCost / financingRate are UI aliases).
 function toFormulaInput(i) {
   return {
     materialCost: i.materialCost,
@@ -103,8 +96,8 @@ function toFormulaInput(i) {
     laborHourlyCost: i.laborHourlyCost,
     machineHours: i.machineHours,
     machineHourlyCost: i.machineHourlyCost,
-    setupMinutes: i.setupMinutes,
-    setupHourlyCost: i.setupHourlyCost,
+    setupMinutes: 60,
+    setupHourlyCost: i.setupCost,
     overheadRate: i.overheadRate,
     paymentDays: 30,
     monthlyInterestRate: i.financingRate,
@@ -113,12 +106,33 @@ function toFormulaInput(i) {
   };
 }
 
+// Real cost-component breakdown from inputs (not invented; independent of formula totals).
+function buildBreakdown(i) {
+  const mat = i.materialCost * (1 + i.scrapRate);
+  const lab = i.laborHours * i.laborHourlyCost;
+  const mac = i.machineHours * i.machineHourlyCost;
+  const conv = lab + mac;
+  const oh = conv * i.overheadRate;
+  const items = [
+    ['Material + scrap', mat],
+    ['Direct labor', lab],
+    ['Machine', mac],
+    ['Setup', i.setupCost],
+    ['Overhead', oh]
+  ]
+    .filter((x) => x[1] > 0.005)
+    .sort((a, b) => b[1] - a[1]);
+  const sub = items.reduce((s, x) => s + x[1], 0) || 1;
+  return {
+    items: items.map((x) => ({ name: x[0], amount: x[1], pct: (x[1] / sub) * 100 })),
+    subtotal: sub
+  };
+}
+
 function validateAndCalc() {
   if (window.__scProGate && !window.__scProGate.isEntitled()) {
     if ($('liveResult')) $('liveResult').textContent = 'Locked';
-    if ($('liveSub'))
-      $('liveSub').innerHTML =
-        '<span>Session unlock required for full editing (on-device math)</span>';
+    if ($('liveSub')) $('liveSub').innerHTML = '<span>Unlock with credits to calculate</span>';
     return;
   }
   let hasError = false;
@@ -129,8 +143,7 @@ function validateAndCalc() {
     ['laborHourlyCost', (v) => v < 0],
     ['machineHours', (v) => v < 0],
     ['machineHourlyCost', (v) => v < 0],
-    ['setupMinutes', (v) => v < 0],
-    ['setupHourlyCost', (v) => v < 0],
+    ['setupCost', (v) => v < 0],
     ['overheadRate', (v) => v < 0 || v > 5],
     ['financingRate', (v) => v < 0 || v > 1],
     ['targetMargin', (v) => v < 0 || v >= 1],
@@ -153,33 +166,26 @@ function validateAndCalc() {
 
   const input = readInputs();
   let r;
-  let sell, unit, total, profit, marginPct, financing, engineRows;
   try {
     r = calculate(toFormulaInput(input));
-    sell = requirePick(
-      r,
-      ['sellPrice', 'price', 'sellingPrice', 'totalSellPrice', 'sell'],
-      'sellPrice'
-    );
-    unit = requirePick(r, ['unitPrice', 'pricePerUnit', 'sellPerUnit'], 'unitPrice');
-    total = requirePick(r, ['totalCost', 'cost', 'totalJobCost', 'jobCost'], 'totalCost');
-    profit = requirePick(r, ['profit', 'margin', 'totalProfit', 'grossProfit'], 'profit');
-    marginPct = sell > 0 ? (profit / sell) * 100 : 0;
-    financing = requirePick(r, ['financeCharge'], 'financeCharge');
-    engineRows = Array.isArray(r.breakdown)
-      ? r.breakdown.map((row) => ({
-          name: row.item,
-          amount: Number(row.amount),
-          pct: Number(row.pct)
-        }))
-      : [];
   } catch (e) {
     $('liveResult').textContent = 'ERR';
     $('liveSub').innerHTML = '<span>' + e.message + '</span>';
     return;
   }
 
-  calcData = { input, r, sell, unit, total, profit, marginPct, financing, engineRows };
+  const sell = pick(r, ['sellPrice', 'price', 'sellingPrice', 'totalSellPrice', 'sell']);
+  const unit = pick(r, ['unitPrice', 'pricePerUnit', 'sellPerUnit']);
+  const total = pick(r, ['totalCost', 'cost', 'totalJobCost', 'jobCost']);
+  const profit = pick(r, ['profit', 'margin', 'totalProfit', 'grossProfit']);
+  const marginPct =
+    sell > 0
+      ? ((sell - (total || sell * (1 - input.targetMargin))) / sell) * 100
+      : input.targetMargin * 100;
+  const bd = buildBreakdown(input);
+  const financing = bd.subtotal * input.financingRate;
+
+  calcData = { input, r, sell, unit, total, profit, marginPct, bd, financing };
   $('liveResult').textContent =
     (unit > 0 ? unit.toFixed(2) : sell.toFixed(0)) + (unit > 0 ? ' /pc' : '');
   $('liveSub').innerHTML =
@@ -215,21 +221,14 @@ function startBlankStudy() {
   if ($('reportArea')) $('reportArea').innerHTML = '';
 }
 function loadFromURL() {
-  const r = parseIntegrityShare(location.search);
-  if (!r.ok || !r.state) return;
-  if (r.tampered)
-    alert(
-      'WARNING: share link failed integrity check (missing or mismatched hash). Values loaded but treat as untrusted.'
-    );
-  const o = r.state;
-  FIELDS.forEach((f) => {
-    if (o[f] !== undefined && $(f)) $(f).value = o[f];
-  });
-  // Legacy alias: setupCost → setupHourlyCost with 60 minutes
-  if (o.setupCost !== undefined && o.setupHourlyCost === undefined && $('setupHourlyCost')) {
-    $('setupHourlyCost').value = o.setupCost;
-    if ($('setupMinutes') && !o.setupMinutes) $('setupMinutes').value = 60;
-  }
+  const s = new URLSearchParams(location.search).get('s');
+  if (!s) return;
+  try {
+    const o = JSON.parse(decodeURIComponent(s));
+    FIELDS.forEach((f) => {
+      if (o[f] !== undefined) $(f).value = o[f];
+    });
+  } catch (e) {}
 }
 
 function gaugeColor(ratio) {
@@ -254,7 +253,7 @@ function generateReport(opts = {}) {
   const gCol = gaugeColor(ratio);
   const gaugeAngle = Math.max(-90, Math.min(90, (ratio / 2) * 180 - 90));
   const paretoColors = [P.red, P.amber, P.blue, P.blue, P.blue, P.green];
-  const top = d.engineRows[0];
+  const top = d.bd.items[0];
 
   const whatIfs = [
     { label: 'Quantity x2', fn: (i) => ({ ...i, quantity: i.quantity * 2 }) },
@@ -270,12 +269,8 @@ function generateReport(opts = {}) {
     } catch (e) {
       return { label: w.label, newUnit: d.unit, delta: 0 };
     }
-    const ns = requirePick(
-      tr,
-      ['sellPrice', 'price', 'sellingPrice', 'totalSellPrice', 'sell'],
-      'sellPrice'
-    );
-    const nu = requirePick(tr, ['unitPrice', 'pricePerUnit', 'sellPerUnit'], 'unitPrice');
+    const ns = pick(tr, ['sellPrice', 'price', 'sellingPrice', 'totalSellPrice', 'sell']);
+    const nu = pick(tr, ['unitPrice', 'pricePerUnit', 'sellPerUnit']);
     const useUnit = d.unit > 0;
     const newV = useUnit ? nu : ns;
     const oldV = useUnit ? d.unit : d.sell;
@@ -286,14 +281,14 @@ function generateReport(opts = {}) {
     status !== 'PASS'
       ? `
     <div class="sc-rec"><div class="sc-rec-hd"><span class="sc-rec-num">1</span><span class="sc-rec-title">Margin is thin - attack the top cost driver</span></div><div class="sc-rec-body">${top ? top.name : '—'} is ${top ? top.pct.toFixed(1) : '—'}% of conversion cost.<br><span class="neg">-> A 10% cut there lifts margin directly</span></div></div>
-    <div class="sc-rec"><div class="sc-rec-hd"><span class="sc-rec-num">2</span><span class="sc-rec-title">Spread setup over a larger batch</span></div><div class="sc-rec-body">Setup ${d.input.setupMinutes} min @ ${d.input.setupHourlyCost}/h over ${d.input.quantity} pcs.<br><span class="pos">-> Doubling quantity cuts unit setup in half</span></div></div>
+    <div class="sc-rec"><div class="sc-rec-hd"><span class="sc-rec-num">2</span><span class="sc-rec-title">Spread setup over a larger batch</span></div><div class="sc-rec-body">Setup ${d.input.setupCost} over ${d.input.quantity} pcs.<br><span class="pos">-> Doubling quantity cuts unit setup in half</span></div></div>
     <div class="sc-rec"><div class="sc-rec-hd"><span class="sc-rec-num">3</span><span class="sc-rec-title">Use SC-010 true labor rate, never net wage</span></div><div class="sc-rec-body">Under-loaded labor silently erodes margin.<br><span class="pos">-> Re-feed laborHourlyCost from SC-010 true cost</span></div></div>`
       : `
     <div class="sc-rec"><div class="sc-rec-hd"><span class="sc-rec-num">1</span><span class="sc-rec-title">Margin is healthy - lock the quote and track actuals</span></div><div class="sc-rec-body">Sell/cost ratio ${ratio.toFixed(2)} above 1.10 target.<br><span class="pos">-> Compare quoted vs actual cost at job close</span></div></div>
     <div class="sc-rec"><div class="sc-rec-hd"><span class="sc-rec-num">2</span><span class="sc-rec-title">Document the build-up for the customer</span></div><div class="sc-rec-body">Calc ID ${calcId} reproducible from inputs.<br><span class="pos">-> Attach PDF as a transparent quote annex</span></div></div>`;
 
   const reportHTML = `
-    <div class="sc-report-hd"><div class="sc-report-hd-left"><div class="sc-report-title">SC-012 Quote Pricing Analysis</div><div class="sc-report-meta">Calculation ID: <span>${calcId}</span> &nbsp;|&nbsp; ${new Date().toISOString().replace('T', ' ').slice(0, 19)} UTC<br>Standard: GAAP revenue recognition | Full absorption costing<br>Method: Deterministic cost build-up + margin gross-up<br><span class="ok">Core calculation on-device — formulas/inputs stay in this browser session (page analytics may still load)</span></div></div>
+    <div class="sc-report-hd"><div class="sc-report-hd-left"><div class="sc-report-title">SC-012 Quote Pricing Analysis</div><div class="sc-report-meta">Calculation ID: <span>${calcId}</span> &nbsp;|&nbsp; ${new Date().toISOString().replace('T', ' ').slice(0, 19)} UTC<br>Standard: GAAP revenue recognition | Full absorption costing<br>Method: Deterministic cost build-up + margin gross-up<br><span class="ok">OK Client-Side Only - your data never left your browser</span></div></div>
       <div class="sc-report-hd-right"><button class="sc-btn sc-btn-ghost" onclick="exportPDF()">Export PDF</button><button class="sc-btn sc-btn-ghost" onclick="exportPDFGraphic()">Export Graphic PDF</button><button class="sc-btn sc-btn-primary" onclick="shareReport()">Share</button></div></div>
     <div class="sc-sec"><div class="sc-sec-hd">Risk Assessment</div>
       ${status === 'CRITICAL' ? `<div class="sc-alert sc-alert-crit"><div class="sc-alert-icon">!</div><div><div class="sc-alert-title">Critical - Sell price below cost</div><div class="sc-alert-body">Sell/cost ratio <strong>${ratio.toFixed(2)}</strong> (&lt; 1.0). This quote <strong>loses money</strong>.<br>Margin ${d.marginPct.toFixed(1)}%. Raise price or cut the top driver <strong>${top ? top.name : '—'}</strong>.</div></div></div>` : ''}
@@ -313,8 +308,7 @@ function generateReport(opts = {}) {
       <tr><td class="td-name">Labor hourly cost</td><td class="td-val">${d.input.laborHourlyCost}</td><td>currency/h</td></tr>
       <tr><td class="td-name">Machine hours</td><td class="td-val">${d.input.machineHours}</td><td>h</td></tr>
       <tr><td class="td-name">Machine hourly cost</td><td class="td-val">${d.input.machineHourlyCost}</td><td>currency/h</td></tr>
-      <tr><td class="td-name">Setup minutes</td><td class="td-val">${d.input.setupMinutes}</td><td>min</td></tr>
-      <tr><td class="td-name">Setup hourly cost</td><td class="td-val">${d.input.setupHourlyCost}</td><td>currency/h</td></tr>
+      <tr><td class="td-name">Setup cost</td><td class="td-val">${d.input.setupCost}</td><td>currency</td></tr>
       <tr><td class="td-name">Overhead rate</td><td class="td-val">${d.input.overheadRate}</td><td>ratio</td></tr>
       <tr><td class="td-name">Financing rate</td><td class="td-val">${d.input.financingRate}</td><td>ratio</td></tr>
       <tr><td class="td-name">Target margin</td><td class="td-val">${d.input.targetMargin}</td><td>ratio</td></tr>
@@ -332,7 +326,8 @@ function generateReport(opts = {}) {
       <text x="30" y="168" fill="${P.muted}" font-size="9">0</text><text x="262" y="168" fill="${P.muted}" font-size="9">2.0</text>
     </svg></div></div></div>
     <div class="sc-sec"><div class="sc-sec-hd">Cost Build-Up (Pareto)</div><div class="sc-card">
-      ${d.engineRows.map((c, i) => `<div class="sc-pareto-row"><div class="sc-pareto-name">${c.name}</div><div class="sc-pareto-track"><div class="sc-pareto-fill" style="width:${Math.min(100, c.pct)}%;background:${paretoColors[i % paretoColors.length]}"><span>${c.amount.toFixed(0)}</span></div></div><div class="sc-pareto-pct">${c.pct.toFixed(1)}%</div></div>`).join('')}
+      ${d.bd.items.map((c, i) => `<div class="sc-pareto-row"><div class="sc-pareto-name">${c.name}</div><div class="sc-pareto-track"><div class="sc-pareto-fill" style="width:${c.pct}%;background:${paretoColors[i % paretoColors.length]}"><span>${c.amount.toFixed(0)}</span></div></div><div class="sc-pareto-pct">${c.pct.toFixed(1)}%</div></div>`).join('')}
+      <div class="sc-pareto-row"><div class="sc-pareto-name">Financing</div><div class="sc-pareto-track"><div class="sc-pareto-fill" style="width:${Math.min(100, (d.financing / d.bd.subtotal) * 100)}%;background:#6e7d8c"><span>${d.financing.toFixed(0)}</span></div></div><div class="sc-pareto-pct">${((d.financing / d.bd.subtotal) * 100).toFixed(1)}%</div></div>
     </div></div>
     <div class="sc-sec"><div class="sc-sec-hd">What-If Sensitivity</div><div class="sc-card"><div style="font-size:11px;color:var(--text-muted);margin-bottom:14px;font-family:var(--font-mono)">Scenario impact on ${d.unit > 0 ? 'unit' : 'sell'} price.</div>
       <div class="sc-whatif">${whatIfs.map((w) => `<div class="sc-whatif-card"><div class="sc-whatif-lbl">${w.label}</div><div class="sc-whatif-val">${w.newUnit.toFixed(2)}</div><div class="sc-whatif-chg ${w.delta > 0 ? 'pos' : w.delta < 0 ? 'neg' : 'neu'}">${w.delta >= 0 ? '+' : ''}${w.delta.toFixed(2)}</div></div>`).join('')}</div>
@@ -345,7 +340,7 @@ function generateReport(opts = {}) {
       <span>Unit price</span> - sell / quantity; setup amortized across the batch<br>
       <span>Deterministic</span> - same inputs always yield the same quote, client-side
     </div></div></div>
-    <div class="sc-footer">Generated by SectorCalc.com - Client-Side Only - Core calc on-device; page analytics may still load<br>Engineering preview · Client-side · Deterministic · Not for production approval</div>`;
+    <div class="sc-footer">Generated by SectorCalc.com - Client-Side Only - Your data never leaves your browser<br>Engineering preview · Client-side · Deterministic · Not for production approval</div>`;
   $('reportArea').innerHTML = reportHTML;
 }
 
@@ -377,7 +372,7 @@ function exportPDF() {
     '#666666'
   );
   line('Standard: GAAP revenue recognition | Full absorption costing', 9, '#666666');
-  line('Client-Side Only - core calc on-device (page analytics may still load)', 9, '#1a7f37');
+  line('Client-Side Only - your data never left your browser', 9, '#1a7f37');
   y += 6;
   line(
     'VERDICT: ' +
@@ -397,9 +392,10 @@ function exportPDF() {
   );
   y += 8;
   line('COST BUILD-UP', 11, '#111111', true);
-  d.engineRows.forEach((c) =>
+  d.bd.items.forEach((c) =>
     line(c.name + ': ' + c.amount.toFixed(0) + '  (' + c.pct.toFixed(1) + '%)', 9)
   );
+  line('Financing: ' + d.financing.toFixed(0), 9);
   y += 8;
   line(
     'Generated by SectorCalc.com - Engineering preview - Deterministic - Not for production approval',
@@ -473,10 +469,12 @@ async function exportPDFGraphic() {
 function shareReport() {
   const d = calcData;
   if (!d) return;
-  const state = Object.fromEntries(FIELDS.map((f) => [f, d.input[f]]));
+  const s = encodeURIComponent(
+    JSON.stringify(Object.fromEntries(FIELDS.map((f) => [f, d.input[f]])))
+  );
   navigator.clipboard
-    .writeText(makeIntegrityShareURL(location.origin, '/calculator/quote-pricing', state))
-    .then(() => alert('Shareable URL copied (integrity hash attached)'));
+    .writeText(location.origin + '/quote-pro.html?s=' + s)
+    .then(() => alert('Shareable URL copied'));
 }
 
 window.generateReport = generateReport;

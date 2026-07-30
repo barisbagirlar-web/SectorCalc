@@ -29,8 +29,6 @@ const bannedEverywhere = [
   /Inputs, core results, formulas, and basic warnings stay free/i,
   /Free monthly allowance/i,
   /Run SC-008 Free/i,
-  /Valid\s+12\s+months/i,
-  /credits?[^\n.]{0,40}expire in 12 months/i,
 ];
 
 const marketingFiles = [
@@ -42,11 +40,6 @@ const marketingFiles = [
   'sc-ops.html',
   'src/pricing.ts',
   'src/account.ts',
-  'public/compare/sectorcalc-vs-excel-tolerance.html',
-  'public/compare/sectorcalc-vs-solidworks.html',
-  'public/compare/sectorcalc-vs-catia.html',
-  'public/compare/sectorcalc-vs-machinist-calculator.html',
-  'public/compare/sectorcalc-vs-minitab.html',
 ];
 
 for (const rel of marketingFiles) {

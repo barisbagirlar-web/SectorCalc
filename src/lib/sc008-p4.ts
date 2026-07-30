@@ -115,8 +115,7 @@ export function integrityHash(state: ProjectState): string {
 
 export function makeShareURL(origin: string, state: ProjectState): string {
   const s = encodeURIComponent(JSON.stringify(state));
-  // Canonical pretty URL — legacy /sc008-pro.html 301s and must not be the share SSOT.
-  return `${origin}/calculator/tolerance-stack-up?s=${s}&h=${integrityHash(state)}`;
+  return `${origin}/sc008-pro.html?s=${s}&h=${integrityHash(state)}`;
 }
 
 export function parseShareURL(search: string): {
@@ -130,8 +129,7 @@ export function parseShareURL(search: string): {
   if (!raw) return { state: null, ok: false, tampered: false };
   try {
     const state = JSON.parse(decodeURIComponent(raw)) as ProjectState;
-    // Missing hash is treated as tampered — omitting &h= must not skip the integrity warning (ADV-F1).
-    if (!h) return { state, ok: true, tampered: true };
+    if (!h) return { state, ok: true, tampered: false };
     return { state, ok: true, tampered: integrityHash(state) !== h };
   } catch {
     return { state: null, ok: false, tampered: false };

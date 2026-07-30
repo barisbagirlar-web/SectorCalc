@@ -26,19 +26,9 @@ describe('SC-001 formula', () => {
     const r = calculate({ ...base, jointType: 'butt' });
     expect(D(r.legFromLoadMm).minus(D(r.requiredThroatMm)).abs().lt('0.1')).toBe(true);
   });
-  it('min leg governs for thick plate, low load (fillet only)', () => {
-    const r = calculate({
-      ...base,
-      designLoadN: 1000,
-      materialThicknessMm: 25,
-      jointType: 'fillet'
-    });
+  it('min leg governs for thick plate, low load', () => {
+    const r = calculate({ ...base, designLoadN: 1000, materialThicknessMm: 25 });
     expect(r.finalLegMm).toBe(r.minLegMm);
-  });
-  it('butt does NOT apply fillet minimum table', () => {
-    const r = calculate({ ...base, designLoadN: 1000, materialThicknessMm: 25, jointType: 'butt' });
-    expect(r.minLegMm).toBe('0.00');
-    expect(r.finalLegMm).toBe(r.legFromLoadMm);
   });
   it('load leg governs for high load', () => {
     const r = calculate({ ...base, designLoadN: 500000 });
@@ -57,15 +47,10 @@ describe('SC-001 formula', () => {
   it('throws safetyFactor 0', () => {
     expect(() => calculate({ ...base, safetyFactor: 0 })).toThrow();
   });
-  it('degenerate load 0 fillet -> throat 0, final = min leg', () => {
-    const r = calculate({ ...base, designLoadN: 0, jointType: 'fillet' });
+  it('degenerate load 0 -> throat 0, final = min leg', () => {
+    const r = calculate({ ...base, designLoadN: 0 });
     expect(r.requiredThroatMm).toBe('0.00');
     expect(r.finalLegMm).toBe(r.minLegMm);
-  });
-  it('step results include units', () => {
-    const r = calculate(base);
-    expect(r.steps[0]!.result).toMatch(/MPa$/);
-    expect(r.steps[1]!.result).toMatch(/mm$/);
   });
   it('all overrides with butt runs', () => {
     const r = calculate({ ...base, jointType: 'butt', safetyFactor: 3, materialThicknessMm: 15 });

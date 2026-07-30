@@ -21,11 +21,8 @@ function firebaseHostingParity() {
         const pathname = pathOnly(req.url || '');
         const redirect = redirects.find((r) => r.source === pathname);
         if (redirect) {
-          // Match Firebase Hosting: preserve query string across redirects so
-          // share links (?s=&h=) survive legacy *-pro.html → /calculator/* hops.
-          const qs = (req.url || '').includes('?') ? `?${(req.url || '').split('?')[1]}` : '';
           res.statusCode = redirect.type || 301;
-          res.setHeader('Location', `${redirect.destination}${qs}`);
+          res.setHeader('Location', redirect.destination);
           res.end();
           return;
         }

@@ -75,14 +75,8 @@ describe('SC-012 formula', () => {
   it('throws scrapRate >= 1', () => {
     expect(() => calculate({ ...base, scrapRate: 1 })).toThrow();
   });
-  it('throws scrapRate negative', () => {
-    expect(() => calculate({ ...base, scrapRate: -0.1 })).toThrow();
-  });
   it('throws targetMargin >= 1', () => {
     expect(() => calculate({ ...base, targetMargin: 1 })).toThrow();
-  });
-  it('throws targetMargin negative', () => {
-    expect(() => calculate({ ...base, targetMargin: -0.2 })).toThrow();
   });
   it('throws quantity <= 0', () => {
     expect(() => calculate({ ...base, quantity: 0 })).toThrow();

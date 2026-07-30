@@ -88,15 +88,11 @@ export function simulateStack(components: Component[], input: StackInput): Decim
   const iterations = input.iterations ?? 5000;
   if (iterations < 1) throw new CalcError('E_INVALID_INPUT', 'iterations must be >= 1');
   const seed = input.seed ?? 12345;
-  // Per-component LCG substreams: consecutive components no longer share one lattice walk
-  // (closes ADV-D5 coupling). Same (seed, iterations, components) → identical results.
-  const rngs = components.map((_, j) => lcg(D(seed).plus(j * 7919)));
+  const rng = lcg(seed);
   const out: Decimal[] = [];
   for (let i = 0; i < iterations; i++) {
     let sum = D(0);
-    for (let j = 0; j < components.length; j++) {
-      const c = components[j]!;
-      const rng = rngs[j]!;
+    for (const c of components) {
       const nom = D(c.nominal);
       const t = D(c.tol);
       if (t.lt(0)) throw new CalcError('E_NEGATIVE', `tol of ${c.name} must be >= 0`);

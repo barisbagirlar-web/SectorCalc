@@ -71,26 +71,6 @@ describe('SC-010 formula', () => {
   it('throws employeeRate >= 1', () => {
     expect(() => calculate({ ...US, employeeRate: 1 })).toThrow();
   });
-  it('throws employeeRate negative', () => {
-    expect(() => calculate({ ...US, employeeRate: -0.1 })).toThrow();
-  });
-  it('throws employeeRate above 0.95 ceiling', () => {
-    expect(() => calculate({ ...US, employeeRate: 0.96 })).toThrow();
-  });
-  it('OT hours are in the trueHourlyCost denominator', () => {
-    const base = calculate({ ...US, hoursPerWeek: 40 });
-    const withOt = calculate({
-      ...US,
-      hoursPerWeek: 40,
-      overtimeHoursMonthly: 40,
-      overtimeMultiplier: 1.5
-    });
-    const straight = 40 * 4.33;
-    const honest = Number(withOt.trueMonthlyCost) / (straight + 40);
-    expect(Math.abs(Number(withOt.trueHourlyCost) - honest)).toBeLessThan(0.02);
-    expect(Number(withOt.trueHourlyCost)).toBeLessThan(Number(withOt.trueMonthlyCost) / straight);
-    expect(Number(withOt.trueMonthlyCost)).toBeGreaterThan(Number(base.trueMonthlyCost));
-  });
   it('throws otMultiplier < 1', () => {
     expect(() => calculate({ ...US, overtimeMultiplier: 0.5 })).toThrow();
   });

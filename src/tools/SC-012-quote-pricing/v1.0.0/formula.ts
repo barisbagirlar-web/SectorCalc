@@ -73,14 +73,8 @@ export function calculate(inputs: QuoteInputs): QuoteResult {
   const currency = inputs.currency ?? 'USD';
 
   const material = requireNonNegative(inputs.materialCost, 'materialCost');
-  // scrapRate ∈ [0, 1); negative scrap must not make material cheaper
-  const scrap = requireLessThan(requireNonNegative(inputs.scrapRate, 'scrapRate'), 1, 'scrapRate');
-  // targetMargin ∈ [0, 1); negative margin would quote below cost silently
-  const margin = requireLessThan(
-    requireNonNegative(inputs.targetMargin, 'targetMargin'),
-    1,
-    'targetMargin'
-  );
+  const scrap = requireLessThan(inputs.scrapRate, 1, 'scrapRate');
+  const margin = requireLessThan(inputs.targetMargin, 1, 'targetMargin');
   const qty = requirePositive(inputs.quantity, 'quantity');
 
   // 1. effective material (scrap included)
