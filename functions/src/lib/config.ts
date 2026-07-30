@@ -8,21 +8,26 @@ import {
 export type PaddleEnv = 'sandbox' | 'production';
 
 export function getPaddleEnv(): PaddleEnv {
-  const env = (process.env.PADDLE_ENV || 'sandbox').trim();
-  if (env !== 'sandbox' && env !== 'production') {
-    throw new Error('PADDLE_CONFIGURATION_ERROR: PADDLE_ENV must be sandbox|production');
+  const isGcpProd =
+    process.env.K_SERVICE ||
+    process.env.FUNCTION_TARGET ||
+    process.env.GCP_PROJECT ||
+    process.env.FIREBASE_CONFIG;
+  if (isGcpProd || process.env.NODE_ENV === 'production') {
+    return 'production';
   }
-  return env as PaddleEnv;
+  const env = (process.env.PADDLE_ENV || 'production').trim();
+  return (env === 'sandbox' ? 'sandbox' : 'production') as PaddleEnv;
 }
 
 export function getPriceMap(): Record<CreditPackageKey, string> {
   const map = {
-    STARTER: (process.env.PADDLE_PRICE_STARTER || 'pri_01kyhfb5q0jxrck07py0xxaqw7').trim(),
-    WORKSHOP: (process.env.PADDLE_PRICE_WORKSHOP || 'pri_01kyhfczs0aaj62smrthvc3my8').trim(),
+    STARTER: (process.env.PADDLE_PRICE_STARTER || 'pri_01kvwh93mw594eqe3xcf6k6nbv').trim(),
+    WORKSHOP: (process.env.PADDLE_PRICE_WORKSHOP || 'pri_01kvwhaef7k3t46qh7teqyfj9j').trim(),
     PROFESSIONAL: (
-      process.env.PADDLE_PRICE_PROFESSIONAL || 'pri_01kyhff4xx34m229w6ytpjpefs'
+      process.env.PADDLE_PRICE_PROFESSIONAL || 'pri_01kvwhbg71jfp136ahdxea11f5'
     ).trim(),
-    TEAM_WALLET: (process.env.PADDLE_PRICE_TEAM_WALLET || 'pri_01kyhfgk3ax50gz1m7zh877w9c').trim()
+    TEAM_WALLET: (process.env.PADDLE_PRICE_TEAM_WALLET || 'pri_01kvwhdvpxb7fqawahdcqtq5e9').trim()
   };
   const errs = assertNoInvalidPriceMapping(map);
   if (errs.length) {

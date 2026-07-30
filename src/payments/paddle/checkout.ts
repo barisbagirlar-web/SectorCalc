@@ -104,8 +104,8 @@ export async function ensurePaddleReady(): Promise<PaddleSdk> {
     await loadScript();
     const paddle = window.Paddle;
     if (!paddle) throw new Error('Paddle.js loaded but window.Paddle is missing');
-    if (environment === 'sandbox' && paddle.Environment?.set) {
-      paddle.Environment.set('sandbox');
+    if (paddle.Environment?.set) {
+      paddle.Environment.set(environment);
     }
     try {
       const result = paddle.Initialize({ token: clientToken, eventCallback: onPaddleEvent });

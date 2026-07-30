@@ -26,7 +26,8 @@ async function safeJson(res: Response): Promise<Record<string, unknown>> {
 
 export async function createCheckout(
   packageKey: string,
-  returnTo?: string
+  returnTo?: string,
+  retryCount = 0
 ): Promise<{
   purchaseId: string;
   paddleTransactionId: string;
@@ -37,6 +38,10 @@ export async function createCheckout(
     headers,
     body: JSON.stringify({ packageKey, returnTo: returnTo || null })
   });
+  if (res.status === 429 && retryCount === 0) {
+    await new Promise((r) => setTimeout(r, 800));
+    return createCheckout(packageKey, returnTo, 1);
+  }
   const body = await safeJson(res);
   if (!res.ok) throw new Error(String(body.error || body.message || 'CHECKOUT_FAILED'));
   trackBillingEvent('checkout_created', { packageKey });
@@ -102,7 +107,10 @@ export async function fetchWallet(): Promise<{
   };
 }
 
-export async function openProfessionalSessionApi(toolId: string): Promise<
+export async function openProfessionalSessionApi(
+  toolId: string,
+  retryCount = 0
+): Promise<
   | {
       sessionId: string;
       toolId: string;
@@ -120,6 +128,10 @@ export async function openProfessionalSessionApi(toolId: string): Promise<
     headers,
     body: JSON.stringify({})
   });
+  if (res.status === 429 && retryCount === 0) {
+    await new Promise((r) => setTimeout(r, 800));
+    return openProfessionalSessionApi(toolId, 1);
+  }
   const body = await safeJson(res);
   if (!res.ok) {
     return {

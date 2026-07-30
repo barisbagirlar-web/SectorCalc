@@ -15,7 +15,7 @@ import { handleHealth } from './http/health';
 import { runPurchaseReconciliation } from './http/reconcile';
 
 initializeApp();
-setGlobalOptions({ region: 'us-central1', maxInstances: 20 });
+setGlobalOptions({ region: 'us-central1', maxInstances: 100, minInstances: 1 });
 
 /** Health + ops truth: scheduler export below means reconciliation is wired. */
 export const RECONCILIATION_SCHEDULER_DEPLOYED = true as const;
@@ -39,23 +39,26 @@ function cors(res: { set: (k: string, v: string) => void }, origin: string | und
 }
 
 function hydrateEnv(): void {
-  process.env.PADDLE_ENV = (process.env.PADDLE_ENV || 'sandbox').trim();
+  process.env.PADDLE_ENV = (process.env.PADDLE_ENV || 'production').trim();
   process.env.CREDIT_MONETIZATION_ENABLED = (
     process.env.CREDIT_MONETIZATION_ENABLED || 'true'
   ).trim();
-  process.env.PADDLE_API_KEY = (process.env.PADDLE_API_KEY || '').trim();
+  process.env.PADDLE_API_KEY = (
+    process.env.PADDLE_API_KEY ||
+    'pdl_live_apikey_01kyt0261vygd1s18s5tm57cgd_Zx2cNR6aD4QEG9wc70FjYN_ARJ'
+  ).trim();
   process.env.PADDLE_WEBHOOK_SECRET = (process.env.PADDLE_WEBHOOK_SECRET || '').trim();
   process.env.PADDLE_PRICE_STARTER = (
-    process.env.PADDLE_PRICE_STARTER || 'pri_01kyhfb5q0jxrck07py0xxaqw7'
+    process.env.PADDLE_PRICE_STARTER || 'pri_01kvwh93mw594eqe3xcf6k6nbv'
   ).trim();
   process.env.PADDLE_PRICE_WORKSHOP = (
-    process.env.PADDLE_PRICE_WORKSHOP || 'pri_01kyhfczs0aaj62smrthvc3my8'
+    process.env.PADDLE_PRICE_WORKSHOP || 'pri_01kvwhaef7k3t46qh7teqyfj9j'
   ).trim();
   process.env.PADDLE_PRICE_PROFESSIONAL = (
-    process.env.PADDLE_PRICE_PROFESSIONAL || 'pri_01kyhff4xx34m229w6ytpjpefs'
+    process.env.PADDLE_PRICE_PROFESSIONAL || 'pri_01kvwhbg71jfp136ahdxea11f5'
   ).trim();
   process.env.PADDLE_PRICE_TEAM_WALLET = (
-    process.env.PADDLE_PRICE_TEAM_WALLET || 'pri_01kyhfgk3ax50gz1m7zh877w9c'
+    process.env.PADDLE_PRICE_TEAM_WALLET || 'pri_01kvwhdvpxb7fqawahdcqtq5e9'
   ).trim();
   process.env.FIRESTORE_DB = (process.env.FIRESTORE_DB || 'sectorcalc-2').trim();
 }
@@ -76,6 +79,8 @@ export const api = onRequest(
     invoker: 'public',
     memory: '512MiB',
     timeoutSeconds: 60,
+    minInstances: 1,
+    maxInstances: 100,
     concurrency: 80
   },
   async (req, res) => {
