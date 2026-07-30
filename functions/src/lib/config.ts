@@ -8,16 +8,27 @@ import {
 export type PaddleEnv = 'sandbox' | 'production';
 
 export function getPaddleEnv(): PaddleEnv {
-  const isGcpProd =
-    process.env.K_SERVICE ||
-    process.env.FUNCTION_TARGET ||
-    process.env.GCP_PROJECT ||
-    process.env.FIREBASE_CONFIG;
-  if (isGcpProd || process.env.NODE_ENV === 'production') {
-    return 'production';
+  const env = (process.env.PADDLE_ENV || '').trim().toLowerCase();
+  if (env !== 'sandbox' && env !== 'production') {
+    throw new Error(
+      `PADDLE_CONFIGURATION_ERROR: PADDLE_ENV must be "sandbox" or "production", got "${env}"`
+    );
   }
-  const env = (process.env.PADDLE_ENV || 'production').trim();
-  return (env === 'sandbox' ? 'sandbox' : 'production') as PaddleEnv;
+  const apiKey = (process.env.PADDLE_API_KEY || '').trim();
+  if (!apiKey) {
+    throw new Error('PADDLE_CONFIGURATION_ERROR: PADDLE_API_KEY is empty');
+  }
+  if (env === 'production' && !apiKey.startsWith('pdl_live_apikey_')) {
+    throw new Error(
+      'PADDLE_CONFIGURATION_ERROR: production environment requires pdl_live_apikey_ prefix'
+    );
+  }
+  if (env === 'sandbox' && !apiKey.startsWith('pdl_sdbx_apikey_')) {
+    throw new Error(
+      'PADDLE_CONFIGURATION_ERROR: sandbox environment requires pdl_sdbx_apikey_ prefix'
+    );
+  }
+  return env as PaddleEnv;
 }
 
 export function getPriceMap(): Record<CreditPackageKey, string> {

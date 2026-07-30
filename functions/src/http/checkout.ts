@@ -3,7 +3,7 @@ import type { Response } from 'express';
 import { isCreditPackageKey } from '../domain/packages';
 import { sanitizeReturnTo } from '../domain/return-to';
 import { requireUser, sendError } from '../lib/auth';
-import { getPriceMap, monetizationEnabled, resolvePackage } from '../lib/config';
+import { monetizationEnabled, resolvePackage } from '../lib/config';
 import { createPaddleTransaction } from '../lib/paddle';
 import { db, purchaseRef } from '../lib/firestore';
 import { checkRateLimit } from '../lib/rate-limit';
@@ -17,8 +17,6 @@ export async function handleCheckout(req: Request, res: Response): Promise<void>
       });
       return;
     }
-    getPriceMap();
-
     const user = await requireUser(req);
     const body = (req.body || {}) as { packageKey?: string; returnTo?: string };
     if (!isCreditPackageKey(body.packageKey)) {

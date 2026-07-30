@@ -6,6 +6,7 @@ import { initializeApp } from 'firebase-admin/app';
 import { setGlobalOptions } from 'firebase-functions/v2';
 import { onRequest } from 'firebase-functions/v2/https';
 import { onSchedule } from 'firebase-functions/v2/scheduler';
+import { defineSecret } from 'firebase-functions/params';
 import { handleCheckout } from './http/checkout';
 import { handleWallet, handleWalletTransactions } from './http/wallet';
 import { handlePurchaseStatus } from './http/purchase';
@@ -16,6 +17,9 @@ import { runPurchaseReconciliation } from './http/reconcile';
 
 initializeApp();
 setGlobalOptions({ region: 'us-central1', maxInstances: 100, minInstances: 1 });
+
+const paddleApiKey = defineSecret('PADDLE_API_KEY');
+const paddleWebhookSecret = defineSecret('PADDLE_WEBHOOK_SECRET');
 
 /** Health + ops truth: scheduler export below means reconciliation is wired. */
 export const RECONCILIATION_SCHEDULER_DEPLOYED = true as const;
@@ -38,16 +42,17 @@ function cors(res: { set: (k: string, v: string) => void }, origin: string | und
   res.set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
 }
 
-function hydrateEnv(): void {
+function hydrateEnv(opts?: { requireWebhookSecret?: boolean }): void {
   process.env.PADDLE_ENV = (process.env.PADDLE_ENV || 'production').trim();
   process.env.CREDIT_MONETIZATION_ENABLED = (
     process.env.CREDIT_MONETIZATION_ENABLED || 'true'
   ).trim();
-  process.env.PADDLE_API_KEY = (
-    process.env.PADDLE_API_KEY ||
-    'pdl_live_apikey_01kyt0261vygd1s18s5tm57cgd_Zx2cNR6aD4QEG9wc70FjYN_ARJ'
-  ).trim();
-  process.env.PADDLE_WEBHOOK_SECRET = (process.env.PADDLE_WEBHOOK_SECRET || '').trim();
+  process.env.PADDLE_API_KEY = paddleApiKey.value().trim();
+  if (opts?.requireWebhookSecret) {
+    process.env.PADDLE_WEBHOOK_SECRET = paddleWebhookSecret.value().trim();
+  } else {
+    process.env.PADDLE_WEBHOOK_SECRET = '';
+  }
   process.env.PADDLE_PRICE_STARTER = (
     process.env.PADDLE_PRICE_STARTER || 'pri_01kvwh93mw594eqe3xcf6k6nbv'
   ).trim();
@@ -61,6 +66,13 @@ function hydrateEnv(): void {
     process.env.PADDLE_PRICE_TEAM_WALLET || 'pri_01kvwhdvpxb7fqawahdcqtq5e9'
   ).trim();
   process.env.FIRESTORE_DB = (process.env.FIRESTORE_DB || 'sectorcalc-2').trim();
+
+  if (!process.env.PADDLE_API_KEY) {
+    throw new Error('PADDLE_CONFIGURATION_ERROR: PADDLE_API_KEY missing');
+  }
+  if (opts?.requireWebhookSecret && !process.env.PADDLE_WEBHOOK_SECRET) {
+    throw new Error('PADDLE_CONFIGURATION_ERROR: PADDLE_WEBHOOK_SECRET missing');
+  }
 }
 
 function normalizePath(raw: string): string {
@@ -81,10 +93,11 @@ export const api = onRequest(
     timeoutSeconds: 60,
     minInstances: 1,
     maxInstances: 100,
-    concurrency: 80
+    concurrency: 80,
+    secrets: [paddleApiKey, paddleWebhookSecret]
   },
   async (req, res) => {
-    hydrateEnv();
+    hydrateEnv({ requireWebhookSecret: true });
     cors(res, req.get('origin') || undefined);
     if (req.method === 'OPTIONS') {
       res.status(204).send('');
@@ -134,7 +147,7 @@ export const api = onRequest(
 
 function hydrateAndReconcileFactory() {
   return async () => {
-    hydrateEnv();
+    hydrateEnv({ requireWebhookSecret: false });
     const summary = await runPurchaseReconciliation();
     console.log('reconcile_purchases', summary);
   };
@@ -147,7 +160,8 @@ export const reconcilePurchases = onSchedule(
     region: 'us-central1',
     timeZone: 'UTC',
     memory: '512MiB',
-    timeoutSeconds: 120
+    timeoutSeconds: 120,
+    secrets: [paddleApiKey]
   },
   async () => {
     await hydrateAndReconcileFactory()();
