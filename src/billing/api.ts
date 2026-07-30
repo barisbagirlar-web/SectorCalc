@@ -78,6 +78,12 @@ export async function pollPurchaseCredited(
   return { status: 'CREDIT_ACTIVATION_PENDING' };
 }
 
+let walletCache: { promise: Promise<any>; timestamp: number } | null = null;
+
+export function invalidateWalletCache(): void {
+  walletCache = null;
+}
+
 export async function fetchWallet(): Promise<{
   purchasedCredits: number;
   promotionalCredits: number;
