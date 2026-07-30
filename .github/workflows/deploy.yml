@@ -39,6 +39,9 @@ jobs:
         run: npm ci --no-audit --no-fund
 
       - name: Production quality gate
+        env:
+          VITE_PADDLE_ENV: production
+          VITE_PADDLE_CLIENT_TOKEN: live_6649e40d5c0200d0fe72895efe9
         run: |
           npm test
           npm run typecheck

@@ -1,6 +1,6 @@
 import type { Request } from 'firebase-functions/v2/https';
 import type { Response } from 'express';
-import { monetizationEnabled } from '../lib/config';
+import { getPaddleEnv, monetizationEnabled } from '../lib/config';
 
 export async function handleHealth(
   _req: Request,
@@ -12,7 +12,7 @@ export async function handleHealth(
     ok: true,
     service: 'sectorcalc-billing',
     creditMonetizationEnabled: monetizationEnabled(),
-    paddleEnv: process.env.PADDLE_ENV || null,
+    paddleEnv: getPaddleEnv(),
     reconciliationSchedulerMissing: !schedulerDeployed,
     RECONCILIATION_SCHEDULER_MISSING: schedulerDeployed ? 'NO' : 'YES',
     reconciliationSchedule: schedulerDeployed ? 'every 15 minutes' : null

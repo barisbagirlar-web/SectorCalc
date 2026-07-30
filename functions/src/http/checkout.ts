@@ -20,10 +20,6 @@ export async function handleCheckout(req: Request, res: Response): Promise<void>
     getPriceMap();
 
     const user = await requireUser(req);
-    if (!checkRateLimit(`checkout:${user.uid}`, 30, 60_000)) {
-      res.status(429).json({ error: 'RATE_LIMITED' });
-      return;
-    }
     const body = (req.body || {}) as { packageKey?: string; returnTo?: string };
     if (!isCreditPackageKey(body.packageKey)) {
       res.status(400).json({ error: 'INVALID_PACKAGE' });

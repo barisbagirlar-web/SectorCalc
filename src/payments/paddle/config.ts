@@ -21,19 +21,36 @@ function viteEnv(name: string): string {
 }
 
 export function getPaddlePublicConfig(): PaddlePublicConfig {
-  const raw = (viteEnv('VITE_PADDLE_ENV') || '').toLowerCase();
-  if (raw !== 'sandbox' && raw !== 'production') {
-    // Prefer explicit env; fall back sandbox for local only when token present.
-    const environment: PaddleEnvironment = 'sandbox';
-    return {
-      environment,
-      clientToken: viteEnv('VITE_PADDLE_CLIENT_TOKEN'),
-      packages: PACKAGES
-    };
+  const host = typeof window !== 'undefined' ? window.location.hostname || '' : '';
+  const isProdDomain =
+    host.endsWith('sectorcalc.com') ||
+    host.endsWith('sectorcalc-prod.web.app') ||
+    host === 'sectorcalc.com';
+
+  const raw = (viteEnv('VITE_PADDLE_ENV') || 'production').toLowerCase();
+  const environment: PaddleEnvironment = isProdDomain
+    ? 'production'
+    : raw === 'sandbox'
+      ? 'sandbox'
+      : 'production';
+
+  const token = isProdDomain
+    ? 'live_6649e40d5c0200d0fe72895efe9'
+    : viteEnv('VITE_PADDLE_CLIENT_TOKEN') || 'live_6649e40d5c0200d0fe72895efe9';
+
+  if (environment !== 'sandbox' && environment !== 'production') {
+    throw new Error(`VITE_PADDLE_ENV must be "sandbox" or "production", got: "${environment}"`);
   }
+  if (environment === 'production' && token && !token.startsWith('live_')) {
+    throw new Error('production env requires a live_ client-side token');
+  }
+  if (environment === 'sandbox' && token && !token.startsWith('test_')) {
+    throw new Error('sandbox env requires a test_ client-side token');
+  }
+
   return {
-    environment: raw,
-    clientToken: viteEnv('VITE_PADDLE_CLIENT_TOKEN'),
+    environment,
+    clientToken: token,
     packages: PACKAGES
   };
 }
