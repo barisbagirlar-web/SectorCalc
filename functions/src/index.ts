@@ -16,7 +16,7 @@ import { handleHealth } from './http/health';
 import { runPurchaseReconciliation } from './http/reconcile';
 
 initializeApp();
-setGlobalOptions({ region: 'us-central1', maxInstances: 100, minInstances: 1 });
+setGlobalOptions({ region: 'us-central1', maxInstances: 20, minInstances: 1 });
 
 const paddleApiKey = defineSecret('PADDLE_API_KEY');
 const paddleWebhookSecret = defineSecret('PADDLE_WEBHOOK_SECRET');
@@ -92,7 +92,7 @@ export const api = onRequest(
     memory: '512MiB',
     timeoutSeconds: 60,
     minInstances: 1,
-    maxInstances: 100,
+    maxInstances: 20,
     concurrency: 80,
     secrets: [paddleApiKey, paddleWebhookSecret]
   },
