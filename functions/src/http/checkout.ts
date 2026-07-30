@@ -56,8 +56,7 @@ export async function handleCheckout(req: Request, res: Response): Promise<void>
       txn = await createPaddleTransaction({
         priceId: pkg.priceId,
         purchaseId,
-        packageKey: pkg.key,
-        customerEmail: user.email
+        packageKey: pkg.key
       });
     } catch (err) {
       await purchaseRef(purchaseId).update({ status: 'FAILED' });
