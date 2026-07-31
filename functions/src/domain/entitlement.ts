@@ -98,6 +98,61 @@ export function entitlementCanAccess(i: CanAccessInput): boolean {
   return true;
 }
 
+export type SessionStatus = 'ACTIVE' | 'ENDED';
+
+/**
+ * CREDIT_BASED access decision — the ONLY source of truth for the frontend.
+ * A stored entitlement record NEVER grants access by itself: only a live
+ * session (canOpenWithoutDebit) or a sufficient wallet (canStartNewSession).
+ */
+export interface CreditSessionDecisionInput {
+  /** A real professional session that is live right now (server time). */
+  hasLiveSession: boolean;
+  /** Session end instant, or null when no live session. */
+  sessionEndsAt: string | null;
+  creditsAvailable: number;
+  creditCost: number;
+  /** Ops-suspended entitlement: blocks opening AND starting a new session. */
+  suspended?: boolean;
+}
+
+export interface CreditSessionDecision {
+  sessionStatus: SessionStatus;
+  canOpenWithoutDebit: boolean;
+  canStartNewSession: boolean;
+}
+
+export function creditSessionDecision(i: CreditSessionDecisionInput): CreditSessionDecision {
+  const canOpenWithoutDebit = i.hasLiveSession && !i.suspended;
+  const canStartNewSession =
+    !i.suspended && !i.hasLiveSession && i.creditsAvailable >= i.creditCost && i.creditCost > 0;
+  return {
+    sessionStatus: i.hasLiveSession ? 'ACTIVE' : 'ENDED',
+    canOpenWithoutDebit,
+    canStartNewSession
+  };
+}
+
+/** Whole seconds remaining until an expiry instant (server time), never negative. */
+export function sessionRemainingSeconds(expiresAt: string | null, nowMs: number): number {
+  if (!expiresAt) return 0;
+  return Math.max(0, Math.floor((Date.parse(expiresAt) - nowMs) / 1000));
+}
+
+/** Human label like "18h 42m" / "1d 2h" — computed server-side, not by the client. */
+export function sessionRemainingLabel(expiresAt: string | null, nowMs: number): string {
+  let s = sessionRemainingSeconds(expiresAt, nowMs);
+  if (s <= 0) return 'ended';
+  const d = Math.floor(s / 86_400);
+  s -= d * 86_400;
+  const h = Math.floor(s / 3600);
+  s -= h * 3600;
+  const m = Math.floor(s / 60);
+  if (d > 0) return `${d}d ${h}h`;
+  if (h > 0) return `${h}h ${m}m`;
+  return `${m}m`;
+}
+
 export interface UpsertInput {
   existing: ToolEntitlement | null;
   userId: string;

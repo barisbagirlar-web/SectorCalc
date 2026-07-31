@@ -1,9 +1,12 @@
 /**
- * Professional session gate UI — blocks calculation until server entitlement.
- * Free tools (future): isCreditRequired(toolId) === false → no enforcement.
+ * Professional session gate UI — blocks calculation until the SERVER confirms
+ * access. Every decision comes from the entitlement endpoint:
+ * canOpenWithoutDebit (live session) or canStartNewSession (credits enough).
+ * The browser never recomputes status, expiry, or credit math.
  */
 import { currentUser } from '../auth/index.js';
 import { isCreditRequired, resolveToolCost } from './domain/packages.js';
+import { fetchToolEntitlement } from './entitlements-api.js';
 import {
   fetchWallet,
   invalidateWalletCache,
@@ -35,6 +38,11 @@ export class ProfessionalGate {
   readonly toolId: string;
   private mount: HTMLElement;
   private onEntitled?: ProfessionalGateOptions['onEntitled'];
+  /** Backend decision: a live session exists → form opens, no new debit. */
+  private canOpenWithoutDebit = false;
+  /** Backend decision: session ended but wallet covers the cost. */
+  private canStartNewSession = false;
+  private suspended = false;
   private entitledUntil: string | null = null;
   private balance: number | null = null;
   private cost: number;
@@ -55,8 +63,7 @@ export class ProfessionalGate {
 
   isEntitled(): boolean {
     if (!this.enforce) return true;
-    if (!this.entitledUntil) return false;
-    return Date.parse(this.entitledUntil) > Date.now();
+    return this.canOpenWithoutDebit;
   }
 
   async ensureEntitled(): Promise<boolean> {
@@ -77,26 +84,39 @@ export class ProfessionalGate {
     const user = currentUser();
     if (!user) {
       this.balance = null;
+      this.canOpenWithoutDebit = false;
+      this.canStartNewSession = false;
+      this.suspended = false;
       this.entitledUntil = null;
       this.render();
       this.onEntitled?.(null);
       return;
     }
     try {
-      const w = await fetchWallet();
-      this.balance = w.spendableCredits;
-      const mine = (w.activeSessions || []).find((s) => s.toolId === this.toolId);
-      this.entitledUntil = mine && Date.parse(mine.expiresAt) > Date.now() ? mine.expiresAt : null;
-      cacheAuthoritativeBalances({
-        purchasedCredits: w.purchasedCredits,
-        promotionalCredits: w.promotionalCredits,
-        availableCredits: w.spendableCredits
-      });
+      const view = await fetchToolEntitlement(this.toolId);
+      this.canOpenWithoutDebit = view.canOpenWithoutDebit;
+      this.canStartNewSession = view.canStartNewSession;
+      this.suspended = view.status === 'SUSPENDED';
+      this.entitledUntil = view.sessionEndsAt;
+      this.balance = view.creditsAvailable;
+      this.cost = view.sessionCreditCost || this.cost;
+      try {
+        const w = await fetchWallet();
+        cacheAuthoritativeBalances({
+          purchasedCredits: w.purchasedCredits,
+          promotionalCredits: w.promotionalCredits,
+          availableCredits: w.spendableCredits
+        });
+      } catch {
+        /* display cache only — never used for decisions */
+      }
     } catch {
-      this.balance = null;
+      // Fail closed: keep current lock state, do not unlock on API failure.
     }
     this.render();
-    if (this.entitledUntil) this.onEntitled?.({ expiresAt: this.entitledUntil, reused: true });
+    if (this.canOpenWithoutDebit && this.entitledUntil) {
+      this.onEntitled?.({ expiresAt: this.entitledUntil, reused: true });
+    }
   }
 
   private async startSession(): Promise<void> {
@@ -162,6 +182,8 @@ export class ProfessionalGate {
       }
       this.entitledUntil = res.expiresAt;
       this.balance = res.newWalletBalance;
+      this.canOpenWithoutDebit = true;
+      this.canStartNewSession = false;
       cacheAuthoritativeBalances({
         purchasedCredits: res.newWalletBalance,
         promotionalCredits: 0,
@@ -184,7 +206,7 @@ export class ProfessionalGate {
 
   private renderError(msg: string, offerBuy: boolean): void {
     const buy = offerBuy
-      ? `<a class="sc-pro-gate-btn sc-pro-gate-btn-primary" href="/pricing.html">Get credits</a>`
+      ? `<a class="sc-pro-gate-btn sc-pro-gate-btn-primary" href="/pricing.html">Buy credits</a>`
       : '';
     const status = this.mount.querySelector('.sc-pro-gate-status');
     if (status) {
@@ -200,6 +222,12 @@ export class ProfessionalGate {
     let body: string;
     if (!this.enforce) {
       body = `<p class="sc-pro-gate-copy">This tool is free in the current configuration (no credit debit).</p>`;
+    } else if (this.suspended) {
+      body = `
+        <p class="sc-pro-gate-copy">Access to this tool is temporarily paused.</p>
+        <div class="sc-pro-gate-actions">
+          <a class="sc-pro-gate-btn" href="/contact.html">Contact support</a>
+        </div>`;
     } else if (entitled) {
       const exp = this.entitledUntil
         ? new Date(this.entitledUntil).toLocaleString(undefined, {
@@ -211,19 +239,30 @@ export class ProfessionalGate {
         <p class="sc-pro-gate-active">Session active — calculation unlocked</p>
         <p class="sc-pro-gate-copy">Expires: ${esc(exp)}</p>
         <p class="sc-pro-gate-copy">Balance: ${esc(bal)} credits</p>`;
-    } else {
+    } else if (this.canStartNewSession) {
       body = `
-        <p class="sc-pro-gate-copy">Sign in and unlock a 24-hour session to run this calculator. One debit covers unlimited recalculation until expiry.</p>
+        <p class="sc-pro-gate-copy">Session ended. Start a new 24-hour session to run this calculator. One debit covers unlimited recalculation until expiry.</p>
         <ul class="sc-pro-gate-meta">
           <li><strong>Tier:</strong> ${esc(this.tier)}</li>
-          <li><strong>Cost:</strong> ${this.cost} credits</li>
+          <li><strong>Session cost:</strong> ${this.cost} credits</li>
           <li><strong>Current balance:</strong> ${esc(bal)} credits</li>
           <li><strong>After unlock:</strong> ${esc(after)} credits</li>
           <li><strong>Duration:</strong> 24 hours · unlimited recalculation</li>
         </ul>
         <div class="sc-pro-gate-actions">
-          <button type="button" class="sc-pro-gate-btn sc-pro-gate-btn-primary" data-confirm-pro>Confirm — use ${this.cost} credits</button>
-          <a class="sc-pro-gate-btn" href="/pricing.html">Get credits</a>
+          <button type="button" class="sc-pro-gate-btn sc-pro-gate-btn-primary" data-confirm-pro>Start New Session — use ${this.cost} credits</button>
+          <a class="sc-pro-gate-btn" href="/pricing.html">Buy credits</a>
+        </div>
+        <div class="sc-pro-gate-status"></div>`;
+    } else {
+      body = `
+        <p class="sc-pro-gate-copy">Session ended and your balance is below the session cost.</p>
+        <ul class="sc-pro-gate-meta">
+          <li><strong>Credits required:</strong> ${this.cost}</li>
+          <li><strong>Credits available:</strong> ${esc(bal)}</li>
+        </ul>
+        <div class="sc-pro-gate-actions">
+          <a class="sc-pro-gate-btn sc-pro-gate-btn-primary" href="/pricing.html">Buy credits</a>
         </div>
         <div class="sc-pro-gate-status"></div>`;
     }

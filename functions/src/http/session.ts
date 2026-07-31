@@ -6,13 +6,14 @@ import { resolveToolCost } from '../domain/packages';
 import { openProfessionalSession, type ProfessionalSession } from '../domain/session';
 import { monetizationEnabled } from '../lib/config';
 import { db, ledgerCol, sessionsCol, walletRef, entitlementRef } from '../lib/firestore';
-import { emptyWallet } from '../domain/types';
+import { emptyWallet, spendableCredits } from '../domain/types';
 import {
   buildEntitlementId,
   touchEntitlementUsage,
   upsertCreditBasedEntitlement,
   type ToolEntitlement
 } from '../domain/entitlement';
+import { correlationIdFrom, logEntitlement, uidHash } from '../lib/entitlement-log';
 
 function newId(): string {
   return db().collection('_').doc().id;
@@ -23,6 +24,7 @@ export async function handleProfessionalSession(
   res: Response,
   toolId: string
 ): Promise<void> {
+  const correlationId = correlationIdFrom(req);
   try {
     if (!monetizationEnabled()) {
       res
@@ -39,6 +41,7 @@ export async function handleProfessionalSession(
 
     const nowMs = Date.now();
     const nowIso = new Date(nowMs).toISOString();
+    const uidH = uidHash(user.uid);
     let resultPayload: Record<string, unknown> | null = null;
 
     await db().runTransaction(async (tx) => {
@@ -55,6 +58,7 @@ export async function handleProfessionalSession(
             updatedAt: (wSnap.data()!.updatedAt as string) || nowIso
           }
         : emptyWallet(user.uid, nowIso);
+      const creditsBefore = spendableCredits(wallet, nowMs);
 
       const activeQ = sessionsCol(user.uid)
         .where('toolId', '==', toolId)
@@ -89,6 +93,13 @@ export async function handleProfessionalSession(
           requiredCredits: outcome.requiredCredits,
           availableCredits: outcome.availableCredits
         };
+        logEntitlement('entitlement_session_denied', {
+          uidHash: uidH,
+          toolId,
+          result: outcome.code,
+          creditsBefore,
+          correlationId
+        });
         return;
       }
 
@@ -102,18 +113,34 @@ export async function handleProfessionalSession(
         const entId = buildEntitlementId(user.uid, toolId);
         const entSnap = await tx.get(entitlementRef(entId));
         const existingEnt = entSnap.exists ? (entSnap.data() as ToolEntitlement) : null;
-        tx.set(
-          entitlementRef(entId),
-          upsertCreditBasedEntitlement({
-            existing: existingEnt,
-            userId: user.uid,
-            toolId,
-            purchaseId: `session:${toolId}:${nowMs}`,
-            expiresAt: outcome.session.expiresAt,
-            debit: outcome.debit,
-            nowIso
-          })
-        );
+        const entitlement = upsertCreditBasedEntitlement({
+          existing: existingEnt,
+          userId: user.uid,
+          toolId,
+          purchaseId: `session:${toolId}:${nowMs}`,
+          expiresAt: outcome.session.expiresAt,
+          debit: outcome.debit,
+          nowIso
+        });
+        tx.set(entitlementRef(entId), entitlement);
+        logEntitlement('entitlement_session_started', {
+          uidHash: uidH,
+          toolId,
+          sessionId: outcome.session.id,
+          result: 'started',
+          creditsBefore,
+          creditsAfter: spendableCredits(outcome.wallet, nowMs),
+          correlationId
+        });
+        logEntitlement('entitlement_upserted', {
+          uidHash: uidH,
+          toolId,
+          sessionId: outcome.session.id,
+          result: existingEnt ? 'extended' : 'created',
+          creditsBefore,
+          creditsAfter: spendableCredits(outcome.wallet, nowMs),
+          correlationId
+        });
       } else {
         const entId = buildEntitlementId(user.uid, toolId);
         const entSnap = await tx.get(entitlementRef(entId));
@@ -126,6 +153,15 @@ export async function handleProfessionalSession(
             })
           );
         }
+        logEntitlement('entitlement_session_reused', {
+          uidHash: uidH,
+          toolId,
+          sessionId: outcome.session.id,
+          result: 'reused',
+          creditsBefore,
+          creditsAfter: creditsBefore,
+          correlationId
+        });
       }
 
       const promoOk =
@@ -153,6 +189,12 @@ export async function handleProfessionalSession(
     }
     res.status(200).json(payload);
   } catch (err) {
+    logEntitlement('entitlement_api_failed', {
+      uidHash: '',
+      toolId,
+      result: err instanceof Error ? err.message : 'INTERNAL',
+      correlationId
+    });
     sendError(res, err);
   }
 }

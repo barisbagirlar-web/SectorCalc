@@ -2,8 +2,11 @@ import { describe, expect, it } from 'vitest';
 import {
   buildEntitlementId,
   computeEntitlementStatus,
+  creditSessionDecision,
   entitlementCanAccess,
   entitlementDaysRemaining,
+  sessionRemainingLabel,
+  sessionRemainingSeconds,
   touchEntitlementUsage,
   upsertCreditBasedEntitlement,
   type ToolEntitlement
@@ -274,5 +277,84 @@ describe('touchEntitlementUsage', () => {
     expect(touched.usageConsumed).toBe(1);
     expect(touched.creditsConsumed).toBe(15);
     expect(touched.lastUsedAt).toBe(new Date(NOW + HOUR).toISOString());
+  });
+});
+
+describe('creditSessionDecision', () => {
+  it('live session → canOpenWithoutDebit=true, no new session flag', () => {
+    const d = creditSessionDecision({
+      hasLiveSession: true,
+      sessionEndsAt: new Date(NOW + 18 * HOUR).toISOString(),
+      creditsAvailable: 0,
+      creditCost: 15
+    });
+    expect(d.sessionStatus).toBe('ACTIVE');
+    expect(d.canOpenWithoutDebit).toBe(true);
+    expect(d.canStartNewSession).toBe(false);
+  });
+
+  it('no session + enough credits → canStartNewSession=true', () => {
+    const d = creditSessionDecision({
+      hasLiveSession: false,
+      sessionEndsAt: null,
+      creditsAvailable: 85,
+      creditCost: 15
+    });
+    expect(d.sessionStatus).toBe('ENDED');
+    expect(d.canOpenWithoutDebit).toBe(false);
+    expect(d.canStartNewSession).toBe(true);
+  });
+
+  it('no session + insufficient credits → both false (entitlement alone grants nothing)', () => {
+    const d = creditSessionDecision({
+      hasLiveSession: false,
+      sessionEndsAt: null,
+      creditsAvailable: 5,
+      creditCost: 15
+    });
+    expect(d.sessionStatus).toBe('ENDED');
+    expect(d.canOpenWithoutDebit).toBe(false);
+    expect(d.canStartNewSession).toBe(false);
+  });
+
+  it('zero credits → cannot start even when cost is zero', () => {
+    const d = creditSessionDecision({
+      hasLiveSession: false,
+      sessionEndsAt: null,
+      creditsAvailable: 0,
+      creditCost: 0
+    });
+    expect(d.canOpenWithoutDebit).toBe(false);
+    expect(d.canStartNewSession).toBe(false);
+  });
+
+  it('exact expiry boundary is ENDED (server-time comparison)', () => {
+    const d = creditSessionDecision({
+      hasLiveSession: false,
+      sessionEndsAt: new Date(NOW).toISOString(),
+      creditsAvailable: 15,
+      creditCost: 15
+    });
+    expect(d.sessionStatus).toBe('ENDED');
+    expect(d.canStartNewSession).toBe(true);
+  });
+});
+
+describe('sessionRemainingSeconds / sessionRemainingLabel', () => {
+  it('computes whole seconds from server time', () => {
+    expect(
+      sessionRemainingSeconds(new Date(NOW + 18 * HOUR + 42 * 60_000).toISOString(), NOW)
+    ).toBe(18 * 3600 + 42 * 60);
+    expect(sessionRemainingSeconds(null, NOW)).toBe(0);
+    expect(sessionRemainingSeconds(new Date(NOW - 1000).toISOString(), NOW)).toBe(0);
+  });
+
+  it('formats human labels server-side', () => {
+    expect(sessionRemainingLabel(new Date(NOW + 18 * HOUR + 42 * 60_000).toISOString(), NOW)).toBe(
+      '18h 42m'
+    );
+    expect(sessionRemainingLabel(new Date(NOW + 26 * HOUR).toISOString(), NOW)).toBe('1d 2h');
+    expect(sessionRemainingLabel(new Date(NOW + 5 * 60_000).toISOString(), NOW)).toBe('5m');
+    expect(sessionRemainingLabel(null, NOW)).toBe('ended');
   });
 });

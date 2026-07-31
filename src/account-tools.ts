@@ -1,16 +1,17 @@
 /**
  * "My Tools" entitlement panel — renders only what the backend computed.
- * No status/expiry logic on the client.
+ * No status/expiry/credit math on the client; the backend owns every
+ * access decision (sessionStatus, sessionRemaining*, canStartNewSession).
  */
 import { fetchMyEntitlements, type EntitlementView } from './billing/entitlements-api.js';
 
-export type EntToolFilter = 'all' | 'active' | 'expiring' | 'expired';
+export type EntToolFilter = 'all' | 'active' | 'ended' | 'need-credits';
 
 const FILTERS: Array<{ key: EntToolFilter; label: string }> = [
   { key: 'all', label: 'All' },
-  { key: 'active', label: 'Active' },
-  { key: 'expiring', label: 'Expiring' },
-  { key: 'expired', label: 'Expired' }
+  { key: 'active', label: 'Active sessions' },
+  { key: 'ended', label: 'Session ended' },
+  { key: 'need-credits', label: 'Need credits' }
 ];
 
 function esc(s: string): string {
@@ -18,6 +19,10 @@ function esc(s: string): string {
     /[&<>"']/g,
     (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!
   );
+}
+
+function fmtNum(n: number): string {
+  return n.toLocaleString('en-US');
 }
 
 function fmtDate(iso: string | null): string {
@@ -39,85 +44,60 @@ function fmtWhen(iso: string | null): string {
   return fmtDate(iso);
 }
 
-function statusLabel(status: string): string {
-  switch (status) {
-    case 'ACTIVE':
-      return 'Active';
-    case 'EXPIRING':
-      return 'Expiring';
-    case 'EXPIRED':
-      return 'Expired';
-    case 'SUSPENDED':
-      return 'Suspended';
-    default:
-      return status;
-  }
-}
-
-function statusHint(status: string): string {
-  switch (status) {
-    case 'ACTIVE':
-      return 'You can use this tool.';
-    case 'EXPIRING':
-      return 'Access ends soon — renew before it expires.';
-    case 'EXPIRED':
-      return 'Access has ended. Renew to continue.';
-    case 'SUSPENDED':
-      return 'Access is temporarily paused.';
-    default:
-      return '';
-  }
-}
-
-function progressRatio(e: EntitlementView): number {
-  if (!e.startsAt || !e.expiresAt) return 0;
-  const start = Date.parse(e.startsAt);
-  const end = Date.parse(e.expiresAt);
-  if (Number.isNaN(start) || Number.isNaN(end) || end <= start) return 0;
-  return Math.min(1, Math.max(0, (Date.now() - start) / (end - start)));
-}
-
-function usageText(e: EntitlementView): string {
-  if (e.accessType === 'USAGE_LIMIT' && e.usageRemaining != null) {
-    return `${e.usageRemaining} / ${e.usageLimit} uses remaining`;
-  }
-  if (e.accessType === 'LIFETIME') return 'Lifetime access';
-  return `${e.creditsRemaining.toLocaleString('en-US')} credits available · ${e.creditCost} per session`;
+function chipFor(e: EntitlementView): { cls: string; label: string } {
+  if (e.status === 'SUSPENDED') return { cls: 'suspended', label: 'Suspended' };
+  if (e.sessionStatus === 'ACTIVE') return { cls: 'active', label: 'Active' };
+  return { cls: 'ended', label: 'Ended' };
 }
 
 function card(e: EntitlementView): string {
-  const pct = Math.round(progressRatio(e) * 100);
-  const showBar = e.accessType !== 'LIFETIME' && e.expiresAt;
-  const expiresLine = showBar
-    ? `<div class="sc-tools-exp">Access until ${fmtDate(e.expiresAt)}<span class="sc-tools-days">${
-        e.daysRemaining != null && e.daysRemaining > 0
-          ? `${e.daysRemaining} day${e.daysRemaining === 1 ? '' : 's'} remaining`
-          : e.status === 'EXPIRED'
-            ? 'ended'
-            : 'expires today'
-      }</span></div>
-      <div class="sc-tools-bar" role="presentation"><span class="sc-tools-bar-fill" style="width:${Math.max(4, Math.min(100, pct))}%"></span></div>`
-    : e.accessType === 'LIFETIME'
-      ? `<div class="sc-tools-exp">Lifetime access</div>`
-      : `<div class="sc-tools-exp">Session access</div>`;
+  const chip = chipFor(e);
+  const active = e.sessionStatus === 'ACTIVE';
 
-  const cta =
-    e.status === 'EXPIRED' || e.status === 'SUSPENDED'
-      ? `<a class="acc-btn acc-btn-primary acc-btn-sm" href="/pricing.html">Renew access</a>`
-      : `<a class="acc-btn acc-btn-primary acc-btn-sm" href="${esc(e.toolUrl)}">Open tool</a>`;
+  let body: string;
+  if (e.status === 'SUSPENDED') {
+    body = `
+      <p class="sc-tools-status">Access temporarily paused</p>
+      <p class="sc-tools-detail">Session access is paused by the operator. Contact support for help.</p>`;
+  } else if (active) {
+    body = `
+      <p class="sc-tools-status">Session active</p>
+      <p class="sc-tools-detail">Ends in: <strong>${esc(e.sessionRemainingLabel)}</strong></p>
+      <p class="sc-tools-detail">Wallet: ${fmtNum(e.creditsAvailable)} credits</p>
+      <p class="sc-tools-detail sc-tools-muted">Next session: no additional charge while active</p>`;
+  } else if (e.canStartNewSession) {
+    body = `
+      <p class="sc-tools-status">Session ended</p>
+      <p class="sc-tools-detail">${fmtNum(e.creditsAvailable)} credits available</p>
+      <p class="sc-tools-detail">Open tool to start a new 24-hour session</p>
+      <p class="sc-tools-detail">Session cost: ${fmtNum(e.sessionCreditCost)} credits</p>`;
+  } else {
+    body = `
+      <p class="sc-tools-status">Session ended</p>
+      <p class="sc-tools-detail">${fmtNum(e.creditsAvailable)} credits available</p>
+      <p class="sc-tools-detail">${fmtNum(e.sessionCreditCost)} credits required</p>`;
+  }
+
+  let cta: string;
+  if (e.status === 'SUSPENDED') {
+    cta = `<a class="acc-btn acc-btn-ghost acc-btn-sm" href="/contact.html">Contact support</a>`;
+  } else if (active) {
+    cta = `<a class="acc-btn acc-btn-primary acc-btn-sm" href="${esc(e.toolUrl)}">Open Tool</a>`;
+  } else if (e.canStartNewSession) {
+    cta = `<a class="acc-btn acc-btn-primary acc-btn-sm" href="${esc(e.toolUrl)}">Start New Session</a>`;
+  } else {
+    cta = `<a class="acc-btn acc-btn-primary acc-btn-sm" href="/pricing.html">Buy Credits</a>`;
+  }
 
   return `<article class="acc-card sc-tools-card" data-tool-id="${esc(e.toolId)}">
     <div class="sc-tools-head">
       <h3>${esc(e.toolName)}</h3>
-      <span class="sc-tools-chip sc-tools-chip-${e.status.toLowerCase()}">${statusLabel(e.status)}</span>
+      <span class="sc-tools-chip sc-tools-chip-${chip.cls}">${chip.label}</span>
     </div>
-    <p class="sc-tools-purchased">Purchased: ${fmtDate(e.purchasedAt)} · Last used: ${fmtWhen(e.lastUsedAt)}</p>
-    ${expiresLine}
-    <p class="sc-tools-usage">${usageText(e)}</p>
-    <p class="sc-tools-hint">${statusHint(e.status)}</p>
+    ${body}
+    <p class="sc-tools-last">Last used: ${fmtWhen(e.lastUsedAt)}</p>
     <div class="acc-btn-row sc-tools-actions">
       ${cta}
-      <a class="acc-btn acc-btn-ghost acc-btn-sm" href="/account.html">Details</a>
     </div>
   </article>`;
 }
@@ -131,10 +111,10 @@ export interface MyToolsState {
 }
 
 export type MyToolsSummary = {
-  purchased: number;
-  active: number;
-  expiring: number;
-  expired: number;
+  tools: number;
+  activeSessions: number;
+  suspended: number;
+  creditsRemaining: number;
 };
 
 export async function mountMyTools(
@@ -151,26 +131,25 @@ export async function mountMyTools(
   };
 
   const summary = (): MyToolsSummary => ({
-    purchased: state.tools.length,
-    active: state.tools.filter((t) => t.status === 'ACTIVE').length,
-    expiring: state.tools.filter((t) => t.status === 'EXPIRING').length,
-    expired: state.tools.filter((t) => t.status === 'EXPIRED' || t.status === 'SUSPENDED').length
+    tools: state.tools.length,
+    activeSessions: state.tools.filter((t) => t.sessionStatus === 'ACTIVE').length,
+    suspended: state.tools.filter((t) => t.status === 'SUSPENDED').length,
+    creditsRemaining: state.creditsRemaining
   });
 
   const paint = (): void => {
     const s = summary();
     if (onSummary) onSummary(s);
-    const { active, expiring } = s;
 
     const visible =
       filter === 'all'
         ? state.tools
         : state.tools.filter((t) =>
             filter === 'active'
-              ? t.status === 'ACTIVE'
-              : filter === 'expiring'
-                ? t.status === 'EXPIRING'
-                : t.status === 'EXPIRED' || t.status === 'SUSPENDED'
+              ? t.sessionStatus === 'ACTIVE'
+              : filter === 'ended'
+                ? t.sessionStatus === 'ENDED' && t.canStartNewSession
+                : t.sessionStatus === 'ENDED' && !t.canStartNewSession && t.status !== 'SUSPENDED'
           );
 
     let body: string;
@@ -184,8 +163,8 @@ export async function mountMyTools(
       </div>`;
     } else if (state.tools.length === 0) {
       body = `<div class="acc-card sc-tools-empty">
-        <h3>You have not purchased any tools yet.</h3>
-        <p class="acc-muted">Buy credits, then open a calculator to unlock a 24-hour session. Your tools will appear here.</p>
+        <h3>You have not used any tools yet.</h3>
+        <p class="acc-muted">Buy credits, then open a calculator to start a 24-hour session. Tools you use will appear here.</p>
         <div class="acc-btn-row"><a class="acc-btn acc-btn-primary" href="/pricing.html">Explore tools</a></div>
       </div>`;
     } else if (visible.length === 0) {
@@ -201,10 +180,10 @@ export async function mountMyTools(
 
     container.innerHTML = `
       <div class="acc-stat-row sc-tools-stats">
-        <article class="acc-stat"><p class="acc-stat-label">Purchased tools</p><p class="acc-stat-value mono">${state.tools.length}</p></article>
-        <article class="acc-stat"><p class="acc-stat-label">Active</p><p class="acc-stat-value mono">${active}</p></article>
-        <article class="acc-stat"><p class="acc-stat-label">Expiring soon</p><p class="acc-stat-value mono">${expiring}</p></article>
-        <article class="acc-stat"><p class="acc-stat-label">Credits remaining</p><p class="acc-stat-value mono">${state.creditsRemaining.toLocaleString('en-US')}</p></article>
+        <article class="acc-stat"><p class="acc-stat-label">Tools used</p><p class="acc-stat-value mono">${state.tools.length}</p></article>
+        <article class="acc-stat"><p class="acc-stat-label">Active sessions</p><p class="acc-stat-value mono">${s.activeSessions}</p></article>
+        <article class="acc-stat"><p class="acc-stat-label">Suspended</p><p class="acc-stat-value mono">${s.suspended}</p></article>
+        <article class="acc-stat"><p class="acc-stat-label">Credits available</p><p class="acc-stat-value mono">${fmtNum(state.creditsRemaining)}</p></article>
       </div>
       <div class="sc-tools-filterbar">${filters}</div>
       ${body}`;
