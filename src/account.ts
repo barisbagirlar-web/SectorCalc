@@ -33,7 +33,10 @@ import { fetchWallet } from './billing/api.js';
 import type { User } from 'firebase/auth';
 
 const TAB_META: Record<string, { title: string; sub: string }> = {
-  overview: { title: 'Overview', sub: 'Balance, receipts, and session posture for your SectorCalc identity.' },
+  overview: {
+    title: 'Overview',
+    sub: 'Balance, receipts, and session posture for your SectorCalc identity.'
+  },
   billing: { title: 'Billing', sub: 'Purchase receipts from Paddle checkout (browser + cloud).' },
   credits: {
     title: 'Credits',
@@ -87,8 +90,6 @@ function readInspectUid(): string | null {
   }
 }
 
-
-
 function kindLabel(kind: CreditMovement['kind']): string {
   switch (kind) {
     case 'purchase':
@@ -128,10 +129,13 @@ function renderLedger(): void {
       const amt = m.delta > 0 ? `+${m.delta}` : String(m.delta);
       const bal = m.balanceAfter == null ? '—' : String(m.balanceAfter);
       const detail = m.detail ? `<div class="acc-muted">${m.detail}</div>` : '';
+      const tool = m.toolId
+        ? `<div class="acc-muted">Tool: <code class="mono">${m.toolId}</code></div>`
+        : '';
       return `<tr>
         <td class="mono">${fmtDate(m.at)}</td>
         <td><span class="acc-kind acc-kind-${m.kind}">${kindLabel(m.kind)}</span></td>
-        <td><strong>${m.label}</strong>${detail}</td>
+        <td><strong>${m.label}</strong>${detail}${tool}</td>
         <td class="mono ${amtClass}">${amt}</td>
         <td class="mono">${bal}</td>
         <td><code class="mono">${m.txnId}</code></td>
@@ -210,9 +214,16 @@ function renderBilling(): void {
       <td class="mono">${p.amountLabel}</td>
       <td><code class="mono">${p.txnId}</code></td>
       <td>${p.source}</td>
+      <td>${p.status ? `<span class="acc-kind acc-kind-${statusClass(p.status)}">${p.status}</span>` : '—'}</td>
     </tr>`
     )
     .join('');
+}
+
+function statusClass(status: string): string {
+  if (status === 'CREDITED') return 'purchase';
+  if (status === 'FAILED' || status === 'REFUNDED' || status === 'CHARGEDBACK') return 'spend';
+  return 'sync';
 }
 
 function renderDevices(): void {
@@ -246,7 +257,11 @@ function fillPrefs(prefs: AccountPrefs): void {
   document.documentElement.dataset.accCompact = prefs.compactWorkspace ? '1' : '0';
 }
 
-async function loadPremiumData(user: User, displayBalance: number, subjectUid?: string): Promise<void> {
+async function loadPremiumData(
+  user: User,
+  displayBalance: number,
+  subjectUid?: string
+): Promise<void> {
   const uid = subjectUid || user.uid;
   const inspecting = Boolean(subjectUid && subjectUid !== user.uid);
   let cloudPurchases: PurchaseRecord[] = [];

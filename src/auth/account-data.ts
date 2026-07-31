@@ -14,11 +14,12 @@ import {
   serverTimestamp,
   setDoc,
   updateDoc,
+  where,
   type Timestamp
 } from 'firebase/firestore';
 import type { User } from 'firebase/auth';
 import { getFirebaseDb } from './firebase-app.js';
-import { getPackageByCredits } from '../lib/pricing-packages.js';
+import { getPackageByCredits, getPackageByKey } from '../lib/pricing-packages.js';
 
 const PURCHASE_KEY = 'sectorcalc-purchases';
 const PREFS_KEY = 'sectorcalc-prefs';
@@ -31,6 +32,8 @@ export interface PurchaseRecord {
   txnId: string;
   source: string;
   at: string;
+  status?: string;
+  packageKey?: string;
 }
 
 export interface DeviceSession {
@@ -56,7 +59,13 @@ export const DEFAULT_PREFS: AccountPrefs = {
 
 function browserLabel(): string {
   const ua = navigator.userAgent;
-  const os = /Mac/.test(ua) ? 'macOS' : /Windows/.test(ua) ? 'Windows' : /Linux/.test(ua) ? 'Linux' : 'Device';
+  const os = /Mac/.test(ua)
+    ? 'macOS'
+    : /Windows/.test(ua)
+      ? 'Windows'
+      : /Linux/.test(ua)
+        ? 'Linux'
+        : 'Device';
   const br = /Edg\//.test(ua)
     ? 'Edge'
     : /Chrome\//.test(ua)
@@ -135,21 +144,29 @@ export async function recordCloudPurchase(
 
 export async function listCloudPurchases(uid: string): Promise<PurchaseRecord[]> {
   const q = query(
-    collection(getFirebaseDb(), 'users', uid, 'purchases'),
-    orderBy('at', 'desc'),
+    collection(getFirebaseDb(), 'billing_purchases'),
+    where('userId', '==', uid),
+    orderBy('createdAt', 'desc'),
     limit(50)
   );
   const snap = await getDocs(q);
   return snap.docs.map((d) => {
     const data = d.data();
-    const at = data.at as Timestamp | undefined;
+    const at = data.createdAt as string | Timestamp | undefined;
+    const createdAt =
+      at && typeof (at as Timestamp).toDate === 'function'
+        ? (at as Timestamp).toDate().toISOString()
+        : String(at || new Date(0).toISOString());
+    const pack = getPackageByKey(String(data.packageKey || ''));
     return {
-      id: d.id,
-      credits: Number(data.credits) || 0,
-      amountLabel: String(data.amountLabel || '—'),
-      txnId: String(data.txnId || d.id),
-      source: String(data.source || 'checkout'),
-      at: at && typeof at.toDate === 'function' ? at.toDate().toISOString() : new Date().toISOString()
+      id: String(data.id || d.id),
+      credits: Number(data.expectedCredits) || 0,
+      amountLabel: pack?.price || '—',
+      txnId: String(data.paddleTransactionId || data.id || d.id),
+      source: String(data.source || 'Paddle'),
+      status: String(data.status || ''),
+      packageKey: String(data.packageKey || ''),
+      at: createdAt
     };
   });
 }
@@ -221,11 +238,15 @@ export async function listSessions(uid: string): Promise<DeviceSession[]> {
       userAgent: String(data.userAgent || ''),
       createdAt: String(data.createdAt || ''),
       lastSeenAt:
-        last && typeof last.toDate === 'function' ? last.toDate().toISOString() : String(data.lastSeenAt || ''),
+        last && typeof last.toDate === 'function'
+          ? last.toDate().toISOString()
+          : String(data.lastSeenAt || ''),
       current: d.id === current
     };
   });
-  rows.sort((a, b) => Number(b.current) - Number(a.current) || b.lastSeenAt.localeCompare(a.lastSeenAt));
+  rows.sort(
+    (a, b) => Number(b.current) - Number(a.current) || b.lastSeenAt.localeCompare(a.lastSeenAt)
+  );
   return rows;
 }
 
