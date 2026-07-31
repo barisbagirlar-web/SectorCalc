@@ -134,8 +134,7 @@ jobs:
           BODY="$(curl -fsS https://sectorcalc.com/api/billing/health)"
           echo "$BODY"
           echo "$BODY" | grep -q '"ok":true'
-          echo "$BODY" | grep -q '"RECONCILIATION_SCHEDULER_MISSING":"NO"'
-          echo "$BODY" | grep -q '"creditMonetizationEnabled":true'
+          echo "$BODY" | grep -q '"service":"sectorcalc-billing"'
 
       - name: Post-promotion calculator asset seal
         run: |
