@@ -1,73 +1,96 @@
 /**
  * Compact entitlement access bar for premium tool pages.
- * Read-only: renders only what the backend returned. Does not block the form.
+ * Read-only: renders only what the backend returned. Fail-closed: on any
+ * entitlement API failure it shows a retry bar and NEVER unlocks the tool.
  */
 import { fetchToolEntitlement, type EntitlementView } from './entitlements-api.js';
 
-const EN = 'en';
 const esc = (s: string): string =>
   s.replace(
     /[&<>"']/g,
     (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!
   );
 
-function fmtDate(iso: string | null): string {
-  if (!iso) return '—';
-  const d = new Date(iso);
-  return Number.isNaN(d.getTime())
-    ? '—'
-    : d.toLocaleDateString(EN, { month: 'short', day: 'numeric', year: 'numeric' });
+const fmtNum = (n: number): string => n.toLocaleString('en-US');
+
+function statusChip(cls: string, label: string): string {
+  return `<span class="sc-abar-chip sc-abar-chip-${cls}">${label}</span>`;
 }
 
-function statusChip(status: string): string {
-  const label = status.charAt(0) + status.slice(1).toLowerCase();
-  return `<span class="sc-abar-chip sc-abar-chip-${status.toLowerCase()}">${label}</span>`;
+/** Active-session bar. */
+function activeBar(e: EntitlementView): string {
+  return `
+    ${statusChip('active', 'Session active')}
+    <span class="sc-abar-text">${esc(e.sessionRemainingLabel)} remaining · ${fmtNum(
+      e.creditsAvailable
+    )} credits</span>`;
 }
 
-function accessText(e: EntitlementView): string {
-  if (e.accessType === 'LIFETIME') return 'Lifetime access';
-  if (e.accessType === 'USAGE_LIMIT' && e.usageRemaining != null) {
-    return `${e.usageRemaining} / ${e.usageLimit} uses remaining`;
-  }
-  if (e.expiresAt && (e.accessType === 'FIXED_TERM' || e.accessType === 'SUBSCRIPTION')) {
-    const days =
-      e.daysRemaining != null && e.daysRemaining > 0
-        ? ` · ${e.daysRemaining} day${e.daysRemaining === 1 ? '' : 's'} remaining`
-        : '';
-    return `Available until ${fmtDate(e.expiresAt)}${days}`;
-  }
-  if (e.sessionActive) {
-    return `Session active · ${e.creditsRemaining.toLocaleString('en-US')} credits remaining`;
-  }
-  return `${e.creditsRemaining.toLocaleString('en-US')} credits available · ${e.creditCost} per session`;
+/** Ended session with enough credits to start a new one. */
+function canStartBar(e: EntitlementView): string {
+  return `
+    ${statusChip('ended', 'Session ended')}
+    <span class="sc-abar-text">New 24h session costs ${fmtNum(
+      e.sessionCreditCost
+    )} credits · ${fmtNum(e.creditsAvailable)} available</span>`;
 }
 
-function cta(e: EntitlementView): string {
-  if (!e.canAccess || e.status === 'EXPIRED' || e.status === 'SUSPENDED') {
-    const label = e.status === 'EXPIRED' ? 'Renew access' : 'Get access';
-    return `<a class="sc-abar-cta" href="/pricing.html">${label}</a>`;
-  }
-  return `<a class="sc-abar-cta sc-abar-cta-quiet" href="/account.html#tools">View purchase details</a>`;
+/** Ended session with insufficient credits. */
+function needCreditsBar(e: EntitlementView): string {
+  return `
+    ${statusChip('ended', 'Session ended')}
+    <span class="sc-abar-text">${fmtNum(e.sessionCreditCost)} credits required · ${fmtNum(
+      e.creditsAvailable
+    )} available</span>
+    <a class="sc-abar-cta" href="/pricing.html">Buy Credits</a>`;
+}
+
+function suspendedBar(): string {
+  return `
+    ${statusChip('suspended', 'Suspended')}
+    <span class="sc-abar-text">Access is temporarily paused. Contact support.</span>`;
+}
+
+function retryBar(toolId: string): string {
+  return `
+    ${statusChip('ended', 'Unavailable')}
+    <span class="sc-abar-text">Could not load access status.</span>
+    <button type="button" class="sc-abar-cta" data-sc-abar-retry="${esc(toolId)}">Retry</button>`;
 }
 
 export async function mountToolAccessBar(toolId: string, host: HTMLElement): Promise<void> {
   let el = host.querySelector<HTMLElement>('.sc-abar');
   if (el) el.remove();
 
+  const paint = (inner: string): void => {
+    el = document.createElement('div');
+    el.className = 'sc-abar';
+    el.innerHTML = `<div class="sc-abar-lead">${inner}</div>`;
+    host.insertBefore(el, host.firstChild);
+    const retry = el.querySelector<HTMLButtonElement>('[data-sc-abar-retry]');
+    retry?.addEventListener('click', () => void mountToolAccessBar(toolId, host));
+  };
+
   let view: EntitlementView;
   try {
     view = await fetchToolEntitlement(toolId);
-  } catch {
-    return; // no auth / network — never paint a broken bar
+  } catch (err) {
+    if (err instanceof Error && err.message === 'NOT_AUTHENTICATED') return; // sign-in flow handles this
+    paint(retryBar(toolId)); // fail closed: never unlock on API failure
+    return;
   }
 
-  el = document.createElement('div');
-  el.className = `sc-abar sc-abar-${view.status.toLowerCase()}`;
-  el.innerHTML = `
-    <div class="sc-abar-lead">
-      ${statusChip(view.status)}
-      <span class="sc-abar-text">${esc(accessText(view))}</span>
-    </div>
-    ${cta(view)}`;
-  host.insertBefore(el, host.firstChild);
+  if (view.status === 'SUSPENDED') {
+    paint(suspendedBar());
+    return;
+  }
+  if (view.sessionStatus === 'ACTIVE' || view.canOpenWithoutDebit) {
+    paint(activeBar(view));
+    return;
+  }
+  if (view.canStartNewSession) {
+    paint(canStartBar(view));
+    return;
+  }
+  paint(needCreditsBar(view));
 }

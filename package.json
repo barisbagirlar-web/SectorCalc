@@ -92,7 +92,8 @@
     "inject:eeat": "node scripts/inject-eeat.mjs",
     "verify:guides": "node scripts/verify-guides-exclusive.mjs",
     "verify:charts": "node scripts/verify-charts-engineering.mjs",
-    "verify:paddle-live": "node scripts/verify-paddle-live.mjs"
+    "verify:paddle-live": "node scripts/verify-paddle-live.mjs",
+    "test:rules": "firebase emulators:exec --only firestore --project demo-sectorcalc \"vitest run tests/firestore-rules.test.ts\""
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
@@ -117,6 +118,7 @@
     "lit": "3.1.2"
   },
   "devDependencies": {
+    "@firebase/rules-unit-testing": "^3.0.2",
     "@playwright/test": "1.42.1",
     "@vitest/coverage-v8": "1.3.1",
     "eslint": "8.57.0",

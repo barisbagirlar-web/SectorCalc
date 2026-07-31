@@ -40,7 +40,7 @@ const TAB_META: Record<string, { title: string; sub: string }> = {
   },
   tools: {
     title: 'My Tools',
-    sub: 'Purchased tools, access status, and remaining usage — always from the server.'
+    sub: 'Tools you have used, live session status, and remaining usage — always from the server.'
   },
   billing: { title: 'Billing', sub: 'Purchase receipts from Paddle checkout (browser + cloud).' },
   credits: {
@@ -357,13 +357,13 @@ async function render(user: User): Promise<void> {
       void mountMyTools(toolsHost, (s) => {
         const summary = document.getElementById('acc-tools-summary');
         if (!summary) return;
-        const purchased = document.getElementById('acc-sum-purchased');
+        const tools = document.getElementById('acc-sum-tools');
         const active = document.getElementById('acc-sum-active');
-        const expiring = document.getElementById('acc-sum-expiring');
-        if (purchased) purchased.textContent = `Purchased: ${s.purchased}`;
-        if (active) active.textContent = `Active: ${s.active}`;
-        if (expiring) expiring.textContent = `Expiring soon: ${s.expiring}`;
-        if (s.purchased > 0) summary.hidden = false;
+        const credits = document.getElementById('acc-sum-credits');
+        if (tools) tools.textContent = `Tools used: ${s.tools}`;
+        if (active) active.textContent = `Active sessions: ${s.activeSessions}`;
+        if (credits) credits.textContent = `Credits available: ${s.creditsRemaining}`;
+        if (s.tools > 0) summary.hidden = false;
       });
     }
   }

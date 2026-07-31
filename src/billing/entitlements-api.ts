@@ -1,6 +1,8 @@
 /**
- * Client entitlement API — read-only. Status/expiry/canAccess are ALWAYS
- * computed server-side; the browser only renders what the backend returns.
+ * Client entitlement API — read-only. Every decision field (sessionStatus,
+ * sessionRemaining*, canOpenWithoutDebit, canStartNewSession) is computed
+ * server-side. The browser renders what the backend returns and never
+ * recomputes access, expiry, or credit math.
  */
 import { getFirebaseAuth } from '../auth/firebase-app.js';
 
@@ -17,24 +19,25 @@ async function authHeader(): Promise<Record<string, string>> {
 }
 
 export interface EntitlementView {
-  id: string;
   toolId: string;
   toolName: string;
   toolUrl: string;
-  status: string;
   accessType: string;
-  startsAt: string | null;
-  expiresAt: string | null;
-  daysRemaining: number | null;
-  usageLimit: number | null;
+  /** Panel label: ACTIVE while a live session exists, SUSPENDED when ops-suspended. */
+  status: 'ACTIVE' | 'ENDED' | 'SUSPENDED';
+  sessionStatus: 'ACTIVE' | 'ENDED';
+  sessionStartsAt: string | null;
+  sessionEndsAt: string | null;
+  sessionRemainingSeconds: number;
+  sessionRemainingLabel: string;
+  creditsAvailable: number;
+  sessionCreditCost: number;
+  canOpenWithoutDebit: boolean;
+  canStartNewSession: boolean;
+  /** Panel-only extras (never used for access decisions). */
+  firstUsedAt: string | null;
   usageConsumed: number;
-  usageRemaining: number | null;
-  creditsRemaining: number;
-  creditCost: number;
-  canAccess: boolean;
-  sessionActive: boolean;
   lastUsedAt: string | null;
-  purchasedAt: string;
 }
 
 export interface MyEntitlementsResponse {

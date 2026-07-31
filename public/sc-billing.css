@@ -118,10 +118,15 @@
   border-color: rgba(155, 28, 28, 0.35);
   background: rgba(155, 28, 28, 0.07);
 }
-.sc-abar-chip-suspended {
+.sc-abar-chip-ended {
   color: #6b7280;
   border-color: rgba(107, 114, 128, 0.4);
   background: rgba(107, 114, 128, 0.1);
+}
+.sc-abar-chip-suspended {
+  color: #9b1c1c;
+  border-color: rgba(155, 28, 28, 0.35);
+  background: rgba(155, 28, 28, 0.07);
 }
 .sc-abar-text {
   font-size: 13.5px;
@@ -137,6 +142,8 @@
   text-decoration: none;
   font-weight: 700;
   font-size: 12.5px;
+  font-family: inherit;
+  cursor: pointer;
 }
 .sc-abar-cta-quiet {
   background: #fff;
