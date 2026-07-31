@@ -34,6 +34,9 @@ Thumbs.db
 .env.*.local
 !.env.production
 
+# Paddle key dumps — contain live secrets, never commit
+paddle_new_keys.txt
+
 # Test artifacts
 coverage/
 playwright-report/

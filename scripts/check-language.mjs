@@ -32,7 +32,8 @@ const IGNORE_DIRS = new Set([
 // Files never scanned (generated, binary, or self).
 const IGNORE_FILES = new Set([
   'package-lock.json', 'npm-shrinkwrap.json',
-  'check-language.mjs' // self: holds the Turkish word list on purpose
+  'check-language.mjs', // self: holds the Turkish word list on purpose
+  'paddle_new_keys.txt' // secret dump — never committed, never language-scanned
 ]);
 
 const BINARY_EXT = new Set([
