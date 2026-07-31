@@ -4,7 +4,13 @@
  */
 import { currentUser } from '../auth/index.js';
 import { isCreditRequired, resolveToolCost } from './domain/packages.js';
-import { fetchWallet, openProfessionalSessionApi, trackBillingEvent } from './api.js';
+import {
+  fetchWallet,
+  invalidateWalletCache,
+  openProfessionalSessionApi,
+  trackBillingEvent
+} from './api.js';
+import { cacheAuthoritativeBalances } from '../payments/paddle/credits.js';
 
 export interface ProfessionalGateOptions {
   toolId: string;
@@ -79,10 +85,18 @@ export class ProfessionalGate {
     try {
       const w = await fetchWallet();
       this.balance = w.spendableCredits;
+      const mine = (w.activeSessions || []).find((s) => s.toolId === this.toolId);
+      this.entitledUntil = mine && Date.parse(mine.expiresAt) > Date.now() ? mine.expiresAt : null;
+      cacheAuthoritativeBalances({
+        purchasedCredits: w.purchasedCredits,
+        promotionalCredits: w.promotionalCredits,
+        availableCredits: w.spendableCredits
+      });
     } catch {
       this.balance = null;
     }
     this.render();
+    if (this.entitledUntil) this.onEntitled?.({ expiresAt: this.entitledUntil, reused: true });
   }
 
   private async startSession(): Promise<void> {
@@ -148,6 +162,12 @@ export class ProfessionalGate {
       }
       this.entitledUntil = res.expiresAt;
       this.balance = res.newWalletBalance;
+      cacheAuthoritativeBalances({
+        purchasedCredits: res.newWalletBalance,
+        promotionalCredits: 0,
+        availableCredits: res.newWalletBalance
+      });
+      invalidateWalletCache();
       trackBillingEvent(
         res.reused ? 'professional_session_reused' : 'professional_session_started',
         {

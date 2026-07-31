@@ -94,6 +94,7 @@ export async function fetchWallet(): Promise<{
   promotionalCredits: number;
   creditDebt: number;
   spendableCredits: number;
+  activeSessions?: Array<{ id: string; toolId: string; expiresAt: string }>;
 }> {
   const now = Date.now();
   if (walletCache && now - walletCache.timestamp < 5000) {
@@ -110,6 +111,7 @@ export async function fetchWallet(): Promise<{
       promotionalCredits: number;
       creditDebt: number;
       spendableCredits: number;
+      activeSessions?: Array<{ id: string; toolId: string; expiresAt: string }>;
     };
   })();
 

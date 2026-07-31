@@ -1,7 +1,7 @@
 import type { Request } from 'firebase-functions/v2/https';
 import type { Response } from 'express';
 import { requireUser, sendError } from '../lib/auth';
-import { readWallet, ledgerCol } from '../lib/firestore';
+import { readWallet, ledgerCol, sessionsCol } from '../lib/firestore';
 import { spendableCredits } from '../domain/types';
 
 export async function handleWallet(req: Request, res: Response): Promise<void> {
@@ -9,6 +9,17 @@ export async function handleWallet(req: Request, res: Response): Promise<void> {
     const user = await requireUser(req);
     const wallet = await readWallet(user.uid);
     const now = Date.now();
+    const activeSnap = await sessionsCol(user.uid).where('status', '==', 'ACTIVE').get();
+    const activeSessions = activeSnap.docs
+      .map((d) => {
+        const x = d.data();
+        return {
+          id: d.id,
+          toolId: String(x.toolId || ''),
+          expiresAt: String(x.expiresAt || '')
+        };
+      })
+      .filter((s) => s.toolId && Date.parse(s.expiresAt) > now);
     res.status(200).json({
       purchasedCredits: wallet.purchasedCredits,
       promotionalCredits:
@@ -17,7 +28,8 @@ export async function handleWallet(req: Request, res: Response): Promise<void> {
           : 0,
       promotionalExpiresAt: wallet.promotionalExpiresAt,
       creditDebt: wallet.creditDebt,
-      spendableCredits: spendableCredits(wallet, now)
+      spendableCredits: spendableCredits(wallet, now),
+      activeSessions
     });
   } catch (err) {
     sendError(res, err);
