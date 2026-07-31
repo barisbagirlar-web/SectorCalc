@@ -40,6 +40,11 @@ if (fs.existsSync(funcEnvPath)) {
   if (content.includes('PADDLE_API_KEY')) {
     errors.push('functions/.env.sectorcalc-prod contains PADDLE_API_KEY! Must use Firebase Secret Manager.');
   }
+  if (content.includes('PADDLE_WEBHOOK_SECRET')) {
+    errors.push(
+      'functions/.env.sectorcalc-prod contains PADDLE_WEBHOOK_SECRET! Must use Firebase Secret Manager.'
+    );
+  }
   const expectedPrices = [
     'pri_01kvwh93mw594eqe3xcf6k6nbv',
     'pri_01kvwhaef7k3t46qh7teqyfj9j',
@@ -53,14 +58,19 @@ if (fs.existsSync(funcEnvPath)) {
   }
 }
 
-// 3. Inspect git tracked files for hardcoded API keys
+// 3. Inspect git tracked files for hardcoded API keys or webhook secrets
+const gitGrepPatterns = [
+  'pdl_(live|sdbx)_apikey_[A-Za-z0-9_-]{20,}', // server API key
+  'pdl_ntfset_[A-Za-z0-9_-]{20,}', // webhook secret key
+  'whsec_[A-Za-z0-9_-]{20,}' // legacy webhook secret format
+];
 try {
   const gitGrepOutput = execSync(
-    "git grep -nE 'pdl_(live|sdbx)_apikey_[A-Za-z0-9_-]{20,}' -- ':!package-lock.json' ':!functions/package-lock.json'",
+    `git grep -nE '${gitGrepPatterns.join('|')}' -- ':!package-lock.json' ':!functions/package-lock.json'`,
     { encoding: 'utf8', cwd: root }
   ).trim();
   if (gitGrepOutput.length > 0) {
-    errors.push(`Tracked git files contain hardcoded API key secrets:\n${gitGrepOutput}`);
+    errors.push(`Tracked git files contain hardcoded Paddle secrets:\n${gitGrepOutput}`);
   }
 } catch {
   // Exit code 1 from git grep means zero matches (PASS)

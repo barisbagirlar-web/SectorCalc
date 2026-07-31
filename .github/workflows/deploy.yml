@@ -136,6 +136,18 @@ jobs:
           echo "$BODY" | grep -q '"ok":true'
           echo "$BODY" | grep -q '"service":"sectorcalc-billing"'
 
+      # Seal: live Paddle auth + all 4 production prices must pass after promotion.
+      # If the API key is revoked, permissions lost, or a price breaks, deploy fails here.
+      - name: Post-promotion Paddle live seal (readiness)
+        run: |
+          set -euo pipefail
+          BODY="$(curl -fsS https://sectorcalc.com/api/billing/readiness)"
+          echo "$BODY"
+          echo "$BODY" | grep -q '"ok":true'
+          echo "$BODY" | grep -q '"paddleAuthProbe":true'
+          echo "$BODY" | grep -q '"prices":true'
+          echo "$BODY" | grep -q '"webhookSecret":true'
+
       - name: Post-promotion calculator asset seal
         run: |
           set -euo pipefail
