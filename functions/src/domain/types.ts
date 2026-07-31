@@ -62,6 +62,12 @@ export interface BillingPurchase {
   creditedAt: string | null;
   refundedAt: string | null;
   returnTo: string | null;
+  /** Preserved Paddle error code when checkout failed (e.g. permission denied). */
+  errorCode?: string | null;
+  /** Paddle request id for support/tracing. */
+  paddleRequestId?: string | null;
+  /** Server correlation id tied to this checkout attempt. */
+  correlationId?: string | null;
 }
 
 export function emptyWallet(userId: string, nowIso: string): CreditWallet {

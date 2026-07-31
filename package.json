@@ -91,7 +91,8 @@
     "inject:calc-sheet": "node scripts/inject-calc-sheet.mjs",
     "inject:eeat": "node scripts/inject-eeat.mjs",
     "verify:guides": "node scripts/verify-guides-exclusive.mjs",
-    "verify:charts": "node scripts/verify-charts-engineering.mjs"
+    "verify:charts": "node scripts/verify-charts-engineering.mjs",
+    "verify:paddle-live": "node scripts/verify-paddle-live.mjs"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [

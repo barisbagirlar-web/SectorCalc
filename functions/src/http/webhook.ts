@@ -24,11 +24,12 @@ export async function handlePaddleWebhook(req: Request, res: Response): Promise<
   }
   const sig = req.get('Paddle-Signature') || req.get('paddle-signature') || undefined;
   if (!verifyPaddleSignature(raw, sig, secret)) {
-    res.status(400).json({ error: 'INVALID_SIGNATURE' });
+    res.status(401).json({ error: 'INVALID_SIGNATURE' });
     return;
   }
 
-  const event = typeof req.body === 'object' && req.body ? req.body : JSON.parse(raw.toString('utf8'));
+  const event =
+    typeof req.body === 'object' && req.body ? req.body : JSON.parse(raw.toString('utf8'));
   const eventId = String(event?.event_id || event?.eventId || '');
   const eventType = String(event?.event_type || event?.eventType || '');
   if (!eventId) {
@@ -65,22 +66,34 @@ export async function handlePaddleWebhook(req: Request, res: Response): Promise<
       const purchaseId = String(custom.sectorcalc_purchase_id || '');
       let purchaseSnap = purchaseId ? await purchaseRef(purchaseId).get() : null;
       if (!purchaseSnap?.exists && txnId) {
-        const q = await db().collection('billing_purchases').where('paddleTransactionId', '==', txnId).limit(1).get();
+        const q = await db()
+          .collection('billing_purchases')
+          .where('paddleTransactionId', '==', txnId)
+          .limit(1)
+          .get();
         purchaseSnap = q.docs[0] || null;
       }
       if (!purchaseSnap || !('exists' in purchaseSnap ? purchaseSnap.exists : true)) {
-        await evRef.set({ processingStatus: 'awaiting_purchase', errorCode: 'PURCHASE_NOT_FOUND' }, { merge: true });
+        await evRef.set(
+          { processingStatus: 'awaiting_purchase', errorCode: 'PURCHASE_NOT_FOUND' },
+          { merge: true }
+        );
         res.status(200).json({ ok: true, pending: 'PURCHASE_NOT_FOUND' });
         return;
       }
-      const purchase = { id: purchaseSnap.id, ...(purchaseSnap.data() as object) } as BillingPurchase;
+      const purchase = {
+        id: purchaseSnap.id,
+        ...(purchaseSnap.data() as object)
+      } as BillingPurchase;
       const txn = {
         id: txnId,
         status: data.status,
-        items: (data.details?.line_items || data.items || []).map((li: Record<string, unknown>) => ({
-          price_id: String((li.price_id || (li.price as { id?: string })?.id || '')),
-          quantity: Number(li.quantity || 1)
-        })),
+        items: (data.details?.line_items || data.items || []).map(
+          (li: Record<string, unknown>) => ({
+            price_id: String(li.price_id || (li.price as { id?: string })?.id || ''),
+            quantity: Number(li.quantity || 1)
+          })
+        ),
         custom_data: custom
       };
       // Prefer authoritative fetch when API key allows.
@@ -102,7 +115,10 @@ export async function handlePaddleWebhook(req: Request, res: Response): Promise<
       await maybeHandleAdjustment(event.data || {});
     }
 
-    await evRef.set({ processingStatus: 'processed', processedAt: new Date().toISOString(), errorCode: null }, { merge: true });
+    await evRef.set(
+      { processingStatus: 'processed', processedAt: new Date().toISOString(), errorCode: null },
+      { merge: true }
+    );
     res.status(200).json({ ok: true });
   } catch (err) {
     const msg = err instanceof Error ? err.message : 'PROCESSING_FAILED';
@@ -121,7 +137,11 @@ async function maybeHandleAdjustment(data: Record<string, unknown>): Promise<voi
   // Partial refund detection via items if present — V1: if not full package match → REVIEW
   const txnId = String(data.transaction_id || '');
   if (!txnId) return;
-  const q = await db().collection('billing_purchases').where('paddleTransactionId', '==', txnId).limit(1).get();
+  const q = await db()
+    .collection('billing_purchases')
+    .where('paddleTransactionId', '==', txnId)
+    .limit(1)
+    .get();
   if (q.empty) return;
   const doc = q.docs[0]!;
   const purchase = { id: doc.id, ...doc.data() } as BillingPurchase;

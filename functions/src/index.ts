@@ -12,7 +12,7 @@ import { handleWallet, handleWalletTransactions } from './http/wallet';
 import { handlePurchaseStatus } from './http/purchase';
 import { handleProfessionalSession } from './http/session';
 import { handlePaddleWebhook } from './http/webhook';
-import { handleHealth } from './http/health';
+import { handleHealth, handleReadiness } from './http/health';
 import { runPurchaseReconciliation } from './http/reconcile';
 
 initializeApp();
@@ -108,6 +108,12 @@ export const api = onRequest(
     try {
       if (path === '/health' || path === '/billing/health') {
         await handleHealth(req, res, {
+          reconciliationSchedulerDeployed: RECONCILIATION_SCHEDULER_DEPLOYED
+        });
+        return;
+      }
+      if (path === '/readiness' || path === '/billing/readiness') {
+        await handleReadiness(req, res, {
           reconciliationSchedulerDeployed: RECONCILIATION_SCHEDULER_DEPLOYED
         });
         return;
