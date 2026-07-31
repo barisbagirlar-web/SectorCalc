@@ -1,37 +1,155 @@
-.sc-pro-gate{
-  margin:16px 0 20px;
-  padding:20px 22px;
-  border:1.5px solid #C8C8C0;
-  background:linear-gradient(180deg,#fff,#F7F7F2);
-  font-family:Inter,system-ui,sans-serif;
+.sc-pro-gate {
+  margin: 16px 0 20px;
+  padding: 20px 22px;
+  border: 1.5px solid #c8c8c0;
+  background: linear-gradient(180deg, #fff, #f7f7f2);
+  font-family: Inter, system-ui, sans-serif;
 }
-.sc-pro-gate-kicker{
-  margin:0 0 6px;
-  font-family:'JetBrains Mono',monospace;
-  font-size:11px;
-  letter-spacing:0.14em;
-  text-transform:uppercase;
-  color:#0055A4;
-  font-weight:700;
+.sc-pro-gate-kicker {
+  margin: 0 0 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #0055a4;
+  font-weight: 700;
 }
-.sc-pro-gate-title{
-  margin:0 0 10px;
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:28px;
-  font-weight:800;
-  letter-spacing:0.02em;
-  text-transform:uppercase;
-  color:#1A1A1A;
+.sc-pro-gate-title {
+  margin: 0 0 10px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #1a1a1a;
 }
-.sc-pro-gate-copy{ margin:0 0 8px; color:#3D3D3D; font-size:14px; line-height:1.5; }
-.sc-pro-gate-active{ margin:0 0 6px; color:#1B6B3A; font-weight:700; }
-.sc-pro-gate-meta{ margin:0 0 14px; padding-left:18px; color:#3D3D3D; font-size:14px; }
-.sc-pro-gate-actions{ display:flex; flex-wrap:wrap; gap:10px; align-items:center; }
-.sc-pro-gate-btn{
-  display:inline-flex; align-items:center; justify-content:center;
-  padding:10px 16px; border:1.5px solid #C8C8C0; background:#fff;
-  color:#1A1A1A; text-decoration:none; font-weight:700; font-size:13px; cursor:pointer;
+.sc-pro-gate-copy {
+  margin: 0 0 8px;
+  color: #3d3d3d;
+  font-size: 14px;
+  line-height: 1.5;
 }
-.sc-pro-gate-btn-primary{ background:#0055A4; border-color:#0055A4; color:#fff; }
-.sc-pro-gate-err{ color:#9B1C1C; font-weight:600; margin:8px 0; }
-.sc-pro-gate-status{ margin-top:10px; }
+.sc-pro-gate-active {
+  margin: 0 0 6px;
+  color: #1b6b3a;
+  font-weight: 700;
+}
+.sc-pro-gate-meta {
+  margin: 0 0 14px;
+  padding-left: 18px;
+  color: #3d3d3d;
+  font-size: 14px;
+}
+.sc-pro-gate-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+.sc-pro-gate-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  border: 1.5px solid #c8c8c0;
+  background: #fff;
+  color: #1a1a1a;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 13px;
+  cursor: pointer;
+}
+.sc-pro-gate-btn-primary {
+  background: #0055a4;
+  border-color: #0055a4;
+  color: #fff;
+}
+.sc-pro-gate-err {
+  color: #9b1c1c;
+  font-weight: 600;
+  margin: 8px 0;
+}
+.sc-pro-gate-status {
+  margin-top: 10px;
+}
+
+/* ── Compact entitlement access bar (top of premium tool pages) ── */
+.sc-abar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 0 0 14px;
+  padding: 10px 14px;
+  border: 1.5px solid #c8c8c0;
+  background: #fff;
+  font-family: Inter, system-ui, sans-serif;
+}
+.sc-abar-lead {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  min-width: 0;
+}
+.sc-abar-chip {
+  flex: 0 0 auto;
+  padding: 3px 9px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+}
+.sc-abar-chip-active {
+  color: #1b6b3a;
+  border-color: rgba(27, 107, 58, 0.4);
+  background: rgba(27, 107, 58, 0.1);
+}
+.sc-abar-chip-expiring {
+  color: #9a6206;
+  border-color: rgba(154, 98, 6, 0.4);
+  background: rgba(154, 98, 6, 0.1);
+}
+.sc-abar-chip-expired {
+  color: #9b1c1c;
+  border-color: rgba(155, 28, 28, 0.35);
+  background: rgba(155, 28, 28, 0.07);
+}
+.sc-abar-chip-suspended {
+  color: #6b7280;
+  border-color: rgba(107, 114, 128, 0.4);
+  background: rgba(107, 114, 128, 0.1);
+}
+.sc-abar-text {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+.sc-abar-cta {
+  flex: 0 0 auto;
+  padding: 8px 14px;
+  border: 1.5px solid #0055a4;
+  background: #0055a4;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 12.5px;
+}
+.sc-abar-cta-quiet {
+  background: #fff;
+  color: #0055a4;
+}
+.sc-abar-cta:hover {
+  opacity: 0.92;
+}
+@media (max-width: 640px) {
+  .sc-abar {
+    padding: 9px 11px;
+  }
+  .sc-abar-text {
+    font-size: 12.5px;
+  }
+}

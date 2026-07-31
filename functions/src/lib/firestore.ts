@@ -17,6 +17,14 @@ export function purchaseRef(id: string) {
   return db().doc(`billing_purchases/${id}`);
 }
 
+export function entitlementCol() {
+  return db().collection('tool_entitlements');
+}
+
+export function entitlementRef(id: string) {
+  return db().doc(`tool_entitlements/${id}`);
+}
+
 export function webhookEventRef(eventId: string) {
   return db().doc(`paddle_webhook_events/${eventId}`);
 }

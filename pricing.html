@@ -84,7 +84,10 @@
   .pack .cred{font-family:var(--display);font-size:20px;font-weight:800;text-transform:uppercase;letter-spacing:.02em;color:var(--ink);margin:10px 0 4px}
   .pack .per{font-size:11px;color:var(--muted);font-family:var(--mono)}
   .pack-spec{margin-top:12px;padding-top:10px;border-top:1px dashed var(--border);font-family:var(--mono);font-size:10.5px;color:var(--ink2);line-height:1.45}
-  .pack-foot{padding:0 14px 14px}
+  .pack-access{list-style:none;margin:10px 14px 0;padding:10px 0 0 0;border-top:1px dashed var(--border);display:grid;gap:5px}
+  .pack-access li{font-size:11.5px;color:var(--ink2);padding-left:14px;position:relative;line-height:1.4}
+  .pack-access li::before{content:"—";position:absolute;left:0;color:var(--blue);font-family:var(--mono)}
+  .pack-foot{padding:0 14px 14px;margin-top:12px}
   .pack-foot .btn{margin-top:4px}
   .rail{display:grid;grid-template-columns:1.15fr .85fr;gap:14px;margin-bottom:14px}
   .panel{background:var(--bg);border:1.5px solid var(--border);padding:18px 18px 14px}
@@ -441,6 +444,8 @@
 
 
 
+
+
 <!--SC-SEO-BREADCRUMB-START-->
 <nav aria-label="Breadcrumb" class="sc-breadcrumb">
   <ol itemscope itemtype="https://schema.org/BreadcrumbList">
@@ -514,7 +519,7 @@
           <div class="note" id="free-tier"><b>Checkout status loading…</b></div>
         </section>
       </div>
-                                                <!--SC-PRICING-FLOOR-START-->
+                                                            <!--SC-PRICING-FLOOR-START-->
       <div class="section-label" style="margin-top:22px"><strong>02 · Open reference bench</strong><span>Five instruments · calculate immediately · wallet not required</span></div>
       <div class="tools-grid" data-pricing-floor="free" aria-label="Open reference bench calculators">
         <a class="tool-chip" data-access="free" href="/calculator/surface-finish"><span class="sc">SC-028</span><span class="chip-access chip-free">Open bench · no session</span><span class="nm">Surface Finish (Ra / Rz)</span><span class="ds">Open bench · no sign-in · no session debit</span></a>

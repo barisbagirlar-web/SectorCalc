@@ -11,6 +11,7 @@
  */
 import { isCreditRequired } from './domain/packages.js';
 import { mountProfessionalGate, type ProfessionalGate } from './professional-ui.js';
+import { mountToolAccessBar } from './access-bar.js';
 
 declare global {
   interface Window {
@@ -43,7 +44,7 @@ function ensureBillingCss(): void {
   if (document.querySelector('link[href*="sc-billing.css"]')) return;
   const link = document.createElement('link');
   link.rel = 'stylesheet';
-  link.href = '/sc-billing.css?v=2';
+  link.href = '/sc-billing.css?v=3';
   document.head.appendChild(link);
 }
 
@@ -253,6 +254,7 @@ export function bootToolCreditGate(): void {
   const mount = ensureMount();
   if (window.__scProGate && mount.querySelector('.sc-pro-gate')) {
     installIntercepts(window.__scProGate);
+    void mountToolAccessBar(toolId, mount);
     return;
   }
 
@@ -278,6 +280,7 @@ export function bootToolCreditGate(): void {
   });
   window.__scProGate = gate;
   installIntercepts(gate);
+  void mountToolAccessBar(toolId, mount);
 
   // Classic inline engines define calculate() after modules; poll briefly.
   // Also re-apply lock after SCStudy mounts / late field injection.

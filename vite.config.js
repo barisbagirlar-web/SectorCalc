@@ -99,7 +99,7 @@ export default defineConfig({
   test: {
     environment: 'node', // core tests use no DOM; crypto.subtle is global in Node 20
     globals: true,
-    include: ['src/**/*.test.ts', 'tests/**/*.test.ts'],
+    include: ['src/**/*.test.ts', 'tests/**/*.test.ts', 'functions/src/**/*.test.ts'],
     coverage: {
       provider: 'v8',
       all: false, // lock behavior; do not rely on version defaults

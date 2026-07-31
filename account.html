@@ -8,7 +8,7 @@
 <meta name="robots" content="noindex, follow">
 <link rel="icon" href="/favicon.ico?v=20260724c" sizes="any">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/sc-account.css?v=7">
+<link rel="stylesheet" href="/sc-account.css?v=8">
 <link rel="stylesheet" href="/sc-form-fields.css?v=6">
 <script type="module" src="/src/auth-nav.ts"></script>
   <!--SC-CALC-SHEET-START-->
@@ -58,6 +58,8 @@
   <a href="/login.html" class="btn-primary" data-nav="login">Sign in</a>
 </div>
 <!--SC-SITE-NAV-END-->
+
+
 
 
 
@@ -168,6 +170,7 @@
       </div>
       <nav class="acc-side-nav" role="tablist" aria-orientation="vertical">
         <button type="button" class="acc-side-btn is-active" data-acc-tab="overview" role="tab" aria-selected="true">Overview</button>
+        <button type="button" class="acc-side-btn" data-acc-tab="tools" role="tab" aria-selected="false">My Tools</button>
         <button type="button" class="acc-side-btn" data-acc-tab="billing" role="tab" aria-selected="false">Billing</button>
         <button type="button" class="acc-side-btn" data-acc-tab="credits" role="tab" aria-selected="false">Credits</button>
         <button type="button" class="acc-side-btn" data-acc-tab="security" role="tab" aria-selected="false">Security</button>
@@ -219,6 +222,15 @@
           <article class="acc-stat"><p class="acc-stat-label">Devices</p><p class="acc-stat-value mono" id="acc-device-count">—</p><p class="acc-stat-hint">Registered sessions</p></article>
           <article class="acc-stat"><p class="acc-stat-label">Member since</p><p class="acc-stat-value mono" id="acc-since">—</p><p class="acc-stat-hint">UTC</p></article>
         </div>
+        <div class="acc-tools-summary" id="acc-tools-summary" hidden>
+          <p class="acc-tools-summary-label">My Tools</p>
+          <div class="acc-tools-summary-chips">
+            <span class="acc-tools-chip" id="acc-sum-purchased">Purchased: 0</span>
+            <span class="acc-tools-chip" id="acc-sum-active">Active: 0</span>
+            <span class="acc-tools-chip" id="acc-sum-expiring">Expiring soon: 0</span>
+            <a class="acc-tools-summary-link" href="/account.html#tools">Manage →</a>
+          </div>
+        </div>
         <div class="acc-next">
           <h3>Next best action</h3>
           <p id="acc-next-copy">—</p>
@@ -226,6 +238,16 @@
             <a class="acc-btn acc-btn-primary" href="/pricing.html">Buy credits</a>
             <a class="acc-btn acc-btn-ghost" href="/calculator/tolerance-stack-up">Open SC-008</a>
           </div>
+        </div>
+      </div>
+
+      <div class="acc-tab" id="acc-tab-tools" role="tabpanel" hidden>
+        <div class="acc-toolbar">
+          <p class="acc-lede">Every tool you have accessed or unlocked — status, access window, and remaining usage come from the server.</p>
+        </div>
+        <div id="acc-tools-host"></div>
+        <div class="acc-card acc-card-tools-notice" style="margin-top:14px">
+          <p class="acc-muted"><strong>How access works:</strong> buying credits unlocks any calculator. Opening a calculator starts a <strong>24-hour session</strong> and debits session credits. When the session ends, reopen to start a new one while credits remain.</p>
         </div>
       </div>
 

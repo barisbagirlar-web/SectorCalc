@@ -96,6 +96,12 @@ service cloud.firestore {
       allow write: if false;
     }
 
+    /* Server-authoritative tool entitlements (Admin SDK only). */
+    match /tool_entitlements/{id} {
+      allow read: if signedIn() && (resource.data.userId == request.auth.uid || isOpsAdmin());
+      allow write: if false;
+    }
+
     match /paddle_webhook_events/{id} {
       allow read: if isOpsAdmin();
       allow write: if false;
