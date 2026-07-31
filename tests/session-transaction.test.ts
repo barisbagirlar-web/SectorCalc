@@ -333,3 +333,155 @@ describe('executeProfessionalSessionTx — Firestore read-before-write', () => {
     expect(tx2.order.filter((o) => o === 'write:wallet')).toHaveLength(0);
   });
 });
+
+/** Shared in-memory store with Firestore-style optimistic concurrency. */
+class ConcurrentStore {
+  docs = new Map<string, Record<string, unknown> | null>();
+
+  constructor(entries: Array<[string, Record<string, unknown> | null]> = []) {
+    for (const [k, v] of entries) this.docs.set(k, v);
+  }
+
+  clone(): ConcurrentStore {
+    return new ConcurrentStore(Array.from(this.docs));
+  }
+}
+
+function deepEqualDoc(a: unknown, b: unknown): boolean {
+  return JSON.stringify(a ?? null) === JSON.stringify(b ?? null);
+}
+
+/** Fake tx bound to a snapshot; commit fails (conflict) if any read doc changed. */
+class SnapshotTx implements ProfessionalSessionTx {
+  private readonly snapshot: Map<string, Record<string, unknown> | null>;
+  private readonly readRefs: string[] = [];
+  private readonly writes: Array<{
+    kind: 'set' | 'update';
+    ref: string;
+    data: Record<string, unknown>;
+  }> = [];
+  private wrote = false;
+
+  constructor(
+    private readonly store: ConcurrentStore,
+    private readonly toolId: string
+  ) {
+    this.snapshot = store.clone().docs;
+  }
+
+  private assertReadAllowed(): void {
+    if (this.wrote) throw new Error('FIRESTORE_READ_AFTER_WRITE');
+  }
+
+  async getDoc(ref: unknown): Promise<SessionDocSnapshotLike> {
+    this.assertReadAllowed();
+    const r = String(ref);
+    this.readRefs.push(r);
+    const d = this.snapshot.get(r);
+    return d === null || d === undefined
+      ? { exists: false, data: () => undefined }
+      : { exists: true, data: () => d };
+  }
+
+  async getQuery(ref: unknown): Promise<SessionQuerySnapshotLike> {
+    this.assertReadAllowed();
+    const docs: Array<{ id: string; ref: unknown; data(): Record<string, unknown> }> = [];
+    for (const [key, data] of this.snapshot) {
+      if (!key.startsWith('session:')) continue;
+      if (data?.toolId !== this.toolId || data?.status !== 'ACTIVE') continue;
+      docs.push({ id: data.id as string, ref: key, data: () => data });
+    }
+    docs.sort((a, b) => (a.id < b.id ? -1 : 1));
+    return { docs: docs.slice(0, 5) };
+  }
+
+  set(ref: unknown, data: unknown): void {
+    this.wrote = true;
+    this.writes.push({ kind: 'set', ref: String(ref), data: data as Record<string, unknown> });
+  }
+
+  update(ref: unknown, data: unknown): void {
+    this.wrote = true;
+    this.writes.push({ kind: 'update', ref: String(ref), data: data as Record<string, unknown> });
+  }
+
+  private sessionRows(
+    map: Map<string, Record<string, unknown> | null>
+  ): Array<Record<string, unknown>> {
+    const out: Array<Record<string, unknown>> = [];
+    for (const [key, data] of map) {
+      if (!key.startsWith('session:') || data?.toolId !== this.toolId) continue;
+      out.push({ ref: key, id: data.id, status: data.status, toolId: data.toolId });
+    }
+    return out.sort((a, b) => (String(a.ref) < String(b.ref) ? -1 : 1));
+  }
+
+  /** True when the committed store diverges from what this tx read. */
+  conflicts(store: ConcurrentStore): boolean {
+    for (const r of this.readRefs) {
+      if (!deepEqualDoc(this.snapshot.get(r), store.docs.get(r))) return true;
+    }
+    return (
+      JSON.stringify(this.sessionRows(this.snapshot)) !==
+      JSON.stringify(this.sessionRows(store.docs))
+    );
+  }
+
+  commit(store: ConcurrentStore): void {
+    for (const w of this.writes) {
+      store.docs.set(w.ref, { ...(store.docs.get(w.ref) ?? {}), ...w.data });
+    }
+  }
+}
+
+/** Mimics Firestore runTransaction: retry the callback when the commit conflicts. */
+async function runWithRetry(
+  store: ConcurrentStore,
+  toolId: string,
+  ctx: Parameters<typeof executeProfessionalSessionTx>[2],
+  maxAttempts = 5
+): Promise<Record<string, unknown>> {
+  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+    const tx = new SnapshotTx(store, toolId);
+    const result = await executeProfessionalSessionTx(tx, refs(), ctx);
+    if (!tx.conflicts(store)) {
+      tx.commit(store);
+      return result;
+    }
+  }
+  throw new Error('MAX_TRANSACTION_RETRIES');
+}
+
+describe('executeProfessionalSessionTx — concurrent open (real two-request contention)', () => {
+  it('7. concurrent open: one debit, one active session, loser reuses after retry', async () => {
+    const store = new ConcurrentStore([['wallet', walletData()]]);
+
+    const [first, second] = await Promise.all([
+      runWithRetry(store, 'SC-026', baseCtx()),
+      runWithRetry(store, 'SC-026', baseCtx())
+    ]);
+
+    // Exactly one wallet decrement.
+    const wallet = store.docs.get('wallet') as { purchasedCredits: number; version: number };
+    expect(wallet.purchasedCredits).toBe(85);
+    expect(wallet.version).toBe(1);
+
+    // Exactly one active session survives.
+    const activeSessions = [...store.docs.keys()]
+      .filter((k) => k.startsWith('session:'))
+      .map((k) => store.docs.get(k) as { status: string });
+    expect(activeSessions.filter((s) => s.status === 'ACTIVE')).toHaveLength(1);
+
+    // Exactly one ledger debit.
+    const ledgerEntries = [...store.docs.keys()].filter((k) => k.startsWith('ledger:'));
+    expect(ledgerEntries).toHaveLength(1);
+
+    // One caller debited a new session; the other reused the committed session.
+    const newSession = [first, second].filter((r) => r.reused === false);
+    const reused = [first, second].filter((r) => r.reused === true);
+    expect(newSession).toHaveLength(1);
+    expect(reused).toHaveLength(1);
+    expect(newSession[0]!.creditCost).toBe(15);
+    expect(reused[0]!.creditCost).toBe(0);
+  });
+});
