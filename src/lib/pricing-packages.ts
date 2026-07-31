@@ -2,7 +2,12 @@
  * Credit package definitions — display SSOT for pricing UI.
  * Server maps packageKey → Paddle price ID. Browser never owns price IDs for checkout.
  */
-export type CreditPackageKey = 'STARTER' | 'WORKSHOP' | 'PROFESSIONAL' | 'TEAM_WALLET';
+export type CreditPackageKey =
+  | 'STARTER'
+  | 'WORKSHOP'
+  | 'PROFESSIONAL'
+  | 'TEAM_WALLET'
+  | 'TEST_1000';
 
 export interface CreditPackage {
   key: CreditPackageKey;
@@ -49,12 +54,28 @@ export const PACKAGES: CreditPackage[] = [
   }
 ];
 
+/**
+ * Secret internal test package — 2 TRY Paddle price, 1000 credits.
+ * NEVER part of the public PACKAGES catalog; only reachable via the
+ * pricing page ?test=1000 flag. Server rejects checkout for any
+ * non-allowlisted email regardless of what the browser sends.
+ */
+export const TEST_PACKAGE_1000: CreditPackage = {
+  key: 'TEST_1000',
+  credits: 1000,
+  price: '2 TRY',
+  perCredit: 'TEST',
+  paddlePriceId: ''
+};
+
 /** Purchased credits do not expire (mandate). Promotional credits are separate. */
 export const FREE_MONTHLY_CREDITS = '0';
 export const CREDIT_VALIDITY = 'never expire';
 
 export function getPackageByKey(key: string): CreditPackage | undefined {
-  return PACKAGES.find((p) => p.key === key);
+  return (
+    PACKAGES.find((p) => p.key === key) ?? (key === 'TEST_1000' ? TEST_PACKAGE_1000 : undefined)
+  );
 }
 
 export function getPackageByCredits(credits: number): CreditPackage | undefined {

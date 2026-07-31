@@ -348,7 +348,10 @@ export interface PaddlePriceCheck {
 }
 
 /** Expected credit/minor-unit invariants from the server SSOT. */
-const EXPECTED_PRICE_INVARIANTS: Record<CreditPackageKey, { credits: number; minor: string }> = {
+const EXPECTED_PRICE_INVARIANTS: Record<
+  Exclude<CreditPackageKey, 'TEST_1000'>,
+  { credits: number; minor: string }
+> = {
   STARTER: {
     credits: CREDIT_PACKAGES.STARTER.credits,
     minor: CREDIT_PACKAGES.STARTER.expectedMinorUnits
@@ -377,7 +380,9 @@ export async function verifyPaddlePrices(priceMap: Record<CreditPackageKey, stri
 }> {
   const env = getPaddleEnv();
   const checks: PaddlePriceCheck[] = [];
-  for (const key of Object.keys(EXPECTED_PRICE_INVARIANTS) as CreditPackageKey[]) {
+  for (const key of Object.keys(EXPECTED_PRICE_INVARIANTS) as Array<
+    keyof typeof EXPECTED_PRICE_INVARIANTS
+  >) {
     const priceId = priceMap[key];
     const invariant = EXPECTED_PRICE_INVARIANTS[key];
     const check: PaddlePriceCheck = { key, priceId, ok: false };

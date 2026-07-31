@@ -3,7 +3,12 @@
  * Monetary price lives in Paddle; credits + packageKey live here.
  */
 
-export type CreditPackageKey = 'STARTER' | 'WORKSHOP' | 'PROFESSIONAL' | 'TEAM_WALLET';
+export type CreditPackageKey =
+  | 'STARTER'
+  | 'WORKSHOP'
+  | 'PROFESSIONAL'
+  | 'TEAM_WALLET'
+  | 'TEST_1000';
 
 export type PricingTier = 'FREE' | 'CORE' | 'PRO' | 'ADVANCED' | 'DECISION';
 
@@ -46,6 +51,17 @@ export const CREDIT_PACKAGES: Record<CreditPackageKey, CreditPackageDef> = {
     credits: 1000,
     displayPriceUsd: '$399',
     expectedMinorUnits: '39900'
+  },
+  /**
+   * Internal test package — 2 TRY Paddle price, 1000 credits.
+   * NEVER shown on the public pricing page; only reachable via a secret
+   * URL param and server-gated to allowlisted users.
+   */
+  TEST_1000: {
+    key: 'TEST_1000',
+    credits: 1000,
+    displayPriceUsd: 'TEST',
+    expectedMinorUnits: '200'
   }
 };
 
