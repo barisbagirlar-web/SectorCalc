@@ -16,6 +16,11 @@ npx lint-staged || {
   exit 1
 }
 
+node scripts/verify-paddle-production-guard.mjs || {
+  echo "[FAIL] Paddle production guard failed — sandbox/test/secret leak detected."
+  exit 1
+}
+
 # If regression/SEO/billing surfaces changed, keep catalog fixture fresh.
 CHANGED="$(git diff --cached --name-only)"
 if echo "$CHANGED" | grep -Eq '^(seo/|src/billing/|tests/e2e/|scripts/export-regression-catalog)'; then
