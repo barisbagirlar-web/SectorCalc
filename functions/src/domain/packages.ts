@@ -53,15 +53,15 @@ export const CREDIT_PACKAGES: Record<CreditPackageKey, CreditPackageDef> = {
     expectedMinorUnits: '39900'
   },
   /**
-   * Internal test package — 2 TRY Paddle price, 1000 credits.
-   * NEVER shown on the public pricing page; only reachable via a secret
-   * URL param and server-gated to allowlisted users.
+   * Internal test package — 27 TRY Paddle price (Paddle TRY minimum is 27),
+   * 1000 credits. NEVER shown on the public pricing page; only reachable via
+   * a secret URL param and server-gated to allowlisted users.
    */
   TEST_1000: {
     key: 'TEST_1000',
     credits: 1000,
     displayPriceUsd: 'TEST',
-    expectedMinorUnits: '200'
+    expectedMinorUnits: '2700'
   }
 };
 

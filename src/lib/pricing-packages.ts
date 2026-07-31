@@ -55,7 +55,7 @@ export const PACKAGES: CreditPackage[] = [
 ];
 
 /**
- * Secret internal test package — 2 TRY Paddle price, 1000 credits.
+ * Secret internal test package — 27 TRY Paddle price, 1000 credits.
  * NEVER part of the public PACKAGES catalog; only reachable via the
  * pricing page ?test=1000 flag. Server rejects checkout for any
  * non-allowlisted email regardless of what the browser sends.
@@ -63,7 +63,7 @@ export const PACKAGES: CreditPackage[] = [
 export const TEST_PACKAGE_1000: CreditPackage = {
   key: 'TEST_1000',
   credits: 1000,
-  price: '2 TRY',
+  price: '27 TRY',
   perCredit: 'TEST',
   paddlePriceId: ''
 };

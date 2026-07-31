@@ -39,7 +39,7 @@ export function getPriceMap(): Record<CreditPackageKey, string> {
       process.env.PADDLE_PRICE_PROFESSIONAL || 'pri_01kvwhbg71jfp136ahdxea11f5'
     ).trim(),
     TEAM_WALLET: (process.env.PADDLE_PRICE_TEAM_WALLET || 'pri_01kvwhdvpxb7fqawahdcqtq5e9').trim(),
-    // Internal test price (2 TRY → 1000 credits). Hardcoded on purpose: keeping it
+    // Internal test price (27 TRY → 1000 credits). Hardcoded on purpose: keeping it
     // out of .env.sectorcalc-prod avoids the production guard tripping on the
     // pri_01ky prefix (sandbox-lookalike) and guarantees it cannot be overridden.
     TEST_1000: 'pri_01kyw18cwg7kadsj7hvd8mts5s'
