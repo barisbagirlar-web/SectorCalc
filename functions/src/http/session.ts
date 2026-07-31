@@ -1,18 +1,24 @@
 import type { Request } from 'firebase-functions/v2/https';
 import type { Response } from 'express';
-import {
-  FieldValue,
-  type DocumentData,
-  type DocumentReference,
-  type Query,
-  type SetOptions,
-  type UpdateData
+import type {
+  DocumentData,
+  DocumentReference,
+  Query,
+  SetOptions,
+  UpdateData
 } from 'firebase-admin/firestore';
 import { requireUser, sendError } from '../lib/auth';
 import { resolveToolCost } from '../domain/packages';
 import { openProfessionalSession, type ProfessionalSession } from '../domain/session';
 import { monetizationEnabled } from '../lib/config';
-import { db, ledgerCol, sessionsCol, walletRef, entitlementRef } from '../lib/firestore';
+import {
+  db,
+  ledgerCol,
+  sessionsCol,
+  walletRef,
+  entitlementRef,
+  FieldValue
+} from '../lib/firestore';
 import { emptyWallet, spendableCredits } from '../domain/types';
 import {
   buildEntitlementId,

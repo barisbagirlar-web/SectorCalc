@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import {
   executeProfessionalSessionTx,
   type ProfessionalSessionTx,
@@ -6,6 +6,32 @@ import {
   type SessionDocSnapshotLike,
   type SessionQuerySnapshotLike
 } from '../functions/src/http/session';
+
+// CI does not install functions dependencies, so Firebase runtime modules are
+// mocked: the tests exercise only the pure transaction core, never the handler.
+vi.mock('../functions/src/lib/firestore', () => ({
+  db: vi.fn(() => ({ collection: () => ({ doc: () => ({ id: 'mock-id' }) }) })),
+  walletRef: vi.fn((uid: string) => `wallet:${uid}`),
+  ledgerCol: vi.fn((uid: string) => ({ doc: (id: string) => `ledger:${uid}/${id}` })),
+  sessionsCol: vi.fn((uid: string) => ({
+    where: vi.fn().mockReturnThis(),
+    doc: (id: string) => `session:${uid}/${id}`
+  })),
+  entitlementRef: vi.fn((id: string) => `ent:${id}`),
+  FieldValue: { serverTimestamp: () => 'SERVER_TS' }
+}));
+vi.mock('../functions/src/lib/auth', () => ({
+  requireUser: vi.fn(),
+  sendError: vi.fn()
+}));
+vi.mock('../functions/src/lib/config', () => ({
+  monetizationEnabled: () => true
+}));
+vi.mock('../functions/src/lib/entitlement-log', () => ({
+  correlationIdFrom: () => 'corr-test',
+  logEntitlement: vi.fn(),
+  uidHash: (uid: string) => uid
+}));
 
 const NOW_MS = Date.UTC(2026, 6, 31, 10, 0, 0);
 const NOW_ISO = new Date(NOW_MS).toISOString();
