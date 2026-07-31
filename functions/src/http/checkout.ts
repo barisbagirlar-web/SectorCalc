@@ -14,6 +14,21 @@ import {
 import { db, purchaseRef } from '../lib/firestore';
 import { checkRateLimit } from '../lib/rate-limit';
 
+/**
+ * Internal test package gate. TEST_1000 grants 1000 credits for a 2 TRY
+ * Paddle price — a massive discount, so it is strictly limited to the
+ * owner's email. Anyone else gets a hard 403 even if they know the key.
+ */
+const TEST_PACKAGE_ALLOWED_EMAILS: ReadonlySet<string> = new Set(['barisbagirlar@gmail.com']);
+
+function assertTestPackageAllowed(user: { email?: string }): void {
+  if (!user.email || !TEST_PACKAGE_ALLOWED_EMAILS.has(user.email)) {
+    const err = new Error('FORBIDDEN');
+    (err as Error & { status: number }).status = 403;
+    throw err;
+  }
+}
+
 export async function handleCheckout(req: Request, res: Response): Promise<void> {
   try {
     if (!monetizationEnabled()) {
@@ -32,6 +47,9 @@ export async function handleCheckout(req: Request, res: Response): Promise<void>
     if (!isCreditPackageKey(body.packageKey)) {
       res.status(400).json({ error: 'INVALID_PACKAGE' });
       return;
+    }
+    if (body.packageKey === 'TEST_1000') {
+      assertTestPackageAllowed(user);
     }
     const pkg = resolvePackage(body.packageKey);
     const returnTo = sanitizeReturnTo(body.returnTo, [

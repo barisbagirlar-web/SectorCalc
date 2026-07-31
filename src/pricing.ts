@@ -1,4 +1,9 @@
-import { PACKAGES, getPackageByKey, type CreditPackageKey } from './lib/pricing-packages.js';
+import {
+  PACKAGES,
+  TEST_PACKAGE_1000,
+  getPackageByKey,
+  type CreditPackageKey
+} from './lib/pricing-packages.js';
 import {
   isCheckoutConfigured,
   openPreparedCheckout,
@@ -40,20 +45,25 @@ function init(): void {
 
   const grid = document.querySelector('#packages');
   if (grid) {
-    grid.innerHTML = PACKAGES.map((p) => {
-      const pop = p.featured ? ' pop' : '';
-      const tag = p.badge ? `<span class="tag">${p.badge}</span>` : '';
-      const perLabel = `${p.perCredit} / credit`;
-      const label = isCheckoutConfigured() ? 'Buy one-time' : 'Notify me';
-      const spec =
-        p.key === 'STARTER'
-          ? 'Shop check · light sessions'
-          : p.key === 'WORKSHOP'
-            ? 'Daily floor · most jobs'
-            : p.key === 'PROFESSIONAL'
-              ? 'Heavy analysis · report cycles'
-              : 'Shared wallet · team load';
-      return `<article class="pack${pop}" id="${p.key}">${tag}
+    // TEST_1000 is a secret internal package: only surfaced when the page is
+    // opened with ?test=1000. Never shown on the public pricing page.
+    const secretTestMode = new URLSearchParams(window.location.search).get('test') === '1000';
+    const visiblePackages = secretTestMode ? [...PACKAGES, TEST_PACKAGE_1000] : PACKAGES;
+    grid.innerHTML = visiblePackages
+      .map((p) => {
+        const pop = p.featured ? ' pop' : '';
+        const tag = p.badge ? `<span class="tag">${p.badge}</span>` : '';
+        const perLabel = `${p.perCredit} / credit`;
+        const label = isCheckoutConfigured() ? 'Buy one-time' : 'Notify me';
+        const spec =
+          p.key === 'STARTER'
+            ? 'Shop check · light sessions'
+            : p.key === 'WORKSHOP'
+              ? 'Daily floor · most jobs'
+              : p.key === 'PROFESSIONAL'
+                ? 'Heavy analysis · report cycles'
+                : 'Shared wallet · team load';
+        return `<article class="pack${pop}" id="${p.key}">${tag}
         <div class="pack-top"><span class="pack-id">${p.key}</span><span class="pack-rev">ONE-TIME</span></div>
         <div class="pack-mid">
           <div class="amt">${p.price}</div>
@@ -65,7 +75,8 @@ function init(): void {
           <button class="load btn btn-ghost" data-package-key="${p.key}" type="button">${label}</button>
         </div>
       </article>`;
-    }).join('');
+      })
+      .join('');
   }
 
   const status = document.querySelector('#pay-status');
