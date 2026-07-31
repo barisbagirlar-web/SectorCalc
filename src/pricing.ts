@@ -71,6 +71,12 @@ function init(): void {
           <div class="per">${perLabel} · never expire*</div>
           <div class="pack-spec">${spec}</div>
         </div>
+        <ul class="pack-access">
+          <li>Credits never expire</li>
+          <li>Unlock any calculator — 24h session per open</li>
+          <li>Access starts after confirmed payment</li>
+          <li>Renew anytime by buying another pack</li>
+        </ul>
         <div class="pack-foot">
           <button class="load btn btn-ghost" data-package-key="${p.key}" type="button">${label}</button>
         </div>
@@ -116,7 +122,10 @@ function init(): void {
             if (status) status.textContent = 'Payment received. Activating credits…';
             const st = await pollPurchaseCredited(purchaseId);
             if (st.status === 'CREDITED') {
-              if (status) status.textContent = 'Credits activated on your server wallet.';
+              if (status) {
+                status.innerHTML =
+                  'Payment confirmed — <strong>credits activated on your server wallet.</strong><br>Access starts now. Open any calculator to begin your first 24-hour session.';
+              }
               renderBalance();
             } else if (st.status === 'CREDIT_ACTIVATION_PENDING') {
               if (status) {

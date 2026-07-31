@@ -30,12 +30,17 @@ import {
 } from './auth/index.js';
 import { readCredits } from './payments/paddle/credits.js';
 import { fetchWallet } from './billing/api.js';
+import { mountMyTools } from './account-tools.js';
 import type { User } from 'firebase/auth';
 
 const TAB_META: Record<string, { title: string; sub: string }> = {
   overview: {
     title: 'Overview',
     sub: 'Balance, receipts, and session posture for your SectorCalc identity.'
+  },
+  tools: {
+    title: 'My Tools',
+    sub: 'Purchased tools, access status, and remaining usage — always from the server.'
   },
   billing: { title: 'Billing', sub: 'Purchase receipts from Paddle checkout (browser + cloud).' },
   credits: {
@@ -344,6 +349,24 @@ async function render(user: User): Promise<void> {
       ? serverSpendable
       : Math.max(cloud, guest);
   await loadPremiumData(user, display, inspecting ? subjectUid : undefined);
+
+  if (!inspecting) {
+    const toolsHost = document.getElementById('acc-tools-host');
+    if (toolsHost && !toolsHost.dataset.scMounted) {
+      toolsHost.dataset.scMounted = '1';
+      void mountMyTools(toolsHost, (s) => {
+        const summary = document.getElementById('acc-tools-summary');
+        if (!summary) return;
+        const purchased = document.getElementById('acc-sum-purchased');
+        const active = document.getElementById('acc-sum-active');
+        const expiring = document.getElementById('acc-sum-expiring');
+        if (purchased) purchased.textContent = `Purchased: ${s.purchased}`;
+        if (active) active.textContent = `Active: ${s.active}`;
+        if (expiring) expiring.textContent = `Expiring soon: ${s.expiring}`;
+        if (s.purchased > 0) summary.hidden = false;
+      });
+    }
+  }
 
   const lifetime = purchases.reduce((n, p) => n + p.credits, 0);
   const providers = user.providerData.map((p) => providerLabel(p.providerId));

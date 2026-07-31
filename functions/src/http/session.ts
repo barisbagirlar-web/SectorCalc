@@ -5,17 +5,29 @@ import { requireUser, sendError } from '../lib/auth';
 import { resolveToolCost } from '../domain/packages';
 import { openProfessionalSession, type ProfessionalSession } from '../domain/session';
 import { monetizationEnabled } from '../lib/config';
-import { db, ledgerCol, sessionsCol, walletRef } from '../lib/firestore';
+import { db, ledgerCol, sessionsCol, walletRef, entitlementRef } from '../lib/firestore';
 import { emptyWallet } from '../domain/types';
+import {
+  buildEntitlementId,
+  touchEntitlementUsage,
+  upsertCreditBasedEntitlement,
+  type ToolEntitlement
+} from '../domain/entitlement';
 
 function newId(): string {
   return db().collection('_').doc().id;
 }
 
-export async function handleProfessionalSession(req: Request, res: Response, toolId: string): Promise<void> {
+export async function handleProfessionalSession(
+  req: Request,
+  res: Response,
+  toolId: string
+): Promise<void> {
   try {
     if (!monetizationEnabled()) {
-      res.status(503).json({ error: 'TOOL_NOT_MONETIZED', message: 'CREDIT_MONETIZATION_ENABLED=false' });
+      res
+        .status(503)
+        .json({ error: 'TOOL_NOT_MONETIZED', message: 'CREDIT_MONETIZATION_ENABLED=false' });
       return;
     }
     const user = await requireUser(req);
@@ -87,10 +99,38 @@ export async function handleProfessionalSession(req: Request, res: Response, too
           ...outcome.session,
           updatedAt: FieldValue.serverTimestamp()
         });
+        const entId = buildEntitlementId(user.uid, toolId);
+        const entSnap = await tx.get(entitlementRef(entId));
+        const existingEnt = entSnap.exists ? (entSnap.data() as ToolEntitlement) : null;
+        tx.set(
+          entitlementRef(entId),
+          upsertCreditBasedEntitlement({
+            existing: existingEnt,
+            userId: user.uid,
+            toolId,
+            purchaseId: `session:${toolId}:${nowMs}`,
+            expiresAt: outcome.session.expiresAt,
+            debit: outcome.debit,
+            nowIso
+          })
+        );
+      } else {
+        const entId = buildEntitlementId(user.uid, toolId);
+        const entSnap = await tx.get(entitlementRef(entId));
+        if (entSnap.exists) {
+          tx.set(
+            entitlementRef(entId),
+            touchEntitlementUsage({
+              existing: entSnap.data() as ToolEntitlement,
+              nowIso
+            })
+          );
+        }
       }
 
       const promoOk =
-        outcome.wallet.promotionalExpiresAt && Date.parse(outcome.wallet.promotionalExpiresAt) > nowMs
+        outcome.wallet.promotionalExpiresAt &&
+        Date.parse(outcome.wallet.promotionalExpiresAt) > nowMs
           ? outcome.wallet.promotionalCredits
           : 0;
       resultPayload = {

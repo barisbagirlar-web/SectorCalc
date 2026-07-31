@@ -11,6 +11,7 @@ import { handleCheckout } from './http/checkout';
 import { handleWallet, handleWalletTransactions } from './http/wallet';
 import { handlePurchaseStatus } from './http/purchase';
 import { handleProfessionalSession } from './http/session';
+import { handleMyEntitlements, handleToolEntitlement } from './http/entitlement';
 import { handlePaddleWebhook } from './http/webhook';
 import { handleHealth, handleReadiness } from './http/health';
 import { runPurchaseReconciliation } from './http/reconcile';
@@ -132,6 +133,15 @@ export const api = onRequest(
       }
       if (path === '/wallet/transactions' && req.method === 'GET') {
         await handleWalletTransactions(req, res);
+        return;
+      }
+      if (path === '/my/tools' && req.method === 'GET') {
+        await handleMyEntitlements(req, res);
+        return;
+      }
+      if (path.match(/^\/tools\/[^/]+\/entitlement$/) && req.method === 'GET') {
+        const toolId = path.split('/')[2]!;
+        await handleToolEntitlement(req, res, toolId);
         return;
       }
       if (path.match(/^\/tools\/[^/]+\/professional-session$/) && req.method === 'POST') {
