@@ -43,6 +43,8 @@ export class ProfessionalGate {
   /** Backend decision: session ended but wallet covers the cost. */
   private canStartNewSession = false;
   private suspended = false;
+  /** No signed-in user (anonymous): show sign-in gate, not a credit error. */
+  private userMissing = false;
   private entitledUntil: string | null = null;
   private balance: number | null = null;
   private cost: number;
@@ -83,6 +85,7 @@ export class ProfessionalGate {
   private async refresh(): Promise<void> {
     const user = currentUser();
     if (!user) {
+      this.userMissing = true;
       this.balance = null;
       this.canOpenWithoutDebit = false;
       this.canStartNewSession = false;
@@ -94,6 +97,7 @@ export class ProfessionalGate {
     }
     try {
       const view = await fetchToolEntitlement(this.toolId);
+      this.userMissing = false;
       this.canOpenWithoutDebit = view.canOpenWithoutDebit;
       this.canStartNewSession = view.canStartNewSession;
       this.suspended = view.status === 'SUSPENDED';
@@ -110,8 +114,17 @@ export class ProfessionalGate {
       } catch {
         /* display cache only — never used for decisions */
       }
-    } catch {
-      // Fail closed: keep current lock state, do not unlock on API failure.
+    } catch (err) {
+      if (err instanceof Error && err.message === 'NOT_AUTHENTICATED') {
+        // Anonymous / expired token: present the sign-in gate.
+        this.userMissing = true;
+        this.canOpenWithoutDebit = false;
+        this.canStartNewSession = false;
+        this.suspended = false;
+        this.entitledUntil = null;
+        this.balance = null;
+      }
+      // Any other failure: fail closed — keep the current lock state.
     }
     this.render();
     if (this.canOpenWithoutDebit && this.entitledUntil) {
@@ -228,6 +241,19 @@ export class ProfessionalGate {
         <div class="sc-pro-gate-actions">
           <a class="sc-pro-gate-btn" href="/contact.html">Contact support</a>
         </div>`;
+    } else if (this.userMissing) {
+      body = `
+        <p class="sc-pro-gate-copy">Sign in to unlock a 24-hour session. One debit covers unlimited recalculation until expiry.</p>
+        <ul class="sc-pro-gate-meta">
+          <li><strong>Tier:</strong> ${esc(this.tier)}</li>
+          <li><strong>Session cost:</strong> ${this.cost} credits</li>
+          <li><strong>Duration:</strong> 24 hours · unlimited recalculation</li>
+        </ul>
+        <div class="sc-pro-gate-actions">
+          <button type="button" class="sc-pro-gate-btn sc-pro-gate-btn-primary" data-confirm-pro>Confirm — use ${this.cost} credits</button>
+          <a class="sc-pro-gate-btn" href="/pricing.html">Buy credits</a>
+        </div>
+        <div class="sc-pro-gate-status"></div>`;
     } else if (entitled) {
       const exp = this.entitledUntil
         ? new Date(this.entitledUntil).toLocaleString(undefined, {
