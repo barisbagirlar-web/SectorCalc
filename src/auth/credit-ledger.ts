@@ -19,13 +19,7 @@ import type { PurchaseRecord } from './account-data.js';
 
 const LEDGER_KEY = 'sectorcalc-credit-ledger';
 
-export type CreditMovementKind =
-  | 'purchase'
-  | 'spend'
-  | 'refund'
-  | 'admin'
-  | 'promo'
-  | 'sync';
+export type CreditMovementKind = 'purchase' | 'spend' | 'refund' | 'admin' | 'promo' | 'sync';
 
 export interface CreditMovement {
   id: string;
@@ -38,25 +32,6 @@ export interface CreditMovement {
   txnId: string;
   at: string;
   balanceAfter?: number;
-}
-
-function kindFallback(kind: CreditMovementKind): string {
-  switch (kind) {
-    case 'purchase':
-      return 'Purchase';
-    case 'spend':
-      return 'Spend';
-    case 'refund':
-      return 'Refund';
-    case 'admin':
-      return 'Admin adjustment';
-    case 'promo':
-      return 'Promotional grant';
-    case 'sync':
-      return 'Balance sync';
-    default:
-      return 'Movement';
-  }
 }
 
 export function readLocalLedger(): CreditMovement[] {
@@ -139,27 +114,60 @@ export async function recordCloudMovement(
 
 export async function listCloudLedger(uid: string): Promise<CreditMovement[]> {
   const q = query(
-    collection(getFirebaseDb(), 'users', uid, 'ledger'),
-    orderBy('at', 'desc'),
+    collection(getFirebaseDb(), 'wallets', uid, 'ledger'),
+    orderBy('createdAt', 'desc'),
     limit(100)
   );
   const snap = await getDocs(q);
   return snap.docs.map((d) => {
     const data = d.data();
-    const at = data.at as Timestamp | undefined;
-    const kind = (String(data.kind || 'sync') as CreditMovementKind) || 'sync';
+    const at = data.createdAt as string | Timestamp | undefined;
+    const createdAt =
+      at && typeof (at as Timestamp).toDate === 'function'
+        ? (at as Timestamp).toDate().toISOString()
+        : String(at || new Date(0).toISOString());
+    const type = String(data.type || 'sync');
+    const delta = Number(data.deltaCredits) || 0;
+    const toolId = data.toolId ? String(data.toolId) : undefined;
+    const { kind, label } = serverLedgerHuman(type, delta, toolId);
     return {
-      id: d.id,
+      id: String(data.id || d.id),
       kind,
-      delta: Number(data.delta) || 0,
-      label: String(data.label || kindFallback(kind)),
-      detail: data.detail ? String(data.detail) : undefined,
-      toolId: data.toolId ? String(data.toolId) : undefined,
-      txnId: String(data.txnId || d.id),
-      at: at && typeof at.toDate === 'function' ? at.toDate().toISOString() : new Date(0).toISOString(),
-      balanceAfter: data.balanceAfter == null ? undefined : Number(data.balanceAfter)
+      delta,
+      label,
+      toolId,
+      txnId: String(data.sourceId || d.id),
+      at: createdAt
     };
   });
+}
+
+function serverLedgerHuman(
+  type: string,
+  delta: number,
+  toolId?: string
+): { kind: CreditMovementKind; label: string } {
+  const sign = delta >= 0 ? `+${delta}` : `${delta}`;
+  switch (type) {
+    case 'PURCHASE_GRANT':
+      return { kind: 'purchase', label: `Credit purchase · ${sign} credits` };
+    case 'PROMOTIONAL_GRANT':
+      return { kind: 'promo', label: `Promotional grant · ${sign} credits` };
+    case 'SESSION_DEBIT':
+      return { kind: 'spend', label: `${sign} · ${toolId || 'Tool'} professional session` };
+    case 'REFUND_REVERSAL':
+      return { kind: 'refund', label: `${sign} · Refund reversal` };
+    case 'CHARGEBACK_REVERSAL':
+      return { kind: 'refund', label: `${sign} · Chargeback reversal` };
+    case 'DEBT_CREATED':
+      return { kind: 'admin', label: `${sign} · Billing debt created` };
+    case 'DEBT_SETTLED':
+      return { kind: 'purchase', label: `${sign} · Billing debt settled` };
+    case 'ADMIN_ADJUSTMENT':
+      return { kind: 'admin', label: `${sign} · Admin adjustment` };
+    default:
+      return { kind: 'sync', label: `${sign} · ${type}` };
+  }
 }
 
 /** Purchase rows → synthetic movements (covers history before ledger existed). */
@@ -190,7 +198,10 @@ export function mergeMovements(...groups: CreditMovement[][]): CreditMovement[] 
 }
 
 /** Fill balanceAfter walking oldest→newest from a known current balance. */
-export function withRunningBalance(rows: CreditMovement[], currentBalance: number): CreditMovement[] {
+export function withRunningBalance(
+  rows: CreditMovement[],
+  currentBalance: number
+): CreditMovement[] {
   const asc = [...rows].sort((a, b) => a.at.localeCompare(b.at));
   let bal = currentBalance - asc.reduce((n, r) => n + r.delta, 0);
   const stamped = asc.map((r) => {
@@ -200,7 +211,11 @@ export function withRunningBalance(rows: CreditMovement[], currentBalance: numbe
   return stamped.sort((a, b) => b.at.localeCompare(a.at));
 }
 
-export function ledgerTotals(rows: CreditMovement[]): { purchased: number; spent: number; net: number } {
+export function ledgerTotals(rows: CreditMovement[]): {
+  purchased: number;
+  spent: number;
+  net: number;
+} {
   let purchased = 0;
   let spent = 0;
   for (const r of rows) {
