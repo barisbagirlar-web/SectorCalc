@@ -26,7 +26,7 @@ test('SC-010 labor-pro: live + report @deep', async ({ page }) => {
     await page.fill('#netSalary', '3500');
     await page.locator('#netSalary').dispatchEvent('input');
     await expect(page.locator('#liveResult')).toContainText(/\d/);
-    await page.locator('button.sc-btn-primary').click();
+    await page.locator('button[onclick="generateReport()"]').click();
     await expect(page.locator('#reportArea .sc-report-title')).toBeVisible({ timeout: 8000 });
     await expect(page.locator('#reportArea .sc-report-title')).toContainText('SC-010');
     await expect(
@@ -42,7 +42,7 @@ test('SC-012 quote-pro: live + report @deep', async ({ page }) => {
     await page.fill('#materialCost', '1500');
     await page.locator('#materialCost').dispatchEvent('input');
     await expect(page.locator('#liveResult')).toContainText(/\d/);
-    await page.locator('button.sc-btn-primary').click();
+    await page.locator('button[onclick="generateReport()"]').click();
     await expect(page.locator('#reportArea .sc-report-title')).toBeVisible({ timeout: 8000 });
     await expect(page.locator('#reportArea .sc-report-title')).toContainText('SC-012');
     await expect(
@@ -60,7 +60,7 @@ test('SC-001 weld-pro: live + report @deep', async ({ page }) => {
   await page.fill('#weldLengthMm', '80');
   await page.locator('#weldLengthMm').dispatchEvent('input');
   await expect(page.locator('#liveResult')).toContainText(/\d/);
-  await page.locator('button.sc-btn-primary').click();
+  await page.locator('button[onclick="generateReport()"]').click();
   await expect(page.locator('#reportArea .sc-report-title')).toBeVisible({ timeout: 8000 });
   await expect(page.locator('#reportArea .sc-report-title')).toContainText('SC-001');
   await expect(page.locator('#reportArea .sc-chart, #reportArea svg').first()).toBeVisible();
