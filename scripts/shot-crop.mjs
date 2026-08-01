@@ -1,0 +1,13 @@
+import { chromium } from 'playwright';
+import { createRequire } from 'node:module';
+const require = createRequire(import.meta.url);
+const sharp = require('sharp');
+const browser = await chromium.launch({ headless: true });
+const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
+await page.goto('https://sectorcalc.com/calculator/true-labor-cost', { waitUntil: 'domcontentloaded', timeout: 25000 });
+await page.waitForTimeout(4000);
+const full = await page.screenshot();
+await sharp(full).extract({ left: 0, top: 170, width: 1280, height: 730 }).toFile('/tmp/tlc-form-region.png');
+await page.close();
+await browser.close();
+console.log('done');

@@ -653,6 +653,12 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
 
 
 
+
+
+
+
+
+
 <!--SC-SEO-BREADCRUMB-START-->
 <nav aria-label="Breadcrumb" class="sc-breadcrumb">
   <ol itemscope itemtype="https://schema.org/BreadcrumbList">
@@ -946,10 +952,10 @@ const fmt=(x,d=2)=>Number.isFinite(x)?x.toLocaleString('en-US',{minimumFractionD
 
 function fieldSI(id){
   const us=g('u_'+id), raw=num(id);
-  if(!us)return{si:raw,disp:String(raw)};
+  if(!us)return{si:raw,disp:Number.isFinite(raw)?String(raw):'—'};
   const kind=us.dataset.kind,u=us.value;
   const si=raw*TO_SI[kind][u];
-  return{si,disp:`${raw} ${us.options[us.selectedIndex].text}`};
+  return{si,disp:Number.isFinite(raw)?`${raw} ${us.options[us.selectedIndex].text}`:'—'};
 }
 document.querySelectorAll('select.units[data-f]').forEach(us=>{
   us.addEventListener('change',()=>{

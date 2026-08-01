@@ -87,14 +87,21 @@ function withDemoPass<T>(run: () => T): T {
 
 function restoreGoldenDemoAndCalculate(): void {
   const w = toolWindow();
-  if (typeof w.SCStudy?.restoreDemoSnapshot === 'function') {
-    w.SCStudy.restoreDemoSnapshot();
-  } else if (typeof w.SCStudy?.loadSample === 'function') {
+  // Prefer loadSample over restoreDemoSnapshot: tools with a registered
+  // loadSample (SC-008/SC-012/SC-001/SC-010) reset their JS state directly
+  // (loadPreset -> validateAndCalc/compute + generateReport) instead of poking
+  // every form input, so no input-event storm re-runs the full calculation per
+  // field (SC-008: ~4s of 18 Decimal recomputes → ~0.6s).
+  //
+  // No separate calculate() call afterwards: loadSample already runs the same
+  // report pipeline as the Generate button, and a second validateAndCalc would
+  // go through syncReportIfOpen which clears the tool's _demoReportOpen flag —
+  // hiding the DEMO banner right after the demo report renders.
+  if (typeof w.SCStudy?.loadSample === 'function') {
     w.SCStudy.loadSample();
+  } else if (typeof w.SCStudy?.restoreDemoSnapshot === 'function') {
+    w.SCStudy.restoreDemoSnapshot();
   }
-
-  const calculate = w.calculate || w.compute || w.validateAndCalc;
-  if (typeof calculate === 'function') calculate();
 }
 
 function wrapGlobalReport(gate: DemoGate): void {
@@ -104,11 +111,7 @@ function wrapGlobalReport(gate: DemoGate): void {
 
   const original = current.bind(window);
   const wrapped: UnknownFn = (...args) => {
-    if (
-      isPaidEntitled(gate) ||
-      w.__scDemoCalcPass === true ||
-      w.__scDemoReportPass === true
-    ) {
+    if (isPaidEntitled(gate) || w.__scDemoCalcPass === true || w.__scDemoReportPass === true) {
       return original(...args);
     }
 
