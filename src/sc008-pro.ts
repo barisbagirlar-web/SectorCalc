@@ -169,15 +169,6 @@ function renderDims() {
 
 // Distribution semantics are explicit: normal & truncated_normal treat tol as +/-3 sigma;
 // uniform & triangular treat tol as the hard half-range. This is the P2 contract made visible.
-function sampleComponent(rng, c) {
-  const nom = D(c.nominal),
-    tol = D(c.tol ?? c.tolerance);
-  if (c.dist === 'uniform') return sampleUniform(rng, nom.minus(tol), nom.plus(tol));
-  if (c.dist === 'triangular') return sampleTriangular(rng, nom.minus(tol), nom, nom.plus(tol));
-  if (c.dist === 'truncated_normal')
-    return sampleTruncatedNormal(rng, nom, tol.div(3), nom.minus(tol), nom.plus(tol));
-  return sampleNormal(rng, nom, tol.div(3));
-}
 function mySimulate(comps, seed, n) {
   return cachedSimulate(comps, seed, n);
 }
@@ -186,6 +177,11 @@ function mySimulate(comps, seed, n) {
 // golden demo data on every #genReport click (loadSample -> compute + generateReport
 // -> compute -> generateReport); without a cache that was ~11 full simulations
 // (~84s of main-thread Decimal work). The cache turns repeat runs into lookups.
+//
+// Precomputing per-component Decimal constants (nom/sigma/lo/hi) once per run
+// avoids rebuilding them on every one of the 10k iterations (e.g. 3 components →
+// ~30k extra Decimal allocations + 10k div(3) calls). Same operations, same
+// results, so determinism and the golden contract are unchanged.
 const _simCache = new Map();
 const SIM_CACHE_MAX = 8;
 function cachedSimulate(comps, seed, n) {
@@ -201,11 +197,24 @@ function cachedSimulate(comps, seed, n) {
       .join(',');
   const hit = _simCache.get(key);
   if (hit) return hit;
+  const prep = comps.map((c) => {
+    const nom = D(c.nominal),
+      tol = D(c.tol ?? c.tolerance);
+    const lo = nom.minus(tol),
+      hi = nom.plus(tol);
+    return { dist: c.dist || 'normal', nom, sigma: tol.div(3), lo, hi };
+  });
   const rng = lcg(seed);
   const out = [];
   for (let i = 0; i < n; i++) {
     let s = D(0);
-    for (const c of comps) s = s.plus(sampleComponent(rng, c));
+    for (const c of prep) {
+      if (c.dist === 'uniform') s = s.plus(sampleUniform(rng, c.lo, c.hi));
+      else if (c.dist === 'triangular') s = s.plus(sampleTriangular(rng, c.lo, c.nom, c.hi));
+      else if (c.dist === 'truncated_normal')
+        s = s.plus(sampleTruncatedNormal(rng, c.nom, c.sigma, c.lo, c.hi));
+      else s = s.plus(sampleNormal(rng, c.nom, c.sigma));
+    }
     out.push(s);
   }
   if (_simCache.size >= SIM_CACHE_MAX) {
@@ -852,11 +861,21 @@ function exportPDF(graphic) {
   doc.save(d.calcId + '.pdf');
 }
 
+let _calcTimer = 0;
+function scheduleCompute() {
+  clearTimeout(_calcTimer);
+  if ($('liveSub')) $('liveSub').innerHTML = '<span>Calculating…</span>';
+  _calcTimer = window.setTimeout(() => {
+    _calcTimer = 0;
+    compute();
+  }, 350);
+}
+
 document
   .querySelectorAll('.sc-preset')
   .forEach((b) => b.addEventListener('click', () => loadPreset(b.dataset.preset)));
 ['specUpper', 'specLower', 'cpkTarget', 'mcSeed'].forEach((id) =>
-  $(id).addEventListener('input', compute)
+  $(id).addEventListener('input', scheduleCompute)
 );
 $('unitSpec').addEventListener('change', convertUnits);
 $('unitSpec2').addEventListener('change', () => {
@@ -893,14 +912,14 @@ $('dimList').addEventListener('input', (e) => {
     const i = +t.dataset.i,
       f = t.dataset.f;
     dimensions[i][f] = f === 'name' ? t.value : f === 'dist' ? t.value : parseFloat(t.value);
-    compute();
+    scheduleCompute();
   }
 });
 $('dimList').addEventListener('change', (e) => {
   const t = e.target;
   if (t.dataset.f === 'dist') {
     dimensions[+t.dataset.i].dist = t.value;
-    compute();
+    scheduleCompute();
   }
 });
 $('dimList').addEventListener('click', (e) => {

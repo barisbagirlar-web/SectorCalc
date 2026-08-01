@@ -658,6 +658,12 @@ html[data-theme="dark"] .verdict.fail{background:linear-gradient(90deg,#5c100c,#
 
 
 
+
+
+
+
+
+
 <!--SC-SEO-BREADCRUMB-START-->
 <nav aria-label="Breadcrumb" class="sc-breadcrumb">
   <ol itemscope itemtype="https://schema.org/BreadcrumbList">
@@ -1264,7 +1270,7 @@ function fieldSI(id){
   if(!us)return{si:num(id),disp:num(id)+' (fixed)'};
   const kind=us.dataset.kind, u=us.value;
   const raw=num(id);
-  return{si:Number.isFinite(raw)?raw*TO_SI[kind][u]:NaN, disp:`${raw} ${us.options[us.selectedIndex].text}`, unit:u, kind};
+  return{si:Number.isFinite(raw)?raw*TO_SI[kind][u]:NaN, disp:Number.isFinite(raw)?`${raw} ${us.options[us.selectedIndex].text}`:'—', unit:u, kind};
 }
 /* per-field unit change → convert the displayed value */
 document.querySelectorAll('select.units[data-f]').forEach(us=>{
