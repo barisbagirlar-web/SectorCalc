@@ -34,6 +34,21 @@ mustContain('src/billing/boot-tool-gate.ts', [
   'setAccessMode'
 ]);
 
+mustContain('src/billing/demo-report-bridge.ts', [
+  'restoreGoldenDemoAndCalculate',
+  'restoreDemoSnapshot',
+  '__scDemoCalcPass',
+  '__scDemoReportPass',
+  'wrapGlobalReport',
+  "target.closest('#genReport')",
+  'isPaidEntitled'
+]);
+
+mustContain('src/auth-nav.ts', [
+  "import { installDemoReportBridge } from './billing/demo-report-bridge.js';",
+  'installDemoReportBridge();'
+]);
+
 mustContain('public/sc-study.js', [
   'setAccessMode',
   'restoreDemoSnapshot',

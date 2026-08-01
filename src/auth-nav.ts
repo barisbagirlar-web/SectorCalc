@@ -5,6 +5,7 @@
  */
 import type { User } from 'firebase/auth';
 import { authReady, watchAuth } from './auth/index.js';
+import { installDemoReportBridge } from './billing/demo-report-bridge.js';
 import { bootToolCreditGate } from './billing/boot-tool-gate.js';
 
 function initials(user: User): string {
@@ -71,6 +72,7 @@ function paintSignedIn(user: User): void {
 
 function boot(): void {
   bootToolCreditGate();
+  installDemoReportBridge();
   if (!authReady()) return;
   watchAuth((user) => {
     if (user) paintSignedIn(user);
