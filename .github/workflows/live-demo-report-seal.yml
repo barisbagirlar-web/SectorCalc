@@ -11,7 +11,7 @@ permissions:
 
 jobs:
   live-demo-report:
-    name: Anonymous SC-008 / SC-010 / SC-012 production report seal
+    name: All monetized calculators production demo seal
     runs-on: ubuntu-22.04
     timeout-minutes: 15
     steps:
@@ -27,4 +27,5 @@ jobs:
           npx playwright test
           tests/e2e/suites/81-live-locked-demo-reports.spec.ts
           --project=chromium
-          --workers=1
+          --workers=4
+          --retries=0
