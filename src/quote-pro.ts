@@ -136,7 +136,7 @@ function buildBreakdown(i) {
 }
 
 function validateAndCalc() {
-  if (window.__scProGate && !window.__scProGate.isEntitled()) {
+  if (window.__scProGate && !window.__scDemoCalcPass && !window.__scProGate.isEntitled()) {
     if ($('liveResult')) $('liveResult').textContent = 'Locked';
     if ($('liveSub')) $('liveSub').innerHTML = '<span>Unlock with credits to calculate</span>';
     return;
@@ -515,4 +515,11 @@ window.resetAll = resetAll;
 window.validateAndCalc = validateAndCalc;
 
 loadFromURL();
-validateAndCalc();
+try {
+  window.__scDemoCalcPass = true;
+  validateAndCalc();
+  _demoReportOpen = !new URLSearchParams(location.search).has('s');
+  generateReport();
+} finally {
+  window.__scDemoCalcPass = false;
+}

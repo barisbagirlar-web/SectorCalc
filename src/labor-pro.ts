@@ -64,6 +64,8 @@ function syncReportIfOpen() {
   if (_reportSyncing || !reportIsOpen() || !calcData) return;
   _reportSyncing = true;
   try {
+    // Manual edits clear the demo banner once the user starts changing inputs.
+    if (_demoReportOpen) _demoReportOpen = false;
     generateReport({ sync: true });
   } finally {
     _reportSyncing = false;
@@ -80,6 +82,10 @@ function setFieldState(f, ok, msg) {
 }
 
 let calcData = null;
+
+// Whether the open report was generated from the demo preset, so the DEMO
+// banner can be cleared as soon as the user edits a real input.
+let _demoReportOpen = false;
 
 function readInputs() {
   const input = { country: 'US', payFrequency: $('payFrequency').value };
@@ -110,7 +116,7 @@ function buildBreakdown(input, gross) {
 }
 
 function validateAndCalc() {
-  if (window.__scProGate && !window.__scProGate.isEntitled()) {
+  if (window.__scProGate && !window.__scDemoCalcPass && !window.__scProGate.isEntitled()) {
     if ($('liveResult')) $('liveResult').textContent = 'Locked';
     if ($('liveSub')) $('liveSub').innerHTML = '<span>Unlock with credits to calculate</span>';
     return;
@@ -190,9 +196,11 @@ function loadPreset(key) {
   validateAndCalc();
 }
 function resetAll() {
+  _demoReportOpen = false;
   loadPreset('small');
 }
 function startBlankStudy() {
+  _demoReportOpen = false;
   FIELDS.forEach((f) => {
     if ($(f)) $(f).value = '';
   });
@@ -272,7 +280,12 @@ function generateReport(opts = {}) {
     <div class="sc-rec"><div class="sc-rec-hd"><span class="sc-rec-num">1</span><span class="sc-rec-title">Multiplier is healthy - keep using true cost in quotes</span></div><div class="sc-rec-body">Multiplier ${d.mult.toFixed(2)}x within benchmark 1.25-1.40x.<br><span class="pos">-> Re-run quarterly when statutory rates change</span></div></div>
     <div class="sc-rec"><div class="sc-rec-hd"><span class="sc-rec-num">2</span><span class="sc-rec-title">Document the burden breakdown for finance</span></div><div class="sc-rec-body">Calc ID ${calcId} reproducible from inputs.<br><span class="pos">-> Attach PDF to cost-accounting records</span></div></div>`;
 
+  const demoBanner = _demoReportOpen
+    ? '<div class="sc-demo-report"><span class="sc-demo-report-tag">DEMO REPORT</span><span class="sc-demo-report-copy">Sample values — replace inputs with your own data.</span></div>'
+    : '';
+
   const reportHTML = `
+    ${demoBanner}
     <div class="sc-report-hd">
       <div class="sc-report-hd-left">
         <div class="sc-report-title">SC-010 True Labor Cost Analysis</div>
@@ -509,9 +522,14 @@ function shareReport() {
 
 try {
   loadFromURL();
+  window.__scDemoCalcPass = true;
   validateAndCalc();
+  _demoReportOpen = !new URLSearchParams(location.search).has('s');
+  generateReport();
 } catch (e) {
   console.error(e);
+} finally {
+  window.__scDemoCalcPass = false;
 }
 
 window.generateReport = generateReport;
@@ -526,6 +544,8 @@ if (window.SCStudy) {
   window.SCStudy.register('SC-010', {
     loadSample() {
       loadPreset('small');
+      _demoReportOpen = true;
+      generateReport();
     },
     startBlank() {
       startBlankStudy();
