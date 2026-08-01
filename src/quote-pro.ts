@@ -63,6 +63,8 @@ function syncReportIfOpen() {
   if (_reportSyncing || !reportIsOpen() || !calcData) return;
   _reportSyncing = true;
   try {
+    // Manual edits clear the demo banner once the user starts changing inputs.
+    if (_demoReportOpen) _demoReportOpen = false;
     generateReport({ sync: true });
   } finally {
     _reportSyncing = false;
@@ -79,6 +81,10 @@ function setFieldState(f, ok, msg) {
 }
 
 let calcData = null;
+
+// Track whether the open report was generated from the demo preset so the
+// DEMO banner can be cleared as soon as the user edits a real input.
+let _demoReportOpen = false;
 
 function readInputs() {
   const input = {};
@@ -208,6 +214,7 @@ function loadPreset(key) {
   validateAndCalc();
 }
 function resetAll() {
+  _demoReportOpen = false;
   loadPreset('job');
 }
 function startBlankStudy() {
@@ -287,7 +294,12 @@ function generateReport(opts = {}) {
     <div class="sc-rec"><div class="sc-rec-hd"><span class="sc-rec-num">1</span><span class="sc-rec-title">Margin is healthy - lock the quote and track actuals</span></div><div class="sc-rec-body">Sell/cost ratio ${ratio.toFixed(2)} above 1.10 target.<br><span class="pos">-> Compare quoted vs actual cost at job close</span></div></div>
     <div class="sc-rec"><div class="sc-rec-hd"><span class="sc-rec-num">2</span><span class="sc-rec-title">Document the build-up for the customer</span></div><div class="sc-rec-body">Calc ID ${calcId} reproducible from inputs.<br><span class="pos">-> Attach PDF as a transparent quote annex</span></div></div>`;
 
+  const demoBanner = _demoReportOpen
+    ? '<div class="sc-demo-report"><span class="sc-demo-report-tag">DEMO REPORT</span><span class="sc-demo-report-copy">Sample values — replace inputs with your own data.</span></div>'
+    : '';
+
   const reportHTML = `
+    ${demoBanner}
     <div class="sc-report-hd"><div class="sc-report-hd-left"><div class="sc-report-title">SC-012 Quote Pricing Analysis</div><div class="sc-report-meta">Calculation ID: <span>${calcId}</span> &nbsp;|&nbsp; ${new Date().toISOString().replace('T', ' ').slice(0, 19)} UTC<br>Standard: GAAP revenue recognition | Full absorption costing<br>Method: Deterministic cost build-up + margin gross-up<br><span class="ok">OK Client-Side Only - your data never left your browser</span></div></div>
       <div class="sc-report-hd-right"><button class="sc-btn sc-btn-ghost" onclick="exportPDF()">Export PDF</button><button class="sc-btn sc-btn-ghost" onclick="exportPDFGraphic()">Export Graphic PDF</button><button class="sc-btn sc-btn-primary" onclick="shareReport()">Share</button></div></div>
     <div class="sc-sec"><div class="sc-sec-hd">Risk Assessment</div>
@@ -487,8 +499,13 @@ if (window.SCStudy) {
   window.SCStudy.register('SC-012', {
     loadSample() {
       loadPreset('job');
+      // Route the verified demo inputs through the SAME report pipeline the
+      // Generate Report button uses. No duplicated formula or hardcoded output.
+      _demoReportOpen = true;
+      generateReport();
     },
     startBlank() {
+      _demoReportOpen = false;
       startBlankStudy();
     }
   });

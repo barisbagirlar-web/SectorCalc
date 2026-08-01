@@ -4,7 +4,7 @@
  * canOpenWithoutDebit (live session) or canStartNewSession (credits enough).
  * The browser never recomputes status, expiry, or credit math.
  */
-import { currentUser } from '../auth/index.js';
+import { currentUser, watchAuth } from '../auth/index.js';
 import { isCreditRequired, resolveToolCost } from './domain/packages.js';
 import { fetchToolEntitlement } from './entitlements-api.js';
 import {
@@ -50,6 +50,13 @@ export class ProfessionalGate {
   private cost: number;
   private tier: string;
   private enforce: boolean;
+  private authUnsub: (() => void) | null = null;
+
+  /** Detach auth subscription and any per-instance listeners. */
+  destroy(): void {
+    this.authUnsub?.();
+    this.authUnsub = null;
+  }
 
   constructor(opts: ProfessionalGateOptions) {
     this.toolId = opts.toolId;
@@ -61,6 +68,12 @@ export class ProfessionalGate {
     this.enforce = monetizationUiEnabled() && isCreditRequired(opts.toolId);
     this.render();
     void this.refresh();
+    // Firebase Auth restores the session asynchronously after the page's first
+    // synchronous currentUser() check. Re-run refresh whenever auth state settles
+    // so a signed-in user is never stuck behind a stale "Sign in to unlock" gate.
+    this.authUnsub = watchAuth(() => {
+      void this.refresh();
+    });
   }
 
   isEntitled(): boolean {
@@ -197,6 +210,11 @@ export class ProfessionalGate {
       this.balance = res.newWalletBalance;
       this.canOpenWithoutDebit = true;
       this.canStartNewSession = false;
+      // A successful session start proves the user exists — clear a stale
+      // "Sign in to unlock" flag so the gate renders "Session active"
+      // instead of showing the sign-in panel over an already-open form.
+      this.userMissing = false;
+      this.suspended = false;
       cacheAuthoritativeBalances({
         purchasedCredits: res.newWalletBalance,
         promotionalCredits: 0,
@@ -212,6 +230,26 @@ export class ProfessionalGate {
       );
       this.render();
       this.onEntitled?.({ expiresAt: res.expiresAt, reused: res.reused });
+      // Only a genuinely NEW session (debit happened) announces itself. Reused
+      // sessions (refresh, second tab, repeat calculation) stay silent.
+      if (!res.reused && res.creditCost > 0) {
+        try {
+          window.dispatchEvent(
+            new CustomEvent('sectorcalc:session-activated', {
+              detail: {
+                toolId: this.toolId,
+                sessionId: res.sessionId,
+                creditCost: res.creditCost,
+                expiresAt: res.expiresAt,
+                newWalletBalance: res.newWalletBalance,
+                reused: res.reused
+              }
+            })
+          );
+        } catch {
+          /* feedback component must never break the session flow */
+        }
+      }
     } catch (err) {
       this.renderError(err instanceof Error ? err.message : 'Session request failed', false);
     }
@@ -241,6 +279,17 @@ export class ProfessionalGate {
         <div class="sc-pro-gate-actions">
           <a class="sc-pro-gate-btn" href="/contact.html">Contact support</a>
         </div>`;
+    } else if (entitled) {
+      const exp = this.entitledUntil
+        ? new Date(this.entitledUntil).toLocaleString(undefined, {
+            dateStyle: 'medium',
+            timeStyle: 'short'
+          })
+        : '—';
+      body = `
+        <p class="sc-pro-gate-active">Session active — calculation unlocked</p>
+        <p class="sc-pro-gate-copy">Expires: ${esc(exp)}</p>
+        <p class="sc-pro-gate-copy">Balance: ${esc(bal)} credits</p>`;
     } else if (this.userMissing) {
       body = `
         <p class="sc-pro-gate-copy">Sign in to unlock a 24-hour session. One debit covers unlimited recalculation until expiry.</p>
@@ -254,17 +303,6 @@ export class ProfessionalGate {
           <a class="sc-pro-gate-btn" href="/pricing.html">Buy credits</a>
         </div>
         <div class="sc-pro-gate-status"></div>`;
-    } else if (entitled) {
-      const exp = this.entitledUntil
-        ? new Date(this.entitledUntil).toLocaleString(undefined, {
-            dateStyle: 'medium',
-            timeStyle: 'short'
-          })
-        : '—';
-      body = `
-        <p class="sc-pro-gate-active">Session active — calculation unlocked</p>
-        <p class="sc-pro-gate-copy">Expires: ${esc(exp)}</p>
-        <p class="sc-pro-gate-copy">Balance: ${esc(bal)} credits</p>`;
     } else if (this.canStartNewSession) {
       body = `
         <p class="sc-pro-gate-copy">Session ended. Start a new 24-hour session to run this calculator. One debit covers unlimited recalculation until expiry.</p>

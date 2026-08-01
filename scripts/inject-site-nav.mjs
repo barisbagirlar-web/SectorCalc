@@ -11,7 +11,7 @@ const ROOT = process.cwd();
 const PARTIAL = readFileSync(join(ROOT, 'content/partials/site-nav.html'), 'utf8').trim();
 
 const FORM_FIELDS_VERSION = 6;
-const STUDY_VERSION = 6;
+const STUDY_VERSION = 7;
 const AUTH_NAV_SCRIPT = `<script type="module" src="/src/auth-nav.ts"></script>`;
 // Core theme/nav/calc-sheet/seo-content CSS+JS live in content/partials/head-assets.html
 // (injected by scripts/inject-head-assets.mjs). Do not re-inline them here.

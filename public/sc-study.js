@@ -364,7 +364,7 @@
         <button type="button" class="sc-study-btn sc-study-btn--primary is-active" data-sc-study="sample" aria-label="Load Demo Data">
           ${ICON_PLAY}<span>Load Demo Data</span>
         </button>
-        <button type="button" class="sc-study-btn sc-study-btn--ghost" data-sc-study="blank" aria-label="Reset">
+        <button type="button" class="sc-study-btn sc-study-btn--ghost" data-sc-study="blank" data-sc-reset aria-label="Reset">
           ${ICON_RESET}<span>Reset</span>
         </button>
         <span class="sc-study-badge" data-sc-study-banner>Demo scenario active</span>

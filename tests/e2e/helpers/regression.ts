@@ -151,7 +151,10 @@ export async function expectToolChrome(page: Page): Promise<void> {
   ).toBeVisible({
     timeout: 15_000
   });
-  await expect(page.locator('h1, #sc-guide').first()).toBeVisible();
+  // Header H1 may be CSS-hidden under the shared nav (body.has-site-header);
+  // the guide block carries the visible H1-equivalent when present. Either is
+  // acceptable — pick whichever is actually visible instead of assuming DOM order.
+  await expect(page.locator('h1:visible, #sc-guide:visible').first()).toBeVisible();
 }
 
 export async function expectPageSeoBasics(page: Page, opts?: { titleRe?: RegExp }): Promise<void> {

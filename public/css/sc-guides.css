@@ -20,7 +20,8 @@
 .sc-guides-shell a {
   color: var(--g-blue);
 }
-.sc-guides-main {
+.sc-guides-main,
+.sc-guides-hub {
   max-width: 1100px;
   margin: 0 auto;
   padding: 1.25rem clamp(1rem, 3vw, 1.75rem) 3.5rem;
@@ -49,7 +50,8 @@
   letter-spacing: 0.01em;
   text-transform: uppercase;
 }
-.sc-guides-lead {
+.sc-guides-lead,
+.lead-definition {
   margin: 0;
   max-width: 46rem;
   color: var(--g-muted);
@@ -92,17 +94,27 @@
 .sc-guides-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 0.95rem;
+  gap: 1.1rem;
 }
 .sc-guide-card {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   min-height: 100%;
-  padding: 1.05rem 1.1rem 1.15rem;
+  padding: 1.15rem 1.2rem 1.25rem;
   background: var(--g-card);
   border: 1px solid var(--g-line);
-  border-radius: 2px;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(11, 28, 44, 0.05);
+  transition:
+    transform 0.16s ease,
+    box-shadow 0.16s ease,
+    border-color 0.16s ease;
+}
+.sc-guide-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(0, 85, 164, 0.35);
+  box-shadow: 0 8px 20px rgba(11, 28, 44, 0.1);
 }
 .sc-guide-badge {
   align-self: flex-start;
@@ -144,6 +156,17 @@
   margin-top: 0.25rem;
   font-weight: 650;
   text-underline-offset: 0.16em;
+  text-decoration: none;
+  color: var(--g-blue);
+  border-bottom: 1px solid rgba(0, 85, 164, 0.25);
+  align-self: flex-start;
+  transition:
+    color 0.14s ease,
+    border-color 0.14s ease;
+}
+.sc-guide-cta:hover {
+  color: #003f7d;
+  border-bottom-color: #003f7d;
 }
 .sc-guides-chain {
   border: 1px solid var(--g-line);
@@ -269,6 +292,11 @@
 @media (max-width: 640px) {
   .sc-guides-grid {
     grid-template-columns: 1fr;
+  }
+}
+@media (min-width: 641px) and (max-width: 900px) {
+  .sc-guides-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 

@@ -160,3 +160,153 @@
     font-size: 12.5px;
   }
 }
+
+/* ── Session activation feedback (shared success panel) ── */
+.sc-session-feedback {
+  margin: 0 0 16px;
+  padding: 14px 16px;
+  border: 1.5px solid #1b6b3a;
+  border-left-width: 4px;
+  background: linear-gradient(180deg, #f2fbf5, #e9f6ee);
+  font-family: Inter, system-ui, sans-serif;
+  color: #143a24;
+}
+.sc-session-feedback-body {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.sc-session-feedback-check {
+  flex: 0 0 auto;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #1b6b3a;
+  color: #fff;
+  font-weight: 800;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sc-session-feedback-copy {
+  flex: 1 1 280px;
+  min-width: 0;
+}
+.sc-session-feedback-title {
+  margin: 0 0 3px;
+  font-weight: 800;
+  font-size: 15px;
+  color: #0f4d2b;
+}
+.sc-session-feedback-meta {
+  margin: 0 0 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  color: #1b6b3a;
+}
+.sc-session-feedback-desc {
+  margin: 0 0 4px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #1c3a2a;
+}
+.sc-session-feedback-expires {
+  margin: 0;
+  font-size: 12px;
+  color: #37704d;
+}
+.sc-session-feedback-actions {
+  flex: 0 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+.sc-session-feedback-btn {
+  padding: 9px 14px;
+  border: 1.5px solid #1b6b3a;
+  background: #fff;
+  color: #0f4d2b;
+  font-weight: 700;
+  font-size: 12.5px;
+  cursor: pointer;
+}
+.sc-session-feedback-btn-primary {
+  background: #1b6b3a;
+  border-color: #1b6b3a;
+  color: #fff;
+}
+.sc-session-feedback-btn:hover {
+  opacity: 0.92;
+}
+.sc-session-feedback-close {
+  border: none;
+  background: transparent;
+  color: #37704d;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 6px 8px;
+  line-height: 1;
+}
+.sc-session-feedback-close:hover {
+  color: #0f4d2b;
+}
+
+/* Brief reset-button attention pulse (single, layout-stable) */
+.sc-reset-attention {
+  box-shadow: 0 0 0 2px #1b6b3a;
+  animation: sc-reset-pulse 1.2s ease-out;
+}
+@keyframes sc-reset-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(27, 107, 58, 0.55);
+  }
+  100% {
+    box-shadow: 0 0 0 4px rgba(27, 107, 58, 0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sc-reset-attention {
+    animation: none;
+    box-shadow: 0 0 0 2px #1b6b3a;
+  }
+}
+@media (max-width: 640px) {
+  .sc-session-feedback {
+    padding: 12px 14px;
+  }
+  .sc-session-feedback-body {
+    gap: 10px;
+  }
+  .sc-session-feedback-actions {
+    width: 100%;
+  }
+  .sc-session-feedback-btn {
+    flex: 1 1 auto;
+  }
+}
+html[data-theme='dark'] .sc-session-feedback {
+  background: rgba(27, 107, 58, 0.16);
+  border-color: #1b6b3a;
+  color: #cdeeda;
+}
+html[data-theme='dark'] .sc-session-feedback-title,
+html[data-theme='dark'] .sc-session-feedback-desc {
+  color: #dff5e8;
+}
+html[data-theme='dark'] .sc-session-feedback-meta,
+html[data-theme='dark'] .sc-session-feedback-expires {
+  color: #7fd8a6;
+}
+html[data-theme='dark'] .sc-session-feedback-btn {
+  background: transparent;
+  color: #7fd8a6;
+}
+html[data-theme='dark'] .sc-session-feedback-btn-primary {
+  background: #1b6b3a;
+  border-color: #1b6b3a;
+  color: #fff;
+}
