@@ -1,0 +1,30 @@
+name: Live Demo Report Seal
+
+on:
+  pull_request:
+    paths:
+      - 'tests/e2e/suites/81-live-locked-demo-reports.spec.ts'
+      - '.github/workflows/live-demo-report-seal.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  live-demo-report:
+    name: Anonymous SC-008 / SC-010 / SC-012 production report seal
+    runs-on: ubuntu-22.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - run: npx playwright install --with-deps chromium
+      - name: Verify live locked demo reports
+        run: >-
+          npx playwright test
+          tests/e2e/suites/81-live-locked-demo-reports.spec.ts
+          --project=chromium
+          --workers=1
