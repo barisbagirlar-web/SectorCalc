@@ -179,6 +179,28 @@ function sampleComponent(rng, c) {
   return sampleNormal(rng, nom, tol.div(3));
 }
 function mySimulate(comps, seed, n) {
+  return cachedSimulate(comps, seed, n);
+}
+// Deterministic MC samples are a pure function of (comps, seed, n), so identical
+// 10k-run simulations never need to be re-run. The demo-report bridge restores
+// golden demo data on every #genReport click (loadSample -> compute + generateReport
+// -> compute -> generateReport); without a cache that was ~11 full simulations
+// (~84s of main-thread Decimal work). The cache turns repeat runs into lookups.
+const _simCache = new Map();
+const SIM_CACHE_MAX = 8;
+function cachedSimulate(comps, seed, n) {
+  const key =
+    seed +
+    '|' +
+    n +
+    '|' +
+    comps
+      .map(
+        (c) => c.name + ':' + c.nominal + ':' + (c.tol ?? c.tolerance) + ':' + (c.dist || 'normal')
+      )
+      .join(',');
+  const hit = _simCache.get(key);
+  if (hit) return hit;
   const rng = lcg(seed);
   const out = [];
   for (let i = 0; i < n; i++) {
@@ -186,6 +208,11 @@ function mySimulate(comps, seed, n) {
     for (const c of comps) s = s.plus(sampleComponent(rng, c));
     out.push(s);
   }
+  if (_simCache.size >= SIM_CACHE_MAX) {
+    const oldest = _simCache.keys().next().value;
+    if (oldest !== undefined) _simCache.delete(oldest);
+  }
+  _simCache.set(key, out);
   return out;
 }
 function histogram(samples, bins) {
