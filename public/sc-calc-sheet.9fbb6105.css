@@ -412,3 +412,36 @@ html[data-theme='dark'] body.sc-guides-shell .sc-guides-main {
     opacity: 0.35;
   }
 }
+
+/* DEMO REPORT banner (auto-generated demo reports) */
+.sc-demo-report {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  margin: 0 0 14px;
+  border: 1px dashed rgba(184, 134, 11, 0.55);
+  border-radius: 4px;
+  background: rgba(184, 134, 11, 0.08);
+  font-size: 12px;
+  line-height: 1.5;
+}
+.sc-demo-report-tag {
+  flex: none;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: rgba(184, 134, 11, 0.9);
+  color: #fff;
+  font-weight: 700;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.sc-demo-report-copy {
+  color: #4a4a4a;
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 11px;
+}
+[data-theme='dark'] .sc-demo-report-copy {
+  color: #c9c9c2;
+}

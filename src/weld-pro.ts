@@ -47,6 +47,8 @@ function syncReportIfOpen() {
   if (_reportSyncing || !reportIsOpen() || !calcData) return;
   _reportSyncing = true;
   try {
+    // Manual edits clear the demo banner once the user starts changing inputs.
+    if (_demoReportOpen) _demoReportOpen = false;
     generateReport({ sync: true });
   } finally {
     _reportSyncing = false;
@@ -64,6 +66,10 @@ function setFieldState(f, ok, msg) {
 
 let calcData = null;
 
+// Whether the open report was generated from the demo preset, so the DEMO
+// banner can be cleared as soon as the user edits a real input.
+let _demoReportOpen = false;
+
 function readInputs() {
   const input = { jointType: $('jointType').value };
   FIELDS.forEach((f) => (input[f] = parseFloat($(f).value) || 0));
@@ -72,7 +78,7 @@ function readInputs() {
 }
 
 function validateAndCalc() {
-  if (window.__scProGate && !window.__scProGate.isEntitled()) {
+  if (window.__scProGate && !window.__scDemoCalcPass && !window.__scProGate.isEntitled()) {
     if ($('liveResult')) $('liveResult').textContent = 'Locked';
     if ($('liveSub')) $('liveSub').innerHTML = '<span>Unlock with credits to calculate</span>';
     return;
@@ -139,9 +145,11 @@ function loadPreset(key) {
   validateAndCalc();
 }
 function resetAll() {
+  _demoReportOpen = false;
   loadPreset('struct');
 }
 function startBlankStudy() {
+  _demoReportOpen = false;
   FIELDS.forEach((f) => {
     if ($(f)) $(f).value = '';
   });
@@ -222,7 +230,12 @@ function generateReport(opts = {}) {
     <div class="sc-rec"><div class="sc-rec-hd"><span class="sc-rec-num">1</span><span class="sc-rec-title">Weld is adequately sized - document the leg callout</span></div><div class="sc-rec-body">Required leg ${d.leg.toFixed(2)} mm, utilization ${(d.util * 100).toFixed(0)}%.<br><span class="pos">-> Put the leg and length on the drawing per EN ISO 2553</span></div></div>
     <div class="sc-rec"><div class="sc-rec-hd"><span class="sc-rec-num">2</span><span class="sc-rec-title">Keep the audit trail</span></div><div class="sc-rec-body">Calc ID ${calcId} reproducible from inputs.<br><span class="pos">-> Attach PDF to the welding procedure / WPS package</span></div></div>`;
 
+  const demoBanner = _demoReportOpen
+    ? '<div class="sc-demo-report"><span class="sc-demo-report-tag">DEMO REPORT</span><span class="sc-demo-report-copy">Sample values — replace inputs with your own data.</span></div>'
+    : '';
+
   const reportHTML = `
+    ${demoBanner}
     <div class="sc-report-hd"><div class="sc-report-hd-left"><div class="sc-report-title">SC-001 Weld Thickness Analysis</div><div class="sc-report-meta">Calculation ID: <span>${calcId}</span> &nbsp;|&nbsp; ${new Date().toISOString().replace('T', ' ').slice(0, 19)} UTC<br>Standard: AWS D1.1 structural welding | EN ISO 2553 weld symbols<br>Method: Deterministic load / weld-capacity check<br><span class="ok">OK Client-Side Only - your data never left your browser</span></div></div>
       <div class="sc-report-hd-right"><button class="sc-btn sc-btn-ghost" onclick="exportPDF()">Export PDF</button><button class="sc-btn sc-btn-ghost" onclick="exportPDFGraphic()">Export Graphic PDF</button><button class="sc-btn sc-btn-primary" onclick="shareReport()">Share</button></div></div>
     <div class="sc-sec"><div class="sc-sec-hd">Risk Assessment</div>
@@ -425,6 +438,8 @@ if (window.SCStudy) {
   window.SCStudy.register('SC-001', {
     loadSample() {
       loadPreset('struct');
+      _demoReportOpen = true;
+      generateReport();
     },
     startBlank() {
       startBlankStudy();
@@ -434,4 +449,11 @@ if (window.SCStudy) {
 }
 
 loadFromURL();
-validateAndCalc();
+try {
+  window.__scDemoCalcPass = true;
+  validateAndCalc();
+  _demoReportOpen = !new URLSearchParams(location.search).has('s');
+  generateReport();
+} finally {
+  window.__scDemoCalcPass = false;
+}

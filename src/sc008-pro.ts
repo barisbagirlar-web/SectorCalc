@@ -95,6 +95,9 @@ const presets = {
 let currentUnit = 'mm';
 let dimensions = presets.standard.dims.map((d) => ({ ...d }));
 let calcData = null;
+// Whether the open report was generated from the demo preset, so the DEMO
+// banner can be cleared as soon as the user edits a real input.
+let _demoReportOpen = false;
 const $ = (id) => document.getElementById(id);
 let _reportSyncing = false;
 function reportIsOpen() {
@@ -104,6 +107,8 @@ function syncReportIfOpen() {
   if (_reportSyncing || !reportIsOpen() || !calcData) return;
   _reportSyncing = true;
   try {
+    // Manual edits clear the demo banner once the user starts changing inputs.
+    if (_demoReportOpen) _demoReportOpen = false;
     generateReport({ sync: true });
   } finally {
     _reportSyncing = false;
@@ -282,7 +287,7 @@ function validate() {
 }
 
 function compute() {
-  if (window.__scProGate && !window.__scProGate.isEntitled()) {
+  if (window.__scProGate && !window.__scDemoCalcPass && !window.__scProGate.isEntitled()) {
     if ($('liveResult')) $('liveResult').textContent = 'Locked';
     if ($('liveSub')) $('liveSub').innerHTML = '<span>Unlock with credits to calculate</span>';
     return;
@@ -381,6 +386,7 @@ function loadPreset(key) {
   compute();
 }
 function startBlankStudy() {
+  _demoReportOpen = false;
   $('specUpper').value = '';
   $('specLower').value = '';
   $('cpkTarget').value = '';
@@ -496,7 +502,12 @@ function generateReport(_opts) {
     <div class="sc-rec"><div class="sc-rec-hd"><span class="sc-rec-num">1</span><span class="sc-rec-title">Predicted stack looks sound — keep as a design estimate</span></div><div class="sc-rec-body">Predicted Cpk ${d.cpk.toFixed(2)} meets target ${d.b.cpkTarget}. Distributions: ${distUsed}.<br><span class="pos">-> Re-run when tolerances, the stack or a distribution choice changes</span></div></div>
     <div class="sc-rec"><div class="sc-rec-hd"><span class="sc-rec-num">2</span><span class="sc-rec-title">Verify with measured data before release</span></div><div class="sc-rec-body">Drawing-based prediction only.<br><span class="pos">-> Attach an observed capability study at PPAP/FAI stage (outside this tool)</span></div></div>`;
 
+  const demoBanner = _demoReportOpen
+    ? '<div class="sc-demo-report"><span class="sc-demo-report-tag">DEMO REPORT</span><span class="sc-demo-report-copy">Sample values — replace inputs with your own data.</span></div>'
+    : '';
+
   $('reportArea').innerHTML = `
+    ${demoBanner}
     <div class="sc-report-hd"><div><div class="sc-report-title">SC-008 Tolerance Stack-Up — Predicted Analysis</div>
       <div class="sc-report-meta">Calculation ID: <span>${d.calcId}</span> (deterministic from inputs) &nbsp;|&nbsp; ${new Date().toISOString().slice(0, 19)} UTC<br>
       Engine: <span>${ENGINE_VERSION}</span> &nbsp;|&nbsp; input hash <span>${d.inputHash}</span> &nbsp;|&nbsp; output hash <span>${d.outputHash}</span><br>
@@ -835,7 +846,10 @@ $('addDim').addEventListener('click', () => {
   renderDims();
   compute();
 });
-$('resetAll').addEventListener('click', () => loadPreset('standard'));
+$('resetAll').addEventListener('click', () => {
+  _demoReportOpen = false;
+  loadPreset('standard');
+});
 $('genReport').addEventListener('click', async () => {
   if (window.__scProGate && !(await window.__scProGate.ensureEntitled())) {
     alert('Unlock this tool with credits to generate the professional report.');
@@ -917,13 +931,22 @@ $('csvFile').addEventListener('change', (e) => {
 });
 loadFromURL();
 renderDims();
-compute();
+try {
+  window.__scDemoCalcPass = true;
+  compute();
+  _demoReportOpen = !new URLSearchParams(location.search).has('s');
+  generateReport();
+} finally {
+  window.__scDemoCalcPass = false;
+}
 window.loadPreset = loadPreset;
 window.compute = compute;
 if (window.SCStudy) {
   window.SCStudy.register('SC-008', {
     loadSample() {
       loadPreset('standard');
+      _demoReportOpen = true;
+      generateReport();
     },
     startBlank() {
       startBlankStudy();
