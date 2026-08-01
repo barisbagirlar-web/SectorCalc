@@ -6,6 +6,10 @@
  */
 import { test, expect } from '@playwright/test';
 
+// Premium gate flow exercises real Firebase Auth + session/entitlement APIs,
+// which only exist on the live deployment (BASE_URL). Skip locally in CI.
+test.skip(!process.env.BASE_URL, 'requires live backend (BASE_URL)');
+
 test.describe('SC-012 form visibility mandate @gate @critical', () => {
   test('anonymous: form visible, sign-in gate visible, no empty page', async ({ page }) => {
     await page.goto('/calculator/quote-pricing', { waitUntil: 'domcontentloaded' });

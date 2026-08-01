@@ -6,6 +6,10 @@
  */
 import { test, expect } from '@playwright/test';
 
+// Demo auto-report exercises the live premium gate flow (real Firebase Auth +
+// session API), available only on the deployed site (BASE_URL). Skip in CI-local.
+test.skip(!process.env.BASE_URL, 'requires live backend (BASE_URL)');
+
 test.describe('SC-012 demo auto-report @gate @critical', () => {
   async function signIn(page: import('@playwright/test').Page) {
     await page.goto('/login.html');

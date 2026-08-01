@@ -6,6 +6,11 @@
  */
 import { test, expect } from '@playwright/test';
 
+// Session activation feedback exercises the live premium gate flow (real
+// Firebase Auth + session API), available only on the deployed site (BASE_URL).
+// Skip locally in CI; the production e2e job runs it against sectorcalc.com.
+test.skip(!process.env.BASE_URL, 'requires live backend (BASE_URL)');
+
 const EMAIL = process.env.E2E_AUTH_EMAIL || 'teb232@gmail.com';
 const PASS = process.env.E2E_AUTH_PASS || 'Deneme1974';
 
