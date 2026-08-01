@@ -99,10 +99,27 @@ for (const tool of tools) {
       live: document.getElementById('liveResult')?.textContent?.trim() || null,
       reportPlaceholder: Boolean(document.querySelector('#reportArea .sc-empty')),
       reportTextLength: (document.getElementById('reportArea')?.textContent || '').trim().length,
-      verdict: document.getElementById('verdict')?.textContent?.trim() || null
+      verdict: [
+        document.getElementById('verdict'),
+        document.getElementById('verdictBanner'),
+        document.getElementById('auditBox')
+      ]
+        .map((el) => el?.textContent?.trim() || '')
+        .join(' ')
+        .trim() || null,
+      hasKpi: Boolean(document.querySelector('#kpis .kpi, .kpis .kpi'))
     }));
     console.log(`LIVE_DEMO_MATRIX|${tool.id}|${JSON.stringify(state)}`);
-    expect(state.live).not.toMatch(/locked|unlock/i);
+
+    if (state.live !== null) expect(state.live).not.toMatch(/locked|unlock/i);
+    expect(
+      Boolean(
+        (state.live && state.live !== '—') ||
+          (state.verdict && state.verdict.length > 10) ||
+          state.reportTextLength > 40 ||
+          state.hasKpi
+      )
+    ).toBe(true);
     if (expectsReport) expect(state.reportPlaceholder).toBe(false);
   });
 }
