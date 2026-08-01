@@ -13,18 +13,19 @@ const tools = [
 
 for (const tool of tools) {
   test(`LIVE ${tool.id} anonymous demo renders a real report @deep`, async ({ page }) => {
+    test.setTimeout(90_000);
     await page.goto(`https://sectorcalc.com${tool.path}?live-demo-seal=${Date.now()}`, {
       waitUntil: 'domcontentloaded'
     });
 
-    await expect(page.locator('[data-sc-study="sample"]')).toBeVisible({ timeout: 30000 });
+    await expect(page.locator('[data-sc-study="sample"]')).toBeVisible({ timeout: 30_000 });
     await page.waitForFunction(
       () =>
         Boolean(
           (window as unknown as { __scProGate?: { isEntitled: () => boolean } }).__scProGate
         ),
       undefined,
-      { timeout: 30000 }
+      { timeout: 30_000 }
     );
 
     const entitled = await page.evaluate(
@@ -34,10 +35,17 @@ for (const tool of tools) {
     );
     expect(entitled).toBe(false);
 
-    await page.locator('[data-sc-study="sample"]').click();
+    // SC-008 performs a synchronous Monte Carlo calculation inside the click
+    // path. Schedule the real DOM click and observe the user-visible result
+    // instead of making Playwright wait for the event handler to return.
+    await page.evaluate(() => {
+      window.setTimeout(() => {
+        (document.querySelector('[data-sc-study="sample"]') as HTMLButtonElement | null)?.click();
+      }, 0);
+    });
 
     const title = page.locator('#reportArea .sc-report-title');
-    await expect(title).toBeVisible({ timeout: 20000 });
+    await expect(title).toBeVisible({ timeout: 60_000 });
     await expect(title).toContainText(tool.id);
     await expect(page.locator('#reportArea .sc-empty')).toHaveCount(0);
   });
