@@ -21,6 +21,9 @@ jobs:
     timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
+        with:
+          # Need HEAD~1 to diff against for the billing functions change gate.
+          fetch-depth: 2
       - uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -48,7 +51,22 @@ jobs:
           npm run build
           npm run verify:seo
 
+      - name: Detect billing function changes
+        id: functions-diff
+        run: |
+          set -euo pipefail
+          CHANGED="false"
+          # On push, only run the functions deploy when functions/ actually
+          # changed (its GCP Secret Manager billing gate can otherwise block
+          # every hosting promotion). Manual dispatch always attempts it.
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] || git diff --name-only HEAD~1 HEAD 2>/dev/null | grep -q '^functions/'; then
+            CHANGED="true"
+          fi
+          echo "changed=$CHANGED" >> "$GITHUB_OUTPUT"
+          echo "billing functions changed: $CHANGED"
+
       - name: Deploy billing Cloud Functions + Firestore rules
+        if: steps.functions-diff.outputs.changed == 'true'
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
         run: |
