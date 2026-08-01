@@ -1,6 +1,6 @@
 # AGENTS.md — SECTORCAL
 
-Read `DECISIONS.md` and `.cursorrules` before writing code.
+Read `DECISIONS.md` and the CEOS working principles (`sectorcalc-md/`, enforced via `.cursor/rules/sectorcalc-ceos.mdc`) before writing code.
 
 ## Node lock
 
