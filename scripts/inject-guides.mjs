@@ -43,21 +43,23 @@ function wrap(fragment) {
   return `<!--SC-GUIDE-START-->\n${fragment.trim()}\n<!--SC-GUIDE-END-->`;
 }
 
+const MOUNT = '<!--SC-GUIDE-MOUNT-->';
+
 function stripOld(html) {
   return html.replace(/<!--SC-GUIDE-START-->[\s\S]*?<!--SC-GUIDE-END-->\n?/g, '');
 }
 
-function inject(html, block, mode) {
+function inject(html, block, pageFile) {
+  // Idempotent: drop any previously injected guide block first.
   html = stripOld(html);
-  if (mode === 'before-footer') {
-    const re = /<footer\b[\s\S]*?<\/footer>/i;
-    if (re.test(html)) return html.replace(re, `${block}\n$&`);
-    // fallback: before theme toggle or body end
+  if (!html.includes(MOUNT)) {
+    throw new Error(`SC_GUIDE_MOUNT_MISSING: ${pageFile}`);
   }
-  if (html.includes('<script type="module"')) {
-    return html.replace(/<script type="module"/, `${block}\n<script type="module"`);
-  }
-  return html.replace(/<\/body>/i, `${block}\n</body>`);
+  // Calculator-first DOM order: the guide must mount at the SC-GUIDE-MOUNT
+  // marker, which authors place AFTER the calculator layout. Never fall back to
+  // </head>/<body>/<script type="module"> anchors — those pushed the guide above
+  // the form and hid the calculator 4000px+ down the page.
+  return html.replace(MOUNT, `${block}\n${MOUNT}`);
 }
 
 let ok = 0;
@@ -71,7 +73,12 @@ for (const row of MAP) {
   let html = readFileSync(pagePath, 'utf8');
   const fragment = readFileSync(guidePath, 'utf8');
   html = ensureAssets(html);
-  html = inject(html, wrap(fragment), row.mode);
+  try {
+    html = inject(html, wrap(fragment), row.page);
+  } catch (err) {
+    console.error(`[FAIL] ${err.message}`);
+    process.exit(1);
+  }
   writeFileSync(pagePath, html);
   ok++;
   console.log(`[OK] ${row.page} ← ${row.guide}`);

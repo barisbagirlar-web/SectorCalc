@@ -9,9 +9,11 @@
  * is wrapped. Field lock + capture-phase guards close that bypass; wrapping alone
  * is not enough.
  */
+import { authReady, watchAuth } from '../auth/index.js';
 import { isCreditRequired } from './domain/packages.js';
 import { mountProfessionalGate, type ProfessionalGate } from './professional-ui.js';
 import { mountToolAccessBar } from './access-bar.js';
+import { mountSessionActivationFeedback } from './session-activation-feedback.js';
 
 declare global {
   interface Window {
@@ -37,14 +39,19 @@ function readToolId(): string | null {
   const fromGuide = document.querySelector<HTMLElement>('#sc-guide[data-tool-id]')?.dataset.toolId;
   if (fromGuide) return fromGuide;
   const fromGate = document.querySelector<HTMLElement>('[data-tool]')?.getAttribute('data-tool');
-  return fromGate || null;
+  if (fromGate) return fromGate;
+  // Fallback: authored pages sometimes carry the id on money/SEO blocks
+  // (e.g. .sc-direct-answer) instead of the guide section. Picking the first
+  // data-tool-id marker keeps the credit gate from silently failing to boot.
+  const fromAny = document.querySelector<HTMLElement>('[data-tool-id]')?.dataset.toolId;
+  return fromAny || null;
 }
 
 function ensureBillingCss(): void {
   if (document.querySelector('link[href*="sc-billing.css"]')) return;
   const link = document.createElement('link');
   link.rel = 'stylesheet';
-  link.href = '/sc-billing.css?v=3';
+  link.href = '/sc-billing.css?v=4';
   document.head.appendChild(link);
 }
 
@@ -63,6 +70,31 @@ function ensureMount(): HTMLElement {
     calcBtn.parentElement.insertBefore(el, calcBtn);
   } else {
     host.prepend(el);
+  }
+  return el;
+}
+
+/**
+ * Compact access-bar root, kept SEPARATE from the gate block so the gate's
+ * own render() (which rewrites #sc-pro-gate-root.innerHTML) can never erase it.
+ * Placed at the top of the form sidebar when present, else directly above the
+ * gate — the bar must sit near the form without ever hiding it.
+ */
+function ensureAccessBarRoot(): HTMLElement {
+  let el = document.getElementById('sc-abar-root');
+  if (el) return el;
+  el = document.createElement('div');
+  el.id = 'sc-abar-root';
+  const sidebar = document.querySelector<HTMLElement>('.sc-sidebar');
+  if (sidebar) {
+    sidebar.insertBefore(el, sidebar.firstChild);
+    return el;
+  }
+  const gateRoot = document.getElementById('sc-pro-gate-root');
+  if (gateRoot && gateRoot.parentElement) {
+    gateRoot.parentElement.insertBefore(el, gateRoot);
+  } else {
+    (gateRoot ?? document.body).prepend(el);
   }
   return el;
 }
@@ -251,10 +283,19 @@ export function bootToolCreditGate(): void {
   if (!isCreditRequired(toolId)) return;
 
   ensureBillingCss();
+  // Shared session-activation feedback: one listener for every premium tool.
+  mountSessionActivationFeedback();
   const mount = ensureMount();
+  const abarRoot = ensureAccessBarRoot();
+  const renderAccessBar = (): void => {
+    void mountToolAccessBar(toolId, abarRoot);
+  };
   if (window.__scProGate && mount.querySelector('.sc-pro-gate')) {
     installIntercepts(window.__scProGate);
-    void mountToolAccessBar(toolId, mount);
+    renderAccessBar();
+    // Re-run once Firebase Auth settles so a restored session is reflected
+    // in the access bar (signed-out boots skip it via NOT_AUTHENTICATED).
+    if (authReady()) watchAuth(() => renderAccessBar());
     return;
   }
 
@@ -280,7 +321,8 @@ export function bootToolCreditGate(): void {
   });
   window.__scProGate = gate;
   installIntercepts(gate);
-  void mountToolAccessBar(toolId, mount);
+  renderAccessBar();
+  if (authReady()) watchAuth(() => renderAccessBar());
 
   // Classic inline engines define calculate() after modules; poll briefly.
   // Also re-apply lock after SCStudy mounts / late field injection.
