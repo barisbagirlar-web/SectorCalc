@@ -5,6 +5,7 @@
  * as soon as the user edits an input. Demo vs manual results must be identical.
  */
 import { test, expect } from '@playwright/test';
+import { ensureActiveSession } from '../helpers/regression';
 
 // Demo auto-report exercises the live premium gate flow (real Firebase Auth +
 // session API), available only on the deployed site (BASE_URL). Skip in CI-local.
@@ -24,7 +25,7 @@ test.describe('SC-012 demo auto-report @gate @critical', () => {
 
   async function openTool(page: import('@playwright/test').Page) {
     await page.goto('/calculator/quote-pricing', { waitUntil: 'domcontentloaded' });
-    await expect(page.locator('.sc-pro-gate-active').first()).toBeVisible({ timeout: 25000 });
+    await ensureActiveSession(page, { timeout: 30000 });
     await page.waitForTimeout(1500);
   }
 

@@ -5,6 +5,7 @@
  * The gate may only control the access bar + paid action, never the form layout.
  */
 import { test, expect } from '@playwright/test';
+import { ensureActiveSession } from '../helpers/regression';
 
 // Premium gate flow exercises real Firebase Auth + session/entitlement APIs,
 // which only exist on the live deployment (BASE_URL). Skip locally in CI.
@@ -63,7 +64,7 @@ test.describe('SC-012 form visibility mandate @gate @critical', () => {
     await page.waitForTimeout(1500);
 
     await page.goto('/calculator/quote-pricing', { waitUntil: 'domcontentloaded' });
-    await expect(page.locator('.sc-pro-gate-active').first()).toBeVisible({ timeout: 20000 });
+    await ensureActiveSession(page, { timeout: 30000 });
 
     const state = await page.evaluate(() => {
       const mat = document.getElementById('materialCost') as HTMLInputElement | null;

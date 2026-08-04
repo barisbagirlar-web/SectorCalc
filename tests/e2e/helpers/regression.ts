@@ -122,6 +122,31 @@ export async function expectLockedGate(page: Page, toolId: string): Promise<void
 }
 
 /**
+ * Ensure the signed-in user has an ACTIVE professional session on the current
+ * premium tool before the test interacts with the unlocked form. Sessions are
+ * 24h and expire between deploys, so suites that assert the "Session active"
+ * state start one when the gate offers it instead of assuming a stale fixture.
+ *
+ * - `active` gate → already unlocked, nothing to do.
+ * - `locked` gate (`[data-confirm-pro]`, wallet covers cost) → click Start.
+ * - anything else (sign-in gate / insufficient credits / unmounted) → fail fast
+ *   with a clear diagnostic instead of a blind timeout.
+ */
+export async function ensureActiveSession(page: Page, opts?: { timeout?: number }): Promise<void> {
+  const timeout = opts?.timeout ?? 30_000;
+  const state = await waitForGateState(page);
+  if (state === 'active') return;
+  if (state !== 'locked') {
+    throw new Error(
+      `ensureActiveSession: cannot open session from gate state "${state}" ` +
+        '(expected locked [Start New Session] or active). Sign-in or credits likely missing.'
+    );
+  }
+  await page.locator('[data-confirm-pro]').first().click();
+  await expect(page.locator('.sc-pro-gate-active').first()).toBeVisible({ timeout });
+}
+
+/**
  * Tier-A locked workspace: demo teaser only — Reset off, inputs locked.
  * Call only when waitForGateState === 'locked' (monetization enforced).
  */
