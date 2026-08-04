@@ -44,7 +44,7 @@ jobs:
       - name: Production quality gate
         env:
           VITE_PADDLE_ENV: production
-          VITE_PADDLE_CLIENT_TOKEN: live_6649e40d5c0200d0fe72895efe9
+          VITE_PADDLE_CLIENT_TOKEN: live_e7a3930ced43bd05a0e6d313486
         run: |
           npm test
           npm run typecheck

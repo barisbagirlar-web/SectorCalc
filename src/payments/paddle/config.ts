@@ -35,8 +35,8 @@ export function getPaddlePublicConfig(): PaddlePublicConfig {
       : 'production';
 
   const token = isProdDomain
-    ? 'live_6649e40d5c0200d0fe72895efe9'
-    : viteEnv('VITE_PADDLE_CLIENT_TOKEN') || 'live_6649e40d5c0200d0fe72895efe9';
+    ? 'live_e7a3930ced43bd05a0e6d313486'
+    : viteEnv('VITE_PADDLE_CLIENT_TOKEN') || 'live_e7a3930ced43bd05a0e6d313486';
 
   if (environment !== 'sandbox' && environment !== 'production') {
     throw new Error(`VITE_PADDLE_ENV must be "sandbox" or "production", got: "${environment}"`);
