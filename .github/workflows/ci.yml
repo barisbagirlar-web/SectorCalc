@@ -4,14 +4,19 @@ on:
   push:
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
   language-gate:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
           node-version-file: '.nvmrc'
+      - name: Verify Node 24 runtime
+        run: node --version | grep -E '^v24\.'
       # Dependency-free: no npm install needed.
       - name: English-only language gate
         run: node scripts/check-language.mjs --strict
@@ -19,11 +24,13 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
           node-version-file: '.nvmrc'
           cache: npm
+      - name: Verify Node 24 runtime
+        run: node --version | grep -E '^v24\.'
       - run: npm ci
       - run: npm test
       - run: npm run typecheck
@@ -43,11 +50,13 @@ jobs:
     # ubuntu-latest currently resolves to 24.04 and fails before tests start.
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
           node-version-file: '.nvmrc'
           cache: npm
+      - name: Verify Node 24 runtime
+        run: node --version | grep -E '^v24\.'
       - run: npm ci
       - run: npx playwright install --with-deps chromium
       - run: npm run test:e2e
