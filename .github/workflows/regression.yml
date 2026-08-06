@@ -23,11 +23,13 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
           node-version-file: '.nvmrc'
           cache: npm
+      - name: Verify Node 24 runtime
+        run: node --version | grep -E '^v24\.'
       - run: npm ci --no-audit --no-fund
       - name: English-only language gate
         run: node scripts/check-language.mjs --strict
@@ -49,11 +51,13 @@ jobs:
     needs: [static-gates]
     timeout-minutes: 25
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
           node-version-file: '.nvmrc'
           cache: npm
+      - name: Verify Node 24 runtime
+        run: node --version | grep -E '^v24\.'
       - run: npm ci --no-audit --no-fund
       - run: npm run build
       - name: Post-build seals
@@ -72,11 +76,13 @@ jobs:
     needs: [build-gate]
     timeout-minutes: 50
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
           node-version-file: '.nvmrc'
           cache: npm
+      - name: Verify Node 24 runtime
+        run: node --version | grep -E '^v24\.'
       - run: npm ci --no-audit --no-fund
       - run: npx playwright install --with-deps chromium
       - name: Playwright enterprise suite
@@ -85,7 +91,7 @@ jobs:
           CI: true
       - name: Upload Playwright artifacts
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: playwright-local-${{ github.sha }}
           path: |
@@ -100,11 +106,13 @@ jobs:
     if: github.event_name == 'push' || github.event_name == 'workflow_dispatch' || github.event_name == 'schedule'
     timeout-minutes: 35
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
           node-version-file: '.nvmrc'
           cache: npm
+      - name: Verify Node 24 runtime
+        run: node --version | grep -E '^v24\.'
       - run: npm ci --no-audit --no-fund
       - run: npx playwright install --with-deps chromium
       - name: Critical flows against live
@@ -114,7 +122,7 @@ jobs:
           CI: true
       - name: Upload Playwright artifacts
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: playwright-production-${{ github.sha }}
           path: |

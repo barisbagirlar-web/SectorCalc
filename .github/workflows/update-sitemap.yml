@@ -15,11 +15,13 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
-          node-version: '22'
+          node-version: '24'
           cache: npm
+      - name: Verify Node 24 runtime
+        run: node --version | grep -E '^v24\.'
       - name: Install locked dependencies
         run: npm ci --no-audit --no-fund
       - name: Verify canonical sitemap and SEO invariants
