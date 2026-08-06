@@ -20,14 +20,17 @@ jobs:
     runs-on: ubuntu-22.04
     timeout-minutes: 60
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           # Need HEAD~1 to diff against for the billing functions change gate.
           fetch-depth: 2
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
-          node-version: 22
+          node-version: 24
           cache: npm
+
+      - name: Verify Node 24 runtime
+        run: node --version | grep -E '^v24\.'
 
       - name: Verify Firebase credential present
         run: |
