@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { applicableRules, isRobotsAllowed, parseRobots } from '../seo/robots-policy.mjs';
 
@@ -57,5 +58,21 @@ Disallow: /private/
 `);
     expect(groups).toHaveLength(1);
     expect(groups[0].agents).toEqual(['bota', 'botb']);
+  });
+});
+
+describe('SectorCalc production robots contract', () => {
+  const robots = readFileSync('public/robots.txt', 'utf8');
+  const discoveryBots = ['Googlebot', 'Googlebot-Image', 'Bingbot', 'OAI-SearchBot', 'ChatGPT-User', 'PerplexityBot'];
+  const privatePaths = ['/cgi-bin/', '/tmp/', '/draft/', '/staging/', '/admin/', '/api/', '/internal/', '/assets/cache/'];
+
+  it.each(discoveryBots)('%s can crawl public calculators but not private surfaces', (bot) => {
+    expect(isRobotsAllowed(robots, bot, '/calculator/bearing-life-l10')).toBe(true);
+    for (const path of privatePaths) expect(isRobotsAllowed(robots, bot, path)).toBe(false);
+  });
+
+  it.each(['GPTBot', 'ClaudeBot', 'CCBot', 'FacebookBot'])('%s remains blocked by training policy', (bot) => {
+    expect(isRobotsAllowed(robots, bot, '/')).toBe(false);
+    expect(isRobotsAllowed(robots, bot, '/calculator/bearing-life-l10')).toBe(false);
   });
 });
