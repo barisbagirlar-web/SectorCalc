@@ -62,12 +62,19 @@ if (phase) {
 }
 // P-04
 try { execFileSync(process.execPath, ['scripts/verify-paddle-production-guard.mjs'], { cwd: root, stdio: 'pipe' }); } catch { violation('repository secret guard failed'); }
-// P-05: exact Appendix F catalog + BLOCK negative fixture coverage.
+// P-05: exact Appendix F catalog, required invariant record shape, and BLOCK negative fixture coverage.
 if (!Array.isArray(invariants.invariants)) configError('invariant registry missing');
 const catalogErrors = validateInvariantCatalog(invariants);
 if (catalogErrors.length) configError(`Appendix F invariant mismatch: ${catalogErrors.join(', ')}`);
 const ids = invariants.invariants.map((item) => item.id);
 if (new Set(ids).size !== ids.length) configError('duplicate invariant id');
+for (const item of invariants.invariants) {
+  const hasPhase = Object.prototype.hasOwnProperty.call(item, 'phase');
+  if (!item.id || !hasPhase || !item.severity || !Array.isArray(item.configRefs) || !item.statement) {
+    configError(`invalid invariant record ${item.id || 'unknown'}`);
+  }
+  if (item.severity === 'BLOCK' && !item.negativeTest) configError(`BLOCK invariant negative fixture not declared: ${item.id}`);
+}
 const negativeErrors = missingNegativeTests(invariants, root);
 if (negativeErrors.length) configError(`BLOCK invariant negative fixture missing: ${negativeErrors.join(', ')}`);
 // P-06
