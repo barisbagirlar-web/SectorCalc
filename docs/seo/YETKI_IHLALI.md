@@ -1,5 +1,5 @@
-# SectorCalc SEO Yetki İhlali Kaydı
+# SectorCalc SEO Authority Violation Log
 
-Kayıtlı otomasyon yetki aşımı yok.
+No automation authority overreach is currently recorded.
 
-2026-08-09 Paddle credential exposure olayı AIP-13 secret-management güvenlik ihlalidir; provider rotation issue #260 ile izlenmektedir.
+The 2026-08-09 Paddle credential exposure is an AIP-13 secret-management security violation and is tracked by provider-rotation issue #260.
