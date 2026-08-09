@@ -148,6 +148,17 @@ export function validateCurrentRegistry() {
   const invariantErrors = validateRegistryInvariants();
   if (invariantErrors.length) throw new Error(invariantErrors.join(' | '));
 
+  const unmappedRoles = [...new Set(PAGES.map((record: Record<string, any>) => String(record.role ?? ''))
+    .filter((role: string) => {
+      try {
+        mapRole(role);
+        return false;
+      } catch {
+        return true;
+      }
+    }))].sort();
+  if (unmappedRoles.length) throw new Error(`unmapped registry roles: ${unmappedRoles.join(', ')}`);
+
   const adapted = PAGES.map((record: Record<string, any>) => adaptRegistryRecord(record));
   for (const record of adapted) {
     if (!validatePage(record)) {
