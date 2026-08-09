@@ -1,8 +1,8 @@
 # SectorCalc — robots.txt (production)
 # Canonical host: https://sectorcalc.com (www redirects to apex)
-# Public search/retrieval crawlers inherit this single public policy.
-# Do not add crawler-specific Allow:/ groups: specific groups do not inherit
-# the wildcard group's private-path disallows in standards-compliant parsers.
+# Public search/retrieval crawlers are allowed on public content.
+# IMPORTANT: crawler-specific groups do not inherit the wildcard group's rules,
+# so every explicit discovery group repeats the private-path deny set.
 
 User-agent: *
 Allow: /
@@ -15,7 +15,53 @@ Disallow: /api/
 Disallow: /internal/
 Disallow: /assets/cache/
 
-# Training-oriented crawlers are governed separately.
+# Search crawlers
+User-agent: Googlebot
+Allow: /
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /draft/
+Disallow: /staging/
+Disallow: /admin/
+Disallow: /api/
+Disallow: /internal/
+Disallow: /assets/cache/
+
+User-agent: Bingbot
+Allow: /
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /draft/
+Disallow: /staging/
+Disallow: /admin/
+Disallow: /api/
+Disallow: /internal/
+Disallow: /assets/cache/
+
+# AI search / retrieval crawlers
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /draft/
+Disallow: /staging/
+Disallow: /admin/
+Disallow: /api/
+Disallow: /internal/
+Disallow: /assets/cache/
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /draft/
+Disallow: /staging/
+Disallow: /admin/
+Disallow: /api/
+Disallow: /internal/
+Disallow: /assets/cache/
+
+# Training-oriented crawlers
 User-agent: GPTBot
 Disallow: /
 
