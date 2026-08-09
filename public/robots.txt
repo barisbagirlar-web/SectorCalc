@@ -1,6 +1,8 @@
 # SectorCalc — robots.txt (production)
 # Canonical host: https://sectorcalc.com (www redirects to apex)
-# Public search/retrieval crawlers are allowed. Training crawlers are governed separately.
+# Public search/retrieval crawlers are allowed on public content.
+# IMPORTANT: crawler-specific groups do not inherit wildcard rules, so every
+# explicitly allowed crawler group repeats the private-path deny set.
 
 User-agent: *
 Allow: /
@@ -15,36 +17,46 @@ Disallow: /assets/cache/
 
 # Search crawlers
 User-agent: Googlebot
-Allow: /
-
 User-agent: Googlebot-Image
-Allow: /
-
 User-agent: Bingbot
 Allow: /
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /draft/
+Disallow: /staging/
+Disallow: /admin/
+Disallow: /api/
+Disallow: /internal/
+Disallow: /assets/cache/
 
 # AI search / retrieval crawlers
 User-agent: OAI-SearchBot
-Allow: /
-
 User-agent: ChatGPT-User
-Allow: /
-
 User-agent: PerplexityBot
 Allow: /
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /draft/
+Disallow: /staging/
+Disallow: /admin/
+Disallow: /api/
+Disallow: /internal/
+Disallow: /assets/cache/
 
 # AI-use controls that are not Google Search indexing controls
 User-agent: Google-Extended
-Allow: /
-
 User-agent: Anthropic-ai
-Allow: /
-
 User-agent: Claude-Web
-Allow: /
-
 User-agent: cohere-ai
 Allow: /
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /draft/
+Disallow: /staging/
+Disallow: /admin/
+Disallow: /api/
+Disallow: /internal/
+Disallow: /assets/cache/
 
 # Training-oriented crawlers
 User-agent: GPTBot
@@ -59,15 +71,40 @@ Disallow: /
 User-agent: FacebookBot
 Disallow: /
 
+# Archive and SEO audit crawlers
 User-agent: ia_archiver
 Allow: /
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /draft/
+Disallow: /staging/
+Disallow: /admin/
+Disallow: /api/
+Disallow: /internal/
+Disallow: /assets/cache/
 
 User-agent: AhrefsBot
 Allow: /
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /draft/
+Disallow: /staging/
+Disallow: /admin/
+Disallow: /api/
+Disallow: /internal/
+Disallow: /assets/cache/
 Crawl-delay: 2
 
 User-agent: SemrushBot
 Allow: /
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /draft/
+Disallow: /staging/
+Disallow: /admin/
+Disallow: /api/
+Disallow: /internal/
+Disallow: /assets/cache/
 Crawl-delay: 2
 
 Sitemap: https://sectorcalc.com/sitemap.xml
