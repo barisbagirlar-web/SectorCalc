@@ -1,0 +1,86 @@
+{
+  "version": "6.0",
+  "profile": "M",
+  "site": {
+    "siteId": "sectorcalc",
+    "rootUrl": "https://sectorcalc.com",
+    "language": "en",
+    "currency": "USD",
+    "region": "global",
+    "industry": "saas",
+    "hasEcommerce": true,
+    "hasBlog": false,
+    "maxConcurrentKacActions": 3,
+    "allowedEnvironments": ["staging", "production"]
+  },
+  "deployment": {
+    "target": "firebase_hosting",
+    "supportsHeaders": true,
+    "supportsEdgeRedirects": true,
+    "redirectLimit": 200
+  },
+  "measurement": {
+    "defaultWindowDays": 28,
+    "dataWindowStart": "2025-09-11",
+    "calendarYearEnabled": true,
+    "gscGenerativeAiReportAvailable": false,
+    "gscGenerativeAiInFormula": false,
+    "confidenceMode": "strict"
+  },
+  "thresholds": {
+    "lcpP75Ms": 2500,
+    "inpP75Ms": 200,
+    "clsP75": 0.1,
+    "decayDays": 90,
+    "highTrafficThreshold": 100,
+    "similarityMax": 0.85,
+    "intentScoreMin": 4,
+    "consentTrackingRequired": true,
+    "concentrationWarnPct": 60,
+    "divestPendingMaxDays": 30,
+    "programmaticIndexMinPct": 70,
+    "programmaticEvalDays": 56,
+    "brandSerpOwnershipWarnPct": 70
+  },
+  "economics": {
+    "defaultValuePerConversionMinor": 0,
+    "ltvModel": "none",
+    "paybackMaxMonths": 12,
+    "budgetSplit": {
+      "investPct": 50,
+      "holdPct": 30,
+      "harvestPct": 15,
+      "divestPct": 5
+    },
+    "valuationMultiples": {
+      "low": 0,
+      "high": 0
+    }
+  },
+  "policy": {
+    "aiBots": {
+      "aiTraining": "block",
+      "aiSearch": "allow",
+      "custom": {
+        "GPTBot": "block",
+        "OAI-SearchBot": "allow",
+        "PerplexityBot": "allow"
+      }
+    },
+    "blockedSections": [
+      "/cgi-bin/",
+      "/tmp/",
+      "/draft/",
+      "/staging/",
+      "/admin/",
+      "/api/",
+      "/internal/",
+      "/assets/cache/"
+    ],
+    "perplexityQuery": null
+  },
+  "business": {
+    "verticals": ["saas"],
+    "revenueModel": "mixed"
+  }
+}
