@@ -1,54 +1,12 @@
 {
   "schemaVersion": "6.0-sectorcalc.1",
-  "bootstrap": {
-    "writes": [
-      "sites/sectorcalc/seo.config.json",
-      "seo.config.schema.json",
-      "docs/seo/MANDATE.md",
-      "docs/seo/PROGRESS.md",
-      "docs/seo/KARAR_DEFTERI.md",
-      "docs/seo/BULGULAR_KUYRUGU.md",
-      "docs/seo/YORUM_KAYDI.md",
-      "docs/seo/MANDATE_ERRATA.md",
-      "docs/seo/YETKI_IHLALI.md",
-      "data/seo/PHASE_CONTRACTS.json",
-      "data/seo/invariants.json",
-      "scripts/seo/preflight.ts",
-      "tests/conformance/**",
-      ".github/workflows/seo-conformance.yml"
-    ],
-    "forbidsWrites": ["public/**", "seo/registry-data.mjs"]
-  },
-  "faz-00": {
-    "writes": ["data/seo/tam_map.json", "docs/seo/KARAR_DEFTERI.md", "docs/seo/PROGRESS.md"],
-    "forbidsWrites": ["data/seo/registry/**", "public/**"]
-  },
-  "faz-01": {
-    "writes": ["data/seo/registry/**", "scripts/seo/registry-*.ts", "tests/conformance/registry-*.test.ts", "docs/seo/PROGRESS.md"],
-    "forbidsWrites": ["public/**", "app/**"]
-  },
-  "faz-02": {
-    "writes": ["public/robots.txt", "firebase.json", "scripts/seo/redirect-*.ts", "tests/conformance/**", "docs/seo/PROGRESS.md"],
-    "forbidsWrites": ["data/seo/registry/**"]
-  },
-  "faz-03": {
-    "writes": ["public/sitemap*.xml", "scripts/seo/sitemap-*.ts", "tests/conformance/**", "docs/seo/PROGRESS.md"],
-    "forbidsWrites": []
-  },
-  "faz-11": {
-    "writes": ["data/seo/kac/**", "scripts/seo/kac-*.ts", "docs/seo/PROGRESS.md"],
-    "forbidsWrites": ["public/**", "app/**"]
-  },
-  "faz-13": {
-    "writes": ["data/seo/linkable_assets.json", "data/seo/brand_demand.json", "scripts/seo/audit-*.ts", "docs/seo/PROGRESS.md"],
-    "forbidsWrites": ["public/**"]
-  },
-  "faz-17": {
-    "writes": ["data/seo/pnl.json", "data/seo/portfolio_board.json", "portfolio/portfolio_sites.json", "scripts/seo/*pnl*.ts", "docs/seo/PROGRESS.md"],
-    "forbidsWrites": ["public/**", "app/**", "data/seo/registry/**"]
-  },
-  "faz-19": {
-    "writes": ["data/seo/valuation.json", "docs/seo/DD_PAKETI/**", "docs/seo/PROGRESS.md"],
-    "forbidsWrites": ["public/**", "app/**"]
-  }
+  "bootstrap": {"writes":["sites/sectorcalc/seo.config.json","seo.config.schema.json","docs/seo/MANDATE.md","docs/seo/PROGRESS.md","docs/seo/KARAR_DEFTERI.md","docs/seo/BULGULAR_KUYRUGU.md","docs/seo/YORUM_KAYDI.md","docs/seo/MANDATE_ERRATA.md","docs/seo/YETKI_IHLALI.md","data/seo/PHASE_CONTRACTS.json","data/seo/invariants.json","scripts/seo/preflight.ts","tests/conformance/**",".github/workflows/seo-conformance.yml"],"forbidsWrites":["public/**","seo/registry-data.mjs"]},
+  "faz-00":{"writes":["data/seo/tam_map.json","docs/seo/raporlar/faz00_baz.md","docs/seo/KARAR_DEFTERI.md","docs/seo/PROGRESS.md"],"forbidsWrites":["data/seo/registry/**","public/**"]},
+  "faz-01":{"writes":["data/seo/registry/**","scripts/seo/registry-*.ts","tests/conformance/registry-*.test.ts","docs/seo/PROGRESS.md"],"forbidsWrites":["public/**","app/**"]},
+  "faz-02":{"writes":["public/robots.txt","firebase.json","scripts/seo/redirect-*.ts","tests/conformance/**","docs/seo/PROGRESS.md"],"forbidsWrites":["data/seo/registry/**"]},
+  "faz-03":{"writes":["public/sitemap*.xml","scripts/seo/sitemap-*.ts","tests/conformance/**","docs/seo/PROGRESS.md"],"forbidsWrites":[]},
+  "faz-11":{"writes":["data/seo/kac/**","scripts/seo/kac-*.ts","docs/seo/PROGRESS.md"],"forbidsWrites":["public/**","app/**"]},
+  "faz-13":{"writes":["data/seo/linkable_assets.json","data/seo/brand_demand.json","scripts/seo/audit-*.ts","docs/seo/PROGRESS.md"],"forbidsWrites":["public/**"]},
+  "faz-17":{"writes":["data/seo/pnl.json","data/seo/portfolio_board.json","portfolio/portfolio_sites.json","scripts/seo/*pnl*.ts","docs/seo/PROGRESS.md"],"forbidsWrites":["public/**","app/**","data/seo/registry/**"]},
+  "faz-19":{"writes":["data/seo/valuation.json","docs/seo/DD_PAKETI/**","docs/seo/PROGRESS.md"],"forbidsWrites":["public/**","app/**"]}
 }
