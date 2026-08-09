@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import fs from 'node:fs';
 import path from 'node:path';
+import { EXIT } from '../../seo/v6-conformance.mjs';
 
 const args = process.argv.slice(2);
 const siteIndex = args.indexOf('--site');
@@ -8,7 +9,7 @@ const daysIndex = args.indexOf('--observed-days');
 const siteId = siteIndex >= 0 ? args[siteIndex + 1] : '';
 const rawDays = daysIndex >= 0 ? args[daysIndex + 1] : null;
 const dryRun = args.includes('--dry-run');
-const configError = (message) => { console.error(`SEO_COLDSTART=CONFIG_ERROR ${message}`); process.exit(4); };
+const configError = (message) => { console.error(`SEO_COLDSTART=CONFIG_ERROR ${message}`); process.exit(EXIT.CONFIG); };
 
 if (!siteId) configError('missing --site');
 const configPath = path.join(process.cwd(), 'sites', siteId, 'seo.config.json');
