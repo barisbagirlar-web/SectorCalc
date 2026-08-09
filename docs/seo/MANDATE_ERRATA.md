@@ -51,3 +51,9 @@ Permanent resolution: bootstrap may create `seo.config.schema.json` and `data/se
 [Certain] The authoritative V6 source was supplied through the project File Library. The connected repository tool cannot export that source file byte-for-byte into GitHub.
 
 Permanent resolution: `docs/seo/MANDATE.md` is a binding SectorCalc adapter that identifies the authoritative V6 source and records only source-supported execution rules plus explicit SectorCalc errata. It must never be presented as a byte-identical replacement for the uploaded mandate.
+
+## E-SC-10 — V3 Zod example vs repository validation standard
+
+[Certain] The uploaded SEO V3 mandate requests Zod for the Phase 1 runtime registry schema. SectorCalc already standardizes machine contracts on AJV with JSON Schema Draft 2020-12 and has no Zod dependency.
+
+Permanent resolution: preserve the V3 field requirements and negative-test semantics exactly, but validate the V3 adapter with the existing AJV Draft 2020-12 stack. Do not add a parallel validation dependency or a second registry source of truth. The authoritative route/indexability data remains `seo/registry.mjs`; `scripts/validate-registry.ts` is an adapter and conformance layer only.
