@@ -7,16 +7,12 @@ const root = process.cwd();
 console.log('[SectorCalc] Running Paddle Production Guard Verification...');
 
 const errors = [];
-
-// Secret patterns intentionally match a broad suffix alphabet. The guard must
-// detect secrets containing characters such as +, / or = without ever printing
-// the matched value into CI logs.
-const PADDLE_SECRET_PATTERNS = [
-  "pdl_(live|sdbx)_apikey_[^[:space:]\\\"'`]{20,}",
-  "pdl_ntfset_[^[:space:]\\\"'`]{20,}",
-  "whsec_[^[:space:]\\\"'`]{20,}"
-];
-const PADDLE_SECRET_PATTERN = PADDLE_SECRET_PATTERNS.join('|');
+const TOKEN_SUFFIX_ERE = '[A-Za-z0-9_+/=-]{20,}';
+const PADDLE_SECRET_PATTERN = [
+  `pdl_(live|sdbx)_apikey_${TOKEN_SUFFIX_ERE}`,
+  `pdl_ntfset_${TOKEN_SUFFIX_ERE}`,
+  `whsec_${TOKEN_SUFFIX_ERE}`
+].join('|');
 
 function findTrackedSecretFiles() {
   try {
@@ -44,12 +40,12 @@ function findTrackedSecretFiles() {
 }
 
 function containsPaddleSecret(text) {
-  const patterns = [
-    /pdl_(?:live|sdbx)_apikey_[^\s"'`]{20,}/,
-    /pdl_ntfset_[^\s"'`]{20,}/,
-    /whsec_[^\s"'`]{20,}/
-  ];
-  return patterns.some((pattern) => pattern.test(String(text)));
+  const suffix = '[A-Za-z0-9_+/=-]{20,}';
+  return [
+    new RegExp(`pdl_(?:live|sdbx)_apikey_${suffix}`),
+    new RegExp(`pdl_ntfset_${suffix}`),
+    new RegExp(`whsec_${suffix}`)
+  ].some((pattern) => pattern.test(String(text)));
 }
 
 // 1. Inspect .env.production
@@ -102,7 +98,7 @@ if (fs.existsSync(funcEnvPath)) {
   }
 }
 
-// 3. Inspect git tracked files for hardcoded API keys or webhook secrets.
+// 3. Inspect tracked files for hardcoded API keys or webhook secrets.
 // IMPORTANT: request filenames only. Never print matching lines or values.
 const trackedSecretFiles = findTrackedSecretFiles();
 if (trackedSecretFiles.length > 0) {
