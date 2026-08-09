@@ -12,10 +12,11 @@ if (!input.trim()) {
   process.exit(3);
 }
 
+const TOKEN_SUFFIX = '[A-Za-z0-9_+/=-]{20,}';
 const detectors = [
-  { name: 'paddle-api-key', pattern: /pdl_(?:live|sdbx)_apikey_[^\s"'`]{20,}/i },
-  { name: 'paddle-webhook-secret', pattern: /pdl_ntfset_[^\s"'`]{20,}/i },
-  { name: 'legacy-webhook-secret', pattern: /whsec_[^\s"'`]{20,}/i },
+  { name: 'paddle-api-key', pattern: new RegExp(`pdl_(?:live|sdbx)_apikey_${TOKEN_SUFFIX}`, 'i') },
+  { name: 'paddle-webhook-secret', pattern: new RegExp(`pdl_ntfset_${TOKEN_SUFFIX}`, 'i') },
+  { name: 'legacy-webhook-secret', pattern: new RegExp(`whsec_${TOKEN_SUFFIX}`, 'i') },
   { name: 'github-pat', pattern: /github_pat_[A-Za-z0-9_]{20,}/ },
   { name: 'github-token', pattern: /gh[pousr]_[A-Za-z0-9]{20,}/ }
 ];
