@@ -1,6 +1,8 @@
 # SectorCalc — robots.txt (production)
 # Canonical host: https://sectorcalc.com (www redirects to apex)
-# Public search/retrieval crawlers are allowed. Training crawlers are governed separately.
+# Public search/retrieval crawlers inherit this single public policy.
+# Do not add crawler-specific Allow:/ groups: specific groups do not inherit
+# the wildcard group's private-path disallows in standards-compliant parsers.
 
 User-agent: *
 Allow: /
@@ -13,40 +15,7 @@ Disallow: /api/
 Disallow: /internal/
 Disallow: /assets/cache/
 
-# Search crawlers
-User-agent: Googlebot
-Allow: /
-
-User-agent: Googlebot-Image
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-# AI search / retrieval crawlers
-User-agent: OAI-SearchBot
-Allow: /
-
-User-agent: ChatGPT-User
-Allow: /
-
-User-agent: PerplexityBot
-Allow: /
-
-# AI-use controls that are not Google Search indexing controls
-User-agent: Google-Extended
-Allow: /
-
-User-agent: Anthropic-ai
-Allow: /
-
-User-agent: Claude-Web
-Allow: /
-
-User-agent: cohere-ai
-Allow: /
-
-# Training-oriented crawlers
+# Training-oriented crawlers are governed separately.
 User-agent: GPTBot
 Disallow: /
 
@@ -58,17 +27,6 @@ Disallow: /
 
 User-agent: FacebookBot
 Disallow: /
-
-User-agent: ia_archiver
-Allow: /
-
-User-agent: AhrefsBot
-Allow: /
-Crawl-delay: 2
-
-User-agent: SemrushBot
-Allow: /
-Crawl-delay: 2
 
 Sitemap: https://sectorcalc.com/sitemap.xml
 Sitemap: https://sectorcalc.com/sitemap-images.xml
