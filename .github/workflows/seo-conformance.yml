@@ -1,0 +1,39 @@
+name: SEO V6 Conformance
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  v6-conformance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: '.nvmrc'
+          cache: npm
+      - name: Verify Node 24 runtime
+        run: node --version | grep -E '^v24\.'
+      - name: Install locked dependencies
+        run: npm ci --no-audit --no-fund
+      - name: V6 preflight
+        run: node scripts/seo/preflight.ts --site sectorcalc
+      - name: V6 bootstrap conformance
+        run: npx vitest run tests/conformance
+      - name: Existing SEO production contracts
+        run: |
+          npm run typecheck
+          npm run verify:seo
+          npm run verify:seo:links
+          npm run verify:seo:language
+          npm run verify:seo:schema
+          npm run verify:seo:identity
+          npm run verify:seo:enterprise
