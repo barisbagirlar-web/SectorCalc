@@ -101,10 +101,11 @@ describe('SEO V6 machine conformance C01-C15', () => {
     expect(structuralBreakJoinAllowed(disclosed, rows, '2026-07-15')).toBe(true);
   });
 
-  it('C14 coldstart-flag requires low-confidence coldStart metadata under the data window', () => {
-    expect(coldStartContract(27, { coldStart: true, confidence: 'low' })).toBe(true);
-    expect(coldStartContract(27, { coldStart: false, confidence: 'high' })).toBe(false);
-    expect(coldStartContract(28, { coldStart: false, confidence: 'high' })).toBe(true);
+  it('C14 coldstart-flag requires low-confidence metadata below the configured window', () => {
+    const requiredWindow = config.measurement.defaultWindowDays;
+    expect(coldStartContract(requiredWindow - 1, { coldStart: true, confidence: 'low' }, requiredWindow)).toBe(true);
+    expect(coldStartContract(requiredWindow - 1, { coldStart: false, confidence: 'high' }, requiredWindow)).toBe(false);
+    expect(coldStartContract(requiredWindow, { coldStart: false, confidence: 'high' }, requiredWindow)).toBe(true);
   });
 
   it('C15 portfolio-siteid requires siteId at artifact and row level', () => {
