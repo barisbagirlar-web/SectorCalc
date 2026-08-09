@@ -28,10 +28,13 @@ jobs:
         run: npm test
       - name: Typecheck
         run: npm run typecheck
+      - name: Effective robots policy
+        run: node scripts/verify-robots-policy.mjs
       - name: Production build (injects nav + guides, verifies form fields)
         run: npm run build
       - name: Post-build audits
         run: |
+          node scripts/verify-robots-policy.mjs
           node scripts/verify-nav.mjs
           node scripts/guard-head-ssot.mjs
           node scripts/guard-case-studies-academic.mjs
