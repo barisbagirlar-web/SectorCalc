@@ -1,4 +1,4 @@
-# SectorCalc SEO Bulgular Kuyruğu
+# SectorCalc SEO Findings Queue
 
 - [P0][security] Issue #260 — exposed Paddle server credentials require provider-level rotation before AIP-13 is clear.
 - [P0][mandate-compat] V6 deployment enum lacks Firebase Hosting although SectorCalc uses Firebase Hosting.
@@ -9,4 +9,4 @@
 - [P0][seo] public URL universe is not fully governed by the current SEO registry; category/showcase surfaces exceed registry calculator inventory.
 - [P1][seo] indexable locale/category surfaces include empty or mixed-language content and require fail-closed publication gating.
 
-Bu dosya icra listesi değildir. Her bulgu yalnızca ilgili V6 fazının branch/PR sözleşmesi içinde ele alınır; güvenlik istisnaları AIP öncelik sırasına tabidir.
+This file is a findings queue, not an execution list. Each item is handled only inside its owning V6 phase branch/PR; higher-priority security exceptions follow the AIP precedence rules.
