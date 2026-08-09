@@ -33,3 +33,9 @@ Permanent resolution: secret scans return only detector class and/or filename; m
 [Kesin] V6 X.6 requires `docs/seo/PROGRESS.md`, while X.2 does not list that path in the allowed manifest.
 
 Permanent resolution: do not create `PROGRESS.md` until the V6 bootstrap phase explicitly patches the manifest/phase contracts in the same PR; record execution state in phase reports meanwhile.
+
+## E-SC-07 — Security prerequisite manifest exception
+
+[Kesin] AIP-13 requires immediate containment when a secret leak is found, while X.2 does not list the pre-existing production guard file `scripts/verify-paddle-production-guard.mjs` or a public-text secret scanner path.
+
+Permanent resolution: security containment is treated as a higher-priority prerequisite branch under AIP-21. The branch is restricted to guard/test/CI changes plus the allowed SEO record files; no SEO runtime surface is modified. Normal phase scope resumes only after the security gate is cleared.
