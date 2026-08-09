@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import { describe, expect, it } from 'vitest';
 
@@ -6,6 +7,14 @@ function run(script: string, args: string[] = []) {
 }
 
 describe('SEO V6 execution tools', () => {
+  it('exposes installed execution tools through SITE_ID-bound package commands', () => {
+    const pkg = JSON.parse(readFileSync('package.json', 'utf8'));
+    expect(pkg.scripts['seo:preflight']).toContain('--site $SITE_ID');
+    expect(pkg.scripts['seo:validate-registry']).toContain('--site $SITE_ID');
+    expect(pkg.scripts['seo:coldstart-check']).toContain('--site $SITE_ID');
+    expect(pkg.scripts['seo:conformance']).toBe('vitest run tests/conformance');
+  });
+
   it('registry validator requires siteId and validates the SectorCalc registry read-only', () => {
     const missing = run('scripts/seo/registry-validate.ts');
     expect(missing.status).toBe(4);
