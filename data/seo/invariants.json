@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "6.0-sectorcalc.1",
+  "siteId": "sectorcalc",
+  "invariants": [
+    {
+      "id": "INV-X.5",
+      "phase": "X",
+      "severity": "BLOCK",
+      "configRefs": ["thresholds"],
+      "negativeTest": "tests/conformance/v6-bootstrap.test.ts",
+      "statement": "Operational SEO thresholds are sourced from the site config rather than duplicated in phase scripts."
+    },
+    {
+      "id": "INV-SC.SECRET",
+      "phase": "X",
+      "severity": "BLOCK",
+      "configRefs": [],
+      "negativeTest": "tests/public-text-secret-scan.test.ts",
+      "statement": "Server credentials must not be committed or echoed by repository security guards."
+    },
+    {
+      "id": "INV-SC.DEPLOY",
+      "phase": "X",
+      "severity": "BLOCK",
+      "configRefs": [],
+      "negativeTest": "tests/deploy-impact-classifier.test.ts",
+      "statement": "Production promotion is skipped for changes proven to be non-runtime and is fail-closed for runtime or unknown paths."
+    },
+    {
+      "id": "INV-SC.REGISTRY",
+      "phase": 1,
+      "severity": "BLOCK",
+      "configRefs": [],
+      "negativeTest": "tests/seo-registry.test.ts",
+      "statement": "The existing SectorCalc SEO registry remains the canonical page-state authority and rejects duplicate canonical or primary query ownership."
+    },
+    {
+      "id": "INV-SC.INDEXABILITY",
+      "phase": 1,
+      "severity": "BLOCK",
+      "configRefs": [],
+      "negativeTest": "tests/seo-indexability.test.ts",
+      "statement": "Pages with incomplete, broken, placeholder or regeneration-pending state are not eligible for indexability."
+    }
+  ]
+}
