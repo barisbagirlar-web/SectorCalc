@@ -3,11 +3,7 @@ import { execFileSync } from 'node:child_process';
 import { existsSync } from 'node:fs';
 import Ajv2020 from 'ajv/dist/2020.js';
 import addFormats from 'ajv-formats';
-import {
-  PAGES,
-  sitemapPages,
-  validateRegistryInvariants,
-} from '../seo/registry.mjs';
+import { PAGES, sitemapPages, validateRegistryInvariants } from '../seo/registry.mjs';
 
 const DIRECT_ROLES = new Set([
   'home', 'hub', 'category', 'tool', 'service', 'article', 'research',
@@ -20,6 +16,11 @@ const ROLE_ALIASES = new Map([
   ['guide', 'article'],
   ['methodology', 'article'],
   ['case-study', 'article'],
+  ['about', 'hub'],
+  ['compare', 'comparison'],
+  ['contact', 'service'],
+  ['glossary', 'article'],
+  ['resource', 'article'],
 ]);
 const RICH_RESULTS = new Set([
   'Article', 'BreadcrumbList', 'Dataset', 'Event', 'JobPosting',
@@ -51,21 +52,15 @@ function gitModifiedAt(record: Record<string, any>): string {
   for (const candidate of candidates) {
     if (!existsSync(candidate)) continue;
     try {
-      const iso = execFileSync('git', ['log', '-1', '--format=%cI', '--', candidate], {
-        encoding: 'utf8',
-      }).trim();
+      const iso = execFileSync('git', ['log', '-1', '--format=%cI', '--', candidate], { encoding: 'utf8' }).trim();
       if (iso) return iso;
-    } catch {
-      // Try the next evidence-backed source path.
-    }
+    } catch {}
   }
   throw new Error(`no git modifiedAt evidence for ${record.id ?? record.canonicalPath ?? '?'}`);
 }
 
 export function adaptRegistryRecord(record: Record<string, any>) {
-  const rich = Array.isArray(record.schemaTypes)
-    ? record.schemaTypes.filter((x: unknown) => RICH_RESULTS.has(String(x)))
-    : [];
+  const rich = Array.isArray(record.schemaTypes) ? record.schemaTypes.filter((x: unknown) => RICH_RESULTS.has(String(x))) : [];
   const canonical = String(record.canonicalPath ?? '');
   return {
     route: canonical,
@@ -82,9 +77,7 @@ export function adaptRegistryRecord(record: Record<string, any>) {
     modifiedAt: gitModifiedAt(record),
     richResultTypes: rich.length ? rich : ['None'],
     conversionEvent: String(record.conversionEvent ?? 'none'),
-    sourceRefs: Array.isArray(record.contentSources) && record.contentSources.length
-      ? record.contentSources.map(String)
-      : [String(record.sourceFile ?? canonical)],
+    sourceRefs: Array.isArray(record.contentSources) && record.contentSources.length ? record.contentSources.map(String) : [String(record.sourceFile ?? canonical)],
     ...(record.parentHub && record.parentHub !== '/' ? { parentHubRoute: String(record.parentHub) } : {}),
     relatedRoutes: Array.isArray(record.relatedRoutes) ? record.relatedRoutes.map(String) : [],
     ...(record.sourceFile ? { contentSourcePath: String(record.sourceFile) } : {}),
@@ -92,95 +85,25 @@ export function adaptRegistryRecord(record: Record<string, any>) {
 }
 
 const pageSchema = {
-  $schema: 'https://json-schema.org/draft/2020-12/schema',
-  type: 'object',
-  additionalProperties: true,
-  required: [
-    'route', 'locale', 'role', 'indexDirective', 'canonicalRoute', 'title',
-    'metaDescription', 'h1', 'primaryIntent', 'primaryEntityId',
-    'secondaryEntityIds', 'modifiedAt', 'richResultTypes', 'conversionEvent',
-    'sourceRefs', 'relatedRoutes',
-  ],
+  $schema: 'https://json-schema.org/draft/2020-12/schema', type: 'object', additionalProperties: true,
+  required: ['route','locale','role','indexDirective','canonicalRoute','title','metaDescription','h1','primaryIntent','primaryEntityId','secondaryEntityIds','modifiedAt','richResultTypes','conversionEvent','sourceRefs','relatedRoutes'],
   properties: {
-    route: { type: 'string', pattern: '^/' },
-    locale: { type: 'string', minLength: 1 },
-    role: { enum: [...DIRECT_ROLES] },
-    indexDirective: { enum: ['index', 'noindex'] },
-    canonicalRoute: { type: 'string', pattern: '^/' },
-    title: { type: 'string', minLength: 1 },
-    metaDescription: { type: 'string', minLength: 1 },
-    h1: { type: 'string', minLength: 1 },
-    primaryIntent: { type: 'string', minLength: 1 },
-    primaryEntityId: { type: 'string', minLength: 1 },
-    secondaryEntityIds: { type: 'array', items: { type: 'string' } },
-    modifiedAt: { type: 'string', format: 'date-time' },
-    richResultTypes: { type: 'array', minItems: 1, items: { type: 'string' } },
-    conversionEvent: { type: 'string', minLength: 1 },
-    sourceRefs: { type: 'array', minItems: 1, items: { type: 'string', minLength: 1 } },
-    parentHubRoute: { type: 'string', pattern: '^/' },
-    relatedRoutes: { type: 'array', items: { type: 'string', pattern: '^/' } },
+    route:{type:'string',pattern:'^/'}, locale:{type:'string',minLength:1}, role:{enum:[...DIRECT_ROLES]}, indexDirective:{enum:['index','noindex']}, canonicalRoute:{type:'string',pattern:'^/'}, title:{type:'string',minLength:1}, metaDescription:{type:'string',minLength:1}, h1:{type:'string',minLength:1}, primaryIntent:{type:'string',minLength:1}, primaryEntityId:{type:'string',minLength:1}, secondaryEntityIds:{type:'array',items:{type:'string'}}, modifiedAt:{type:'string',format:'date-time'}, richResultTypes:{type:'array',minItems:1,items:{type:'string'}}, conversionEvent:{type:'string',minLength:1}, sourceRefs:{type:'array',minItems:1,items:{type:'string',minLength:1}}, parentHubRoute:{type:'string',pattern:'^/'}, relatedRoutes:{type:'array',items:{type:'string',pattern:'^/'}},
   },
 } as const;
+const ajv = new Ajv2020({ allErrors:true, strict:true }); addFormats(ajv); const validatePage = ajv.compile(pageSchema);
 
-const ajv = new Ajv2020({ allErrors: true, strict: true });
-addFormats(ajv);
-const validatePage = ajv.compile(pageSchema);
-
-export function assertNotFuture(iso: string, now = new Date()): void {
-  const parsed = new Date(iso);
-  if (!Number.isFinite(parsed.getTime())) throw new Error(`invalid modifiedAt: ${iso}`);
-  if (parsed.getTime() > now.getTime()) throw new Error(`future modifiedAt: ${iso}`);
-}
-
-export function assertNoindexNotInSitemap(
-  records: Array<{ canonicalRoute: string; indexDirective: string }>,
-  sitemapRoutes: Iterable<string>,
-): void {
-  const set = new Set(sitemapRoutes);
-  for (const record of records) {
-    if (record.indexDirective === 'noindex' && set.has(record.canonicalRoute)) {
-      throw new Error(`noindex route leaked into sitemap: ${record.canonicalRoute}`);
-    }
-  }
-}
+export function assertNotFuture(iso:string, now=new Date()):void { const parsed=new Date(iso); if(!Number.isFinite(parsed.getTime())) throw new Error(`invalid modifiedAt: ${iso}`); if(parsed.getTime()>now.getTime()) throw new Error(`future modifiedAt: ${iso}`); }
+export function assertNoindexNotInSitemap(records:Array<{canonicalRoute:string;indexDirective:string}>, sitemapRoutes:Iterable<string>):void { const set=new Set(sitemapRoutes); for(const record of records){ if(record.indexDirective==='noindex'&&set.has(record.canonicalRoute)) throw new Error(`noindex route leaked into sitemap: ${record.canonicalRoute}`); } }
 
 export function validateCurrentRegistry() {
-  const invariantErrors = validateRegistryInvariants();
-  if (invariantErrors.length) throw new Error(invariantErrors.join(' | '));
-
-  const unmappedRoles = [...new Set(PAGES.map((record: Record<string, any>) => String(record.role ?? ''))
-    .filter((role: string) => {
-      try {
-        mapRole(role);
-        return false;
-      } catch {
-        return true;
-      }
-    }))].sort();
-  if (unmappedRoles.length) throw new Error(`unmapped registry roles: ${unmappedRoles.join(', ')}`);
-
-  const adapted = PAGES.map((record: Record<string, any>) => adaptRegistryRecord(record));
-  for (const record of adapted) {
-    if (!validatePage(record)) {
-      throw new Error(`${record.canonicalRoute}: ${ajv.errorsText(validatePage.errors)}`);
-    }
-    assertNotFuture(record.modifiedAt);
-  }
-  assertNoindexNotInSitemap(
-    adapted,
-    sitemapPages().map((record: Record<string, any>) => String(record.canonicalPath)),
-  );
+  const invariantErrors=validateRegistryInvariants(); if(invariantErrors.length) throw new Error(invariantErrors.join(' | '));
+  const unmappedRoles=[...new Set(PAGES.map((record:Record<string,any>)=>String(record.role??'')).filter((role:string)=>{ try{mapRole(role);return false;}catch{return true;} }))].sort();
+  if(unmappedRoles.length) throw new Error(`unmapped registry roles: ${unmappedRoles.join(', ')}`);
+  const adapted=PAGES.map((record:Record<string,any>)=>adaptRegistryRecord(record));
+  for(const record of adapted){ if(!validatePage(record)) throw new Error(`${record.canonicalRoute}: ${ajv.errorsText(validatePage.errors)}`); assertNotFuture(record.modifiedAt); }
+  assertNoindexNotInSitemap(adapted,sitemapPages().map((record:Record<string,any>)=>String(record.canonicalPath)));
   return adapted;
 }
-
-function main() {
-  try {
-    const adapted = validateCurrentRegistry();
-    console.log(`SEO_V3_REGISTRY=PASS records=${adapted.length} ssot=seo/registry.mjs schema=draft-2020-12`);
-  } catch (error) {
-    console.error(`SEO_V3_REGISTRY=FAIL ${error instanceof Error ? error.message : String(error)}`);
-    process.exit(1);
-  }
-}
-
-if (import.meta.url === `file://${process.argv[1]}`) main();
+function main(){ try{ const adapted=validateCurrentRegistry(); console.log(`SEO_V3_REGISTRY=PASS records=${adapted.length} ssot=seo/registry.mjs schema=draft-2020-12`); }catch(error){ console.error(`SEO_V3_REGISTRY=FAIL ${error instanceof Error?error.message:String(error)}`); process.exit(1); } }
+if(import.meta.url===`file://${process.argv[1]}`) main();
