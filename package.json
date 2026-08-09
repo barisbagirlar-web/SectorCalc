@@ -30,6 +30,8 @@
     "verify:paddle-catalog": "node scripts/verify-paddle-catalog.mjs",
     "verify:paddle-production": "node scripts/verify-paddle-production-guard.mjs",
     "reconcile:purchases": "node scripts/reconcile-purchases.mjs",
+    "seo:preflight": "node scripts/seo/preflight.ts --site sectorcalc",
+    "seo:conformance": "vitest run tests/conformance",
     "verify:seo": "node scripts/verify-seo.mjs",
     "verify:seo:registry": "node scripts/export-seo-registry.mjs",
     "verify:seo:llms": "node scripts/generate-llm-discovery.mjs && node scripts/verify-seo.mjs",
