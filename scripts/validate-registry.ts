@@ -19,6 +19,7 @@ const ROLE_ALIASES = new Map([
   ['pro', 'hub'],
   ['guide', 'article'],
   ['methodology', 'article'],
+  ['case-study', 'article'],
 ]);
 const RICH_RESULTS = new Set([
   'Article', 'BreadcrumbList', 'Dataset', 'Event', 'JobPosting',
