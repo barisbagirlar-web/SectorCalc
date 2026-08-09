@@ -87,7 +87,7 @@ try {
 } catch {
   changed = [];
 }
-const promisePattern = /(guaranteed|guarantee ranking|guarantee traffic|guarantee revenue|#1 on google|kesin çıkar|1\. sıra garant)/i;
+const promisePattern = /(guaranteed|guarantee ranking|guarantee traffic|guarantee revenue|#1 on google|kesin \u00e7\u0131kar|1\. s\u0131ra garant)/i;
 for (const file of changed) {
   if (!/^(docs\/seo|data\/seo)\//.test(file)) continue;
   if (/MANDATE(?:_ERRATA)?\.md$/.test(file)) continue;
