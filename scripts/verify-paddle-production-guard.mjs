@@ -12,9 +12,9 @@ const errors = [];
 // detect secrets containing characters such as +, / or = without ever printing
 // the matched value into CI logs.
 const PADDLE_SECRET_PATTERNS = [
-  'pdl_(live|sdbx)_apikey_[^[:space:]\\"\\'`]{20,}',
-  'pdl_ntfset_[^[:space:]\\"\\'`]{20,}',
-  'whsec_[^[:space:]\\"\\'`]{20,}'
+  "pdl_(live|sdbx)_apikey_[^[:space:]\\\"'`]{20,}",
+  "pdl_ntfset_[^[:space:]\\\"'`]{20,}",
+  "whsec_[^[:space:]\\\"'`]{20,}"
 ];
 const PADDLE_SECRET_PATTERN = PADDLE_SECRET_PATTERNS.join('|');
 
