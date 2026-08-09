@@ -17,7 +17,27 @@ Disallow: /assets/cache/
 
 # Search crawlers
 User-agent: Googlebot
+Allow: /
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /draft/
+Disallow: /staging/
+Disallow: /admin/
+Disallow: /api/
+Disallow: /internal/
+Disallow: /assets/cache/
+
 User-agent: Googlebot-Image
+Allow: /
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /draft/
+Disallow: /staging/
+Disallow: /admin/
+Disallow: /api/
+Disallow: /internal/
+Disallow: /assets/cache/
+
 User-agent: Bingbot
 Allow: /
 Disallow: /cgi-bin/
@@ -31,7 +51,27 @@ Disallow: /assets/cache/
 
 # AI search / retrieval crawlers
 User-agent: OAI-SearchBot
+Allow: /
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /draft/
+Disallow: /staging/
+Disallow: /admin/
+Disallow: /api/
+Disallow: /internal/
+Disallow: /assets/cache/
+
 User-agent: ChatGPT-User
+Allow: /
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /draft/
+Disallow: /staging/
+Disallow: /admin/
+Disallow: /api/
+Disallow: /internal/
+Disallow: /assets/cache/
+
 User-agent: PerplexityBot
 Allow: /
 Disallow: /cgi-bin/
