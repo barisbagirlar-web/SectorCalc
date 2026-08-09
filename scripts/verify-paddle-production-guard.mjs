@@ -24,7 +24,9 @@ function findTrackedSecretFiles() {
       'git',
       [
         'grep',
-        '-IlE',
+        '-I',
+        '-l',
+        '-E',
         PADDLE_SECRET_PATTERN,
         '--',
         ':!package-lock.json',
@@ -101,7 +103,7 @@ if (fs.existsSync(funcEnvPath)) {
 }
 
 // 3. Inspect git tracked files for hardcoded API keys or webhook secrets.
-// IMPORTANT: request filenames only (-l). Never print matching lines or values.
+// IMPORTANT: request filenames only. Never print matching lines or values.
 const trackedSecretFiles = findTrackedSecretFiles();
 if (trackedSecretFiles.length > 0) {
   errors.push(`Tracked git files contain hardcoded Paddle secrets in: ${trackedSecretFiles.join(', ')}`);
