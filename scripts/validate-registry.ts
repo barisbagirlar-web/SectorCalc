@@ -38,6 +38,7 @@ export function mapRole(value: unknown): string {
   if (DIRECT_ROLES.has(role)) return role;
   const alias = ROLE_ALIASES.get(role);
   if (alias) return alias;
+  if (/^[a-z0-9]+(?:-[a-z0-9]+)*-hub$/.test(role)) return 'hub';
   throw new Error(`unmapped registry role: ${role || '<empty>'}`);
 }
 
