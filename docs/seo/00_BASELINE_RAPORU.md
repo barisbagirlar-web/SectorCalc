@@ -1,66 +1,66 @@
-# SectorCalc SEO V3 — Faz 0 Baseline Raporu
+# SectorCalc SEO V3 — Phase 0 Baseline Report
 
-Kaynak şartname: `SEO SARTNAMESI_V3_.txt`. Bu rapor Faz 0 gereği salt-okunur keşif sonucudur; runtime kodu değiştirmez.
+Source mandate: `SEO SARTNAMESI_V3_.txt`. This report is the read-only Phase 0 discovery artifact. It does not change runtime code.
 
-## Framework ve mimari özeti
+## Framework and architecture summary
 
 - Site: `https://sectorcalc.com`
 - Site ID: `sectorcalc`
-- Uygulama: Vite tabanlı statik build; vanilla JS + Lit bileşenleri.
+- Application: Vite static build with vanilla JavaScript and Lit components.
 - Hosting: Firebase Hosting.
-- SEO SSOT: `seo/registry.mjs` + `seo/registry-data.mjs`.
-- Registry mevcut baseline: 90 indexlenebilir URL; 25 yayınlanmış calculator.
-- Render modeli: build-time statik HTML/SSG ağırlıklı. Hesaplama etkileşimi istemci tarafında çalışabilir; SEO başlıkları, açıklayıcı içerik ve crawlable yüzey build çıktısında üretilir.
+- SEO SSOT: `seo/registry.mjs` plus `seo/registry-data.mjs`.
+- Registry baseline: 90 indexable URLs and 25 published calculators.
+- Render model: build-time static HTML / SSG for the crawlable surface. Calculator interactions may run client-side while titles, descriptions, explanatory content, canonical metadata and crawlable links are emitted in build output.
 
-## Route / sayfa envanteri
+## Route and page inventory
 
-| Segment | Kaynak | Durum |
+| Segment | Source | State |
 |---|---|---|
-| Home / hub / pricing / site sayfaları | `seo/registry-data.mjs` | Registry SSOT içinde |
-| Calculator sayfaları | `*-pro.html` kaynakları → pretty canonical `/calculator/...` | 25 published calculator |
-| Diğer indexlenebilir içerikler | Registry kayıtları | Toplam indexlenebilir baseline 90 |
-| Legacy calculator yolları | Registry `legacyPaths` | Canonical/redirect guardlarına bağlı |
+| Home / hub / pricing / site pages | `seo/registry-data.mjs` | Registry SSOT |
+| Calculator pages | `*-pro.html` sources to pretty `/calculator/...` canonicals | 25 published calculators |
+| Other indexable content | Registry records | 90 total indexable baseline |
+| Legacy calculator paths | Registry `legacyPaths` | Protected by canonical/redirect guards |
 
-Tam route listesi tek kaynak olarak `seo/registry-data.mjs` içinde tutulur; bu rapor ikinci bir route SSOT oluşturmaz.
+The complete route list remains in `seo/registry-data.mjs`; this report does not create a second route source of truth.
 
-## SEO dosya ve mekanizma keşfi
+## SEO mechanism discovery
 
-| Kontrol | Sonuç |
+| Check | Result |
 |---|---|
-| robots.txt | MEVCUT; crawler policy ve release guardları ile korunuyor |
-| sitemap.xml / sitemap üretimi | MEVCUT; `scripts/generate-sitemap.mjs` + sitemap integrity guard |
-| SEO config | MEVCUT; `sites/sectorcalc/seo.config.json`, schema/defaults ve V6 governance |
-| SEO registry | MEVCUT; `seo/registry.mjs` tek gerçek kaynak |
-| Canonical üretimi | MEVCUT; registry canonicalPath ve SEO injection/verification zinciri |
-| Structured data | MEVCUT; schema üretim/doğrulama scriptleri ve build guardları |
-| Title/meta description | MEVCUT; registry + SEO injection zinciri |
-| Internal link guard | MEVCUT; `verify:seo:links` ve ilgili build guardları |
-| SEO preflight/conformance | MEVCUT; `seo:preflight`, `seo:conformance`, invariant registry |
-| Cold-start / external-data güvenliği | MEVCUT; gerçek GSC/GA4 kanıtı yoksa fail-closed / low-confidence yaklaşımı |
+| robots.txt | PRESENT; protected by crawler policy and release guards |
+| sitemap.xml / sitemap generation | PRESENT; `scripts/generate-sitemap.mjs` plus sitemap integrity guard |
+| SEO config | PRESENT; `sites/sectorcalc/seo.config.json`, schema/defaults and V6 governance |
+| SEO registry | PRESENT; `seo/registry.mjs` is the single source of truth |
+| Canonical generation | PRESENT; registry `canonicalPath` plus SEO injection/verification chain |
+| Structured data | PRESENT; schema generation/validation scripts and build guards |
+| Title/meta description | PRESENT; registry plus SEO injection chain |
+| Internal link guard | PRESENT; `verify:seo:links` and related build guards |
+| SEO preflight/conformance | PRESENT; `seo:preflight`, `seo:conformance`, invariant registry |
+| Cold-start / external-data safety | PRESENT; missing verified GSC/GA4 evidence stays fail-closed / low confidence |
 
-## V3'e göre somut eksikler
+## Concrete V3 gaps
 
-- **EKSİK — Orta:** V3'ün isimlendirilmiş Faz 0–10 artefakt seti (`00_BASELINE_RAPORU.md`, faz raporları, final 360 raporu) tam değil.
-- **EKSİK — Yüksek:** V3'ün tek-komut `npm run seo:full-audit` orkestrasyonu mevcut değil; kontroller çok sayıda ayrı komuta dağılmış.
-- **EKSİK — Orta:** V3'ün `src/seo/types.ts` / page-state sözleşmesi isimleri mevcut SSOT ile birebir örtüşmüyor. Çözüm yeni paralel registry kurmak değil; V3 adapter katmanını mevcut `seo/registry.mjs` üzerine bağlamak olmalı.
-- **EKSİK — Orta:** Faz 4 için ham HTML + hydration parity sonuçlarını tek raporda toplayan V3 uyum komutu eksik.
-- **EKSİK — Orta:** Faz 5 için V3 biçiminde quality-contract/cannibalization/entity doğrulama birleşik raporu eksik; mevcut kalite alanları daha farklı modelde.
-- **EKSİK — Orta:** Faz 8 log analizinde gerçek server/CDN log verisi repo içinde bulunmuyor. Kod iskeleti kurulabilir; gerçek crawl-waste/discovery-lag sonucu veri olmadan PASS sayılamaz.
-- **EKSİK — Yüksek / dış veri:** Faz 9 GSC + GA4 + BigQuery gerçek bağlantısı bu repo oturumunda doğrulanmış değil. SQL ve sözleşmeler kurulabilir; gerçek gelir/incrementality sonucu uydurulamaz.
-- **EKSİK — Orta:** Faz 10 birleşik forbidden-pattern + migration + final score raporu tek komutta yok.
+- **MISSING — Medium:** The V3-named Phase 0–10 artifact set is incomplete.
+- **MISSING — High:** There is no single `npm run seo:full-audit` orchestrator; controls are distributed across multiple mature commands.
+- **MISSING — Medium:** The V3 `src/seo/types.ts` and page-state contract names do not map one-to-one to the existing SSOT. The correct fix is an adapter over `seo/registry.mjs`, not a parallel registry.
+- **MISSING — Medium:** Phase 4 lacks one V3 command/report combining raw first-HTML and hydration-parity checks.
+- **MISSING — Medium:** Phase 5 lacks one V3-format combined quality-contract, cannibalization and entity validation report; existing quality data uses a different model.
+- **MISSING — Medium:** Phase 8 has no verified server/CDN log dataset in the repository. Tooling can be installed, but crawl-waste and discovery-lag measurements cannot be reported as PASS without real logs.
+- **MISSING — High / external data:** Phase 9 has no verified GSC + GA4 + BigQuery connection in this repository session. SQL and contracts can be installed, but revenue/incrementality results must not be fabricated.
+- **MISSING — Medium:** Phase 10 lacks a single combined forbidden-pattern + migration + final score report command.
 
-## Güncel Google dokümantasyonuyla doğrulanan kurallar
+## Rules revalidated against current official Google documentation
 
-- `noindex` etkili olacaksa URL robots.txt ile crawl'dan engellenmemelidir.
-- Core Web Vitals iyi eşikleri LCP ≤2.5s, INP <200ms, CLS <0.1 ve değerlendirme 75. persentil yaklaşımıdır.
-- Googlebot kimliği user-agent'a güvenilerek değil DNS/IP doğrulamasıyla teyit edilmelidir.
-- Sitemap `lastmod` gerçek anlamlı değişimi temsil etmelidir.
-- HowTo rich results artık Google Search'te desteklenen bir rich-result hedefi değildir.
+- A `noindex` directive must remain crawlable; blocking the same URL in robots.txt can prevent Google from seeing the directive.
+- Good Core Web Vitals targets remain LCP <= 2.5s, INP < 200ms and CLS < 0.1, evaluated at the 75th percentile.
+- Googlebot identity must be verified through DNS/IP evidence rather than trusting a user-agent string.
+- Sitemap `lastmod` should reflect a meaningful content change rather than a deployment/build timestamp.
+- HowTo is no longer a supported Google Search rich-result target.
 
-## Şartname errata / uygulanabilirlik notu
+## Mandate errata / implementation boundary
 
-V3 Faz 6, “Google Rich Results Test API” ile CI entegrasyonu istiyor. Güncel resmi Google Search dokümantasyonu Rich Results Test aracını sunuyor ancak genel amaçlı, belgelenmiş bir public Rich Results Test API sözleşmesi göstermiyor. Bu nedenle olmayan/özel endpoint uydurulmayacak. Faz 6'da lokal JSON-LD/schema parity + resmi test aracına manuel/staging doğrulama yolu uygulanacak; sahte API PASS raporu üretilmeyecek.
+V3 Phase 6 asks for a "Google Rich Results Test API" CI integration. Current official Google Search documentation exposes the Rich Results Test tool but does not document a general-purpose public Rich Results Test API contract. No private or invented endpoint will be used. Phase 6 will use deterministic local JSON-LD/schema parity validation and a documented manual/staging Rich Results Test procedure instead of reporting a fake API PASS.
 
-## Faz 0 kararı
+## Phase 0 decision
 
-Faz 0 keşif tamamlandı. Mevcut V6 altyapısı korunacak ve V3 gereklilikleri paralel SSOT oluşturmadan adapter/guard/rapor katmanı olarak uygulanacak. Kullanıcının bu turdaki “şartnameyi tam uygula” talimatı, Faz 1–10 için devam onayı olarak kabul edilmiştir.
+Phase 0 discovery is complete. Existing V6 controls will remain in place, and V3 requirements will be added as adapter/guard/reporting layers without creating a parallel SEO SSOT. The user's explicit instruction in this turn to apply the complete mandate is treated as authorization to continue through Phases 1–10 after each phase gate passes.
