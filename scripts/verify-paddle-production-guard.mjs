@@ -1,12 +1,54 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { execSync } from 'node:child_process';
+import { execFileSync } from 'node:child_process';
 
 const root = process.cwd();
 
 console.log('[SectorCalc] Running Paddle Production Guard Verification...');
 
 const errors = [];
+
+// Secret patterns intentionally match a broad suffix alphabet. The guard must
+// detect secrets containing characters such as +, / or = without ever printing
+// the matched value into CI logs.
+const PADDLE_SECRET_PATTERNS = [
+  'pdl_(live|sdbx)_apikey_[^[:space:]\\"\\'`]{20,}',
+  'pdl_ntfset_[^[:space:]\\"\\'`]{20,}',
+  'whsec_[^[:space:]\\"\\'`]{20,}'
+];
+const PADDLE_SECRET_PATTERN = PADDLE_SECRET_PATTERNS.join('|');
+
+function findTrackedSecretFiles() {
+  try {
+    const output = execFileSync(
+      'git',
+      [
+        'grep',
+        '-IlE',
+        PADDLE_SECRET_PATTERN,
+        '--',
+        ':!package-lock.json',
+        ':!functions/package-lock.json'
+      ],
+      { encoding: 'utf8', cwd: root }
+    ).trim();
+    return output ? output.split(/\r?\n/).filter(Boolean).sort() : [];
+  } catch (err) {
+    // git grep exits 1 when there are no matches. Any other failure is a guard failure.
+    if (typeof err === 'object' && err && 'status' in err && err.status === 1) return [];
+    errors.push('Could not complete tracked-file secret scan.');
+    return [];
+  }
+}
+
+function containsPaddleSecret(text) {
+  const patterns = [
+    /pdl_(?:live|sdbx)_apikey_[^\s"'`]{20,}/,
+    /pdl_ntfset_[^\s"'`]{20,}/,
+    /whsec_[^\s"'`]{20,}/
+  ];
+  return patterns.some((pattern) => pattern.test(String(text)));
+}
 
 // 1. Inspect .env.production
 const envProdPath = path.join(root, '.env.production');
@@ -58,38 +100,30 @@ if (fs.existsSync(funcEnvPath)) {
   }
 }
 
-// 3. Inspect git tracked files for hardcoded API keys or webhook secrets
-const gitGrepPatterns = [
-  'pdl_(live|sdbx)_apikey_[A-Za-z0-9_-]{20,}', // server API key
-  'pdl_ntfset_[A-Za-z0-9_-]{20,}', // webhook secret key
-  'whsec_[A-Za-z0-9_-]{20,}' // legacy webhook secret format
-];
-try {
-  const gitGrepOutput = execSync(
-    `git grep -nE '${gitGrepPatterns.join('|')}' -- ':!package-lock.json' ':!functions/package-lock.json'`,
-    { encoding: 'utf8', cwd: root }
-  ).trim();
-  if (gitGrepOutput.length > 0) {
-    errors.push(`Tracked git files contain hardcoded Paddle secrets:\n${gitGrepOutput}`);
-  }
-} catch {
-  // Exit code 1 from git grep means zero matches (PASS)
+// 3. Inspect git tracked files for hardcoded API keys or webhook secrets.
+// IMPORTANT: request filenames only (-l). Never print matching lines or values.
+const trackedSecretFiles = findTrackedSecretFiles();
+if (trackedSecretFiles.length > 0) {
+  errors.push(`Tracked git files contain hardcoded Paddle secrets in: ${trackedSecretFiles.join(', ')}`);
 }
 
 // 4. Inspect dist/assets JS files if --dist flag is passed
 if (process.argv.includes('--dist')) {
   const distAssetsPath = path.join(root, 'dist', 'assets');
   if (fs.existsSync(distAssetsPath)) {
-    const files = fs.readdirSync(distAssetsPath);
+    const files = fs.readdirSync(distAssetsPath).sort();
     for (const file of files) {
       if (file.endsWith('.js')) {
         const fullPath = path.join(distAssetsPath, file);
         const content = fs.readFileSync(fullPath, 'utf8');
         if (content.includes('VITE_PADDLE_ENV:"sandbox"')) {
-          errors.push(`dist/assets/${file} contains literal VITE_PADDLE_ENV:"sandbox"! Must be production.`);
+          errors.push(`dist/assets/${file} contains sandbox Paddle environment configuration.`);
         }
         if (content.includes('VITE_PADDLE_CLIENT_TOKEN:"test_')) {
-          errors.push(`dist/assets/${file} contains test client token! Must be live_...`);
+          errors.push(`dist/assets/${file} contains a test Paddle client token.`);
+        }
+        if (containsPaddleSecret(content)) {
+          errors.push(`dist/assets/${file} contains a server-side Paddle secret pattern.`);
         }
       }
     }
@@ -104,4 +138,4 @@ if (errors.length > 0) {
   process.exit(1);
 }
 
-console.log('✅ [OK] Paddle Production Guard Passed — Zero Sandbox/Test Leak Detected.');
+console.log('✅ [OK] Paddle Production Guard Passed — no server-side Paddle secret pattern detected.');
