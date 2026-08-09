@@ -110,8 +110,9 @@ export function structuralBreakJoinAllowed(artifact, rows, breakDate) {
   return Array.isArray(artifact?.meta?.structuralBreaksApplied) && artifact.meta.structuralBreaksApplied.includes(breakDate);
 }
 
-export function coldStartContract(windowDays, meta) {
-  if (windowDays >= 28) return true;
+export function coldStartContract(observedDays, meta, requiredWindowDays) {
+  if (!Number.isInteger(requiredWindowDays) || requiredWindowDays < 1) return false;
+  if (observedDays >= requiredWindowDays) return true;
   return meta?.coldStart === true && meta?.confidence === 'low';
 }
 
