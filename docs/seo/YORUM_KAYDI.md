@@ -1,7 +1,7 @@
-# SectorCalc SEO Yorum Kaydı
+# SectorCalc SEO Interpretation Log
 
 ## 2026-08-09
 
 - V6 generic rules conflict with existing SectorCalc repository contracts in deployment target, money serialization, and JSON Schema dialect.
-- AIP-21/AIP-24 uygulanarak daha kısıtlayıcı mevcut SectorCalc production contract korunacak; V6 kontrol amacı gevşetilmeyecek. Ayrıntılar `MANDATE_ERRATA.md` içindedir.
-- Security prerequisite branch, normal SEO fazı değildir; AIP-13 daha yüksek öncelikli olduğundan yalnız containment/guard değişiklikleri yapılır. Robots/sitemap/runtime değişiklikleri ilgili fazlara bırakılır.
+- Under AIP-21/AIP-24, the more restrictive existing SectorCalc production contract is preserved without weakening the V6 control objective. Details are recorded in `MANDATE_ERRATA.md`.
+- The security prerequisite branch is not a normal SEO phase. Because AIP-13 has higher precedence, only containment/guard changes are allowed here. Robots, sitemap and runtime changes remain assigned to their owning phases.
