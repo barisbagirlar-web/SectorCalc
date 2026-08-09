@@ -13,8 +13,47 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  detect-deploy-impact:
+    name: Detect production deploy impact
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      deploy_required: ${{ steps.impact.outputs.deploy_required }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 2
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+      - name: Verify Node 24 runtime
+        run: node --version | grep -E '^v24\.'
+      - name: Classify changed paths
+        id: impact
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "deploy_required=true" >> "$GITHUB_OUTPUT"
+            echo "DEPLOY_REQUIRED=true"
+            echo "DEPLOY_REASON=manual-dispatch"
+            exit 0
+          fi
+
+          CHANGED_PATHS="$(git diff --name-only HEAD~1 HEAD 2>/dev/null || true)"
+          RESULT="$(printf '%s\n' "$CHANGED_PATHS" | node scripts/classify-deploy-impact.mjs)"
+          printf '%s\n' "$RESULT"
+          REQUIRED="$(printf '%s\n' "$RESULT" | sed -n 's/^DEPLOY_REQUIRED=//p' | tail -1)"
+          if [ "$REQUIRED" != "true" ] && [ "$REQUIRED" != "false" ]; then
+            echo "::error::Deploy impact classifier returned an invalid decision."
+            exit 1
+          fi
+          echo "deploy_required=$REQUIRED" >> "$GITHUB_OUTPUT"
+
   deploy-production:
     name: Validate preview → promote exact Firebase version → verify live
+    needs: detect-deploy-impact
+    if: needs.detect-deploy-impact.outputs.deploy_required == 'true'
     # Playwright 1.42.x --with-deps is broken on ubuntu-24.04 (libasound2 → t64).
     # Keep deploy on 22.04 so the preview E2E seal matches CI/Regression runners.
     runs-on: ubuntu-22.04
