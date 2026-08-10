@@ -1,5 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
+import { blockedPublicBots, requiredPublicBots } from '../seo/crawler-policy.mjs';
 import { applicableRules, isRobotsAllowed, parseRobots } from '../seo/robots-policy.mjs';
 
 describe('robots policy evaluator', () => {
@@ -38,21 +39,8 @@ describe('robots policy evaluator', () => {
 
 describe('SectorCalc production robots contract', () => {
   const robots = readFileSync('public/robots.txt', 'utf8');
-  const allowedBots = [
-    'Googlebot',
-    'Googlebot-Image',
-    'Bingbot',
-    'OAI-SearchBot',
-    'ChatGPT-User',
-    'PerplexityBot',
-    'Google-Extended',
-    'Anthropic-ai',
-    'Claude-Web',
-    'cohere-ai',
-    'ia_archiver',
-    'AhrefsBot',
-    'SemrushBot',
-  ];
+  const allowedBots = requiredPublicBots();
+  const blockedBots = blockedPublicBots();
   const privatePaths = [
     '/cgi-bin/',
     '/tmp/',
@@ -64,6 +52,12 @@ describe('SectorCalc production robots contract', () => {
     '/assets/cache/',
   ];
 
+  it('uses crawler-policy as the only bot allow/block SSOT', () => {
+    expect(allowedBots.length).toBeGreaterThan(0);
+    expect(blockedBots.length).toBeGreaterThan(0);
+    expect(new Set([...allowedBots, ...blockedBots]).size).toBe(allowedBots.length + blockedBots.length);
+  });
+
   it.each(allowedBots)('%s can crawl public calculators but not private surfaces', (bot) => {
     expect(isRobotsAllowed(robots, bot, '/calculator/bearing-life-l10')).toBe(true);
     for (const path of privatePaths) {
@@ -71,7 +65,7 @@ describe('SectorCalc production robots contract', () => {
     }
   });
 
-  it.each(['GPTBot', 'ClaudeBot', 'CCBot', 'FacebookBot'])('%s remains blocked by training policy', (bot) => {
+  it.each(blockedBots)('%s remains blocked by training/non-search policy', (bot) => {
     expect(isRobotsAllowed(robots, bot, '/')).toBe(false);
     expect(isRobotsAllowed(robots, bot, '/calculator/bearing-life-l10')).toBe(false);
   });
