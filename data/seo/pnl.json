@@ -1,0 +1,37 @@
+{
+  "meta": {
+    "artifact": "seo-pnl",
+    "schemaVersion": "1.0",
+    "generatedAt": "2026-08-10T12:30:00Z",
+    "generatorScript": "scripts/seo/pnl-coldstart.ts",
+    "inputWindow": {
+      "start": null,
+      "end": null,
+      "observedDays": 0
+    },
+    "confidence": "low",
+    "partial": true,
+    "siteId": "sectorcalc",
+    "coldStart": true,
+    "structuralBreaksApplied": []
+  },
+  "currency": "USD",
+  "measurementAvailable": false,
+  "economics": {
+    "defaultValuePerConversionMinor": "0",
+    "ltvModel": "none"
+  },
+  "rows": [],
+  "incrementality": {
+    "status": "SKIP_NO_DATA",
+    "confidence": "low",
+    "claimPublished": false
+  },
+  "generativeAi": {
+    "includedInRevenueFormula": false
+  },
+  "notes": [
+    "Verified GSC and GA4 inputs are not connected; no traffic, conversion or revenue measurement is invented.",
+    "Cold-start remains active until the configured minimum observation window has verified evidence."
+  ]
+}
