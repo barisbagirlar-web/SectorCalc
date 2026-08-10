@@ -93,6 +93,9 @@ jobs:
           npm run build
           npm run verify:seo
 
+      - name: Generate hardened Firebase production config
+        run: node scripts/prepare-firebase-production-config.mjs firebase.json firebase.production.json
+
       - name: Detect billing function changes
         id: functions-diff
         run: |
@@ -138,6 +141,7 @@ jobs:
           npx --yes firebase-tools@14 hosting:channel:deploy "$CHANNEL_ID" \
             --expires 7d \
             --project sectorcalc-prod \
+            --config firebase.production.json \
             --token "$FIREBASE_TOKEN" \
             --non-interactive | tee "$LOG_FILE"
           PREVIEW_URL="$(grep -Eo 'https://[-A-Za-z0-9.]+\.web\.app' "$LOG_FILE" | tail -1 || true)"
@@ -156,6 +160,12 @@ jobs:
           SEO_GUARD_HOST: ${{ steps.preview.outputs.preview_url }}
           SEO_GUARD_MODE: preview
         run: node scripts/seo-live-guard.mjs
+
+      - name: Preview discovery-header seal
+        env:
+          SEO_GUARD_HOST: ${{ steps.preview.outputs.preview_url }}
+          SEO_GUARD_MODE: preview
+        run: node scripts/verify-live-discovery-headers.mjs
 
       - name: Preview E2E critical seal (block promote on broken candidate)
         env:
@@ -187,6 +197,12 @@ jobs:
           SEO_GUARD_HOST: https://sectorcalc.com
           SEO_GUARD_MODE: live
         run: node scripts/seo-live-guard.mjs
+
+      - name: Post-promotion discovery/HSTS header seal
+        env:
+          SEO_GUARD_HOST: https://sectorcalc.com
+          SEO_GUARD_MODE: live
+        run: node scripts/verify-live-discovery-headers.mjs
 
       - name: Post-promotion billing health seal
         run: |
