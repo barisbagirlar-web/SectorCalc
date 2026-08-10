@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 const ROOT = resolve(fileURLToPath(new URL('../../', import.meta.url)));
 
 type ThresholdKey = 'lcpP75Ms' | 'inpP75Ms' | 'clsP75';
-type Row = { id: string; measured: number | null; thresholdRef: `thresholds.${ThresholdKey}` | null; status: 'PASS' | 'FAIL' | 'SKIP_NO_DATA'; issueOpened: boolean; consecutiveViolations: number; freezeEscalated: boolean };
+type Row = { id: string; measured: number | null; thresholdRef: `thresholds.${ThresholdKey}` | null; status: 'PASS' | 'FAIL' | 'SKIP_NO_DATA'; issueOpened: boolean; consecutiveViolations: number; freezeEscalated: boolean; evidenceRef?: string | null };
 type Asset = { id: string; suspended: boolean; indexable: boolean };
 type Artifact = { rows: Row[]; assets: Asset[] };
 type Config = { thresholds: Record<ThresholdKey, number> };
@@ -17,9 +17,10 @@ export function thresholdValue(config: Config, ref: Row['thresholdRef']): number
   return typeof value === 'number' ? value : null;
 }
 
-export function validateSlo(artifact: Artifact, config: Config): { errors: string[]; warnings: string[] } {
+export function validateSlo(artifact: Artifact, config: Config): { errors: string[]; warnings: string[]; infos: string[] } {
   const errors: string[] = [];
   const warnings: string[] = [];
+  const infos: string[] = [];
   for (const row of artifact.rows) {
     const threshold = thresholdValue(config, row.thresholdRef);
     if (row.measured !== null && threshold === null) errors.push(`INV-12.2 missing config threshold: ${row.id}`);
@@ -27,13 +28,14 @@ export function validateSlo(artifact: Artifact, config: Config): { errors: strin
       const shouldFail = row.measured > threshold;
       if (shouldFail && row.status !== 'FAIL') errors.push(`INV-12.1 silent SLO failure: ${row.id}`);
       if (row.status === 'FAIL' && !row.issueOpened) errors.push(`INV-12.1 failure without issue: ${row.id}`);
+      if (!row.evidenceRef) infos.push(`INV-12.4 measured SLO has no evidence reference: ${row.id}`);
     }
     if (row.consecutiveViolations >= 2 && !row.freezeEscalated) warnings.push(`INV-12.3 freeze escalation pending: ${row.id}`);
   }
   for (const asset of artifact.assets) {
     if (asset.suspended && asset.indexable) errors.push(`INV-12.5 suspended asset remains indexable: ${asset.id}`);
   }
-  return { errors, warnings };
+  return { errors, warnings, infos };
 }
 
 function main(): void {
