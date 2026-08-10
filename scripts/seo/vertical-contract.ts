@@ -6,24 +6,35 @@ const ROOT = resolve(fileURLToPath(new URL('../../', import.meta.url)));
 
 type Finding = { kind: string; value?: number };
 type Config = { business: { verticals: string[] }; thresholds: { similarityMax: number } };
+type Result = { errors: string[]; warnings: string[]; infos: string[] };
+const empty = (): Result => ({ errors: [], warnings: [], infos: [] });
 
-export function validateVerticalFinding(finding: Finding | null, config: Config): string[] {
-  if (!finding) return [];
+export function validateVerticalFinding(finding: Finding | null, config: Config): Result {
+  const result = empty();
+  if (!finding) return result;
   switch (finding.kind) {
-    case 'ecom-oos-404': return ['INV-15.1 exhausted product incorrectly 404s'];
-    case 'ecom-indexed-variant': return ['INV-15.2 variant indexed without demand proof'];
-    case 'local-nap-mismatch': return ['INV-15.4 local NAP mismatch'];
-    case 'local-doorway': return (finding.value ?? 0) > config.thresholds.similarityMax ? ['INV-15.5 local doorway similarity breach'] : [];
-    case 'saas-js-methodology': return ['INV-15.7 SaaS methodology is not SSR'];
-    case 'saas-false-offer': return ['INV-15.8 SaaS offer/price truthfulness violation'];
-    case 'news-old': return (finding.value ?? 0) > 48 ? ['INV-15.10 news sitemap older than 48 hours'] : [];
-    case 'hreflang-oneway': return ['INV-15.13 reciprocal hreflang missing'];
-    case 'xdefault-invalid': return ['INV-15.14 x-default cardinality invalid'];
-    case 'ip-redirect': return ['INV-15.15 IP-based redirect prohibited'];
-    case 'hreflang-canonical-mismatch': return ['INV-15.16 hreflang/canonical registry mismatch'];
-    case 'weaken-general-rule': return ['INV-15.19 vertical rule weakens global rule'];
+    case 'ecom-oos-404': result.errors.push('INV-15.1 exhausted product incorrectly 404s'); break;
+    case 'ecom-indexed-variant': result.errors.push('INV-15.2 variant indexed without demand proof'); break;
+    case 'ecom-schema-visible-mismatch': result.warnings.push('INV-15.3 Product schema diverges from visible content'); break;
+    case 'local-nap-mismatch': result.errors.push('INV-15.4 local NAP mismatch'); break;
+    case 'local-doorway': if ((finding.value ?? 0) > config.thresholds.similarityMax) result.errors.push('INV-15.5 local doorway similarity breach'); break;
+    case 'local-gbp-stale': result.warnings.push('INV-15.6 local GBP/site freshness warning'); break;
+    case 'saas-js-methodology': result.errors.push('INV-15.7 SaaS methodology is not SSR'); break;
+    case 'saas-false-offer': result.errors.push('INV-15.8 SaaS offer/price truthfulness violation'); break;
+    case 'saas-comparison-stale': result.warnings.push('INV-15.9 SaaS comparison sourcing freshness warning'); break;
+    case 'news-old': if ((finding.value ?? 0) > 48) result.errors.push('INV-15.10 news sitemap older than 48 hours'); break;
+    case 'media-author-policy-missing': result.warnings.push('INV-15.11 media author/correction policy missing'); break;
+    case 'media-evergreen-registry-missing': result.infos.push('INV-15.12 evergreen/news registry type missing'); break;
+    case 'hreflang-oneway': result.errors.push('INV-15.13 reciprocal hreflang missing'); break;
+    case 'xdefault-invalid': result.errors.push('INV-15.14 x-default cardinality invalid'); break;
+    case 'ip-redirect': result.errors.push('INV-15.15 IP-based redirect prohibited'); break;
+    case 'hreflang-canonical-mismatch': result.errors.push('INV-15.16 hreflang/canonical registry mismatch'); break;
+    case 'i18n-human-edit-missing': result.warnings.push('INV-15.17 i18n human editing record missing'); break;
+    case 'out-of-module-unqueued': result.infos.push('INV-15.18 out-of-module finding is not queued'); break;
+    case 'weaken-general-rule': result.errors.push('INV-15.19 vertical rule weakens global rule'); break;
     default: throw new Error(`UNKNOWN_VERTICAL_FINDING:${finding.kind}`);
   }
+  return result;
 }
 
 export function validateVerticalActivation(config: Config): string[] {
