@@ -7,7 +7,7 @@
   "faz-03":{"writes":["public/sitemap*.xml","scripts/seo/sitemap-*.ts","tests/conformance/**","docs/seo/PROGRESS.md"],"forbidsWrites":[]},
   "faz-11":{"writes":["data/seo/kac/**","scripts/seo/kac-*.ts","tests/conformance/v3-kac-contract.test.ts","docs/seo/PROGRESS.md","data/seo/PHASE_CONTRACTS.json"],"forbidsWrites":["public/**","app/**"]},
   "faz-12":{"writes":["scripts/seo/slo-*.ts","tests/conformance/v3-slo-contract.test.ts","docs/seo/PROGRESS.md","data/seo/PHASE_CONTRACTS.json"],"forbidsWrites":["public/**","app/**","data/seo/registry/**"]},
-  "faz-13":{"writes":["data/seo/linkable_assets.json","data/seo/brand_demand.json","scripts/seo/audit-*.ts","docs/seo/PROGRESS.md"],"forbidsWrites":["public/**"]},
+  "faz-13":{"writes":["data/seo/linkable_assets.json","data/seo/brand_demand.json","scripts/seo/*offpage*.ts","tests/conformance/v3-offpage-contract.test.ts","docs/seo/PROGRESS.md","data/seo/PHASE_CONTRACTS.json"],"forbidsWrites":["public/**"]},
   "faz-17":{"writes":["data/seo/pnl.json","data/seo/portfolio_board.json","portfolio/portfolio_sites.json","scripts/seo/*pnl*.ts","docs/seo/PROGRESS.md"],"forbidsWrites":["public/**","app/**","data/seo/registry/**"]},
   "faz-19":{"writes":["data/seo/valuation.json","docs/seo/DD_PAKETI/**","docs/seo/PROGRESS.md"],"forbidsWrites":["public/**","app/**"]}
 }
