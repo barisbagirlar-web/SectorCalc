@@ -1,7 +1,7 @@
 # SectorCalc — robots.txt (production)
 # Canonical host: https://sectorcalc.com
 # Search/retrieval and user-directed AI fetchers may access public content.
-# Model-training crawlers are blocked by policy. Private application paths stay blocked.
+# Training/non-search AI-use crawlers are blocked. Private application paths remain blocked.
 
 User-agent: *
 Allow: /
@@ -14,16 +14,105 @@ Disallow: /api/
 Disallow: /internal/
 Disallow: /assets/cache/
 
-# Search, retrieval, user-directed fetch, and landing-page verification
 User-agent: Googlebot
+Allow: /
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /draft/
+Disallow: /staging/
+Disallow: /admin/
+Disallow: /api/
+Disallow: /internal/
+Disallow: /assets/cache/
+
 User-agent: Googlebot-Image
+Allow: /
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /draft/
+Disallow: /staging/
+Disallow: /admin/
+Disallow: /api/
+Disallow: /internal/
+Disallow: /assets/cache/
+
 User-agent: Bingbot
+Allow: /
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /draft/
+Disallow: /staging/
+Disallow: /admin/
+Disallow: /api/
+Disallow: /internal/
+Disallow: /assets/cache/
+
 User-agent: OAI-SearchBot
+Allow: /
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /draft/
+Disallow: /staging/
+Disallow: /admin/
+Disallow: /api/
+Disallow: /internal/
+Disallow: /assets/cache/
+
 User-agent: ChatGPT-User
+Allow: /
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /draft/
+Disallow: /staging/
+Disallow: /admin/
+Disallow: /api/
+Disallow: /internal/
+Disallow: /assets/cache/
+
 User-agent: OAI-AdsBot
+Allow: /
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /draft/
+Disallow: /staging/
+Disallow: /admin/
+Disallow: /api/
+Disallow: /internal/
+Disallow: /assets/cache/
+
 User-agent: PerplexityBot
+Allow: /
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /draft/
+Disallow: /staging/
+Disallow: /admin/
+Disallow: /api/
+Disallow: /internal/
+Disallow: /assets/cache/
+
 User-agent: Perplexity-User
+Allow: /
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /draft/
+Disallow: /staging/
+Disallow: /admin/
+Disallow: /api/
+Disallow: /internal/
+Disallow: /assets/cache/
+
 User-agent: Claude-SearchBot
+Allow: /
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /draft/
+Disallow: /staging/
+Disallow: /admin/
+Disallow: /api/
+Disallow: /internal/
+Disallow: /assets/cache/
+
 User-agent: Claude-User
 Allow: /
 Disallow: /cgi-bin/
@@ -35,18 +124,47 @@ Disallow: /api/
 Disallow: /internal/
 Disallow: /assets/cache/
 
-# Training / non-search AI use controls
 User-agent: GPTBot
+Disallow: /
+
 User-agent: ClaudeBot
+Disallow: /
+
 User-agent: Google-Extended
+Disallow: /
+
 User-agent: CCBot
+Disallow: /
+
 User-agent: cohere-ai
+Disallow: /
+
 User-agent: FacebookBot
 Disallow: /
 
-# Archive / SEO audit crawlers
 User-agent: ia_archiver
+Allow: /
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /draft/
+Disallow: /staging/
+Disallow: /admin/
+Disallow: /api/
+Disallow: /internal/
+Disallow: /assets/cache/
+
 User-agent: AhrefsBot
+Allow: /
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /draft/
+Disallow: /staging/
+Disallow: /admin/
+Disallow: /api/
+Disallow: /internal/
+Disallow: /assets/cache/
+Crawl-delay: 2
+
 User-agent: SemrushBot
 Allow: /
 Disallow: /cgi-bin/
