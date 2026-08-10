@@ -9,6 +9,17 @@ describe('production hosting hardening deploy wiring', () => {
     expect(workflow).toContain('--config firebase.production.json');
   });
 
+  it('runs the resilient SEO guard before and after promotion', () => {
+    const previewGuard = workflow.indexOf('name: Hard-refresh SEO guard on preview candidate');
+    const promote = workflow.indexOf('name: Promote the exact validated Firebase version to live');
+    const liveGuard = workflow.indexOf('name: Post-promotion hard-refresh SEO guard on production');
+    expect(previewGuard).toBeGreaterThan(-1);
+    expect(promote).toBeGreaterThan(previewGuard);
+    expect(liveGuard).toBeGreaterThan(promote);
+    expect(workflow.slice(previewGuard, promote)).toContain('node scripts/run-seo-live-guard.mjs');
+    expect(workflow.slice(liveGuard)).toContain('node scripts/run-seo-live-guard.mjs');
+  });
+
   it('blocks promotion when preview discovery headers are wrong', () => {
     const previewGuard = workflow.indexOf('name: Preview discovery-header seal');
     const promote = workflow.indexOf('name: Promote the exact validated Firebase version to live');
