@@ -159,7 +159,7 @@ jobs:
         env:
           SEO_GUARD_HOST: ${{ steps.preview.outputs.preview_url }}
           SEO_GUARD_MODE: preview
-        run: node scripts/seo-live-guard.mjs
+        run: node scripts/run-seo-live-guard.mjs
 
       - name: Preview discovery-header seal
         env:
@@ -196,7 +196,7 @@ jobs:
         env:
           SEO_GUARD_HOST: https://sectorcalc.com
           SEO_GUARD_MODE: live
-        run: node scripts/seo-live-guard.mjs
+        run: node scripts/run-seo-live-guard.mjs
 
       - name: Post-promotion discovery/HSTS header seal
         env:
