@@ -22,15 +22,17 @@ type Config = { thresholds: { lcpP75Ms: number; inpP75Ms: number; clsP75: number
 
 const REQUIRED_CWV_REFS = ['thresholds.lcpP75Ms', 'thresholds.inpP75Ms', 'thresholds.clsP75'];
 
-export function validateTamLoops(artifact: Artifact, _config: Config): { errors: string[]; warnings: string[]; infos: string[] } {
+export function validateTamLoops(artifact: Artifact, config: Config): { errors: string[]; warnings: string[]; infos: string[] } {
   const errors: string[] = [];
   const warnings: string[] = [];
   const infos: string[] = [];
+  const cwvThresholdsConfigured = [config.thresholds.lcpP75Ms, config.thresholds.inpP75Ms, config.thresholds.clsP75].every(Number.isFinite);
   for (const loop of artifact.loops) {
     if (loop.claimEnabled && !loop.evidenceRef) errors.push(`INV-16.1 TAM/growth claim without evidence: ${loop.id}`);
     if (loop.enabled && !loop.owner) warnings.push(`INV-16.2 growth-loop owner missing: ${loop.id}`);
     if (loop.enabled && loop.requiresModeration && !loop.moderationEnabled) errors.push(`INV-16.3 UGC moderation missing: ${loop.id}`);
     if (loop.enabled && (loop.channel === 'paid' || loop.channel === 'mixed')) {
+      if (!cwvThresholdsConfigured) errors.push(`INV-16.4 configured CWV budgets unavailable: ${loop.id}`);
       for (const ref of REQUIRED_CWV_REFS) if (!loop.cwvBudgetRefs.includes(ref)) errors.push(`INV-16.4 paid/mixed loop CWV budget missing ${ref}: ${loop.id}`);
     }
     if (loop.enabled && !loop.observationWindowDeclared) warnings.push(`INV-16.5 observation window missing: ${loop.id}`);
@@ -45,10 +47,7 @@ function main(): void {
   if (site !== 'sectorcalc') process.exit(4);
   const config = JSON.parse(readFileSync(resolve(ROOT, 'sites/sectorcalc/seo.config.json'), 'utf8')) as Config;
   const result = validateTamLoops({ loops: [] }, config);
-  if (result.errors.length) {
-    console.error(result.errors.join('\n'));
-    process.exit(1);
-  }
+  if (result.errors.length) { console.error(result.errors.join('\n')); process.exit(1); }
   console.log('SEO_PHASE_16_CODE_READY growth-loop-contract');
 }
 
