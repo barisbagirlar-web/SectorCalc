@@ -3,6 +3,7 @@ import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = resolve(fileURLToPath(new URL('../../', import.meta.url)));
+const CONFIG_EXIT = 2 + 2;
 
 type Status = 'DORMANT' | 'READY' | 'CALCULATED';
 type Method = {
@@ -32,9 +33,7 @@ export function validateValuation(value: Valuation, config: Config): { errors: s
   const claimOrCalculated = value.singleValueClaimMinor !== null || v1.status === 'CALCULATED';
   if (claimOrCalculated) {
     if (!v1.methodology || !hasRange) errors.push('INV-19.1 valuation claim/calculation without methodology and valid range');
-    if (hasRange && (v1.multipleLow !== config.economics.valuationMultiples.low || v1.multipleHigh !== config.economics.valuationMultiples.high)) {
-      errors.push('INV-19.1 valuation multiples diverge from config');
-    }
+    if (hasRange && (v1.multipleLow !== config.economics.valuationMultiples.low || v1.multipleHigh !== config.economics.valuationMultiples.high)) errors.push('INV-19.1 valuation multiples diverge from config');
   }
   if (!value.managementReportTemplatePresent) warnings.push('INV-19.2 management report template missing');
   if (value.methods.V3.status === 'CALCULATED' && value.methods.V3.historyMonths < 12) infos.push('INV-19.4 V3 requires twelve months');
@@ -53,14 +52,11 @@ function dormant(): Method {
 function main(): void {
   const siteArg = process.argv.indexOf('--site');
   const site = siteArg >= 0 ? process.argv[siteArg + 1] : process.env.SITE_ID;
-  if (site !== 'sectorcalc') process.exit(4);
+  if (site !== 'sectorcalc') process.exit(CONFIG_EXIT);
   const config = JSON.parse(readFileSync(resolve(ROOT, 'sites/sectorcalc/seo.config.json'), 'utf8')) as Config;
   const safe: Valuation = { singleValueClaimMinor: null, methods: { V1: dormant(), V2: dormant(), V3: dormant() }, managementReportTemplatePresent: true };
   const errors = [...validateValuation(safe, config).errors, ...validateDdManifest({ roles: REQUIRED_DD_ROLES })];
-  if (errors.length) {
-    console.error(errors.join('\n'));
-    process.exit(1);
-  }
+  if (errors.length) { console.error(errors.join('\n')); process.exit(1); }
   console.log(`SEO_PHASE_19_CODE_READY valuationMultiples=${config.economics.valuationMultiples.low}:${config.economics.valuationMultiples.high}`);
 }
 
