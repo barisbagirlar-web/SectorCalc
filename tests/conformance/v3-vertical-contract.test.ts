@@ -19,11 +19,22 @@ describe('phase 15 vertical code contract', () => {
     ['hreflang-canonical-mismatch', 'INV-15.16', undefined],
     ['weaken-general-rule', 'INV-15.19', undefined],
   ] as const) {
-    it(`blocks ${invariant}`, () => {
-      expect(validateVerticalFinding({ kind, value }, config).join(' ')).toContain(invariant);
-    });
+    it(`blocks ${invariant}`, () => expect(validateVerticalFinding({ kind, value }, config).errors.join(' ')).toContain(invariant));
   }
-  it('does not flag local doorway below configured similarity threshold', () => {
-    expect(validateVerticalFinding({ kind: 'local-doorway', value: 0.8 }, config)).toEqual([]);
-  });
+  for (const [kind, invariant] of [
+    ['ecom-schema-visible-mismatch', 'INV-15.3'],
+    ['local-gbp-stale', 'INV-15.6'],
+    ['saas-comparison-stale', 'INV-15.9'],
+    ['media-author-policy-missing', 'INV-15.11'],
+    ['i18n-human-edit-missing', 'INV-15.17'],
+  ] as const) {
+    it(`warns ${invariant}`, () => expect(validateVerticalFinding({ kind }, config).warnings.join(' ')).toContain(invariant));
+  }
+  for (const [kind, invariant] of [
+    ['media-evergreen-registry-missing', 'INV-15.12'],
+    ['out-of-module-unqueued', 'INV-15.18'],
+  ] as const) {
+    it(`reports ${invariant}`, () => expect(validateVerticalFinding({ kind }, config).infos.join(' ')).toContain(invariant));
+  }
+  it('does not flag local doorway below configured similarity threshold', () => expect(validateVerticalFinding({ kind: 'local-doorway', value: 0.8 }, config).errors).toEqual([]));
 });
