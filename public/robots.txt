@@ -1,8 +1,7 @@
 # SectorCalc — robots.txt (production)
-# Canonical host: https://sectorcalc.com (www redirects to apex)
-# Public search/retrieval crawlers are allowed on public content.
-# IMPORTANT: crawler-specific groups do not inherit wildcard rules, so every
-# explicitly allowed crawler group repeats the private-path deny set.
+# Canonical host: https://sectorcalc.com
+# Search/retrieval and user-directed AI fetchers may access public content.
+# Model-training crawlers are blocked by policy. Private application paths stay blocked.
 
 User-agent: *
 Allow: /
@@ -15,64 +14,17 @@ Disallow: /api/
 Disallow: /internal/
 Disallow: /assets/cache/
 
-# Search crawlers
+# Search, retrieval, user-directed fetch, and landing-page verification
 User-agent: Googlebot
-Allow: /
-Disallow: /cgi-bin/
-Disallow: /tmp/
-Disallow: /draft/
-Disallow: /staging/
-Disallow: /admin/
-Disallow: /api/
-Disallow: /internal/
-Disallow: /assets/cache/
-
 User-agent: Googlebot-Image
-Allow: /
-Disallow: /cgi-bin/
-Disallow: /tmp/
-Disallow: /draft/
-Disallow: /staging/
-Disallow: /admin/
-Disallow: /api/
-Disallow: /internal/
-Disallow: /assets/cache/
-
 User-agent: Bingbot
-Allow: /
-Disallow: /cgi-bin/
-Disallow: /tmp/
-Disallow: /draft/
-Disallow: /staging/
-Disallow: /admin/
-Disallow: /api/
-Disallow: /internal/
-Disallow: /assets/cache/
-
-# AI search / retrieval crawlers
 User-agent: OAI-SearchBot
-Allow: /
-Disallow: /cgi-bin/
-Disallow: /tmp/
-Disallow: /draft/
-Disallow: /staging/
-Disallow: /admin/
-Disallow: /api/
-Disallow: /internal/
-Disallow: /assets/cache/
-
 User-agent: ChatGPT-User
-Allow: /
-Disallow: /cgi-bin/
-Disallow: /tmp/
-Disallow: /draft/
-Disallow: /staging/
-Disallow: /admin/
-Disallow: /api/
-Disallow: /internal/
-Disallow: /assets/cache/
-
+User-agent: OAI-AdsBot
 User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Claude-SearchBot
+User-agent: Claude-User
 Allow: /
 Disallow: /cgi-bin/
 Disallow: /tmp/
@@ -83,58 +35,18 @@ Disallow: /api/
 Disallow: /internal/
 Disallow: /assets/cache/
 
-# AI-use controls that are not Google Search indexing controls
-User-agent: Google-Extended
-User-agent: Anthropic-ai
-User-agent: Claude-Web
-User-agent: cohere-ai
-Allow: /
-Disallow: /cgi-bin/
-Disallow: /tmp/
-Disallow: /draft/
-Disallow: /staging/
-Disallow: /admin/
-Disallow: /api/
-Disallow: /internal/
-Disallow: /assets/cache/
-
-# Training-oriented crawlers
+# Training / non-search AI use controls
 User-agent: GPTBot
-Disallow: /
-
 User-agent: ClaudeBot
-Disallow: /
-
+User-agent: Google-Extended
 User-agent: CCBot
-Disallow: /
-
+User-agent: cohere-ai
 User-agent: FacebookBot
 Disallow: /
 
-# Archive and SEO audit crawlers
+# Archive / SEO audit crawlers
 User-agent: ia_archiver
-Allow: /
-Disallow: /cgi-bin/
-Disallow: /tmp/
-Disallow: /draft/
-Disallow: /staging/
-Disallow: /admin/
-Disallow: /api/
-Disallow: /internal/
-Disallow: /assets/cache/
-
 User-agent: AhrefsBot
-Allow: /
-Disallow: /cgi-bin/
-Disallow: /tmp/
-Disallow: /draft/
-Disallow: /staging/
-Disallow: /admin/
-Disallow: /api/
-Disallow: /internal/
-Disallow: /assets/cache/
-Crawl-delay: 2
-
 User-agent: SemrushBot
 Allow: /
 Disallow: /cgi-bin/
@@ -150,6 +62,7 @@ Crawl-delay: 2
 Sitemap: https://sectorcalc.com/sitemap.xml
 Sitemap: https://sectorcalc.com/sitemap-images.xml
 
-# Supplemental policy/discovery files are intentionally not XML sitemap entries.
-# See also: https://sectorcalc.com/ai-robots.txt
-# See also: https://sectorcalc.com/llms.txt
+# Supplemental discovery/policy surfaces
+# https://sectorcalc.com/ai-robots.txt
+# https://sectorcalc.com/llm.txt
+# https://sectorcalc.com/llms.txt
