@@ -1,6 +1,10 @@
 import { createHash } from 'node:crypto';
+import { SITEMAP_POLICY } from './sitemap-policy.mjs';
 
-export const DEFAULT_SITEMAP_LIMITS = Object.freeze({ maxUrls: 45000, maxBytes: 47000000 });
+export const DEFAULT_SITEMAP_LIMITS = Object.freeze({
+  maxUrls: SITEMAP_POLICY.maxUrls,
+  maxBytes: SITEMAP_POLICY.maxBytes,
+});
 
 export function escapeXml(value) {
   return String(value)
@@ -54,6 +58,9 @@ export function sha256(text) {
 
 export function chunkEntries(entries, limits = DEFAULT_SITEMAP_LIMITS) {
   if (!Array.isArray(entries) || entries.length === 0) throw new Error('EMPTY_SITEMAP');
+  if (!limits || !Number.isInteger(limits.maxUrls) || !Number.isInteger(limits.maxBytes) || limits.maxUrls < 1 || limits.maxBytes < 1) {
+    throw new Error('INVALID_SITEMAP_LIMITS');
+  }
   const sorted = [...entries].sort((a, b) => a.loc.localeCompare(b.loc, 'en'));
   const chunks = [];
   let current = [];
@@ -85,8 +92,6 @@ export function buildSitemapArtifacts(entries, rootUrl, limits = DEFAULT_SITEMAP
     const xml = renderUrlset(chunk);
     return { name, xml, sha256: sha256(xml), count: chunk.length };
   });
-  // Index-level lastmod is intentionally omitted here. It is only safe when a live-baseline
-  // finalizer can prove NEW/CHANGED state from child hashes.
   const indexXml = renderSitemapIndex(files.map((file) => ({ loc: `${rootUrl}/${file.name}`, lastmod: null })));
   return { index: { name: 'sitemap.xml', xml: indexXml, sha256: sha256(indexXml) }, files };
 }

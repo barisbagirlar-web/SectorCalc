@@ -10,6 +10,7 @@ import { PAGES, HOST, CURRENT_INDEXABLE_BASELINE, CURRENT_CALCULATOR_COUNT } fro
 import { isSeoIndexable, evaluateSeoIndexable } from './indexability.mjs';
 import { findDuplicatePrimaryOwners, QUERY_OWNERSHIP } from './query-ownership.mjs';
 import { discoveryAllowBots, CRAWLER_POLICY } from './crawler-policy.mjs';
+import { SITEMAP_POLICY, SITEMAP_RETAINED_FRACTION } from './sitemap-policy.mjs';
 
 export {
   PAGES,
@@ -22,6 +23,7 @@ export {
   findDuplicatePrimaryOwners,
   discoveryAllowBots,
   CRAWLER_POLICY,
+  SITEMAP_POLICY,
 };
 
 export function allPages() {
@@ -52,19 +54,13 @@ export function llmEligibleCalculators() {
   return publishedCalculators().filter((p) => p.llmEligible !== false && isSeoIndexable(p));
 }
 
-/** Legacy *-pro.html → pretty path map (for redirects / verify / inject). */
 export function toolCanonicalBySourceFile() {
-  /** @type {Record<string, string>} */
   const map = {};
-  for (const p of calculators()) {
-    map[p.sourceFile] = p.canonicalPath;
-  }
+  for (const p of calculators()) map[p.sourceFile] = p.canonicalPath;
   return map;
 }
 
-/** Slug without .html → pretty path without leading slash (Python inject format). */
 export function toolCanonicalBySlug() {
-  /** @type {Record<string, string>} */
   const map = {};
   for (const p of calculators()) {
     const slug = p.sourceSlug || p.sourceFile.replace(/\.html$/, '');
@@ -73,9 +69,7 @@ export function toolCanonicalBySlug() {
   return map;
 }
 
-/** Slug → TOOL_META-compatible object for inject-seo.py */
 export function toolMetaBySlug() {
-  /** @type {Record<string, any>} */
   const map = {};
   for (const p of calculators()) {
     const slug = p.sourceSlug || p.sourceFile.replace(/\.html$/, '');
@@ -142,8 +136,9 @@ export function validateRegistryInvariants() {
   }
 
   const smCount = sitemapPages().length;
-  if (smCount < Math.floor(CURRENT_INDEXABLE_BASELINE * 0.5)) {
-    errors.push(`UNEXPECTED_SITEMAP_SHRINK: registry sitemapEligible indexable=${smCount} baseline=${CURRENT_INDEXABLE_BASELINE}`);
+  const shrinkFloor = Math.ceil(CURRENT_INDEXABLE_BASELINE * SITEMAP_RETAINED_FRACTION);
+  if (smCount < shrinkFloor) {
+    errors.push(`UNEXPECTED_SITEMAP_SHRINK: registry sitemapEligible indexable=${smCount} floor=${shrinkFloor} baseline=${CURRENT_INDEXABLE_BASELINE} maxShrinkPct=${SITEMAP_POLICY.maxShrinkPct}`);
   }
 
   return errors;

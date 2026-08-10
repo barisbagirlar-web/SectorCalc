@@ -51,7 +51,7 @@
     "thresholds": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["lcpP75Ms", "inpP75Ms", "clsP75", "decayDays", "highTrafficThreshold", "similarityMax", "intentScoreMin"],
+      "required": ["lcpP75Ms", "inpP75Ms", "clsP75", "decayDays", "highTrafficThreshold", "similarityMax", "intentScoreMin", "sitemapMaxShrinkPct", "sitemapMaxUrlsPerFile", "sitemapMaxBytesPerFile", "sitemapCacheMaxAgeSeconds"],
       "properties": {
         "lcpP75Ms": { "type": "integer", "minimum": 1000 },
         "inpP75Ms": { "type": "integer", "minimum": 50 },
@@ -65,7 +65,11 @@
         "divestPendingMaxDays": { "type": "integer", "minimum": 7 },
         "programmaticIndexMinPct": { "type": "integer", "minimum": 1, "maximum": 100 },
         "programmaticEvalDays": { "type": "integer", "minimum": 14 },
-        "brandSerpOwnershipWarnPct": { "type": "integer", "minimum": 1, "maximum": 100 }
+        "brandSerpOwnershipWarnPct": { "type": "integer", "minimum": 1, "maximum": 100 },
+        "sitemapMaxShrinkPct": { "type": "integer", "minimum": 1, "maximum": 50 },
+        "sitemapMaxUrlsPerFile": { "type": "integer", "minimum": 1, "maximum": 50000 },
+        "sitemapMaxBytesPerFile": { "type": "integer", "minimum": 1, "maximum": 52428800 },
+        "sitemapCacheMaxAgeSeconds": { "type": "integer", "minimum": 60, "maximum": 86400 }
       }
     },
     "economics": {
