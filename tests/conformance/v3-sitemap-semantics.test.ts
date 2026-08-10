@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { buildSitemapArtifacts, canonicalEntry, normalizeReliableLastmod, renderUrlset, sha256 } from '../../seo/sitemap-engine.mjs';
+import { buildSitemapArtifacts, canonicalEntry, DEFAULT_SITEMAP_LIMITS, normalizeReliableLastmod, renderUrlset, sha256 } from '../../seo/sitemap-engine.mjs';
+import { SITEMAP_POLICY, SITEMAP_RETAINED_FRACTION } from '../../seo/sitemap-policy.mjs';
 import { pageState, PAGE_STATES } from '../../seo/page-state.mjs';
 
 describe('SEO V3 phase 3 sitemap semantics', () => {
@@ -24,12 +25,21 @@ describe('SEO V3 phase 3 sitemap semantics', () => {
     expect(sha256(removed)).not.toBe(sha256(before));
   });
 
+  it('uses config as the default chunk and shrink policy SSOT', () => {
+    expect(DEFAULT_SITEMAP_LIMITS).toEqual({ maxUrls: SITEMAP_POLICY.maxUrls, maxBytes: SITEMAP_POLICY.maxBytes });
+    expect(SITEMAP_RETAINED_FRACTION).toBe((100 - SITEMAP_POLICY.maxShrinkPct) / 100);
+  });
+
   it('rolls over chunks instead of throwing at the configured ceiling', () => {
     const entries = Array.from({ length: 5 }, (_, i) => ({ loc: `https://sectorcalc.com/p/${i}`, lastmod: null }));
-    const built = buildSitemapArtifacts(entries, 'https://sectorcalc.com', { maxUrls: 2, maxBytes: 47000000 });
+    const built = buildSitemapArtifacts(entries, 'https://sectorcalc.com', { maxUrls: 2, maxBytes: 1000000 });
     expect(built.files).toHaveLength(3);
     expect(built.index).not.toBeNull();
     expect(built.files.every((f) => f.count <= 2)).toBe(true);
+  });
+
+  it('fails closed on invalid chunk limits', () => {
+    expect(() => buildSitemapArtifacts(base, 'https://sectorcalc.com', { maxUrls: 0, maxBytes: 1000 })).toThrow('INVALID_SITEMAP_LIMITS');
   });
 
   it('omits unreliable lastmod and caps future reliable timestamps', () => {

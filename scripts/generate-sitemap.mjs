@@ -4,16 +4,16 @@
  * SET(SITEMAP) === SET(REGISTRY indexable && sitemapEligible && robots-allowed).
  * DO NOT EDIT generated sitemap files directly.
  */
-import { existsSync, readFileSync, readdirSync, unlinkSync, writeFileSync } from 'node:fs';
+import { readFileSync, readdirSync, unlinkSync, writeFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { sitemapPages, CURRENT_INDEXABLE_BASELINE, validateRegistryInvariants } from '../seo/registry.mjs';
+import { sitemapPages, CURRENT_INDEXABLE_BASELINE, validateRegistryInvariants, HOST } from '../seo/registry.mjs';
 import { isRobotsAllowed } from '../seo/robots-policy.mjs';
 import { buildSitemapArtifacts, canonicalEntry, DEFAULT_SITEMAP_LIMITS } from '../seo/sitemap-engine.mjs';
+import { SITEMAP_POLICY, SITEMAP_RETAINED_FRACTION } from '../seo/sitemap-policy.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const PUBLIC = join(ROOT, 'public');
-const ROOT_URL = 'https://sectorcalc.com';
 
 const errors = validateRegistryInvariants();
 if (errors.length) {
@@ -28,9 +28,9 @@ if (pages.length === 0) {
   process.exit(1);
 }
 
-const shrinkFloor = Math.ceil(CURRENT_INDEXABLE_BASELINE * 0.8);
+const shrinkFloor = Math.ceil(CURRENT_INDEXABLE_BASELINE * SITEMAP_RETAINED_FRACTION);
 if (pages.length < shrinkFloor) {
-  console.error(`[FAIL] UNEXPECTED_SITEMAP_SHRINK: ${pages.length} < 80% floor ${shrinkFloor} (baseline=${CURRENT_INDEXABLE_BASELINE})`);
+  console.error(`[FAIL] UNEXPECTED_SITEMAP_SHRINK: ${pages.length} < retained floor ${shrinkFloor} (baseline=${CURRENT_INDEXABLE_BASELINE}, maxShrinkPct=${SITEMAP_POLICY.maxShrinkPct})`);
   process.exit(1);
 }
 
@@ -41,7 +41,7 @@ for (const page of pages) {
     console.error(`[FAIL] ROBOTS_SITEMAP_CONFLICT: ${page.canonicalPath}`);
     process.exit(1);
   }
-  const entry = canonicalEntry(page, ROOT_URL, new Date());
+  const entry = canonicalEntry(page, HOST, new Date());
   if (seen.has(entry.loc)) {
     console.error(`[FAIL] DUPLICATE_SITEMAP_URL: ${entry.loc}`);
     process.exit(1);
@@ -50,14 +50,13 @@ for (const page of pages) {
   entries.push(entry);
 }
 
-if (!entries.some((e) => e.loc === `${ROOT_URL}/`)) {
+if (!entries.some((e) => e.loc === `${HOST}/`)) {
   console.error('[FAIL] sitemap must include the homepage');
   process.exit(1);
 }
 
-const artifacts = buildSitemapArtifacts(entries, ROOT_URL, DEFAULT_SITEMAP_LIMITS);
+const artifacts = buildSitemapArtifacts(entries, HOST, DEFAULT_SITEMAP_LIMITS);
 
-// Remove only generator-owned stale chunk files after the new artifact set is valid in memory.
 for (const file of readdirSync(PUBLIC)) {
   if (/^sitemap-pages-\d{3}\.xml$/.test(file) && !artifacts.files.some((x) => x.name === file)) {
     unlinkSync(join(PUBLIC, file));
@@ -68,4 +67,5 @@ if (artifacts.index) writeFileSync(join(PUBLIC, artifacts.index.name), artifacts
 
 const outputCount = artifacts.files.reduce((sum, file) => sum + file.count, 0);
 console.log(`[OK] sitemap artifacts written: urls=${outputCount} chunks=${artifacts.files.length} index=${Boolean(artifacts.index)}`);
-console.log('[OK] priority/changefreq omitted; unreliable URL lastmod omitted; >20% shrink is fail-closed');
+console.log(`[OK] policy config: maxShrinkPct=${SITEMAP_POLICY.maxShrinkPct} maxUrls=${SITEMAP_POLICY.maxUrls} maxBytes=${SITEMAP_POLICY.maxBytes}`);
+console.log('[OK] priority/changefreq omitted; unreliable URL lastmod omitted');

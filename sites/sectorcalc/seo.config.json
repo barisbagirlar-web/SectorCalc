@@ -40,7 +40,11 @@
     "divestPendingMaxDays": 30,
     "programmaticIndexMinPct": 70,
     "programmaticEvalDays": 56,
-    "brandSerpOwnershipWarnPct": 70
+    "brandSerpOwnershipWarnPct": 70,
+    "sitemapMaxShrinkPct": 20,
+    "sitemapMaxUrlsPerFile": 45000,
+    "sitemapMaxBytesPerFile": 47000000,
+    "sitemapCacheMaxAgeSeconds": 300
   },
   "economics": {
     "defaultValuePerConversionMinor": 0,
