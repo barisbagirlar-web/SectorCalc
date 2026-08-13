@@ -75,6 +75,7 @@ export function toolMetaBySlug() {
     const slug = p.sourceSlug || p.sourceFile.replace(/\.html$/, '');
     map[slug] = {
       name: p.name || p.h1,
+      title: p.title,
       short: p.short || p.name,
       category: p.category,
       anchor: p.categoryAnchor,
