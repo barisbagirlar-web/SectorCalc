@@ -835,10 +835,11 @@ def process(page: str) -> None:
     path = ROOT / page
     text = path.read_text(encoding="utf-8")
     title, desc = extract_title_desc(text)
-    # Prefer TOOL_META description for calculator pages
     slug = page.replace(".html", "")
     if slug in TOOL_META:
+        title = TOOL_META[slug]["title"]
         desc = TOOL_META[slug]["desc"]
+        text = re.sub(r"<title>.*?</title>", f"<title>{html.escape(title)}</title>", text, flags=re.I | re.S)
     elif page == "pricing.html":
         desc = "SectorCalc one-time credit packs for professional calculation sessions. No subscription. Purchased credits do not expire. Starter, Workshop, Professional, Team Wallet."
     elif page == "index.html":

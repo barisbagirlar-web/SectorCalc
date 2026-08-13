@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-28T13:35:54.749Z",
+  "generatedAt": "2026-08-13T23:08:55.439Z",
   "host": "https://sectorcalc.com",
   "calculatorCount": 25,
   "indexableBaseline": 90,
@@ -45,545 +45,545 @@
   "paidTools": [
     {
       "id": "SC-008",
-      "name": "SC-008 Tolerance Stack-Up",
+      "name": "Tolerance Stack-Up Calculator — Worst-Case & RSS",
       "canonicalPath": "/calculator/tolerance-stack-up",
       "sourceFile": "sc008-pro.html",
       "legacyPaths": ["/sc008-pro.html"],
       "revenueTier": "A",
       "free": false,
-      "title": "SC-008 Tolerance Stack-Up | SectorCalc",
+      "title": "Tolerance Stack-Up Calculator — Worst-Case & RSS Monte Carlo | SectorCalc",
       "description": "Deterministic 1D tolerance stack-up with worst-case, RSS, and seeded Monte Carlo (10,000 iterations). Predicted Cpk, PPM, and full A1-A5 audit trail. Client-side only.",
-      "h1": "SC-008 Tolerance Stack-Up"
+      "h1": "Tolerance Stack-Up Calculator — Worst-Case & RSS Monte Carlo"
     },
     {
       "id": "SC-010",
-      "name": "SC-010 True Labor Cost",
+      "name": "True Labor Burden Rate Calculator",
       "canonicalPath": "/calculator/true-labor-cost",
       "sourceFile": "labor-pro.html",
       "legacyPaths": ["/labor-pro.html"],
       "revenueTier": "A",
       "free": false,
-      "title": "SC-010 True Labor Cost | SectorCalc",
+      "title": "True Labor Burden Rate Calculator — Shop Cost Estimator | SectorCalc",
       "description": "True loaded labor cost with statutory burden, benefits, overhead, and indirect time. Deterministic.",
-      "h1": "SC-010 True Labor Cost"
+      "h1": "True Labor Burden Rate Calculator — Machine Shop Hourly Cost"
     },
     {
       "id": "SC-012",
-      "name": "SC-012 Quote Pricing",
+      "name": "Manufacturing Quote & Part Costing Calculator",
       "canonicalPath": "/calculator/quote-pricing",
       "sourceFile": "quote-pro.html",
       "legacyPaths": ["/quote-pro.html"],
       "revenueTier": "A",
       "free": false,
-      "title": "SC-012 Quote Pricing | SectorCalc",
+      "title": "Manufacturing Quote & Machine Shop Part Costing Calculator | SectorCalc",
       "description": "Quote pricing with material, labor, overhead, markup, and margin analysis. Deterministic audit trail.",
-      "h1": "SC-012 Quote Pricing"
+      "h1": "Manufacturing Quote & Part Costing Calculator"
     },
     {
       "id": "SC-020",
-      "name": "SC-020 CNC Feeds & Speeds + Tool Life",
+      "name": "CNC Feeds & Speeds Calculator — Milling & Turning",
       "canonicalPath": "/calculator/cnc-feeds-speeds",
       "sourceFile": "machining-pro.html",
       "legacyPaths": ["/machining-pro.html"],
       "revenueTier": "A",
       "free": false,
-      "title": "SC-020 CNC Feeds & Speeds + Tool Life | SectorCalc",
+      "title": "CNC Feeds & Speeds Calculator — Milling & Turning RPM / Feed | SectorCalc",
       "description": "Calculate cutting speed, feed rate, and Taylor tool life with chip thinning and deterministic Decimal engine. Full audit trail. Client-side only.",
-      "h1": "SC-020 CNC Feeds & Speeds + Tool Life"
+      "h1": "CNC Feeds & Speeds Calculator — Milling & Turning RPM / Feed"
     },
     {
       "id": "SC-021",
-      "name": "SC-021 Bearing Life L10 — ISO 281",
+      "name": "Bearing Life L10 Calculator — ISO 281",
       "canonicalPath": "/calculator/bearing-life-l10",
       "sourceFile": "bearing-pro.html",
       "legacyPaths": ["/bearing-pro.html"],
       "revenueTier": "A",
       "free": false,
-      "title": "SC-021 Bearing Life L10 — ISO 281 | SectorCalc",
+      "title": "Bearing Life L10 Calculator — ISO 281 Load Rating & Life Hours | SectorCalc",
       "description": "ISO 281 bearing life calculator with aISO adjustment, viscosity ratio kappa, and contamination factor eC. Deterministic audit trail.",
-      "h1": "SC-021 Bearing Life L10 — ISO 281"
+      "h1": "Bearing Life L10 Calculator — ISO 281 Load Rating & Life Hours"
     },
     {
       "id": "SC-022",
-      "name": "SC-022 Tap & Thread Milling",
+      "name": "Tap Drill & Thread Milling Calculator",
       "canonicalPath": "/calculator/tap-thread-milling",
       "sourceFile": "tap-thread-pro.html",
       "legacyPaths": ["/tap-thread-pro.html"],
       "revenueTier": "B",
       "free": false,
-      "title": "SC-022 Tap & Thread Milling | SectorCalc",
+      "title": "Tap Drill & Thread Milling Calculator — Metric & UN Threads | SectorCalc",
       "description": "Thread milling and tapping parameters with pitch, lead angle, and torque estimation. Deterministic engine with visible formulas.",
-      "h1": "SC-022 Tap & Thread Milling"
+      "h1": "Tap Drill & Thread Milling Calculator — Metric & UN Threads"
     },
     {
       "id": "SC-023",
-      "name": "SC-023 Cycle Time & Cost per Part",
+      "name": "Cycle Time & Machining Cost Per Part Calculator",
       "canonicalPath": "/calculator/cycle-time-cost",
       "sourceFile": "cycle-cost-pro.html",
       "legacyPaths": ["/cycle-cost-pro.html"],
       "revenueTier": "B",
       "free": false,
-      "title": "SC-023 Cycle Time & Cost per Part | SectorCalc",
+      "title": "Cycle Time & Machining Cost Per Part Calculator | SectorCalc",
       "description": "Calculate true cycle time, setup burden, and cost per good part with scrap rate and deterministic engine.",
-      "h1": "SC-023 Cycle Time & Cost per Part"
+      "h1": "Cycle Time & Machining Cost Per Part Calculator"
     },
     {
       "id": "SC-024",
-      "name": "SC-024 Bearing Frequencies — BPFO / BPFI",
+      "name": "Bearing Defect Frequency Calculator — BPFO & BPFI",
       "canonicalPath": "/calculator/bearing-frequencies",
       "sourceFile": "bearing-freq-pro.html",
       "legacyPaths": ["/bearing-freq-pro.html"],
       "revenueTier": "B",
       "free": false,
-      "title": "SC-024 Bearing Frequencies — BPFO / BPFI | SectorCalc",
+      "title": "Bearing Defect Frequency Calculator — BPFO & BPFI Speeds | SectorCalc",
       "description": "Calculate bearing defect frequencies for vibration analysis. BPFO, BPFI, BSF, FTF with deterministic formulas.",
-      "h1": "SC-024 Bearing Frequencies — BPFO / BPFI"
+      "h1": "Bearing Defect Frequency Calculator — BPFO & BPFI Speeds"
     },
     {
       "id": "SC-025",
-      "name": "SC-025 Belt & Chain Drive Sizing",
+      "name": "Belt & Chain Drive Sizing Calculator",
       "canonicalPath": "/calculator/belt-chain-drive",
       "sourceFile": "belt-chain-pro.html",
       "legacyPaths": ["/belt-chain-pro.html"],
       "revenueTier": "B",
       "free": false,
-      "title": "SC-025 Belt & Chain Drive Sizing | SectorCalc",
+      "title": "Belt & Chain Drive Sizing Calculator — Ratio & Pitch Length | SectorCalc",
       "description": "Belt and chain drive sizing with speed ratio, center distance, and tension calculations. Deterministic engine.",
-      "h1": "SC-025 Belt & Chain Drive Sizing"
+      "h1": "Belt & Chain Drive Sizing Calculator — Ratio & Pitch Length"
     },
     {
       "id": "SC-026",
-      "name": "SC-026 Shaft Design — Torsion + Bending",
+      "name": "Shaft Design & Diameter Calculator",
       "canonicalPath": "/calculator/shaft-design",
       "sourceFile": "shaft-pro.html",
       "legacyPaths": ["/shaft-pro.html"],
       "revenueTier": "B",
       "free": false,
-      "title": "SC-026 Shaft Design — Torsion + Bending | SectorCalc",
+      "title": "Shaft Design & Diameter Calculator — Torsion & Bending Stress | SectorCalc",
       "description": "Shaft design with combined torsion and bending stress, fatigue factor, and safety margin. Deterministic audit trail.",
-      "h1": "SC-026 Shaft Design — Torsion + Bending"
+      "h1": "Shaft Design & Diameter Calculator — Torsion & Bending Stress"
     },
     {
       "id": "SC-029",
-      "name": "SC-029 Heat Input & Cooling Rate t8/5",
+      "name": "Welding Heat Input & Cooling Time t8/5 Calculator",
       "canonicalPath": "/calculator/weld-heat-input",
       "sourceFile": "heat-input-pro.html",
       "legacyPaths": ["/heat-input-pro.html"],
       "revenueTier": "A",
       "free": false,
-      "title": "SC-029 Heat Input & Cooling Rate t8/5 | SectorCalc",
+      "title": "Welding Heat Input & Cooling Time t8/5 Calculator | SectorCalc",
       "description": "Calculate welding heat input and cooling time t8/5 for WPS/PQR screening. Deterministic engine.",
-      "h1": "SC-029 Heat Input & Cooling Rate t8/5"
+      "h1": "Welding Heat Input & Cooling Time t8/5 Calculator"
     },
     {
       "id": "SC-031",
-      "name": "SC-031 Sling Capacity & Angle",
+      "name": "Rigging Sling Capacity & Angle Factor Calculator",
       "canonicalPath": "/calculator/sling-capacity",
       "sourceFile": "sling-pro.html",
       "legacyPaths": ["/sling-pro.html"],
       "revenueTier": "B",
       "free": false,
-      "title": "SC-031 Sling Capacity & Angle | SectorCalc",
+      "title": "Rigging Sling Capacity & Angle Factor Calculator | SectorCalc",
       "description": "Sling capacity reduction at angles, multi-leg load sharing, and safe working load verification.",
-      "h1": "SC-031 Sling Capacity & Angle"
+      "h1": "Rigging Sling Capacity & Angle Factor Calculator"
     },
     {
       "id": "SC-032",
-      "name": "SC-032 Shackle & Eye Bolt Check",
+      "name": "Shackle & Eye Bolt Load Capacity Calculator",
       "canonicalPath": "/calculator/shackle-eyebolt",
       "sourceFile": "shackle-eyebolt-pro.html",
       "legacyPaths": ["/shackle-eyebolt-pro.html"],
       "revenueTier": "B",
       "free": false,
-      "title": "SC-032 Shackle & Eye Bolt Check | SectorCalc",
+      "title": "Shackle & Eye Bolt Load Capacity Calculator — WLL Safety | SectorCalc",
       "description": "Shackle and eye-bolt working load limit verification with angle derating and safety factors.",
-      "h1": "SC-032 Shackle & Eye Bolt Check"
+      "h1": "Shackle & Eye Bolt Load Capacity Calculator — WLL Safety"
     },
     {
       "id": "SC-033",
-      "name": "SC-033 Pressure Vessel Shell — ASME VIII",
+      "name": "Pressure Vessel Shell Thickness Calculator — ASME VIII",
       "canonicalPath": "/calculator/pressure-vessel-shell",
       "sourceFile": "pressure-vessel-pro.html",
       "legacyPaths": ["/pressure-vessel-pro.html"],
       "revenueTier": "A",
       "free": false,
-      "title": "SC-033 Pressure Vessel Shell — ASME VIII | SectorCalc",
+      "title": "ASME VIII Pressure Vessel Shell Thickness Calculator | SectorCalc",
       "description": "ASME Section VIII Division 1 internal pressure shell thickness calculator. Deterministic audit trail.",
-      "h1": "SC-033 Pressure Vessel Shell — ASME VIII"
+      "h1": "Pressure Vessel Shell Thickness Calculator — ASME VIII"
     },
     {
       "id": "SC-034",
-      "name": "SC-034 Pipe Wall Thickness — ASME B31.3",
+      "name": "Pipe Wall Thickness Calculator — ASME B31.3",
       "canonicalPath": "/calculator/pipe-wall-thickness",
       "sourceFile": "pipe-wall-pro.html",
       "legacyPaths": ["/pipe-wall-pro.html"],
       "revenueTier": "A",
       "free": false,
-      "title": "SC-034 Pipe Wall Thickness — ASME B31.3 | SectorCalc",
+      "title": "ASME B31.3 Pipe Wall Thickness Calculator — Pressure Rating | SectorCalc",
       "description": "ASME B31.3 pipe wall thickness and MAWP calculator with corrosion allowance and mill tolerance.",
-      "h1": "SC-034 Pipe Wall Thickness — ASME B31.3"
+      "h1": "Pipe Wall Thickness Calculator — ASME B31.3 Pressure Sizing"
     },
     {
       "id": "SC-035",
-      "name": "SC-035 Bolt Torque & Preload — VDI 2230",
+      "name": "Bolt Torque & Preload Calculator — VDI 2230",
       "canonicalPath": "/calculator/bolt-torque-preload",
       "sourceFile": "bolt-pro.html",
       "legacyPaths": ["/bolt-pro.html"],
       "revenueTier": "A",
       "free": false,
-      "title": "SC-035 Bolt Torque & Preload — VDI 2230 | SectorCalc",
+      "title": "Bolt Torque & Preload Calculator — VDI 2230 Tightening Specs | SectorCalc",
       "description": "VDI 2230 bolt torque and preload calculator with friction coefficients and tightening factor.",
-      "h1": "SC-035 Bolt Torque & Preload — VDI 2230"
+      "h1": "Bolt Torque & Preload Calculator — VDI 2230 Tightening Specs"
     },
     {
       "id": "SC-036",
-      "name": "SC-036 Bolted Joint Verification — VDI 2230",
+      "name": "Bolted Joint Calculator — VDI 2230",
       "canonicalPath": "/calculator/bolted-joint",
       "sourceFile": "bolted-joint-pro.html",
       "legacyPaths": ["/bolted-joint-pro.html"],
       "revenueTier": "A",
       "free": false,
-      "title": "SC-036 Bolted Joint Verification — VDI 2230 | SectorCalc",
+      "title": "Bolted Joint Calculator — VDI 2230 Stress & Fatigue Check | SectorCalc",
       "description": "Bolted joint verification with axial stiffness, preload, and clamping force analysis per VDI 2230.",
-      "h1": "SC-036 Bolted Joint Verification — VDI 2230"
+      "h1": "Bolted Joint Calculator — VDI 2230 Stress & Fatigue Verification"
     },
     {
       "id": "SC-037",
-      "name": "SC-037 OEE — Overall Equipment Effectiveness",
+      "name": "OEE & TEEP Calculator",
       "canonicalPath": "/calculator/oee-teep",
       "sourceFile": "oee-pro.html",
       "legacyPaths": ["/oee-pro.html"],
       "revenueTier": "A",
       "free": false,
-      "title": "SC-037 OEE — Overall Equipment Effectiveness | SectorCalc",
+      "title": "OEE & TEEP Calculator — Overall Equipment Effectiveness | SectorCalc",
       "description": "Overall Equipment Effectiveness, TEEP, and capacity loss breakdown with availability, performance, and quality.",
-      "h1": "SC-037 OEE — Overall Equipment Effectiveness"
+      "h1": "OEE & TEEP Calculator — Overall Equipment Effectiveness"
     },
     {
       "id": "SC-038",
-      "name": "SC-038 Machine Hour Rate",
+      "name": "Machine Hourly Rate Calculator",
       "canonicalPath": "/calculator/machine-hour-rate",
       "sourceFile": "machine-rate-pro.html",
       "legacyPaths": ["/machine-rate-pro.html"],
       "revenueTier": "A",
       "free": false,
-      "title": "SC-038 Machine Hour Rate | SectorCalc",
+      "title": "Machine Hourly Rate Calculator — CNC Equipment Cost Estimator | SectorCalc",
       "description": "True machine hour rate with depreciation, maintenance, power, and overhead allocation. Deterministic.",
-      "h1": "SC-038 Machine Hour Rate"
+      "h1": "Machine Hourly Rate Calculator — CNC Equipment Cost Estimator"
     },
     {
       "id": "SC-040",
-      "name": "SC-040 Hydraulic Cylinder Sizing",
+      "name": "Hydraulic Cylinder Sizing & Force Calculator",
       "canonicalPath": "/calculator/hydraulic-cylinder",
       "sourceFile": "hydraulic-pro.html",
       "legacyPaths": ["/hydraulic-pro.html"],
       "revenueTier": "B",
       "free": false,
-      "title": "SC-040 Hydraulic Cylinder Sizing | SectorCalc",
+      "title": "Hydraulic Cylinder Sizing & Force Calculator — Push & Pull | SectorCalc",
       "description": "Hydraulic cylinder bore, rod, and pressure sizing with force, velocity, and flow calculations.",
-      "h1": "SC-040 Hydraulic Cylinder Sizing"
+      "h1": "Hydraulic Cylinder Sizing & Force Calculator — Push & Pull"
     }
   ],
   "calculators": [
     {
       "id": "SC-001",
-      "name": "SC-001 Weld Thickness",
+      "name": "Weld Throat Thickness & Joint Sizing Calculator",
       "canonicalPath": "/calculator/weld-thickness",
       "sourceFile": "weld-pro.html",
       "legacyPaths": ["/weld-pro.html"],
       "revenueTier": "B",
       "free": true,
-      "title": "SC-001 Weld Thickness | SectorCalc",
+      "title": "Weld Throat Thickness & Joint Sizing Calculator — Fillet Weld | SectorCalc",
       "description": "Fillet weld throat and leg sizing per AWS D1.1 and ISO standards. Deterministic formula visibility.",
-      "h1": "SC-001 Weld Thickness"
+      "h1": "Weld Throat Thickness & Joint Sizing Calculator — Fillet Weld"
     },
     {
       "id": "SC-008",
-      "name": "SC-008 Tolerance Stack-Up",
+      "name": "Tolerance Stack-Up Calculator — Worst-Case & RSS",
       "canonicalPath": "/calculator/tolerance-stack-up",
       "sourceFile": "sc008-pro.html",
       "legacyPaths": ["/sc008-pro.html"],
       "revenueTier": "A",
       "free": false,
-      "title": "SC-008 Tolerance Stack-Up | SectorCalc",
+      "title": "Tolerance Stack-Up Calculator — Worst-Case & RSS Monte Carlo | SectorCalc",
       "description": "Deterministic 1D tolerance stack-up with worst-case, RSS, and seeded Monte Carlo (10,000 iterations). Predicted Cpk, PPM, and full A1-A5 audit trail. Client-side only.",
-      "h1": "SC-008 Tolerance Stack-Up"
+      "h1": "Tolerance Stack-Up Calculator — Worst-Case & RSS Monte Carlo"
     },
     {
       "id": "SC-010",
-      "name": "SC-010 True Labor Cost",
+      "name": "True Labor Burden Rate Calculator",
       "canonicalPath": "/calculator/true-labor-cost",
       "sourceFile": "labor-pro.html",
       "legacyPaths": ["/labor-pro.html"],
       "revenueTier": "A",
       "free": false,
-      "title": "SC-010 True Labor Cost | SectorCalc",
+      "title": "True Labor Burden Rate Calculator — Shop Cost Estimator | SectorCalc",
       "description": "True loaded labor cost with statutory burden, benefits, overhead, and indirect time. Deterministic.",
-      "h1": "SC-010 True Labor Cost"
+      "h1": "True Labor Burden Rate Calculator — Machine Shop Hourly Cost"
     },
     {
       "id": "SC-012",
-      "name": "SC-012 Quote Pricing",
+      "name": "Manufacturing Quote & Part Costing Calculator",
       "canonicalPath": "/calculator/quote-pricing",
       "sourceFile": "quote-pro.html",
       "legacyPaths": ["/quote-pro.html"],
       "revenueTier": "A",
       "free": false,
-      "title": "SC-012 Quote Pricing | SectorCalc",
+      "title": "Manufacturing Quote & Machine Shop Part Costing Calculator | SectorCalc",
       "description": "Quote pricing with material, labor, overhead, markup, and margin analysis. Deterministic audit trail.",
-      "h1": "SC-012 Quote Pricing"
+      "h1": "Manufacturing Quote & Part Costing Calculator"
     },
     {
       "id": "SC-020",
-      "name": "SC-020 CNC Feeds & Speeds + Tool Life",
+      "name": "CNC Feeds & Speeds Calculator — Milling & Turning",
       "canonicalPath": "/calculator/cnc-feeds-speeds",
       "sourceFile": "machining-pro.html",
       "legacyPaths": ["/machining-pro.html"],
       "revenueTier": "A",
       "free": false,
-      "title": "SC-020 CNC Feeds & Speeds + Tool Life | SectorCalc",
+      "title": "CNC Feeds & Speeds Calculator — Milling & Turning RPM / Feed | SectorCalc",
       "description": "Calculate cutting speed, feed rate, and Taylor tool life with chip thinning and deterministic Decimal engine. Full audit trail. Client-side only.",
-      "h1": "SC-020 CNC Feeds & Speeds + Tool Life"
+      "h1": "CNC Feeds & Speeds Calculator — Milling & Turning RPM / Feed"
     },
     {
       "id": "SC-021",
-      "name": "SC-021 Bearing Life L10 — ISO 281",
+      "name": "Bearing Life L10 Calculator — ISO 281",
       "canonicalPath": "/calculator/bearing-life-l10",
       "sourceFile": "bearing-pro.html",
       "legacyPaths": ["/bearing-pro.html"],
       "revenueTier": "A",
       "free": false,
-      "title": "SC-021 Bearing Life L10 — ISO 281 | SectorCalc",
+      "title": "Bearing Life L10 Calculator — ISO 281 Load Rating & Life Hours | SectorCalc",
       "description": "ISO 281 bearing life calculator with aISO adjustment, viscosity ratio kappa, and contamination factor eC. Deterministic audit trail.",
-      "h1": "SC-021 Bearing Life L10 — ISO 281"
+      "h1": "Bearing Life L10 Calculator — ISO 281 Load Rating & Life Hours"
     },
     {
       "id": "SC-022",
-      "name": "SC-022 Tap & Thread Milling",
+      "name": "Tap Drill & Thread Milling Calculator",
       "canonicalPath": "/calculator/tap-thread-milling",
       "sourceFile": "tap-thread-pro.html",
       "legacyPaths": ["/tap-thread-pro.html"],
       "revenueTier": "B",
       "free": false,
-      "title": "SC-022 Tap & Thread Milling | SectorCalc",
+      "title": "Tap Drill & Thread Milling Calculator — Metric & UN Threads | SectorCalc",
       "description": "Thread milling and tapping parameters with pitch, lead angle, and torque estimation. Deterministic engine with visible formulas.",
-      "h1": "SC-022 Tap & Thread Milling"
+      "h1": "Tap Drill & Thread Milling Calculator — Metric & UN Threads"
     },
     {
       "id": "SC-023",
-      "name": "SC-023 Cycle Time & Cost per Part",
+      "name": "Cycle Time & Machining Cost Per Part Calculator",
       "canonicalPath": "/calculator/cycle-time-cost",
       "sourceFile": "cycle-cost-pro.html",
       "legacyPaths": ["/cycle-cost-pro.html"],
       "revenueTier": "B",
       "free": false,
-      "title": "SC-023 Cycle Time & Cost per Part | SectorCalc",
+      "title": "Cycle Time & Machining Cost Per Part Calculator | SectorCalc",
       "description": "Calculate true cycle time, setup burden, and cost per good part with scrap rate and deterministic engine.",
-      "h1": "SC-023 Cycle Time & Cost per Part"
+      "h1": "Cycle Time & Machining Cost Per Part Calculator"
     },
     {
       "id": "SC-024",
-      "name": "SC-024 Bearing Frequencies — BPFO / BPFI",
+      "name": "Bearing Defect Frequency Calculator — BPFO & BPFI",
       "canonicalPath": "/calculator/bearing-frequencies",
       "sourceFile": "bearing-freq-pro.html",
       "legacyPaths": ["/bearing-freq-pro.html"],
       "revenueTier": "B",
       "free": false,
-      "title": "SC-024 Bearing Frequencies — BPFO / BPFI | SectorCalc",
+      "title": "Bearing Defect Frequency Calculator — BPFO & BPFI Speeds | SectorCalc",
       "description": "Calculate bearing defect frequencies for vibration analysis. BPFO, BPFI, BSF, FTF with deterministic formulas.",
-      "h1": "SC-024 Bearing Frequencies — BPFO / BPFI"
+      "h1": "Bearing Defect Frequency Calculator — BPFO & BPFI Speeds"
     },
     {
       "id": "SC-025",
-      "name": "SC-025 Belt & Chain Drive Sizing",
+      "name": "Belt & Chain Drive Sizing Calculator",
       "canonicalPath": "/calculator/belt-chain-drive",
       "sourceFile": "belt-chain-pro.html",
       "legacyPaths": ["/belt-chain-pro.html"],
       "revenueTier": "B",
       "free": false,
-      "title": "SC-025 Belt & Chain Drive Sizing | SectorCalc",
+      "title": "Belt & Chain Drive Sizing Calculator — Ratio & Pitch Length | SectorCalc",
       "description": "Belt and chain drive sizing with speed ratio, center distance, and tension calculations. Deterministic engine.",
-      "h1": "SC-025 Belt & Chain Drive Sizing"
+      "h1": "Belt & Chain Drive Sizing Calculator — Ratio & Pitch Length"
     },
     {
       "id": "SC-026",
-      "name": "SC-026 Shaft Design — Torsion + Bending",
+      "name": "Shaft Design & Diameter Calculator",
       "canonicalPath": "/calculator/shaft-design",
       "sourceFile": "shaft-pro.html",
       "legacyPaths": ["/shaft-pro.html"],
       "revenueTier": "B",
       "free": false,
-      "title": "SC-026 Shaft Design — Torsion + Bending | SectorCalc",
+      "title": "Shaft Design & Diameter Calculator — Torsion & Bending Stress | SectorCalc",
       "description": "Shaft design with combined torsion and bending stress, fatigue factor, and safety margin. Deterministic audit trail.",
-      "h1": "SC-026 Shaft Design — Torsion + Bending"
+      "h1": "Shaft Design & Diameter Calculator — Torsion & Bending Stress"
     },
     {
       "id": "SC-027",
-      "name": "SC-027 Fits & Clearances — ISO 286",
+      "name": "Fits & Clearances Calculator — ISO 286",
       "canonicalPath": "/calculator/iso-286-fits",
       "sourceFile": "fits-pro.html",
       "legacyPaths": ["/fits-pro.html"],
       "revenueTier": "B",
       "free": true,
-      "title": "SC-027 Fits & Clearances — ISO 286 | SectorCalc",
+      "title": "ISO 286 Fits & Clearances Calculator (H7/g6, Hole & Shaft) | SectorCalc",
       "description": "ISO 286 fit and clearance calculator with H7/g6, deviation tables, and interference/shrink fit analysis.",
-      "h1": "SC-027 Fits & Clearances — ISO 286"
+      "h1": "Fits & Clearances Calculator — ISO 286 (H7/g6, Hole & Shaft)"
     },
     {
       "id": "SC-028",
-      "name": "SC-028 Surface Finish Converter",
+      "name": "Surface Finish Converter — Ra, Rz, RMS",
       "canonicalPath": "/calculator/surface-finish",
       "sourceFile": "surface-finish-pro.html",
       "legacyPaths": ["/surface-finish-pro.html"],
       "revenueTier": "B",
       "free": true,
-      "title": "SC-028 Surface Finish Converter | SectorCalc",
+      "title": "Surface Finish Converter — Ra, Rz, RMS & ISO N-Grade Chart | SectorCalc",
       "description": "Convert between Ra, Rz, Rmax, and other surface finish parameters. Deterministic reference values.",
-      "h1": "SC-028 Surface Finish Converter"
+      "h1": "Surface Finish Converter — Ra, Rz, RMS & ISO N-Grade Chart"
     },
     {
       "id": "SC-029",
-      "name": "SC-029 Heat Input & Cooling Rate t8/5",
+      "name": "Welding Heat Input & Cooling Time t8/5 Calculator",
       "canonicalPath": "/calculator/weld-heat-input",
       "sourceFile": "heat-input-pro.html",
       "legacyPaths": ["/heat-input-pro.html"],
       "revenueTier": "A",
       "free": false,
-      "title": "SC-029 Heat Input & Cooling Rate t8/5 | SectorCalc",
+      "title": "Welding Heat Input & Cooling Time t8/5 Calculator | SectorCalc",
       "description": "Calculate welding heat input and cooling time t8/5 for WPS/PQR screening. Deterministic engine.",
-      "h1": "SC-029 Heat Input & Cooling Rate t8/5"
+      "h1": "Welding Heat Input & Cooling Time t8/5 Calculator"
     },
     {
       "id": "SC-030",
-      "name": "SC-030 Sheet Metal Bend & K-Factor",
+      "name": "Sheet Metal Bend Allowance & K-Factor Calculator",
       "canonicalPath": "/calculator/sheet-metal-bend",
       "sourceFile": "bend-pro.html",
       "legacyPaths": ["/bend-pro.html"],
       "revenueTier": "B",
       "free": true,
-      "title": "SC-030 Sheet Metal Bend & K-Factor | SectorCalc",
+      "title": "Sheet Metal Bend Allowance & K-Factor Calculator — Flat Pattern | SectorCalc",
       "description": "Sheet metal bend allowance, K-factor, and flat pattern calculation with material database.",
-      "h1": "SC-030 Sheet Metal Bend & K-Factor"
+      "h1": "Sheet Metal Bend Allowance & K-Factor Calculator — Flat Pattern"
     },
     {
       "id": "SC-031",
-      "name": "SC-031 Sling Capacity & Angle",
+      "name": "Rigging Sling Capacity & Angle Factor Calculator",
       "canonicalPath": "/calculator/sling-capacity",
       "sourceFile": "sling-pro.html",
       "legacyPaths": ["/sling-pro.html"],
       "revenueTier": "B",
       "free": false,
-      "title": "SC-031 Sling Capacity & Angle | SectorCalc",
+      "title": "Rigging Sling Capacity & Angle Factor Calculator | SectorCalc",
       "description": "Sling capacity reduction at angles, multi-leg load sharing, and safe working load verification.",
-      "h1": "SC-031 Sling Capacity & Angle"
+      "h1": "Rigging Sling Capacity & Angle Factor Calculator"
     },
     {
       "id": "SC-032",
-      "name": "SC-032 Shackle & Eye Bolt Check",
+      "name": "Shackle & Eye Bolt Load Capacity Calculator",
       "canonicalPath": "/calculator/shackle-eyebolt",
       "sourceFile": "shackle-eyebolt-pro.html",
       "legacyPaths": ["/shackle-eyebolt-pro.html"],
       "revenueTier": "B",
       "free": false,
-      "title": "SC-032 Shackle & Eye Bolt Check | SectorCalc",
+      "title": "Shackle & Eye Bolt Load Capacity Calculator — WLL Safety | SectorCalc",
       "description": "Shackle and eye-bolt working load limit verification with angle derating and safety factors.",
-      "h1": "SC-032 Shackle & Eye Bolt Check"
+      "h1": "Shackle & Eye Bolt Load Capacity Calculator — WLL Safety"
     },
     {
       "id": "SC-033",
-      "name": "SC-033 Pressure Vessel Shell — ASME VIII",
+      "name": "Pressure Vessel Shell Thickness Calculator — ASME VIII",
       "canonicalPath": "/calculator/pressure-vessel-shell",
       "sourceFile": "pressure-vessel-pro.html",
       "legacyPaths": ["/pressure-vessel-pro.html"],
       "revenueTier": "A",
       "free": false,
-      "title": "SC-033 Pressure Vessel Shell — ASME VIII | SectorCalc",
+      "title": "ASME VIII Pressure Vessel Shell Thickness Calculator | SectorCalc",
       "description": "ASME Section VIII Division 1 internal pressure shell thickness calculator. Deterministic audit trail.",
-      "h1": "SC-033 Pressure Vessel Shell — ASME VIII"
+      "h1": "Pressure Vessel Shell Thickness Calculator — ASME VIII"
     },
     {
       "id": "SC-034",
-      "name": "SC-034 Pipe Wall Thickness — ASME B31.3",
+      "name": "Pipe Wall Thickness Calculator — ASME B31.3",
       "canonicalPath": "/calculator/pipe-wall-thickness",
       "sourceFile": "pipe-wall-pro.html",
       "legacyPaths": ["/pipe-wall-pro.html"],
       "revenueTier": "A",
       "free": false,
-      "title": "SC-034 Pipe Wall Thickness — ASME B31.3 | SectorCalc",
+      "title": "ASME B31.3 Pipe Wall Thickness Calculator — Pressure Rating | SectorCalc",
       "description": "ASME B31.3 pipe wall thickness and MAWP calculator with corrosion allowance and mill tolerance.",
-      "h1": "SC-034 Pipe Wall Thickness — ASME B31.3"
+      "h1": "Pipe Wall Thickness Calculator — ASME B31.3 Pressure Sizing"
     },
     {
       "id": "SC-035",
-      "name": "SC-035 Bolt Torque & Preload — VDI 2230",
+      "name": "Bolt Torque & Preload Calculator — VDI 2230",
       "canonicalPath": "/calculator/bolt-torque-preload",
       "sourceFile": "bolt-pro.html",
       "legacyPaths": ["/bolt-pro.html"],
       "revenueTier": "A",
       "free": false,
-      "title": "SC-035 Bolt Torque & Preload — VDI 2230 | SectorCalc",
+      "title": "Bolt Torque & Preload Calculator — VDI 2230 Tightening Specs | SectorCalc",
       "description": "VDI 2230 bolt torque and preload calculator with friction coefficients and tightening factor.",
-      "h1": "SC-035 Bolt Torque & Preload — VDI 2230"
+      "h1": "Bolt Torque & Preload Calculator — VDI 2230 Tightening Specs"
     },
     {
       "id": "SC-036",
-      "name": "SC-036 Bolted Joint Verification — VDI 2230",
+      "name": "Bolted Joint Calculator — VDI 2230",
       "canonicalPath": "/calculator/bolted-joint",
       "sourceFile": "bolted-joint-pro.html",
       "legacyPaths": ["/bolted-joint-pro.html"],
       "revenueTier": "A",
       "free": false,
-      "title": "SC-036 Bolted Joint Verification — VDI 2230 | SectorCalc",
+      "title": "Bolted Joint Calculator — VDI 2230 Stress & Fatigue Check | SectorCalc",
       "description": "Bolted joint verification with axial stiffness, preload, and clamping force analysis per VDI 2230.",
-      "h1": "SC-036 Bolted Joint Verification — VDI 2230"
+      "h1": "Bolted Joint Calculator — VDI 2230 Stress & Fatigue Verification"
     },
     {
       "id": "SC-037",
-      "name": "SC-037 OEE — Overall Equipment Effectiveness",
+      "name": "OEE & TEEP Calculator",
       "canonicalPath": "/calculator/oee-teep",
       "sourceFile": "oee-pro.html",
       "legacyPaths": ["/oee-pro.html"],
       "revenueTier": "A",
       "free": false,
-      "title": "SC-037 OEE — Overall Equipment Effectiveness | SectorCalc",
+      "title": "OEE & TEEP Calculator — Overall Equipment Effectiveness | SectorCalc",
       "description": "Overall Equipment Effectiveness, TEEP, and capacity loss breakdown with availability, performance, and quality.",
-      "h1": "SC-037 OEE — Overall Equipment Effectiveness"
+      "h1": "OEE & TEEP Calculator — Overall Equipment Effectiveness"
     },
     {
       "id": "SC-038",
-      "name": "SC-038 Machine Hour Rate",
+      "name": "Machine Hourly Rate Calculator",
       "canonicalPath": "/calculator/machine-hour-rate",
       "sourceFile": "machine-rate-pro.html",
       "legacyPaths": ["/machine-rate-pro.html"],
       "revenueTier": "A",
       "free": false,
-      "title": "SC-038 Machine Hour Rate | SectorCalc",
+      "title": "Machine Hourly Rate Calculator — CNC Equipment Cost Estimator | SectorCalc",
       "description": "True machine hour rate with depreciation, maintenance, power, and overhead allocation. Deterministic.",
-      "h1": "SC-038 Machine Hour Rate"
+      "h1": "Machine Hourly Rate Calculator — CNC Equipment Cost Estimator"
     },
     {
       "id": "SC-039",
-      "name": "SC-039 Punching Force & Die Clearance",
+      "name": "Sheet Metal Punching Force & Die Clearance Calculator",
       "canonicalPath": "/calculator/punching-force",
       "sourceFile": "punching-pro.html",
       "legacyPaths": ["/punching-pro.html"],
       "revenueTier": "B",
       "free": true,
-      "title": "SC-039 Punching Force & Die Clearance | SectorCalc",
+      "title": "Sheet Metal Punching Force & Die Clearance Calculator | SectorCalc",
       "description": "Punching force, stripping force, and die clearance for sheet metal operations. Deterministic.",
-      "h1": "SC-039 Punching Force & Die Clearance"
+      "h1": "Sheet Metal Punching Force & Die Clearance Calculator"
     },
     {
       "id": "SC-040",
-      "name": "SC-040 Hydraulic Cylinder Sizing",
+      "name": "Hydraulic Cylinder Sizing & Force Calculator",
       "canonicalPath": "/calculator/hydraulic-cylinder",
       "sourceFile": "hydraulic-pro.html",
       "legacyPaths": ["/hydraulic-pro.html"],
       "revenueTier": "B",
       "free": false,
-      "title": "SC-040 Hydraulic Cylinder Sizing | SectorCalc",
+      "title": "Hydraulic Cylinder Sizing & Force Calculator — Push & Pull | SectorCalc",
       "description": "Hydraulic cylinder bore, rod, and pressure sizing with force, velocity, and flow calculations.",
-      "h1": "SC-040 Hydraulic Cylinder Sizing"
+      "h1": "Hydraulic Cylinder Sizing & Force Calculator — Push & Pull"
     }
   ],
   "hubs": [
