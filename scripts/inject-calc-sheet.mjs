@@ -164,8 +164,11 @@ function assertHomepageHeroSafe() {
   if (html.includes('sc-calc-sheet-titleblock') || html.includes(TB_START)) {
     throw new Error('GUARD: index.html must not carry calc-sheet titleblock');
   }
-  if (!html.includes('sc-hero-cell-v24.js')) {
-    throw new Error('GUARD: index.html must reference immutable sc-hero-cell-v24.js');
+  if (!html.includes('class="sc-hero"') || !html.includes('✓ REPRODUCIBLE')) {
+    throw new Error('GUARD: index.html slim hero missing sc-hero / REPRODUCIBLE');
+  }
+  if (html.includes('sc-hero-cell-v24.js') || html.includes('id="stage"')) {
+    throw new Error('GUARD: index.html must not load live-cell stage / sc-hero-cell-v24.js');
   }
   if (!html.includes('sc-eng-paper')) {
     throw new Error('GUARD: index.html must use sc-eng-paper for shared background rhythm');

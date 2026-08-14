@@ -333,10 +333,6 @@ h1,h2,h3,h4{
 }
 </style>
 <link rel="stylesheet" href="/sc-home.css">
-<script type="importmap">
-{"imports":{"three":"/vendor/three/three.module.min.js",
-"three/addons/environments/RoomEnvironment.js":"/vendor/three/RoomEnvironment.js"}}
-</script>
 <link rel="stylesheet" href="/sc-form-fields.css?v=6">
 <!--SC-SEO-META-START-->
 <link rel="canonical" href="https://sectorcalc.com/">
@@ -653,6 +649,9 @@ h1,h2,h3,h4{
 
 
 
+
+
+
 <a href="#main-content" class="skip-link">Skip to main content</a>
 
 <div class="sheet">
@@ -668,153 +667,59 @@ h1,h2,h3,h4{
   <section class="sc-hero" aria-label="Hero section">
     <div class="hero-grid">
       <div>
-        <span class="sc-hero-badge"><span class="dot" aria-hidden="true"></span> Deterministic engines · open bench · decision sessions</span>
-        <h1 class="sc-hero-title">The Machine Is Running. <em>The Math Is Yours.</em></h1>
-        <p class="sc-hero-lead">A scrap lot, a rejected quote, a late drawing review — they start as a number nobody can defend. SectorCalc is industrial decision math you can reproduce: visible formulas, seeded Monte Carlo where it matters, A1–A5 audit trails. <strong>Five reference instruments run open</strong> (finish, fits, bend, punch, weld size) — no wallet, no login. When the number must survive a design review, load credit stock and unlock a 24-hour decision session on Tier-A tools.</p>
+        <span class="sc-hero-badge"><span class="dot" aria-hidden="true"></span>Deterministic Engines · Open Bench</span>
+        <h1 class="sc-hero-title">The Machine Is Running.<br><em>The Math Is Yours.</em></h1>
+        <p class="sc-hero-lead">Industrial decision math you can reproduce: visible formulas, seeded Monte Carlo, A1–A5 audit trails. <strong>Five reference instruments run open</strong> — no wallet, no login.</p>
         <div class="sc-hero-ctas">
           <a href="#free-calculators" class="sc-hero-btn sc-hero-btn-b">Open the free reference bench →</a>
           <a href="/pricing.html" class="sc-hero-btn sc-hero-btn-o">Commission decision credits</a>
         </div>
-        <div class="sc-hero-trust">
-          <div><b>Open bench</b><span>5 instruments · no sign-in</span></div>
-          <div><b>Client-side math</b><span>Core calc stays on device</span></div>
-          <div><b>Defendable PDF</b><span>Hash · engine · version</span></div>
+        <div class="sc-hero-mini">
+          <div><i aria-hidden="true"></i>5 instruments · no sign-in</div>
+          <div><i aria-hidden="true"></i>Math stays on device</div>
+          <div><i aria-hidden="true"></i>Defendable PDF · hash</div>
         </div>
       </div>
 
-      <div class="cell">
-        <div class="stage-wrap">
-          <picture>
-            <source srcset="/assets/images/hero-cell-poster.avif" type="image/avif">
-            <source srcset="/assets/images/hero-cell-poster.webp" type="image/webp">
-            <img class="stage-poster" src="/assets/images/hero-cell-poster.png" width="1200" height="675" alt="CNC turning cell with in-process probing" fetchpriority="high" decoding="async">
-          </picture>
-          <canvas id="stage" aria-label="Live 3D turning cell"></canvas>
-        </div>
-        <div class="scanline" aria-hidden="true"></div>
-        <div class="hud" aria-hidden="true">
-          <div class="corner c1"></div><div class="corner c2"></div><div class="corner c3"></div><div class="corner c4"></div>
-          <div class="telemetry">
-            SPINDLE <b id="tRpm">1420</b> RPM · FEED <b>0.20</b> mm/rev<br>
-            X <b id="tX">+0.000</b> · Z <b id="tZ">+0.000</b> · PROBE <b id="tProbe">READY</b>
+      <div class="sc-hero-side">
+        <div class="sc-hero-panel">
+          <div class="sc-hero-panel-head">
+            <div>CELL <b>SC-008</b> · TOLERANCE STACK · PREVIEW</div>
+            <div>SEED LOCKED</div>
           </div>
-          <div class="celltag">CELL <b>SC-008</b> · TURNING + INSPECT<br>MODE <b id="tMode">AUTO-MEASURE</b></div>
-          <div class="gcode" id="gcode">G01 X40.000 Z-12.000 F0.20</div>
-          <div class="mlabel" id="mlabel">D40.000 <span class="mu">+0.012</span></div>
-        </div>
-
-        <div class="deck">
-          <div class="deck-kicker">
-            <span class="deck-kicker-left">
-              <span class="deck-live" id="deckLive" data-on="1">AUTO-LIVE</span>
-              SC-008 · Seed locked
-            </span>
-            <span class="deck-scene" id="deckScene">NOMINAL ISO-m</span>
-          </div>
-          <div class="stack-strip" id="stackFill" aria-hidden="true">
-            <span data-part="spacer" style="flex-grow:5"><em>SPACER</em><b>±0.050</b></span>
-            <span data-part="housing" style="flex-grow:2"><em>HOUSING</em><b>±0.020</b></span>
-            <span data-part="shaft" style="flex-grow:3"><em>SHAFT</em><b>±0.030</b></span>
-            <span data-part="bearing" style="flex-grow:2.5"><em>BEARING</em><b>±0.025</b></span>
-          </div>
-          <div class="deck-top">
-            <div>
-              <div class="e-ctrl">
-                <label>SPACER TOLERANCE <output id="oTol" for="inTol">±0.050 mm</output></label>
-                <div class="tol-rail">
-                  <div class="tol-ticks" id="tolTicks" aria-hidden="true"></div>
-                  <input type="range" id="inTol" min="10" max="100" value="50" step="0.1" aria-label="Spacer tolerance ±0.010 to ±0.100 mm">
-                </div>
-                <div class="hint">ISO 2768-m band · σ = Tol/3 · NORMAL · 10,000 ITER · SPEC ±0.100</div>
-                <div class="deck-formula" id="deckFormula">WC = Σ|t<sub>i</sub>| · RSS = 3√Σ(σ<sub>i</sub>²) · σ = Tol/3 · Cpk = Spec/(3σ<sub>stack</sub>)</div>
-              </div>
-              <div class="histo-wrap"><canvas id="histo" aria-label="Monte Carlo distribution with LSL and USL"></canvas></div>
-              <div class="histo-cap"><span>−0.15</span><span>MONTE CARLO · SEED 7A3F1C9E · LSL/USL ±0.100</span><span>+0.15 mm</span></div>
-            </div>
-            <div class="sc-hero-gauge-wrap" data-tone="ok">
-              <svg id="gauge" viewBox="0 0 200 118" role="img" aria-label="Cpk gauge">
-                <path d="M14 108 A 86 86 0 0 1 57 32" fill="none" stroke="#C8102E" stroke-width="12" opacity=".8"/>
-                <path d="M60 30 A 86 86 0 0 1 100 22" fill="none" stroke="#E87722" stroke-width="12" opacity=".8"/>
-                <path d="M104 22 A 86 86 0 0 1 186 108" fill="none" stroke="#007A33" stroke-width="12" opacity=".8"/>
-                <g id="needle" transform="rotate(0 100 108)">
-                  <line x1="100" y1="100" x2="100" y2="36" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
-                  <circle cx="100" cy="108" r="4.5" fill="currentColor"/>
-                </g>
-              </svg>
-              <div class="gauge-val">
-                <b id="cpkVal">1.50</b>
-                <span>Predicted Cpk</span>
-                <span class="cpk-status" id="cpkStatus" data-tone="ok">OK</span>
-              </div>
+          <div class="sc-hero-slim">
+            <svg width="150" height="86" viewBox="0 0 150 86" role="img" aria-label="Monte Carlo distribution within spec limits">
+              <rect x="0" y="0" width="28" height="74" fill="#fee2e2" opacity=".5"/>
+              <rect x="122" y="0" width="28" height="74" fill="#fee2e2" opacity=".5"/>
+              <line x1="28" y1="6" x2="28" y2="74" stroke="#b91c1c" stroke-dasharray="3 2" stroke-width="1"/>
+              <line x1="122" y1="6" x2="122" y2="74" stroke="#b91c1c" stroke-dasharray="3 2" stroke-width="1"/>
+              <g fill="#1d4ed8">
+                <rect x="48" y="62" width="3" height="12"/><rect x="53" y="54" width="3" height="20"/>
+                <rect x="58" y="42" width="3" height="32"/><rect x="63" y="30" width="3" height="44"/>
+                <rect x="68" y="20" width="3" height="54"/><rect x="73" y="16" width="3" height="58"/>
+                <rect x="78" y="22" width="3" height="52"/><rect x="83" y="34" width="3" height="40"/>
+                <rect x="88" y="48" width="3" height="26"/><rect x="93" y="58" width="3" height="16"/>
+                <rect x="98" y="66" width="3" height="8"/>
+              </g>
+              <path d="M40 74 Q75 2 110 74" fill="none" stroke="#d97706" stroke-width="1.5"/>
+              <line x1="0" y1="74" x2="150" y2="74" stroke="#94a3b8"/>
+            </svg>
+            <div class="sc-hero-result">
+              <div class="lab">Monte Carlo · 10k iter</div>
+              <div class="big">±0.0767 mm</div>
+              <div class="lab sc-hero-cpk">Cpk 1.30 · <span>Marginal</span></div>
             </div>
           </div>
-          <div class="vals">
-            <div class="val"><div class="l">Worst-Case</div><div class="v" id="vWC">±0.1250</div></div>
-            <div class="val rss"><div class="l">RSS</div><div class="v" id="vRSS">±0.0665</div></div>
-            <div class="val mc"><div class="l">Monte Carlo</div><div class="v" id="vMC">±0.0660</div></div>
-          </div>
-          <div class="deck-foot">
-            <span>SEED <b>0x7A3F1C9E</b></span><span>ITER <b>10,000</b></span>
-            <span>ENGINE <b>v3.1.0</b></span><span>TIME <b id="calcTime">0.4 ms</b></span>
+          <div class="sc-hero-repro">
+            <span>ENGINE <b>v3.1.0</b> · SEED <b>0x7A3F1C9E</b></span>
             <span class="ok">✓ REPRODUCIBLE</span>
           </div>
         </div>
+        <a class="sc-hero-live" href="/calculator/tolerance-stack-up">See the live calculation →</a>
       </div>
     </div>
   </section>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  
-  
-  
-  
-  
-
-  
-  
-  
-  
-  
-  
   
   <!--SC-FREE-TOOLS-START-->
 <section class="sc-free-tools" id="free-calculators" aria-labelledby="free-calculators-heading" data-aeo-hub="free">
@@ -2183,35 +2088,6 @@ h1,h2,h3,h4{
 
 })();
 </script>
-
-<script type="module" src="/sc-hero-cell-v24.js"></script>
-<script src="/sc-hero-engine.js?v=31"></script>
-<script>
-/* Emergency HUD if module script never boots (old browsers / blocked modules) */
-(function () {
-  setTimeout(function () {
-    if (window.__SC_HERO_LIVE__) return;
-    var probe = document.getElementById('tProbe');
-    var rpm = document.getElementById('tRpm');
-    var gcode = document.getElementById('gcode');
-    var poster = document.querySelector('.stage-poster');
-    var probeG = poster && poster.querySelector('.sp-probe');
-    if (!probe) return;
-    window.__SC_HERO_LIVE__ = true;
-    var lines = ['G01 X40.000 Z-12.000 F0.20','G02 X36.800 Z-24.500 R3.0','G01 Z-48.000 F0.18','M00 (MEASURE)'];
-    var stops = [0,36,72,110,148];
-    var i = 0;
-    setInterval(function () {
-      if (rpm) rpm.textContent = String(1415 + Math.round(Math.random() * 10));
-      if (gcode) gcode.textContent = lines[i % lines.length];
-      if (probe) probe.textContent = ['MOVE','PROBE','READ','RETRACT'][i % 4];
-      if (probeG) probeG.setAttribute('transform', 'translate(' + stops[i % stops.length] + ' ' + (8 + (i % 3) * 6) + ')');
-      i++;
-    }, 1000);
-  }, 2000);
-})();
-</script>
-
 
 <!--SC-SEO-CVW-->
 <script src="/assets/js/sc-ga4-id.js"></script>
