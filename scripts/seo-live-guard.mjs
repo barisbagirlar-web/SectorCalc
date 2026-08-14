@@ -164,6 +164,14 @@ if (llm.res.status !== 200 || llms.res.status !== 200) fail('LLM discovery files
 if (!/text\/plain/i.test(llm.res.headers.get('content-type') || '')) fail('llm.txt is not text/plain');
 if (!/text\/plain/i.test(llms.res.headers.get('content-type') || '')) fail('llms.txt is not text/plain');
 if (llm.text !== llms.text) fail('llm.txt and llms.txt drift');
+const llmsFull = await get(remote('/llms-full.txt'));
+if (llmsFull.res.status !== 200) fail(`llms-full.txt HTTP ${llmsFull.res.status}`);
+if (!/text\/plain/i.test(llmsFull.res.headers.get('content-type') || '')) fail('llms-full.txt is not text/plain');
+if (llmsFull.text === llms.text) fail('llms-full.txt must not be a twin of llms.txt');
+if (/IndexNow Instant Indexing:\s*Active/i.test(llmsFull.text)) fail('llms-full.txt must not claim IndexNow is active');
+for (const loc of locs) {
+  if (!llmsFull.text.includes(loc)) fail(`llms-full.txt missing sitemap URL ${loc}`);
+}
 for (const lang of ['de', 'ja', 'zh']) if (llms.text.includes(`${CANONICAL_HOST}/${lang}/`)) fail(`llms advertises noindex locale ${lang}`);
 
 for (const bot of ['Googlebot', 'Bingbot', 'OAI-SearchBot', 'PerplexityBot']) {

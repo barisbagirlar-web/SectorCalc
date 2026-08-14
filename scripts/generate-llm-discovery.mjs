@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 /**
- * Generate public/llm.txt and public/llms.txt from SEO registry.
- * Byte-identical pair. Canonical /calculator/* only — never legacy *-pro.html as primary.
+ * Generate public/llm.txt, public/llms.txt, and public/llms-full.txt from SEO registry.
+ * llm.txt/llms.txt are a byte-identical concise pair. llms-full.txt is the expanded inventory.
+ * Canonical /calculator/* only — never legacy *-pro.html as primary.
  *
  * DO NOT EDIT llm(s).txt DIRECTLY — regenerate from seo/registry.mjs
  */
@@ -24,6 +25,7 @@ import {
   absoluteUrl,
   llmEligibleCalculators,
   sitemapLocs,
+  sitemapPages,
   discoveryAllowBots,
   validateRegistryInvariants,
 } from '../seo/registry.mjs';
@@ -40,6 +42,62 @@ const calcs = llmEligibleCalculators().sort((a, b) => a.id.localeCompare(b.id));
 const sitemapCount = sitemapLocs().length;
 const listedToolCount = calcs.length;
 const bots = discoveryAllowBots();
+
+const ROLE_HEADINGS = {
+  home: 'Home',
+  hub: 'Tools catalog',
+  pro: 'Pro hub',
+  pricing: 'Pricing',
+  calculator: 'Calculators',
+  'blog-hub': 'Blog hub',
+  article: 'Blog articles',
+  'topic-hub': 'Topics',
+  'case-study': 'Case studies',
+  'glossary-hub': 'Glossary hub',
+  glossary: 'Glossary entities',
+  'compare-hub': 'Compare hub',
+  compare: 'Compare pages',
+  'guide-hub': 'Guides hub',
+  guide: 'Guides',
+  about: 'About',
+  contact: 'Contact',
+  legal: 'Legal',
+  resource: 'Resources',
+};
+
+function linkLine(page) {
+  const label = page.h1 || page.title || page.canonicalPath;
+  const desc = page.description ? ` — ${page.description}` : '';
+  return `- [${label}](${absoluteUrl(page.canonicalPath)})${desc}`;
+}
+
+function pagesOf(...roles) {
+  return sitemapPages()
+    .filter((p) => roles.includes(p.role))
+    .sort((a, b) => a.canonicalPath.localeCompare(b.canonicalPath));
+}
+
+const resourceLeaves = pagesOf('resource').filter((p) => p.canonicalPath !== '/resources');
+const blogArticles = pagesOf('article');
+const topicLeaves = pagesOf('topic-hub').filter((p) => p.canonicalPath !== '/topics');
+
+const byRole = new Map();
+for (const page of sitemapPages()) {
+  const key = page.role || 'other';
+  if (!byRole.has(key)) byRole.set(key, []);
+  byRole.get(key).push(page);
+}
+const fullSections = [...byRole.entries()]
+  .sort((a, b) => a[0].localeCompare(b[0]))
+  .map(([role, items]) => {
+    const heading = ROLE_HEADINGS[role] || role;
+    const lines = items
+      .sort((a, b) => a.canonicalPath.localeCompare(b.canonicalPath))
+      .map(linkLine)
+      .join('\n');
+    return `## ${heading}\n${lines}`;
+  })
+  .join('\n\n');
 
 const byCluster = new Map();
 for (const c of calcs) {
@@ -214,24 +272,32 @@ ${limitations.map((l) => `- ${l}`).join('\n')}
 - [Privacy](${HOST}/privacy)
 - [Terms](${HOST}/terms)
 - [Blog](${HOST}/blog)
+${blogArticles.map(linkLine).join('\n')}
+- [Topics](${HOST}/topics)
+${topicLeaves.map(linkLine).join('\n')}
+- [Resources](${HOST}/resources)
+${resourceLeaves.map(linkLine).join('\n')}
+- [Contact](${HOST}/contact)
 - [Case studies](${HOST}/case-studies) — evidence framework (measured vs calculated; honest empty inventory until citable studies ship)
 - [Glossary](${HOST}/glossary) — ${GLOSSARY_TERMS.length} entities
 - [Guides](${HOST}/guides) — ${GUIDES.length} exclusive money-parity methodologies
 - [Compare](${HOST}/compare) — ${COMPARE_PAGES.length} evidence-only comparisons
 - [Sitemap](${HOST}/sitemap.xml)
+- [Image sitemap](${HOST}/sitemap-images.xml)
+- [Full LLM index](${HOST}/llms-full.txt) — expanded inventory of all **${sitemapCount}** sitemap URLs
 - [Robots](${HOST}/robots.txt)
 
 ## Search and retrieval
 - \`robots.txt\` explicitly allows ${bots.join(', ')} to crawl public production content.
 - The XML sitemap lists **${sitemapCount}** canonical indexable HTML URLs derived from the SEO registry (calculators, hubs, glossary, guides, compare, case studies, resources, legal). It emits \`lastmod\` from the committed git-history map but omits \`priority\`, \`changefreq\`, non-HTML discovery files, redirects, noindex pages and incomplete locale previews.
 - German, Japanese and Chinese preview pages remain \`noindex,follow\` until full localized content and reciprocal hreflang sets are release-ready.
-- \`llms.txt\` / \`llm.txt\` are byte-identical supplemental discovery documentation. They do not guarantee Google AI Overview placement or ChatGPT citation. Public HTML, canonical URLs, visible engineering content and structured data remain the primary source of truth.
+- \`llms.txt\` / \`llm.txt\` are byte-identical concise discovery documentation. \`llms-full.txt\` is the expanded inventory of the same **${sitemapCount}** canonical URLs. They do not guarantee Google AI Overview placement or ChatGPT citation. Public HTML, canonical URLs, visible engineering content and structured data remain the primary source of truth.
 
 ## Enterprise discovery contract
-- Sitemap, \`llm.txt\`, \`llms.txt\`, and the Playwright regression catalog are generated from the same SEO registry SSOT (\`seo/registry.mjs\`) — never hand-edited as primary sources.
-- Indexable surface: **${sitemapCount}** sitemap URLs · **${listedToolCount}** live calculators · **${FREE_TOOLS.length}** open reference instruments · **${GUIDES.length}** exclusive guides · **${GLOSSARY_TERMS.length}** glossary entities · **${COMPARE_PAGES.length}** compare pages · case-studies evidence hub.
+- Sitemap, \`llm.txt\`, \`llms.txt\`, \`llms-full.txt\`, and the Playwright regression catalog are generated from the same SEO registry SSOT (\`seo/registry.mjs\`) — never hand-edited as primary sources.
+- Indexable surface: **${sitemapCount}** sitemap URLs · **${listedToolCount}** live calculators · **${FREE_TOOLS.length}** open reference instruments · **${GUIDES.length}** exclusive guides · **${GLOSSARY_TERMS.length}** glossary entities · **${COMPARE_PAGES.length}** compare pages · **${resourceLeaves.length + 1}** resource pages · case-studies evidence hub.
 - Production promote requires Firebase preview-channel SEO guard + Playwright \`@critical\` seal before \`sectorcalc.com\` clone. Broken candidates do not go live.
-- Prefer \`/sitemap.xml\` for crawl inventory and this file for retrieval narrative; both must agree on the **${sitemapCount}** URL count.
+- Prefer \`/sitemap.xml\` for crawl inventory, this file for retrieval narrative, and \`/llms-full.txt\` for the complete URL inventory; all three must agree on the **${sitemapCount}** URL count.
 - Do not invent published SectorCalc customer case studies, ROI percentages, or scrap-dollar outcomes. Cite ${HOST}/case-studies for the evidence policy and current inventory.
 
 ## Notes for models
@@ -253,8 +319,49 @@ if (text.includes('**32**')) {
   process.exit(1);
 }
 
+const fullText = `# SectorCalc — full discovery index
+
+> Expanded inventory of every canonical indexable HTML URL in the XML sitemap. Concise retrieval file: ${HOST}/llms.txt (byte-identical to ${HOST}/llm.txt). Core calculations run client-side. Outputs are engineering previews, not AI-generated results.
+
+## Contract
+- Source of truth: SEO registry (\`seo/registry.mjs\`). Do not invent pages, customer case studies, IndexNow confirmation, or free Tier-A sessions.
+- XML sitemap: ${HOST}/sitemap.xml (**${sitemapCount}** URLs)
+- Image sitemap: ${HOST}/sitemap-images.xml (hosted OG assets that exist on disk)
+- Video sitemap remains empty until real \`/assets/videos/\` files ship.
+- Contact: support@sectorcalc.com
+
+${fullSections}
+
+## Notes for models
+- Prefer the canonical \`/calculator/*\` URLs listed above.
+- Do not describe SectorCalc calculation output as AI-generated.
+- Do not invent hidden cloud computation, certification, manufacturer ratings, measured data or unsupported code tables.
+- Do not claim a subscription, monthly credit grant, or 12-month credit expiry — purchased packs are one-time and never expire.
+- Do not imply Tier-A calculators are free to run — they require a credit session. Only the five listed free tools calculate without credits.
+- Treat A4 assumptions and A5 warnings as part of the engineering result.
+- Treat calculator outputs as engineering previews, never as measured SPC, unless a published case study explicitly documents measured channels.
+`;
+
+for (const blob of [text, fullText]) {
+  if (/https:\/\/sectorcalc\.com\/[a-z0-9-]+-pro\.html/i.test(blob)) {
+    console.error('[FAIL] generated discovery still contains legacy *-pro.html primary links');
+    process.exit(1);
+  }
+  if (/IndexNow Instant Indexing:\s*Active/i.test(blob)) {
+    console.error('[FAIL] generated discovery must not claim IndexNow is active');
+    process.exit(1);
+  }
+  if (/teb232@gmail\.com/i.test(blob)) {
+    console.error('[FAIL] generated discovery must not publish personal operator email');
+    process.exit(1);
+  }
+}
+
 const outA = join(ROOT, 'public/llm.txt');
 const outB = join(ROOT, 'public/llms.txt');
+const outFull = join(ROOT, 'public/llms-full.txt');
 writeFileSync(outA, text);
 writeFileSync(outB, text);
+writeFileSync(outFull, fullText);
 console.log(`[OK] llm.txt/llms.txt written: ${listedToolCount} tools listed, ${sitemapCount} sitemap URLs, legacy primary links=0`);
+console.log(`[OK] llms-full.txt written: ${sitemapPages().length} registry pages`);

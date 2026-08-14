@@ -46,7 +46,7 @@ for (const e of validateRegistryInvariants()) fail(e);
 
 for (const f of [
   'public/robots.txt', 'public/ai-robots.txt', 'public/sitemap.xml',
-  'public/sitemap-images.xml', 'public/llm.txt', 'public/llms.txt', 'public/404.html',
+  'public/sitemap-images.xml', 'public/llm.txt', 'public/llms.txt', 'public/llms-full.txt', 'public/404.html',
   'public/assets/js/cvw-monitor.js', 'public/assets/js/sc-ga4-id.js', 'public/assets/js/sc-funnel-analytics.js',
   'public/assets/images/sectorcalc-og-1200x630.jpg',
   'scripts/seo-live-guard.mjs', '.github/workflows/deploy.yml',
@@ -83,7 +83,7 @@ for (const m of sm.matchAll(/<lastmod>([^<]+)<\/lastmod>/g)) {
 const lastmodCount = (sm.match(/<lastmod>/g) || []).length;
 if (lastmodCount === 0) fail('sitemap missing lastmod freshness hints (Task 3 mandate)');
 if (/https:\/\/www\.sectorcalc\.com/i.test(sm)) fail('sitemap contains www URL');
-for (const junk of ['llm.txt', 'llms.txt', 'robots.txt', 'ai-robots.txt', 'site.webmanifest', '404.html']) {
+for (const junk of ['llm.txt', 'llms.txt', 'llms-full.txt', 'robots.txt', 'ai-robots.txt', 'site.webmanifest', '404.html']) {
   if (sm.includes(`<loc>${HOST}/${junk}</loc>`)) fail(`sitemap contains non-indexable discovery URL ${junk}`);
 }
 for (const lang of localePreviews) if (sm.includes(`<loc>${HOST}/${lang}/</loc>`)) fail(`sitemap contains incomplete noindex locale ${lang}`);
@@ -110,6 +110,17 @@ for (const lang of localePreviews) {
 const llm = read('public/llm.txt');
 const llms = read('public/llms.txt');
 if (llm !== llms) fail('llm.txt and llms.txt drift; they must be byte-identical');
+const llmsFull = read('public/llms-full.txt');
+if (llmsFull === llms) fail('llms-full.txt must be the expanded inventory, not a twin of llms.txt');
+if (/IndexNow Instant Indexing:\s*Active/i.test(llmsFull)) fail('llms-full.txt must not claim IndexNow is active');
+if (/teb232@gmail\.com/i.test(llmsFull) || /teb232@gmail\.com/i.test(llms)) fail('discovery files must not publish personal operator email');
+if (/FinancialProduct/.test(llmsFull)) fail('llms-full.txt must not advertise FinancialProduct schema');
+for (const loc of requiredUnique) {
+  if (!llmsFull.includes(loc)) fail(`llms-full.txt missing sitemap URL ${loc}`);
+}
+if (!llms.includes(`${HOST}/resources`)) fail('llms.txt missing /resources hub');
+if (!llms.includes(`${HOST}/llms-full.txt`)) fail('llms.txt must point to llms-full.txt');
+if (!llms.includes(`${HOST}/contact`)) fail('llms.txt missing /contact');
 for (const lang of localePreviews) if (llms.includes(`${HOST}/${lang}/`)) fail(`llms.txt advertises noindex locale ${lang}`);
 for (const bot of ['Googlebot', 'Bingbot', 'OAI-SearchBot', 'PerplexityBot']) if (!llms.includes(bot)) fail(`llms.txt missing crawler declaration ${bot}`);
 
