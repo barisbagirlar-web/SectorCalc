@@ -4,7 +4,7 @@ import { DISCOVERY_CACHE_VALUE, HSTS_VALUE } from './prepare-firebase-production
 const HOST = (process.env.SEO_GUARD_HOST || 'https://sectorcalc.com').replace(/\/$/, '');
 const MODE = process.env.SEO_GUARD_MODE || (HOST === 'https://sectorcalc.com' ? 'live' : 'preview');
 const errors = [];
-const discoveryPaths = ['/robots.txt', '/sitemap.xml', '/sitemap-images.xml', '/llm.txt', '/llms.txt'];
+const discoveryPaths = ['/robots.txt', '/sitemap.xml', '/sitemap-images.xml', '/llm.txt', '/llms.txt', '/llms-full.txt'];
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 if (!['preview', 'live'].includes(MODE)) throw new Error(`Unsupported SEO_GUARD_MODE: ${MODE}`);

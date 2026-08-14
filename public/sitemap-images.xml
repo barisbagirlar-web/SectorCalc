@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Image sitemap — real hosted assets only (OG + Live Cell poster + Academic Oversight portrait) -->
+<!-- Image sitemap — real hosted assets only; generated from registry + on-disk OG files -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://sectorcalc.com/</loc>
+    <image:image>
+      <image:loc>https://sectorcalc.com/assets/images/og-home-1200x630.jpg</image:loc>
+      <image:title>SectorCalc - Deterministic Industrial Decision Calculators OG</image:title>
+    </image:image>
     <image:image>
       <image:loc>https://sectorcalc.com/assets/images/sectorcalc-og-1200x630.jpg</image:loc>
       <image:title>OG cover</image:title>
@@ -11,10 +15,6 @@
     <image:image>
       <image:loc>https://sectorcalc.com/assets/images/sectorcalc-logo-512x512.png</image:loc>
       <image:title>App icon 512</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://sectorcalc.com/assets/images/og-home-1200x630.jpg</image:loc>
-      <image:title>Home OG</image:title>
     </image:image>
     <image:image>
       <image:loc>https://sectorcalc.com/sectorcalc-logo.png</image:loc>
@@ -30,288 +30,304 @@
     </image:image>
   </url>
   <url>
-    <loc>https://sectorcalc.com/tools.html</loc>
+    <loc>https://sectorcalc.com/blog/iso-286-h7-g6-explained.html</loc>
     <image:image>
-      <image:loc>https://sectorcalc.com/assets/images/og-tools-1200x630.jpg</image:loc>
-      <image:title>tools OG</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://sectorcalc.com/assets/images/neela-nataraj.jpg</image:loc>
-      <image:title>Prof. Dr. Neela Nataraj — Academic Oversight</image:title>
+      <image:loc>https://sectorcalc.com/assets/images/og-default-1200x630.jpg</image:loc>
+      <image:title>ISO 286 H7/g6 explained OG</image:title>
     </image:image>
   </url>
   <url>
-    <loc>https://sectorcalc.com/pricing.html</loc>
+    <loc>https://sectorcalc.com/blog/ra-vs-rz-surface-finish.html</loc>
     <image:image>
-      <image:loc>https://sectorcalc.com/assets/images/og-pricing-1200x630.jpg</image:loc>
-      <image:title>pricing OG</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://sectorcalc.com/pro.html</loc>
-    <image:image>
-      <image:loc>https://sectorcalc.com/assets/images/og-pro-1200x630.jpg</image:loc>
-      <image:title>pro OG</image:title>
+      <image:loc>https://sectorcalc.com/assets/images/og-default-1200x630.jpg</image:loc>
+      <image:title>Ra vs Rz: which surface finish number do you release? OG</image:title>
     </image:image>
   </url>
   <url>
     <loc>https://sectorcalc.com/calculator/bearing-frequencies</loc>
     <image:image>
       <image:loc>https://sectorcalc.com/assets/images/og-bearing-freq-pro-1200x630.jpg</image:loc>
-      <image:title>bearing-freq-pro OG</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://sectorcalc.com/assets/images/neela-nataraj.jpg</image:loc>
-      <image:title>Prof. Dr. Neela Nataraj — Academic Oversight</image:title>
+      <image:title>Bearing Defect Frequency Calculator — BPFO &amp; BPFI Speeds OG</image:title>
     </image:image>
   </url>
   <url>
     <loc>https://sectorcalc.com/calculator/bearing-life-l10</loc>
     <image:image>
       <image:loc>https://sectorcalc.com/assets/images/og-bearing-pro-1200x630.jpg</image:loc>
-      <image:title>bearing-pro OG</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://sectorcalc.com/assets/images/neela-nataraj.jpg</image:loc>
-      <image:title>Prof. Dr. Neela Nataraj — Academic Oversight</image:title>
+      <image:title>Bearing Life L10 Calculator — ISO 281 Load Rating &amp; Life Hours OG</image:title>
     </image:image>
   </url>
   <url>
     <loc>https://sectorcalc.com/calculator/belt-chain-drive</loc>
     <image:image>
       <image:loc>https://sectorcalc.com/assets/images/og-belt-chain-pro-1200x630.jpg</image:loc>
-      <image:title>belt-chain-pro OG</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://sectorcalc.com/assets/images/neela-nataraj.jpg</image:loc>
-      <image:title>Prof. Dr. Neela Nataraj — Academic Oversight</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://sectorcalc.com/calculator/sheet-metal-bend</loc>
-    <image:image>
-      <image:loc>https://sectorcalc.com/assets/images/og-bend-pro-1200x630.jpg</image:loc>
-      <image:title>bend-pro OG</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://sectorcalc.com/assets/images/neela-nataraj.jpg</image:loc>
-      <image:title>Prof. Dr. Neela Nataraj — Academic Oversight</image:title>
+      <image:title>Belt &amp; Chain Drive Sizing Calculator — Ratio &amp; Pitch Length OG</image:title>
     </image:image>
   </url>
   <url>
     <loc>https://sectorcalc.com/calculator/bolt-torque-preload</loc>
     <image:image>
       <image:loc>https://sectorcalc.com/assets/images/og-bolt-pro-1200x630.jpg</image:loc>
-      <image:title>bolt-pro OG</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://sectorcalc.com/assets/images/neela-nataraj.jpg</image:loc>
-      <image:title>Prof. Dr. Neela Nataraj — Academic Oversight</image:title>
+      <image:title>Bolt Torque &amp; Preload Calculator — VDI 2230 Tightening Specs OG</image:title>
     </image:image>
   </url>
   <url>
     <loc>https://sectorcalc.com/calculator/bolted-joint</loc>
     <image:image>
       <image:loc>https://sectorcalc.com/assets/images/og-bolted-joint-pro-1200x630.jpg</image:loc>
-      <image:title>bolted-joint-pro OG</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://sectorcalc.com/assets/images/neela-nataraj.jpg</image:loc>
-      <image:title>Prof. Dr. Neela Nataraj — Academic Oversight</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://sectorcalc.com/calculator/cycle-time-cost</loc>
-    <image:image>
-      <image:loc>https://sectorcalc.com/assets/images/og-cycle-cost-pro-1200x630.jpg</image:loc>
-      <image:title>cycle-cost-pro OG</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://sectorcalc.com/assets/images/neela-nataraj.jpg</image:loc>
-      <image:title>Prof. Dr. Neela Nataraj — Academic Oversight</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://sectorcalc.com/calculator/iso-286-fits</loc>
-    <image:image>
-      <image:loc>https://sectorcalc.com/assets/images/og-fits-pro-1200x630.jpg</image:loc>
-      <image:title>fits-pro OG</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://sectorcalc.com/assets/images/neela-nataraj.jpg</image:loc>
-      <image:title>Prof. Dr. Neela Nataraj — Academic Oversight</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://sectorcalc.com/calculator/weld-heat-input</loc>
-    <image:image>
-      <image:loc>https://sectorcalc.com/assets/images/og-heat-input-pro-1200x630.jpg</image:loc>
-      <image:title>heat-input-pro OG</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://sectorcalc.com/assets/images/neela-nataraj.jpg</image:loc>
-      <image:title>Prof. Dr. Neela Nataraj — Academic Oversight</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://sectorcalc.com/calculator/hydraulic-cylinder</loc>
-    <image:image>
-      <image:loc>https://sectorcalc.com/assets/images/og-hydraulic-pro-1200x630.jpg</image:loc>
-      <image:title>hydraulic-pro OG</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://sectorcalc.com/assets/images/neela-nataraj.jpg</image:loc>
-      <image:title>Prof. Dr. Neela Nataraj — Academic Oversight</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://sectorcalc.com/calculator/true-labor-cost</loc>
-    <image:image>
-      <image:loc>https://sectorcalc.com/assets/images/og-labor-pro-1200x630.jpg</image:loc>
-      <image:title>labor-pro OG</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://sectorcalc.com/assets/images/neela-nataraj.jpg</image:loc>
-      <image:title>Prof. Dr. Neela Nataraj — Academic Oversight</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://sectorcalc.com/calculator/machine-hour-rate</loc>
-    <image:image>
-      <image:loc>https://sectorcalc.com/assets/images/og-machine-rate-pro-1200x630.jpg</image:loc>
-      <image:title>machine-rate-pro OG</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://sectorcalc.com/assets/images/neela-nataraj.jpg</image:loc>
-      <image:title>Prof. Dr. Neela Nataraj — Academic Oversight</image:title>
+      <image:title>Bolted Joint Calculator — VDI 2230 Stress &amp; Fatigue Verification OG</image:title>
     </image:image>
   </url>
   <url>
     <loc>https://sectorcalc.com/calculator/cnc-feeds-speeds</loc>
     <image:image>
       <image:loc>https://sectorcalc.com/assets/images/og-machining-pro-1200x630.jpg</image:loc>
-      <image:title>machining-pro OG</image:title>
+      <image:title>CNC Feeds &amp; Speeds Calculator — Milling &amp; Turning RPM / Feed OG</image:title>
     </image:image>
+  </url>
+  <url>
+    <loc>https://sectorcalc.com/calculator/cycle-time-cost</loc>
     <image:image>
-      <image:loc>https://sectorcalc.com/assets/images/neela-nataraj.jpg</image:loc>
-      <image:title>Prof. Dr. Neela Nataraj — Academic Oversight</image:title>
+      <image:loc>https://sectorcalc.com/assets/images/og-cycle-cost-pro-1200x630.jpg</image:loc>
+      <image:title>Cycle Time &amp; Machining Cost Per Part Calculator OG</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://sectorcalc.com/calculator/hydraulic-cylinder</loc>
+    <image:image>
+      <image:loc>https://sectorcalc.com/assets/images/og-hydraulic-pro-1200x630.jpg</image:loc>
+      <image:title>Hydraulic Cylinder Sizing &amp; Force Calculator — Push &amp; Pull OG</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://sectorcalc.com/calculator/iso-286-fits</loc>
+    <image:image>
+      <image:loc>https://sectorcalc.com/assets/images/og-fits-pro-1200x630.jpg</image:loc>
+      <image:title>Fits &amp; Clearances Calculator — ISO 286 (H7/g6, Hole &amp; Shaft) OG</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://sectorcalc.com/calculator/machine-hour-rate</loc>
+    <image:image>
+      <image:loc>https://sectorcalc.com/assets/images/og-machine-rate-pro-1200x630.jpg</image:loc>
+      <image:title>Machine Hourly Rate Calculator — CNC Equipment Cost Estimator OG</image:title>
     </image:image>
   </url>
   <url>
     <loc>https://sectorcalc.com/calculator/oee-teep</loc>
     <image:image>
       <image:loc>https://sectorcalc.com/assets/images/og-oee-pro-1200x630.jpg</image:loc>
-      <image:title>oee-pro OG</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://sectorcalc.com/assets/images/neela-nataraj.jpg</image:loc>
-      <image:title>Prof. Dr. Neela Nataraj — Academic Oversight</image:title>
+      <image:title>OEE &amp; TEEP Calculator — Overall Equipment Effectiveness OG</image:title>
     </image:image>
   </url>
   <url>
     <loc>https://sectorcalc.com/calculator/pipe-wall-thickness</loc>
     <image:image>
       <image:loc>https://sectorcalc.com/assets/images/og-pipe-wall-pro-1200x630.jpg</image:loc>
-      <image:title>pipe-wall-pro OG</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://sectorcalc.com/assets/images/neela-nataraj.jpg</image:loc>
-      <image:title>Prof. Dr. Neela Nataraj — Academic Oversight</image:title>
+      <image:title>Pipe Wall Thickness Calculator — ASME B31.3 Pressure Sizing OG</image:title>
     </image:image>
   </url>
   <url>
     <loc>https://sectorcalc.com/calculator/pressure-vessel-shell</loc>
     <image:image>
       <image:loc>https://sectorcalc.com/assets/images/og-pressure-vessel-pro-1200x630.jpg</image:loc>
-      <image:title>pressure-vessel-pro OG</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://sectorcalc.com/assets/images/neela-nataraj.jpg</image:loc>
-      <image:title>Prof. Dr. Neela Nataraj — Academic Oversight</image:title>
+      <image:title>Pressure Vessel Shell Thickness Calculator — ASME VIII OG</image:title>
     </image:image>
   </url>
   <url>
     <loc>https://sectorcalc.com/calculator/punching-force</loc>
     <image:image>
       <image:loc>https://sectorcalc.com/assets/images/og-punching-pro-1200x630.jpg</image:loc>
-      <image:title>punching-pro OG</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://sectorcalc.com/assets/images/neela-nataraj.jpg</image:loc>
-      <image:title>Prof. Dr. Neela Nataraj — Academic Oversight</image:title>
+      <image:title>Sheet Metal Punching Force &amp; Die Clearance Calculator OG</image:title>
     </image:image>
   </url>
   <url>
     <loc>https://sectorcalc.com/calculator/quote-pricing</loc>
     <image:image>
       <image:loc>https://sectorcalc.com/assets/images/og-quote-pro-1200x630.jpg</image:loc>
-      <image:title>quote-pro OG</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://sectorcalc.com/assets/images/neela-nataraj.jpg</image:loc>
-      <image:title>Prof. Dr. Neela Nataraj — Academic Oversight</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://sectorcalc.com/calculator/tolerance-stack-up</loc>
-    <image:image>
-      <image:loc>https://sectorcalc.com/assets/images/og-sc008-pro-1200x630.jpg</image:loc>
-      <image:title>sc008-pro OG</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://sectorcalc.com/assets/images/neela-nataraj.jpg</image:loc>
-      <image:title>Prof. Dr. Neela Nataraj — Academic Oversight</image:title>
+      <image:title>Manufacturing Quote &amp; Part Costing Calculator OG</image:title>
     </image:image>
   </url>
   <url>
     <loc>https://sectorcalc.com/calculator/shackle-eyebolt</loc>
     <image:image>
       <image:loc>https://sectorcalc.com/assets/images/og-shackle-eyebolt-pro-1200x630.jpg</image:loc>
-      <image:title>shackle-eyebolt-pro OG</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://sectorcalc.com/assets/images/neela-nataraj.jpg</image:loc>
-      <image:title>Prof. Dr. Neela Nataraj — Academic Oversight</image:title>
+      <image:title>Shackle &amp; Eye Bolt Load Capacity Calculator — WLL Safety OG</image:title>
     </image:image>
   </url>
   <url>
     <loc>https://sectorcalc.com/calculator/shaft-design</loc>
     <image:image>
       <image:loc>https://sectorcalc.com/assets/images/og-shaft-pro-1200x630.jpg</image:loc>
-      <image:title>shaft-pro OG</image:title>
+      <image:title>Shaft Design &amp; Diameter Calculator — Torsion &amp; Bending Stress OG</image:title>
     </image:image>
+  </url>
+  <url>
+    <loc>https://sectorcalc.com/calculator/sheet-metal-bend</loc>
     <image:image>
-      <image:loc>https://sectorcalc.com/assets/images/neela-nataraj.jpg</image:loc>
-      <image:title>Prof. Dr. Neela Nataraj — Academic Oversight</image:title>
+      <image:loc>https://sectorcalc.com/assets/images/og-bend-pro-1200x630.jpg</image:loc>
+      <image:title>Sheet Metal Bend Allowance &amp; K-Factor Calculator — Flat Pattern OG</image:title>
     </image:image>
   </url>
   <url>
     <loc>https://sectorcalc.com/calculator/sling-capacity</loc>
     <image:image>
       <image:loc>https://sectorcalc.com/assets/images/og-sling-pro-1200x630.jpg</image:loc>
-      <image:title>sling-pro OG</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://sectorcalc.com/assets/images/neela-nataraj.jpg</image:loc>
-      <image:title>Prof. Dr. Neela Nataraj — Academic Oversight</image:title>
+      <image:title>Rigging Sling Capacity &amp; Angle Factor Calculator OG</image:title>
     </image:image>
   </url>
   <url>
     <loc>https://sectorcalc.com/calculator/surface-finish</loc>
     <image:image>
       <image:loc>https://sectorcalc.com/assets/images/og-surface-finish-pro-1200x630.jpg</image:loc>
-      <image:title>surface-finish-pro OG</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://sectorcalc.com/assets/images/neela-nataraj.jpg</image:loc>
-      <image:title>Prof. Dr. Neela Nataraj — Academic Oversight</image:title>
+      <image:title>Surface Finish Converter — Ra, Rz, RMS &amp; ISO N-Grade Chart OG</image:title>
     </image:image>
   </url>
   <url>
     <loc>https://sectorcalc.com/calculator/tap-thread-milling</loc>
     <image:image>
       <image:loc>https://sectorcalc.com/assets/images/og-tap-thread-pro-1200x630.jpg</image:loc>
-      <image:title>tap-thread-pro OG</image:title>
+      <image:title>Tap Drill &amp; Thread Milling Calculator — Metric &amp; UN Threads OG</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://sectorcalc.com/calculator/tolerance-stack-up</loc>
+    <image:image>
+      <image:loc>https://sectorcalc.com/assets/images/og-sc008-pro-1200x630.jpg</image:loc>
+      <image:title>Tolerance Stack-Up Calculator — Worst-Case &amp; RSS Monte Carlo OG</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://sectorcalc.com/calculator/true-labor-cost</loc>
+    <image:image>
+      <image:loc>https://sectorcalc.com/assets/images/og-labor-pro-1200x630.jpg</image:loc>
+      <image:title>True Labor Burden Rate Calculator — Machine Shop Hourly Cost OG</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://sectorcalc.com/calculator/weld-heat-input</loc>
+    <image:image>
+      <image:loc>https://sectorcalc.com/assets/images/og-heat-input-pro-1200x630.jpg</image:loc>
+      <image:title>Welding Heat Input &amp; Cooling Time t8/5 Calculator OG</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://sectorcalc.com/calculator/weld-thickness</loc>
+    <image:image>
+      <image:loc>https://sectorcalc.com/assets/images/og-weld-pro-1200x630.jpg</image:loc>
+      <image:title>Weld Throat Thickness &amp; Joint Sizing Calculator — Fillet Weld OG</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://sectorcalc.com/case-studies</loc>
+    <image:image>
+      <image:loc>https://sectorcalc.com/assets/images/og-default-1200x630.jpg</image:loc>
+      <image:title>Industrial engineering case studies: an evidence framework for citable outcomes OG</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://sectorcalc.com/compare</loc>
+    <image:image>
+      <image:loc>https://sectorcalc.com/assets/images/og-default-1200x630.jpg</image:loc>
+      <image:title>Compare SectorCalc without invented benchmarks OG</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://sectorcalc.com/glossary</loc>
+    <image:image>
+      <image:loc>https://sectorcalc.com/assets/images/og-default-1200x630.jpg</image:loc>
+      <image:title>Engineering glossary built for retrieval, not filler OG</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://sectorcalc.com/guides</loc>
+    <image:image>
+      <image:loc>https://sectorcalc.com/assets/images/og-default-1200x630.jpg</image:loc>
+      <image:title>Engineering guides at money-page depth OG</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://sectorcalc.com/guides/bearing-life-complete</loc>
+    <image:image>
+      <image:loc>https://sectorcalc.com/assets/images/og-default-1200x630.jpg</image:loc>
+      <image:title>bearing life complete OG</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://sectorcalc.com/guides/cnc-optimization-complete</loc>
+    <image:image>
+      <image:loc>https://sectorcalc.com/assets/images/og-default-1200x630.jpg</image:loc>
+      <image:title>cnc optimization complete OG</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://sectorcalc.com/guides/iso-286-fits-complete</loc>
+    <image:image>
+      <image:loc>https://sectorcalc.com/assets/images/og-default-1200x630.jpg</image:loc>
+      <image:title>Complete Guide to ISO 286 Fits &amp; Clearances OG</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://sectorcalc.com/guides/labor-costing-complete</loc>
+    <image:image>
+      <image:loc>https://sectorcalc.com/assets/images/og-default-1200x630.jpg</image:loc>
+      <image:title>labor costing complete OG</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://sectorcalc.com/guides/punching-force-complete</loc>
+    <image:image>
+      <image:loc>https://sectorcalc.com/assets/images/og-default-1200x630.jpg</image:loc>
+      <image:title>Complete Guide to Punching Force &amp; Press Capacity Screening OG</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://sectorcalc.com/guides/sheet-metal-bend-complete</loc>
+    <image:image>
+      <image:loc>https://sectorcalc.com/assets/images/og-default-1200x630.jpg</image:loc>
+      <image:title>Complete Guide to Sheet Metal Bend Allowance &amp; K-Factor OG</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://sectorcalc.com/guides/surface-finish-complete</loc>
+    <image:image>
+      <image:loc>https://sectorcalc.com/assets/images/og-default-1200x630.jpg</image:loc>
+      <image:title>Complete Guide to Surface Finish: Ra, Rz &amp; Conversion Assumptions OG</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://sectorcalc.com/guides/tolerance-stack-up-complete</loc>
+    <image:image>
+      <image:loc>https://sectorcalc.com/assets/images/og-default-1200x630.jpg</image:loc>
+      <image:title>tolerance stack up complete OG</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://sectorcalc.com/guides/weld-sizing-complete</loc>
+    <image:image>
+      <image:loc>https://sectorcalc.com/assets/images/og-default-1200x630.jpg</image:loc>
+      <image:title>weld sizing complete OG</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://sectorcalc.com/pricing.html</loc>
+    <image:image>
+      <image:loc>https://sectorcalc.com/assets/images/og-pricing-1200x630.jpg</image:loc>
+      <image:title>Pricing OG</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://sectorcalc.com/pro.html</loc>
+    <image:image>
+      <image:loc>https://sectorcalc.com/assets/images/og-pro-1200x630.jpg</image:loc>
+      <image:title>SectorCalc Pro OG</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://sectorcalc.com/tools.html</loc>
+    <image:image>
+      <image:loc>https://sectorcalc.com/assets/images/og-tools-1200x630.jpg</image:loc>
+      <image:title>All Calculators &amp; Tools OG</image:title>
     </image:image>
     <image:image>
       <image:loc>https://sectorcalc.com/assets/images/neela-nataraj.jpg</image:loc>
@@ -319,14 +335,24 @@
     </image:image>
   </url>
   <url>
-    <loc>https://sectorcalc.com/calculator/weld-thickness</loc>
+    <loc>https://sectorcalc.com/topics</loc>
     <image:image>
-      <image:loc>https://sectorcalc.com/assets/images/og-weld-pro-1200x630.jpg</image:loc>
-      <image:title>weld-pro OG</image:title>
+      <image:loc>https://sectorcalc.com/assets/images/og-default-1200x630.jpg</image:loc>
+      <image:title>Prove the engine. Then name the shop problem. OG</image:title>
     </image:image>
+  </url>
+  <url>
+    <loc>https://sectorcalc.com/topics/fits-and-finish</loc>
     <image:image>
-      <image:loc>https://sectorcalc.com/assets/images/neela-nataraj.jpg</image:loc>
-      <image:title>Prof. Dr. Neela Nataraj — Academic Oversight</image:title>
+      <image:loc>https://sectorcalc.com/assets/images/og-default-1200x630.jpg</image:loc>
+      <image:title>Fits &amp; surface finish OG</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://sectorcalc.com/topics/sheet-metal-fabrication</loc>
+    <image:image>
+      <image:loc>https://sectorcalc.com/assets/images/og-default-1200x630.jpg</image:loc>
+      <image:title>Sheet metal bend, punch &amp; weld size OG</image:title>
     </image:image>
   </url>
 </urlset>

@@ -95,3 +95,20 @@ export function buildSitemapArtifacts(entries, rootUrl, limits = DEFAULT_SITEMAP
   const indexXml = renderSitemapIndex(files.map((file) => ({ loc: `${rootUrl}/${file.name}`, lastmod: null })));
   return { index: { name: 'sitemap.xml', xml: indexXml, sha256: sha256(indexXml) }, files };
 }
+
+export function renderImageUrlset(pages) {
+  if (!Array.isArray(pages) || pages.length === 0) throw new Error('EMPTY_IMAGE_SITEMAP');
+  const sorted = [...pages].sort((a, b) => a.loc.localeCompare(b.loc, 'en'));
+  const rows = sorted.map(({ loc, images }) => {
+    if (!Array.isArray(images) || images.length === 0) throw new Error(`image sitemap page missing images: ${loc}`);
+    const imgs = images
+      .map((img) => {
+        if (!img?.loc) throw new Error(`image sitemap missing image loc under ${loc}`);
+        const title = img.title ? `\n      <image:title>${escapeXml(img.title)}</image:title>` : '';
+        return `    <image:image>\n      <image:loc>${escapeXml(img.loc)}</image:loc>${title}\n    </image:image>`;
+      })
+      .join('\n');
+    return `  <url>\n    <loc>${escapeXml(loc)}</loc>\n${imgs}\n  </url>`;
+  }).join('\n');
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<!-- Image sitemap — real hosted assets only; generated from registry + on-disk OG files -->\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n${rows}\n</urlset>\n`;
+}

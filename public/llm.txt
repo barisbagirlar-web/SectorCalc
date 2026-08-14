@@ -361,24 +361,37 @@ Topic → subtopic → entity → internal links. Use these clusters for retriev
 - [Privacy](https://sectorcalc.com/privacy)
 - [Terms](https://sectorcalc.com/terms)
 - [Blog](https://sectorcalc.com/blog)
+- [ISO 286 H7/g6 explained](https://sectorcalc.com/blog/iso-286-h7-g6-explained.html) — What H7/g6 means in ISO 286 and how to look up limit deviations with the free fits calculator.
+- [Ra vs Rz: which surface finish number do you release?](https://sectorcalc.com/blog/ra-vs-rz-surface-finish.html) — Ra and Rz are different roughness statistics. Convert with SectorCalc’s free surface finish calculator.
+- [tolerance stack up rss vs monte carlo](https://sectorcalc.com/blog/tolerance-stack-up-rss-vs-monte-carlo.html) — SectorCalc tolerance stack up rss vs monte carlo engineering reference.
+- [Topics](https://sectorcalc.com/topics)
+- [Fits & surface finish](https://sectorcalc.com/topics/fits-and-finish) — Free ISO 286 fits and Ra/Rz surface finish calculators — instant results, no login.
+- [Sheet metal bend, punch & weld size](https://sectorcalc.com/topics/sheet-metal-fabrication) — Free sheet-metal bend and punching force calculators — instant shop-floor results, no login.
+- [Resources](https://sectorcalc.com/resources)
+- [excel to sectorcalc migration](https://sectorcalc.com/resources/excel-to-sectorcalc-migration) — SectorCalc excel to sectorcalc migration engineering reference.
+- [ISO 286 Quick Reference](https://sectorcalc.com/resources/iso-286-quick-reference) — Quick reference for ISO 286 hole/shaft fits, IT grades, and fundamental deviations for engineering teams.
+- [Tolerance Stack-Up Audit Template](https://sectorcalc.com/resources/tolerance-stackup-audit-template) — Audit checklist template for 1D tolerance stack-up reviews: inputs, methods, warnings, and report hashes.
+- [Contact](https://sectorcalc.com/contact)
 - [Case studies](https://sectorcalc.com/case-studies) — evidence framework (measured vs calculated; honest empty inventory until citable studies ship)
 - [Glossary](https://sectorcalc.com/glossary) — 25 entities
 - [Guides](https://sectorcalc.com/guides) — 9 exclusive money-parity methodologies
 - [Compare](https://sectorcalc.com/compare) — 5 evidence-only comparisons
 - [Sitemap](https://sectorcalc.com/sitemap.xml)
+- [Image sitemap](https://sectorcalc.com/sitemap-images.xml)
+- [Full LLM index](https://sectorcalc.com/llms-full.txt) — expanded inventory of all **90** sitemap URLs
 - [Robots](https://sectorcalc.com/robots.txt)
 
 ## Search and retrieval
 - `robots.txt` explicitly allows Googlebot, Googlebot-Image, Bingbot, OAI-SearchBot, ChatGPT-User, PerplexityBot, Perplexity-User, Claude-SearchBot, Claude-User to crawl public production content.
 - The XML sitemap lists **90** canonical indexable HTML URLs derived from the SEO registry (calculators, hubs, glossary, guides, compare, case studies, resources, legal). It emits `lastmod` from the committed git-history map but omits `priority`, `changefreq`, non-HTML discovery files, redirects, noindex pages and incomplete locale previews.
 - German, Japanese and Chinese preview pages remain `noindex,follow` until full localized content and reciprocal hreflang sets are release-ready.
-- `llms.txt` / `llm.txt` are byte-identical supplemental discovery documentation. They do not guarantee Google AI Overview placement or ChatGPT citation. Public HTML, canonical URLs, visible engineering content and structured data remain the primary source of truth.
+- `llms.txt` / `llm.txt` are byte-identical concise discovery documentation. `llms-full.txt` is the expanded inventory of the same **90** canonical URLs. They do not guarantee Google AI Overview placement or ChatGPT citation. Public HTML, canonical URLs, visible engineering content and structured data remain the primary source of truth.
 
 ## Enterprise discovery contract
-- Sitemap, `llm.txt`, `llms.txt`, and the Playwright regression catalog are generated from the same SEO registry SSOT (`seo/registry.mjs`) — never hand-edited as primary sources.
-- Indexable surface: **90** sitemap URLs · **25** live calculators · **5** open reference instruments · **9** exclusive guides · **25** glossary entities · **5** compare pages · case-studies evidence hub.
+- Sitemap, `llm.txt`, `llms.txt`, `llms-full.txt`, and the Playwright regression catalog are generated from the same SEO registry SSOT (`seo/registry.mjs`) — never hand-edited as primary sources.
+- Indexable surface: **90** sitemap URLs · **25** live calculators · **5** open reference instruments · **9** exclusive guides · **25** glossary entities · **5** compare pages · **4** resource pages · case-studies evidence hub.
 - Production promote requires Firebase preview-channel SEO guard + Playwright `@critical` seal before `sectorcalc.com` clone. Broken candidates do not go live.
-- Prefer `/sitemap.xml` for crawl inventory and this file for retrieval narrative; both must agree on the **90** URL count.
+- Prefer `/sitemap.xml` for crawl inventory, this file for retrieval narrative, and `/llms-full.txt` for the complete URL inventory; all three must agree on the **90** URL count.
 - Do not invent published SectorCalc customer case studies, ROI percentages, or scrap-dollar outcomes. Cite https://sectorcalc.com/case-studies for the evidence policy and current inventory.
 
 ## Notes for models

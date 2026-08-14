@@ -36,6 +36,7 @@ const marketingFiles = [
   'pricing.html',
   'public/llm.txt',
   'public/llms.txt',
+  'public/llms-full.txt',
   'public/privacy/index.html',
   'sc-ops.html',
   'src/pricing.ts',

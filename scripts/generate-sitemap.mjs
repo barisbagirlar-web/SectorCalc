@@ -4,12 +4,12 @@
  * SET(SITEMAP) === SET(REGISTRY indexable && sitemapEligible && robots-allowed).
  * DO NOT EDIT generated sitemap files directly.
  */
-import { readFileSync, readdirSync, unlinkSync, writeFileSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync, unlinkSync, writeFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { sitemapPages, CURRENT_INDEXABLE_BASELINE, validateRegistryInvariants, HOST } from '../seo/registry.mjs';
 import { isRobotsAllowed } from '../seo/robots-policy.mjs';
-import { buildSitemapArtifacts, canonicalEntry, DEFAULT_SITEMAP_LIMITS } from '../seo/sitemap-engine.mjs';
+import { buildSitemapArtifacts, canonicalEntry, DEFAULT_SITEMAP_LIMITS, renderImageUrlset } from '../seo/sitemap-engine.mjs';
 import { SITEMAP_POLICY, SITEMAP_RETAINED_FRACTION } from '../seo/sitemap-policy.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -76,3 +76,64 @@ const outputCount = artifacts.files.reduce((sum, file) => sum + file.count, 0);
 console.log(`[OK] sitemap artifacts written: urls=${outputCount} chunks=${artifacts.files.length} index=${Boolean(artifacts.index)}`);
 console.log(`[OK] policy config: maxShrinkPct=${SITEMAP_POLICY.maxShrinkPct} maxUrls=${SITEMAP_POLICY.maxUrls} maxBytes=${SITEMAP_POLICY.maxBytes}`);
 console.log('[OK] priority/changefreq omitted; lastmod from committed git-history map');
+
+function publicFileForAbsUrl(absUrl) {
+  const path = absUrl.replace(HOST, '').replace(/^\//, '');
+  const candidates = [join(PUBLIC, path), join(ROOT, path)];
+  return candidates.find((p) => existsSync(p)) || null;
+}
+
+function extractOgImageUrls(sourceFile) {
+  const abs = join(ROOT, sourceFile);
+  if (!existsSync(abs)) return [];
+  const html = readFileSync(abs, 'utf8');
+  const urls = [];
+  const re = /<meta[^>]+property=["']og:image["'][^>]*content=["']([^"']+)["'][^>]*>|<meta[^>]+content=["']([^"']+)["'][^>]*property=["']og:image["'][^>]*>/gi;
+  let match;
+  while ((match = re.exec(html))) {
+    const url = match[1] || match[2];
+    if (url) urls.push(url.trim());
+  }
+  return urls;
+}
+
+const extraImages = {
+  '/': [
+    { loc: `${HOST}/assets/images/sectorcalc-og-1200x630.jpg`, title: 'OG cover' },
+    { loc: `${HOST}/assets/images/sectorcalc-logo-512x512.png`, title: 'App icon 512' },
+    { loc: `${HOST}/assets/images/og-home-1200x630.jpg`, title: 'Home OG' },
+    { loc: `${HOST}/sectorcalc-logo.png`, title: 'Logo light' },
+    { loc: `${HOST}/icon-512.png`, title: 'PWA icon' },
+    { loc: `${HOST}/assets/images/hero-cell-poster.png`, title: 'Live Cell hero poster — CNC turning + inspect' },
+  ],
+  '/tools.html': [
+    { loc: `${HOST}/assets/images/neela-nataraj.jpg`, title: 'Prof. Dr. Neela Nataraj — Academic Oversight' },
+  ],
+};
+
+const imagePages = [];
+for (const page of pages) {
+  const loc = page.canonicalPath === '/' ? `${HOST}/` : `${HOST}${page.canonicalPath}`;
+  const seenImg = new Set();
+  const images = [];
+  const candidates = [
+    ...extractOgImageUrls(page.sourceFile).map((url) => ({ loc: url, title: `${page.h1 || page.title || page.canonicalPath} OG` })),
+    ...(extraImages[page.canonicalPath] || []),
+  ];
+  for (const img of candidates) {
+    if (!img.loc || seenImg.has(img.loc)) continue;
+    if (!publicFileForAbsUrl(img.loc)) continue;
+    seenImg.add(img.loc);
+    images.push(img);
+  }
+  if (images.length) imagePages.push({ loc, images });
+}
+
+if (!imagePages.some((p) => p.loc === `${HOST}/tools.html`)) {
+  console.error('[FAIL] image sitemap missing tools.html (required parent)');
+  process.exit(1);
+}
+
+const imageXml = renderImageUrlset(imagePages);
+writeFileSync(join(PUBLIC, 'sitemap-images.xml'), imageXml);
+console.log(`[OK] sitemap-images.xml written: pages=${imagePages.length} images=${imagePages.reduce((n, p) => n + p.images.length, 0)}`);
