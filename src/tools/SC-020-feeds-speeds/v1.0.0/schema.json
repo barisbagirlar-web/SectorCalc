@@ -39,7 +39,10 @@
     "coolant": { "type": "string", "enum": ["dry", "flood", "mist", "mql", "high_pressure"] },
     "interruption": { "type": "string", "enum": ["continuous", "light", "medium", "heavy"] },
     "toolCost": { "type": "string", "pattern": "^-?[0-9]+(\\.[0-9]+)?([eE][+-]?[0-9]+)?$" },
-    "machineCostPerMin": { "type": "string", "pattern": "^-?[0-9]+(\\.[0-9]+)?([eE][+-]?[0-9]+)?$" },
+    "machineCostPerMin": {
+      "type": "string",
+      "pattern": "^-?[0-9]+(\\.[0-9]+)?([eE][+-]?[0-9]+)?$"
+    },
     "currency": { "type": "string", "minLength": 1, "maxLength": 4 },
     "youngModulusMPa": { "type": "string", "pattern": "^-?[0-9]+(\\.[0-9]+)?([eE][+-]?[0-9]+)?$" }
   }

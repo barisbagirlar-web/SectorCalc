@@ -633,7 +633,6 @@ def page_meta_block(page: str, title: str, description: str) -> str:
 <meta name="twitter:description" content="{safe_desc}">
 <meta name="twitter:image" content="{og_img}">
 <meta name="twitter:image:alt" content="{safe_alt}">
-<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="author" content="SectorCalc Engineering Team">
 <meta name="theme-color" content="#0055A4">
 <meta name="format-detection" content="telephone=no">

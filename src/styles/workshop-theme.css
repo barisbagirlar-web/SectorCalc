@@ -1,20 +1,22 @@
 :root {
-  --iso-blue: #0055A4;
-  --iso-orange: #E87722;
-  --iso-green: #007A33;
-  --sc-steel: #1A1A1A;
-  --sc-rust: #E87722;
-  --sc-chip: #007A33;
-  --sc-bg: #F5F5F0;
-  --sc-card: #FFFFFF;
-  --sc-text: #1A1A1A;
-  --sc-muted: #7A7A7A;
+  --iso-blue: #0055a4;
+  --iso-orange: #e87722;
+  --iso-green: #007a33;
+  --sc-steel: #1a1a1a;
+  --sc-rust: #e87722;
+  --sc-chip: #007a33;
+  --sc-bg: #f5f5f0;
+  --sc-card: #ffffff;
+  --sc-text: #1a1a1a;
+  --sc-muted: #7a7a7a;
   --sc-mono: 'JetBrains Mono', ui-monospace, monospace;
   --sc-sans: 'Inter', system-ui, sans-serif;
   --sc-display: 'Barlow Condensed', sans-serif;
 }
 
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
@@ -29,9 +31,15 @@ main {
   margin: 4rem auto;
   padding: 2rem;
   background: var(--sc-card);
-  border: 1px solid #C5C5BE;
+  border: 1px solid #c5c5be;
   border-radius: 0;
 }
 
-h1 { color: var(--sc-steel); font-family: var(--sc-display); text-transform: uppercase; }
-#engine-check { font-family: var(--sc-mono); }
+h1 {
+  color: var(--sc-steel);
+  font-family: var(--sc-display);
+  text-transform: uppercase;
+}
+#engine-check {
+  font-family: var(--sc-mono);
+}
