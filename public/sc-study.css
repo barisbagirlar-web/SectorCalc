@@ -154,6 +154,36 @@ body.sc-demo-locked select[data-sc-gate-lock='1'] {
   opacity: 0.85;
 }
 
+/* ---------------------------------------------------------------------------
+ * Free result preview (ENABLE_FREE_RESULT_PREVIEW).
+ * Numeric layer stays open; the report layer (sealed PDF, A1-A5 audit trail,
+ * save/share) is kept behind the credit gate.
+ * ------------------------------------------------------------------------- */
+body.sc-free-preview .sc-free-preview-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: #0b3d2e;
+  background: linear-gradient(90deg, #d7f5e5, #bff0d7);
+  border: 1px solid rgba(16, 122, 87, 0.35);
+}
+
+body.sc-free-preview .audit.panel .panel-b,
+body.sc-free-preview #reportArea .sc-report-hd,
+body.sc-free-preview .sc-report-sealed {
+  display: none;
+}
+
+body.sc-free-preview .audit.panel .panel-h {
+  cursor: pointer;
+}
+
 @media (max-width: 720px) {
   .sc-study-bar__actions {
     width: 100%;
