@@ -73,7 +73,16 @@ const sitemap = await get(remote('/sitemap.xml'));
 if (sitemap.res.status !== 200) fail(`sitemap.xml HTTP ${sitemap.res.status}`);
 if (!/(application|text)\/xml/i.test(sitemap.res.headers.get('content-type') || '')) fail(`sitemap.xml content-type ${sitemap.res.headers.get('content-type') || 'missing'}`);
 if (!/<urlset\b[^>]*xmlns=["']http:\/\/www\.sitemaps\.org\/schemas\/sitemap\/0\.9["']/i.test(sitemap.text)) fail('sitemap missing valid urlset namespace');
-if (/<priority>|<changefreq>|<lastmod>/i.test(sitemap.text)) fail('sitemap contains priority/changefreq/lastmod');
+if (/<priority>|<changefreq>/i.test(sitemap.text)) fail('sitemap contains priority/changefreq');
+// lastmod is derived from the committed git-history map (seo/lastmod-map.json)
+// and must be a well-formed, non-future ISO-8601 timestamp (Task 3 mandate).
+for (const m of sitemap.text.matchAll(/<lastmod>([^<]+)<\/lastmod>/g)) {
+  const v = m[1].trim();
+  const d = new Date(v);
+  if (!Number.isFinite(d.getTime())) fail(`sitemap has non-ISO lastmod "${v}"`);
+  if (d.getTime() > Date.now() + 24 * 60 * 60 * 1000) fail(`sitemap has future lastmod "${v}"`);
+}
+if (!/<lastmod>/i.test(sitemap.text)) fail('sitemap missing lastmod freshness hints (Task 3 mandate)');
 if (/https:\/\/www\.sectorcalc\.com/i.test(sitemap.text)) fail('sitemap contains www URL');
 for (const lang of ['de', 'ja', 'zh']) {
   if (sitemap.text.includes(`<loc>${CANONICAL_HOST}/${lang}/</loc>`) || sitemap.text.includes(`<loc>${CANONICAL_HOST}/${lang}</loc>`)) {

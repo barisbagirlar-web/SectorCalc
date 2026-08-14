@@ -223,7 +223,7 @@ ${limitations.map((l) => `- ${l}`).join('\n')}
 
 ## Search and retrieval
 - \`robots.txt\` explicitly allows ${bots.join(', ')} to crawl public production content.
-- The XML sitemap lists **${sitemapCount}** canonical indexable HTML URLs derived from the SEO registry (calculators, hubs, glossary, guides, compare, case studies, resources, legal). It omits \`priority\`, \`changefreq\`, speculative freshness dates, non-HTML discovery files, redirects, noindex pages and incomplete locale previews.
+- The XML sitemap lists **${sitemapCount}** canonical indexable HTML URLs derived from the SEO registry (calculators, hubs, glossary, guides, compare, case studies, resources, legal). It emits \`lastmod\` from the committed git-history map but omits \`priority\`, \`changefreq\`, non-HTML discovery files, redirects, noindex pages and incomplete locale previews.
 - German, Japanese and Chinese preview pages remain \`noindex,follow\` until full localized content and reciprocal hreflang sets are release-ready.
 - \`llms.txt\` / \`llm.txt\` are byte-identical supplemental discovery documentation. They do not guarantee Google AI Overview placement or ChatGPT citation. Public HTML, canonical URLs, visible engineering content and structured data remain the primary source of truth.
 
