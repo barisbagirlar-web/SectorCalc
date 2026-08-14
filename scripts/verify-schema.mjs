@@ -51,6 +51,11 @@ for (const page of pages) {
   const html = readFileSync(join(ROOT, page), 'utf8');
   if (/AggregateRating/i.test(html)) fail(`${page} AggregateRating present without allowlist`);
   if (/"@type"\s*:\s*"Review"/i.test(html)) fail(`${page} Review schema present without allowlist`);
+  // No page may ship a video schema without a real video: placeholder YouTube
+  // IDs and VideoObject/Clip claims are fake-data smoke in the crawl surface.
+  if (/VideoObject|"@type"\s*:\s*"Clip"|REPLACE_WITH_YOUTUBE_ID/i.test(html)) {
+    fail(`${page} ships video schema (VideoObject/Clip/REPLACE_WITH_YOUTUBE_ID) with no real video`);
+  }
 
   const blocks = extractJsonLd(html);
   for (const { json } of blocks) {
@@ -85,6 +90,14 @@ for (const page of pages) {
     const meta = publishedCalculators().find((c) => c.sourceFile === page);
     if (meta) {
       const h1 = html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i)?.[1]?.replace(/<[^>]+>/g, '').trim() || '';
+      // Task 4 mandate: H1 must carry the demand-matched primary intent term.
+      // Compare word-by-word so "stack-up"/"stack up", "&"/"and" variants pass.
+      if (meta.primaryIntent && h1) {
+        const norm = (s) => s.toLowerCase().replace(/&amp;/g, '&').replace(/[-–—/]/g, ' ').replace(/&/g, ' ').replace(/[^a-z0-9 ]/g, ' ');
+        const h1Words = new Set(norm(h1).split(/\s+/).filter(Boolean));
+        const missing = norm(meta.primaryIntent).split(/\s+/).filter((w) => w && !h1Words.has(w));
+        if (missing.length) fail(`${page} H1 missing primary-intent word(s) ${missing.join(', ')} (Task 4 mandate)`);
+      }
       if (h1 && meta.name && !h1.includes(meta.id) && !html.includes(meta.name) && !html.includes(meta.short || '')) {
         // soft: ensure registry id appears somewhere in page identity
         if (!html.includes(meta.id)) fail(`${page} missing registry tool id ${meta.id} in HTML`);

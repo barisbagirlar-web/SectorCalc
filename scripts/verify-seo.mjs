@@ -71,7 +71,17 @@ for (const bot of ['Googlebot', 'Bingbot', 'OAI-SearchBot', 'PerplexityBot']) {
 
 const sm = read('public/sitemap.xml');
 if (!/<urlset\b[^>]*xmlns=["']http:\/\/www\.sitemaps\.org\/schemas\/sitemap\/0\.9["']/i.test(sm)) fail('sitemap missing sitemaps.org urlset namespace');
-if (/<priority>|<changefreq>|<lastmod>/i.test(sm)) fail('sitemap contains ignored or untrusted freshness hints');
+if (/<priority>|<changefreq>/i.test(sm)) fail('sitemap contains ignored priority/changefreq hints');
+// lastmod is derived from the committed git-history map (seo/lastmod-map.json)
+// and must be a well-formed, non-future ISO-8601 timestamp.
+for (const m of sm.matchAll(/<lastmod>([^<]+)<\/lastmod>/g)) {
+  const v = m[1].trim();
+  const d = new Date(v);
+  if (!Number.isFinite(d.getTime())) fail(`sitemap has non-ISO lastmod "${v}"`);
+  if (d.getTime() > Date.now() + 24 * 60 * 60 * 1000) fail(`sitemap has future lastmod "${v}"`);
+}
+const lastmodCount = (sm.match(/<lastmod>/g) || []).length;
+if (lastmodCount === 0) fail('sitemap missing lastmod freshness hints (Task 3 mandate)');
 if (/https:\/\/www\.sectorcalc\.com/i.test(sm)) fail('sitemap contains www URL');
 for (const junk of ['llm.txt', 'llms.txt', 'robots.txt', 'ai-robots.txt', 'site.webmanifest', '404.html']) {
   if (sm.includes(`<loc>${HOST}/${junk}</loc>`)) fail(`sitemap contains non-indexable discovery URL ${junk}`);

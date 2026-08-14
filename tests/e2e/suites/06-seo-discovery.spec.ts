@@ -33,7 +33,14 @@ test.describe('SEO discovery @seo @critical', () => {
     expect(sm).toContain('/pricing.html');
     expect(sm).toContain('tools.html');
     expect(sm).not.toMatch(/\/[a-z0-9-]+-pro\.html/i);
-    expect(sm).not.toMatch(/<priority>|<changefreq>|<lastmod>/i);
+    expect(sm).not.toMatch(/<priority>|<changefreq>/i);
+    // Task 3 mandate: every <url> carries a well-formed, non-future lastmod.
+    const lastmods = [...sm.matchAll(/<lastmod>([^<]+)<\/lastmod>/g)].map((m) => m[1]);
+    expect(lastmods.length).toBe(locs.length);
+    for (const lm of lastmods) {
+      expect(Number.isFinite(new Date(lm).getTime())).toBe(true);
+      expect(new Date(lm).getTime()).toBeLessThanOrEqual(Date.now() + 24 * 60 * 60 * 1000);
+    }
     for (const lang of ['de', 'ja', 'zh']) {
       expect(sm).not.toContain(`https://sectorcalc.com/${lang}/`);
     }
