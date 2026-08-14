@@ -158,6 +158,22 @@ export async function expectDemoLockedWorkspace(page: Page): Promise<void> {
   await expect(lockedInputs.first()).toBeAttached({ timeout: 15_000 });
 }
 
+/**
+ * Free result preview workspace (ENABLE_FREE_RESULT_PREVIEW): the numeric layer
+ * is open — inputs editable, calculation allowed, Reset enabled — while the
+ * report/export layer stays behind the credit gate (body.sc-free-preview).
+ * Call only when waitForGateState === 'locked' (gate mounted, no session).
+ */
+export async function expectFreePreviewWorkspace(page: Page): Promise<void> {
+  await expect(page.locator('[data-sc-study="blank"]')).toBeEnabled({ timeout: 15_000 });
+  await expect(page.locator('[data-sc-study-slot]')).toHaveAttribute('data-access-mode', 'open');
+  await expect(page.locator('body.sc-free-preview').first()).toBeAttached();
+  const editableInput = page.locator(
+    '.sc-sidebar input:not([type="hidden"]):not([type="button"]):not([type="submit"]), .wrap input:not([type="hidden"]):not([type="button"]):not([type="submit"])'
+  );
+  await expect(editableInput.first()).toBeEditable({ timeout: 15_000 });
+}
+
 export async function expectFreeToolSurface(page: Page, toolId: string): Promise<void> {
   // Free AEO strip may sit inside .sc-header which CSS-hides under body.has-site-header.
   // Contract: marker exists in DOM, no credit gate, free copy present.

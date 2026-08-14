@@ -14,6 +14,7 @@ import { isCreditRequired } from './domain/packages.js';
 import { mountProfessionalGate, type ProfessionalGate } from './professional-ui.js';
 import { mountToolAccessBar } from './access-bar.js';
 import { mountSessionActivationFeedback } from './session-activation-feedback.js';
+import { freeResultPreviewEnabled } from './free-preview.js';
 
 declare global {
   interface Window {
@@ -169,13 +170,23 @@ function restoreDemoValues(): void {
 /**
  * Locked Tier-A state: keep demo results visible, block custom work.
  * Do NOT wipe outputs to "Locked" — that destroys the demo teaser.
+ *
+ * Free result preview (ENABLE_FREE_RESULT_PREVIEW): the numeric layer stays
+ * open (fields editable, calculation allowed) while the report layer — sealed
+ * PDF, A1-A5 audit trail, save/share — remains behind the credit gate.
  */
 function applyLockedDemoState(): void {
+  if (freeResultPreviewEnabled()) {
+    document.body.classList.add('sc-free-preview');
+    notifyStudy('open');
+    return;
+  }
   lockFields();
   notifyStudy('locked');
 }
 
 function applyUnlockedState(): void {
+  document.body.classList.remove('sc-free-preview');
   unlockFields();
   notifyStudy('open');
 }
@@ -188,8 +199,10 @@ function wrapFn(name: 'calculate' | 'compute' | 'validateAndCalc', gate: Profess
   const fn = window[name];
   if (typeof fn !== 'function' || WRAPPED.has(fn)) return;
   const original = fn.bind(window);
+  const preview = freeResultPreviewEnabled();
   const gated = function gatedCalc(this: unknown, ...args: unknown[]) {
     if (window.__scDemoCalcPass) return original(...args);
+    if (preview) return original(...args);
     if (!gate.isEntitled()) {
       denyCustomCalc(gate);
       return undefined;
@@ -205,10 +218,11 @@ function installCalcButtonGuard(gate: ProfessionalGate): void {
   const btn = document.getElementById('calcBtn');
   if (!btn || btn.dataset.scGateBound === '1') return;
   btn.dataset.scGateBound = '1';
+  const preview = freeResultPreviewEnabled();
   btn.addEventListener(
     'click',
     (ev) => {
-      if (window.__scDemoCalcPass || gate.isEntitled()) return;
+      if (preview || window.__scDemoCalcPass || gate.isEntitled()) return;
       ev.preventDefault();
       ev.stopImmediatePropagation();
       denyCustomCalc(gate);
@@ -221,10 +235,11 @@ function installCalcButtonGuard(gate: ProfessionalGate): void {
 function installResetGuard(gate: ProfessionalGate): void {
   if (document.documentElement.dataset.scResetGuard === '1') return;
   document.documentElement.dataset.scResetGuard = '1';
+  const preview = freeResultPreviewEnabled();
   document.addEventListener(
     'click',
     (ev) => {
-      if (gate.isEntitled() || window.__scDemoCalcPass) return;
+      if (preview || gate.isEntitled() || window.__scDemoCalcPass) return;
       const t = ev.target as HTMLElement | null;
       if (!t || typeof t.closest !== 'function') return;
       const resetBtn = t.closest('[data-sc-study="blank"]');
@@ -240,10 +255,14 @@ function installResetGuard(gate: ProfessionalGate): void {
 /**
  * Defense-in-depth: even if readonly is stripped, force-edit reverts to demo
  * and never reaches local calculate listeners with custom values.
+ * Free result preview intentionally bypasses this guard — the numeric layer
+ * stays editable for non-entitled users.
  */
 function installFieldEditGuard(gate: ProfessionalGate): void {
   if (document.documentElement.dataset.scFieldGuard === '1') return;
   document.documentElement.dataset.scFieldGuard = '1';
+  const preview = freeResultPreviewEnabled();
+  if (preview) return;
 
   const revert = (ev: Event) => {
     if (window.__scDemoCalcPass || gate.isEntitled()) return;
@@ -262,6 +281,34 @@ function installFieldEditGuard(gate: ProfessionalGate): void {
   document.addEventListener('change', revert, true);
 }
 
+/**
+ * Report layer guard (free result preview only): PDF export, audit trail and
+ * save/share stay behind the credit gate even though numeric results are open.
+ * Non-entitled users hitting these actions are routed to the gate instead.
+ */
+function installReportLayerGuard(gate: ProfessionalGate): void {
+  if (!freeResultPreviewEnabled()) return;
+  if (document.documentElement.dataset.scReportGuard === '1') return;
+  document.documentElement.dataset.scReportGuard = '1';
+
+  document.addEventListener(
+    'click',
+    (ev) => {
+      if (window.__scDemoCalcPass || gate.isEntitled()) return;
+      const t = ev.target as HTMLElement | null;
+      if (!t || typeof t.closest !== 'function') return;
+      const reportBtn = t.closest(
+        '[data-report-export], [data-report-save], [data-report-share], [data-report-seal], .audit .panel-h button, .audit .panel-h .btn3, [data-sc-audit-action]'
+      );
+      if (!reportBtn) return;
+      ev.preventDefault();
+      ev.stopImmediatePropagation();
+      gate.requireEntitled();
+    },
+    true
+  );
+}
+
 function installIntercepts(gate: ProfessionalGate): void {
   wrapFn('calculate', gate);
   wrapFn('compute', gate);
@@ -269,6 +316,7 @@ function installIntercepts(gate: ProfessionalGate): void {
   installCalcButtonGuard(gate);
   installResetGuard(gate);
   installFieldEditGuard(gate);
+  installReportLayerGuard(gate);
   if (gate.isEntitled()) applyUnlockedState();
   else applyLockedDemoState();
 }

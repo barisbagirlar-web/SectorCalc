@@ -3,6 +3,7 @@ import {
   attachHardErrorCollector,
   catalog,
   expectDemoLockedWorkspace,
+  expectFreePreviewWorkspace,
   expectLockedGate,
   expectPageSeoBasics,
   expectToolChrome,
@@ -60,6 +61,12 @@ test.describe('Tier-A demo lock @gate @critical', () => {
     test.skip(state !== 'locked', `monetization not enforced here (state=${state})`);
 
     await expectLockedGate(page, 'SC-020');
+    const preview = await page.evaluate(() => document.body.classList.contains('sc-free-preview'));
+    if (preview) {
+      // Free result preview: numeric layer open, report layer gated.
+      await expectFreePreviewWorkspace(page);
+      return;
+    }
     await expectDemoLockedWorkspace(page);
 
     // Reset must stay disabled / no-op

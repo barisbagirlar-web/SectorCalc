@@ -12,6 +12,7 @@ import {
   FS_ENGINE_BUILD_DATE
 } from './core/fs-engine.js';
 import { readThemePalette, exportSurfaceBg, onThemeChange } from './lib/theme-palette.js';
+import { freeResultPreviewEnabled } from './billing/free-preview.js';
 
 const ENGINE_LABEL = `${FS_ENGINE_ID} (${FS_ENGINE_BUILD_DATE})`;
 const $ = (id) => document.getElementById(id);
@@ -224,7 +225,7 @@ function toSi(d) {
 }
 
 function validateAndCalc() {
-  if (window.__scProGate && !window.__scProGate.isEntitled()) {
+  if (window.__scProGate && !freeResultPreviewEnabled() && !window.__scProGate.isEntitled()) {
     if ($('liveResult')) $('liveResult').textContent = 'Locked';
     if ($('liveSub')) $('liveSub').innerHTML = '<span>Unlock with credits to calculate</span>';
     return;

@@ -1,6 +1,7 @@
 // @ts-nocheck
 import { calculate } from './tools/SC-001-weld-thickness/v1.0.0/formula.js';
 import { readThemePalette, exportSurfaceBg, onThemeChange } from './lib/theme-palette.js';
+import { freeResultPreviewEnabled } from './billing/free-preview.js';
 
 function pick(r, keys, def = 0) {
   for (const k of keys) {
@@ -78,7 +79,12 @@ function readInputs() {
 }
 
 function validateAndCalc() {
-  if (window.__scProGate && !window.__scDemoCalcPass && !window.__scProGate.isEntitled()) {
+  if (
+    window.__scProGate &&
+    !window.__scDemoCalcPass &&
+    !freeResultPreviewEnabled() &&
+    !window.__scProGate.isEntitled()
+  ) {
     if ($('liveResult')) $('liveResult').textContent = 'Locked';
     if ($('liveSub')) $('liveSub').innerHTML = '<span>Unlock with credits to calculate</span>';
     return;
@@ -439,7 +445,7 @@ if (window.SCStudy) {
     loadSample() {
       loadPreset('struct');
       _demoReportOpen = true;
-      generateReport();
+      if (!freeResultPreviewEnabled() || window.__scProGate?.isEntitled()) generateReport();
     },
     startBlank() {
       startBlankStudy();
@@ -453,7 +459,8 @@ try {
   window.__scDemoCalcPass = true;
   validateAndCalc();
   _demoReportOpen = !new URLSearchParams(location.search).has('s');
-  generateReport();
+  if (!freeResultPreviewEnabled() || window.__scProGate?.isEntitled()) generateReport();
+  else _demoReportOpen = false;
 } finally {
   window.__scDemoCalcPass = false;
 }

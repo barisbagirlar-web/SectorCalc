@@ -18,6 +18,7 @@ import {
   compareRevisions
 } from './lib/sc008-p4.js';
 import { readThemePalette, exportSurfaceBg, onThemeChange } from './lib/theme-palette.js';
+import { freeResultPreviewEnabled } from './billing/free-preview.js';
 
 // Sampling lives here (composed from monte-carlo.ts primitives); the MATH lives in
 // formula.ts calculate(). calculate() receives the samples, so UI/PDF/share all agree.
@@ -323,7 +324,12 @@ function validate() {
 }
 
 function compute() {
-  if (window.__scProGate && !window.__scDemoCalcPass && !window.__scProGate.isEntitled()) {
+  if (
+    window.__scProGate &&
+    !window.__scDemoCalcPass &&
+    !freeResultPreviewEnabled() &&
+    !window.__scProGate.isEntitled()
+  ) {
     if ($('liveResult')) $('liveResult').textContent = 'Locked';
     if ($('liveSub')) $('liveSub').innerHTML = '<span>Unlock with credits to calculate</span>';
     return;
@@ -981,7 +987,8 @@ try {
   window.__scDemoCalcPass = true;
   compute();
   _demoReportOpen = !new URLSearchParams(location.search).has('s');
-  generateReport();
+  if (!freeResultPreviewEnabled() || window.__scProGate?.isEntitled()) generateReport();
+  else _demoReportOpen = false;
 } finally {
   window.__scDemoCalcPass = false;
 }
@@ -992,7 +999,7 @@ if (window.SCStudy) {
     loadSample() {
       loadPreset('standard');
       _demoReportOpen = true;
-      generateReport();
+      if (!freeResultPreviewEnabled() || window.__scProGate?.isEntitled()) generateReport();
     },
     startBlank() {
       startBlankStudy();

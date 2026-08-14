@@ -1,6 +1,7 @@
 // @ts-nocheck
 import { calculate } from './tools/SC-012-quote-pricing/v1.0.0/formula.js';
 import { readThemePalette, exportSurfaceBg, onThemeChange } from './lib/theme-palette.js';
+import { freeResultPreviewEnabled } from './billing/free-preview.js';
 
 function pick(r, keys, def = 0) {
   for (const k of keys) {
@@ -136,7 +137,12 @@ function buildBreakdown(i) {
 }
 
 function validateAndCalc() {
-  if (window.__scProGate && !window.__scDemoCalcPass && !window.__scProGate.isEntitled()) {
+  if (
+    window.__scProGate &&
+    !window.__scDemoCalcPass &&
+    !freeResultPreviewEnabled() &&
+    !window.__scProGate.isEntitled()
+  ) {
     if ($('liveResult')) $('liveResult').textContent = 'Locked';
     if ($('liveSub')) $('liveSub').innerHTML = '<span>Unlock with credits to calculate</span>';
     return;
@@ -502,7 +508,7 @@ if (window.SCStudy) {
       // Route the verified demo inputs through the SAME report pipeline the
       // Generate Report button uses. No duplicated formula or hardcoded output.
       _demoReportOpen = true;
-      generateReport();
+      if (!freeResultPreviewEnabled() || window.__scProGate?.isEntitled()) generateReport();
     },
     startBlank() {
       _demoReportOpen = false;
@@ -519,7 +525,8 @@ try {
   window.__scDemoCalcPass = true;
   validateAndCalc();
   _demoReportOpen = !new URLSearchParams(location.search).has('s');
-  generateReport();
+  if (!freeResultPreviewEnabled() || window.__scProGate?.isEntitled()) generateReport();
+  else _demoReportOpen = false;
 } finally {
   window.__scDemoCalcPass = false;
 }

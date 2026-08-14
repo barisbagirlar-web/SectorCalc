@@ -13,6 +13,8 @@
  * - free tools and entitled sessions are unchanged.
  */
 
+import { freeResultPreviewEnabled } from './free-preview.js';
+
 type UnknownFn = (...args: unknown[]) => unknown;
 
 type DemoGate = {
@@ -189,6 +191,13 @@ function reconcile(): boolean {
 export function installDemoReportBridge(): void {
   if (installed) return;
   installed = true;
+
+  // Free result preview: the numeric layer is open but the report layer stays
+  // behind the credit gate. Auto-generating a demo report here would hand
+  // non-entitled users the sealed report for free, so the bridge stands down.
+  // The local Generate Report handlers (ensureEntitled) enforce the gate.
+  if (freeResultPreviewEnabled()) return;
+
   document.addEventListener('click', onDocumentClick, true);
 
   reconcile();

@@ -1,6 +1,7 @@
 // @ts-nocheck
 import { calculate } from './tools/SC-010-labor-cost/v1.0.0/formula.js';
 import { readThemePalette, exportSurfaceBg, onThemeChange } from './lib/theme-palette.js';
+import { freeResultPreviewEnabled } from './billing/free-preview.js';
 
 // Robust field reader: tries several likely result keys so the page never hard-breaks
 // if formula.ts names a field differently. Falls back to def (no ERR, no crash).
@@ -116,7 +117,12 @@ function buildBreakdown(input, gross) {
 }
 
 function validateAndCalc() {
-  if (window.__scProGate && !window.__scDemoCalcPass && !window.__scProGate.isEntitled()) {
+  if (
+    window.__scProGate &&
+    !window.__scDemoCalcPass &&
+    !freeResultPreviewEnabled() &&
+    !window.__scProGate.isEntitled()
+  ) {
     if ($('liveResult')) $('liveResult').textContent = 'Locked';
     if ($('liveSub')) $('liveSub').innerHTML = '<span>Unlock with credits to calculate</span>';
     return;
@@ -525,7 +531,8 @@ try {
   window.__scDemoCalcPass = true;
   validateAndCalc();
   _demoReportOpen = !new URLSearchParams(location.search).has('s');
-  generateReport();
+  if (!freeResultPreviewEnabled() || window.__scProGate?.isEntitled()) generateReport();
+  else _demoReportOpen = false;
 } catch (e) {
   console.error(e);
 } finally {
@@ -545,7 +552,7 @@ if (window.SCStudy) {
     loadSample() {
       loadPreset('small');
       _demoReportOpen = true;
-      generateReport();
+      if (!freeResultPreviewEnabled() || window.__scProGate?.isEntitled()) generateReport();
     },
     startBlank() {
       startBlankStudy();

@@ -46,8 +46,8 @@ test.describe('SC-012 form visibility mandate @gate @critical', () => {
 
     expect(probe.layout).toBe(true);
     expect(probe.sidebar).toBe(true);
-    expect(probe.materialCost).toEqual({ visible: true, readonly: true });
-    expect(probe.quantity).toEqual({ visible: true, readonly: true });
+    expect(probe.materialCost).toEqual({ visible: true, readonly: false });
+    expect(probe.quantity).toEqual({ visible: true, readonly: false });
     expect(probe.genReport).toBe(true);
     expect(probe.gate).toBe(true);
     expect(probe.gateText).toContain('Sign in to unlock');
