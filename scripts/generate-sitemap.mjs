@@ -36,10 +36,17 @@ if (pages.length < shrinkFloor) {
 
 const entries = [];
 const seen = new Set();
+const lastmodMap = JSON.parse(readFileSync(join(ROOT, 'seo/lastmod-map.json'), 'utf8'));
 for (const page of pages) {
   if (!isRobotsAllowed(robots, 'Googlebot', page.canonicalPath)) {
     console.error(`[FAIL] ROBOTS_SITEMAP_CONFLICT: ${page.canonicalPath}`);
     process.exit(1);
+  }
+  // Deterministic lastmod from the committed git-history map: same sitemap on
+  // every runner (deploy checks out with shallow history, so git log cannot be
+  // re-derived in CI). Pages without an entry get no lastmod.
+  if (page.sourceFile && lastmodMap[page.sourceFile]) {
+    page.lastSignificantChangeAt = lastmodMap[page.sourceFile];
   }
   const entry = canonicalEntry(page, HOST, new Date());
   if (seen.has(entry.loc)) {
@@ -68,4 +75,4 @@ if (artifacts.index) writeFileSync(join(PUBLIC, artifacts.index.name), artifacts
 const outputCount = artifacts.files.reduce((sum, file) => sum + file.count, 0);
 console.log(`[OK] sitemap artifacts written: urls=${outputCount} chunks=${artifacts.files.length} index=${Boolean(artifacts.index)}`);
 console.log(`[OK] policy config: maxShrinkPct=${SITEMAP_POLICY.maxShrinkPct} maxUrls=${SITEMAP_POLICY.maxUrls} maxBytes=${SITEMAP_POLICY.maxBytes}`);
-console.log('[OK] priority/changefreq omitted; unreliable URL lastmod omitted');
+console.log('[OK] priority/changefreq omitted; lastmod from committed git-history map');
