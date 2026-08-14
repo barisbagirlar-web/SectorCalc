@@ -23,6 +23,7 @@ const WWW = (process.env.HOST_PARITY_WWW || ssot.wwwHost || 'https://www.sectorc
 const PATHS = [
   '/',
   '/llms.txt',
+  '/llms-full.txt',
   '/robots.txt',
   '/sitemap.xml',
   '/calculator/tolerance-stack-up',

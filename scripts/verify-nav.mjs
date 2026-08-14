@@ -263,6 +263,7 @@ const discovery = [
   'sitemap-videos.xml',
   'llms.txt',
   'llm.txt',
+  'llms-full.txt',
   'site.webmanifest',
   '404.html',
   'assets/js/cvw-monitor.js',
