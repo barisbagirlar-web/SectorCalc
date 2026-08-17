@@ -160,11 +160,21 @@ function restoreDemoValues(): void {
     } else if (typeof window.SCStudy?.loadSample === 'function') {
       window.SCStudy.loadSample();
     }
+    const run = window.calculate || window.compute || window.validateAndCalc;
+    if (typeof run === 'function') run();
   } catch {
     /* ignore */
   } finally {
     window.__scDemoCalcPass = false;
   }
+}
+
+function installExploreSampleListener(): void {
+  if (document.documentElement.dataset.scExploreSample === '1') return;
+  document.documentElement.dataset.scExploreSample = '1';
+  window.addEventListener('sectorcalc:explore-sample', () => {
+    restoreDemoValues();
+  });
 }
 
 /**
@@ -331,6 +341,7 @@ export function bootToolCreditGate(): void {
   if (!isCreditRequired(toolId)) return;
 
   ensureBillingCss();
+  installExploreSampleListener();
   // Shared session-activation feedback: one listener for every premium tool.
   mountSessionActivationFeedback();
   const mount = ensureMount();

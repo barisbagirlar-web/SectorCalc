@@ -1,7 +1,8 @@
-# SectorCalc — robots.txt (production)
+# SectorCalc — robots.txt (generated from data/seo/ai-crawler-policy.json)
 # Canonical host: https://sectorcalc.com
-# Search/retrieval and user-directed AI fetchers may access public content.
-# Training/non-search AI-use crawlers are blocked. Private application paths remain blocked.
+# Search/retrieval crawlers may access public content.
+# Training / model-development crawlers are blocked.
+# robots.txt is not an access-control mechanism for private data.
 
 User-agent: *
 Allow: /
@@ -59,17 +60,6 @@ Disallow: /internal/
 Disallow: /assets/cache/
 
 User-agent: ChatGPT-User
-Allow: /
-Disallow: /cgi-bin/
-Disallow: /tmp/
-Disallow: /draft/
-Disallow: /staging/
-Disallow: /admin/
-Disallow: /api/
-Disallow: /internal/
-Disallow: /assets/cache/
-
-User-agent: OAI-AdsBot
 Allow: /
 Disallow: /cgi-bin/
 Disallow: /tmp/
@@ -142,46 +132,6 @@ Disallow: /
 User-agent: FacebookBot
 Disallow: /
 
-User-agent: ia_archiver
-Allow: /
-Disallow: /cgi-bin/
-Disallow: /tmp/
-Disallow: /draft/
-Disallow: /staging/
-Disallow: /admin/
-Disallow: /api/
-Disallow: /internal/
-Disallow: /assets/cache/
-
-User-agent: AhrefsBot
-Allow: /
-Disallow: /cgi-bin/
-Disallow: /tmp/
-Disallow: /draft/
-Disallow: /staging/
-Disallow: /admin/
-Disallow: /api/
-Disallow: /internal/
-Disallow: /assets/cache/
-Crawl-delay: 2
-
-User-agent: SemrushBot
-Allow: /
-Disallow: /cgi-bin/
-Disallow: /tmp/
-Disallow: /draft/
-Disallow: /staging/
-Disallow: /admin/
-Disallow: /api/
-Disallow: /internal/
-Disallow: /assets/cache/
-Crawl-delay: 2
-
 Sitemap: https://sectorcalc.com/sitemap.xml
 Sitemap: https://sectorcalc.com/sitemap-images.xml
 
-# Supplemental discovery/policy surfaces
-# https://sectorcalc.com/ai-robots.txt
-# https://sectorcalc.com/llm.txt
-# https://sectorcalc.com/llms.txt
-# https://sectorcalc.com/llms-full.txt

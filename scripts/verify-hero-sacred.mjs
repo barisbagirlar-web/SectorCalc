@@ -45,8 +45,8 @@ if (!hero.includes('Five reference instruments run open')) {
 if (!hero.includes('href="#free-calculators"')) {
   fail('CTA 1 must target #free-calculators');
 }
-if (!/href="\/pricing\.html"[^>]*>Commission decision credits/.test(hero)) {
-  fail('CTA 2 must target /pricing.html');
+if (!/href="\/pricing"[^>]*>Commission decision credits/.test(hero)) {
+  fail('CTA 2 must target /pricing');
 }
 if (!hero.includes('href="/calculator/tolerance-stack-up"')) {
   fail('live-link must target /calculator/tolerance-stack-up');

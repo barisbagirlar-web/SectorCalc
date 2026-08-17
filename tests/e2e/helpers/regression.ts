@@ -117,7 +117,7 @@ export async function expectLockedGate(page: Page, toolId: string): Promise<void
   await expect(page.locator('#sc-pro-gate-root .sc-pro-gate')).toBeVisible({ timeout: 15_000 });
   await expect(page.locator('.sc-pro-gate-kicker')).toContainText(toolId);
   await expect(page.locator('[data-confirm-pro]')).toBeVisible();
-  await expect(page.locator('.sc-pro-gate a[href="/pricing.html"]')).toBeVisible();
+  await expect(page.locator('.sc-pro-gate a[href="/pricing"]')).toBeVisible();
   await expect(page.locator('.sc-pro-gate-title')).toContainText(/CREDITS/i);
 }
 

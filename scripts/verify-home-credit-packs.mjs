@@ -75,8 +75,8 @@ for (const p of PACKAGES) {
   ) {
     fail(`homepage pack ${p.key} missing price ${p.price}`);
   }
-  if (!section.includes(`/pricing.html#${p.key}`)) {
-    fail(`homepage pack ${p.key} must deep-link to /pricing.html#${p.key}`);
+  if (!section.includes(`/pricing#${p.key}`)) {
+    fail(`homepage pack ${p.key} must deep-link to /pricing#${p.key}`);
   }
 }
 

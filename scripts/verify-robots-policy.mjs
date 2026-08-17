@@ -7,7 +7,7 @@ const robots = readFileSync('public/robots.txt', 'utf8');
 const errors = [];
 const fail = (message) => errors.push(message);
 
-const publicPaths = ['/', '/tools.html', '/calculator/bearing-life-l10', '/topics/maintenance-reliability'];
+const publicPaths = ['/', '/tools', '/calculator/bearing-life-l10', '/guides'];
 const privatePaths = ['/cgi-bin/', '/tmp/', '/draft/', '/staging/', '/admin/', '/api/', '/internal/', '/assets/cache/'];
 
 for (const bot of requiredPublicBots()) {

@@ -3,6 +3,149 @@
   "host": "https://sectorcalc.com",
   "pages": [
     {
+      "id": "trust",
+      "sourceFile": "public/trust/index.html",
+      "canonicalPath": "/trust",
+      "legacyPaths": [],
+      "role": "legal",
+      "locale": "en",
+      "publicationStatus": "published",
+      "indexDirective": "index,follow",
+      "sitemapEligible": true,
+      "llmEligible": true,
+      "title": "Trust — SectorCalc",
+      "description": "SectorCalc trust center: operator identity, security, privacy, terms, refunds, status and evidence policy.",
+      "h1": "Trust",
+      "primaryIntent": "sectorcalc trust center",
+      "queryCluster": "trust-hub",
+      "primaryEntity": "trust",
+      "topicalCluster": "site",
+      "revenueTier": "C",
+      "conversionEvent": null,
+      "parentHub": "/",
+      "relatedRoutes": [
+        "/about",
+        "/security",
+        "/privacy",
+        "/terms",
+        "/refund",
+        "/status",
+        "/case-studies",
+        "/contact"
+      ],
+      "contentSources": [
+        "/trust"
+      ],
+      "schemaTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "imageAssets": [],
+      "quality": {
+        "formulaVerified": true,
+        "contentReviewed": true,
+        "canonicalVerified": true,
+        "sourceVerified": true,
+        "languageVerified": true,
+        "demoVerified": true,
+        "noPlaceholder": true,
+        "noRegenerationPending": true,
+        "calculatorWorks": true
+      }
+    },
+    {
+      "id": "account",
+      "sourceFile": "account.html",
+      "canonicalPath": "/account",
+      "legacyPaths": [
+        "/account.html"
+      ],
+      "role": "account",
+      "locale": "en",
+      "publicationStatus": "published",
+      "indexDirective": "noindex,follow",
+      "sitemapEligible": false,
+      "llmEligible": false,
+      "title": "Account — SectorCalc",
+      "description": "SectorCalc account, wallet and session management.",
+      "h1": "Account",
+      "primaryIntent": "sectorcalc account",
+      "queryCluster": "account",
+      "primaryEntity": "account",
+      "topicalCluster": "site",
+      "revenueTier": "A",
+      "conversionEvent": "wallet_view",
+      "parentHub": "/",
+      "relatedRoutes": [
+        "/pricing",
+        "/login"
+      ],
+      "contentSources": [
+        "/account"
+      ],
+      "schemaTypes": [
+        "WebPage"
+      ],
+      "imageAssets": [],
+      "quality": {
+        "formulaVerified": true,
+        "contentReviewed": true,
+        "canonicalVerified": true,
+        "sourceVerified": true,
+        "languageVerified": true,
+        "demoVerified": true,
+        "noPlaceholder": true,
+        "noRegenerationPending": true,
+        "calculatorWorks": true
+      }
+    },
+    {
+      "id": "login",
+      "sourceFile": "login.html",
+      "canonicalPath": "/login",
+      "legacyPaths": [
+        "/login.html"
+      ],
+      "role": "account",
+      "locale": "en",
+      "publicationStatus": "published",
+      "indexDirective": "noindex,follow",
+      "sitemapEligible": false,
+      "llmEligible": false,
+      "title": "Sign in — SectorCalc",
+      "description": "Sign in to SectorCalc to unlock credit-backed calculation sessions.",
+      "h1": "Sign in",
+      "primaryIntent": "sectorcalc login",
+      "queryCluster": "login",
+      "primaryEntity": "login",
+      "topicalCluster": "site",
+      "revenueTier": "A",
+      "conversionEvent": "signin_started",
+      "parentHub": "/",
+      "relatedRoutes": [
+        "/account",
+        "/pricing"
+      ],
+      "contentSources": [
+        "/login"
+      ],
+      "schemaTypes": [
+        "WebPage"
+      ],
+      "imageAssets": [],
+      "quality": {
+        "formulaVerified": true,
+        "contentReviewed": true,
+        "canonicalVerified": true,
+        "sourceVerified": true,
+        "languageVerified": true,
+        "demoVerified": true,
+        "noPlaceholder": true,
+        "noRegenerationPending": true,
+        "calculatorWorks": true
+      }
+    },
+    {
       "id": "home",
       "sourceFile": "index.html",
       "canonicalPath": "/",
@@ -24,8 +167,13 @@
       "conversionEvent": null,
       "parentHub": "/",
       "relatedRoutes": [],
-      "contentSources": ["/"],
-      "schemaTypes": ["WebPage", "BreadcrumbList"],
+      "contentSources": [
+        "/"
+      ],
+      "schemaTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -42,8 +190,10 @@
     {
       "id": "tools-html",
       "sourceFile": "tools.html",
-      "canonicalPath": "/tools.html",
-      "legacyPaths": [],
+      "canonicalPath": "/tools",
+      "legacyPaths": [
+        "/tools"
+      ],
       "role": "hub",
       "locale": "en",
       "publicationStatus": "published",
@@ -61,8 +211,13 @@
       "conversionEvent": null,
       "parentHub": "/",
       "relatedRoutes": [],
-      "contentSources": ["/tools.html"],
-      "schemaTypes": ["WebPage", "BreadcrumbList"],
+      "contentSources": [
+        "/tools"
+      ],
+      "schemaTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -80,13 +235,16 @@
       "id": "pro-html",
       "sourceFile": "pro.html",
       "canonicalPath": "/pro.html",
-      "legacyPaths": [],
+      "legacyPaths": [
+        "/pro",
+        "/pro.html"
+      ],
       "role": "pro",
       "locale": "en",
-      "publicationStatus": "published",
-      "indexDirective": "index,follow",
-      "sitemapEligible": true,
-      "llmEligible": true,
+      "publicationStatus": "redirect",
+      "indexDirective": "noindex,follow",
+      "sitemapEligible": false,
+      "llmEligible": false,
       "title": "SectorCalc Pro",
       "description": "SectorCalc Pro industrial calculator suite with audit exports and deterministic engines.",
       "h1": "SectorCalc Pro",
@@ -98,8 +256,13 @@
       "conversionEvent": null,
       "parentHub": "/",
       "relatedRoutes": [],
-      "contentSources": ["/pro.html"],
-      "schemaTypes": ["WebPage", "BreadcrumbList"],
+      "contentSources": [
+        "/pro.html"
+      ],
+      "schemaTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -116,7 +279,7 @@
     {
       "id": "pricing-html",
       "sourceFile": "pricing.html",
-      "canonicalPath": "/pricing.html",
+      "canonicalPath": "/pricing",
       "legacyPaths": [],
       "role": "pricing",
       "locale": "en",
@@ -124,9 +287,9 @@
       "indexDirective": "index,follow",
       "sitemapEligible": true,
       "llmEligible": true,
-      "title": "Pricing — SectorCalc",
+      "title": "Engineering Calculation Credits — No Subscription | SectorCalc",
       "description": "One-time SectorCalc credit packs — no subscription. Starter 20, Workshop 100, Professional 300, Team Wallet 1000. Paddle checkout; credits unlock 24-hour Professional Analysis sessions.",
-      "h1": "Pricing",
+      "h1": "Engineering Calculation Credits — No Subscription",
       "primaryIntent": "sectorcalc pricing",
       "queryCluster": "pricing",
       "primaryEntity": "pricing.html",
@@ -135,8 +298,13 @@
       "conversionEvent": null,
       "parentHub": "/",
       "relatedRoutes": [],
-      "contentSources": ["/pricing.html"],
-      "schemaTypes": ["WebPage", "BreadcrumbList"],
+      "contentSources": [
+        "/pricing"
+      ],
+      "schemaTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -155,7 +323,9 @@
       "sourceFile": "bearing-freq-pro.html",
       "sourceSlug": "bearing-freq-pro",
       "canonicalPath": "/calculator/bearing-frequencies",
-      "legacyPaths": ["/bearing-freq-pro.html"],
+      "legacyPaths": [
+        "/bearing-freq-pro.html"
+      ],
       "role": "calculator",
       "locale": "en",
       "publicationStatus": "published",
@@ -179,14 +349,20 @@
       "engineId": "industrial-bearing-freq",
       "engineVersion": "1.0.0",
       "standardBasis": [],
-      "parentHub": "/tools.html",
+      "parentHub": "/tools",
       "relatedRoutes": [
         "/calculator/bearing-life-l10",
         "/calculator/belt-chain-drive",
         "/calculator/shaft-design"
       ],
-      "contentSources": ["/calculator/bearing-frequencies"],
-      "schemaTypes": ["SoftwareApplication", "Dataset", "BreadcrumbList"],
+      "contentSources": [
+        "/calculator/bearing-frequencies"
+      ],
+      "schemaTypes": [
+        "SoftwareApplication",
+        "Dataset",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -205,7 +381,9 @@
       "sourceFile": "bearing-pro.html",
       "sourceSlug": "bearing-pro",
       "canonicalPath": "/calculator/bearing-life-l10",
-      "legacyPaths": ["/bearing-pro.html"],
+      "legacyPaths": [
+        "/bearing-pro.html"
+      ],
       "role": "calculator",
       "locale": "en",
       "publicationStatus": "published",
@@ -229,14 +407,20 @@
       "engineId": "industrial-bearing",
       "engineVersion": "1.0.0",
       "standardBasis": [],
-      "parentHub": "/tools.html",
+      "parentHub": "/tools",
       "relatedRoutes": [
         "/calculator/bearing-frequencies",
         "/calculator/belt-chain-drive",
         "/calculator/shaft-design"
       ],
-      "contentSources": ["/calculator/bearing-life-l10"],
-      "schemaTypes": ["SoftwareApplication", "Dataset", "BreadcrumbList"],
+      "contentSources": [
+        "/calculator/bearing-life-l10"
+      ],
+      "schemaTypes": [
+        "SoftwareApplication",
+        "Dataset",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -255,7 +439,9 @@
       "sourceFile": "belt-chain-pro.html",
       "sourceSlug": "belt-chain-pro",
       "canonicalPath": "/calculator/belt-chain-drive",
-      "legacyPaths": ["/belt-chain-pro.html"],
+      "legacyPaths": [
+        "/belt-chain-pro.html"
+      ],
       "role": "calculator",
       "locale": "en",
       "publicationStatus": "published",
@@ -279,14 +465,20 @@
       "engineId": "industrial-belt-chain",
       "engineVersion": "1.0.0",
       "standardBasis": [],
-      "parentHub": "/tools.html",
+      "parentHub": "/tools",
       "relatedRoutes": [
         "/calculator/bearing-frequencies",
         "/calculator/bearing-life-l10",
         "/calculator/shaft-design"
       ],
-      "contentSources": ["/calculator/belt-chain-drive"],
-      "schemaTypes": ["SoftwareApplication", "Dataset", "BreadcrumbList"],
+      "contentSources": [
+        "/calculator/belt-chain-drive"
+      ],
+      "schemaTypes": [
+        "SoftwareApplication",
+        "Dataset",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -305,7 +497,9 @@
       "sourceFile": "bend-pro.html",
       "sourceSlug": "bend-pro",
       "canonicalPath": "/calculator/sheet-metal-bend",
-      "legacyPaths": ["/bend-pro.html"],
+      "legacyPaths": [
+        "/bend-pro.html"
+      ],
       "role": "calculator",
       "locale": "en",
       "publicationStatus": "published",
@@ -329,10 +523,19 @@
       "engineId": "industrial-bend",
       "engineVersion": "1.0.0",
       "standardBasis": [],
-      "parentHub": "/tools.html",
-      "relatedRoutes": ["/calculator/weld-heat-input", "/calculator/weld-thickness"],
-      "contentSources": ["/calculator/sheet-metal-bend"],
-      "schemaTypes": ["SoftwareApplication", "Dataset", "BreadcrumbList"],
+      "parentHub": "/tools",
+      "relatedRoutes": [
+        "/calculator/weld-heat-input",
+        "/calculator/weld-thickness"
+      ],
+      "contentSources": [
+        "/calculator/sheet-metal-bend"
+      ],
+      "schemaTypes": [
+        "SoftwareApplication",
+        "Dataset",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -351,7 +554,9 @@
       "sourceFile": "bolt-pro.html",
       "sourceSlug": "bolt-pro",
       "canonicalPath": "/calculator/bolt-torque-preload",
-      "legacyPaths": ["/bolt-pro.html"],
+      "legacyPaths": [
+        "/bolt-pro.html"
+      ],
       "role": "calculator",
       "locale": "en",
       "publicationStatus": "published",
@@ -375,10 +580,18 @@
       "engineId": "industrial-bolt",
       "engineVersion": "1.0.0",
       "standardBasis": [],
-      "parentHub": "/tools.html",
-      "relatedRoutes": ["/calculator/bolted-joint"],
-      "contentSources": ["/calculator/bolt-torque-preload"],
-      "schemaTypes": ["SoftwareApplication", "Dataset", "BreadcrumbList"],
+      "parentHub": "/tools",
+      "relatedRoutes": [
+        "/calculator/bolted-joint"
+      ],
+      "contentSources": [
+        "/calculator/bolt-torque-preload"
+      ],
+      "schemaTypes": [
+        "SoftwareApplication",
+        "Dataset",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -397,7 +610,9 @@
       "sourceFile": "bolted-joint-pro.html",
       "sourceSlug": "bolted-joint-pro",
       "canonicalPath": "/calculator/bolted-joint",
-      "legacyPaths": ["/bolted-joint-pro.html"],
+      "legacyPaths": [
+        "/bolted-joint-pro.html"
+      ],
       "role": "calculator",
       "locale": "en",
       "publicationStatus": "published",
@@ -421,10 +636,18 @@
       "engineId": "industrial-bolted-joint",
       "engineVersion": "1.0.0",
       "standardBasis": [],
-      "parentHub": "/tools.html",
-      "relatedRoutes": ["/calculator/bolt-torque-preload"],
-      "contentSources": ["/calculator/bolted-joint"],
-      "schemaTypes": ["SoftwareApplication", "Dataset", "BreadcrumbList"],
+      "parentHub": "/tools",
+      "relatedRoutes": [
+        "/calculator/bolt-torque-preload"
+      ],
+      "contentSources": [
+        "/calculator/bolted-joint"
+      ],
+      "schemaTypes": [
+        "SoftwareApplication",
+        "Dataset",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -443,7 +666,9 @@
       "sourceFile": "cycle-cost-pro.html",
       "sourceSlug": "cycle-cost-pro",
       "canonicalPath": "/calculator/cycle-time-cost",
-      "legacyPaths": ["/cycle-cost-pro.html"],
+      "legacyPaths": [
+        "/cycle-cost-pro.html"
+      ],
       "role": "calculator",
       "locale": "en",
       "publicationStatus": "published",
@@ -467,14 +692,20 @@
       "engineId": "industrial-cycle-cost",
       "engineVersion": "1.0.0",
       "standardBasis": [],
-      "parentHub": "/tools.html",
+      "parentHub": "/tools",
       "relatedRoutes": [
         "/calculator/cnc-feeds-speeds",
         "/calculator/punching-force",
         "/calculator/tap-thread-milling"
       ],
-      "contentSources": ["/calculator/cycle-time-cost"],
-      "schemaTypes": ["SoftwareApplication", "Dataset", "BreadcrumbList"],
+      "contentSources": [
+        "/calculator/cycle-time-cost"
+      ],
+      "schemaTypes": [
+        "SoftwareApplication",
+        "Dataset",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -493,7 +724,9 @@
       "sourceFile": "fits-pro.html",
       "sourceSlug": "fits-pro",
       "canonicalPath": "/calculator/iso-286-fits",
-      "legacyPaths": ["/fits-pro.html"],
+      "legacyPaths": [
+        "/fits-pro.html"
+      ],
       "role": "calculator",
       "locale": "en",
       "publicationStatus": "published",
@@ -517,10 +750,19 @@
       "engineId": "industrial-fits",
       "engineVersion": "1.0.0",
       "standardBasis": [],
-      "parentHub": "/tools.html",
-      "relatedRoutes": ["/calculator/tolerance-stack-up", "/calculator/surface-finish"],
-      "contentSources": ["/calculator/iso-286-fits"],
-      "schemaTypes": ["SoftwareApplication", "Dataset", "BreadcrumbList"],
+      "parentHub": "/tools",
+      "relatedRoutes": [
+        "/calculator/tolerance-stack-up",
+        "/calculator/surface-finish"
+      ],
+      "contentSources": [
+        "/calculator/iso-286-fits"
+      ],
+      "schemaTypes": [
+        "SoftwareApplication",
+        "Dataset",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -539,7 +781,9 @@
       "sourceFile": "heat-input-pro.html",
       "sourceSlug": "heat-input-pro",
       "canonicalPath": "/calculator/weld-heat-input",
-      "legacyPaths": ["/heat-input-pro.html"],
+      "legacyPaths": [
+        "/heat-input-pro.html"
+      ],
       "role": "calculator",
       "locale": "en",
       "publicationStatus": "published",
@@ -563,10 +807,19 @@
       "engineId": "industrial-heat-input",
       "engineVersion": "1.0.0",
       "standardBasis": [],
-      "parentHub": "/tools.html",
-      "relatedRoutes": ["/calculator/sheet-metal-bend", "/calculator/weld-thickness"],
-      "contentSources": ["/calculator/weld-heat-input"],
-      "schemaTypes": ["SoftwareApplication", "Dataset", "BreadcrumbList"],
+      "parentHub": "/tools",
+      "relatedRoutes": [
+        "/calculator/sheet-metal-bend",
+        "/calculator/weld-thickness"
+      ],
+      "contentSources": [
+        "/calculator/weld-heat-input"
+      ],
+      "schemaTypes": [
+        "SoftwareApplication",
+        "Dataset",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -585,7 +838,9 @@
       "sourceFile": "hydraulic-pro.html",
       "sourceSlug": "hydraulic-pro",
       "canonicalPath": "/calculator/hydraulic-cylinder",
-      "legacyPaths": ["/hydraulic-pro.html"],
+      "legacyPaths": [
+        "/hydraulic-pro.html"
+      ],
       "role": "calculator",
       "locale": "en",
       "publicationStatus": "published",
@@ -609,10 +864,19 @@
       "engineId": "industrial-hydraulic",
       "engineVersion": "1.0.0",
       "standardBasis": [],
-      "parentHub": "/tools.html",
-      "relatedRoutes": ["/calculator/pipe-wall-thickness", "/calculator/pressure-vessel-shell"],
-      "contentSources": ["/calculator/hydraulic-cylinder"],
-      "schemaTypes": ["SoftwareApplication", "Dataset", "BreadcrumbList"],
+      "parentHub": "/tools",
+      "relatedRoutes": [
+        "/calculator/pipe-wall-thickness",
+        "/calculator/pressure-vessel-shell"
+      ],
+      "contentSources": [
+        "/calculator/hydraulic-cylinder"
+      ],
+      "schemaTypes": [
+        "SoftwareApplication",
+        "Dataset",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -631,7 +895,9 @@
       "sourceFile": "labor-pro.html",
       "sourceSlug": "labor-pro",
       "canonicalPath": "/calculator/true-labor-cost",
-      "legacyPaths": ["/labor-pro.html"],
+      "legacyPaths": [
+        "/labor-pro.html"
+      ],
       "role": "calculator",
       "locale": "en",
       "publicationStatus": "published",
@@ -655,14 +921,20 @@
       "engineId": "industrial-labor",
       "engineVersion": "1.0.0",
       "standardBasis": [],
-      "parentHub": "/tools.html",
+      "parentHub": "/tools",
       "relatedRoutes": [
         "/calculator/machine-hour-rate",
         "/calculator/oee-teep",
         "/calculator/quote-pricing"
       ],
-      "contentSources": ["/calculator/true-labor-cost"],
-      "schemaTypes": ["SoftwareApplication", "Dataset", "BreadcrumbList"],
+      "contentSources": [
+        "/calculator/true-labor-cost"
+      ],
+      "schemaTypes": [
+        "SoftwareApplication",
+        "Dataset",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -681,7 +953,9 @@
       "sourceFile": "machine-rate-pro.html",
       "sourceSlug": "machine-rate-pro",
       "canonicalPath": "/calculator/machine-hour-rate",
-      "legacyPaths": ["/machine-rate-pro.html"],
+      "legacyPaths": [
+        "/machine-rate-pro.html"
+      ],
       "role": "calculator",
       "locale": "en",
       "publicationStatus": "published",
@@ -705,14 +979,20 @@
       "engineId": "industrial-machine-rate",
       "engineVersion": "1.0.0",
       "standardBasis": [],
-      "parentHub": "/tools.html",
+      "parentHub": "/tools",
       "relatedRoutes": [
         "/calculator/true-labor-cost",
         "/calculator/oee-teep",
         "/calculator/quote-pricing"
       ],
-      "contentSources": ["/calculator/machine-hour-rate"],
-      "schemaTypes": ["SoftwareApplication", "Dataset", "BreadcrumbList"],
+      "contentSources": [
+        "/calculator/machine-hour-rate"
+      ],
+      "schemaTypes": [
+        "SoftwareApplication",
+        "Dataset",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -731,7 +1011,9 @@
       "sourceFile": "machining-pro.html",
       "sourceSlug": "machining-pro",
       "canonicalPath": "/calculator/cnc-feeds-speeds",
-      "legacyPaths": ["/machining-pro.html"],
+      "legacyPaths": [
+        "/machining-pro.html"
+      ],
       "role": "calculator",
       "locale": "en",
       "publicationStatus": "published",
@@ -755,14 +1037,20 @@
       "engineId": "industrial-machining",
       "engineVersion": "2.1.0",
       "standardBasis": [],
-      "parentHub": "/tools.html",
+      "parentHub": "/tools",
       "relatedRoutes": [
         "/calculator/cycle-time-cost",
         "/calculator/punching-force",
         "/calculator/tap-thread-milling"
       ],
-      "contentSources": ["/calculator/cnc-feeds-speeds"],
-      "schemaTypes": ["SoftwareApplication", "Dataset", "BreadcrumbList"],
+      "contentSources": [
+        "/calculator/cnc-feeds-speeds"
+      ],
+      "schemaTypes": [
+        "SoftwareApplication",
+        "Dataset",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -781,7 +1069,9 @@
       "sourceFile": "oee-pro.html",
       "sourceSlug": "oee-pro",
       "canonicalPath": "/calculator/oee-teep",
-      "legacyPaths": ["/oee-pro.html"],
+      "legacyPaths": [
+        "/oee-pro.html"
+      ],
       "role": "calculator",
       "locale": "en",
       "publicationStatus": "published",
@@ -805,14 +1095,20 @@
       "engineId": "industrial-oee",
       "engineVersion": "1.0.0",
       "standardBasis": [],
-      "parentHub": "/tools.html",
+      "parentHub": "/tools",
       "relatedRoutes": [
         "/calculator/true-labor-cost",
         "/calculator/machine-hour-rate",
         "/calculator/quote-pricing"
       ],
-      "contentSources": ["/calculator/oee-teep"],
-      "schemaTypes": ["SoftwareApplication", "Dataset", "BreadcrumbList"],
+      "contentSources": [
+        "/calculator/oee-teep"
+      ],
+      "schemaTypes": [
+        "SoftwareApplication",
+        "Dataset",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -831,7 +1127,9 @@
       "sourceFile": "pipe-wall-pro.html",
       "sourceSlug": "pipe-wall-pro",
       "canonicalPath": "/calculator/pipe-wall-thickness",
-      "legacyPaths": ["/pipe-wall-pro.html"],
+      "legacyPaths": [
+        "/pipe-wall-pro.html"
+      ],
       "role": "calculator",
       "locale": "en",
       "publicationStatus": "published",
@@ -855,10 +1153,19 @@
       "engineId": "industrial-pipe-wall",
       "engineVersion": "1.0.0",
       "standardBasis": [],
-      "parentHub": "/tools.html",
-      "relatedRoutes": ["/calculator/hydraulic-cylinder", "/calculator/pressure-vessel-shell"],
-      "contentSources": ["/calculator/pipe-wall-thickness"],
-      "schemaTypes": ["SoftwareApplication", "Dataset", "BreadcrumbList"],
+      "parentHub": "/tools",
+      "relatedRoutes": [
+        "/calculator/hydraulic-cylinder",
+        "/calculator/pressure-vessel-shell"
+      ],
+      "contentSources": [
+        "/calculator/pipe-wall-thickness"
+      ],
+      "schemaTypes": [
+        "SoftwareApplication",
+        "Dataset",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -877,7 +1184,9 @@
       "sourceFile": "pressure-vessel-pro.html",
       "sourceSlug": "pressure-vessel-pro",
       "canonicalPath": "/calculator/pressure-vessel-shell",
-      "legacyPaths": ["/pressure-vessel-pro.html"],
+      "legacyPaths": [
+        "/pressure-vessel-pro.html"
+      ],
       "role": "calculator",
       "locale": "en",
       "publicationStatus": "published",
@@ -901,10 +1210,19 @@
       "engineId": "industrial-pressure-vessel",
       "engineVersion": "1.0.0",
       "standardBasis": [],
-      "parentHub": "/tools.html",
-      "relatedRoutes": ["/calculator/hydraulic-cylinder", "/calculator/pipe-wall-thickness"],
-      "contentSources": ["/calculator/pressure-vessel-shell"],
-      "schemaTypes": ["SoftwareApplication", "Dataset", "BreadcrumbList"],
+      "parentHub": "/tools",
+      "relatedRoutes": [
+        "/calculator/hydraulic-cylinder",
+        "/calculator/pipe-wall-thickness"
+      ],
+      "contentSources": [
+        "/calculator/pressure-vessel-shell"
+      ],
+      "schemaTypes": [
+        "SoftwareApplication",
+        "Dataset",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -923,7 +1241,9 @@
       "sourceFile": "punching-pro.html",
       "sourceSlug": "punching-pro",
       "canonicalPath": "/calculator/punching-force",
-      "legacyPaths": ["/punching-pro.html"],
+      "legacyPaths": [
+        "/punching-pro.html"
+      ],
       "role": "calculator",
       "locale": "en",
       "publicationStatus": "published",
@@ -947,14 +1267,20 @@
       "engineId": "industrial-punching",
       "engineVersion": "1.0.0",
       "standardBasis": [],
-      "parentHub": "/tools.html",
+      "parentHub": "/tools",
       "relatedRoutes": [
         "/calculator/cycle-time-cost",
         "/calculator/cnc-feeds-speeds",
         "/calculator/tap-thread-milling"
       ],
-      "contentSources": ["/calculator/punching-force"],
-      "schemaTypes": ["SoftwareApplication", "Dataset", "BreadcrumbList"],
+      "contentSources": [
+        "/calculator/punching-force"
+      ],
+      "schemaTypes": [
+        "SoftwareApplication",
+        "Dataset",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -973,7 +1299,9 @@
       "sourceFile": "quote-pro.html",
       "sourceSlug": "quote-pro",
       "canonicalPath": "/calculator/quote-pricing",
-      "legacyPaths": ["/quote-pro.html"],
+      "legacyPaths": [
+        "/quote-pro.html"
+      ],
       "role": "calculator",
       "locale": "en",
       "publicationStatus": "published",
@@ -997,14 +1325,20 @@
       "engineId": "industrial-quote",
       "engineVersion": "1.0.0",
       "standardBasis": [],
-      "parentHub": "/tools.html",
+      "parentHub": "/tools",
       "relatedRoutes": [
         "/calculator/true-labor-cost",
         "/calculator/machine-hour-rate",
         "/calculator/oee-teep"
       ],
-      "contentSources": ["/calculator/quote-pricing"],
-      "schemaTypes": ["SoftwareApplication", "Dataset", "BreadcrumbList"],
+      "contentSources": [
+        "/calculator/quote-pricing"
+      ],
+      "schemaTypes": [
+        "SoftwareApplication",
+        "Dataset",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -1023,7 +1357,9 @@
       "sourceFile": "sc008-pro.html",
       "sourceSlug": "sc008-pro",
       "canonicalPath": "/calculator/tolerance-stack-up",
-      "legacyPaths": ["/sc008-pro.html"],
+      "legacyPaths": [
+        "/sc008-pro.html"
+      ],
       "role": "calculator",
       "locale": "en",
       "publicationStatus": "published",
@@ -1047,10 +1383,19 @@
       "engineId": "sc008-tolerance-stack",
       "engineVersion": "1.0.0",
       "standardBasis": [],
-      "parentHub": "/tools.html",
-      "relatedRoutes": ["/calculator/iso-286-fits", "/calculator/surface-finish"],
-      "contentSources": ["/calculator/tolerance-stack-up"],
-      "schemaTypes": ["SoftwareApplication", "Dataset", "BreadcrumbList"],
+      "parentHub": "/tools",
+      "relatedRoutes": [
+        "/calculator/iso-286-fits",
+        "/calculator/surface-finish"
+      ],
+      "contentSources": [
+        "/calculator/tolerance-stack-up"
+      ],
+      "schemaTypes": [
+        "SoftwareApplication",
+        "Dataset",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -1069,7 +1414,9 @@
       "sourceFile": "shackle-eyebolt-pro.html",
       "sourceSlug": "shackle-eyebolt-pro",
       "canonicalPath": "/calculator/shackle-eyebolt",
-      "legacyPaths": ["/shackle-eyebolt-pro.html"],
+      "legacyPaths": [
+        "/shackle-eyebolt-pro.html"
+      ],
       "role": "calculator",
       "locale": "en",
       "publicationStatus": "published",
@@ -1093,10 +1440,18 @@
       "engineId": "industrial-shackle-eyebolt",
       "engineVersion": "1.0.0",
       "standardBasis": [],
-      "parentHub": "/tools.html",
-      "relatedRoutes": ["/calculator/sling-capacity"],
-      "contentSources": ["/calculator/shackle-eyebolt"],
-      "schemaTypes": ["SoftwareApplication", "Dataset", "BreadcrumbList"],
+      "parentHub": "/tools",
+      "relatedRoutes": [
+        "/calculator/sling-capacity"
+      ],
+      "contentSources": [
+        "/calculator/shackle-eyebolt"
+      ],
+      "schemaTypes": [
+        "SoftwareApplication",
+        "Dataset",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -1115,7 +1470,9 @@
       "sourceFile": "shaft-pro.html",
       "sourceSlug": "shaft-pro",
       "canonicalPath": "/calculator/shaft-design",
-      "legacyPaths": ["/shaft-pro.html"],
+      "legacyPaths": [
+        "/shaft-pro.html"
+      ],
       "role": "calculator",
       "locale": "en",
       "publicationStatus": "published",
@@ -1139,14 +1496,20 @@
       "engineId": "industrial-shaft",
       "engineVersion": "1.0.0",
       "standardBasis": [],
-      "parentHub": "/tools.html",
+      "parentHub": "/tools",
       "relatedRoutes": [
         "/calculator/bearing-frequencies",
         "/calculator/bearing-life-l10",
         "/calculator/belt-chain-drive"
       ],
-      "contentSources": ["/calculator/shaft-design"],
-      "schemaTypes": ["SoftwareApplication", "Dataset", "BreadcrumbList"],
+      "contentSources": [
+        "/calculator/shaft-design"
+      ],
+      "schemaTypes": [
+        "SoftwareApplication",
+        "Dataset",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -1165,7 +1528,9 @@
       "sourceFile": "sling-pro.html",
       "sourceSlug": "sling-pro",
       "canonicalPath": "/calculator/sling-capacity",
-      "legacyPaths": ["/sling-pro.html"],
+      "legacyPaths": [
+        "/sling-pro.html"
+      ],
       "role": "calculator",
       "locale": "en",
       "publicationStatus": "published",
@@ -1189,10 +1554,18 @@
       "engineId": "industrial-sling",
       "engineVersion": "1.0.0",
       "standardBasis": [],
-      "parentHub": "/tools.html",
-      "relatedRoutes": ["/calculator/shackle-eyebolt"],
-      "contentSources": ["/calculator/sling-capacity"],
-      "schemaTypes": ["SoftwareApplication", "Dataset", "BreadcrumbList"],
+      "parentHub": "/tools",
+      "relatedRoutes": [
+        "/calculator/shackle-eyebolt"
+      ],
+      "contentSources": [
+        "/calculator/sling-capacity"
+      ],
+      "schemaTypes": [
+        "SoftwareApplication",
+        "Dataset",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -1211,7 +1584,9 @@
       "sourceFile": "surface-finish-pro.html",
       "sourceSlug": "surface-finish-pro",
       "canonicalPath": "/calculator/surface-finish",
-      "legacyPaths": ["/surface-finish-pro.html"],
+      "legacyPaths": [
+        "/surface-finish-pro.html"
+      ],
       "role": "calculator",
       "locale": "en",
       "publicationStatus": "published",
@@ -1235,10 +1610,19 @@
       "engineId": "industrial-surface-finish",
       "engineVersion": "1.0.0",
       "standardBasis": [],
-      "parentHub": "/tools.html",
-      "relatedRoutes": ["/calculator/iso-286-fits", "/calculator/tolerance-stack-up"],
-      "contentSources": ["/calculator/surface-finish"],
-      "schemaTypes": ["SoftwareApplication", "Dataset", "BreadcrumbList"],
+      "parentHub": "/tools",
+      "relatedRoutes": [
+        "/calculator/iso-286-fits",
+        "/calculator/tolerance-stack-up"
+      ],
+      "contentSources": [
+        "/calculator/surface-finish"
+      ],
+      "schemaTypes": [
+        "SoftwareApplication",
+        "Dataset",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -1257,7 +1641,9 @@
       "sourceFile": "tap-thread-pro.html",
       "sourceSlug": "tap-thread-pro",
       "canonicalPath": "/calculator/tap-thread-milling",
-      "legacyPaths": ["/tap-thread-pro.html"],
+      "legacyPaths": [
+        "/tap-thread-pro.html"
+      ],
       "role": "calculator",
       "locale": "en",
       "publicationStatus": "published",
@@ -1281,14 +1667,20 @@
       "engineId": "industrial-tap-thread",
       "engineVersion": "1.0.0",
       "standardBasis": [],
-      "parentHub": "/tools.html",
+      "parentHub": "/tools",
       "relatedRoutes": [
         "/calculator/cycle-time-cost",
         "/calculator/cnc-feeds-speeds",
         "/calculator/punching-force"
       ],
-      "contentSources": ["/calculator/tap-thread-milling"],
-      "schemaTypes": ["SoftwareApplication", "Dataset", "BreadcrumbList"],
+      "contentSources": [
+        "/calculator/tap-thread-milling"
+      ],
+      "schemaTypes": [
+        "SoftwareApplication",
+        "Dataset",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -1307,7 +1699,9 @@
       "sourceFile": "weld-pro.html",
       "sourceSlug": "weld-pro",
       "canonicalPath": "/calculator/weld-thickness",
-      "legacyPaths": ["/weld-pro.html"],
+      "legacyPaths": [
+        "/weld-pro.html"
+      ],
       "role": "calculator",
       "locale": "en",
       "publicationStatus": "published",
@@ -1331,10 +1725,19 @@
       "engineId": "industrial-weld",
       "engineVersion": "1.0.0",
       "standardBasis": [],
-      "parentHub": "/tools.html",
-      "relatedRoutes": ["/calculator/sheet-metal-bend", "/calculator/weld-heat-input"],
-      "contentSources": ["/calculator/weld-thickness"],
-      "schemaTypes": ["SoftwareApplication", "Dataset", "BreadcrumbList"],
+      "parentHub": "/tools",
+      "relatedRoutes": [
+        "/calculator/sheet-metal-bend",
+        "/calculator/weld-heat-input"
+      ],
+      "contentSources": [
+        "/calculator/weld-thickness"
+      ],
+      "schemaTypes": [
+        "SoftwareApplication",
+        "Dataset",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -1370,8 +1773,13 @@
       "conversionEvent": null,
       "parentHub": "/",
       "relatedRoutes": [],
-      "contentSources": ["/blog"],
-      "schemaTypes": ["WebPage", "BreadcrumbList"],
+      "contentSources": [
+        "/blog"
+      ],
+      "schemaTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -1407,8 +1815,13 @@
       "conversionEvent": null,
       "parentHub": "/blog",
       "relatedRoutes": [],
-      "contentSources": ["/blog/tolerance-stack-up-rss-vs-monte-carlo.html"],
-      "schemaTypes": ["Article", "BreadcrumbList"],
+      "contentSources": [
+        "/blog/tolerance-stack-up-rss-vs-monte-carlo.html"
+      ],
+      "schemaTypes": [
+        "Article",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -1443,9 +1856,17 @@
       "revenueTier": "C",
       "conversionEvent": null,
       "parentHub": "/blog",
-      "relatedRoutes": ["/calculator/surface-finish", "/topics/fits-and-finish"],
-      "contentSources": ["/blog/ra-vs-rz-surface-finish.html"],
-      "schemaTypes": ["Article", "BreadcrumbList"],
+      "relatedRoutes": [
+        "/calculator/surface-finish",
+        "/topics/fits-and-finish"
+      ],
+      "contentSources": [
+        "/blog/ra-vs-rz-surface-finish.html"
+      ],
+      "schemaTypes": [
+        "Article",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -1480,9 +1901,17 @@
       "revenueTier": "C",
       "conversionEvent": null,
       "parentHub": "/blog",
-      "relatedRoutes": ["/calculator/iso-286-fits", "/topics/fits-and-finish"],
-      "contentSources": ["/blog/iso-286-h7-g6-explained.html"],
-      "schemaTypes": ["Article", "BreadcrumbList"],
+      "relatedRoutes": [
+        "/calculator/iso-286-fits",
+        "/topics/fits-and-finish"
+      ],
+      "contentSources": [
+        "/blog/iso-286-h7-g6-explained.html"
+      ],
+      "schemaTypes": [
+        "Article",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -1521,10 +1950,15 @@
         "/topics/fits-and-finish",
         "/topics/sheet-metal-fabrication",
         "/#free-calculators",
-        "/tools.html"
+        "/tools"
       ],
-      "contentSources": ["/topics"],
-      "schemaTypes": ["CollectionPage", "BreadcrumbList"],
+      "contentSources": [
+        "/topics"
+      ],
+      "schemaTypes": [
+        "CollectionPage",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -1558,14 +1992,19 @@
       "topicalCluster": "tolerance-metrology",
       "revenueTier": "C",
       "conversionEvent": null,
-      "parentHub": "/tools.html",
+      "parentHub": "/tools",
       "relatedRoutes": [
         "/calculator/iso-286-fits",
         "/calculator/surface-finish",
         "/#free-calculators"
       ],
-      "contentSources": ["/topics/fits-and-finish"],
-      "schemaTypes": ["CollectionPage", "BreadcrumbList"],
+      "contentSources": [
+        "/topics/fits-and-finish"
+      ],
+      "schemaTypes": [
+        "CollectionPage",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -1599,14 +2038,19 @@
       "topicalCluster": "fabrication",
       "revenueTier": "C",
       "conversionEvent": null,
-      "parentHub": "/tools.html",
+      "parentHub": "/tools",
       "relatedRoutes": [
         "/calculator/sheet-metal-bend",
         "/calculator/punching-force",
         "/calculator/weld-thickness"
       ],
-      "contentSources": ["/topics/sheet-metal-fabrication"],
-      "schemaTypes": ["CollectionPage", "BreadcrumbList"],
+      "contentSources": [
+        "/topics/sheet-metal-fabrication"
+      ],
+      "schemaTypes": [
+        "CollectionPage",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -1644,12 +2088,18 @@
       "relatedRoutes": [
         "/guides",
         "/glossary",
-        "/tools.html",
+        "/tools",
         "/compare",
         "/resources/tolerance-stackup-audit-template"
       ],
-      "contentSources": ["/case-studies"],
-      "schemaTypes": ["CollectionPage", "FAQPage", "BreadcrumbList"],
+      "contentSources": [
+        "/case-studies"
+      ],
+      "schemaTypes": [
+        "CollectionPage",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -1676,7 +2126,7 @@
       "llmEligible": true,
       "title": "Engineering Glossary | SectorCalc",
       "description": "Industrial engineering glossary for tolerance stack-up, ISO 286 fits, CNC feeds, bearing L10, weld throat, labor burden, OEE, and manufacturing economics.",
-      "h1": "Engineering glossary built for retrieval, not filler",
+      "h1": "Industrial Engineering Glossary",
       "primaryIntent": "engineering glossary sectorcalc",
       "queryCluster": "glossary-hub",
       "primaryEntity": "glossary",
@@ -1684,9 +2134,22 @@
       "revenueTier": "C",
       "conversionEvent": null,
       "parentHub": "/",
-      "relatedRoutes": ["/guides", "/compare", "/tools.html", "/#free-calculators"],
-      "contentSources": ["/glossary"],
-      "schemaTypes": ["CollectionPage", "DefinedTermSet", "ItemList", "BreadcrumbList", "FAQPage"],
+      "relatedRoutes": [
+        "/guides",
+        "/compare",
+        "/tools",
+        "/#free-calculators"
+      ],
+      "contentSources": [
+        "/glossary"
+      ],
+      "schemaTypes": [
+        "CollectionPage",
+        "DefinedTermSet",
+        "ItemList",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -1722,8 +2185,13 @@
       "conversionEvent": null,
       "parentHub": "/glossary",
       "relatedRoutes": [],
-      "contentSources": ["/glossary/asme-b31-pipe-wall"],
-      "schemaTypes": ["WebPage", "BreadcrumbList"],
+      "contentSources": [
+        "/glossary/asme-b31-pipe-wall"
+      ],
+      "schemaTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -1759,8 +2227,13 @@
       "conversionEvent": null,
       "parentHub": "/glossary",
       "relatedRoutes": [],
-      "contentSources": ["/glossary/asme-viii-pressure-vessel"],
-      "schemaTypes": ["WebPage", "BreadcrumbList"],
+      "contentSources": [
+        "/glossary/asme-viii-pressure-vessel"
+      ],
+      "schemaTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -1796,8 +2269,13 @@
       "conversionEvent": null,
       "parentHub": "/glossary",
       "relatedRoutes": [],
-      "contentSources": ["/glossary/asme-y14-5"],
-      "schemaTypes": ["WebPage", "BreadcrumbList"],
+      "contentSources": [
+        "/glossary/asme-y14-5"
+      ],
+      "schemaTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -1833,8 +2311,13 @@
       "conversionEvent": null,
       "parentHub": "/glossary",
       "relatedRoutes": [],
-      "contentSources": ["/glossary/bearing-l10-life"],
-      "schemaTypes": ["WebPage", "BreadcrumbList"],
+      "contentSources": [
+        "/glossary/bearing-l10-life"
+      ],
+      "schemaTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -1870,8 +2353,13 @@
       "conversionEvent": null,
       "parentHub": "/glossary",
       "relatedRoutes": [],
-      "contentSources": ["/glossary/bolt-preload"],
-      "schemaTypes": ["WebPage", "BreadcrumbList"],
+      "contentSources": [
+        "/glossary/bolt-preload"
+      ],
+      "schemaTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -1907,8 +2395,13 @@
       "conversionEvent": null,
       "parentHub": "/glossary",
       "relatedRoutes": [],
-      "contentSources": ["/glossary/chip-thinning"],
-      "schemaTypes": ["WebPage", "BreadcrumbList"],
+      "contentSources": [
+        "/glossary/chip-thinning"
+      ],
+      "schemaTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -1944,8 +2437,13 @@
       "conversionEvent": null,
       "parentHub": "/glossary",
       "relatedRoutes": [],
-      "contentSources": ["/glossary/cnc-feeds-and-speeds"],
-      "schemaTypes": ["WebPage", "BreadcrumbList"],
+      "contentSources": [
+        "/glossary/cnc-feeds-and-speeds"
+      ],
+      "schemaTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -1981,8 +2479,13 @@
       "conversionEvent": null,
       "parentHub": "/glossary",
       "relatedRoutes": [],
-      "contentSources": ["/glossary/deterministic-engine"],
-      "schemaTypes": ["WebPage", "BreadcrumbList"],
+      "contentSources": [
+        "/glossary/deterministic-engine"
+      ],
+      "schemaTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -2018,8 +2521,13 @@
       "conversionEvent": null,
       "parentHub": "/glossary",
       "relatedRoutes": [],
-      "contentSources": ["/glossary/heat-input-t85"],
-      "schemaTypes": ["WebPage", "BreadcrumbList"],
+      "contentSources": [
+        "/glossary/heat-input-t85"
+      ],
+      "schemaTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -2055,8 +2563,13 @@
       "conversionEvent": null,
       "parentHub": "/glossary",
       "relatedRoutes": [],
-      "contentSources": ["/glossary/iso-281"],
-      "schemaTypes": ["WebPage", "BreadcrumbList"],
+      "contentSources": [
+        "/glossary/iso-281"
+      ],
+      "schemaTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -2092,8 +2605,13 @@
       "conversionEvent": null,
       "parentHub": "/glossary",
       "relatedRoutes": [],
-      "contentSources": ["/glossary/iso-286-fits"],
-      "schemaTypes": ["WebPage", "BreadcrumbList"],
+      "contentSources": [
+        "/glossary/iso-286-fits"
+      ],
+      "schemaTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -2129,8 +2647,13 @@
       "conversionEvent": null,
       "parentHub": "/glossary",
       "relatedRoutes": [],
-      "contentSources": ["/glossary/labor-burden-rate"],
-      "schemaTypes": ["WebPage", "BreadcrumbList"],
+      "contentSources": [
+        "/glossary/labor-burden-rate"
+      ],
+      "schemaTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -2166,8 +2689,13 @@
       "conversionEvent": null,
       "parentHub": "/glossary",
       "relatedRoutes": [],
-      "contentSources": ["/glossary/machine-hour-rate"],
-      "schemaTypes": ["WebPage", "BreadcrumbList"],
+      "contentSources": [
+        "/glossary/machine-hour-rate"
+      ],
+      "schemaTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -2203,8 +2731,13 @@
       "conversionEvent": null,
       "parentHub": "/glossary",
       "relatedRoutes": [],
-      "contentSources": ["/glossary/monte-carlo-simulation"],
-      "schemaTypes": ["WebPage", "BreadcrumbList"],
+      "contentSources": [
+        "/glossary/monte-carlo-simulation"
+      ],
+      "schemaTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -2240,8 +2773,13 @@
       "conversionEvent": null,
       "parentHub": "/glossary",
       "relatedRoutes": [],
-      "contentSources": ["/glossary/oee-overall-equipment-effectiveness"],
-      "schemaTypes": ["WebPage", "BreadcrumbList"],
+      "contentSources": [
+        "/glossary/oee-overall-equipment-effectiveness"
+      ],
+      "schemaTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -2277,8 +2815,13 @@
       "conversionEvent": null,
       "parentHub": "/glossary",
       "relatedRoutes": [],
-      "contentSources": ["/glossary/process-capability-cpk"],
-      "schemaTypes": ["WebPage", "BreadcrumbList"],
+      "contentSources": [
+        "/glossary/process-capability-cpk"
+      ],
+      "schemaTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -2314,8 +2857,13 @@
       "conversionEvent": null,
       "parentHub": "/glossary",
       "relatedRoutes": [],
-      "contentSources": ["/glossary/rss-tolerance"],
-      "schemaTypes": ["WebPage", "BreadcrumbList"],
+      "contentSources": [
+        "/glossary/rss-tolerance"
+      ],
+      "schemaTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -2351,8 +2899,13 @@
       "conversionEvent": null,
       "parentHub": "/glossary",
       "relatedRoutes": [],
-      "contentSources": ["/glossary/sheet-metal-k-factor"],
-      "schemaTypes": ["WebPage", "BreadcrumbList"],
+      "contentSources": [
+        "/glossary/sheet-metal-k-factor"
+      ],
+      "schemaTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -2388,8 +2941,13 @@
       "conversionEvent": null,
       "parentHub": "/glossary",
       "relatedRoutes": [],
-      "contentSources": ["/glossary/sling-angle-factor"],
-      "schemaTypes": ["WebPage", "BreadcrumbList"],
+      "contentSources": [
+        "/glossary/sling-angle-factor"
+      ],
+      "schemaTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -2425,8 +2983,13 @@
       "conversionEvent": null,
       "parentHub": "/glossary",
       "relatedRoutes": [],
-      "contentSources": ["/glossary/surface-finish-ra-rz"],
-      "schemaTypes": ["WebPage", "BreadcrumbList"],
+      "contentSources": [
+        "/glossary/surface-finish-ra-rz"
+      ],
+      "schemaTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -2462,8 +3025,13 @@
       "conversionEvent": null,
       "parentHub": "/glossary",
       "relatedRoutes": [],
-      "contentSources": ["/glossary/taylor-tool-life"],
-      "schemaTypes": ["WebPage", "BreadcrumbList"],
+      "contentSources": [
+        "/glossary/taylor-tool-life"
+      ],
+      "schemaTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -2499,8 +3067,13 @@
       "conversionEvent": null,
       "parentHub": "/glossary",
       "relatedRoutes": [],
-      "contentSources": ["/glossary/tolerance-stack-up"],
-      "schemaTypes": ["WebPage", "BreadcrumbList"],
+      "contentSources": [
+        "/glossary/tolerance-stack-up"
+      ],
+      "schemaTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -2536,8 +3109,13 @@
       "conversionEvent": null,
       "parentHub": "/glossary",
       "relatedRoutes": [],
-      "contentSources": ["/glossary/vdi-2230-bolted-joint"],
-      "schemaTypes": ["WebPage", "BreadcrumbList"],
+      "contentSources": [
+        "/glossary/vdi-2230-bolted-joint"
+      ],
+      "schemaTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -2573,8 +3151,13 @@
       "conversionEvent": null,
       "parentHub": "/glossary",
       "relatedRoutes": [],
-      "contentSources": ["/glossary/weld-throat"],
-      "schemaTypes": ["WebPage", "BreadcrumbList"],
+      "contentSources": [
+        "/glossary/weld-throat"
+      ],
+      "schemaTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -2610,8 +3193,13 @@
       "conversionEvent": null,
       "parentHub": "/glossary",
       "relatedRoutes": [],
-      "contentSources": ["/glossary/worst-case-analysis"],
-      "schemaTypes": ["WebPage", "BreadcrumbList"],
+      "contentSources": [
+        "/glossary/worst-case-analysis"
+      ],
+      "schemaTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -2646,9 +3234,21 @@
       "revenueTier": "C",
       "conversionEvent": null,
       "parentHub": "/",
-      "relatedRoutes": ["/glossary", "/guides", "/tools.html", "/pricing.html"],
-      "contentSources": ["/compare"],
-      "schemaTypes": ["CollectionPage", "ItemList", "BreadcrumbList", "FAQPage"],
+      "relatedRoutes": [
+        "/glossary",
+        "/guides",
+        "/tools",
+        "/pricing"
+      ],
+      "contentSources": [
+        "/compare"
+      ],
+      "schemaTypes": [
+        "CollectionPage",
+        "ItemList",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -2684,8 +3284,13 @@
       "conversionEvent": null,
       "parentHub": "/compare",
       "relatedRoutes": [],
-      "contentSources": ["/compare/sectorcalc-vs-catia"],
-      "schemaTypes": ["WebPage", "BreadcrumbList"],
+      "contentSources": [
+        "/compare/sectorcalc-vs-catia"
+      ],
+      "schemaTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -2721,8 +3326,13 @@
       "conversionEvent": null,
       "parentHub": "/compare",
       "relatedRoutes": [],
-      "contentSources": ["/compare/sectorcalc-vs-excel-tolerance"],
-      "schemaTypes": ["WebPage", "BreadcrumbList"],
+      "contentSources": [
+        "/compare/sectorcalc-vs-excel-tolerance"
+      ],
+      "schemaTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -2758,8 +3368,13 @@
       "conversionEvent": null,
       "parentHub": "/compare",
       "relatedRoutes": [],
-      "contentSources": ["/compare/sectorcalc-vs-machinist-calculator"],
-      "schemaTypes": ["WebPage", "BreadcrumbList"],
+      "contentSources": [
+        "/compare/sectorcalc-vs-machinist-calculator"
+      ],
+      "schemaTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -2795,8 +3410,13 @@
       "conversionEvent": null,
       "parentHub": "/compare",
       "relatedRoutes": [],
-      "contentSources": ["/compare/sectorcalc-vs-minitab"],
-      "schemaTypes": ["WebPage", "BreadcrumbList"],
+      "contentSources": [
+        "/compare/sectorcalc-vs-minitab"
+      ],
+      "schemaTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -2832,8 +3452,13 @@
       "conversionEvent": null,
       "parentHub": "/compare",
       "relatedRoutes": [],
-      "contentSources": ["/compare/sectorcalc-vs-solidworks"],
-      "schemaTypes": ["WebPage", "BreadcrumbList"],
+      "contentSources": [
+        "/compare/sectorcalc-vs-solidworks"
+      ],
+      "schemaTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -2858,9 +3483,9 @@
       "indexDirective": "index,follow",
       "sitemapEligible": true,
       "llmEligible": true,
-      "title": "Exclusive Engineering Guides | SectorCalc",
-      "description": "Enterprise engineering guides with money-parity answer chains for tolerance, CNC, bearings, labor, weld, ISO fits, finish, bend, and punch.",
-      "h1": "Engineering guides at money-page depth",
+      "title": "Industrial Engineering Calculation Guides | SectorCalc",
+      "description": "Method selection, calculation methodology, worked examples, model boundaries and standards context for SectorCalc industrial calculators.",
+      "h1": "Industrial Engineering Calculation Guides",
       "primaryIntent": "engineering calculator guides",
       "queryCluster": "guides-hub",
       "primaryEntity": "guides",
@@ -2868,9 +3493,21 @@
       "revenueTier": "C",
       "conversionEvent": null,
       "parentHub": "/",
-      "relatedRoutes": ["/#free-calculators", "/topics", "/glossary", "/tools.html"],
-      "contentSources": ["/guides"],
-      "schemaTypes": ["CollectionPage", "ItemList", "FAQPage", "BreadcrumbList"],
+      "relatedRoutes": [
+        "/#free-calculators",
+        "/topics",
+        "/glossary",
+        "/tools"
+      ],
+      "contentSources": [
+        "/guides"
+      ],
+      "schemaTypes": [
+        "CollectionPage",
+        "ItemList",
+        "FAQPage",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -2910,8 +3547,15 @@
         "/topics/fits-and-finish",
         "/guides/surface-finish-complete"
       ],
-      "contentSources": ["/guides/iso-286-fits-complete"],
-      "schemaTypes": ["Article", "FAQPage", "HowTo", "BreadcrumbList"],
+      "contentSources": [
+        "/guides/iso-286-fits-complete"
+      ],
+      "schemaTypes": [
+        "Article",
+        "FAQPage",
+        "HowTo",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -2951,8 +3595,15 @@
         "/topics/fits-and-finish",
         "/blog/ra-vs-rz-surface-finish.html"
       ],
-      "contentSources": ["/guides/surface-finish-complete"],
-      "schemaTypes": ["Article", "FAQPage", "HowTo", "BreadcrumbList"],
+      "contentSources": [
+        "/guides/surface-finish-complete"
+      ],
+      "schemaTypes": [
+        "Article",
+        "FAQPage",
+        "HowTo",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -2992,8 +3643,15 @@
         "/topics/sheet-metal-fabrication",
         "/guides/punching-force-complete"
       ],
-      "contentSources": ["/guides/sheet-metal-bend-complete"],
-      "schemaTypes": ["Article", "FAQPage", "HowTo", "BreadcrumbList"],
+      "contentSources": [
+        "/guides/sheet-metal-bend-complete"
+      ],
+      "schemaTypes": [
+        "Article",
+        "FAQPage",
+        "HowTo",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -3033,8 +3691,15 @@
         "/topics/sheet-metal-fabrication",
         "/guides/sheet-metal-bend-complete"
       ],
-      "contentSources": ["/guides/punching-force-complete"],
-      "schemaTypes": ["Article", "FAQPage", "HowTo", "BreadcrumbList"],
+      "contentSources": [
+        "/guides/punching-force-complete"
+      ],
+      "schemaTypes": [
+        "Article",
+        "FAQPage",
+        "HowTo",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -3070,8 +3735,13 @@
       "conversionEvent": null,
       "parentHub": "/guides",
       "relatedRoutes": [],
-      "contentSources": ["/guides/bearing-life-complete"],
-      "schemaTypes": ["Article", "BreadcrumbList"],
+      "contentSources": [
+        "/guides/bearing-life-complete"
+      ],
+      "schemaTypes": [
+        "Article",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -3107,8 +3777,13 @@
       "conversionEvent": null,
       "parentHub": "/guides",
       "relatedRoutes": [],
-      "contentSources": ["/guides/cnc-optimization-complete"],
-      "schemaTypes": ["Article", "BreadcrumbList"],
+      "contentSources": [
+        "/guides/cnc-optimization-complete"
+      ],
+      "schemaTypes": [
+        "Article",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -3144,8 +3819,13 @@
       "conversionEvent": null,
       "parentHub": "/guides",
       "relatedRoutes": [],
-      "contentSources": ["/guides/labor-costing-complete"],
-      "schemaTypes": ["Article", "BreadcrumbList"],
+      "contentSources": [
+        "/guides/labor-costing-complete"
+      ],
+      "schemaTypes": [
+        "Article",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -3181,8 +3861,13 @@
       "conversionEvent": null,
       "parentHub": "/guides",
       "relatedRoutes": [],
-      "contentSources": ["/guides/tolerance-stack-up-complete"],
-      "schemaTypes": ["Article", "BreadcrumbList"],
+      "contentSources": [
+        "/guides/tolerance-stack-up-complete"
+      ],
+      "schemaTypes": [
+        "Article",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -3218,8 +3903,13 @@
       "conversionEvent": null,
       "parentHub": "/guides",
       "relatedRoutes": [],
-      "contentSources": ["/guides/weld-sizing-complete"],
-      "schemaTypes": ["Article", "BreadcrumbList"],
+      "contentSources": [
+        "/guides/weld-sizing-complete"
+      ],
+      "schemaTypes": [
+        "Article",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -3255,8 +3945,13 @@
       "conversionEvent": null,
       "parentHub": "/",
       "relatedRoutes": [],
-      "contentSources": ["/about"],
-      "schemaTypes": ["WebPage", "BreadcrumbList"],
+      "contentSources": [
+        "/about"
+      ],
+      "schemaTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -3292,8 +3987,13 @@
       "conversionEvent": null,
       "parentHub": "/",
       "relatedRoutes": [],
-      "contentSources": ["/contact"],
-      "schemaTypes": ["WebPage", "BreadcrumbList"],
+      "contentSources": [
+        "/contact"
+      ],
+      "schemaTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -3329,8 +4029,13 @@
       "conversionEvent": null,
       "parentHub": "/",
       "relatedRoutes": [],
-      "contentSources": ["/privacy"],
-      "schemaTypes": ["WebPage", "BreadcrumbList"],
+      "contentSources": [
+        "/privacy"
+      ],
+      "schemaTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -3366,8 +4071,13 @@
       "conversionEvent": null,
       "parentHub": "/",
       "relatedRoutes": [],
-      "contentSources": ["/terms"],
-      "schemaTypes": ["WebPage", "BreadcrumbList"],
+      "contentSources": [
+        "/terms"
+      ],
+      "schemaTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -3402,9 +4112,18 @@
       "revenueTier": "C",
       "conversionEvent": null,
       "parentHub": "/",
-      "relatedRoutes": ["/about", "/privacy", "/terms"],
-      "contentSources": ["/security"],
-      "schemaTypes": ["WebPage", "BreadcrumbList"],
+      "relatedRoutes": [
+        "/about",
+        "/privacy",
+        "/terms"
+      ],
+      "contentSources": [
+        "/security"
+      ],
+      "schemaTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -3439,9 +4158,18 @@
       "revenueTier": "C",
       "conversionEvent": null,
       "parentHub": "/",
-      "relatedRoutes": ["/about", "/privacy", "/terms"],
-      "contentSources": ["/status"],
-      "schemaTypes": ["WebPage", "BreadcrumbList"],
+      "relatedRoutes": [
+        "/about",
+        "/privacy",
+        "/terms"
+      ],
+      "contentSources": [
+        "/status"
+      ],
+      "schemaTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -3476,9 +4204,18 @@
       "revenueTier": "C",
       "conversionEvent": null,
       "parentHub": "/",
-      "relatedRoutes": ["/about", "/privacy", "/terms"],
-      "contentSources": ["/refund"],
-      "schemaTypes": ["WebPage", "BreadcrumbList"],
+      "relatedRoutes": [
+        "/about",
+        "/privacy",
+        "/terms"
+      ],
+      "contentSources": [
+        "/refund"
+      ],
+      "schemaTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -3514,8 +4251,13 @@
       "conversionEvent": null,
       "parentHub": "/",
       "relatedRoutes": [],
-      "contentSources": ["/resources"],
-      "schemaTypes": ["WebPage", "BreadcrumbList"],
+      "contentSources": [
+        "/resources"
+      ],
+      "schemaTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -3551,8 +4293,13 @@
       "conversionEvent": null,
       "parentHub": "/resources",
       "relatedRoutes": [],
-      "contentSources": ["/resources/excel-to-sectorcalc-migration"],
-      "schemaTypes": ["WebPage", "BreadcrumbList"],
+      "contentSources": [
+        "/resources/excel-to-sectorcalc-migration"
+      ],
+      "schemaTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -3593,8 +4340,13 @@
         "/calculator/tolerance-stack-up",
         "/glossary/iso-286-fits"
       ],
-      "contentSources": ["/resources/iso-286-quick-reference"],
-      "schemaTypes": ["WebPage", "BreadcrumbList"],
+      "contentSources": [
+        "/resources/iso-286-quick-reference"
+      ],
+      "schemaTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -3635,8 +4387,13 @@
         "/guides/tolerance-stack-up-complete",
         "/glossary/tolerance-stack-up"
       ],
-      "contentSources": ["/resources/tolerance-stackup-audit-template"],
-      "schemaTypes": ["WebPage", "BreadcrumbList"],
+      "contentSources": [
+        "/resources/tolerance-stackup-audit-template"
+      ],
+      "schemaTypes": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
       "imageAssets": [],
       "quality": {
         "formulaVerified": true,
@@ -4008,10 +4765,10 @@
     "weld-pro.html": "/calculator/weld-thickness"
   },
   "sitemapLocs": [
+    "https://sectorcalc.com/trust",
     "https://sectorcalc.com/",
-    "https://sectorcalc.com/tools.html",
-    "https://sectorcalc.com/pro.html",
-    "https://sectorcalc.com/pricing.html",
+    "https://sectorcalc.com/tools",
+    "https://sectorcalc.com/pricing",
     "https://sectorcalc.com/calculator/bearing-frequencies",
     "https://sectorcalc.com/calculator/bearing-life-l10",
     "https://sectorcalc.com/calculator/belt-chain-drive",
@@ -4100,7 +4857,13 @@
     "https://sectorcalc.com/resources/tolerance-stackup-audit-template"
   ],
   "publishedToolCount": 25,
-  "freeToolSlugs": ["surface-finish-pro", "fits-pro", "bend-pro", "punching-pro", "weld-pro"],
+  "freeToolSlugs": [
+    "surface-finish-pro",
+    "fits-pro",
+    "bend-pro",
+    "punching-pro",
+    "weld-pro"
+  ],
   "freeTools": [
     {
       "toolId": "SC-028",

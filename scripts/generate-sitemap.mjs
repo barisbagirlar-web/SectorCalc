@@ -4,12 +4,12 @@
  * SET(SITEMAP) === SET(REGISTRY indexable && sitemapEligible && robots-allowed).
  * DO NOT EDIT generated sitemap files directly.
  */
-import { existsSync, readFileSync, readdirSync, unlinkSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, readdirSync, unlinkSync, writeFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { sitemapPages, CURRENT_INDEXABLE_BASELINE, validateRegistryInvariants, HOST } from '../seo/registry.mjs';
 import { isRobotsAllowed } from '../seo/robots-policy.mjs';
-import { buildSitemapArtifacts, canonicalEntry, DEFAULT_SITEMAP_LIMITS, renderImageUrlset } from '../seo/sitemap-engine.mjs';
+import { buildRoleSitemapArtifacts, canonicalEntry, renderImageUrlset } from '../seo/sitemap-engine.mjs';
 import { SITEMAP_POLICY, SITEMAP_RETAINED_FRACTION } from '../seo/sitemap-policy.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -62,18 +62,19 @@ if (!entries.some((e) => e.loc === `${HOST}/`)) {
   process.exit(1);
 }
 
-const artifacts = buildSitemapArtifacts(entries, HOST, DEFAULT_SITEMAP_LIMITS);
+const artifacts = buildRoleSitemapArtifacts(pages, HOST, new Date());
 
-for (const file of readdirSync(PUBLIC)) {
-  if (/^sitemap-pages-\d{3}\.xml$/.test(file) && !artifacts.files.some((x) => x.name === file)) {
-    unlinkSync(join(PUBLIC, file));
+mkdirSync(join(PUBLIC, 'sitemaps'), { recursive: true });
+for (const file of readdirSync(join(PUBLIC, 'sitemaps'))) {
+  if (file.endsWith('.xml') && !artifacts.files.some((x) => x.name === `sitemaps/${file}`)) {
+    unlinkSync(join(PUBLIC, 'sitemaps', file));
   }
 }
 for (const file of artifacts.files) writeFileSync(join(PUBLIC, file.name), file.xml);
-if (artifacts.index) writeFileSync(join(PUBLIC, artifacts.index.name), artifacts.index.xml);
+writeFileSync(join(PUBLIC, artifacts.index.name), artifacts.index.xml);
 
 const outputCount = artifacts.files.reduce((sum, file) => sum + file.count, 0);
-console.log(`[OK] sitemap artifacts written: urls=${outputCount} chunks=${artifacts.files.length} index=${Boolean(artifacts.index)}`);
+console.log(`[OK] sitemap artifacts written: urls=${outputCount} groups=${artifacts.files.length} index=true`);
 console.log(`[OK] policy config: maxShrinkPct=${SITEMAP_POLICY.maxShrinkPct} maxUrls=${SITEMAP_POLICY.maxUrls} maxBytes=${SITEMAP_POLICY.maxBytes}`);
 console.log('[OK] priority/changefreq omitted; lastmod from committed git-history map');
 
@@ -106,7 +107,7 @@ const extraImages = {
     { loc: `${HOST}/icon-512.png`, title: 'PWA icon' },
     { loc: `${HOST}/assets/images/hero-cell-poster.png`, title: 'Live Cell hero poster — CNC turning + inspect' },
   ],
-  '/tools.html': [
+  '/tools': [
     { loc: `${HOST}/assets/images/neela-nataraj.jpg`, title: 'Prof. Dr. Neela Nataraj — Academic Oversight' },
   ],
 };
@@ -129,8 +130,8 @@ for (const page of pages) {
   if (images.length) imagePages.push({ loc, images });
 }
 
-if (!imagePages.some((p) => p.loc === `${HOST}/tools.html`)) {
-  console.error('[FAIL] image sitemap missing tools.html (required parent)');
+if (!imagePages.some((p) => p.loc === `${HOST}/tools`)) {
+  console.error('[FAIL] image sitemap missing /tools (required parent)');
   process.exit(1);
 }
 

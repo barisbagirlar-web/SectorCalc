@@ -303,11 +303,11 @@ function writeIndex(dir, title, blurb, links) {
   <header class="sc-header">
     <a href="/" class="sc-logo">SectorCalc</a>
     <nav class="sc-nav">
-      <a href="/tools.html">Tools</a>
+      <a href="/tools">Tools</a>
       <a href="/glossary/">Glossary</a>
       <a href="/compare/">Compare</a>
       <a href="/guides/">Guides</a>
-      <a href="/pricing.html">Pricing</a>
+      <a href="/pricing">Pricing</a>
     </nav>
   </header>
   <main class="sc-content-page">

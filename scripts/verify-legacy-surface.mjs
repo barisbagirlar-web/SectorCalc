@@ -46,13 +46,17 @@ function scanForbidden(label, text) {
 function verifyLocal() {
   const firebase = JSON.parse(readFileSync(join(ROOT, 'firebase.json'), 'utf8'));
   const redirects = firebase.hosting?.redirects || [];
-  const toolsRedirect = redirects.find((r) => r.source === '/tools');
-  if (!toolsRedirect) fail('firebase.json missing /tools → /tools.html 301 redirect');
+  const toolsRedirect = redirects.find((r) => r.source === '/tools.html');
+  if (!toolsRedirect) fail('firebase.json missing /tools.html → /tools 301 redirect');
   else {
-    if (toolsRedirect.destination !== '/tools.html') fail(`firebase /tools destination=${toolsRedirect.destination}`);
+    if (toolsRedirect.destination !== '/tools') fail(`firebase /tools.html destination=${toolsRedirect.destination}`);
     if (Number(toolsRedirect.type) !== 301 && Number(toolsRedirect.type) !== 308) {
-      fail(`firebase /tools type=${toolsRedirect.type}; expected 301/308`);
+      fail(`firebase /tools.html type=${toolsRedirect.type}; expected 301/308`);
     }
+  }
+  const toolsRewrite = (firebase.hosting?.rewrites || []).find((r) => r.source === '/tools');
+  if (!toolsRewrite || toolsRewrite.destination !== '/tools.html') {
+    fail('firebase.json missing /tools → /tools.html rewrite');
   }
 
   // Dist must not materialize retired legacy HTML trees.

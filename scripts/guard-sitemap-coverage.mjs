@@ -3,7 +3,7 @@
  * Every built public HTML page (except quarantined) must appear in sitemap.xml.
  */
 import { readFileSync, existsSync, readdirSync, statSync } from 'node:fs';
-import { join, relative } from 'node:path';
+import { join, relative, dirname } from 'node:path';
 
 const ROOT = process.cwd();
 const DIST = join(ROOT, 'dist');
@@ -37,7 +37,21 @@ const smPath = existsSync(join(DIST, 'sitemap.xml'))
   ? join(DIST, 'sitemap.xml')
   : join(ROOT, 'public/sitemap.xml');
 const sm = readFileSync(smPath, 'utf8');
-const inSitemap = new Set([...sm.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]));
+const smBase = dirname(smPath);
+
+const inSitemap = new Set();
+if (/<sitemapindex/i.test(sm)) {
+  const childLocs = [...sm.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
+  for (const loc of childLocs) {
+    const rel = loc.replace(HOST, '').replace(/^\//, '');
+    const childPath = join(smBase, rel);
+    if (!existsSync(childPath)) continue;
+    const child = readFileSync(childPath, 'utf8');
+    for (const l of child.matchAll(/<loc>([^<]+)<\/loc>/g)) inSitemap.add(l[1]);
+  }
+} else {
+  for (const m of sm.matchAll(/<loc>([^<]+)<\/loc>/g)) inSitemap.add(m[1]);
+}
 
 const builtRoot = existsSync(DIST) ? DIST : join(ROOT, 'public');
 const built = walkHtml(builtRoot)

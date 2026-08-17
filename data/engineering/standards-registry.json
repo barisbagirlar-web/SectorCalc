@@ -1,0 +1,76 @@
+{
+  "version": 1,
+  "lastHumanReviewAt": "2026-08-17",
+  "standards": [
+    {
+      "standardId": "ISO-286",
+      "organization": "ISO",
+      "title": "ISO 286 Geometrical product specifications (GPS) — ISO code system for tolerances on linear sizes",
+      "edition": "2010",
+      "publicationYear": 2010,
+      "applicableTools": ["SC-027"],
+      "methodSections": ["limit deviations for exposed equation-backed fit families"],
+      "sourceReference": "ISO 286-1:2010 / ISO 286-2:2010",
+      "licenseOrRedistributionBasis": "reference-only; tables not republished in full",
+      "lastHumanReviewAt": "2026-08-17",
+      "supersededBy": null,
+      "status": "active"
+    },
+    {
+      "standardId": "ISO-281",
+      "organization": "ISO",
+      "title": "ISO 281 Rolling bearings — Dynamic load ratings and rating life",
+      "edition": "2007",
+      "publicationYear": 2007,
+      "applicableTools": ["SC-021"],
+      "methodSections": ["basic rating life L10"],
+      "sourceReference": "ISO 281:2007",
+      "licenseOrRedistributionBasis": "reference-only",
+      "lastHumanReviewAt": "2026-08-17",
+      "supersededBy": null,
+      "status": "active"
+    },
+    {
+      "standardId": "VDI-2230",
+      "organization": "VDI",
+      "title": "VDI 2230 Systematic calculation of highly stressed bolted joints",
+      "edition": "2015",
+      "publicationYear": 2015,
+      "applicableTools": ["SC-035", "SC-036"],
+      "methodSections": ["preload and stiffness relationships used by the engines"],
+      "sourceReference": "VDI 2230 Part 1",
+      "licenseOrRedistributionBasis": "reference-only",
+      "lastHumanReviewAt": "2026-08-17",
+      "supersededBy": null,
+      "status": "active"
+    },
+    {
+      "standardId": "ASME-VIII",
+      "organization": "ASME",
+      "title": "ASME Boiler and Pressure Vessel Code Section VIII",
+      "edition": "see tool page",
+      "publicationYear": null,
+      "applicableTools": ["SC-033"],
+      "methodSections": ["internal-pressure shell thickness relationship as implemented"],
+      "sourceReference": "ASME BPVC Section VIII",
+      "licenseOrRedistributionBasis": "reference-only; not a code stamp",
+      "lastHumanReviewAt": "2026-08-17",
+      "supersededBy": null,
+      "status": "active"
+    },
+    {
+      "standardId": "ASME-B31.3",
+      "organization": "ASME",
+      "title": "ASME B31.3 Process Piping",
+      "edition": "see tool page",
+      "publicationYear": null,
+      "applicableTools": ["SC-034"],
+      "methodSections": ["straight-pipe internal-pressure wall thickness"],
+      "sourceReference": "ASME B31.3",
+      "licenseOrRedistributionBasis": "reference-only; not a code stamp",
+      "lastHumanReviewAt": "2026-08-17",
+      "supersededBy": null,
+      "status": "active"
+    }
+  ]
+}

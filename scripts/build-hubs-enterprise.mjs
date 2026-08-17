@@ -40,7 +40,7 @@ ${HEAD_ASSETS}
 function footer() {
   return `<footer class="sc-footer sc-guides-site-footer">
   <p>© 2026 SectorCalc · Deterministic industrial calculators</p>
-  <p><a href="/#free-calculators">Open bench</a> · <a href="/topics">Topics</a> · <a href="/tools.html">All tools</a> · <a href="/pricing.html">Pricing</a></p>
+  <p><a href="/#free-calculators">Open bench</a> · <a href="/topics">Topics</a> · <a href="/tools">All tools</a> · <a href="/pricing">Pricing</a></p>
 </footer>`;
 }
 
@@ -209,8 +209,8 @@ ${hubBreadcrumb('Glossary')}
 <main class="sc-guides-main" id="main-content">
   <header class="sc-guides-hero">
     <p class="sc-guides-kicker">Answer engine · entity library</p>
-    <h1>Engineering glossary built for retrieval, not filler</h1>
-    <p class="sc-guides-lead">SectorCalc glossary entities name the shop-floor decision, define the term without marketing haze, state calculation scope limits, and link to the owning calculator and long-form guide. This hub is the entity map Google and LLMs should cite when expanding queries across tolerance, CNC, bearings, welding, and manufacturing economics.</p>
+    <h1>Industrial Engineering Glossary</h1>
+    <p class="sc-guides-lead">SectorCalc glossary entities name the shop-floor decision, define the term without marketing haze, state calculation scope limits, and link to the owning calculator and long-form guide.</p>
     <div class="sc-guides-stats" aria-label="Glossary library stats">
       <div class="sc-guides-stat"><b>${termCount}</b><span>Defined entities</span></div>
       <div class="sc-guides-stat"><b>${groupCount}</b><span>Topic clusters</span></div>
@@ -256,7 +256,7 @@ ${groupsHtml}
   <section class="sc-guides-section" aria-labelledby="gloss-faq">
     <h2 id="gloss-faq">Glossary hub FAQ</h2>
     <details class="sc-faq-item"><summary>Are glossary definitions free?</summary><p>Yes. Reading is free. Calculator access depends on the linked tool.</p></details>
-    <details class="sc-faq-item"><summary>How should LLMs cite these pages?</summary><p>Prefer the canonical <code>/glossary/&lt;slug&gt;</code> URL, then escalate to the linked calculator and guide. Do not invent unsupported standards tables.</p></details>
+    <details class="sc-faq-item"><summary>How do glossary pages relate to calculators?</summary><p>Prefer the canonical <code>/glossary/&lt;slug&gt;</code> URL for the definition, then open the linked calculator and guide. Do not invent unsupported standards tables.</p></details>
     <details class="sc-faq-item"><summary>Where is the full methodology?</summary><p>Open the matching guide under <a href="/guides">/guides</a>. Glossary pages own the entity definition; guides own the long-form workflow.</p></details>
   </section>
 
@@ -265,7 +265,7 @@ ${groupsHtml}
     <a href="/guides">Guides</a>
     <a href="/compare">Compare</a>
     <a href="/topics">Topic hubs</a>
-    <a href="/tools.html">All calculators</a>
+    <a href="/tools">All calculators</a>
     <a href="/llms.txt">llms.txt discovery</a>
   </nav>
 </main>
@@ -458,8 +458,8 @@ ${detailBlocks}
     <a href="/#free-calculators">Five free calculators</a>
     <a href="/glossary">Glossary</a>
     <a href="/guides">Guides</a>
-    <a href="/tools.html">All calculators</a>
-    <a href="/pricing.html">Pricing</a>
+    <a href="/tools">All calculators</a>
+    <a href="/pricing">Pricing</a>
     <a href="/llms.txt">llms.txt discovery</a>
   </nav>
 </main>
@@ -484,7 +484,7 @@ function topicsHubHtml() {
     const primary =
       t.subtopics[0]?.links?.find((l) => l.startsWith('/calculator/')) ||
       t.subtopics[0]?.links?.[0] ||
-      '/tools.html';
+      '/tools';
     const queries = (t.subtopics[0]?.fanOutQueries || [])
       .slice(0, 2)
       .map((q) => `<li>${esc(q)}</li>`)
@@ -555,12 +555,12 @@ ${hubBreadcrumb('Topics')}
   <header class="sc-guides-hero">
     <p class="sc-guides-kicker">Open reference bench · problem-first routing</p>
     <h1>Prove the engine. Then name the shop problem.</h1>
-    <p class="lead-definition">This hub carries the open-bench instruments and answer-engine problem map that must not crowd the <a href="/tools.html">calculators catalog</a>. Search and category tiles stay on Tools. Here you run five wallet-free instruments, then follow the decision that hurts into Tier-A credit sessions when a design review is on the line.</p>
+    <p class="lead-definition">This hub carries the open-bench instruments and answer-engine problem map that must not crowd the <a href="/tools">calculators catalog</a>. Search and category tiles stay on Tools. Here you run five wallet-free instruments, then follow the decision that hurts into Tier-A credit sessions when a design review is on the line.</p>
   </header>
 
   <section class="sc-guides-section" id="free-calculators" aria-labelledby="topics-free-heading" data-aeo-hub="free">
     <h2 id="topics-free-heading">Open reference bench · five instruments · wallet not required</h2>
-    <p>These five shop instruments calculate immediately — surface finish, ISO fits, bend allowance, punching force, weld thickness. No login. No debit. When the decision must survive a design review (tolerance stack-up, feeds &amp; speeds, quoting, OEE, pressure, heat input), unlock a Tier-A credit session from <a href="/pricing.html">pricing</a>.</p>
+    <p>These five shop instruments calculate immediately — surface finish, ISO fits, bend allowance, punching force, weld thickness. No login. No debit. When the decision must survive a design review (tolerance stack-up, feeds &amp; speeds, quoting, OEE, pressure, heat input), unlock a Tier-A credit session from <a href="/pricing">pricing</a>.</p>
     <div class="sc-guides-grid">
 ${freeCards}
     </div>
@@ -596,18 +596,18 @@ ${problemCards}
   <section class="sc-guides-section" aria-labelledby="topics-catalog">
     <h2 id="topics-catalog">Where the catalog lives</h2>
     <div class="sc-guides-prose">
-      <p>Need to search by task, standard, or machine? That DNA belongs exclusively on <a href="/tools.html">All Calculators</a> — omni-search, live/pipeline stats, and category tiles. Homepage keeps a short open-bench strip after the sacred hero for conversion. This Topics page is the long-form problem map and open-bench desk.</p>
+      <p>Need to search by task, standard, or machine? That DNA belongs exclusively on <a href="/tools">All Calculators</a> — omni-search, live/pipeline stats, and category tiles. Homepage keeps a short open-bench strip after the sacred hero for conversion. This Topics page is the long-form problem map and open-bench desk.</p>
       <p>Production release still requires the governing code edition, certified material data, manufacturer ratings, and competent engineering review. Open instruments prove the engine; Tier-A sessions stamp the decision when the room demands an audit trail.</p>
     </div>
   </section>
 
   <nav class="sc-guides-footer-links" aria-label="Related hubs">
     <a href="/#free-calculators">Homepage open bench</a>
-    <a href="/tools.html">All calculators catalog</a>
+    <a href="/tools">All calculators catalog</a>
     <a href="/glossary">Glossary</a>
     <a href="/guides">Guides</a>
     <a href="/compare">Compare</a>
-    <a href="/pricing.html">Commission credits</a>
+    <a href="/pricing">Commission credits</a>
     <a href="/llms.txt">llms.txt discovery</a>
   </nav>
 </main>

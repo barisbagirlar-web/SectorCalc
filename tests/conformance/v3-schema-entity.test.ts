@@ -25,7 +25,7 @@ describe('SEO V3 Phase 6 schema/entity', () => {
   it('blocks breadcrumb order or canonical drift', () => {
     expect(() => validateBreadcrumbOrder([
       { position: 1, item: 'https://sectorcalc.com/' },
-      { position: 3, item: 'https://sectorcalc.com/tools.html' },
+      { position: 3, item: 'https://sectorcalc.com/tools' },
     ])).toThrow(/BREADCRUMB_POSITION/);
   });
 });

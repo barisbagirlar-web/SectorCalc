@@ -111,7 +111,7 @@ for (const page of tierAMoneyCalculators()) {
 
   // Conversion path
   if (!/data-money-block="16"/.test(html)) fail(`${page.primaryEntity}: missing commercial CTA`);
-  if (!/href="\/pricing\.html"/.test(html)) fail(`${page.primaryEntity}: commercial path missing /pricing.html`);
+  if (!/href="\/pricing"/.test(html)) fail(`${page.primaryEntity}: commercial path missing /pricing`);
 
   // No legacy primary hrefs inside money contract
   const money = html.match(/<!--SC-MONEY-START-->[\s\S]*?<!--SC-MONEY-END-->/);

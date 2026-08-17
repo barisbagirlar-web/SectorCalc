@@ -57,7 +57,7 @@ const block = `${START}
       <div class="tools-grid" data-pricing-floor="free" aria-label="Open reference bench calculators">
         ${freeChips}
       </div>
-      <p class="floor-note">These five tools are free SEO-bait / shop reference instruments. Instant results — no login, no debit. They are not Tier-A decision engines.</p>
+      <p class="floor-note">These five tools are free shop reference instruments. Instant results — no login, no debit. They are not Tier-A decision engines.</p>
       <div class="section-label" style="margin-top:18px"><strong>03 · Decision tools</strong><span>CORE 3 · PRO 7 · ADVANCED 15 · 24h session before results run</span></div>
       <div class="tools-grid" data-pricing-floor="paid" aria-label="Tier-A decision calculators">
         ${paidChips}

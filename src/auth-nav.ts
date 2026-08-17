@@ -33,7 +33,7 @@ function esc(text: string): string {
 function loginAnchors(): HTMLAnchorElement[] {
   return Array.from(
     document.querySelectorAll<HTMLAnchorElement>(
-      'a[data-nav="login"], .site-header a.btn-primary[href="/login.html"], #mobileNav a.btn-primary[href="/login.html"], .site-header a.sc-nav-session, #mobileNav a.sc-nav-session'
+      'a[data-nav="login"], .site-header a.btn-primary[href="/login"], #mobileNav a.btn-primary[href="/login"], .site-header a.sc-nav-session, #mobileNav a.sc-nav-session'
     )
   );
 }
@@ -41,7 +41,7 @@ function loginAnchors(): HTMLAnchorElement[] {
 function paintSignedOut(): void {
   for (const a of loginAnchors()) {
     const inMobile = Boolean(a.closest('#mobileNav'));
-    a.href = '/login.html';
+    a.href = '/login';
     a.setAttribute('data-nav', 'login');
     a.removeAttribute('data-auth-state');
     a.setAttribute('aria-label', 'Sign in to SectorCalc');

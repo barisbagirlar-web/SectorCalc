@@ -18,7 +18,7 @@ if (!existsSync(hubPath)) fail('missing public/guides/index.html');
 else {
   const hub = readFileSync(hubPath, 'utf8');
   for (const needle of [
-    'money-page depth',
+    'Industrial Engineering Calculation Guides',
     'Editorial contract',
     'sc-guides-exclusive',
     'CollectionPage',
@@ -63,32 +63,32 @@ for (const g of GUIDE_ASSEMBLY) {
 
 const llm = readFileSync(join(ROOT, 'public/llms.txt'), 'utf8');
 const llmTwin = readFileSync(join(ROOT, 'public/llm.txt'), 'utf8');
-if (llm !== llmTwin) fail('llm.txt and llms.txt drift');
-if (!llm.includes('exclusive money-parity') && !llm.includes('exclusive methodologies')) {
-  fail('llms.txt missing exclusive guides discovery language');
-}
-if (!llm.includes('money-parity answer-engine chain')) {
-  fail('llms.txt missing money-parity answer-engine chain for guides');
-}
-if (!llm.includes('## Enterprise discovery contract')) {
-  fail('llms.txt missing Enterprise discovery contract section');
-}
-if (!llm.includes('Playwright `@critical`') && !llm.includes('Playwright @critical')) {
-  fail('llms.txt missing preview Playwright @critical promote seal language');
+if (!llmTwin.includes('/llms.txt')) fail('llm.txt must point at /llms.txt');
+if (llm === llmTwin) fail('llm.txt must not duplicate llms.txt');
+if (/SEO bait|query fan-out|money-parity|Playwright|Cloud Scheduler/i.test(llm)) {
+  fail('llms.txt contains operator/internal language');
 }
 for (const g of GUIDE_ASSEMBLY) {
   if (!llm.includes(`${HOST}/guides/${g.slug}`)) fail(`llms.txt missing guide ${g.slug}`);
   if (!llm.includes(`${HOST}${g.calculator.href}`)) fail(`llms.txt missing calculator CTA for ${g.slug}`);
 }
-if (!llm.includes(`**${locs.size}**`)) fail(`llms.txt must declare sitemap count **${locs.size}**`);
 
-const sm = readFileSync(join(ROOT, 'public/sitemap.xml'), 'utf8');
-const smLocs = [...sm.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
-if (smLocs.length !== locs.size) fail(`sitemap.xml count ${smLocs.length} != registry ${locs.size}`);
-for (const g of GUIDE_ASSEMBLY) {
-  if (!sm.includes(`<loc>${HOST}/guides/${g.slug}</loc>`)) fail(`sitemap.xml missing ${g.slug}`);
+function sitemapHas(url) {
+  const index = readFileSync(join(ROOT, 'public/sitemap.xml'), 'utf8');
+  if (index.includes(`<loc>${url}</loc>`)) return true;
+  const children = [...index.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
+  for (const child of children) {
+    const rel = child.replace('https://sectorcalc.com/', '');
+    const file = join(ROOT, 'public', rel);
+    if (!existsSync(file)) continue;
+    if (readFileSync(file, 'utf8').includes(`<loc>${url}</loc>`)) return true;
+  }
+  return false;
 }
-if (!sm.includes(`<loc>${HOST}/guides</loc>`)) fail('sitemap.xml missing /guides hub');
+for (const g of GUIDE_ASSEMBLY) {
+  if (!sitemapHas(`${HOST}/guides/${g.slug}`)) fail(`sitemap missing ${g.slug}`);
+}
+if (!sitemapHas(`${HOST}/guides`)) fail('sitemap missing /guides hub');
 
 if (errors.length) {
   console.error('[FAIL] verify-guides-exclusive\n' + errors.map((e) => `  - ${e}`).join('\n'));

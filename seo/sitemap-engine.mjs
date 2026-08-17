@@ -79,6 +79,49 @@ export function chunkEntries(entries, limits = DEFAULT_SITEMAP_LIMITS) {
   return chunks;
 }
 
+export function sitemapGroupFor(page) {
+  switch (page?.role) {
+    case 'calculator':
+      return 'calculators';
+    case 'guide':
+    case 'guide-hub':
+      return 'guides';
+    case 'glossary':
+    case 'glossary-hub':
+      return 'glossary';
+    case 'topic-hub':
+      return 'topics';
+    case 'compare':
+    case 'compare-hub':
+      return 'compare';
+    case 'resource':
+    case 'article':
+    case 'blog-hub':
+      return 'resources';
+    default:
+      return 'trust';
+  }
+}
+
+export function buildRoleSitemapArtifacts(pages, rootUrl, serverEpoch = new Date()) {
+  const groups = new Map();
+  for (const page of pages) {
+    const group = sitemapGroupFor(page);
+    if (!groups.has(group)) groups.set(group, []);
+    groups.get(group).push(canonicalEntry(page, rootUrl, serverEpoch));
+  }
+  const files = [...groups.entries()]
+    .sort((a, b) => a[0].localeCompare(b[0], 'en'))
+    .map(([name, entries]) => {
+      const xml = renderUrlset(entries);
+      return { name: `sitemaps/${name}.xml`, xml, sha256: sha256(xml), count: entries.length, group: name };
+    });
+  const indexXml = renderSitemapIndex(
+    files.map((file) => ({ loc: `${rootUrl}/${file.name.replace(/^sitemaps\//, 'sitemaps/')}`, lastmod: null })),
+  );
+  return { index: { name: 'sitemap.xml', xml: indexXml, sha256: sha256(indexXml) }, files };
+}
+
 export function buildSitemapArtifacts(entries, rootUrl, limits = DEFAULT_SITEMAP_LIMITS) {
   const unique = new Set(entries.map((e) => e.loc));
   if (unique.size !== entries.length) throw new Error('DUPLICATE_SITEMAP_URL');

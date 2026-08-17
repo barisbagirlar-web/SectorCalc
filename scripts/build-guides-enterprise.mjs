@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Exclusive guides builder — money-parity AEO + dense content/guides bodies.
+ * Exclusive guides builder — method selection, worked examples, model boundaries.
  * Fully regenerates hub + all guide pages. English-only. No fabricated ROI/reviews.
  */
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
@@ -58,7 +58,7 @@ function hubBreadcrumb(currentLabel) {
 function footer() {
   return `<footer class="sc-footer sc-guides-site-footer">
   <p>© 2026 SectorCalc · Deterministic industrial calculators · A1–A5 audit language</p>
-  <p><a href="/#free-calculators">Free tools</a> · <a href="/tools.html">All tools</a> · <a href="/topics">Topics</a> · <a href="/pricing.html">Pricing</a> · <a href="/llms.txt">llms.txt</a></p>
+  <p><a href="/#free-calculators">Free tools</a> · <a href="/tools">All tools</a> · <a href="/topics">Topics</a> · <a href="/pricing">Pricing</a> · <a href="/llms.txt">llms.txt</a></p>
 </footer>`;
 }
 
@@ -207,11 +207,11 @@ function relatedBlocks(g) {
     .join('');
   const fan = (g.fanOut || []).map((q) => `<li>${esc(q)}</li>`).join('');
   return `<section class="sc-guide-block" data-aeo-step="related-problems" id="aeo-related-problems">
-  <h2>Related entities &amp; query fan-out</h2>
+  <h2>Related entities and methods</h2>
   ${gloss ? `<h3>Glossary</h3><ul>${gloss}</ul>` : ''}
   <h3>Calculators, topics, sibling guides</h3>
   <ul>${rel}</ul>
-  <h3>Queries this guide owns in the cluster</h3>
+  <h3>Related engineering questions</h3>
   <ul class="sc-fanout">${fan}</ul>
 </section>`;
 }
@@ -385,7 +385,7 @@ function hubHtml() {
         url: `${HOST}/guides`,
         name: 'Exclusive Engineering Guides | SectorCalc',
         description:
-          'Enterprise engineering guides with money-parity AEO chains: problem, direct answer, methodology, evidence, A1–A5 accountability, and calculator CTAs.',
+          'Method selection, calculation methodology, worked examples, model boundaries and standards context for SectorCalc industrial calculators.',
         isPartOf: { '@id': `${HOST}/#website` },
         publisher: { '@id': `${HOST}/#organization` },
         inLanguage: 'en-US',
@@ -414,7 +414,7 @@ function hubHtml() {
             name: 'What makes SectorCalc guides exclusive vs thin blog posts?',
             acceptedAnswer: {
               '@type': 'Answer',
-              text: 'Each guide mirrors the Tier-A money-page contract: empathy, direct answer, decision, inputs, methodology, worked evidence when available, interpretation, sensitivity, assumptions, boundaries, mistakes, standards scope, A1–A5 accountability, and related entities — plus the deep methodology library used beside live calculators.',
+              text: 'Each guide covers the decision, inputs, methodology, worked evidence when available, interpretation, sensitivity, assumptions, boundaries, mistakes, standards scope, A1–A5 accountability, and related entities — plus the methodology library used beside live calculators.',
             },
           },
           {
@@ -443,8 +443,8 @@ function hubHtml() {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Exclusive Engineering Guides | SectorCalc</title>
-  <meta name="description" content="Enterprise engineering guides with money-parity answer chains for tolerance, CNC, bearings, labor, weld, ISO fits, finish, bend, and punch — free and credit-backed calculators.">
+  <title>Industrial Engineering Calculation Guides | SectorCalc</title>
+  <meta name="description" content="Method selection, calculation methodology, worked examples, model boundaries and standards context for SectorCalc industrial calculators.">
   <link rel="canonical" href="${HOST}/guides">
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
   <meta property="og:title" content="Exclusive Engineering Guides | SectorCalc">
@@ -464,13 +464,13 @@ ${hubBreadcrumb('Guides')}
 <main class="sc-guides-main" id="main-content">
   <header class="sc-guides-hero">
     <p class="sc-guides-kicker">Exclusive methodology library · answer-engine ready</p>
-    <h1>Engineering guides at money-page depth</h1>
+    <h1>Industrial Engineering Calculation Guides</h1>
     <p class="sc-guides-lead">Every guide opens with the shop-floor problem, ships a direct answer, then the full explanation → methodology → evidence → A1–A5 accountability chain used on Tier-A calculators — plus the deep methodology library. Open-bench instruments calculate instantly. Decision tools unlock with a credit session. No invented certifications. No thin slug lists.</p>
     <div class="sc-guides-stats" aria-label="Guide library stats">
       <div class="sc-guides-stat"><b>${GUIDE_ASSEMBLY.length}</b><span>Exclusive guides</span></div>
       <div class="sc-guides-stat"><b>${free.length}</b><span>Free calculator guides</span></div>
       <div class="sc-guides-stat"><b>${paid.length}</b><span>Decision / mixed depth</span></div>
-      <div class="sc-guides-stat"><b>16</b><span>Money-parity block contract</span></div>
+      <div class="sc-guides-stat"><b>16</b><span>Method and boundary contract</span></div>
     </div>
   </header>
 
@@ -484,7 +484,7 @@ ${hubBreadcrumb('Guides')}
         <li><strong>Methodology</strong> — formulas, assumptions, boundaries</li>
         <li><strong>Evidence</strong> — worked engine fixtures when available + standards scope</li>
         <li><strong>Accountability</strong> — A1–A5 audit language</li>
-        <li><strong>Related entities</strong> — glossary, topics, sibling tools, query fan-out</li>
+        <li><strong>Related entities</strong> — glossary, topics, sibling tools</li>
         <li><strong>Deep library</strong> — long-form methodology shared with live calculator pages</li>
       </ol>
     </div>
@@ -492,7 +492,7 @@ ${hubBreadcrumb('Guides')}
 
   <section class="sc-guides-section" aria-labelledby="free-guides-heading">
     <h2 id="free-guides-heading">Free calculator guides — instant results</h2>
-    <p>No sign-in. Citation-ready. Built for ISO fits, finish, bend, and punch query fan-out.</p>
+    <p>No sign-in required to read methods. Open reference calculators run immediately. Decision tools unlock with credits.</p>
     <div class="sc-guides-grid">${free.map(card).join('\n')}</div>
   </section>
 
@@ -510,7 +510,7 @@ ${hubBreadcrumb('Guides')}
 
   <section class="sc-guides-section" aria-labelledby="hub-faq-heading">
     <h2 id="hub-faq-heading">Guides hub FAQ</h2>
-    <details class="sc-faq-item"><summary>Why rebuild guides to money-page depth?</summary><p>Thin guides leak topical authority. Exclusive guides close the problem→method→tool→audit loop so Google and LLMs can retrieve a complete answer chain.</p></details>
+    <details class="sc-faq-item"><summary>Why are guides separate from calculators?</summary><p>Guides teach method selection and model boundaries. Calculators execute the chosen method. They share facts but do not compete for the same search intent.</p></details>
     <details class="sc-faq-item"><summary>Is deep methodology duplicated on calculators?</summary><p>Yes — intentionally. Calculator pages keep the live UI first; standalone guides carry the same library for people who land on /guides.</p></details>
     <details class="sc-faq-item"><summary>Fake reviews or ROI?</summary><p>Never. Accountability is A1–A5 + Organization authorship.</p></details>
   </section>
@@ -520,7 +520,7 @@ ${hubBreadcrumb('Guides')}
     <a href="/topics">Topic hubs</a>
     <a href="/glossary">Glossary</a>
     <a href="/compare">Compare</a>
-    <a href="/tools.html">All 25 calculators</a>
+    <a href="/tools">All 25 calculators</a>
     <a href="/llms.txt">llms.txt discovery</a>
   </nav>
 </main>

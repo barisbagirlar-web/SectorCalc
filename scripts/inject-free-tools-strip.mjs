@@ -41,7 +41,7 @@ function stripHtml() {
     <div class="sc-free-actions" role="group" aria-label="Open bench actions">
       <a class="sc-free-action sc-free-action-primary" href="${esc(FREE_TOOLS[0].canonicalPath)}">Start with ${esc(FREE_TOOLS[0].name)} →</a>
       <a class="sc-free-action" href="/topics">Topic hubs · open bench map</a>
-      <a class="sc-free-action" href="/tools.html">All calculators catalog</a>
+      <a class="sc-free-action" href="/tools">All calculators catalog</a>
     </div>
     <div class="sc-free-grid">
 ${cards}

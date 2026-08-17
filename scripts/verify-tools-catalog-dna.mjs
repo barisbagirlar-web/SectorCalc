@@ -62,8 +62,8 @@ if (!existsSync(topicsPath)) {
   const topics = readFileSync(topicsPath, 'utf8');
   if (!/id="free-calculators"/.test(topics)) fail('topics hub missing #free-calculators open bench');
   if (!/id="problems-we-solve"/.test(topics)) fail('topics hub missing #problems-we-solve map');
-  if (!/What do you need to calculate today|tools\.html/.test(topics)) {
-    fail('topics hub must point readers back to tools.html catalog DNA');
+  if (!/What do you need to calculate today|href="\/tools"/.test(topics)) {
+    fail('topics hub must point readers back to /tools catalog DNA');
   }
 }
 

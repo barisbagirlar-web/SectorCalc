@@ -23,7 +23,7 @@ export const COMPARE_PAGES = Object.freeze([
     angle:
       'Use CAD for design intent. Use SectorCalc when the question is feeds, stack-up, rates, weld size, or bearing life with formulas you can export to a traveler.',
     bestFor: 'Designers and manufacturing engineers who need calculation evidence alongside CAD models.',
-    calculator: '/tools.html',
+    calculator: '/tools',
   },
   {
     slug: 'sectorcalc-vs-catia',
