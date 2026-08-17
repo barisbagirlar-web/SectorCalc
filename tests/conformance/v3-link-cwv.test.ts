@@ -7,8 +7,8 @@ const config = JSON.parse(readFileSync('sites/sectorcalc/seo.config.json', 'utf8
 describe('SEO V3 Phase 7 link/CWV', () => {
   it('detects unreachable internal pages', () => {
     expect(findOrphans([
-      { path: '/', links: ['/tools.html'] },
-      { path: '/tools.html', links: ['/calculator/oee-teep'] },
+      { path: '/', links: ['/tools'] },
+      { path: '/tools', links: ['/calculator/oee-teep'] },
       { path: '/calculator/oee-teep', links: [] },
       { path: '/orphan', links: [] },
     ], ['/'])).toEqual(['/orphan']);

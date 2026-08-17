@@ -28,7 +28,7 @@ function hubHtml() {
     const primary =
       t.subtopics[0]?.links?.find((l) => l.startsWith('/calculator/')) ||
       t.subtopics[0]?.links?.[0] ||
-      '/tools.html';
+      '/tools';
     const queries = (t.subtopics[0]?.fanOutQueries || [])
       .slice(0, 2)
       .map((q) => `<li>${esc(q)}</li>`)

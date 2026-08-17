@@ -5,7 +5,7 @@
  * The browser never recomputes status, expiry, or credit math.
  */
 import { currentUser, watchAuth } from '../auth/index.js';
-import { isCreditRequired, resolveToolCost } from './domain/packages.js';
+import { isCreditRequired, resolveToolCost, smallestPackCovering } from './domain/packages.js';
 import { fetchToolEntitlement } from './entitlements-api.js';
 import {
   fetchWallet,
@@ -148,7 +148,7 @@ export class ProfessionalGate {
   private async startSession(): Promise<void> {
     const user = currentUser();
     if (!user) {
-      window.location.href = `/login.html?next=${encodeURIComponent(window.location.pathname + window.location.search)}`;
+      window.location.href = `/login?next=${encodeURIComponent(window.location.pathname + window.location.search)}`;
       return;
     }
     trackBillingEvent('professional_session_requested', {
@@ -257,7 +257,7 @@ export class ProfessionalGate {
 
   private renderError(msg: string, offerBuy: boolean): void {
     const buy = offerBuy
-      ? `<a class="sc-pro-gate-btn sc-pro-gate-btn-primary" href="/pricing.html">Buy credits</a>`
+      ? `<a class="sc-pro-gate-btn sc-pro-gate-btn-primary" href="/pricing">Buy credits</a>`
       : '';
     const status = this.mount.querySelector('.sc-pro-gate-status');
     if (status) {
@@ -292,15 +292,16 @@ export class ProfessionalGate {
         <p class="sc-pro-gate-copy">Balance: ${esc(bal)} credits</p>`;
     } else if (this.userMissing) {
       body = `
-        <p class="sc-pro-gate-copy">Sign in to unlock a 24-hour session. One debit covers unlimited recalculation until expiry.</p>
+        <p class="sc-pro-gate-copy">Explore the sample without signing in. Sign in to unlock a 24-hour custom session. One debit covers unlimited recalculation until expiry.</p>
         <ul class="sc-pro-gate-meta">
           <li><strong>Tier:</strong> ${esc(this.tier)}</li>
           <li><strong>Session cost:</strong> ${this.cost} credits</li>
           <li><strong>Duration:</strong> 24 hours · unlimited recalculation</li>
         </ul>
         <div class="sc-pro-gate-actions">
-          <button type="button" class="sc-pro-gate-btn sc-pro-gate-btn-primary" data-confirm-pro>Confirm — use ${this.cost} credits</button>
-          <a class="sc-pro-gate-btn" href="/pricing.html">Buy credits</a>
+          <button type="button" class="sc-pro-gate-btn" data-explore-sample>Explore Sample Calculation</button>
+          <a class="sc-pro-gate-btn sc-pro-gate-btn-primary" href="${this.loginHref()}">Sign in to unlock</a>
+          <a class="sc-pro-gate-btn" href="${this.pricingHref()}">See credit packs</a>
         </div>
         <div class="sc-pro-gate-status"></div>`;
     } else if (this.canStartNewSession) {
@@ -314,19 +315,27 @@ export class ProfessionalGate {
           <li><strong>Duration:</strong> 24 hours · unlimited recalculation</li>
         </ul>
         <div class="sc-pro-gate-actions">
+          <button type="button" class="sc-pro-gate-btn" data-explore-sample>Explore Sample Calculation</button>
           <button type="button" class="sc-pro-gate-btn sc-pro-gate-btn-primary" data-confirm-pro>Start New Session — use ${this.cost} credits</button>
-          <a class="sc-pro-gate-btn" href="/pricing.html">Buy credits</a>
+          <a class="sc-pro-gate-btn" href="${this.pricingHref()}">Buy credits</a>
         </div>
         <div class="sc-pro-gate-status"></div>`;
     } else {
+      const balNum = typeof this.balance === 'number' ? this.balance : 0;
+      const deficit = Math.max(0, this.cost - balNum);
+      const pack = smallestPackCovering(deficit);
+      const returnTo = encodeURIComponent(window.location.pathname + window.location.search);
       body = `
-        <p class="sc-pro-gate-copy">Session ended and your balance is below the session cost.</p>
+        <p class="sc-pro-gate-copy">This calculation requires ${this.cost} credits.</p>
         <ul class="sc-pro-gate-meta">
-          <li><strong>Credits required:</strong> ${this.cost}</li>
-          <li><strong>Credits available:</strong> ${esc(bal)}</li>
+          <li><strong>Wallet balance:</strong> ${esc(String(balNum))}</li>
+          <li><strong>You need:</strong> ${deficit} more credits</li>
         </ul>
+        <p class="sc-pro-gate-copy"><strong>Recommended pack:</strong> ${pack.credits} credits — ${esc(pack.displayPriceUsd)}</p>
         <div class="sc-pro-gate-actions">
-          <a class="sc-pro-gate-btn sc-pro-gate-btn-primary" href="/pricing.html">Buy credits</a>
+          <button type="button" class="sc-pro-gate-btn" data-explore-sample>Explore Sample Calculation</button>
+          <a class="sc-pro-gate-btn sc-pro-gate-btn-primary" href="/pricing?pack=${encodeURIComponent(pack.key)}&amp;returnTo=${returnTo}">Buy ${esc(pack.key)}</a>
+          <a class="sc-pro-gate-btn" href="${this.pricingHref()}">See other packs</a>
         </div>
         <div class="sc-pro-gate-status"></div>`;
     }
@@ -340,7 +349,33 @@ export class ProfessionalGate {
 
     this.mount
       .querySelector('[data-confirm-pro]')
-      ?.addEventListener('click', () => void this.startSession());
+      ?.addEventListener('click', () => {
+        trackBillingEvent('unlock_intent', {
+          toolId: this.toolId,
+          tier: this.tier,
+          credits_required: this.cost
+        });
+        void this.startSession();
+      });
+    this.mount.querySelector('[data-explore-sample]')?.addEventListener('click', () => {
+      trackBillingEvent('sample_run', {
+        toolId: this.toolId,
+        tier: this.tier,
+        credits_required: this.cost
+      });
+      window.dispatchEvent(
+        new CustomEvent('sectorcalc:explore-sample', { detail: { toolId: this.toolId } })
+      );
+    });
+  }
+
+  private pricingHref(): string {
+    const returnTo = encodeURIComponent(window.location.pathname + window.location.search);
+    return `/pricing?returnTo=${returnTo}`;
+  }
+
+  private loginHref(): string {
+    return `/login?next=${encodeURIComponent(window.location.pathname + window.location.search)}`;
   }
 }
 

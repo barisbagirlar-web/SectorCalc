@@ -61,12 +61,12 @@ export const TIER_CREDITS: Record<PricingTier, number> = {
 
 /**
  * Tool monetization map (server + client SSOT).
- * Free SEO-bait set (Tier-B, not revenue gates): SC-001, SC-027, SC-028, SC-030, SC-039.
+ * Free open-reference set: SC-001, SC-027, SC-028, SC-030, SC-039.
  * Keep in sync with seo/free-tools.mjs + seo/tool-pricing.mjs + functions/src/domain/packages.ts.
  * Guard: scripts/verify-tool-pricing-ssot.mjs
  *
  * Tier rubric (higher when all rise): defendable-decision stakes × engine depth × cost-of-being-wrong.
- * - FREE: reference / lookup shop instruments (SEO bait)
+ * - FREE: reference / lookup shop instruments
  * - CORE (3): shop costing & ops KPIs + diagnostic utilities
  * - PRO (7): component sizing / commercial quoting decisions
  * - ADVANCED (15): multi-criteria / code-heavy / life-safety decision engines
@@ -99,6 +99,12 @@ export const TOOL_PRICING: Record<string, { tier: PricingTier; monetizationEnabl
   'SC-034': { tier: 'ADVANCED', monetizationEnabled: true },
   'SC-036': { tier: 'ADVANCED', monetizationEnabled: true }
 };
+
+export function smallestPackCovering(deficit: number): CreditPackageDef {
+  const need = Math.max(0, Number(deficit) || 0);
+  const packs = Object.values(CREDIT_PACKAGES).sort((a, b) => a.credits - b.credits);
+  return packs.find((p) => p.credits >= need) ?? CREDIT_PACKAGES.TEAM_WALLET;
+}
 
 export function isCreditPackageKey(v: unknown): v is CreditPackageKey {
   return typeof v === 'string' && v in CREDIT_PACKAGES;

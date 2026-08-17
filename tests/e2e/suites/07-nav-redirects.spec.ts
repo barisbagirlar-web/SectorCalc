@@ -19,8 +19,8 @@ test.describe('Navigation & redirects @nav @critical', () => {
     await page.setViewportSize({ width: 1280, height: 800 });
     await page.goto('/');
     await expect(page.locator('#siteHeader')).toBeVisible();
-    await page.locator('.main-nav a[href="/tools.html"]').click();
-    await expect(page).toHaveURL(/tools\.html/);
+    await page.locator('.main-nav a[href="/tools"]').click();
+    await expect(page).toHaveURL(/\/tools\/?$/);
     await expect(page.locator('#q')).toBeVisible();
   });
 
@@ -31,14 +31,14 @@ test.describe('Navigation & redirects @nav @critical', () => {
     await expect(toggle).toBeVisible();
     await toggle.click();
     await expect(page.locator('#mobileNav')).toHaveClass(/active/);
-    await expect(page.locator('#mobileNav a[href="/tools.html"]')).toBeVisible();
-    await expect(page.locator('#mobileNav a[href="/pricing.html"]')).toBeVisible();
+    await expect(page.locator('#mobileNav a[href="/tools"]')).toBeVisible();
+    await expect(page.locator('#mobileNav a[href="/pricing"]')).toBeVisible();
   });
 
   test('tools.html shared header + live catalog count', async ({ page }) => {
-    await page.goto('/tools.html');
+    await page.goto('/tools');
     await expect(page.locator('#siteHeader')).toBeVisible();
-    await expect(page.locator('#siteHeader a[href="/pricing.html"]')).toBeVisible();
+    await expect(page.locator('#siteHeader a[href="/pricing"]')).toBeVisible();
     await expect(page.locator('#q')).toBeVisible();
     await expect(page.locator('h1')).toContainText(/What do you need to calculate today/i);
     await expect(page.locator('#free-calculators')).toHaveCount(0);

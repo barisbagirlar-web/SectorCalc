@@ -123,7 +123,7 @@ def schema_global() -> str:
                     "https://github.com/barisbagirlar-web/SectorCalc",
                     "https://sectorcalc.com",
                     "https://sectorcalc.com/about",
-                    "https://sectorcalc.com/tools.html",
+                    "https://sectorcalc.com/tools",
                 ],
                 "contactPoint": {
                     "@type": "ContactPoint",
@@ -152,7 +152,7 @@ def schema_global() -> str:
                     "@type": "SearchAction",
                     "target": {
                         "@type": "EntryPoint",
-                        "urlTemplate": f"{HOST}/tools.html?q={{search_term_string}}",
+                        "urlTemplate": f"{HOST}/tools?q={{search_term_string}}",
                     },
                     "query-input": "required name=search_term_string",
                 },
@@ -391,7 +391,7 @@ def schema_tool(slug: str, meta: dict) -> str:
                         "@type": "ListItem",
                         "position": 3,
                         "name": meta["category"],
-                        "item": f"{HOST}/tools.html#{meta['anchor']}",
+                        "item": f"{HOST}/tools#{meta['anchor']}",
                     },
                     {"@type": "ListItem", "position": 4, "name": meta["name"], "item": url},
                 ],
@@ -788,7 +788,7 @@ def breadcrumb_html(page: str) -> str | None:
             [
                 ("Home", f"{HOST}/"),
                 ("All Calculators", f"{HOST}/tools.html"),
-                (meta["category"], f"{HOST}/tools.html#{meta['anchor']}"),
+                (meta["category"], f"{HOST}/tools#{meta['anchor']}"),
                 (meta["name"], None),
             ]
         )

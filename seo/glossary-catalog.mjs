@@ -213,7 +213,7 @@ export const GLOSSARY_GROUPS = Object.freeze([
         slug: 'deterministic-engine',
         title: 'Deterministic Engine',
         blurb: 'Client-side calculation runtime with visible formulas, Decimal-native math, and A1–A5 audit trails.',
-        calculator: '/tools.html',
+        calculator: '/tools',
       },
     ],
   },

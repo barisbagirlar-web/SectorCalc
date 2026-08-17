@@ -29,7 +29,7 @@ if (/<a href="\/" class="brand"[^>]*>\s*<\/a>/i.test(footer)) {
 }
 
 const requiredHrefs = [
-  '/tools.html',
+  '/tools',
   '/pricing.html',
   '/guides',
   '/glossary',

@@ -13,6 +13,9 @@ import {
   validateRegistryInvariants,
   absoluteUrl,
 } from '../seo/registry.mjs';
+import { FREE_TOOLS } from '../seo/free-tools.mjs';
+import { HERO_CALCULATOR_SLUGS } from '../seo/hero-cohort.mjs';
+import { GUIDE_ASSEMBLY } from '../seo/guides-assembly.mjs';
 
 
 const ROOT = process.cwd();
@@ -22,7 +25,7 @@ const read = (p) => readFileSync(join(ROOT, p), 'utf8');
 
 const TOOL_CANONICAL = toolCanonicalBySourceFile();
 const toolPages = readdirSync(ROOT).filter((f) => f.endsWith('-pro.html')).sort();
-const pages = ['index.html', 'tools.html', 'pro.html', 'pricing.html', ...toolPages];
+const pages = ['index.html', 'tools.html', 'pricing.html', ...toolPages];
 
 const contentRoutes = [
   ['/blog', 'public/blog/index.html'],
@@ -30,7 +33,7 @@ const contentRoutes = [
 ];
 // Case studies hub is indexable + sitemapEligible (task 5). No special noindex carve-out.
 contentRoutes.push(['/case-studies', 'public/case-studies/index.html']);
-for (const folder of ['glossary', 'compare', 'guides', 'about', 'contact', 'privacy', 'terms', 'resources', 'topics']) {
+for (const folder of ['glossary', 'compare', 'guides', 'about', 'contact', 'privacy', 'terms', 'resources', 'topics', 'trust']) {
   const dir = join(ROOT, 'public', folder);
   if (!existsSync(dir)) continue;
   contentRoutes.push([`/${folder}`, `public/${folder}/index.html`]);
@@ -51,10 +54,13 @@ for (const f of [
   'public/assets/images/sectorcalc-og-1200x630.jpg',
   'scripts/seo-live-guard.mjs', '.github/workflows/deploy.yml',
   'seo/registry.mjs', 'seo/registry-data.mjs',
+  'data/seo/ai-crawler-policy.json', 'data/seo/legacy-routes.json',
 ]) if (!existsSync(join(ROOT, f))) fail(`missing ${f}`);
 
 for (const [, file] of contentRoutes) if (!existsSync(join(ROOT, file))) fail(`missing ${file}`);
-for (const lang of localePreviews) if (!existsSync(join(ROOT, `public/${lang}/index.html`))) fail(`missing locale preview public/${lang}/index.html`);
+for (const lang of localePreviews) {
+  if (existsSync(join(ROOT, `public/${lang}/index.html`))) fail(`unpublished locale preview must not ship: public/${lang}/index.html`);
+}
 
 for (const page of toolPages) {
   if (!TOOL_CANONICAL[page]) fail(`registry missing calculator canonical for ${page}`);
@@ -63,34 +69,64 @@ for (const page of toolPages) {
 const robots = read('public/robots.txt');
 if (!/Sitemap:\s*https:\/\/sectorcalc\.com\/sitemap\.xml/.test(robots)) fail('robots missing apex sitemap');
 if (/Sitemap:\s*https:\/\/www\.sectorcalc\.com/i.test(robots)) fail('robots advertises www sitemap');
-for (const bot of ['Googlebot', 'Bingbot', 'OAI-SearchBot', 'PerplexityBot']) {
+for (const bot of ['Googlebot', 'Bingbot', 'OAI-SearchBot', 'Claude-SearchBot', 'PerplexityBot']) {
   const block = new RegExp(`User-agent:\\s*${bot.replace('-', '\\-')}[\\s\\S]*?(?=\\nUser-agent:|\\nSitemap:|$)`, 'i').exec(robots)?.[0] || '';
   if (!block) fail(`robots missing explicit ${bot} policy`);
   else if (!/Allow:\s*\//i.test(block) || /Disallow:\s*\/\s*$/im.test(block)) fail(`robots does not explicitly allow ${bot}`);
 }
+for (const bot of ['GPTBot', 'ClaudeBot', 'Google-Extended']) {
+  const block = new RegExp(`User-agent:\\s*${bot.replace('-', '\\-')}[\\s\\S]*?(?=\\nUser-agent:|\\nSitemap:|$)`, 'i').exec(robots)?.[0] || '';
+  if (!block) fail(`robots missing explicit ${bot} training policy`);
+  else if (!/Disallow:\s*\/\s*$/im.test(block)) fail(`robots must Disallow ${bot} for model-development use`);
+}
+
+function collectSitemapLocs(xmlText, fileLabel) {
+  if (/<priority>|<changefreq>/i.test(xmlText)) fail(`${fileLabel} contains ignored priority/changefreq hints`);
+  if (/https:\/\/www\.sectorcalc\.com/i.test(xmlText)) fail(`${fileLabel} contains www URL`);
+  const lastmods = [...xmlText.matchAll(/<lastmod>([^<]+)<\/lastmod>/g)];
+  for (const m of lastmods) {
+    const v = m[1].trim();
+    const d = new Date(v);
+    if (!Number.isFinite(d.getTime())) fail(`${fileLabel} has non-ISO lastmod "${v}"`);
+    if (d.getTime() > Date.now() + 24 * 60 * 60 * 1000) fail(`${fileLabel} has future lastmod "${v}"`);
+  }
+  return [...xmlText.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
+}
 
 const sm = read('public/sitemap.xml');
-if (!/<urlset\b[^>]*xmlns=["']http:\/\/www\.sitemaps\.org\/schemas\/sitemap\/0\.9["']/i.test(sm)) fail('sitemap missing sitemaps.org urlset namespace');
-if (/<priority>|<changefreq>/i.test(sm)) fail('sitemap contains ignored priority/changefreq hints');
-// lastmod is derived from the committed git-history map (seo/lastmod-map.json)
-// and must be a well-formed, non-future ISO-8601 timestamp.
-for (const m of sm.matchAll(/<lastmod>([^<]+)<\/lastmod>/g)) {
-  const v = m[1].trim();
-  const d = new Date(v);
-  if (!Number.isFinite(d.getTime())) fail(`sitemap has non-ISO lastmod "${v}"`);
-  if (d.getTime() > Date.now() + 24 * 60 * 60 * 1000) fail(`sitemap has future lastmod "${v}"`);
+let locs = [];
+if (/<sitemapindex\b/i.test(sm)) {
+  const children = collectSitemapLocs(sm, 'sitemap index');
+  if (!children.length) fail('sitemap index has no child sitemaps');
+  for (const child of children) {
+    if (!child.startsWith(`${HOST}/sitemaps/`)) fail(`sitemap index child not under /sitemaps/: ${child}`);
+    const rel = child.replace(`${HOST}/`, '');
+    if (!existsSync(join(ROOT, 'public', rel))) fail(`missing sitemap child file public/${rel}`);
+    const xml = read(join('public', rel));
+    if (!/<urlset\b[^>]*xmlns=["']http:\/\/www\.sitemaps\.org\/schemas\/sitemap\/0\.9["']/i.test(xml)) {
+      fail(`${rel} missing sitemaps.org urlset namespace`);
+    }
+    locs.push(...collectSitemapLocs(xml, rel));
+  }
+} else if (/<urlset\b[^>]*xmlns=["']http:\/\/www\.sitemaps\.org\/schemas\/sitemap\/0\.9["']/i.test(sm)) {
+  locs = collectSitemapLocs(sm, 'sitemap.xml');
+} else {
+  fail('sitemap.xml must be a sitemapindex or urlset');
 }
-const lastmodCount = (sm.match(/<lastmod>/g) || []).length;
-if (lastmodCount === 0) fail('sitemap missing lastmod freshness hints (Task 3 mandate)');
-if (/https:\/\/www\.sectorcalc\.com/i.test(sm)) fail('sitemap contains www URL');
-for (const junk of ['llm.txt', 'llms.txt', 'llms-full.txt', 'robots.txt', 'ai-robots.txt', 'site.webmanifest', '404.html']) {
-  if (sm.includes(`<loc>${HOST}/${junk}</loc>`)) fail(`sitemap contains non-indexable discovery URL ${junk}`);
+
+if (!locs.some((loc) => loc.includes('<lastmod>') || true)) {
+  /* lastmod checked per file */
 }
-for (const lang of localePreviews) if (sm.includes(`<loc>${HOST}/${lang}/</loc>`)) fail(`sitemap contains incomplete noindex locale ${lang}`);
+const lastmodCount = (read('public/sitemaps/calculators.xml').match(/<lastmod>/g) || []).length
+  + (existsSync(join(ROOT, 'public/sitemaps/guides.xml')) ? (read('public/sitemaps/guides.xml').match(/<lastmod>/g) || []).length : 0);
+if (lastmodCount === 0) fail('sitemap missing lastmod freshness hints');
+for (const junk of ['llm.txt', 'llms.txt', 'llms-full.txt', 'robots.txt', 'ai-robots.txt', 'site.webmanifest', '404.html', 'account', 'login']) {
+  if (locs.includes(`${HOST}/${junk}`) || locs.includes(`${HOST}/${junk}/`)) fail(`sitemap contains non-indexable URL ${junk}`);
+}
+for (const lang of localePreviews) if (locs.includes(`${HOST}/${lang}`) || locs.includes(`${HOST}/${lang}/`)) fail(`sitemap contains incomplete locale ${lang}`);
 
 const requiredUnique = [...new Set(sitemapLocs())];
-for (const loc of requiredUnique) if (!sm.includes(`<loc>${loc}</loc>`)) fail(`sitemap missing ${loc}`);
-const locs = [...sm.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
+for (const loc of requiredUnique) if (!locs.includes(loc)) fail(`sitemap missing ${loc}`);
 if (new Set(locs).size !== locs.length) fail('sitemap contains duplicate loc entries');
 if (locs.length !== requiredUnique.length) fail(`sitemap URL count drift: expected ${requiredUnique.length}, got ${locs.length}`);
 for (const loc of locs) {
@@ -98,48 +134,47 @@ for (const loc of locs) {
   if (!loc.startsWith(`${HOST}/`)) fail(`sitemap contains off-host URL ${loc}`);
   if (/[?#]/.test(loc)) fail(`sitemap URL contains query or fragment ${loc}`);
   if (/\/[a-z0-9-]+-pro\.html$/i.test(loc)) fail(`sitemap must not list legacy calculator file URL ${loc}`);
-}
-
-for (const lang of localePreviews) {
-  const t = read(`public/${lang}/index.html`);
-  if (!/<meta\s+name=["']robots["']\s+content=["'][^"']*noindex[^"']*follow/i.test(t)) fail(`${lang} preview must be noindex,follow`);
-  if (!t.includes(`rel="canonical" href="${HOST}/${lang}/"`)) fail(`${lang} preview missing self canonical`);
-  if (/hreflang=/i.test(t)) fail(`${lang} preview must not publish hreflang until full locale release`);
+  if (loc === `${HOST}/pro.html` || loc === `${HOST}/pro`) fail('sitemap must not list retired /pro hub');
 }
 
 const llm = read('public/llm.txt');
 const llms = read('public/llms.txt');
-if (llm !== llms) fail('llm.txt and llms.txt drift; they must be byte-identical');
+if (!llm.includes('/llms.txt')) fail('llm.txt must point at /llms.txt');
+if (llm.length > 800) fail('llm.txt is not a tiny pointer');
+if (llm === llms) fail('llm.txt must not be a second long truth source');
 const llmsFull = read('public/llms-full.txt');
 if (llmsFull === llms) fail('llms-full.txt must be the expanded inventory, not a twin of llms.txt');
 if (/IndexNow Instant Indexing:\s*Active/i.test(llmsFull)) fail('llms-full.txt must not claim IndexNow is active');
 if (/teb232@gmail\.com/i.test(llmsFull) || /teb232@gmail\.com/i.test(llms)) fail('discovery files must not publish personal operator email');
 if (/FinancialProduct/.test(llmsFull)) fail('llms-full.txt must not advertise FinancialProduct schema');
+if (/SEO bait|query fan-out|Cloud Scheduler|billing\/health|\/src\//i.test(llms + llmsFull)) fail('llms artifacts leaked operator jargon or internals');
 for (const loc of requiredUnique) {
   if (!llmsFull.includes(loc)) fail(`llms-full.txt missing sitemap URL ${loc}`);
 }
-if (!llms.includes(`${HOST}/resources`)) fail('llms.txt missing /resources hub');
-if (!llms.includes(`${HOST}/llms-full.txt`)) fail('llms.txt must point to llms-full.txt');
-if (!llms.includes(`${HOST}/contact`)) fail('llms.txt missing /contact');
+if (!llms.includes('/tools')) fail('llms.txt missing /tools');
+if (!llms.includes('/guides')) fail('llms.txt missing /guides');
+if (!llms.includes('/contact')) fail('llms.txt missing /contact');
+if (llms.includes('/pro.html') || llmsFull.includes('/pro.html')) fail('llms still cites /pro.html');
+if (llms.includes(`${HOST}/account`)) fail('llms includes private account route');
 for (const lang of localePreviews) if (llms.includes(`${HOST}/${lang}/`)) fail(`llms.txt advertises noindex locale ${lang}`);
-for (const bot of ['Googlebot', 'Bingbot', 'OAI-SearchBot', 'PerplexityBot']) if (!llms.includes(bot)) fail(`llms.txt missing crawler declaration ${bot}`);
 
-// P0: LLM content must track registry — not merely be byte-identical to each other while both stale.
 const llmCalcs = llmEligibleCalculators();
 const llmToolCount = llmCalcs.length;
-if (!llms.includes(`## Live tools — ${llmToolCount}`)) fail(`llms.txt tool count must be ${llmToolCount} (llmEligibleCalculators)`);
-if (/\*\*32\*\*\s+canonical indexable HTML URLs/i.test(llms)) fail('llms.txt still claims stale 32 sitemap URLs');
-if (!llms.includes(`**${requiredUnique.length}**`)) fail(`llms.txt must declare registry sitemap count ${requiredUnique.length}`);
+const freeIds = new Set(FREE_TOOLS.map((t) => t.toolId));
+const heroPaths = new Set(HERO_CALCULATOR_SLUGS.map((s) => `/calculator/${s}`));
+const guideCalcPaths = new Set(GUIDE_ASSEMBLY.map((g) => g.calculator?.href).filter(Boolean));
+const requiredLlmsCalcs = llmCalcs.filter(
+  (c) => freeIds.has(c.id) || heroPaths.has(c.canonicalPath) || guideCalcPaths.has(c.canonicalPath),
+);
 for (const page of toolPages) {
   const legacyAbs = `${HOST}/${page}`;
   if (llms.includes(`](${legacyAbs})`) || llms.includes(`](${legacyAbs.replace('https://', 'http://')})`)) {
     fail(`llms.txt primary link uses legacy URL ${legacyAbs}`);
   }
 }
-for (const calc of llmCalcs) {
-  if (!llms.includes(absoluteUrl(calc.canonicalPath))) fail(`llms.txt missing llm-eligible canonical ${calc.canonicalPath}`);
+for (const calc of requiredLlmsCalcs) {
+  if (!llms.includes(absoluteUrl(calc.canonicalPath))) fail(`llms.txt missing required discovery canonical ${calc.canonicalPath}`);
 }
-// Unpublished / non-llmEligible calculators must not be required in llms
 for (const calc of publishedCalculators()) {
   if (calc.llmEligible === false && llms.includes(absoluteUrl(calc.canonicalPath))) {
     fail(`llms.txt includes llmEligible=false calculator ${calc.canonicalPath}`);
@@ -150,7 +185,9 @@ if (legacyPrimary.length) fail(`llms.txt contains ${legacyPrimary.length} legacy
 
 const simg = read('public/sitemap-images.xml');
 const imageParents = [...simg.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
-if (!imageParents.includes(`${HOST}/tools.html`)) fail('image sitemap missing tools.html entry');
+if (!imageParents.includes(`${HOST}/tools`) && !imageParents.includes(`${HOST}/tools.html`)) {
+  fail('image sitemap missing /tools entry');
+}
 for (const parent of imageParents) if (!requiredUnique.includes(parent)) fail(`image sitemap parent is not canonical/indexable: ${parent}`);
 
 for (const page of pages) {

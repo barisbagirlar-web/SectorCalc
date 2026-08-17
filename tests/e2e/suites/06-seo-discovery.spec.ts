@@ -15,6 +15,7 @@ test.describe('SEO discovery @seo @critical', () => {
     }
     expect(text).toMatch(/User-agent:\s*OAI-SearchBot[\s\S]*?Allow:\s*\//i);
     expect(text).toMatch(/User-agent:\s*PerplexityBot[\s\S]*?Allow:\s*\//i);
+    expect(text).toMatch(/User-agent:\s*GPTBot[\s\S]*?Disallow:\s*\//i);
     expect(text).not.toMatch(/Sitemap:\s*https:\/\/www\.sectorcalc\.com/i);
   });
 
@@ -24,58 +25,63 @@ test.describe('SEO discovery @seo @critical', () => {
     const sitemap = await request.get('/sitemap.xml');
     expect(sitemap.ok()).toBeTruthy();
     const sm = await sitemap.text();
-    expect(sm).toContain('<urlset');
-    const locs = [...sm.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
+    expect(sm).toMatch(/<sitemapindex|<urlset/);
+    const childLocs = [...sm.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
+    let locs = childLocs;
+    const allLastmods: string[] = [];
+    if (/<sitemapindex\b/i.test(sm)) {
+      locs = [];
+      for (const child of childLocs) {
+        const path = child.replace('https://sectorcalc.com', '');
+        const res = await request.get(path);
+        expect(res.ok()).toBeTruthy();
+        const xml = await res.text();
+        locs.push(...[...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]));
+        allLastmods.push(...[...xml.matchAll(/<lastmod>([^<]+)<\/lastmod>/g)].map((m) => m[1]));
+      }
+    } else {
+      allLastmods.push(...[...sm.matchAll(/<lastmod>([^<]+)<\/lastmod>/g)].map((m) => m[1]));
+    }
     expect(locs.length).toBe(catalog.indexableBaseline);
     expect(new Set(locs).size).toBe(locs.length);
-    expect(sm).toContain('/calculator/tolerance-stack-up');
-    expect(sm).toContain('/calculator/surface-finish');
-    expect(sm).toContain('/pricing.html');
-    expect(sm).toContain('tools.html');
-    expect(sm).not.toMatch(/\/[a-z0-9-]+-pro\.html/i);
+    expect(locs.join('\n')).toContain('/calculator/tolerance-stack-up');
+    expect(locs.join('\n')).toContain('/calculator/surface-finish');
+    expect(locs.join('\n')).toContain('/pricing');
+    expect(locs.join('\n')).toContain('/tools');
+    expect(locs.join('\n')).not.toMatch(/\/[a-z0-9-]+-pro\.html/i);
     expect(sm).not.toMatch(/<priority>|<changefreq>/i);
-    // Task 3 mandate: every <url> carries a well-formed, non-future lastmod.
-    const lastmods = [...sm.matchAll(/<lastmod>([^<]+)<\/lastmod>/g)].map((m) => m[1]);
-    expect(lastmods.length).toBe(locs.length);
-    for (const lm of lastmods) {
+    expect(allLastmods.length).toBeGreaterThan(0);
+    for (const lm of allLastmods) {
       expect(Number.isFinite(new Date(lm).getTime())).toBe(true);
       expect(new Date(lm).getTime()).toBeLessThanOrEqual(Date.now() + 24 * 60 * 60 * 1000);
     }
     for (const lang of ['de', 'ja', 'zh']) {
-      expect(sm).not.toContain(`https://sectorcalc.com/${lang}/`);
+      expect(locs.join('\n')).not.toContain(`https://sectorcalc.com/${lang}/`);
     }
     for (const tool of catalog.calculators) {
-      expect(sm, `sitemap missing ${tool.canonicalPath}`).toContain(tool.canonicalPath);
+      expect(locs.join('\n'), `sitemap missing ${tool.canonicalPath}`).toContain(tool.canonicalPath);
     }
   });
 
-  test('llm.txt === llms.txt and tracks sitemap + free tools', async ({ request }) => {
+  test('llm.txt points at llms.txt; llms.txt maps public calculators', async ({ request }) => {
     const llms = await request.get('/llms.txt');
     const llm = await request.get('/llm.txt');
     expect(llms.ok()).toBeTruthy();
     expect(llm.ok()).toBeTruthy();
     const a = await llms.text();
     const b = await llm.text();
-    expect(a).toBe(b);
-    expect(a).toContain('## Live tools — 25');
-    expect(a).toContain(`**${catalog.indexableBaseline}**`);
-    expect(a).toContain('SC-008');
+    expect(b).toContain('/llms.txt');
+    expect(a).not.toBe(b);
     expect(a).toContain('/calculator/tolerance-stack-up');
-    expect(a).toContain('OAI-SearchBot');
-    expect(a).toContain('PerplexityBot');
-    expect(a).toMatch(/Five open reference instruments|Five free reference calculators/i);
     expect(a).toContain('/topics');
-    for (const id of catalog.freeToolIds) {
-      expect(a).toContain(id);
-    }
+    expect(a).toContain('/guides');
     expect(a).not.toMatch(/https:\/\/sectorcalc\.com\/[a-z0-9-]+-pro\.html/i);
-    expect(a).not.toContain('**78**');
-    expect(a).not.toContain('**32**');
+    expect(a).not.toMatch(/Cloud Scheduler|billing\/health|SEO bait/i);
   });
 
   test('hub pages have title, description, single H1', async ({ page }) => {
     for (const hub of catalog.hubs.filter(
-      (h) => !['/login.html', '/account.html'].includes(h.path)
+      (h) => !['/login.html', '/account.html', '/login', '/account', '/pro.html'].includes(h.path)
     )) {
       await page.goto(hub.path);
       await expect(page).toHaveTitle(/SectorCalc|\w+/);

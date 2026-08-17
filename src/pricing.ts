@@ -12,6 +12,7 @@ import {
 } from './payments/paddle/index.js';
 import { currentUser } from './auth/index.js';
 import { createCheckout, pollPurchaseCredited, fetchWallet } from './billing/api.js';
+import { sanitizeReturnTo } from './billing/domain/return-to.js';
 
 function renderBalance(): void {
   const el = document.querySelector('#credit-balance');
@@ -32,6 +33,22 @@ function renderBalance(): void {
     .catch(() => {
       el.textContent = 'Sign in required for server wallet.';
     });
+}
+
+function checkoutReturnTo(): string {
+  const params = new URLSearchParams(window.location.search);
+  const fromQuery = sanitizeReturnTo(params.get('returnTo'), [window.location.origin]);
+  if (fromQuery) return fromQuery;
+  return `${window.location.pathname}${window.location.search}`;
+}
+
+function highlightRequestedPack(): void {
+  const key = new URLSearchParams(window.location.search).get('pack');
+  if (!key) return;
+  const el = document.getElementById(key);
+  if (!el) return;
+  el.classList.add('pack-recommended');
+  el.setAttribute('data-recommended', '1');
 }
 
 function init(): void {
@@ -96,7 +113,7 @@ function init(): void {
       }
       if (!currentUser()) {
         if (status) status.textContent = 'Sign in required before purchasing credits.';
-        window.location.href = `/login.html?next=${encodeURIComponent('/pricing.html')}`;
+        window.location.href = `/login?next=${encodeURIComponent(`/pricing${window.location.search}`)}`;
         return;
       }
       if (!isCheckoutConfigured()) {
@@ -109,7 +126,7 @@ function init(): void {
         }
         const { purchaseId, paddleTransactionId } = await createCheckout(
           pack.key,
-          window.location.pathname
+          checkoutReturnTo()
         );
         await openPreparedCheckout({ paddleTransactionId, purchaseId });
         if (status) status.textContent = 'Checkout open. Complete payment in Paddle…';
@@ -127,6 +144,10 @@ function init(): void {
                   'Payment confirmed — <strong>credits activated on your server wallet.</strong><br>Access starts now. Open any calculator to begin your first 24-hour session.';
               }
               renderBalance();
+              const dest = checkoutReturnTo();
+              if (dest.startsWith('/calculator/') || dest.startsWith('/tools')) {
+                window.location.assign(dest);
+              }
             } else if (st.status === 'CREDIT_ACTIVATION_PENDING') {
               if (status) {
                 status.textContent =
@@ -146,6 +167,7 @@ function init(): void {
     });
   });
 
+  highlightRequestedPack();
   renderBalance();
   window.addEventListener('sectorcalc-checkout', ((ev: CustomEvent) => {
     if (!status) return;

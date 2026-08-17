@@ -175,7 +175,7 @@ for (const loc of locs) {
 for (const lang of ['de', 'ja', 'zh']) if (llms.text.includes(`${CANONICAL_HOST}/${lang}/`)) fail(`llms advertises noindex locale ${lang}`);
 
 for (const bot of ['Googlebot', 'Bingbot', 'OAI-SearchBot', 'PerplexityBot']) {
-  const { res } = await get(remote('/tools.html'), {
+  const { res } = await get(remote('/tools'), {
     headers: { 'User-Agent': `${bot}/1.0 SectorCalcReleaseGuard` },
     redirect: 'manual',
   });
@@ -223,7 +223,7 @@ if (home.res.status !== 200) fail(`home HTTP ${home.res.status}`);
 if (!/id="free-calculators"/.test(home.text)) fail('homepage missing #free-calculators open bench');
 if (!/Open · no sign-in|Open · no credits/i.test(home.text)) fail('homepage missing open-bench access badge');
 
-const toolsPage = await get(remote('/tools.html'));
+const toolsPage = await get(remote('/tools'));
 if (toolsPage.res.status !== 200) fail(`tools.html HTTP ${toolsPage.res.status}`);
 if (!/Open · no credits/.test(toolsPage.text)) fail('tools.html missing Open · no credits badges');
 if (!/data-access="free"/.test(toolsPage.text)) fail('tools.html missing data-access=free cards');

@@ -42,7 +42,7 @@ function needCreditsBar(e: EntitlementView): string {
     <span class="sc-abar-text">${fmtNum(e.sessionCreditCost)} credits required · ${fmtNum(
       e.creditsAvailable
     )} available</span>
-    <a class="sc-abar-cta" href="/pricing.html">Buy Credits</a>`;
+    <a class="sc-abar-cta" href="/pricing">Buy Credits</a>`;
 }
 
 function suspendedBar(): string {

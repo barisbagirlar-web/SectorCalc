@@ -7,6 +7,117 @@ export const CURRENT_CALCULATOR_COUNT = 25;
 
 export const PAGES = [
   {
+    "id": "trust",
+    "sourceFile": "public/trust/index.html",
+    "canonicalPath": "/trust",
+    "legacyPaths": [],
+    "role": "legal",
+    "locale": "en",
+    "publicationStatus": "published",
+    "indexDirective": "index,follow",
+    "sitemapEligible": true,
+    "llmEligible": true,
+    "title": "Trust — SectorCalc",
+    "description": "SectorCalc trust center: operator identity, security, privacy, terms, refunds, status and evidence policy.",
+    "h1": "Trust",
+    "primaryIntent": "sectorcalc trust center",
+    "queryCluster": "trust-hub",
+    "primaryEntity": "trust",
+    "topicalCluster": "site",
+    "revenueTier": "C",
+    "conversionEvent": null,
+    "parentHub": "/",
+    "relatedRoutes": ["/about", "/security", "/privacy", "/terms", "/refund", "/status", "/case-studies", "/contact"],
+    "contentSources": ["/trust"],
+    "schemaTypes": ["WebPage", "BreadcrumbList"],
+    "imageAssets": [],
+    "quality": {
+      "formulaVerified": true,
+      "contentReviewed": true,
+      "canonicalVerified": true,
+      "sourceVerified": true,
+      "languageVerified": true,
+      "demoVerified": true,
+      "noPlaceholder": true,
+      "noRegenerationPending": true,
+      "calculatorWorks": true
+    }
+  },
+  {
+    "id": "account",
+    "sourceFile": "account.html",
+    "canonicalPath": "/account",
+    "legacyPaths": ["/account.html"],
+    "role": "account",
+    "locale": "en",
+    "publicationStatus": "published",
+    "indexDirective": "noindex,follow",
+    "sitemapEligible": false,
+    "llmEligible": false,
+    "title": "Account — SectorCalc",
+    "description": "SectorCalc account, wallet and session management.",
+    "h1": "Account",
+    "primaryIntent": "sectorcalc account",
+    "queryCluster": "account",
+    "primaryEntity": "account",
+    "topicalCluster": "site",
+    "revenueTier": "A",
+    "conversionEvent": "wallet_view",
+    "parentHub": "/",
+    "relatedRoutes": ["/pricing", "/login"],
+    "contentSources": ["/account"],
+    "schemaTypes": ["WebPage"],
+    "imageAssets": [],
+    "quality": {
+      "formulaVerified": true,
+      "contentReviewed": true,
+      "canonicalVerified": true,
+      "sourceVerified": true,
+      "languageVerified": true,
+      "demoVerified": true,
+      "noPlaceholder": true,
+      "noRegenerationPending": true,
+      "calculatorWorks": true
+    }
+  },
+  {
+    "id": "login",
+    "sourceFile": "login.html",
+    "canonicalPath": "/login",
+    "legacyPaths": ["/login.html"],
+    "role": "account",
+    "locale": "en",
+    "publicationStatus": "published",
+    "indexDirective": "noindex,follow",
+    "sitemapEligible": false,
+    "llmEligible": false,
+    "title": "Sign in — SectorCalc",
+    "description": "Sign in to SectorCalc to unlock credit-backed calculation sessions.",
+    "h1": "Sign in",
+    "primaryIntent": "sectorcalc login",
+    "queryCluster": "login",
+    "primaryEntity": "login",
+    "topicalCluster": "site",
+    "revenueTier": "A",
+    "conversionEvent": "signin_started",
+    "parentHub": "/",
+    "relatedRoutes": ["/account", "/pricing"],
+    "contentSources": ["/login"],
+    "schemaTypes": ["WebPage"],
+    "imageAssets": [],
+    "quality": {
+      "formulaVerified": true,
+      "contentReviewed": true,
+      "canonicalVerified": true,
+      "sourceVerified": true,
+      "languageVerified": true,
+      "demoVerified": true,
+      "noPlaceholder": true,
+      "noRegenerationPending": true,
+      "calculatorWorks": true
+    }
+  },
+  {
     "id": "home",
     "sourceFile": "index.html",
     "canonicalPath": "/",
@@ -51,8 +162,8 @@ export const PAGES = [
   {
     "id": "tools-html",
     "sourceFile": "tools.html",
-    "canonicalPath": "/tools.html",
-    "legacyPaths": [],
+    "canonicalPath": "/tools",
+    "legacyPaths": ["/tools"],
     "role": "hub",
     "locale": "en",
     "publicationStatus": "published",
@@ -71,7 +182,7 @@ export const PAGES = [
     "parentHub": "/",
     "relatedRoutes": [],
     "contentSources": [
-      "/tools.html"
+      "/tools"
     ],
     "schemaTypes": [
       "WebPage",
@@ -94,13 +205,13 @@ export const PAGES = [
     "id": "pro-html",
     "sourceFile": "pro.html",
     "canonicalPath": "/pro.html",
-    "legacyPaths": [],
+    "legacyPaths": ["/pro", "/pro.html"],
     "role": "pro",
     "locale": "en",
-    "publicationStatus": "published",
-    "indexDirective": "index,follow",
-    "sitemapEligible": true,
-    "llmEligible": true,
+    "publicationStatus": "redirect",
+    "indexDirective": "noindex,follow",
+    "sitemapEligible": false,
+    "llmEligible": false,
     "title": "SectorCalc Pro",
     "description": "SectorCalc Pro industrial calculator suite with audit exports and deterministic engines.",
     "h1": "SectorCalc Pro",
@@ -135,7 +246,7 @@ export const PAGES = [
   {
     "id": "pricing-html",
     "sourceFile": "pricing.html",
-    "canonicalPath": "/pricing.html",
+    "canonicalPath": "/pricing",
     "legacyPaths": [],
     "role": "pricing",
     "locale": "en",
@@ -143,9 +254,9 @@ export const PAGES = [
     "indexDirective": "index,follow",
     "sitemapEligible": true,
     "llmEligible": true,
-    "title": "Pricing — SectorCalc",
+    "title": "Engineering Calculation Credits — No Subscription | SectorCalc",
     "description": "One-time SectorCalc credit packs — no subscription. Starter 20, Workshop 100, Professional 300, Team Wallet 1000. Paddle checkout; credits unlock 24-hour Professional Analysis sessions.",
-    "h1": "Pricing",
+    "h1": "Engineering Calculation Credits — No Subscription",
     "primaryIntent": "sectorcalc pricing",
     "queryCluster": "pricing",
     "primaryEntity": "pricing.html",
@@ -155,7 +266,7 @@ export const PAGES = [
     "parentHub": "/",
     "relatedRoutes": [],
     "contentSources": [
-      "/pricing.html"
+      "/pricing"
     ],
     "schemaTypes": [
       "WebPage",
@@ -205,7 +316,7 @@ export const PAGES = [
     "engineId": "industrial-bearing-freq",
     "engineVersion": "1.0.0",
     "standardBasis": [],
-    "parentHub": "/tools.html",
+    "parentHub": "/tools",
     "relatedRoutes": [
       "/calculator/bearing-life-l10",
       "/calculator/belt-chain-drive",
@@ -263,7 +374,7 @@ export const PAGES = [
     "engineId": "industrial-bearing",
     "engineVersion": "1.0.0",
     "standardBasis": [],
-    "parentHub": "/tools.html",
+    "parentHub": "/tools",
     "relatedRoutes": [
       "/calculator/bearing-frequencies",
       "/calculator/belt-chain-drive",
@@ -321,7 +432,7 @@ export const PAGES = [
     "engineId": "industrial-belt-chain",
     "engineVersion": "1.0.0",
     "standardBasis": [],
-    "parentHub": "/tools.html",
+    "parentHub": "/tools",
     "relatedRoutes": [
       "/calculator/bearing-frequencies",
       "/calculator/bearing-life-l10",
@@ -379,7 +490,7 @@ export const PAGES = [
     "engineId": "industrial-bend",
     "engineVersion": "1.0.0",
     "standardBasis": [],
-    "parentHub": "/tools.html",
+    "parentHub": "/tools",
     "relatedRoutes": [
       "/calculator/weld-heat-input",
       "/calculator/weld-thickness"
@@ -436,7 +547,7 @@ export const PAGES = [
     "engineId": "industrial-bolt",
     "engineVersion": "1.0.0",
     "standardBasis": [],
-    "parentHub": "/tools.html",
+    "parentHub": "/tools",
     "relatedRoutes": [
       "/calculator/bolted-joint"
     ],
@@ -492,7 +603,7 @@ export const PAGES = [
     "engineId": "industrial-bolted-joint",
     "engineVersion": "1.0.0",
     "standardBasis": [],
-    "parentHub": "/tools.html",
+    "parentHub": "/tools",
     "relatedRoutes": [
       "/calculator/bolt-torque-preload"
     ],
@@ -548,7 +659,7 @@ export const PAGES = [
     "engineId": "industrial-cycle-cost",
     "engineVersion": "1.0.0",
     "standardBasis": [],
-    "parentHub": "/tools.html",
+    "parentHub": "/tools",
     "relatedRoutes": [
       "/calculator/cnc-feeds-speeds",
       "/calculator/punching-force",
@@ -606,7 +717,7 @@ export const PAGES = [
     "engineId": "industrial-fits",
     "engineVersion": "1.0.0",
     "standardBasis": [],
-    "parentHub": "/tools.html",
+    "parentHub": "/tools",
     "relatedRoutes": [
       "/calculator/tolerance-stack-up",
       "/calculator/surface-finish"
@@ -663,7 +774,7 @@ export const PAGES = [
     "engineId": "industrial-heat-input",
     "engineVersion": "1.0.0",
     "standardBasis": [],
-    "parentHub": "/tools.html",
+    "parentHub": "/tools",
     "relatedRoutes": [
       "/calculator/sheet-metal-bend",
       "/calculator/weld-thickness"
@@ -720,7 +831,7 @@ export const PAGES = [
     "engineId": "industrial-hydraulic",
     "engineVersion": "1.0.0",
     "standardBasis": [],
-    "parentHub": "/tools.html",
+    "parentHub": "/tools",
     "relatedRoutes": [
       "/calculator/pipe-wall-thickness",
       "/calculator/pressure-vessel-shell"
@@ -777,7 +888,7 @@ export const PAGES = [
     "engineId": "industrial-labor",
     "engineVersion": "1.0.0",
     "standardBasis": [],
-    "parentHub": "/tools.html",
+    "parentHub": "/tools",
     "relatedRoutes": [
       "/calculator/machine-hour-rate",
       "/calculator/oee-teep",
@@ -835,7 +946,7 @@ export const PAGES = [
     "engineId": "industrial-machine-rate",
     "engineVersion": "1.0.0",
     "standardBasis": [],
-    "parentHub": "/tools.html",
+    "parentHub": "/tools",
     "relatedRoutes": [
       "/calculator/true-labor-cost",
       "/calculator/oee-teep",
@@ -893,7 +1004,7 @@ export const PAGES = [
     "engineId": "industrial-machining",
     "engineVersion": "2.1.0",
     "standardBasis": [],
-    "parentHub": "/tools.html",
+    "parentHub": "/tools",
     "relatedRoutes": [
       "/calculator/cycle-time-cost",
       "/calculator/punching-force",
@@ -951,7 +1062,7 @@ export const PAGES = [
     "engineId": "industrial-oee",
     "engineVersion": "1.0.0",
     "standardBasis": [],
-    "parentHub": "/tools.html",
+    "parentHub": "/tools",
     "relatedRoutes": [
       "/calculator/true-labor-cost",
       "/calculator/machine-hour-rate",
@@ -1009,7 +1120,7 @@ export const PAGES = [
     "engineId": "industrial-pipe-wall",
     "engineVersion": "1.0.0",
     "standardBasis": [],
-    "parentHub": "/tools.html",
+    "parentHub": "/tools",
     "relatedRoutes": [
       "/calculator/hydraulic-cylinder",
       "/calculator/pressure-vessel-shell"
@@ -1066,7 +1177,7 @@ export const PAGES = [
     "engineId": "industrial-pressure-vessel",
     "engineVersion": "1.0.0",
     "standardBasis": [],
-    "parentHub": "/tools.html",
+    "parentHub": "/tools",
     "relatedRoutes": [
       "/calculator/hydraulic-cylinder",
       "/calculator/pipe-wall-thickness"
@@ -1123,7 +1234,7 @@ export const PAGES = [
     "engineId": "industrial-punching",
     "engineVersion": "1.0.0",
     "standardBasis": [],
-    "parentHub": "/tools.html",
+    "parentHub": "/tools",
     "relatedRoutes": [
       "/calculator/cycle-time-cost",
       "/calculator/cnc-feeds-speeds",
@@ -1181,7 +1292,7 @@ export const PAGES = [
     "engineId": "industrial-quote",
     "engineVersion": "1.0.0",
     "standardBasis": [],
-    "parentHub": "/tools.html",
+    "parentHub": "/tools",
     "relatedRoutes": [
       "/calculator/true-labor-cost",
       "/calculator/machine-hour-rate",
@@ -1239,7 +1350,7 @@ export const PAGES = [
     "engineId": "sc008-tolerance-stack",
     "engineVersion": "1.0.0",
     "standardBasis": [],
-    "parentHub": "/tools.html",
+    "parentHub": "/tools",
     "relatedRoutes": [
       "/calculator/iso-286-fits",
       "/calculator/surface-finish"
@@ -1296,7 +1407,7 @@ export const PAGES = [
     "engineId": "industrial-shackle-eyebolt",
     "engineVersion": "1.0.0",
     "standardBasis": [],
-    "parentHub": "/tools.html",
+    "parentHub": "/tools",
     "relatedRoutes": [
       "/calculator/sling-capacity"
     ],
@@ -1352,7 +1463,7 @@ export const PAGES = [
     "engineId": "industrial-shaft",
     "engineVersion": "1.0.0",
     "standardBasis": [],
-    "parentHub": "/tools.html",
+    "parentHub": "/tools",
     "relatedRoutes": [
       "/calculator/bearing-frequencies",
       "/calculator/bearing-life-l10",
@@ -1410,7 +1521,7 @@ export const PAGES = [
     "engineId": "industrial-sling",
     "engineVersion": "1.0.0",
     "standardBasis": [],
-    "parentHub": "/tools.html",
+    "parentHub": "/tools",
     "relatedRoutes": [
       "/calculator/shackle-eyebolt"
     ],
@@ -1466,7 +1577,7 @@ export const PAGES = [
     "engineId": "industrial-surface-finish",
     "engineVersion": "1.0.0",
     "standardBasis": [],
-    "parentHub": "/tools.html",
+    "parentHub": "/tools",
     "relatedRoutes": [
       "/calculator/iso-286-fits",
       "/calculator/tolerance-stack-up"
@@ -1523,7 +1634,7 @@ export const PAGES = [
     "engineId": "industrial-tap-thread",
     "engineVersion": "1.0.0",
     "standardBasis": [],
-    "parentHub": "/tools.html",
+    "parentHub": "/tools",
     "relatedRoutes": [
       "/calculator/cycle-time-cost",
       "/calculator/cnc-feeds-speeds",
@@ -1581,7 +1692,7 @@ export const PAGES = [
     "engineId": "industrial-weld",
     "engineVersion": "1.0.0",
     "standardBasis": [],
-    "parentHub": "/tools.html",
+    "parentHub": "/tools",
     "relatedRoutes": [
       "/calculator/sheet-metal-bend",
       "/calculator/weld-heat-input"
@@ -1786,7 +1897,7 @@ export const PAGES = [
     "revenueTier": "C",
     "conversionEvent": null,
     "parentHub": "/",
-    "relatedRoutes": ["/topics/fits-and-finish", "/topics/sheet-metal-fabrication", "/#free-calculators", "/tools.html"],
+    "relatedRoutes": ["/topics/fits-and-finish", "/topics/sheet-metal-fabrication", "/#free-calculators", "/tools"],
     "contentSources": ["/topics"],
     "schemaTypes": ["CollectionPage", "BreadcrumbList"],
     "imageAssets": [],
@@ -1822,7 +1933,7 @@ export const PAGES = [
     "topicalCluster": "tolerance-metrology",
     "revenueTier": "C",
     "conversionEvent": null,
-    "parentHub": "/tools.html",
+    "parentHub": "/tools",
     "relatedRoutes": ["/calculator/iso-286-fits", "/calculator/surface-finish", "/#free-calculators"],
     "contentSources": ["/topics/fits-and-finish"],
     "schemaTypes": ["CollectionPage", "BreadcrumbList"],
@@ -1859,7 +1970,7 @@ export const PAGES = [
     "topicalCluster": "fabrication",
     "revenueTier": "C",
     "conversionEvent": null,
-    "parentHub": "/tools.html",
+    "parentHub": "/tools",
     "relatedRoutes": ["/calculator/sheet-metal-bend", "/calculator/punching-force", "/calculator/weld-thickness"],
     "contentSources": ["/topics/sheet-metal-fabrication"],
     "schemaTypes": ["CollectionPage", "BreadcrumbList"],
@@ -1900,7 +2011,7 @@ export const PAGES = [
     "relatedRoutes": [
       "/guides",
       "/glossary",
-      "/tools.html",
+      "/tools",
       "/compare",
       "/resources/tolerance-stackup-audit-template"
     ],
@@ -1938,7 +2049,7 @@ export const PAGES = [
     "llmEligible": true,
     "title": "Engineering Glossary | SectorCalc",
     "description": "Industrial engineering glossary for tolerance stack-up, ISO 286 fits, CNC feeds, bearing L10, weld throat, labor burden, OEE, and manufacturing economics.",
-    "h1": "Engineering glossary built for retrieval, not filler",
+    "h1": "Industrial Engineering Glossary",
     "primaryIntent": "engineering glossary sectorcalc",
     "queryCluster": "glossary-hub",
     "primaryEntity": "glossary",
@@ -1949,7 +2060,7 @@ export const PAGES = [
     "relatedRoutes": [
       "/guides",
       "/compare",
-      "/tools.html",
+      "/tools",
       "/#free-calculators"
     ],
     "contentSources": [
@@ -3049,8 +3160,8 @@ export const PAGES = [
     "relatedRoutes": [
       "/glossary",
       "/guides",
-      "/tools.html",
-      "/pricing.html"
+      "/tools",
+      "/pricing"
     ],
     "contentSources": [
       "/compare"
@@ -3295,9 +3406,9 @@ export const PAGES = [
     "indexDirective": "index,follow",
     "sitemapEligible": true,
     "llmEligible": true,
-    "title": "Exclusive Engineering Guides | SectorCalc",
-    "description": "Enterprise engineering guides with money-parity answer chains for tolerance, CNC, bearings, labor, weld, ISO fits, finish, bend, and punch.",
-    "h1": "Engineering guides at money-page depth",
+    "title": "Industrial Engineering Calculation Guides | SectorCalc",
+    "description": "Method selection, calculation methodology, worked examples, model boundaries and standards context for SectorCalc industrial calculators.",
+    "h1": "Industrial Engineering Calculation Guides",
     "primaryIntent": "engineering calculator guides",
     "queryCluster": "guides-hub",
     "primaryEntity": "guides",
@@ -3309,7 +3420,7 @@ export const PAGES = [
       "/#free-calculators",
       "/topics",
       "/glossary",
-      "/tools.html"
+      "/tools"
     ],
     "contentSources": [
       "/guides"

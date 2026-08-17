@@ -112,7 +112,7 @@ function topicalFanOutHtml(page) {
   return `<section class="sc-money-block sc-aeo-topical" data-money-block="15b" data-aeo-step="related-problems" data-topic-id="${esc(topic.topicId)}" data-subtopic-id="${esc(subtopic.id)}">
   <h2>Topical map &amp; related problems</h2>
   <p class="sc-money-lede"><strong>${esc(topic.topic)}</strong> · ${esc(subtopic.name)}. ${esc(topic.problem)}</p>
-  <h3>Query fan-out (same problem cluster)</h3>
+  <h3>Related problems in this cluster</h3>
   <ul class="sc-aeo-fanout">${fan}</ul>
   <h3>Internal authority links</h3>
   <ul>${links}</ul>
@@ -171,8 +171,8 @@ ${workedHtml(fx)}
 <section class="sc-money-block" data-money-block="15" data-aeo-step="related-problems"><h2>Related guide &amp; calculators</h2>${guide}<ul>${related}</ul></section>
 ${topicalFanOutHtml(page)}
 <section class="sc-money-block sc-money-cta" data-money-block="16"><h2>Commercial next step</h2><p>${esc(content.commercial)}</p>
-<p class="sc-money-cta-actions"><a class="sc-money-link" href="/pricing.html" data-sc-funnel="pricing">View pricing</a>
-<a class="sc-money-link" href="/pro.html">Pro hub</a></p></section>
+<p class="sc-money-cta-actions"><a class="sc-money-link" href="/pricing" data-sc-funnel="pricing">View pricing</a>
+<a class="sc-money-link" href="/tools">Pro hub</a></p></section>
 </aside>
 <!--SC-MONEY-END-->`;
 }

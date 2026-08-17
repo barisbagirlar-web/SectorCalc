@@ -17,9 +17,12 @@ export function expectedBotPolicy(records: CrawlerPolicyRecord[], bot: string): 
 }
 
 export function assertDiscoveryParity(llm: string, llms: string): void {
-  if (llm !== llms) throw new Error('LLM_DISCOVERY_DRIFT');
-  if (!llm.includes('https://sectorcalc.com/sitemap.xml')) throw new Error('LLM_DISCOVERY_MISSING_SITEMAP');
-  if (/https:\/\/sectorcalc\.com\/[a-z0-9-]+-pro\.html/i.test(llm)) throw new Error('LLM_DISCOVERY_LEGACY_PRIMARY_URL');
+  if (!llm.includes('/llms.txt')) throw new Error('LLM_POINTER_MISSING');
+  if (llm === llms) throw new Error('LLM_SECOND_TRUTH_SOURCE');
+  if (llm.length > 800) throw new Error('LLM_POINTER_TOO_LARGE');
+  if (!llms.includes('https://sectorcalc.com/tools')) throw new Error('LLM_DISCOVERY_MISSING_TOOLS');
+  if (!llms.includes('https://sectorcalc.com/guides')) throw new Error('LLM_DISCOVERY_MISSING_GUIDES');
+  if (/https:\/\/sectorcalc\.com\/[a-z0-9-]+-pro\.html/i.test(llm + llms)) throw new Error('LLM_DISCOVERY_LEGACY_PRIMARY_URL');
 }
 
 export function assertVerifiedBotEvidence(evidence: VerifiedBotEvidence): void {

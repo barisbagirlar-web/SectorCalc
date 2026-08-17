@@ -93,7 +93,7 @@ for (const page of indexable) {
 }
 
 for (const [path, count] of incoming) {
-  if (path === '/' || path === '/tools.html' || path === '/pro.html' || path === '/pricing.html') continue;
+  if (path === '/' || path === '/tools' || path === '/pricing' || path === '/trust') continue;
   if (count === 0) errors.push(`orphan indexable page: ${path}`);
 }
 

@@ -54,12 +54,12 @@
       "reason": "Legacy showcase page; not in canonical sitemap"
     },
     {
-      "path": "/tools",
+      "path": "/tools.html",
       "family": "legacy-platform",
       "decision": "redirect",
       "status": [301, 308],
-      "destination": "/tools.html",
-      "reason": "Pretty tools index maps to canonical tools.html"
+      "destination": "/tools",
+      "reason": "Extensionless /tools is the canonical catalog"
     },
     {
       "path": "/tools/example-legacy-tool",

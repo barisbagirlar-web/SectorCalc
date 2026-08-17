@@ -7,7 +7,7 @@ import { catalog, expectA11ySmoke, expectPageSeoBasics } from '../helpers/regres
 test.describe('Accessibility smoke @a11y', () => {
   const samples = [
     '/',
-    '/tools.html',
+    '/tools',
     '/pricing.html',
     '/login.html',
     ...catalog.freeTools.slice(0, 2).map((t) => t.canonicalPath),

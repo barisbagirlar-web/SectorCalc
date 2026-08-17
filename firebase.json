@@ -3,38 +3,58 @@
     {
       "source": "functions",
       "codebase": "default",
-      "ignore": ["node_modules", ".git", "firebase-debug.log", "firebase-debug.*.log", "*.local"]
+      "ignore": [
+        "node_modules",
+        ".git",
+        "firebase-debug.log",
+        "firebase-debug.*.log",
+        "*.local"
+      ]
     }
   ],
   "hosting": {
     "public": "dist",
-    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
     "cleanUrls": false,
     "trailingSlash": false,
     "redirects": [
       {
-        "source": "/tools",
-        "destination": "/tools.html",
-        "type": 301
-      },
-      {
-        "source": "/pricing",
-        "destination": "/pricing.html",
-        "type": 301
-      },
-      {
-        "source": "/login",
-        "destination": "/login.html",
-        "type": 301
-      },
-      {
-        "source": "/account",
-        "destination": "/account.html",
+        "source": "/llm.txt",
+        "destination": "/llms.txt",
         "type": 301
       },
       {
         "source": "/pro",
-        "destination": "/pro.html",
+        "destination": "/tools",
+        "type": 301
+      },
+      {
+        "source": "/pro.html",
+        "destination": "/tools",
+        "type": 301
+      },
+      {
+        "source": "/account.html",
+        "destination": "/account",
+        "type": 301
+      },
+      {
+        "source": "/login.html",
+        "destination": "/login",
+        "type": 301
+      },
+      {
+        "source": "/pricing.html",
+        "destination": "/pricing",
+        "type": 301
+      },
+      {
+        "source": "/tools.html",
+        "destination": "/tools",
         "type": 301
       },
       {
@@ -60,6 +80,26 @@
       {
         "source": "/calculator4.html",
         "destination": "/calculator/cnc-feeds-speeds",
+        "type": 301
+      },
+      {
+        "source": "/pro-tools",
+        "destination": "/tools",
+        "type": 301
+      },
+      {
+        "source": "/free-calculators",
+        "destination": "/topics",
+        "type": 301
+      },
+      {
+        "source": "/calculator/iso-fits",
+        "destination": "/calculator/iso-286-fits",
+        "type": 301
+      },
+      {
+        "source": "/calculator/bend-allowance",
+        "destination": "/calculator/sheet-metal-bend",
         "type": 301
       },
       {
@@ -575,9 +615,47 @@
             "value": "public, max-age=3600"
           }
         ]
+      },
+      {
+        "source": "**/*.md",
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "text/markdown; charset=utf-8"
+          },
+          {
+            "key": "X-Robots-Tag",
+            "value": "noindex, follow"
+          }
+        ]
+      },
+      {
+        "source": "/engine-manifest.json",
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "application/json; charset=utf-8"
+          }
+        ]
       }
     ],
     "rewrites": [
+      {
+        "source": "/account",
+        "destination": "/account.html"
+      },
+      {
+        "source": "/login",
+        "destination": "/login.html"
+      },
+      {
+        "source": "/pricing",
+        "destination": "/pricing.html"
+      },
+      {
+        "source": "/tools",
+        "destination": "/tools.html"
+      },
       {
         "source": "/calculator/tolerance-stack-up",
         "destination": "/sc008-pro.html"

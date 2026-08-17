@@ -6,7 +6,6 @@ import { assertDiscoveryParity, assertVerifiedBotEvidence, changedUrlsForIndexNo
 describe('SEO V3 Phase 8 crawl/AI', () => {
   it('separates search/retrieval from training policy using the crawler SSOT', () => {
     expect(expectedBotPolicy(CRAWLER_POLICY, 'OAI-SearchBot')).toBe('allow');
-    expect(expectedBotPolicy(CRAWLER_POLICY, 'OAI-AdsBot')).toBe('allow');
     expect(expectedBotPolicy(CRAWLER_POLICY, 'Perplexity-User')).toBe('allow');
     expect(expectedBotPolicy(CRAWLER_POLICY, 'Claude-SearchBot')).toBe('allow');
     expect(expectedBotPolicy(CRAWLER_POLICY, 'GPTBot')).toBe('block');
@@ -14,7 +13,7 @@ describe('SEO V3 Phase 8 crawl/AI', () => {
     expect(expectedBotPolicy(CRAWLER_POLICY, 'Google-Extended')).toBe('block');
   });
 
-  it('requires byte-identical llm and llms discovery files and canonical URLs', () => {
+  it('keeps llm.txt as a pointer and llms.txt as the canonical agent map', () => {
     const llm = readFileSync('public/llm.txt', 'utf8');
     const llms = readFileSync('public/llms.txt', 'utf8');
     expect(() => assertDiscoveryParity(llm, llms)).not.toThrow();

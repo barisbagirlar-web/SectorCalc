@@ -1,147 +1,95 @@
-# SectorCalc — full discovery index
+# SectorCalc — full public index
 
-> Expanded inventory of every canonical indexable HTML URL in the XML sitemap. Concise retrieval file: https://sectorcalc.com/llms.txt (byte-identical to https://sectorcalc.com/llm.txt). Core calculations run client-side. Outputs are engineering previews, not AI-generated results.
+Sanitized inventory of canonical indexable HTML pages. Engineering truth lives on the HTML page, not in this file.
+Do not treat this as a second method specification.
 
-## Contract
-- Source of truth: SEO registry (`seo/registry.mjs`). Do not invent pages, customer case studies, IndexNow confirmation, or free Tier-A sessions.
-- XML sitemap: https://sectorcalc.com/sitemap.xml (**90** URLs)
-- Image sitemap: https://sectorcalc.com/sitemap-images.xml (hosted OG assets that exist on disk)
-- Video sitemap remains empty until real `/assets/videos/` files ship.
-- Contact: support@sectorcalc.com
-
-## About
-- [about](https://sectorcalc.com/about) — SectorCalc about for industrial engineering calculators.
-
-## Blog articles
-- [ISO 286 H7/g6 explained](https://sectorcalc.com/blog/iso-286-h7-g6-explained.html) — What H7/g6 means in ISO 286 and how to look up limit deviations with the free fits calculator.
-- [Ra vs Rz: which surface finish number do you release?](https://sectorcalc.com/blog/ra-vs-rz-surface-finish.html) — Ra and Rz are different roughness statistics. Convert with SectorCalc’s free surface finish calculator.
-- [tolerance stack up rss vs monte carlo](https://sectorcalc.com/blog/tolerance-stack-up-rss-vs-monte-carlo.html) — SectorCalc tolerance stack up rss vs monte carlo engineering reference.
-
-## Blog hub
-- [blog](https://sectorcalc.com/blog) — SectorCalc blog for industrial engineering calculators.
-
-## Calculators
-- [Bearing Defect Frequency Calculator — BPFO & BPFI Speeds](https://sectorcalc.com/calculator/bearing-frequencies) — Calculate bearing defect frequencies for vibration analysis. BPFO, BPFI, BSF, FTF with deterministic formulas.
-- [Bearing Life L10 Calculator — ISO 281 Load Rating & Life Hours](https://sectorcalc.com/calculator/bearing-life-l10) — ISO 281 bearing life calculator with aISO adjustment, viscosity ratio kappa, and contamination factor eC. Deterministic audit trail.
-- [Belt & Chain Drive Sizing Calculator — Ratio & Pitch Length](https://sectorcalc.com/calculator/belt-chain-drive) — Belt and chain drive sizing with speed ratio, center distance, and tension calculations. Deterministic engine.
-- [Bolt Torque & Preload Calculator — VDI 2230 Tightening Specs](https://sectorcalc.com/calculator/bolt-torque-preload) — VDI 2230 bolt torque and preload calculator with friction coefficients and tightening factor.
-- [Bolted Joint Calculator — VDI 2230 Stress & Fatigue Verification](https://sectorcalc.com/calculator/bolted-joint) — Bolted joint verification with axial stiffness, preload, and clamping force analysis per VDI 2230.
-- [CNC Feeds & Speeds Calculator — Milling & Turning RPM / Feed](https://sectorcalc.com/calculator/cnc-feeds-speeds) — Calculate cutting speed, feed rate, and Taylor tool life with chip thinning and deterministic Decimal engine. Full audit trail. Client-side only.
-- [Cycle Time & Machining Cost Per Part Calculator](https://sectorcalc.com/calculator/cycle-time-cost) — Calculate true cycle time, setup burden, and cost per good part with scrap rate and deterministic engine.
-- [Hydraulic Cylinder Sizing & Force Calculator — Push & Pull](https://sectorcalc.com/calculator/hydraulic-cylinder) — Hydraulic cylinder bore, rod, and pressure sizing with force, velocity, and flow calculations.
-- [Fits & Clearances Calculator — ISO 286 (H7/g6, Hole & Shaft)](https://sectorcalc.com/calculator/iso-286-fits) — ISO 286 fit and clearance calculator with H7/g6, deviation tables, and interference/shrink fit analysis.
-- [Machine Hourly Rate Calculator — CNC Equipment Cost Estimator](https://sectorcalc.com/calculator/machine-hour-rate) — True machine hour rate with depreciation, maintenance, power, and overhead allocation. Deterministic.
-- [OEE & TEEP Calculator — Overall Equipment Effectiveness](https://sectorcalc.com/calculator/oee-teep) — Overall Equipment Effectiveness, TEEP, and capacity loss breakdown with availability, performance, and quality.
-- [Pipe Wall Thickness Calculator — ASME B31.3 Pressure Sizing](https://sectorcalc.com/calculator/pipe-wall-thickness) — ASME B31.3 pipe wall thickness and MAWP calculator with corrosion allowance and mill tolerance.
-- [Pressure Vessel Shell Thickness Calculator — ASME VIII](https://sectorcalc.com/calculator/pressure-vessel-shell) — ASME Section VIII Division 1 internal pressure shell thickness calculator. Deterministic audit trail.
-- [Sheet Metal Punching Force & Die Clearance Calculator](https://sectorcalc.com/calculator/punching-force) — Punching force, stripping force, and die clearance for sheet metal operations. Deterministic.
-- [Manufacturing Quote & Part Costing Calculator](https://sectorcalc.com/calculator/quote-pricing) — Quote pricing with material, labor, overhead, markup, and margin analysis. Deterministic audit trail.
-- [Shackle & Eye Bolt Load Capacity Calculator — WLL Safety](https://sectorcalc.com/calculator/shackle-eyebolt) — Shackle and eye-bolt working load limit verification with angle derating and safety factors.
-- [Shaft Design & Diameter Calculator — Torsion & Bending Stress](https://sectorcalc.com/calculator/shaft-design) — Shaft design with combined torsion and bending stress, fatigue factor, and safety margin. Deterministic audit trail.
-- [Sheet Metal Bend Allowance & K-Factor Calculator — Flat Pattern](https://sectorcalc.com/calculator/sheet-metal-bend) — Sheet metal bend allowance, K-factor, and flat pattern calculation with material database.
-- [Rigging Sling Capacity & Angle Factor Calculator](https://sectorcalc.com/calculator/sling-capacity) — Sling capacity reduction at angles, multi-leg load sharing, and safe working load verification.
-- [Surface Finish Converter — Ra, Rz, RMS & ISO N-Grade Chart](https://sectorcalc.com/calculator/surface-finish) — Convert between Ra, Rz, Rmax, and other surface finish parameters. Deterministic reference values.
-- [Tap Drill & Thread Milling Calculator — Metric & UN Threads](https://sectorcalc.com/calculator/tap-thread-milling) — Thread milling and tapping parameters with pitch, lead angle, and torque estimation. Deterministic engine with visible formulas.
-- [Tolerance Stack-Up Calculator — Worst-Case & RSS Monte Carlo](https://sectorcalc.com/calculator/tolerance-stack-up) — Deterministic 1D tolerance stack-up with worst-case, RSS, and seeded Monte Carlo (10,000 iterations). Predicted Cpk, PPM, and full A1-A5 audit trail. Client-side only.
-- [True Labor Burden Rate Calculator — Machine Shop Hourly Cost](https://sectorcalc.com/calculator/true-labor-cost) — True loaded labor cost with statutory burden, benefits, overhead, and indirect time. Deterministic.
-- [Welding Heat Input & Cooling Time t8/5 Calculator](https://sectorcalc.com/calculator/weld-heat-input) — Calculate welding heat input and cooling time t8/5 for WPS/PQR screening. Deterministic engine.
-- [Weld Throat Thickness & Joint Sizing Calculator — Fillet Weld](https://sectorcalc.com/calculator/weld-thickness) — Fillet weld throat and leg sizing per AWS D1.1 and ISO standards. Deterministic formula visibility.
-
-## Case studies
-- [Industrial engineering case studies: an evidence framework for citable outcomes](https://sectorcalc.com/case-studies) — Academic evidence framework for industrial engineering case studies: measured vs calculated data, A1–A5 audit trails, domain protocols, and an honest empty inventory until citable studies ship.
-
-## Compare pages
-- [sectorcalc vs catia](https://sectorcalc.com/compare/sectorcalc-vs-catia) — SectorCalc sectorcalc vs catia engineering reference.
-- [sectorcalc vs excel tolerance](https://sectorcalc.com/compare/sectorcalc-vs-excel-tolerance) — SectorCalc sectorcalc vs excel tolerance engineering reference.
-- [sectorcalc vs machinist calculator](https://sectorcalc.com/compare/sectorcalc-vs-machinist-calculator) — SectorCalc sectorcalc vs machinist calculator engineering reference.
-- [sectorcalc vs minitab](https://sectorcalc.com/compare/sectorcalc-vs-minitab) — SectorCalc sectorcalc vs minitab engineering reference.
-- [sectorcalc vs solidworks](https://sectorcalc.com/compare/sectorcalc-vs-solidworks) — SectorCalc sectorcalc vs solidworks engineering reference.
-
-## Compare hub
-- [Compare SectorCalc without invented benchmarks](https://sectorcalc.com/compare) — Compare SectorCalc to Excel, SolidWorks, CATIA, machinist calculators, and Minitab — evidence-only workflow comparisons linked to live calculators.
-
-## Contact
-- [contact](https://sectorcalc.com/contact) — SectorCalc contact for industrial engineering calculators.
-
-## Glossary entities
-- [asme b31 pipe wall](https://sectorcalc.com/glossary/asme-b31-pipe-wall) — SectorCalc asme b31 pipe wall engineering reference.
-- [asme viii pressure vessel](https://sectorcalc.com/glossary/asme-viii-pressure-vessel) — SectorCalc asme viii pressure vessel engineering reference.
-- [asme y14 5](https://sectorcalc.com/glossary/asme-y14-5) — SectorCalc asme y14 5 engineering reference.
-- [bearing l10 life](https://sectorcalc.com/glossary/bearing-l10-life) — SectorCalc bearing l10 life engineering reference.
-- [bolt preload](https://sectorcalc.com/glossary/bolt-preload) — SectorCalc bolt preload engineering reference.
-- [chip thinning](https://sectorcalc.com/glossary/chip-thinning) — SectorCalc chip thinning engineering reference.
-- [cnc feeds and speeds](https://sectorcalc.com/glossary/cnc-feeds-and-speeds) — SectorCalc cnc feeds and speeds engineering reference.
-- [deterministic engine](https://sectorcalc.com/glossary/deterministic-engine) — SectorCalc deterministic engine engineering reference.
-- [heat input t85](https://sectorcalc.com/glossary/heat-input-t85) — SectorCalc heat input t85 engineering reference.
-- [iso 281](https://sectorcalc.com/glossary/iso-281) — SectorCalc iso 281 engineering reference.
-- [iso 286 fits](https://sectorcalc.com/glossary/iso-286-fits) — SectorCalc iso 286 fits engineering reference.
-- [labor burden rate](https://sectorcalc.com/glossary/labor-burden-rate) — SectorCalc labor burden rate engineering reference.
-- [machine hour rate](https://sectorcalc.com/glossary/machine-hour-rate) — SectorCalc machine hour rate engineering reference.
-- [monte carlo simulation](https://sectorcalc.com/glossary/monte-carlo-simulation) — SectorCalc monte carlo simulation engineering reference.
-- [oee overall equipment effectiveness](https://sectorcalc.com/glossary/oee-overall-equipment-effectiveness) — SectorCalc oee overall equipment effectiveness engineering reference.
-- [process capability cpk](https://sectorcalc.com/glossary/process-capability-cpk) — SectorCalc process capability cpk engineering reference.
-- [rss tolerance](https://sectorcalc.com/glossary/rss-tolerance) — SectorCalc rss tolerance engineering reference.
-- [sheet metal k factor](https://sectorcalc.com/glossary/sheet-metal-k-factor) — SectorCalc sheet metal k factor engineering reference.
-- [sling angle factor](https://sectorcalc.com/glossary/sling-angle-factor) — SectorCalc sling angle factor engineering reference.
-- [surface finish ra rz](https://sectorcalc.com/glossary/surface-finish-ra-rz) — SectorCalc surface finish ra rz engineering reference.
-- [taylor tool life](https://sectorcalc.com/glossary/taylor-tool-life) — SectorCalc taylor tool life engineering reference.
-- [tolerance stack up](https://sectorcalc.com/glossary/tolerance-stack-up) — SectorCalc tolerance stack up engineering reference.
-- [vdi 2230 bolted joint](https://sectorcalc.com/glossary/vdi-2230-bolted-joint) — SectorCalc vdi 2230 bolted joint engineering reference.
-- [weld throat](https://sectorcalc.com/glossary/weld-throat) — SectorCalc weld throat engineering reference.
-- [worst case analysis](https://sectorcalc.com/glossary/worst-case-analysis) — SectorCalc worst case analysis engineering reference.
-
-## Glossary hub
-- [Engineering glossary built for retrieval, not filler](https://sectorcalc.com/glossary) — Industrial engineering glossary for tolerance stack-up, ISO 286 fits, CNC feeds, bearing L10, weld throat, labor burden, OEE, and manufacturing economics.
-
-## Guides
-- [bearing life complete](https://sectorcalc.com/guides/bearing-life-complete) — SectorCalc bearing life complete engineering reference.
-- [cnc optimization complete](https://sectorcalc.com/guides/cnc-optimization-complete) — SectorCalc cnc optimization complete engineering reference.
-- [Complete Guide to ISO 286 Fits & Clearances](https://sectorcalc.com/guides/iso-286-fits-complete) — Complete guide to ISO 286 hole/shaft fits, limit deviations, and the free SC-027 calculator.
-- [labor costing complete](https://sectorcalc.com/guides/labor-costing-complete) — SectorCalc labor costing complete engineering reference.
-- [Complete Guide to Punching Force & Press Capacity Screening](https://sectorcalc.com/guides/punching-force-complete) — Complete guide to punching force estimates, press capacity screening, and the free SC-039 calculator.
-- [Complete Guide to Sheet Metal Bend Allowance & K-Factor](https://sectorcalc.com/guides/sheet-metal-bend-complete) — Complete guide to bend allowance, K-factor, flat length, and the free SC-030 calculator.
-- [Complete Guide to Surface Finish: Ra, Rz & Conversion Assumptions](https://sectorcalc.com/guides/surface-finish-complete) — Complete guide to Ra/Rz surface finish conversion assumptions and the free SC-028 calculator.
-- [tolerance stack up complete](https://sectorcalc.com/guides/tolerance-stack-up-complete) — SectorCalc tolerance stack up complete engineering reference.
-- [weld sizing complete](https://sectorcalc.com/guides/weld-sizing-complete) — SectorCalc weld sizing complete engineering reference.
-
-## Guides hub
-- [Engineering guides at money-page depth](https://sectorcalc.com/guides) — Enterprise engineering guides with money-parity answer chains for tolerance, CNC, bearings, labor, weld, ISO fits, finish, bend, and punch.
-
-## Home
-- [SectorCalc - Deterministic Industrial Decision Calculators](https://sectorcalc.com/) — Deterministic industrial engineering calculators with visible formulas and A1-A5 audit trails.
-
-## Tools catalog
-- [All Calculators & Tools](https://sectorcalc.com/tools.html) — Browse SectorCalc industrial engineering calculators by task, sector and standard.
-
-## Legal
-- [privacy](https://sectorcalc.com/privacy) — SectorCalc privacy for industrial engineering calculators.
-- [Refund & Billing](https://sectorcalc.com/refund) — SectorCalc refund and billing policy. Paddle is Merchant of Record; credits do not expire.
-- [Security](https://sectorcalc.com/security) — How SectorCalc handles calculation data, authentication, payments, and vulnerability reports.
-- [Status](https://sectorcalc.com/status) — SectorCalc service status and incident log for sectorcalc.com.
-- [terms](https://sectorcalc.com/terms) — SectorCalc terms for industrial engineering calculators.
-
-## Pricing
-- [Pricing](https://sectorcalc.com/pricing.html) — One-time SectorCalc credit packs — no subscription. Starter 20, Workshop 100, Professional 300, Team Wallet 1000. Paddle checkout; credits unlock 24-hour Professional Analysis sessions.
-
-## Pro hub
-- [SectorCalc Pro](https://sectorcalc.com/pro.html) — SectorCalc Pro industrial calculator suite with audit exports and deterministic engines.
-
-## Resources
-- [resources](https://sectorcalc.com/resources) — SectorCalc resources for industrial engineering calculators.
-- [excel to sectorcalc migration](https://sectorcalc.com/resources/excel-to-sectorcalc-migration) — SectorCalc excel to sectorcalc migration engineering reference.
-- [ISO 286 Quick Reference](https://sectorcalc.com/resources/iso-286-quick-reference) — Quick reference for ISO 286 hole/shaft fits, IT grades, and fundamental deviations for engineering teams.
-- [Tolerance Stack-Up Audit Template](https://sectorcalc.com/resources/tolerance-stackup-audit-template) — Audit checklist template for 1D tolerance stack-up reviews: inputs, methods, warnings, and report hashes.
-
-## Topics
-- [Prove the engine. Then name the shop problem.](https://sectorcalc.com/topics) — Open SectorCalc reference instruments and shop-floor problem hubs — five free calculators, then Tier-A credit sessions. Fits, sheet metal, tolerance, CNC, economics.
-- [Fits & surface finish](https://sectorcalc.com/topics/fits-and-finish) — Free ISO 286 fits and Ra/Rz surface finish calculators — instant results, no login.
-- [Sheet metal bend, punch & weld size](https://sectorcalc.com/topics/sheet-metal-fabrication) — Free sheet-metal bend and punching force calculators — instant shop-floor results, no login.
-
-## Notes for models
-- Prefer the canonical `/calculator/*` URLs listed above.
-- Do not describe SectorCalc calculation output as AI-generated.
-- Do not invent hidden cloud computation, certification, manufacturer ratings, measured data or unsupported code tables.
-- Do not claim a subscription, monthly credit grant, or 12-month credit expiry — purchased packs are one-time and never expire.
-- Do not imply Tier-A calculators are free to run — they require a credit session. Only the five listed free tools calculate without credits.
-- Treat A4 assumptions and A5 warnings as part of the engineering result.
-- Treat calculator outputs as engineering previews, never as measured SPC, unless a published case study explicitly documents measured channels.
+- [SectorCalc - Deterministic Industrial Decision Calculators](https://sectorcalc.com/)
+- [about](https://sectorcalc.com/about)
+- [blog](https://sectorcalc.com/blog)
+- [ISO 286 H7/g6 explained](https://sectorcalc.com/blog/iso-286-h7-g6-explained.html)
+- [Ra vs Rz: which surface finish number do you release?](https://sectorcalc.com/blog/ra-vs-rz-surface-finish.html)
+- [tolerance stack up rss vs monte carlo](https://sectorcalc.com/blog/tolerance-stack-up-rss-vs-monte-carlo.html)
+- [Bearing Defect Frequency Calculator — BPFO & BPFI Speeds](https://sectorcalc.com/calculator/bearing-frequencies)
+- [Bearing Life L10 Calculator — ISO 281 Load Rating & Life Hours](https://sectorcalc.com/calculator/bearing-life-l10)
+- [Belt & Chain Drive Sizing Calculator — Ratio & Pitch Length](https://sectorcalc.com/calculator/belt-chain-drive)
+- [Bolt Torque & Preload Calculator — VDI 2230 Tightening Specs](https://sectorcalc.com/calculator/bolt-torque-preload)
+- [Bolted Joint Calculator — VDI 2230 Stress & Fatigue Verification](https://sectorcalc.com/calculator/bolted-joint)
+- [CNC Feeds & Speeds Calculator — Milling & Turning RPM / Feed](https://sectorcalc.com/calculator/cnc-feeds-speeds)
+- [Cycle Time & Machining Cost Per Part Calculator](https://sectorcalc.com/calculator/cycle-time-cost)
+- [Hydraulic Cylinder Sizing & Force Calculator — Push & Pull](https://sectorcalc.com/calculator/hydraulic-cylinder)
+- [Fits & Clearances Calculator — ISO 286 (H7/g6, Hole & Shaft)](https://sectorcalc.com/calculator/iso-286-fits)
+- [Machine Hourly Rate Calculator — CNC Equipment Cost Estimator](https://sectorcalc.com/calculator/machine-hour-rate)
+- [OEE & TEEP Calculator — Overall Equipment Effectiveness](https://sectorcalc.com/calculator/oee-teep)
+- [Pipe Wall Thickness Calculator — ASME B31.3 Pressure Sizing](https://sectorcalc.com/calculator/pipe-wall-thickness)
+- [Pressure Vessel Shell Thickness Calculator — ASME VIII](https://sectorcalc.com/calculator/pressure-vessel-shell)
+- [Sheet Metal Punching Force & Die Clearance Calculator](https://sectorcalc.com/calculator/punching-force)
+- [Manufacturing Quote & Part Costing Calculator](https://sectorcalc.com/calculator/quote-pricing)
+- [Shackle & Eye Bolt Load Capacity Calculator — WLL Safety](https://sectorcalc.com/calculator/shackle-eyebolt)
+- [Shaft Design & Diameter Calculator — Torsion & Bending Stress](https://sectorcalc.com/calculator/shaft-design)
+- [Sheet Metal Bend Allowance & K-Factor Calculator — Flat Pattern](https://sectorcalc.com/calculator/sheet-metal-bend)
+- [Rigging Sling Capacity & Angle Factor Calculator](https://sectorcalc.com/calculator/sling-capacity)
+- [Surface Finish Converter — Ra, Rz, RMS & ISO N-Grade Chart](https://sectorcalc.com/calculator/surface-finish)
+- [Tap Drill & Thread Milling Calculator — Metric & UN Threads](https://sectorcalc.com/calculator/tap-thread-milling)
+- [Tolerance Stack-Up Calculator — Worst-Case & RSS Monte Carlo](https://sectorcalc.com/calculator/tolerance-stack-up)
+- [True Labor Burden Rate Calculator — Machine Shop Hourly Cost](https://sectorcalc.com/calculator/true-labor-cost)
+- [Welding Heat Input & Cooling Time t8/5 Calculator](https://sectorcalc.com/calculator/weld-heat-input)
+- [Weld Throat Thickness & Joint Sizing Calculator — Fillet Weld](https://sectorcalc.com/calculator/weld-thickness)
+- [Industrial engineering case studies: an evidence framework for citable outcomes](https://sectorcalc.com/case-studies)
+- [Compare SectorCalc without invented benchmarks](https://sectorcalc.com/compare)
+- [sectorcalc vs catia](https://sectorcalc.com/compare/sectorcalc-vs-catia)
+- [sectorcalc vs excel tolerance](https://sectorcalc.com/compare/sectorcalc-vs-excel-tolerance)
+- [sectorcalc vs machinist calculator](https://sectorcalc.com/compare/sectorcalc-vs-machinist-calculator)
+- [sectorcalc vs minitab](https://sectorcalc.com/compare/sectorcalc-vs-minitab)
+- [sectorcalc vs solidworks](https://sectorcalc.com/compare/sectorcalc-vs-solidworks)
+- [contact](https://sectorcalc.com/contact)
+- [Industrial Engineering Glossary](https://sectorcalc.com/glossary)
+- [asme b31 pipe wall](https://sectorcalc.com/glossary/asme-b31-pipe-wall)
+- [asme viii pressure vessel](https://sectorcalc.com/glossary/asme-viii-pressure-vessel)
+- [asme y14 5](https://sectorcalc.com/glossary/asme-y14-5)
+- [bearing l10 life](https://sectorcalc.com/glossary/bearing-l10-life)
+- [bolt preload](https://sectorcalc.com/glossary/bolt-preload)
+- [chip thinning](https://sectorcalc.com/glossary/chip-thinning)
+- [cnc feeds and speeds](https://sectorcalc.com/glossary/cnc-feeds-and-speeds)
+- [deterministic engine](https://sectorcalc.com/glossary/deterministic-engine)
+- [heat input t85](https://sectorcalc.com/glossary/heat-input-t85)
+- [iso 281](https://sectorcalc.com/glossary/iso-281)
+- [iso 286 fits](https://sectorcalc.com/glossary/iso-286-fits)
+- [labor burden rate](https://sectorcalc.com/glossary/labor-burden-rate)
+- [machine hour rate](https://sectorcalc.com/glossary/machine-hour-rate)
+- [monte carlo simulation](https://sectorcalc.com/glossary/monte-carlo-simulation)
+- [oee overall equipment effectiveness](https://sectorcalc.com/glossary/oee-overall-equipment-effectiveness)
+- [process capability cpk](https://sectorcalc.com/glossary/process-capability-cpk)
+- [rss tolerance](https://sectorcalc.com/glossary/rss-tolerance)
+- [sheet metal k factor](https://sectorcalc.com/glossary/sheet-metal-k-factor)
+- [sling angle factor](https://sectorcalc.com/glossary/sling-angle-factor)
+- [surface finish ra rz](https://sectorcalc.com/glossary/surface-finish-ra-rz)
+- [taylor tool life](https://sectorcalc.com/glossary/taylor-tool-life)
+- [tolerance stack up](https://sectorcalc.com/glossary/tolerance-stack-up)
+- [vdi 2230 bolted joint](https://sectorcalc.com/glossary/vdi-2230-bolted-joint)
+- [weld throat](https://sectorcalc.com/glossary/weld-throat)
+- [worst case analysis](https://sectorcalc.com/glossary/worst-case-analysis)
+- [Industrial Engineering Calculation Guides](https://sectorcalc.com/guides)
+- [bearing life complete](https://sectorcalc.com/guides/bearing-life-complete)
+- [cnc optimization complete](https://sectorcalc.com/guides/cnc-optimization-complete)
+- [Complete Guide to ISO 286 Fits & Clearances](https://sectorcalc.com/guides/iso-286-fits-complete)
+- [labor costing complete](https://sectorcalc.com/guides/labor-costing-complete)
+- [Complete Guide to Punching Force & Press Capacity Screening](https://sectorcalc.com/guides/punching-force-complete)
+- [Complete Guide to Sheet Metal Bend Allowance & K-Factor](https://sectorcalc.com/guides/sheet-metal-bend-complete)
+- [Complete Guide to Surface Finish: Ra, Rz & Conversion Assumptions](https://sectorcalc.com/guides/surface-finish-complete)
+- [tolerance stack up complete](https://sectorcalc.com/guides/tolerance-stack-up-complete)
+- [weld sizing complete](https://sectorcalc.com/guides/weld-sizing-complete)
+- [Engineering Calculation Credits — No Subscription](https://sectorcalc.com/pricing)
+- [privacy](https://sectorcalc.com/privacy)
+- [Refund & Billing](https://sectorcalc.com/refund)
+- [resources](https://sectorcalc.com/resources)
+- [excel to sectorcalc migration](https://sectorcalc.com/resources/excel-to-sectorcalc-migration)
+- [ISO 286 Quick Reference](https://sectorcalc.com/resources/iso-286-quick-reference)
+- [Tolerance Stack-Up Audit Template](https://sectorcalc.com/resources/tolerance-stackup-audit-template)
+- [Security](https://sectorcalc.com/security)
+- [Status](https://sectorcalc.com/status)
+- [terms](https://sectorcalc.com/terms)
+- [All Calculators & Tools](https://sectorcalc.com/tools)
+- [Prove the engine. Then name the shop problem.](https://sectorcalc.com/topics)
+- [Fits & surface finish](https://sectorcalc.com/topics/fits-and-finish)
+- [Sheet metal bend, punch & weld size](https://sectorcalc.com/topics/sheet-metal-fabrication)
+- [Trust](https://sectorcalc.com/trust)

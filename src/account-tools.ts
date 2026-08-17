@@ -86,7 +86,7 @@ function card(e: EntitlementView): string {
   } else if (e.canStartNewSession) {
     cta = `<a class="acc-btn acc-btn-primary acc-btn-sm" href="${esc(e.toolUrl)}">Start New Session</a>`;
   } else {
-    cta = `<a class="acc-btn acc-btn-primary acc-btn-sm" href="/pricing.html">Buy Credits</a>`;
+    cta = `<a class="acc-btn acc-btn-primary acc-btn-sm" href="/pricing">Buy Credits</a>`;
   }
 
   return `<article class="acc-card sc-tools-card" data-tool-id="${esc(e.toolId)}">
@@ -165,7 +165,7 @@ export async function mountMyTools(
       body = `<div class="acc-card sc-tools-empty">
         <h3>You have not used any tools yet.</h3>
         <p class="acc-muted">Buy credits, then open a calculator to start a 24-hour session. Tools you use will appear here.</p>
-        <div class="acc-btn-row"><a class="acc-btn acc-btn-primary" href="/pricing.html">Explore tools</a></div>
+        <div class="acc-btn-row"><a class="acc-btn acc-btn-primary" href="/pricing">Explore tools</a></div>
       </div>`;
     } else if (visible.length === 0) {
       body = `<div class="acc-card sc-tools-empty"><h3>No tools in this view.</h3></div>`;

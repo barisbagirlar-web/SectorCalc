@@ -31,8 +31,8 @@ const EXPECTED = {
       '/calculator/weld-thickness',
       '/calculator/cnc-feeds-speeds',
       '/calculator/bearing-life-l10',
-      '/tools.html',
-      '/pricing.html',
+      '/tools',
+      '/pricing',
       '/glossary',
       '/compare',
       '/guides',
@@ -59,13 +59,13 @@ const EXPECTED = {
     ]
   },
   'pricing.html': {
-    mustInclude: ['/', '/tools.html', '/glossary', '/guides', '/compare']
+    mustInclude: ['/', '/tools', '/glossary', '/guides', '/compare']
   },
   'pro.html': {
-    mustInclude: ['/', '/pricing.html', '/tools.html', '/glossary', '/guides', '/compare']
+    mustInclude: ['/', '/pricing', '/tools', '/glossary', '/guides', '/compare']
   },
   'tools.html': {
-    mustInclude: ['/', '/pricing.html', '/glossary', '/compare', '/guides', '/calculator/tolerance-stack-up']
+    mustInclude: ['/', '/pricing', '/glossary', '/compare', '/guides', '/calculator/tolerance-stack-up']
   }
 };
 const issues = [];
@@ -107,6 +107,13 @@ const REWRITE_TARGETS = {
   privacy: 'public/privacy/index.html',
   terms: 'public/terms/index.html',
   resources: 'public/resources/index.html',
+  tools: 'tools.html',
+  pricing: 'pricing.html',
+  account: 'account.html',
+  login: 'login.html',
+  trust: 'public/trust/index.html',
+  security: 'public/security/index.html',
+  status: 'public/status/index.html',
 };
 
 function resolveTarget(target) {
@@ -174,7 +181,7 @@ function checkPage(page) {
   // Pro pages must link home + pricing + shared form-field layout
   if (page.endsWith('-pro.html')) {
     if (!hrefs.some((h) => h === '/')) issues.push(`${page}: no home link (/)`);
-    if (!hrefs.some((h) => h === '/pricing.html')) issues.push(`${page}: no pricing link`);
+    if (!hrefs.some((h) => h === '/pricing' || h === '/pricing.html')) issues.push(`${page}: no pricing link`);
     if (!html.includes('sc-tool-guide.css')) issues.push(`${page}: missing sc-tool-guide.css`);
     if (!html.includes('sc-tool-guide.js')) issues.push(`${page}: missing sc-tool-guide.js`);
     if (!html.includes('id="sc-guide"')) issues.push(`${page}: missing #sc-guide SEO section`);

@@ -73,11 +73,10 @@ const catalog = {
   calculators: calcs,
   hubs: [
     { path: '/', name: 'Home' },
-    { path: '/tools.html', name: 'Tools' },
-    { path: '/pricing.html', name: 'Pricing' },
-    { path: '/pro.html', name: 'Pro' },
-    { path: '/login.html', name: 'Login' },
-    { path: '/account.html', name: 'Account' }
+    { path: '/tools', name: 'Tools' },
+    { path: '/pricing', name: 'Pricing' },
+    { path: '/login', name: 'Login' },
+    { path: '/account', name: 'Account' }
   ]
 };
 

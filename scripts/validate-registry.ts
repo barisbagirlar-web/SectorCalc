@@ -21,6 +21,7 @@ const ROLE_ALIASES = new Map([
   ['contact', 'service'],
   ['glossary', 'article'],
   ['resource', 'article'],
+  ['account', 'service'],
 ]);
 const RICH_RESULTS = new Set([
   'Article', 'BreadcrumbList', 'Dataset', 'Event', 'JobPosting',
