@@ -129,6 +129,10 @@ ${line('Security', '/security', 'Calculation-data and platform security model.')
 ${line('About', '/about', 'Operator and product information.')}
 ${line('Trust', '/trust', 'About, security, privacy, terms, refund, status and evidence.')}
 
+## Evidence and Case Studies
+
+- SectorCalc does not publish invented customer outcomes. Until verified customer case studies exist, the Evidence hub documents the validation framework and the measured-vs-calculated separation policy.
+
 ## Optional
 
 ${line('Privacy', '/privacy', 'Privacy policy.')}

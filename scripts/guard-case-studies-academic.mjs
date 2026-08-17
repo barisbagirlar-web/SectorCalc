@@ -23,12 +23,15 @@ if (!/measured[\s\S]{0,80}calculated/i.test(html)) errors.push('missing measured
 if (existsSync('public/llms.txt')) {
   const llms = readFileSync('public/llms.txt', 'utf8');
   if (!llms.includes('/case-studies')) errors.push('llms.txt missing /case-studies');
-  if (!/Case studies evidence hub/i.test(llms)) errors.push('llms.txt missing Case studies evidence hub section');
-  if (!llms.includes('Do not invent published SectorCalc customer case studies')) {
+  if (!/Evidence and Case Studies|Case studies evidence hub/i.test(llms)) {
+    errors.push('llms.txt missing Evidence and Case Studies section');
+  }
+  if (!llms.includes('does not publish invented customer outcomes')) {
     errors.push('llms.txt missing anti-invention case-study contract');
   }
   const llm = readFileSync('public/llm.txt', 'utf8');
-  if (llm !== llms) errors.push('llm.txt and llms.txt must be byte-identical');
+  if (!llm.includes('/llms.txt')) errors.push('llm.txt must point at /llms.txt');
+  if (llm === llms) errors.push('llm.txt must be a pointer, not a second truth source');
 }
 
 if (errors.length) {

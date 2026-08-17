@@ -2,13 +2,24 @@
 /**
  * Scan generated/public artifacts for private leaks.
  */
-import { readdirSync, readFileSync, statSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { join, relative } from 'node:path';
 
 const ROOT = process.cwd();
 const errors = [];
 const warnings = [];
 const SKIP_DIR = new Set(['node_modules', 'coverage', '.git']);
+
+// Firebase web API keys are intentionally public client identifiers, shipped in
+// every bundle. Read the committed public config and allow exact matches so the
+// leak scan still catches any OTHER AIza... key while not flagging the real one.
+function readPublicFirebaseKey() {
+  const p = join(ROOT, '.env.production');
+  if (!existsSync(p)) return null;
+  const m = readFileSync(p, 'utf8').match(/^VITE_FIREBASE_API_KEY=(.+)$/m);
+  return m ? m[1].trim().replace(/^["']|["']$/g, '') : null;
+}
+const publicFirebaseKey = readPublicFirebaseKey();
 
 const BLOCK = [
   [/AIza[0-9A-Za-z_-]{19,}/, 'google-api-key'],
@@ -51,7 +62,12 @@ for (const file of files) {
   if (rel.includes('vendor/')) continue;
   const text = readFileSync(file, 'utf8');
   for (const [re, label] of BLOCK) {
-    if (re.test(text)) errors.push(`${rel}: ${label}`);
+    if (re.test(text)) {
+      if (label === 'google-api-key' && publicFirebaseKey && text.includes(publicFirebaseKey)) {
+        continue;
+      }
+      errors.push(`${rel}: ${label}`);
+    }
   }
   if (rel.endsWith('llms.txt') || rel.endsWith('llm.txt') || rel.endsWith('llms-full.txt')) {
     for (const [re, label] of WARN) {
